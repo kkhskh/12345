@@ -72,6 +72,43 @@ residualized, and whitened variants either fail or collapse into
 distribution-shift detection. Therefore IOI obstruction must be tested at
 component-level sites rather than residual-chain summaries.
 
+## Experiment 1: IOI Known-Circuit Repair
+
+Status: done enough / obstruction-negative.
+
+```text
+component-level attribution patching works extremely well;
+standardized obstruction-response collapses to attribution;
+IOI is attribution-positive and obstruction-negative.
+```
+
+IOI should be used as a calibration and negative-control section, not as the
+main positive obstruction result.
+
+## Experiment 2: Margin-Matched Factual Conflict
+
+Next target:
+
+```text
+same final true-vs-false margin
+different internal compatibility
+```
+
+Initial scripts:
+
+```text
+run_03a_generate_factual_conflict_data.py
+run_03b_score_factual_margins.py
+run_03c_select_margin_matched_factual_pairs.py
+```
+
+Minimum go/no-go before expensive patching:
+
+```text
+AUC(O_conflict > O_clean | margin-matched) > 0.65
+partial corr(O, conflict_label | margin) > 0.20
+```
+
 ## Repair Contrast
 
 The candidate contrast always uses clean-target repair:

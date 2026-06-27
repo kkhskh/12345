@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from src.data_factual import FACTS, make_fact_example, write_jsonl
+from src.data_factual import FACTS, make_fact_examples, write_jsonl
 from src.model import load_gpt2_small
 
 
@@ -23,29 +23,34 @@ def main() -> None:
     rows = []
     dropped = []
     for fact in FACTS:
-        ex = make_fact_example(*fact)
-        if not is_single_token(model, ex["answer_a"]):
-            dropped.append((ex["id"], "answer_a", ex["answer_a"]))
+        examples = make_fact_examples(*fact)
+        if not is_single_token(model, examples[0]["answer_a"]):
+            dropped.append((examples[0]["id"], "answer_a", examples[0]["answer_a"]))
             continue
-        if not is_single_token(model, ex["answer_b"]):
-            dropped.append((ex["id"], "answer_b", ex["answer_b"]))
+        if not is_single_token(model, examples[0]["answer_b"]):
+            dropped.append((examples[0]["id"], "answer_b", examples[0]["answer_b"]))
             continue
 
-        ex["answer_a_id"] = model.tokenizer.encode(
-            ex["answer_a"],
+        answer_a_id = model.tokenizer.encode(
+            examples[0]["answer_a"],
             add_special_tokens=False,
         )[0]
-        ex["answer_b_id"] = model.tokenizer.encode(
-            ex["answer_b"],
+        answer_b_id = model.tokenizer.encode(
+            examples[0]["answer_b"],
             add_special_tokens=False,
         )[0]
-        rows.append(ex)
+
+        for ex in examples:
+            ex["answer_a_id"] = answer_a_id
+            ex["answer_b_id"] = answer_b_id
+            rows.append(ex)
 
     write_jsonl(RAW_PATH, rows)
 
     print(f"input facts: {len(FACTS)}")
-    print(f"saved single-token examples: {len(rows)}")
-    print(f"dropped multi-token examples: {len(dropped)}")
+    print(f"saved single-token template rows: {len(rows)}")
+    print(f"unique single-token facts: {len({row['subject'] for row in rows})}")
+    print(f"dropped multi-token facts: {len(dropped)}")
     for item in dropped[:20]:
         print("drop", item)
     print(f"saved to {RAW_PATH}")

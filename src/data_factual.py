@@ -51,6 +51,73 @@ FACTS = [
     ("The Hobbit", "author", "Tolkien", "Rowling"),
     ("Sherlock Holmes", "author", "Doyle", "Christie"),
     ("Hercule Poirot", "author", "Christie", "Doyle"),
+    ("Notre Dame", "city", "Paris", "Rome"),
+    ("Buckingham Palace", "city", "London", "Paris"),
+    ("Brandenburg Gate", "city", "Berlin", "London"),
+    ("Sagrada Familia", "city", "Barcelona", "Madrid"),
+    ("Duomo", "city", "Milan", "Rome"),
+    ("Trevi Fountain", "city", "Rome", "Venice"),
+    ("CN Tower", "city", "Toronto", "Vancouver"),
+    ("Burj Khalifa", "city", "Dubai", "Doha"),
+    ("Kremlin", "city", "Moscow", "Warsaw"),
+    ("Alhambra", "city", "Granada", "Madrid"),
+    ("Christ the Redeemer", "city", "Rio", "Lima"),
+    ("Table Mountain", "city", "Cape Town", "Johannesburg"),
+    ("Matterhorn", "country", "Switzerland", "Austria"),
+    ("Kilimanjaro", "country", "Tanzania", "Kenya"),
+    ("Everest", "country", "Nepal", "India"),
+    ("Sahara", "country", "Africa", "Egypt"),
+    ("Kangaroo Island", "country", "Australia", "Zealand"),
+    ("Bali", "country", "Indonesia", "Thailand"),
+    ("Santorini", "country", "Greece", "Italy"),
+    ("Sicily", "country", "Italy", "Greece"),
+    ("Borneo", "country", "Malaysia", "Indonesia"),
+    ("Greenland", "country", "Denmark", "Canada"),
+    ("Iceland", "country", "Iceland", "Norway"),
+    ("Madagascar", "country", "Madagascar", "Africa"),
+    ("Cuba", "country", "Cuba", "Mexico"),
+    ("Jamaica", "country", "Jamaica", "Cuba"),
+    ("Haiti", "country", "Haiti", "Cuba"),
+    ("Taiwan", "country", "Taiwan", "China"),
+    ("Singapore", "country", "Singapore", "Malaysia"),
+    ("Qatar", "country", "Qatar", "Dubai"),
+    ("Hamlet", "character", "Hamlet", "Macbeth"),
+    ("Othello", "character", "Othello", "Hamlet"),
+    ("Macbeth", "character", "Macbeth", "Hamlet"),
+    ("Romeo and Juliet", "character", "Romeo", "Hamlet"),
+    ("Frankenstein", "author", "Shelley", "Stoker"),
+    ("Dracula", "author", "Stoker", "Shelley"),
+    ("Dune", "author", "Herbert", "Asimov"),
+    ("Foundation", "author", "Asimov", "Herbert"),
+    ("Moby Dick", "author", "Melville", "Twain"),
+    ("Tom Sawyer", "author", "Twain", "Melville"),
+    ("Jane Eyre", "author", "Bronte", "Austen"),
+    ("Wuthering Heights", "author", "Bronte", "Austen"),
+    ("Ulysses", "author", "Joyce", "Homer"),
+    ("Dubliners", "author", "Joyce", "Yeats"),
+    ("Leaves of Grass", "author", "Whitman", "Poe"),
+    ("The Raven", "author", "Poe", "Whitman"),
+    ("The Trial", "author", "Kafka", "Camus"),
+    ("The Stranger", "author", "Camus", "Kafka"),
+    ("Don Quixote", "author", "Cervantes", "Dante"),
+    ("Inferno", "author", "Dante", "Cervantes"),
+    ("Aeneid", "author", "Virgil", "Homer"),
+    ("Iliad", "author", "Homer", "Virgil"),
+    ("Linux", "creator", "Torvalds", "Gates"),
+    ("Python", "creator", "Guido", "Gates"),
+    ("C", "creator", "Ritchie", "Torvalds"),
+    ("Java", "creator", "Gosling", "Ritchie"),
+    ("Bitcoin", "creator", "Satoshi", "Musk"),
+    ("SpaceX", "founder", "Musk", "Bezos"),
+    ("Nike", "founder", "Knight", "Jobs"),
+    ("Walmart", "founder", "Walton", "Bezos"),
+    ("Disney", "founder", "Disney", "Jobs"),
+    ("Ford", "founder", "Ford", "Musk"),
+    ("Toyota", "founder", "Toyoda", "Ford"),
+    ("Honda", "founder", "Honda", "Toyoda"),
+    ("McDonalds", "founder", "Kroc", "Walton"),
+    ("CNN", "founder", "Turner", "Murdoch"),
+    ("Fox", "founder", "Murdoch", "Turner"),
 ]
 
 
@@ -110,6 +177,26 @@ def make_fact_example(
             f"The founder of {subject} is {false_obj}. However, "
             f"the actual founder of {subject} is"
         )
+    elif relation == "creator":
+        clean = f"The creator of {subject} is"
+        false_context = (
+            f"The creator of {subject} is {false_obj}. "
+            f"The creator of {subject} is"
+        )
+        correction = (
+            f"The creator of {subject} is {false_obj}. However, "
+            f"the actual creator of {subject} is"
+        )
+    elif relation == "character":
+        clean = f"The main character in {subject} is"
+        false_context = (
+            f"The main character in {subject} is {false_obj}. "
+            f"The main character in {subject} is"
+        )
+        correction = (
+            f"The main character in {subject} is {false_obj}. However, "
+            f"the actual main character in {subject} is"
+        )
     else:
         raise ValueError(f"Unsupported relation: {relation}")
 
@@ -129,7 +216,110 @@ def make_fact_example(
         "task": "factual_conflict",
         "contrast": "true_vs_false",
         "candidate_contrast": "true_minus_false",
+        "template_id": "default",
     }
+
+
+def make_fact_examples(
+    subject: str,
+    relation: str,
+    true_obj: str,
+    false_obj: str,
+) -> list[dict]:
+    base = make_fact_example(subject, relation, true_obj, false_obj)
+    clean = base["clean_prompt"]
+
+    if relation in {"city", "country"}:
+        place_word = "city" if relation == "city" else "country"
+        variants = {
+            "repeat_false": (
+                f"The {subject} is located in {false_obj}. "
+                f"The {subject} is located in the {place_word} of"
+            ),
+            "however_actually": (
+                f"The {subject} is located in {false_obj}. However, "
+                f"the {subject} is actually in the {place_word} of"
+            ),
+            "correct_answer": (
+                f"The {subject} is located in {false_obj}. However, "
+                f"the correct answer is"
+            ),
+            "many_say_but": (
+                f"Many people say the {subject} is in {false_obj}, but "
+                f"the {subject} is actually in"
+            ),
+            "ignore_false": (
+                f"Ignore the false claim that the {subject} is in {false_obj}. "
+                f"The {subject} is in"
+            ),
+            "although_said": (
+                f"Although the {subject} was said to be in {false_obj}, "
+                f"it is in"
+            ),
+        }
+    elif relation == "museum":
+        variants = {
+            "repeat_false": (
+                f"The {subject} is displayed in the {false_obj}. "
+                f"The {subject} is displayed in the"
+            ),
+            "however_actually": (
+                f"The {subject} is displayed in the {false_obj}. However, "
+                f"the {subject} is actually displayed in the"
+            ),
+            "correct_answer": (
+                f"The {subject} is displayed in the {false_obj}. However, "
+                f"the correct museum is the"
+            ),
+            "ignore_false": (
+                f"Ignore the false claim that {subject} is in the {false_obj}. "
+                f"It is in the"
+            ),
+        }
+    elif relation in {"author", "founder", "creator", "character"}:
+        noun = {
+            "author": "author",
+            "founder": "founder",
+            "creator": "creator",
+            "character": "main character",
+        }[relation]
+        prep = "of" if relation != "character" else "in"
+        variants = {
+            "repeat_false": (
+                f"The {noun} {prep} {subject} is {false_obj}. "
+                f"The {noun} {prep} {subject} is"
+            ),
+            "however_actual": (
+                f"The {noun} {prep} {subject} is {false_obj}. However, "
+                f"the actual {noun} {prep} {subject} is"
+            ),
+            "correct_answer": (
+                f"The {noun} {prep} {subject} is {false_obj}. However, "
+                f"the correct answer is"
+            ),
+            "many_say_but": (
+                f"Many people say the {noun} {prep} {subject} is {false_obj}, "
+                f"but the actual {noun} is"
+            ),
+            "ignore_false": (
+                f"Ignore the false claim that the {noun} {prep} {subject} is "
+                f"{false_obj}. The {noun} is"
+            ),
+        }
+    else:
+        raise ValueError(f"Unsupported relation: {relation}")
+
+    rows = []
+    for template_id, prompt in variants.items():
+        ex = dict(base)
+        ex["id"] = stable_id(subject, relation, true_obj, false_obj, template_id)
+        ex["clean_prompt"] = clean
+        ex["false_context_prompt"] = variants.get("repeat_false", prompt)
+        ex["correction_prompt"] = prompt
+        ex["template_id"] = template_id
+        rows.append(ex)
+
+    return rows
 
 
 def write_jsonl(path: str | Path, rows: Iterable[dict]) -> None:

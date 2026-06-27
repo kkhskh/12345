@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+
+# Generated data and empirical outputs. Recreate these from the run_*.py scripts.
+data/raw/*
+data/processed/*
+data/caches/*
+artifacts/results/*
+artifacts/transports/*
+artifacts/scores/*
+artifacts/patching/*
+artifacts/figures/*
+
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/caches/.gitkeep
+!artifacts/results/.gitkeep
+!artifacts/transports/.gitkeep
+!artifacts/scores/.gitkeep
+!artifacts/patching/.gitkeep
+!artifacts/figures/.gitkeep

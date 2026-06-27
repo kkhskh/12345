@@ -1,0 +1,21 @@
+[project]
+name = "causal-obstruction-response"
+version = "0.1.0"
+description = "GPT-2 small IOI obstruction-response repair experiments with TransformerLens."
+requires-python = ">=3.10"
+dependencies = [
+  "torch",
+  "transformer-lens",
+  "numpy",
+  "pandas",
+  "scipy",
+  "scikit-learn",
+  "matplotlib",
+  "tqdm",
+  "einops",
+  "pyarrow",
+  "ipykernel",
+]
+
+[tool.ruff]
+line-length = 88

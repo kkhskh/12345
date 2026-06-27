@@ -26,6 +26,10 @@ FIGURE_PATH = Path("artifacts/figures/factual_margin_matched_obstruction.png")
 FACT_KEY = ["subject", "relation", "true_object", "false_object"]
 
 
+def final_token_pos(model, prompt: str) -> int:
+    return len(model.tokenizer.encode(prompt, add_special_tokens=False))
+
+
 @torch.no_grad()
 def collect_clean_scalar_germs(model, examples: list[dict], batch_size: int = 32):
     all_s = []
@@ -37,12 +41,13 @@ def collect_clean_scalar_germs(model, examples: list[dict], batch_size: int = 32
 
         for i, ex in enumerate(batch):
             cache_i = {key: value[i : i + 1] for key, value in cache.items()}
+            token_pos = final_token_pos(model, ex["clean_prompt"])
             s_i = scalar_germs(
                 model,
                 cache_i,
                 ex["answer_a_id"],
                 ex["answer_b_id"],
-                token_pos=-1,
+                token_pos=token_pos,
             )[0]
             all_s.append(s_i.detach().cpu())
 
@@ -60,19 +65,20 @@ def score_condition(model, examples, prompt_field: str, condition: str, r, w, ba
 
         for i, ex in enumerate(batch):
             cache_i = {key: value[i : i + 1] for key, value in cache.items()}
+            token_pos = final_token_pos(model, ex[prompt_field])
             s = scalar_germs(
                 model,
                 cache_i,
                 ex["answer_a_id"],
                 ex["answer_b_id"],
-                token_pos=-1,
+                token_pos=token_pos,
             )
             obstruction = compute_obstruction(s, r, w)
             margin = logit_margin_from_logits(
                 logits[i : i + 1],
                 ex["answer_a_id"],
                 ex["answer_b_id"],
-                token_pos=-1,
+                token_pos=token_pos,
             )[0]
 
             rows.append(

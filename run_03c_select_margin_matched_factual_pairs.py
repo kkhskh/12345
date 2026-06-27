@@ -11,6 +11,7 @@ from src.data_factual import read_jsonl, write_jsonl
 SCORED_PATH = Path("data/factual_conflict/factual_conflict_scored.jsonl")
 OUT_PATH = Path("data/factual_conflict/factual_conflict_margin_matched.jsonl")
 OUT_CSV_PATH = Path("artifacts/results/factual_conflict_margin_matched.csv")
+FACT_KEY = ["subject", "relation", "true_object", "false_object"]
 
 
 def main() -> None:
@@ -23,6 +24,11 @@ def main() -> None:
         type=float,
         default=None,
         help="Optional margin bin width. If set, keep clean/correction pairs in same bin.",
+    )
+    parser.add_argument(
+        "--one-per-fact",
+        action="store_true",
+        help="Keep only the best margin-matched template row per factual triple.",
     )
     args = parser.parse_args()
 
@@ -41,13 +47,23 @@ def main() -> None:
         keep = keep[clean_bin == corr_bin].copy()
 
     keep = keep.sort_values("abs_margin_gap_clean_vs_correction")
+    if args.one_per_fact and not keep.empty:
+        keep = keep.groupby(FACT_KEY, as_index=False).first()
+        keep = keep.sort_values("abs_margin_gap_clean_vs_correction")
+
     write_jsonl(OUT_PATH, keep.to_dict("records"))
     OUT_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
     keep.to_csv(OUT_CSV_PATH, index=False)
 
     print(f"raw scored examples: {len(df)}")
+    print(f"raw unique facts: {df[FACT_KEY].drop_duplicates().shape[0]}")
     print(f"kept margin-matched examples: {len(keep)}")
+    print(
+        "kept unique facts: "
+        f"{keep[FACT_KEY].drop_duplicates().shape[0] if not keep.empty else 0}"
+    )
     print(f"tau: {args.tau}")
+    print(f"one_per_fact: {args.one_per_fact}")
     if args.bin_width is not None:
         print(f"bin_width: {args.bin_width}")
     print(f"saved JSONL to {OUT_PATH}")

@@ -1,0 +1,176 @@
+{
+  "registry_id": "model_sources_v0",
+  "status": "T0 source registry; URLs and rows require verification before publication",
+  "sources": [
+    {
+      "source_id": "lmarena",
+      "name": "LMArena / Chatbot Arena",
+      "url": "TODO_URL",
+      "source_type": "leaderboard",
+      "intended_use": "External capability and preference signals for public model comparisons.",
+      "not_valid_for": "Hidden architecture, parameter counts, training data, activations, or mechanistic access claims.",
+      "notes": "Use only as one external-observable source category.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "artificial_analysis",
+      "name": "Artificial Analysis",
+      "url": "TODO_URL",
+      "source_type": "leaderboard/pricing/latency reference",
+      "intended_use": "External benchmark, price, speed, and context-window fields when source-verified.",
+      "not_valid_for": "Internal mechanistic claims or unpublished model metadata.",
+      "notes": "Referenced in the atlas seed for some closed frontier rows.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "openrouter",
+      "name": "OpenRouter",
+      "url": "TODO_URL",
+      "source_type": "model routing/API catalog",
+      "intended_use": "API availability, model naming, price/context hints subject to verification.",
+      "not_valid_for": "Provider-grounded architecture or training details.",
+      "notes": "Use as secondary source unless provider docs are unavailable.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "stanford_helm",
+      "name": "Stanford HELM",
+      "url": "TODO_URL",
+      "source_type": "benchmark/evaluation suite",
+      "intended_use": "External benchmark and evaluation metadata.",
+      "not_valid_for": "Hidden architecture or mechanistic access claims.",
+      "notes": "Use for external capability manifold only.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "stanford_fmti",
+      "name": "Stanford Foundation Model Transparency Index",
+      "url": "TODO_URL",
+      "source_type": "transparency index",
+      "intended_use": "Transparency and governance feature blocks.",
+      "not_valid_for": "Mechanistic feasibility by itself.",
+      "notes": "FMTI-style values should be versioned and date-stamped.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "openai_docs",
+      "name": "OpenAI documentation",
+      "url": "TODO_URL",
+      "source_type": "provider docs",
+      "intended_use": "Provider-verified access, modality, context, price, and API behavior where public.",
+      "not_valid_for": "Hidden architecture, hidden parameter count, hidden training data, activations, or routing.",
+      "notes": "Closed OpenAI rows remain external-only unless special access is documented.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "anthropic_docs",
+      "name": "Anthropic documentation",
+      "url": "TODO_URL",
+      "source_type": "provider docs",
+      "intended_use": "Provider-verified access, modality, context, price, and system behavior where public.",
+      "not_valid_for": "Hidden architecture, hidden parameter count, hidden training data, activations, or routing.",
+      "notes": "Closed Anthropic rows remain external-only unless special access is documented.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "google_gemini_docs",
+      "name": "Google Gemini documentation",
+      "url": "TODO_URL",
+      "source_type": "provider docs",
+      "intended_use": "Provider-verified Gemini access, modalities, context, tools, and pricing where public.",
+      "not_valid_for": "Hidden mechanistic details for closed systems.",
+      "notes": "Gemini agent/system rows require decomposition from scaffold/tool behavior.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "xai_docs",
+      "name": "xAI documentation",
+      "url": "TODO_URL",
+      "source_type": "provider docs",
+      "intended_use": "Provider-verified Grok access, context, price, and tool behavior where public.",
+      "not_valid_for": "Hidden architecture or mechanistic claims.",
+      "notes": "Closed Grok rows remain external-only unless special access is documented.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "perplexity_docs",
+      "name": "Perplexity documentation",
+      "url": "TODO_URL",
+      "source_type": "provider docs",
+      "intended_use": "Provider-verified Sonar/API search and RAG behavior where public.",
+      "not_valid_for": "Attributing behavior solely to the base model without scaffold/retrieval decomposition.",
+      "notes": "RAG/tool rows should be treated as system-level objects.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "meta_llama_docs",
+      "name": "Meta Llama documentation/model cards",
+      "url": "TODO_URL",
+      "source_type": "provider docs/model cards",
+      "intended_use": "Open-weight availability, license, architecture claims, modality, and context where source-verified.",
+      "not_valid_for": "Unverified training data or hidden deployment behavior.",
+      "notes": "Mechanistic feasibility remains conditional on hardware/license/tooling.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "mistral_docs",
+      "name": "Mistral documentation/model cards",
+      "url": "TODO_URL",
+      "source_type": "provider docs/model cards",
+      "intended_use": "Open/API access, license, modality, and architecture claims where source-verified.",
+      "not_valid_for": "Unverified hidden metadata.",
+      "notes": "Distinguish API-only from open-weight variants.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "qwen_huggingface",
+      "name": "Qwen Hugging Face model cards",
+      "url": "TODO_URL",
+      "source_type": "model cards",
+      "intended_use": "Open-weight model metadata, license, architecture, context, and tokenizer/logit feasibility where public.",
+      "not_valid_for": "Rows not actually tied to a verified model card.",
+      "notes": "SAE artifact claims need separate paper/artifact verification.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "deepseek_huggingface",
+      "name": "DeepSeek Hugging Face model cards",
+      "url": "TODO_URL",
+      "source_type": "model cards",
+      "intended_use": "Open-weight model metadata and architecture claims where source-verified.",
+      "not_valid_for": "Hardware feasibility without local resource planning.",
+      "notes": "Large MoE rows are likely M* if source-verified and accessible.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "gemma_huggingface",
+      "name": "Gemma Hugging Face model cards",
+      "url": "TODO_URL",
+      "source_type": "model cards",
+      "intended_use": "Open-weight Gemma metadata, license terms, modalities, and context where source-verified.",
+      "not_valid_for": "Closed Gemini metadata.",
+      "notes": "Keep Gemma open-weight rows distinct from Gemini closed API rows.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "microsoft_phi_huggingface",
+      "name": "Microsoft Phi Hugging Face model cards",
+      "url": "TODO_URL",
+      "source_type": "model cards",
+      "intended_use": "Open-weight Phi metadata, license, modality, and context where source-verified.",
+      "not_valid_for": "Unverified benchmark or internal claims.",
+      "notes": "Mechanistic feasibility remains hardware/tooling conditional.",
+      "last_checked": "TODO_CHECK"
+    },
+    {
+      "source_id": "eleutherai_pythia_huggingface",
+      "name": "EleutherAI Pythia Hugging Face model cards",
+      "url": "TODO_URL",
+      "source_type": "model cards/research-control suite",
+      "intended_use": "Open-weight Pythia metadata, checkpoints, license, and mechanistic feasibility.",
+      "not_valid_for": "Current project obstruction metrics unless measured in this repo.",
+      "notes": "Project-measured obstruction rows for Pythia-410m and Pythia-1b are separate from source metadata.",
+      "last_checked": "TODO_CHECK"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "schema_id": "model_feature_schema_v0",
+  "status": "T0 schema-like config; not a finalized publication schema",
+  "required_columns": [
+    "model_id",
+    "canonical_name",
+    "provider",
+    "family",
+    "access_type",
+    "mechanistic_access",
+    "modality_text",
+    "modality_image",
+    "modality_audio",
+    "modality_video",
+    "modality_tool",
+    "weights_available",
+    "api_available",
+    "local_deployable",
+    "logits_available",
+    "activations_available",
+    "patching_feasible",
+    "sae_feasible",
+    "context_window_tokens",
+    "input_price_per_million_tokens",
+    "output_price_per_million_tokens",
+    "release_date",
+    "license",
+    "source_notes",
+    "verification_status"
+  ],
+  "feature_blocks": {
+    "capability": [
+      "general_benchmark_score",
+      "coding_score",
+      "math_score",
+      "science_score",
+      "multilingual_score",
+      "agentic_tool_use_score",
+      "multimodal_score",
+      "long_context_score"
+    ],
+    "modality": [
+      "modality_text",
+      "modality_image",
+      "modality_audio",
+      "modality_video",
+      "modality_document",
+      "modality_tool",
+      "modality_robotics_control"
+    ],
+    "openness_transparency": [
+      "access_type",
+      "mechanistic_access",
+      "weights_available",
+      "api_available",
+      "local_deployable",
+      "license",
+      "model_card_available",
+      "system_card_available",
+      "training_recipe_public",
+      "checkpoints_available",
+      "verification_status"
+    ],
+    "cost_speed_deployment": [
+      "input_price_per_million_tokens",
+      "output_price_per_million_tokens",
+      "latency_ms",
+      "throughput_tokens_per_second",
+      "quantization_support",
+      "hardware_burden"
+    ],
+    "architecture": [
+      "family",
+      "architecture_decoder_only",
+      "architecture_encoder_only",
+      "architecture_encoder_decoder",
+      "architecture_moe",
+      "architecture_multimodal_fusion",
+      "architecture_diffusion",
+      "architecture_recurrent_state_space",
+      "architecture_hybrid_tool_system"
+    ],
+    "context_tool_reasoning": [
+      "context_window_tokens",
+      "function_calling",
+      "tool_use",
+      "web_search_rag",
+      "computer_use",
+      "reasoning_mode",
+      "structured_outputs"
+    ],
+    "mechanistic": [
+      "logits_available",
+      "activations_available",
+      "patching_feasible",
+      "sae_feasible",
+      "checkpoint_availability",
+      "transport_r2"
+    ],
+    "governance_risk": [
+      "developer_transparency_score",
+      "fmt_index_score",
+      "safety_card_available",
+      "refusal_behavior_notes",
+      "risk_notes"
+    ],
+    "obstruction_metrics": [
+      "obstruction_auc_factual_conflict",
+      "obstruction_partial_corr_margin_controlled",
+      "attribution_collapse_score",
+      "obstruction_response_lift",
+      "kl_cost",
+      "repair_stabilization_score"
+    ]
+  },
+  "projection_configs": {
+    "external_capability": {
+      "feature_blocks": [
+        "capability",
+        "modality",
+        "context_tool_reasoning",
+        "cost_speed_deployment"
+      ],
+      "include_closed_models": true,
+      "notes": "External-observable geometry only."
+    },
+    "access_transparency_deployability": {
+      "feature_blocks": [
+        "openness_transparency",
+        "cost_speed_deployment"
+      ],
+      "include_closed_models": true,
+      "notes": "Useful for experiment selection and access planning."
+    },
+    "mechanistic_access": {
+      "feature_blocks": [
+        "openness_transparency",
+        "mechanistic",
+        "architecture"
+      ],
+      "include_closed_models": true,
+      "notes": "Closed rows should cluster as external-only unless special access is verified."
+    },
+    "internal_obstruction": {
+      "feature_blocks": [
+        "mechanistic",
+        "obstruction_metrics"
+      ],
+      "include_closed_models": false,
+      "notes": "Only meaningful for measured internal obstruction rows."
+    },
+    "task_response": {
+      "feature_blocks": [
+        "obstruction_metrics",
+        "mechanistic",
+        "context_tool_reasoning"
+      ],
+      "include_closed_models": false,
+      "notes": "Task/model pair geometry; requires measured response data."
+    }
+  },
+  "verification_status_values": [
+    "TODO_VERIFY",
+    "VERIFIED_PROVIDER_DOC",
+    "VERIFIED_MODEL_CARD",
+    "VERIFIED_LEADERBOARD",
+    "PROJECT_MEASURED",
+    "UNKNOWN"
+  ]
+}

@@ -38,6 +38,19 @@ def answer_token_id(model: "HookedTransformer", answer: str) -> int:
     return toks[0]
 
 
+def answer_token_ids(model: "HookedTransformer", answer: str) -> list[int]:
+    """Return tokenizer ids for an answer continuation.
+
+    Factual-conflict experiments use answers as continuations, including the
+    leading space. Multi-token answers are valid for sequence scoring.
+    """
+
+    toks = model.tokenizer.encode(answer, add_special_tokens=False)
+    if not toks:
+        raise ValueError(f"Answer {answer!r} tokenized to an empty sequence")
+    return list(toks)
+
+
 def tokenize_prompts(model: "HookedTransformer", prompts: list[str]):
     return model.to_tokens(prompts, prepend_bos=True)
 
@@ -62,3 +75,50 @@ def run_logits(model, prompts: list[str]):
         tokens = tokenize_prompts(model, prompts)
         logits = model(tokens)
         return logits
+
+
+def continuation_logprob(
+    model: "HookedTransformer",
+    prompt: str,
+    answer_token_ids_: list[int],
+) -> float:
+    """Return log p(answer | prompt) for a tokenized answer continuation."""
+
+    import torch
+
+    prompt_ids = model.tokenizer.encode(prompt, add_special_tokens=False)
+    full_ids = prompt_ids + list(answer_token_ids_)
+    if len(full_ids) <= len(prompt_ids):
+        raise ValueError("answer_token_ids_ must contain at least one token")
+
+    device = getattr(getattr(model, "cfg", None), "device", None)
+    bos_id = getattr(model.tokenizer, "bos_token_id", None)
+    if bos_id is None:
+        bos_id = getattr(model.tokenizer, "eos_token_id", None)
+    if bos_id is None:
+        raise ValueError("Tokenizer has no BOS or EOS token id for manual scoring")
+    tokens = torch.tensor([[bos_id] + full_ids], device=device)
+
+    with torch.no_grad():
+        logits = model(tokens)
+        log_probs = torch.log_softmax(logits[0], dim=-1)
+        total = 0.0
+        for offset, answer_id in enumerate(answer_token_ids_):
+            logit_pos = len(prompt_ids) + offset
+            total += float(log_probs[logit_pos, answer_id].detach().cpu())
+    return total
+
+
+def continuation_logprob_margin(
+    model: "HookedTransformer",
+    prompt: str,
+    answer_a_token_ids: list[int],
+    answer_b_token_ids: list[int],
+) -> float:
+    """Return log p(answer_a | prompt) - log p(answer_b | prompt)."""
+
+    return continuation_logprob(model, prompt, answer_a_token_ids) - continuation_logprob(
+        model,
+        prompt,
+        answer_b_token_ids,
+    )

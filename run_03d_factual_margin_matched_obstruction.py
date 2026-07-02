@@ -14,7 +14,7 @@ from tqdm.auto import tqdm
 from src.cache import run_with_resid_cache
 from src.data_factual import read_jsonl
 from src.germs import scalar_germs
-from src.model import load_pretrained_model, logit_margin_from_logits
+from src.model import continuation_logprob_margin, load_pretrained_model, logit_margin_from_logits
 from src.obstruction import compute_obstruction
 from src.transports import fit_ridge_scalar_r
 
@@ -28,6 +28,41 @@ FACT_KEY = ["subject", "relation", "true_object", "false_object"]
 
 def final_token_pos(model, prompt: str) -> int:
     return len(model.tokenizer.encode(prompt, add_special_tokens=False))
+
+
+def answer_ids(ex: dict, key: str, fallback_key: str) -> list[int]:
+    ids = ex.get(key)
+    if ids is not None:
+        return [int(token_id) for token_id in ids]
+    return [int(ex[fallback_key])]
+
+
+def first_answer_id(ex: dict, key: str, fallback_key: str) -> int:
+    return answer_ids(ex, key, fallback_key)[0]
+
+
+def score_margin(model, logits, batch_index: int, token_pos: int, ex: dict, prompt: str, score_type: str):
+    if score_type == "first_token":
+        return logit_margin_from_logits(
+            logits[batch_index : batch_index + 1],
+            first_answer_id(ex, "answer_a_ids", "answer_a_id"),
+            first_answer_id(ex, "answer_b_ids", "answer_b_id"),
+            token_pos=token_pos,
+        )[0]
+    if score_type == "sequence_logprob":
+        return torch.tensor(
+            [
+                continuation_logprob_margin(
+                    model,
+                    prompt,
+                    answer_ids(ex, "answer_a_ids", "answer_a_id"),
+                    answer_ids(ex, "answer_b_ids", "answer_b_id"),
+                )
+            ],
+            device=logits.device,
+            dtype=logits.dtype,
+        )
+    raise ValueError(f"Unsupported score_type: {score_type}")
 
 
 @torch.no_grad()
@@ -45,8 +80,8 @@ def collect_clean_scalar_germs(model, examples: list[dict], batch_size: int = 32
             s_i = scalar_germs(
                 model,
                 cache_i,
-                ex["answer_a_id"],
-                ex["answer_b_id"],
+                first_answer_id(ex, "answer_a_ids", "answer_a_id"),
+                first_answer_id(ex, "answer_b_ids", "answer_b_id"),
                 token_pos=token_pos,
             )[0]
             all_s.append(s_i.detach().cpu())
@@ -55,7 +90,16 @@ def collect_clean_scalar_germs(model, examples: list[dict], batch_size: int = 32
 
 
 @torch.no_grad()
-def score_condition(model, examples, prompt_field: str, condition: str, r, w, batch_size=32):
+def score_condition(
+    model,
+    examples,
+    prompt_field: str,
+    condition: str,
+    r,
+    w,
+    batch_size=32,
+    margin_score_type="sequence_logprob",
+):
     rows = []
 
     for start in tqdm(range(0, len(examples), batch_size), desc=condition):
@@ -69,16 +113,19 @@ def score_condition(model, examples, prompt_field: str, condition: str, r, w, ba
             s = scalar_germs(
                 model,
                 cache_i,
-                ex["answer_a_id"],
-                ex["answer_b_id"],
+                first_answer_id(ex, "answer_a_ids", "answer_a_id"),
+                first_answer_id(ex, "answer_b_ids", "answer_b_id"),
                 token_pos=token_pos,
             )
             obstruction = compute_obstruction(s, r, w)
-            margin = logit_margin_from_logits(
-                logits[i : i + 1],
-                ex["answer_a_id"],
-                ex["answer_b_id"],
-                token_pos=token_pos,
+            margin = score_margin(
+                model,
+                logits,
+                i,
+                token_pos,
+                ex,
+                ex[prompt_field],
+                margin_score_type,
             )[0]
 
             rows.append(
@@ -92,6 +139,10 @@ def score_condition(model, examples, prompt_field: str, condition: str, r, w, ba
                     "condition": condition,
                     "prompt": ex[prompt_field],
                     "margin": float(margin.cpu()),
+                    "margin_score_type": margin_score_type,
+                    "answer_a_token_count": len(answer_ids(ex, "answer_a_ids", "answer_a_id")),
+                    "answer_b_token_count": len(answer_ids(ex, "answer_b_ids", "answer_b_id")),
+                    "germ_answer_token_index": ex.get("germ_answer_token_index", 0),
                     "O_raw": float(obstruction["raw"][0].cpu()),
                     "O_norm": float(obstruction["normalized"][0].cpu()),
                     "answer_a": ex["answer_a"],
@@ -143,6 +194,12 @@ def main() -> None:
         help="Use all scored clean template rows for transport fitting.",
     )
     parser.add_argument("--model-name", default="gpt2-small")
+    parser.add_argument(
+        "--margin-score-type",
+        choices=["sequence_logprob", "first_token"],
+        default="sequence_logprob",
+        help="Margin used for reporting and partial-correlation controls.",
+    )
     args = parser.parse_args()
 
     matched = read_jsonl(MATCHED_PATH)
@@ -183,6 +240,7 @@ def main() -> None:
             r,
             w,
             batch_size=args.batch_size,
+            margin_score_type=args.margin_score_type,
         )
     )
     rows.extend(
@@ -194,6 +252,7 @@ def main() -> None:
             r,
             w,
             batch_size=args.batch_size,
+            margin_score_type=args.margin_score_type,
         )
     )
 
@@ -213,6 +272,7 @@ def main() -> None:
     print(df.groupby("condition")["margin"].mean())
     print(f"AUC(O_conflict > O_clean | margin-matched): {auc:.4f}")
     print(f"partial corr(O, conflict_label | margin): {partial_corr:.4f}")
+    print(f"margin_score_type: {args.margin_score_type}")
     print(f"saved table to {CSV_PATH}")
     print(f"saved figure to {FIGURE_PATH}")
 

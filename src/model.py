@@ -6,7 +6,10 @@ if TYPE_CHECKING:
     from transformer_lens import HookedTransformer
 
 
-def load_gpt2_small(device: str | None = None) -> "HookedTransformer":
+def load_pretrained_model(
+    model_name: str = "gpt2-small",
+    device: str | None = None,
+) -> "HookedTransformer":
     import torch
     from transformer_lens import HookedTransformer
 
@@ -14,7 +17,7 @@ def load_gpt2_small(device: str | None = None) -> "HookedTransformer":
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
     model = HookedTransformer.from_pretrained(
-        "gpt2-small",
+        model_name,
         device=device,
         fold_ln=False,
         center_writing_weights=False,
@@ -22,6 +25,10 @@ def load_gpt2_small(device: str | None = None) -> "HookedTransformer":
     )
     model.eval()
     return model
+
+
+def load_gpt2_small(device: str | None = None) -> "HookedTransformer":
+    return load_pretrained_model("gpt2-small", device=device)
 
 
 def answer_token_id(model: "HookedTransformer", answer: str) -> int:

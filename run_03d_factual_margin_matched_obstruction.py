@@ -14,7 +14,7 @@ from tqdm.auto import tqdm
 from src.cache import run_with_resid_cache
 from src.data_factual import read_jsonl
 from src.germs import scalar_germs
-from src.model import load_gpt2_small, logit_margin_from_logits
+from src.model import load_pretrained_model, logit_margin_from_logits
 from src.obstruction import compute_obstruction
 from src.transports import fit_ridge_scalar_r
 
@@ -142,6 +142,7 @@ def main() -> None:
         action="store_true",
         help="Use all scored clean template rows for transport fitting.",
     )
+    parser.add_argument("--model-name", default="gpt2-small")
     args = parser.parse_args()
 
     matched = read_jsonl(MATCHED_PATH)
@@ -166,8 +167,8 @@ def main() -> None:
     print(f"matched rows: {len(matched)}")
     print(f"matched unique facts: {pd.DataFrame(matched)[FACT_KEY].drop_duplicates().shape[0]}")
     print(f"clean fit examples: {len(fit_examples)}")
-    print("Loading GPT-2 small...", flush=True)
-    model = load_gpt2_small()
+    print(f"Loading {args.model_name}...", flush=True)
+    model = load_pretrained_model(args.model_name)
 
     s_train = collect_clean_scalar_germs(model, fit_examples, batch_size=args.batch_size)
     r, train_r2, w = fit_ridge_scalar_r(s_train)

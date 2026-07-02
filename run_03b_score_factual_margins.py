@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import pandas as pd
 import torch
 
 from src.data_factual import read_jsonl, write_jsonl
-from src.model import load_gpt2_small
+from src.model import load_pretrained_model
 
 
 IN_PATH = Path("data/factual_conflict/factual_conflict_raw.jsonl")
@@ -22,11 +23,15 @@ def margin(model, prompt: str, answer_a_id: int, answer_b_id: int) -> float:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model-name", default="gpt2-small")
+    args = parser.parse_args()
+
     rows = read_jsonl(IN_PATH)
 
     print(f"loaded raw factual examples: {len(rows)}", flush=True)
-    print("Loading GPT-2 small...", flush=True)
-    model = load_gpt2_small()
+    print(f"Loading {args.model_name}...", flush=True)
+    model = load_pretrained_model(args.model_name)
 
     scored = []
     for ex in rows:

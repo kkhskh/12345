@@ -120,6 +120,76 @@ FACTS = [
     ("Fox", "founder", "Murdoch", "Turner"),
 ]
 
+CAPITAL_FACTS = [
+    ("France", "capital", "Paris", "Rome"),
+    ("Italy", "capital", "Rome", "Paris"),
+    ("Germany", "capital", "Berlin", "Paris"),
+    ("England", "capital", "London", "Paris"),
+    ("Japan", "capital", "Tokyo", "Beijing"),
+    ("China", "capital", "Beijing", "Tokyo"),
+    ("Russia", "capital", "Moscow", "Berlin"),
+    ("Spain", "capital", "Madrid", "Paris"),
+    ("Portugal", "capital", "Lisbon", "Madrid"),
+    ("Greece", "capital", "Athens", "Rome"),
+    ("Egypt", "capital", "Cairo", "Delhi"),
+    ("India", "capital", "Delhi", "Cairo"),
+    ("Kenya", "capital", "Nairobi", "Cairo"),
+    ("Thailand", "capital", "Bangkok", "Tokyo"),
+    ("Indonesia", "capital", "Jakarta", "Bangkok"),
+    ("Australia", "capital", "Canberra", "Sydney"),
+    ("Canada", "capital", "Ottawa", "Toronto"),
+    ("Mexico", "capital", "Mexico", "Ottawa"),
+    ("Brazil", "capital", "Brasilia", "Lima"),
+    ("Peru", "capital", "Lima", "Brasilia"),
+    ("Chile", "capital", "Santiago", "Lima"),
+    ("Argentina", "capital", "Buenos", "Santiago"),
+    ("Colombia", "capital", "Bogota", "Lima"),
+    ("Cuba", "capital", "Havana", "Lima"),
+    ("Jamaica", "capital", "Kingston", "Havana"),
+    ("Norway", "capital", "Oslo", "Stockholm"),
+    ("Sweden", "capital", "Stockholm", "Oslo"),
+    ("Finland", "capital", "Helsinki", "Oslo"),
+    ("Denmark", "capital", "Copenhagen", "Oslo"),
+    ("Poland", "capital", "Warsaw", "Berlin"),
+    ("Austria", "capital", "Vienna", "Berlin"),
+    ("Hungary", "capital", "Budapest", "Vienna"),
+    ("Romania", "capital", "Bucharest", "Budapest"),
+    ("Bulgaria", "capital", "Sofia", "Athens"),
+    ("Serbia", "capital", "Belgrade", "Sofia"),
+    ("Croatia", "capital", "Zagreb", "Belgrade"),
+    ("Ukraine", "capital", "Kyiv", "Moscow"),
+    ("Turkey", "capital", "Ankara", "Istanbul"),
+    ("Iran", "capital", "Tehran", "Baghdad"),
+    ("Iraq", "capital", "Baghdad", "Tehran"),
+    ("Syria", "capital", "Damascus", "Baghdad"),
+    ("Jordan", "capital", "Amman", "Cairo"),
+    ("Lebanon", "capital", "Beirut", "Damascus"),
+    ("Israel", "capital", "Jerusalem", "Cairo"),
+    ("Saudi Arabia", "capital", "Riyadh", "Dubai"),
+    ("Qatar", "capital", "Doha", "Dubai"),
+    ("UAE", "capital", "Abu", "Dubai"),
+    ("Pakistan", "capital", "Islamabad", "Delhi"),
+    ("Afghanistan", "capital", "Kabul", "Islamabad"),
+    ("Nepal", "capital", "Kathmandu", "Delhi"),
+    ("Vietnam", "capital", "Hanoi", "Bangkok"),
+    ("Malaysia", "capital", "Kuala", "Singapore"),
+    ("Singapore", "capital", "Singapore", "Kuala"),
+    ("Philippines", "capital", "Manila", "Jakarta"),
+    ("Morocco", "capital", "Rabat", "Cairo"),
+    ("Algeria", "capital", "Algiers", "Rabat"),
+    ("Tunisia", "capital", "Tunis", "Cairo"),
+    ("Libya", "capital", "Tripoli", "Cairo"),
+    ("Ghana", "capital", "Accra", "Lagos"),
+    ("Nigeria", "capital", "Abuja", "Accra"),
+    ("Senegal", "capital", "Dakar", "Accra"),
+    ("Ethiopia", "capital", "Addis", "Nairobi"),
+    ("Uganda", "capital", "Kampala", "Nairobi"),
+    ("Zimbabwe", "capital", "Harare", "Lusaka"),
+    ("Zambia", "capital", "Lusaka", "Harare"),
+]
+
+FACTS = FACTS + CAPITAL_FACTS
+
 
 def make_fact_example(
     subject: str,
@@ -146,6 +216,16 @@ def make_fact_example(
         correction = (
             f"The {subject} is located in {false_obj}. However, "
             f"the {subject} is actually in the country of"
+        )
+    elif relation == "capital":
+        clean = f"The capital of {subject} is"
+        false_context = (
+            f"The capital of {subject} is {false_obj}. "
+            f"The capital of {subject} is"
+        )
+        correction = (
+            f"The capital of {subject} is {false_obj}. However, "
+            f"the actual capital of {subject} is"
         )
     elif relation == "museum":
         clean = f"The {subject} is displayed in the"
@@ -255,6 +335,33 @@ def make_fact_examples(
             "although_said": (
                 f"Although the {subject} was said to be in {false_obj}, "
                 f"it is in"
+            ),
+        }
+    elif relation == "capital":
+        variants = {
+            "repeat_false": (
+                f"The capital of {subject} is {false_obj}. "
+                f"The capital of {subject} is"
+            ),
+            "however_actual": (
+                f"The capital of {subject} is {false_obj}. However, "
+                f"the actual capital of {subject} is"
+            ),
+            "correct_answer": (
+                f"The capital of {subject} is {false_obj}. However, "
+                f"the correct answer is"
+            ),
+            "many_say_but": (
+                f"Many people say the capital of {subject} is {false_obj}, "
+                f"but the actual capital is"
+            ),
+            "ignore_false": (
+                f"Ignore the false claim that the capital of {subject} is "
+                f"{false_obj}. The capital is"
+            ),
+            "although_said": (
+                f"Although the capital of {subject} was said to be {false_obj}, "
+                f"it is"
             ),
         }
     elif relation == "museum":

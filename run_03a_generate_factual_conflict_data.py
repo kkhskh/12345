@@ -1,9 +1,10 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 from src.data_factual import FACTS, make_fact_examples, write_jsonl
-from src.model import load_gpt2_small
+from src.model import load_pretrained_model
 
 
 OUT_DIR = Path("data/factual_conflict")
@@ -15,10 +16,14 @@ def is_single_token(model, answer: str) -> bool:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model-name", default="gpt2-small")
+    args = parser.parse_args()
+
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    print("Loading GPT-2 small tokenizer through TransformerLens...", flush=True)
-    model = load_gpt2_small(device="cpu")
+    print(f"Loading {args.model_name} tokenizer through TransformerLens...", flush=True)
+    model = load_pretrained_model(args.model_name, device="cpu")
 
     rows = []
     dropped = []

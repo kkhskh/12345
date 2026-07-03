@@ -13,7 +13,7 @@ from tqdm.auto import tqdm
 
 from src.cache import run_with_resid_cache
 from src.data_factual import read_jsonl
-from src.germs import scalar_germs
+from src.germs import scalar_germs, sequence_contrast_germs
 from src.model import continuation_logprob_margin, load_pretrained_model, logit_margin_from_logits
 from src.obstruction import compute_obstruction
 from src.transports import fit_ridge_scalar_r
@@ -24,6 +24,7 @@ SCORED_PATH = Path("data/factual_conflict/factual_conflict_scored.jsonl")
 CSV_PATH = Path("artifacts/results/factual_margin_matched_obstruction.csv")
 FIGURE_PATH = Path("artifacts/figures/factual_margin_matched_obstruction.png")
 FACT_KEY = ["subject", "relation", "true_object", "false_object"]
+GERM_SCORE_TYPES = ["first_token", "sequence_mean", "sequence_sum"]
 
 
 def final_token_pos(model, prompt: str) -> int:
@@ -65,25 +66,78 @@ def score_margin(model, logits, batch_index: int, token_pos: int, ex: dict, prom
     raise ValueError(f"Unsupported score_type: {score_type}")
 
 
+def germ_reduction(germ_score_type: str) -> str:
+    if germ_score_type == "sequence_mean":
+        return "mean"
+    if germ_score_type == "sequence_sum":
+        return "sum"
+    raise ValueError(f"{germ_score_type!r} is not a sequence germ type")
+
+
+def compute_example_germ(
+    model,
+    cache_i,
+    prompt: str,
+    ex: dict,
+    token_pos: int,
+    germ_score_type: str,
+) -> torch.Tensor:
+    if germ_score_type == "first_token":
+        return scalar_germs(
+            model,
+            cache_i,
+            first_answer_id(ex, "answer_a_ids", "answer_a_id"),
+            first_answer_id(ex, "answer_b_ids", "answer_b_id"),
+            token_pos=token_pos,
+        )[0]
+    if germ_score_type in {"sequence_mean", "sequence_sum"}:
+        return sequence_contrast_germs(
+            model,
+            prompt,
+            answer_ids(ex, "answer_a_ids", "answer_a_id"),
+            answer_ids(ex, "answer_b_ids", "answer_b_id"),
+            reduction=germ_reduction(germ_score_type),
+        )
+    raise ValueError(f"Unsupported germ_score_type: {germ_score_type}")
+
+
 @torch.no_grad()
-def collect_clean_scalar_germs(model, examples: list[dict], batch_size: int = 32):
+def collect_clean_scalar_germs(
+    model,
+    examples: list[dict],
+    batch_size: int = 32,
+    germ_score_type: str = "sequence_mean",
+):
     all_s = []
 
-    for start in tqdm(range(0, len(examples), batch_size), desc="fit clean germs"):
-        batch = examples[start : start + batch_size]
-        prompts = [ex["clean_prompt"] for ex in batch]
-        _, _, cache = run_with_resid_cache(model, prompts)
+    if germ_score_type == "first_token":
+        for start in tqdm(range(0, len(examples), batch_size), desc="fit clean germs"):
+            batch = examples[start : start + batch_size]
+            prompts = [ex["clean_prompt"] for ex in batch]
+            _, _, cache = run_with_resid_cache(model, prompts)
 
-        for i, ex in enumerate(batch):
-            cache_i = {key: value[i : i + 1] for key, value in cache.items()}
-            token_pos = final_token_pos(model, ex["clean_prompt"])
-            s_i = scalar_germs(
+            for i, ex in enumerate(batch):
+                cache_i = {key: value[i : i + 1] for key, value in cache.items()}
+                token_pos = final_token_pos(model, ex["clean_prompt"])
+                s_i = compute_example_germ(
+                    model,
+                    cache_i,
+                    ex["clean_prompt"],
+                    ex,
+                    token_pos,
+                    germ_score_type,
+                )
+                all_s.append(s_i.detach().cpu())
+    else:
+        for ex in tqdm(examples, desc=f"fit clean germs ({germ_score_type})"):
+            s_i = compute_example_germ(
                 model,
-                cache_i,
-                first_answer_id(ex, "answer_a_ids", "answer_a_id"),
-                first_answer_id(ex, "answer_b_ids", "answer_b_id"),
-                token_pos=token_pos,
-            )[0]
+                None,
+                ex["clean_prompt"],
+                ex,
+                final_token_pos(model, ex["clean_prompt"]),
+                germ_score_type,
+            )
             all_s.append(s_i.detach().cpu())
 
     return torch.stack(all_s, dim=0)
@@ -99,24 +153,29 @@ def score_condition(
     w,
     batch_size=32,
     margin_score_type="sequence_logprob",
+    germ_score_type="sequence_mean",
 ):
     rows = []
 
-    for start in tqdm(range(0, len(examples), batch_size), desc=condition):
+    iterator = range(0, len(examples), batch_size)
+    for start in tqdm(iterator, desc=condition):
         batch = examples[start : start + batch_size]
         prompts = [ex[prompt_field] for ex in batch]
         _, logits, cache = run_with_resid_cache(model, prompts)
 
         for i, ex in enumerate(batch):
             cache_i = {key: value[i : i + 1] for key, value in cache.items()}
-            token_pos = final_token_pos(model, ex[prompt_field])
-            s = scalar_germs(
+            prompt = ex[prompt_field]
+            token_pos = final_token_pos(model, prompt)
+            s_i = compute_example_germ(
                 model,
                 cache_i,
-                first_answer_id(ex, "answer_a_ids", "answer_a_id"),
-                first_answer_id(ex, "answer_b_ids", "answer_b_id"),
-                token_pos=token_pos,
+                prompt,
+                ex,
+                token_pos,
+                germ_score_type,
             )
+            s = s_i.unsqueeze(0)
             obstruction = compute_obstruction(s, r, w)
             margin = score_margin(
                 model,
@@ -140,9 +199,14 @@ def score_condition(
                     "prompt": ex[prompt_field],
                     "margin": float(margin.cpu()),
                     "margin_score_type": margin_score_type,
+                    "germ_score_type": germ_score_type,
                     "answer_a_token_count": len(answer_ids(ex, "answer_a_ids", "answer_a_id")),
                     "answer_b_token_count": len(answer_ids(ex, "answer_b_ids", "answer_b_id")),
-                    "germ_answer_token_index": ex.get("germ_answer_token_index", 0),
+                    "germ_answer_token_index": (
+                        ex.get("germ_answer_token_index", 0)
+                        if germ_score_type == "first_token"
+                        else "all"
+                    ),
                     "O_raw": float(obstruction["raw"][0].cpu()),
                     "O_norm": float(obstruction["normalized"][0].cpu()),
                     "answer_a": ex["answer_a"],
@@ -200,6 +264,12 @@ def main() -> None:
         default="sequence_logprob",
         help="Margin used for reporting and partial-correlation controls.",
     )
+    parser.add_argument(
+        "--germ-score-type",
+        choices=GERM_SCORE_TYPES,
+        default="sequence_mean",
+        help="Candidate germ used for obstruction. first_token preserves the old scalar baseline.",
+    )
     args = parser.parse_args()
 
     matched = read_jsonl(MATCHED_PATH)
@@ -227,7 +297,12 @@ def main() -> None:
     print(f"Loading {args.model_name}...", flush=True)
     model = load_pretrained_model(args.model_name)
 
-    s_train = collect_clean_scalar_germs(model, fit_examples, batch_size=args.batch_size)
+    s_train = collect_clean_scalar_germs(
+        model,
+        fit_examples,
+        batch_size=args.batch_size,
+        germ_score_type=args.germ_score_type,
+    )
     r, train_r2, w = fit_ridge_scalar_r(s_train)
 
     rows = []
@@ -241,6 +316,7 @@ def main() -> None:
             w,
             batch_size=args.batch_size,
             margin_score_type=args.margin_score_type,
+            germ_score_type=args.germ_score_type,
         )
     )
     rows.extend(
@@ -253,6 +329,7 @@ def main() -> None:
             w,
             batch_size=args.batch_size,
             margin_score_type=args.margin_score_type,
+            germ_score_type=args.germ_score_type,
         )
     )
 
@@ -273,13 +350,14 @@ def main() -> None:
     print(f"AUC(O_conflict > O_clean | margin-matched): {auc:.4f}")
     print(f"partial corr(O, conflict_label | margin): {partial_corr:.4f}")
     print(f"margin_score_type: {args.margin_score_type}")
+    print(f"germ_score_type: {args.germ_score_type}")
     print(f"saved table to {CSV_PATH}")
     print(f"saved figure to {FIGURE_PATH}")
 
     if auc > 0.65 and partial_corr > 0.20:
         print("GO: factual obstruction smoke diagnostic is promising; expand dataset.")
     else:
-        print("NO-GO: factual scalar residual obstruction is not promising yet.")
+        print("NO-GO: factual residual obstruction is not promising yet.")
 
 
 if __name__ == "__main__":

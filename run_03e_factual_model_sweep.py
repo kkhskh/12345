@@ -120,6 +120,12 @@ def main() -> None:
         ),
     )
     parser.add_argument("--tau", type=float, default=3.0)
+    parser.add_argument(
+        "--germ-score-type",
+        choices=["first_token", "sequence_mean", "sequence_sum"],
+        default="sequence_mean",
+        help="Candidate germ used in run_03d factual obstruction.",
+    )
     parser.add_argument("--python", default=sys.executable)
     args = parser.parse_args()
 
@@ -164,15 +170,19 @@ def main() -> None:
                     "run_03d_factual_margin_matched_obstruction.py",
                     "--model-name",
                     model_name,
+                    "--germ-score-type",
+                    args.germ_score_type,
                 ]
             )
             row = summarize_model(model_name, args.tau)
+            row["germ_score_type"] = args.germ_score_type
             row["status"] = "ok"
             copy_artifacts(model_name)
         except subprocess.CalledProcessError as exc:
             row = {
                 "model_name": model_name,
                 "tau": args.tau,
+                "germ_score_type": args.germ_score_type,
                 "status": f"failed_exit_{exc.returncode}",
             }
         rows.append(row)

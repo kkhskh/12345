@@ -50,6 +50,15 @@ def group_rows(rows: list[dict], cols: list[str]) -> dict[tuple, list[dict]]:
     return groups
 
 
+def with_all_split(rows: list[dict]) -> list[dict]:
+    out = list(rows)
+    for row in rows:
+        clone = dict(row)
+        clone["split"] = "all"
+        out.append(clone)
+    return out
+
+
 def long_group_for_pairs(long_rows: list[dict], pair_group: list[dict]) -> list[dict]:
     ids = {row["id"] for row in pair_group}
     if not pair_group:
@@ -80,10 +89,11 @@ def mean_delta_metric(rows: list[dict]) -> float:
 
 def bootstrap_summary(long_rows: list[dict], pair_rows: list[dict], n_bootstrap: int, seed: int) -> list[dict]:
     out = []
-    pair_groups = group_rows(pair_rows, ["model", "variant", "rank", "transport_control", "split"])
+    pair_groups = group_rows(with_all_split(pair_rows), ["model", "variant", "rank", "transport_control", "split"])
+    long_rows_with_all = with_all_split(long_rows)
     for key, pair_group in pair_groups.items():
         model, variant, rank, control, split = key
-        lg = long_group_for_pairs(long_rows, pair_group)
+        lg = long_group_for_pairs(long_rows_with_all, pair_group)
         auc_ci = bootstrap_metric_ci(lg, auc_metric_from_long, n_bootstrap, seed)
         pcorr_ci = bootstrap_metric_ci(
             lg,
@@ -179,7 +189,7 @@ def control_comparison(metrics_rows: list[dict]) -> list[dict]:
 
 def edge_contribution_summary(long_rows: list[dict]) -> list[dict]:
     out = []
-    groups = group_rows(long_rows, ["model", "variant", "rank", "transport_control", "split", "condition"])
+    groups = group_rows(with_all_split(long_rows), ["model", "variant", "rank", "transport_control", "split", "condition"])
     for key, rows in groups.items():
         sums: list[float] = []
         counts: list[int] = []

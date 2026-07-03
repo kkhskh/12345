@@ -238,7 +238,8 @@ def answer_contrast_vector(model: Any, true_answer: str, false_answer: str, mode
     true_vec = model.W_U[:, true_ids].mean(dim=1)
     false_vec = model.W_U[:, false_ids].mean(dim=1)
     du = true_vec - false_vec
-    return du / (du.norm() + 1e-8)
+    du = du / (du.norm() + 1e-8)
+    return du.detach().cpu()
 
 
 def _fit_layerwise_clean_pca(H_clean_train: Any, rank: int):
@@ -275,7 +276,7 @@ def build_answer_augmented_clean_pca_germs(
         ],
         dim=0,
     ).mean(dim=0)
-    du = du / (du.norm() + 1e-8)
+    du = (du / (du.norm() + 1e-8)).to(pca_bases.device)
     bases = []
     for layer_idx in range(H_clean_train.shape[1]):
         if rank == 1:

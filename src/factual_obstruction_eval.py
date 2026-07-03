@@ -151,23 +151,25 @@ def evaluate_obstruction_metrics(
 
     groups = {}
     for row in long_rows:
-        key = (
-            row.get("model", ""),
-            row.get("variant", ""),
-            str(row.get("rank", "")),
-            row.get("transport_control", ""),
-            row.get("split", ""),
-        )
-        groups.setdefault(key, {"long": [], "pairs": []})["long"].append(row)
+        for split_value in [row.get("split", ""), "all"]:
+            key = (
+                row.get("model", ""),
+                row.get("variant", ""),
+                str(row.get("rank", "")),
+                row.get("transport_control", ""),
+                split_value,
+            )
+            groups.setdefault(key, {"long": [], "pairs": []})["long"].append(row)
     for row in pair_rows:
-        key = (
-            row.get("model", ""),
-            row.get("variant", ""),
-            str(row.get("rank", "")),
-            row.get("transport_control", ""),
-            row.get("split", ""),
-        )
-        groups.setdefault(key, {"long": [], "pairs": []})["pairs"].append(row)
+        for split_value in [row.get("split", ""), "all"]:
+            key = (
+                row.get("model", ""),
+                row.get("variant", ""),
+                str(row.get("rank", "")),
+                row.get("transport_control", ""),
+                split_value,
+            )
+            groups.setdefault(key, {"long": [], "pairs": []})["pairs"].append(row)
 
     out = []
     for key, group in groups.items():

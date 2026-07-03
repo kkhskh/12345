@@ -69,29 +69,38 @@ def group_by_site(rows: list[dict]) -> list[dict]:
     out = []
     for site_id, group in groups.items():
         first = group[0]
-        out.append(
-            {
-                "site_id": site_id,
-                "kind": first.get("kind", ""),
-                "layer": first.get("layer", ""),
-                "head": first.get("head", ""),
-                "model": first.get("model", ""),
-                "variant": first.get("variant", ""),
-                "rank": first.get("rank", ""),
-                "n_examples": len(group),
-                "mean_delta_margin": mean([float(row["delta_margin"]) for row in group]),
-                "mean_obstruction_reduction": mean([float(row["obstruction_reduction"]) for row in group]),
-                "mean_delta_O": mean([float(row["delta_O"]) for row in group]),
-                "repair_success_margin_increase": mean([
-                    1.0 if str(row["repair_success_margin_increase"]) == "True" else 0.0
-                    for row in group
-                ]),
-                "repair_success_flip": mean([
-                    1.0 if str(row["repair_success_flip"]) == "True" else 0.0
-                    for row in group
-                ]),
-            }
-        )
+        site_row = {
+            "site_id": site_id,
+            "kind": first.get("kind", ""),
+            "layer": first.get("layer", ""),
+            "head": first.get("head", ""),
+            "model": first.get("model", ""),
+            "variant": first.get("variant", ""),
+            "rank": first.get("rank", ""),
+            "n_examples": len(group),
+            "mean_delta_margin": mean([float(row["delta_margin"]) for row in group]),
+            "mean_obstruction_reduction": mean([float(row["obstruction_reduction"]) for row in group]),
+            "mean_delta_O": mean([float(row["delta_O"]) for row in group]),
+            "repair_success_margin_increase": mean([
+                1.0 if str(row["repair_success_margin_increase"]) == "True" else 0.0
+                for row in group
+            ]),
+            "repair_success_flip": mean([
+                1.0 if str(row["repair_success_flip"]) == "True" else 0.0
+                for row in group
+            ]),
+        }
+        optional_means = {
+            "activation_delta_norm": "mean_activation_delta_norm",
+            "pred_delta_margin": "mean_pred_delta_margin",
+            "abs_pred_delta_margin": "mean_abs_pred_delta_margin",
+            "gradient_saliency": "mean_gradient_saliency",
+        }
+        for source_col, target_col in optional_means.items():
+            values = [float(row[source_col]) for row in group if row.get(source_col, "") not in {"", None}]
+            if values:
+                site_row[target_col] = mean(values)
+        out.append(site_row)
     return sorted(out, key=lambda row: float(row["mean_delta_margin"]), reverse=True)
 
 
@@ -121,7 +130,16 @@ def metric_rows(site_rows: list[dict], seed: int) -> list[dict]:
         row["random"] = rng.random()
     y = [1 if float(row["mean_delta_margin"]) >= sorted(float(r["mean_delta_margin"]) for r in site_rows)[max(0, int(0.9 * len(site_rows)) - 1)] else 0 for row in site_rows]
     rows = []
-    for col in ["mean_obstruction_reduction", "repair_success_margin_increase", "random"]:
+    candidate_cols = [
+        "mean_obstruction_reduction",
+        "mean_activation_delta_norm",
+        "mean_abs_pred_delta_margin",
+        "mean_gradient_saliency",
+        "repair_success_margin_increase",
+        "random",
+    ]
+    available_cols = [col for col in candidate_cols if all(row.get(col, "") != "" for row in site_rows)]
+    for col in available_cols:
         rows.append(
             {
                 "metric": f"spearman_{col}_with_delta_margin",
@@ -143,7 +161,15 @@ def main() -> None:
     site_rows = group_by_site(rows)
     metrics = metric_rows(site_rows, args.seed)
     repair_rows = []
-    for score_col in ["mean_obstruction_reduction", "repair_success_margin_increase", "random"]:
+    candidate_cols = [
+        "mean_obstruction_reduction",
+        "mean_activation_delta_norm",
+        "mean_abs_pred_delta_margin",
+        "mean_gradient_saliency",
+        "repair_success_margin_increase",
+        "random",
+    ]
+    for score_col in [col for col in candidate_cols if all(row.get(col, "") != "" for row in site_rows)]:
         repair_rows.extend(repair_at_k(site_rows, score_col))
 
     output_dir = Path(args.output_dir)
@@ -176,6 +202,18 @@ def main() -> None:
         print("PASS_WEAK: obstruction reduction is associated with causal patch repair.")
     else:
         print("NO_GO: obstruction reduction does not yet predict component repair strongly.")
+    baseline_metrics = [
+        row for row in metrics
+        if row["metric"].startswith("auc_")
+        and row["metric"] != "auc_mean_obstruction_reduction_detects_top_delta_margin_sites"
+    ]
+    if baseline_metrics:
+        best_baseline = max(float(row["value"]) for row in baseline_metrics)
+        print(f"best baseline AUC: {best_baseline:.4f}")
+        if obstruction_auc > best_baseline:
+            print("obstruction reduction beats available baseline/summary scores on top-site AUC.")
+        else:
+            print("obstruction reduction does not beat the best available baseline/summary score on top-site AUC.")
     print(f"saved summaries to {output_dir}")
 
 

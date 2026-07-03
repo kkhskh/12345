@@ -88,12 +88,16 @@ def site_activation(cache: Any, site: ComponentSite, row_idx: int, token_pos: in
     return act[row_idx, token_pos, :]
 
 
-def collect_clean_site_value(model: Any, clean_prompt: str, site: ComponentSite):
+def collect_site_value(model: Any, prompt: str, site: ComponentSite):
     from src.cache import run_with_resid_cache
 
-    token_pos = final_token_pos(model, clean_prompt)
-    _, _, cache = run_with_resid_cache(model, [clean_prompt], [site.hook_name])
+    token_pos = final_token_pos(model, prompt)
+    _, _, cache = run_with_resid_cache(model, [prompt], [site.hook_name])
     return site_activation(cache, site, 0, token_pos).detach().cpu()
+
+
+def collect_clean_site_value(model: Any, clean_prompt: str, site: ComponentSite):
+    return collect_site_value(model, clean_prompt, site)
 
 
 def make_patch_hook(site: ComponentSite, token_pos: int, clean_value: Any):
@@ -169,15 +173,72 @@ def low_rank_obstruction_for_resid(H_one: Any, projection: dict, transport: dict
     return compute_vector_obstruction(S, transport["R"], transport["weights"])
 
 
+def _answer_logprob_site_grad(model: Any, prompt: str, answer: str, site: ComponentSite):
+    import torch
+
+    tokens, prompt_len, answer_ids = _tokens_for_prompt_answer(model, prompt, answer)
+    saved = {}
+
+    def save_hook(act, hook):
+        act.retain_grad()
+        saved["act"] = act
+        return act
+
+    model.zero_grad(set_to_none=True)
+    with torch.enable_grad():
+        logits = model.run_with_hooks(tokens, fwd_hooks=[(site.hook_name, save_hook)])
+        log_probs = torch.log_softmax(logits[0], dim=-1)
+        total = 0.0
+        for offset, answer_id in enumerate(answer_ids):
+            total = total + log_probs[prompt_len + offset, answer_id]
+        total.backward()
+    act_grad = saved["act"].grad
+    if site.kind == "head":
+        grad_value = act_grad[0, prompt_len, site.head, :].detach().cpu()
+    else:
+        grad_value = act_grad[0, prompt_len, :].detach().cpu()
+    model.reset_hooks()
+    return grad_value
+
+
+def component_gradient_baselines(
+    model: Any,
+    conflict_prompt: str,
+    true_answer: str,
+    false_answer: str,
+    site: ComponentSite,
+    clean_value: Any,
+    conflict_value: Any,
+) -> dict:
+    """Compute multi-token gradient attribution baselines for a site.
+
+    This is intentionally optional in run_05a because it requires two backward
+    passes per site/example.
+    """
+
+    grad_true = _answer_logprob_site_grad(model, conflict_prompt, true_answer, site)
+    grad_false = _answer_logprob_site_grad(model, conflict_prompt, false_answer, site)
+    grad_margin = grad_true - grad_false
+    delta = clean_value.float() - conflict_value.float()
+    pred_delta_margin = float((grad_margin * delta).sum())
+    return {
+        "pred_delta_margin": pred_delta_margin,
+        "abs_pred_delta_margin": abs(pred_delta_margin),
+        "gradient_saliency": float(grad_margin.pow(2).sum().sqrt()),
+    }
+
+
 def evaluate_component_patch(
     model: Any,
     example: dict,
     site: ComponentSite,
     projection: dict,
     transport: dict,
+    compute_gradient_baselines: bool = False,
 ) -> dict:
     clean_value = collect_clean_site_value(model, example["clean_prompt"], site)
     conflict_prompt = example["conflict_prompt"]
+    conflict_value = collect_site_value(model, conflict_prompt, site)
     token_pos = final_token_pos(model, conflict_prompt)
     hook = (site.hook_name, make_patch_hook(site, token_pos, clean_value))
 
@@ -206,6 +267,7 @@ def evaluate_component_patch(
         "id": example["id"],
         "subject": example.get("subject", ""),
         "relation": example.get("relation", ""),
+        "activation_delta_norm": float((clean_value.float() - conflict_value.float()).pow(2).sum().sqrt()),
         "margin_conflict": margin_conflict,
         "margin_patched": margin_patched,
         "delta_margin": margin_patched - margin_conflict,
@@ -216,4 +278,16 @@ def evaluate_component_patch(
         "repair_success_margin_increase": margin_patched > margin_conflict,
         "repair_success_flip": margin_patched > 0,
     }
+    if compute_gradient_baselines:
+        row.update(
+            component_gradient_baselines(
+                model,
+                conflict_prompt,
+                example["true_answer"],
+                example["false_answer"],
+                site,
+                clean_value,
+                conflict_value,
+            )
+        )
     return row

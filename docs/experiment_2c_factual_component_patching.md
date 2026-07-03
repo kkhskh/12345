@@ -6,6 +6,8 @@ Experiment 2C is the causal response follow-up to Experiment 2B. It should be ru
 
 Experiment 2C tests whether component-level clean-to-conflict patching reduces low-rank obstruction and repairs the factual answer margin.
 
+Current bounded result: PASS_WEAK. Component sites that causally improve factual conflict margins tend to reduce low-rank obstruction, but this is not yet a full-dataset/full-site or bootstrap-validated result.
+
 ## Motivation
 
 Experiment 2B showed that clean-PCA low-rank residual germs strongly separate factual conflict from clean prompts on `EleutherAI/pythia-1b`:
@@ -33,6 +35,8 @@ The current implementation measures:
 - low-rank normalized obstruction before patching
 - low-rank normalized obstruction after patching
 - obstruction reduction
+- activation-delta norm baseline
+- optional multi-token gradient attribution and saliency baselines
 - repair success by margin increase
 - repair success by margin flip
 
@@ -54,6 +58,12 @@ Summarize component sites:
 
 ```bash
 python run_05b_factual_component_patching_summary.py
+```
+
+For expensive attribution baselines, add:
+
+```bash
+--compute-gradient-baselines
 ```
 
 Default outputs:
@@ -78,12 +88,44 @@ Stronger pass:
 - patching reduces obstruction and improves margin on the same examples
 - effect is not dominated by a tiny number of examples or one relation class
 
+## Results So Far
+
+Bounded `clean_pca` rank 8 run:
+
+- examples: 32
+- sites: 96
+- Spearman(obstruction reduction, delta margin): 0.4225
+- AUC(obstruction reduction detects top repair sites): 0.7807
+- random AUC: 0.3818
+- decision: PASS_WEAK
+
+Bounded `clean_pca` rank 16 run:
+
+- examples: 32
+- sites: 96
+- Spearman(obstruction reduction, delta margin): 0.3645
+- AUC(obstruction reduction detects top repair sites): 0.7679
+- random AUC: 0.3818
+- decision: PASS_WEAK
+
+Larger bounded `clean_pca` rank 8 run:
+
+- examples: 64
+- sites: 144
+- Spearman(obstruction reduction, delta margin): 0.4367
+- AUC(obstruction reduction detects top repair sites): 0.7441
+- random AUC: 0.3984
+- decision: PASS_WEAK
+
+Interpretation: obstruction reduction is associated with causal patch repair across bounded component sweeps. This is preliminary causal response evidence, not a final full sweep.
+
 ## Caveats
 
 - This is an oracle patching pass: it measures actual patch effects per site.
 - It is not yet a fully predictive site-selection algorithm.
 - The default run is intentionally bounded with `--max-examples` and `--max-sites`.
 - Full sweeps can be expensive and should be run only after smoke tests.
+- Baseline comparisons should include activation norm and optional gradient attribution before claiming specificity over standard causal/attribution measures.
 
 ## Interpretation
 

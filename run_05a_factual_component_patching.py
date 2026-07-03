@@ -20,6 +20,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--include-resid-controls", action="store_true")
     parser.add_argument("--max-examples", type=int, default=24)
     parser.add_argument("--max-sites", type=int, default=64)
+    parser.add_argument(
+        "--compute-gradient-baselines",
+        action="store_true",
+        help="Compute multi-token gradient attribution/saliency baselines; expensive.",
+    )
     parser.add_argument("--output", default="artifacts/factual_component_patching/component_patch_oracle.csv")
     return parser.parse_args()
 
@@ -88,7 +93,14 @@ def main() -> None:
     rows = []
     for site in tqdm(sites, desc="component sites"):
         for ex in examples:
-            row = evaluate_component_patch(model, ex, site, projection, transport)
+            row = evaluate_component_patch(
+                model,
+                ex,
+                site,
+                projection,
+                transport,
+                compute_gradient_baselines=args.compute_gradient_baselines,
+            )
             row["model"] = args.model
             row["variant"] = args.variant
             row["rank"] = args.rank

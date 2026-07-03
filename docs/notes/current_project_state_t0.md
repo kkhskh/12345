@@ -131,15 +131,45 @@ Low-rank vector-valued residual germs reveal a strong factual conflict obstructi
 Decision:
 Experiment 2B passes the representation-level gate. Component-level factual obstruction and patching may be considered next as a separate Experiment 2C, but patching has not yet been implemented.
 
+## Experiment 2C: component-level factual patching
+
+Experiment 2C tests whether component-level clean-to-conflict patching reduces low-rank obstruction and repairs the factual answer margin.
+
+Bounded Pythia-1b results so far:
+
+clean_pca r8, 32 examples x 96 sites:
+- Spearman(obstruction reduction, delta margin): 0.4225
+- AUC(obstruction reduction detects top repair sites): 0.7807
+- random AUC: 0.3818
+- decision: PASS_WEAK
+
+clean_pca r16, 32 examples x 96 sites:
+- Spearman: 0.3645
+- AUC: 0.7679
+- random AUC: 0.3818
+- decision: PASS_WEAK
+
+clean_pca r8, 64 examples x 144 sites:
+- Spearman: 0.4367
+- AUC: 0.7441
+- random AUC: 0.3984
+- decision: PASS_WEAK
+
+Interpretation:
+Component sites that causally improve factual conflict margins tend to reduce low-rank obstruction. This is preliminary causal response evidence for the obstruction-response loop.
+
+Caveat:
+Experiment 2C is not yet a final PASS_STRONG. It needs baseline comparisons against activation norm and gradient attribution, plus stronger robustness checks.
+
 ## Immediate next empirical gate
 
 Do not mix patching into Experiment 2B.
 
 Next:
-- preserve Experiment 2B artifacts and metrics
-- write Experiment 2C as a separate component-level factual obstruction / patching step
-- require learned low-rank obstruction to keep beating identity/random/shuffled controls
-- use component patching only to test causal response, not to establish the representation result
+- preserve Experiment 2B and 2C artifacts and metrics
+- compare 2C obstruction reduction against activation norm and gradient attribution baselines
+- run larger or full-site sweeps only after bounded baseline checks remain positive
+- keep Experiment 2C claims at PASS_WEAK until stronger robustness is complete
 
 Only then move to component-level factual obstruction and patching.
 

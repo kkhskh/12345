@@ -117,7 +117,21 @@ Larger bounded `clean_pca` rank 8 run:
 - random AUC: 0.3984
 - decision: PASS_WEAK
 
-Interpretation: obstruction reduction is associated with causal patch repair across bounded component sweeps. This is preliminary causal response evidence, not a final full sweep.
+Bounded `clean_pca` rank 8 run with gradient/activation baselines:
+
+- examples: 32
+- sites: 96
+- Spearman(obstruction reduction, delta margin): 0.4225
+- AUC(obstruction reduction detects top repair sites): 0.7807
+- activation norm AUC: 0.5636
+- gradient saliency AUC: 0.6610
+- absolute gradient-attribution AUC: 0.7861
+- random AUC: 0.3818
+- decision: PASS_WEAK
+
+Outcome-derived repair-success summaries reached AUC 0.9166, but this should not be treated as a predictive baseline because it is computed from patch outcomes.
+
+Interpretation: obstruction reduction is associated with causal patch repair across bounded component sweeps. It beats activation norm, gradient saliency, and random baselines, and is competitive with gradient attribution. It does not yet cleanly dominate attribution on every metric.
 
 ## Caveats
 

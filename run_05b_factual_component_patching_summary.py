@@ -9,6 +9,17 @@ from pathlib import Path
 from src.factual_obstruction_eval import auc_scores
 
 
+PREDICTIVE_BASELINE_COLS = {
+    "mean_activation_delta_norm",
+    "mean_abs_pred_delta_margin",
+    "mean_gradient_saliency",
+    "random",
+}
+
+ORACLE_SUMMARY_COLS = {
+    "repair_success_margin_increase",
+}
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Summarize Experiment 2C factual component patching.")
     parser.add_argument("--input", default="artifacts/factual_component_patching/component_patch_oracle.csv")
@@ -208,12 +219,26 @@ def main() -> None:
         and row["metric"] != "auc_mean_obstruction_reduction_detects_top_delta_margin_sites"
     ]
     if baseline_metrics:
-        best_baseline = max(float(row["value"]) for row in baseline_metrics)
-        print(f"best baseline AUC: {best_baseline:.4f}")
-        if obstruction_auc > best_baseline:
-            print("obstruction reduction beats available baseline/summary scores on top-site AUC.")
+        predictive_baseline_metrics = [
+            row for row in baseline_metrics
+            if any(f"auc_{col}_" in row["metric"] for col in PREDICTIVE_BASELINE_COLS)
+        ]
+        oracle_summary_metrics = [
+            row for row in baseline_metrics
+            if any(f"auc_{col}_" in row["metric"] for col in ORACLE_SUMMARY_COLS)
+        ]
+        if predictive_baseline_metrics:
+            best_predictive = max(float(row["value"]) for row in predictive_baseline_metrics)
+            print(f"best predictive baseline AUC: {best_predictive:.4f}")
         else:
-            print("obstruction reduction does not beat the best available baseline/summary score on top-site AUC.")
+            best_predictive = float("nan")
+        if oracle_summary_metrics:
+            best_oracle_summary = max(float(row["value"]) for row in oracle_summary_metrics)
+            print(f"best outcome-derived summary AUC: {best_oracle_summary:.4f}")
+        if predictive_baseline_metrics and obstruction_auc > best_predictive:
+            print("obstruction reduction beats available predictive baselines on top-site AUC.")
+        else:
+            print("obstruction reduction does not beat the best available predictive baseline on top-site AUC.")
     print(f"saved summaries to {output_dir}")
 
 

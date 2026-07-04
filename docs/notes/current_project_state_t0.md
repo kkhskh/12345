@@ -155,11 +155,20 @@ clean_pca r8, 64 examples x 144 sites:
 - random AUC: 0.3984
 - decision: PASS_WEAK
 
+clean_pca r8, 32 examples x 96 sites with baselines:
+- obstruction reduction Spearman: 0.4225
+- obstruction reduction AUC: 0.7807
+- activation norm AUC: 0.5636
+- gradient saliency AUC: 0.6610
+- absolute gradient-attribution AUC: 0.7861
+- random AUC: 0.3818
+- decision: PASS_WEAK
+
 Interpretation:
 Component sites that causally improve factual conflict margins tend to reduce low-rank obstruction. This is preliminary causal response evidence for the obstruction-response loop.
 
 Caveat:
-Experiment 2C is not yet a final PASS_STRONG. It needs baseline comparisons against activation norm and gradient attribution, plus stronger robustness checks.
+Experiment 2C is not yet a final PASS_STRONG. Obstruction reduction beats activation norm, gradient saliency, and random baselines, and is competitive with gradient attribution. It does not yet cleanly dominate attribution on every metric, and stronger robustness checks are still needed.
 
 ## Immediate next empirical gate
 
@@ -167,7 +176,7 @@ Do not mix patching into Experiment 2B.
 
 Next:
 - preserve Experiment 2B and 2C artifacts and metrics
-- compare 2C obstruction reduction against activation norm and gradient attribution baselines
+- refine 2C baseline comparisons and separate predictive baselines from outcome-derived summaries
 - run larger or full-site sweeps only after bounded baseline checks remain positive
 - keep Experiment 2C claims at PASS_WEAK until stronger robustness is complete
 

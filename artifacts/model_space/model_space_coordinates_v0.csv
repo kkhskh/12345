@@ -1,0 +1,33 @@
+model_id,canonical_name,provider,family,access_type,mechanistic_access,verification_status,projection,method,x,y,z
+gpt2-small,GPT-2 small,OpenAI,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,0,1
+gpt2-medium,GPT-2 medium,OpenAI,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,0,1
+EleutherAI/pythia-410m,EleutherAI Pythia-410m,EleutherAI,decoder_only_transformer,research_control_suite,unusually_good_for_mechanistic_research,1,mechanistic_access,raw_fallback,1,0,1
+EleutherAI/pythia-1b,EleutherAI Pythia-1b,EleutherAI,decoder_only_transformer,research_control_suite,unusually_good_for_mechanistic_research,1,mechanistic_access,raw_fallback,1,0,1
+gpt-5-6-preview,GPT-5.6 preview,OpenAI,unknown,closed_api_ui,external_only,0,mechanistic_access,raw_fallback,0,1,0
+gpt-5-5,GPT-5.5,OpenAI,unknown,closed_api_ui,external_only,0,mechanistic_access,raw_fallback,0,1,0
+gpt-image-2,GPT Image 2,OpenAI,diffusion_model,media_api,external_only,0,mechanistic_access,raw_fallback,0,1,0
+sora-2-pro,Sora 2 Pro,OpenAI,diffusion_model,media_api,external_only,0,mechanistic_access,raw_fallback,0,1,0
+claude-fable-5,Claude Fable 5,Anthropic,unknown,closed_api_ui,external_only,0,mechanistic_access,raw_fallback,0,1,0
+claude-code,Claude Code / Claude agentic tooling,Anthropic,tool_using_agentic_llm_system,closed_system_wrapper,external_only,0,mechanistic_access,raw_fallback,0,1,0
+gemini-3-5-flash,Gemini 3.5 Flash,Google,multimodal_transformer,closed_api_ui,external_only,0,mechanistic_access,raw_fallback,0,1,0
+gemini-deep-research-max,Gemini Deep Research Max,Google,retrieval_augmented_generation_system,closed_system_wrapper,external_only,0,mechanistic_access,raw_fallback,0,1,0
+grok-4-3,Grok 4.3,xAI,unknown,closed_api_ui,external_only,0,mechanistic_access,raw_fallback,0,1,0
+perplexity-sonar,Perplexity Sonar,Perplexity,retrieval_augmented_generation_system,tool_rag_agent_system,external_only,0,mechanistic_access,raw_fallback,0,1,0
+glm-5,Z.ai GLM-5,Z.ai,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,1,1
+deepseek-v3,DeepSeek V3,DeepSeek,moe_transformer,open_weight_local,possible_but_hardware_heavy,0,mechanistic_access,raw_fallback,1,1,1
+deepseek-r1,DeepSeek R1,DeepSeek,decoder_only_transformer,open_weight_local,possible_but_hardware_heavy,1,mechanistic_access,raw_fallback,1,1,1
+qwen3-235b-a22b,Qwen3-235B-A22B,Alibaba/Qwen,moe_transformer,open_weight_local,possible_but_hardware_heavy,0,mechanistic_access,raw_fallback,1,0,1
+qwen3-8b,Qwen3-8B,Alibaba/Qwen,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,0,1
+qwen-scope-sae,Qwen-Scope SAE artifacts,Alibaba/Qwen researchers,sparse_autoencoder_feature_space,research_control_suite,unusually_good_for_mechanistic_research,0,mechanistic_access,raw_fallback,1,0,1
+llama-4-scout,Llama 4 Scout,Meta,moe_transformer,open_weight_local,possible_but_hardware_heavy,0,mechanistic_access,raw_fallback,1,0,1
+llama-3-1-8b,Llama 3.1 8B,Meta,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,0,1
+llama-guard-family,Llama Guard family,Meta,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,0,1
+mistral-small-4,Mistral Small 4,Mistral AI,multimodal_transformer,open_weight_api,internal_mechanistic_possible,0,mechanistic_access,raw_fallback,1,1,1
+mixtral-8x7b,Mixtral 8x7B,Mistral AI,moe_transformer,open_weight_local,internal_mechanistic_possible,0,mechanistic_access,raw_fallback,1,0,1
+mistral-7b,Mistral 7B,Mistral AI,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,0,1
+gemma-3-1b,Gemma 3 1B,Google DeepMind,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,0,1
+gemma-3-27b,Gemma 3 27B,Google DeepMind,multimodal_transformer,open_weight_local,internal_mechanistic_possible,0,mechanistic_access,raw_fallback,1,0,1
+phi-4,Microsoft Phi-4,Microsoft,decoder_only_transformer,open_weight_local,internal_mechanistic_possible,1,mechanistic_access,raw_fallback,1,0,1
+phi-4-multimodal-instruct,Phi-4-multimodal-instruct,Microsoft,multimodal_transformer,open_weight_local,internal_mechanistic_possible,0,mechanistic_access,raw_fallback,1,0,1
+pythia-12b,Pythia-12B,EleutherAI,decoder_only_transformer,research_control_suite,unusually_good_for_mechanistic_research,1,mechanistic_access,raw_fallback,1,0,1
+pythia-6-9b,Pythia-6.9B,EleutherAI,decoder_only_transformer,research_control_suite,unusually_good_for_mechanistic_research,1,mechanistic_access,raw_fallback,1,0,1

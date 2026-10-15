@@ -1,0 +1,14 @@
+provider_group,index_range,seed_rows,atlas_stratum,dominant_access,mechanistic_map_note,verification_status
+OpenAI,1-10,10,closed frontier and media systems,closed API / media API,external-only unless special research access exists,TODO_VERIFY
+Anthropic,11-17,7,closed frontier and agentic tooling,closed API / system wrapper,external-only unless special research access exists,TODO_VERIFY
+Google Gemini,18-27,10,closed multimodal / agent / media systems,closed API / system wrapper / media API,external-only unless special research access exists,TODO_VERIFY
+xAI,28-30,3,closed frontier and coding systems,closed API,external-only unless special research access exists,TODO_VERIFY
+Perplexity,31-35,5,RAG and agent systems,closed API / RAG system,system-level external geometry; separate retriever/tool/scaffold decisions,TODO_VERIFY
+Z.ai GLM,36-40,5,open/API long-context and agentic systems,mixed API / open-weight,partial or internal access only if weights/tooling are verified,TODO_VERIFY
+DeepSeek,41-50,10,open frontier reasoning and MoE systems,open-weight API/local,internal possible but often hardware-heavy,TODO_VERIFY
+Alibaba Qwen,51-64,14,open/API dense MoE multimodal and SAE artifacts,mixed API / open-weight / research artifact,mechanistic feasible only where weights/SAEs/tooling are verified,TODO_VERIFY
+Meta Llama,65-72,8,open multimodal MoE dense and safety models,open-weight local / preview,internal possible for open rows; preview rows unknown,TODO_VERIFY
+Mistral AI,73-84,12,mixed closed API open dense MoE multimodal and audio,mixed closed API / open-weight,external-only for closed rows; internal conditional for open rows,TODO_VERIFY
+Google DeepMind Gemma,85-91,7,open efficient dense and multimodal models,open-weight local,internal possible conditional on hardware/license/tooling,TODO_VERIFY
+Microsoft Phi,92-97,6,open dense reasoning and multimodal models,open-weight local,internal possible conditional on hardware/license/tooling,TODO_VERIFY
+EleutherAI Pythia,98-100,3,research-control open model suite,open-weight local research,unusually good mechanistic research control suite,TODO_VERIFY

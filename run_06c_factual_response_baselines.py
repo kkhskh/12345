@@ -8,6 +8,11 @@ from pathlib import Path
 
 from src.factual_obstruction_eval import auc_scores
 
+# Standardized response score S^z_u = z(delta_m) - alpha * z(delta_O) - gamma * z(cost).
+# alpha == 0 is the attribution-only family used to measure whether obstruction adds value.
+STD_ALPHAS = [-1.0, -0.5, 0.0, 0.5, 1.0, 2.0]
+STD_GAMMAS = [0.0, 0.1, 0.5, 1.0]
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Compare predictive factual response scores to baselines.")
@@ -72,6 +77,66 @@ def base_rows(joined: list[dict]) -> list[dict]:
     return list(out.values())
 
 
+def zscore_by_example(rows: list[dict], source_col: str, target_col: str) -> None:
+    by_id: dict[str, list[dict]] = {}
+    for row in rows:
+        by_id.setdefault(row["id"], []).append(row)
+    for group in by_id.values():
+        vals = [float(row[source_col]) for row in group]
+        mu = mean(vals)
+        if len(vals) < 2:
+            sd = 0.0
+        else:
+            sd = math.sqrt(sum((v - mu) ** 2 for v in vals) / (len(vals) - 1))
+        for row, val in zip(group, vals):
+            row[target_col] = 0.0 if sd == 0 else (val - mu) / sd
+
+
+def add_standardized_columns(rows: list[dict]) -> None:
+    zscore_by_example(rows, "pred_delta_m", "z_attr")
+    zscore_by_example(rows, "pred_delta_O", "z_obst")
+    zscore_by_example(rows, "delta_norm_sq", "z_cost")
+    zscore_by_example(rows, "activation_norm_score", "z_norm")
+    zscore_by_example(rows, "grad_saliency_score", "z_saliency")
+
+
+def std_score_name(alpha: float, gamma: float) -> str:
+    return f"std_response_a{alpha:g}_g{gamma:g}"
+
+
+def add_standardized_scores(rows: list[dict]) -> list[tuple[str, str]]:
+    """Materialize every standardized score variant as a column. Returns (method, column) pairs."""
+    add_standardized_columns(rows)
+    named: list[tuple[str, str]] = []
+    for alpha in STD_ALPHAS:
+        for gamma in STD_GAMMAS:
+            col = std_score_name(alpha, gamma)
+            for row in rows:
+                row[col] = row["z_attr"] - alpha * row["z_obst"] - gamma * row["z_cost"]
+            named.append((col, col))
+    for row in rows:
+        row["std_attr_only"] = row["z_attr"]
+        row["std_obst_only"] = -row["z_obst"]
+    named.extend([("std_attr_only", "std_attr_only"), ("std_obst_only", "std_obst_only")])
+    for gamma in STD_GAMMAS:
+        if gamma == 0.0:
+            continue
+        cost_col = f"std_attr_cost_g{gamma:g}"
+        norm_col = f"std_attr_norm_g{gamma:g}"
+        for row in rows:
+            row[cost_col] = row["z_attr"] - gamma * row["z_cost"]
+            row[norm_col] = row["z_attr"] - gamma * row["z_norm"]
+        named.extend([(cost_col, cost_col), (norm_col, norm_col)])
+    return named
+
+
+def uses_obstruction(method: str) -> bool:
+    if method.startswith("std_response_a"):
+        alpha = float(method.split("_a")[1].split("_g")[0])
+        return alpha != 0.0
+    return method == "std_obst_only"
+
+
 def add_targets(rows: list[dict], pareto_lambda: float = 0.25, kl_gamma: float = 0.0) -> None:
     for row in rows:
         kl = float(row.get("off_target_kl") or 0.0)
@@ -109,6 +174,8 @@ def method_rows(joined: list[dict], seed: int) -> list[tuple[str, list[dict], st
         ("random_score", base, "random_score"),
         ("oracle_delta_m", base, "actual_delta_m"),
     ]
+    for method, score_col in add_standardized_scores(base):
+        methods.append((method, base, score_col))
     response_groups: dict[tuple[str, str], list[dict]] = {}
     for row in joined:
         response_groups.setdefault((row["beta"], row["gamma"]), []).append(row)

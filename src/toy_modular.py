@@ -541,11 +541,12 @@ def spectral_subspace(model, layer: int, n_dims: int):
 
     weight = model.blocks[layer].mlp.W_out.detach().float()
     _, _, vh = torch.linalg.svd(weight, full_matrices=False)
-    return vh[:n_dims].T
+    return vh[:n_dims].T.cpu()
 
 
 def project_out(vectors, basis):
     """Remove the component of `vectors` inside the span of orthonormal `basis`."""
+    basis = basis.to(device=vectors.device, dtype=vectors.float().dtype)
     coeffs = vectors.float() @ basis
     return vectors.float() - coeffs @ basis.T
 
@@ -559,6 +560,7 @@ def match_norm_in_subspace(delta, basis):
     import torch
 
     delta = delta.float()
+    basis = basis.to(device=delta.device, dtype=delta.dtype)
     coeffs = delta @ basis
     projected = coeffs @ basis.T
     proj_norm = projected.norm(dim=-1, keepdim=True)

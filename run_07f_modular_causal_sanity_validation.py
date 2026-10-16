@@ -453,6 +453,8 @@ def test2_controls(args, model, test_tokens, test_labels, base_logits, test_h, B
 
 
 def eval_pairs(model, tokens, labels, correct, rec, don, test_h, batch_size, extra=None):
+    import torch
+
     if rec.numel() == 0:
         return None, None
     rec_tokens = tokens[rec]

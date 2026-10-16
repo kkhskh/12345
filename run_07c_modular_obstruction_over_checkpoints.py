@@ -30,6 +30,7 @@ from src.toy_modular import (
     load_checkpoint,
     make_dataset,
     make_toy_sites,
+    r_squared,
     random_transports,
     split_dataset,
 )
@@ -76,6 +77,7 @@ def main() -> None:
         freqs = key_frequencies(model, cfg.p, top_k=args.n_freqs)
         a_cyc = abstraction_strength(model, cfg.p, top_k=args.n_freqs)
         train_latent = latent_targets(train_tokens, cfg.p, freqs).cpu()
+        test_latent = latent_targets(test_tokens, cfg.p, freqs).cpu()
         latent_dim = train_latent.shape[1]
 
         sites = make_toy_sites(cfg)
@@ -94,13 +96,20 @@ def main() -> None:
         }
 
         with torch.no_grad():
+            import torch.nn.functional as F
+
             test_logits = final_logits(model, test_tokens)
             train_logits = final_logits(model, train_tokens)
+            test_loss = float(F.cross_entropy(test_logits, test_labels))
+            train_loss = float(F.cross_entropy(train_logits, train_labels))
+            per_ex_nll = F.cross_entropy(test_logits, test_labels, reduction="none").cpu()
         test_pred = test_logits.argmax(dim=-1)
         test_correct = (test_pred == test_labels).cpu()
         test_margin = candidate_margin(
             test_logits, test_labels, hardest_incorrect(test_logits, test_labels)
         ).cpu()
+        labels_err = [0 if c else 1 for c in test_correct.tolist()]
+        can_auc = 0 < sum(labels_err) < len(labels_err)
 
         row = {
             "step": step,
@@ -108,8 +117,14 @@ def main() -> None:
             "key_frequencies": " ".join(str(k) for k in freqs),
             "train_acc": float((train_logits.argmax(dim=-1) == train_labels).float().mean()),
             "test_acc": float(test_correct.float().mean()),
+            "train_loss": train_loss,
+            "test_loss": test_loss,
             "mean_test_margin": float(test_margin.mean()),
             "n_test": int(test_tokens.shape[0]),
+            "auc_nll_detects_error": auc_scores(labels_err, per_ex_nll.tolist()) if can_auc else float("nan"),
+            "auc_low_margin_detects_error": (
+                auc_scores(labels_err, (-test_margin).tolist()) if can_auc else float("nan")
+            ),
         }
 
         # Out-of-sample decodability of the latent state at the final residual site.
@@ -117,6 +132,7 @@ def main() -> None:
         true_test_sum = ((test_tokens[:, 0] + test_tokens[:, 1]) % cfg.p).cpu()
         decoded = decode_sum_from_latent(readout, cfg.p, freqs)
         row["decode_acc_test_resid_post"] = float((decoded == true_test_sum).float().mean())
+        row["r2_test_resid_post"] = r_squared(readout, test_latent)
 
         for name, transports in transport_sets.items():
             O_train = latent_obstruction(germ_train, transports, edges)

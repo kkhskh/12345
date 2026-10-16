@@ -1,0 +1,3 @@
+metric,mean_lift,ci_low,ci_high,frac_positive,n_bootstrap,method_with_obstruction,method_without_obstruction
+spearman_pareto,0.008644764036411559,-0.0012848830632196107,0.018040354948126835,0.963,1000,raw_response_beta2.0_gamma0.001,attribution_score
+auc_top_repair,-0.024464827095445736,-0.035305131621446995,-0.014508640180878496,0.0,1000,raw_response_beta2.0_gamma0.001,attribution_score

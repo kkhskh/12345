@@ -23,6 +23,7 @@ simulator rather than guessed from the model. That makes every stage checkable:
 | `run_07b_modular_latent_representation.py` | representation detection | `latent_probe_metrics.csv` |
 | `run_07c_modular_obstruction_over_checkpoints.py` | monitoring | `obstruction_over_checkpoints.csv` |
 | `run_07d_modular_causal_intervention.py` | causal test | `intervention_ablation.csv`, `intervention_repair.csv` |
+| `run_07e_modular_emergence_plot.py` | Figure B: A_cyc, O, acc, loss over t | `emergence_over_training.png` |
 
 All artifacts land under `artifacts/toy_modular/`. Shared machinery lives in `src/toy_modular.py`.
 
@@ -61,7 +62,8 @@ Representation detection is scored against a shuffled-target probe and a matched
 random-subspace probe, so a high probe score cannot come from probe capacity alone. Monitoring
 compares learned transports against identity and random transports. The causal stage compares
 the cyclic subspace against matched-dimension random, top-PCA, and weight-spectral subspaces,
-and compares the latent-target edit against matched-norm edits in each control subspace.
+and compares the latent-target edit against matched-norm edits and a **phase-rotate** control
+(same germ norm, 90° rotation of each `(cos, sin)` pair, so the decoded sum is wrong).
 
 Two design rules matter and were both bugs before they were fixed:
 

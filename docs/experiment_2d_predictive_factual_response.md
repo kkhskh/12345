@@ -159,21 +159,34 @@ NO_GO if:
 
 ## 10. Interpretation Rules
 
-Do not claim final paper success from Experiment 2D alone. A positive result supports the predictive response loop for this task/model/site set.
+Do not claim final paper success from Experiment 2D alone.
 
-If response scores do not beat attribution, interpret 2D as attribution-competitive or attribution-limited, not as a failure of the 2B representation result.
+If response scores do not beat attribution at **repair-site ranking**, interpret 2D as
+attribution-positive and obstruction-limited for steering. That is not a failure of 2B.
 
-If obstruction-only predicts actual obstruction reduction but not margin repair, interpret the result as diagnostic rather than causal repair.
+If obstruction-only predicts actual obstruction reduction but not margin repair, treat
+`pred_ΔO` as a check of the local energy map, not as proof that `O` is the task state.
 
-## 11. What Happens Next
+PASS_WEAK on a tiny Pareto lift with a **negative** repair-AUC lift must not be written up as
+superior causal repair.
 
-If 2D passes, the project can present a coherent factual-conflict obstruction-response ladder:
+## 11. Pythia-1B result (64 examples × 144 sites, `clean_pca` r8)
 
-```text
-2A scalar no-go
--> 2B low-rank representation PASS_STRONG
--> 2C bounded causal patching PASS_WEAK
--> 2D predictive response ranking
-```
+Held-out (32 examples; bootstrap over examples):
 
-If 2D fails, the project still has a strong representation-level obstruction result and bounded causal association, but not yet a predictive site-selection result.
+| Score | Spearman Pareto | AUC repair | AUC `ΔO` |
+|---|---|---|---|
+| Attribution | 0.905 | **0.979** | 0.518 |
+| Best with-obstruction (`β=2, γ=0.001`) | 0.914 | 0.955 | 0.493 |
+| Obstruction only | 0.089 | 0.563 | **0.943** |
+
+- Pareto lift +0.0086, 95% CI [−0.0013, +0.0180]
+- Repair-AUC lift −0.0245, 95% CI [−0.035, −0.015]
+- Decision: **PASS_WEAK** (predefined gate). Repair ranking: obstruction does not beat attribution.
+
+See `docs/paper_claims_after_2d.md`.
+
+## 12. What happens next
+
+Do not retune `β/γ` or rerun 06a. Next is Experiment 0B (modular addition): detect the cyclic
+representation, monitor it, intervene including phase rotation, plot emergence.

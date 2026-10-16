@@ -567,6 +567,32 @@ def match_norm_in_subspace(delta, basis):
     return projected * scale
 
 
+def phase_rotate_delta(acts, germ_W, angle_rad: float, n_freqs: int | None = None):
+    """Norm-preserving rotation of the cyclic (cos, sin) pairs in germ space.
+
+    This is the phase-disruption control: the germ vector keeps its Euclidean norm, but
+    each frequency's phase is rotated, so the decoded modular sum is wrong. A repair that
+    is specific to modular structure should beat this control; a repair that only needs
+    activation energy should not.
+    """
+    import math
+    import torch
+
+    current = apply_ridge(germ_W, acts)
+    dim = current.shape[-1]
+    if n_freqs is None:
+        n_freqs = dim // 2
+    n_used = min(2 * n_freqs, dim - (dim % 2))
+    rotated = current.clone()
+    c, s = math.cos(angle_rad), math.sin(angle_rad)
+    for k in range(0, n_used, 2):
+        cos_k = current[:, k]
+        sin_k = current[:, k + 1]
+        rotated[:, k] = c * cos_k - s * sin_k
+        rotated[:, k + 1] = s * cos_k + c * sin_k
+    return germ_target_delta(acts, germ_W, rotated)
+
+
 def germ_target_delta(acts, germ_W, target_latent):
     """Minimum-norm activation edit that moves the germ to `target_latent`.
 

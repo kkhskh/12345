@@ -38,6 +38,7 @@ from src.toy_modular import (
     make_dataset,
     make_toy_sites,
     match_norm_in_subspace,
+    phase_rotate_delta,
     pca_subspace,
     random_subspace,
     site_ablate_hook,
@@ -214,10 +215,19 @@ def main() -> None:
             subspaces = build_subspaces(
                 model, germs[site.site_id], train_acts[site.site_id], latent_dim, args.seed, layer=site.layer
             )
+            phase_full = phase_rotate_delta(
+                acts, germs[site.site_id], angle_rad=1.5707963267948966, n_freqs=len(freqs)
+            )
+            phase_norm = phase_full.float().norm(dim=-1, keepdim=True)
+            phase_scale = (cap / (phase_norm + 1e-12)).clamp(max=1.0)
+            phase_capped = phase_full * phase_scale
 
             for radius in args.edit_radii:
                 base_edit = radius * delta_capped
-                edits = {"latent_target": base_edit}
+                edits = {
+                    "latent_target": base_edit,
+                    "phase_rotate": radius * phase_capped,
+                }
                 for name, basis in subspaces.items():
                     if name == "cyclic":
                         continue
@@ -278,7 +288,7 @@ def main() -> None:
 
 
 CONTROL_SUBSPACES = ["random", "pca", "spectral"]
-CONTROL_EDITS = ["matched_norm_random", "matched_norm_pca", "matched_norm_spectral"]
+CONTROL_EDITS = ["matched_norm_random", "matched_norm_pca", "matched_norm_spectral", "phase_rotate"]
 
 
 KL_FLOOR = 0.1  # below this the edit barely perturbs the model, so efficiency ratios are noise

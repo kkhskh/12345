@@ -239,6 +239,9 @@ def write_summary(
         "Standardized score: `S_z = z(pred_delta_m) - alpha * z(pred_delta_O) - gamma * z(cost)`,",
         "with z-scores taken across candidate sites within each example.",
         "",
+        "Bootstrap and train/test splits are over **examples**, not over site-rows.",
+        "Spearman-with-Pareto is not the same quantity as Spearman-with-observed-delta-m.",
+        "",
         f"- tuning examples: {n_tune}",
         f"- held-out examples: {n_test}",
         "",
@@ -273,8 +276,11 @@ def write_summary(
             "",
             f"Decision: **{decision}**",
             "",
-            "The obstruction term survives only if the lift over the best obstruction-free score is",
-            "positive out of sample. A negative or zero lift means the score reduces to attribution.",
+            "PASS_STRONG requires a Pareto lift whose interval excludes zero **and** a positive",
+            "held-out repair-AUC lift. PASS_WEAK is a narrow label: a tiny positive mean Pareto",
+            "lift is not evidence that obstruction beats attribution at repair-site selection.",
+            "If repair-AUC lift is negative, report obstruction as a monitor (`pred_ΔO` tracks",
+            "`actual_ΔO`) and attribution as the intervention predictor.",
         ]
     )
     path.write_text("\n".join(lines), encoding="utf-8")

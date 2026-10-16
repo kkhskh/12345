@@ -170,17 +170,44 @@ Component sites that causally improve factual conflict margins tend to reduce lo
 Caveat:
 Experiment 2C is not yet a final PASS_STRONG. Obstruction reduction beats activation norm, gradient saliency, and random baselines, and is competitive with gradient attribution. It does not yet cleanly dominate attribution on every metric, and stronger robustness checks are still needed.
 
+## Experiment 2D: predictive response ranking
+
+Pythia-1B, `clean_pca` r8, 64 examples × 144 sites. Scores computed before patching; 06e
+selects on 32 examples and tests on 32. Bootstrap is over examples.
+
+Held-out:
+- attribution repair AUC 0.979, Spearman vs `Δm` 0.905
+- best obstruction-using score (`raw_response_beta2.0_gamma0.001`) repair AUC 0.955, Spearman Pareto 0.914
+- obstruction-only AUC for actual obstruction reduction 0.943 (attribution: 0.518)
+- Pareto lift +0.0086 [−0.0013, +0.0180]; repair-AUC lift −0.0245 [−0.035, −0.015]
+- decision: **PASS_WEAK**
+
+Interpretation:
+Attribution predicts repair sites. Obstruction predicts obstruction reduction. Combining them
+does not improve steering. Frame obstruction as monitoring and attribution as intervention
+prediction. Do not present PASS_WEAK as a steering win.
+
+See `docs/paper_claims_after_2d.md` and `docs/experiment_2d_predictive_factual_response.md`.
+
 ## Immediate next empirical gate
 
-Do not mix patching into Experiment 2B.
+Experiment 0B, modular addition (representation before steering):
 
-Next:
-- preserve Experiment 2B and 2C artifacts and metrics
-- refine 2C baseline comparisons and separate predictive baselines from outcome-derived summaries
-- run larger or full-site sweeps only after bounded baseline checks remain positive
-- keep Experiment 2C claims at PASS_WEAK until stronger robustness is complete
+```text
+run_07a  train + checkpoints
+run_07b  detect cyclic latent state (held-out decode vs shuffled / random-subspace)
+run_07c  monitor O vs A_cyc, loss, margin, probes
+run_07d  intervene: latent-target vs matched-norm vs phase_rotate
+run_07e  plot emergence
+```
 
-Only then move to component-level factual obstruction and patching.
+Optional 2B audit on existing CSVs (no new GPU):
+
+```text
+run_04d_factual_obstruction_vs_confound_baselines.py --split test
+```
+
+Do not retune 2D. Do not start Othello.
 
 ## T0 math-map purpose
 

@@ -5,7 +5,7 @@ description = "GPT-2 small IOI obstruction-response repair experiments with Tran
 requires-python = ">=3.10"
 dependencies = [
   "torch",
-  "transformer-lens",
+  "transformer-lens>=2.11,<4",
   "numpy",
   "pandas",
   "scipy",

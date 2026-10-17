@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from pathlib import Path
 
 from src.toy_modular import load_checkpoint, make_dataset, split_dataset
@@ -42,7 +43,29 @@ from run_07j_modular_computation_localization import (
 IDENTITY_TOL = 1e-4
 GROUP_SIZES = (16, 32)
 SHIFT_DELTAS = (1, 2, 3, 5, 10)
+EXTRA_DELTAS = (4, 7)
 MIN_PAIRS = 16
+DISCOVERY_GROUPS = {
+    "sum_assoc",
+    "switch_a",
+    "switch_b",
+    "switch_both",
+    "assoc_and_switch",
+    "phase_sum",
+    "switch_contrib",
+    "kmeans_assoc",
+    "svd_gate",
+    "svd_flip",
+}
+CONTROL_GROUPS = {
+    "random",
+    "activity_matched_random",
+    "switch_matched_random",
+    "output_weight",
+    "attribution_proxy",
+    "grad_attr",
+    "shuffled_sum_assoc",
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -148,6 +171,9 @@ def verify_decomposition(w, rec_r, don_r, tokens, true, target, ok, model, batch
         contrib = (dh_gate * mask.float()) @ T
         tgt = target.detach().cpu().long()
         rec_lab = true.detach().cpu().long()
+        h_cat = h_frozen + dh_gate * mask.float()
+        z_cat = apply_post(model, tokens, don_r, h_cat, batch_size)
+        met = intervention_metrics(z_frozen, z_cat, true, target, h_frozen, h_cat, ok)
         rows.append(
             {
                 "check": f"category_{name}",
@@ -155,11 +181,17 @@ def verify_decomposition(w, rec_r, don_r, tokens, true, target, ok, model, batch
                 "mean_abs_logit": float(contrib.abs().mean()),
                 "mean_dlogit_target": float(contrib[range(tgt.shape[0]), tgt].mean()),
                 "mean_dlogit_true": float(contrib[range(rec_lab.shape[0]), rec_lab].mean()),
+                "acc_target_after": met["acc_target_after"],
+                "mean_delta_p_target": met["mean_delta_p_target"],
+                "mean_margin_target_after": met["mean_margin_target_after"],
                 "n": int(u_r.shape[0]),
             }
         )
-        print(f"  {name}: units={rows[-1]['mean_n_units']:.1f} dlogit_target={rows[-1]['mean_dlogit_target']:+.3f}")
-    _ = ok
+        print(
+            f"  {name}: units={rows[-1]['mean_n_units']:.1f} "
+            f"dlogit_t={rows[-1]['mean_dlogit_target']:+.3f} "
+            f"acc={met['acc_target_after']:.3f} ΔP={met['mean_delta_p_target']:+.3f}"
+        )
     return rows, {
         "u_r": u_r,
         "d_r": d_r,
@@ -192,6 +224,39 @@ def unit_sum_assoc(gates, labels, p: int):
     return scores
 
 
+def corr_col(mat, x):
+    import torch
+
+    xc = x.float() - x.float().mean()
+    mc = mat.float() - mat.float().mean(dim=0)
+    return (mc * xc[:, None]).mean(dim=0) / (mc.std(dim=0) * float(xc.std()) + 1e-12)
+
+
+def cyclic_phase_score(gates, values, p: int):
+    import torch
+
+    theta = 2.0 * math.pi * values.detach().float().cpu() / p
+    return corr_col(gates, torch.cos(theta)).abs() + corr_col(gates, torch.sin(theta)).abs()
+
+
+def kmeans_assign(X, k: int, seed: int, iters: int = 12):
+    import torch
+
+    g = torch.Generator().manual_seed(seed)
+    n = X.shape[0]
+    k = min(k, n)
+    centers = X[torch.randperm(n, generator=g)[:k]].clone()
+    assign = torch.zeros(n, dtype=torch.long)
+    for _ in range(iters):
+        dist = ((X[:, None, :] - centers[None, :, :]) ** 2).sum(dim=-1)
+        assign = dist.argmin(dim=1)
+        for j in range(k):
+            m = assign == j
+            if int(m.sum()):
+                centers[j] = X[m].mean(dim=0)
+    return assign
+
+
 def mutual_flip(g1, g2):
     return (g1 - g2).abs()
 
@@ -216,7 +281,9 @@ def gate_feature_table(train_g, train_u, train_lab, train_ok, train_tok, T, p: i
     sw_both = torch.zeros(train_g.shape[1])
     n_a = n_b = n_both = 0
     for rec, don, kind in pairs:
-        flip = mutual_flip(train_g[rec], train_g[don]).mean(dim=0)
+        flip = mutual_flip(train_g[rec], train_g[don])
+        if flip.dim() > 1:
+            flip = flip.mean(dim=0)
         if kind == "a":
             sw_a = sw_a + flip
             n_a += 1
@@ -232,6 +299,52 @@ def gate_feature_table(train_g, train_u, train_lab, train_ok, train_tok, T, p: i
         sw_b = sw_b / n_b
     if n_both:
         sw_both = sw_both / n_both
+    tok = train_tok.detach().cpu()
+    lab = train_lab.detach().cpu().long()
+    phase_sum = cyclic_phase_score(train_g, lab, p)
+    phase_a = cyclic_phase_score(train_g, tok[:, 0], p)
+    phase_b = cyclic_phase_score(train_g, tok[:, 1], p)
+    # class-specific write: mean |T[j, y]| on train (exact d(z_y)/dh_j on the MLP path)
+    grad_attr = T.abs()[:, lab].mean(dim=1)
+    switch_contrib = torch.zeros(train_g.shape[1])
+    n_sw = 0
+    flip_rows = []
+    for rec, don, kind in pairs:
+        if kind != "a":
+            continue
+        d_r, d_d = train_g[rec], train_g[don]
+        u_d = train_u[don]
+        dh_g = (d_d - d_r) * u_d
+        s = int(lab[don].item()) if lab.dim() == 1 else int(lab[don])
+        switch_contrib = switch_contrib + (dh_g * T[:, s]).abs()
+        flip_rows.append(mutual_flip(d_r.unsqueeze(0), d_d.unsqueeze(0)).squeeze(0))
+        n_sw += 1
+    if n_sw:
+        switch_contrib = switch_contrib / n_sw
+    g_c = train_g - freq
+    _, _, Vh_g = torch.linalg.svd(g_c, full_matrices=False)
+    svd_gate = Vh_g[0].abs()
+    if flip_rows:
+        flips = torch.stack(flip_rows, dim=0)
+        flips = flips - flips.mean(dim=0)
+        _, _, Vh_f = torch.linalg.svd(flips, full_matrices=False)
+        svd_flip = Vh_f[0].abs()
+    else:
+        svd_flip = torch.zeros_like(freq)
+    perm = torch.randperm(lab.shape[0], generator=torch.Generator().manual_seed(0))
+    assoc_shuf = unit_sum_assoc(train_g, lab[perm], p)
+    feat_mat = torch.stack(
+        [
+            assoc / (assoc.max() + 1e-12),
+            sw_a / (sw_a.max() + 1e-12),
+            sw_b / (sw_b.max() + 1e-12),
+            sw_both / (sw_both.max() + 1e-12),
+            write_energy / (write_energy.max() + 1e-12),
+            phase_sum / (phase_sum.max() + 1e-12),
+        ],
+        dim=1,
+    )
+    km = kmeans_assign(feat_mat, 8, 0)
     rows = []
     for j in range(train_g.shape[1]):
         rows.append(
@@ -246,6 +359,15 @@ def gate_feature_table(train_g, train_u, train_lab, train_ok, train_tok, T, p: i
                 "sum_assoc": float(assoc[j]),
                 "error_corr": float(err_corr[j]),
                 "logit_write_energy": float(write_energy[j]),
+                "phase_sum": float(phase_sum[j]),
+                "phase_a": float(phase_a[j]),
+                "phase_b": float(phase_b[j]),
+                "grad_attr": float(grad_attr[j]),
+                "switch_contrib": float(switch_contrib[j]),
+                "svd_gate": float(svd_gate[j]),
+                "svd_flip": float(svd_flip[j]),
+                "kmeans_id": int(km[j]),
+                "sum_assoc_shuffled": float(assoc_shuf[j]),
             }
         )
     feats = {
@@ -256,8 +378,16 @@ def gate_feature_table(train_g, train_u, train_lab, train_ok, train_tok, T, p: i
         "sw_both": sw_both,
         "write": write_energy,
         "err_corr": err_corr,
+        "phase_sum": phase_sum,
+        "phase_a": phase_a,
+        "phase_b": phase_b,
+        "grad_attr": grad_attr,
+        "switch_contrib": switch_contrib,
+        "svd_gate": svd_gate,
+        "svd_flip": svd_flip,
+        "assoc_shuf": assoc_shuf,
+        "kmeans": km,
     }
-    _ = train_tok
     return rows, feats
 
 
@@ -316,9 +446,23 @@ def matched_random(score, k: int, seed: int, already: list[int] | None = None):
     return chosen[:k]
 
 
-def build_candidate_groups(feats, sizes, seed: int):
-    import torch
+def kmeans_topk(feats, k: int):
+    km = feats["kmeans"]
+    assoc = feats["assoc"]
+    best_c, best = 0, -1e9
+    for c in km.unique().tolist():
+        sc = float(assoc[km == c].mean())
+        if sc > best:
+            best, best_c = sc, int(c)
+    in_c = (km == best_c).nonzero(as_tuple=False).view(-1)
+    order = in_c[assoc[in_c].argsort(descending=True)]
+    units = [int(v) for v in order[:k].tolist()]
+    if len(units) < k:
+        units.extend(top_k(assoc, k, exclude=set(units))[: k - len(units)])
+    return units
 
+
+def build_candidate_groups(feats, sizes, seed: int):
     groups = []
     for k in sizes:
         groups.append(("sum_assoc", k, top_k(feats["assoc"], k)))
@@ -328,13 +472,18 @@ def build_candidate_groups(feats, sizes, seed: int):
         groups.append(("output_weight", k, top_k(feats["write"], k)))
         attr = feats["assoc"] * feats["write"].sqrt()
         groups.append(("attribution_proxy", k, top_k(attr, k)))
-        # two-feature cluster: high assoc and high switch
+        groups.append(("grad_attr", k, top_k(feats["grad_attr"], k)))
+        groups.append(("switch_contrib", k, top_k(feats["switch_contrib"], k)))
+        groups.append(("phase_sum", k, top_k(feats["phase_sum"], k)))
+        groups.append(("kmeans_assoc", k, kmeans_topk(feats, k)))
+        groups.append(("svd_gate", k, top_k(feats["svd_gate"], k)))
+        groups.append(("svd_flip", k, top_k(feats["svd_flip"], k)))
+        groups.append(("shuffled_sum_assoc", k, top_k(feats["assoc_shuf"], k)))
         combo = feats["assoc"] / (feats["assoc"].max() + 1e-12) + feats["sw_both"] / (feats["sw_both"].max() + 1e-12)
         groups.append(("assoc_and_switch", k, top_k(combo, k)))
         groups.append(("random", k, matched_random(feats["freq"], k, seed + k)))
         groups.append(("activity_matched_random", k, matched_random(feats["freq"], k, seed + 17 + k)))
         groups.append(("switch_matched_random", k, matched_random(feats["sw_both"], k, seed + 31 + k)))
-    _ = torch
     return groups
 
 
@@ -381,14 +530,14 @@ def run_consistency(args, p, eval_g, eval_tok, eval_lab, groups, held_a: set[int
                 break
         return torch.tensor(rec, dtype=torch.long), torch.tensor(don, dtype=torch.long)
 
+    # shift_1: sum +1 while BOTH operands change — not the same as a_only
     conds = {
         "same_sum": (same_rec, same_don),
-        "shift_1": pair_from_shift(1, 0),
+        "shift_1": pair_from_shift(2, -1),
         "a_only": pair_from_shift(1, 0),
         "b_only": pair_from_shift(0, 1),
         "both": pair_from_shift(1, 1),
     }
-    # held-out a
     rec_h, don_h = [], []
     for i in range(tok.shape[0]):
         a = int(tok[i, 0])
@@ -401,7 +550,21 @@ def run_consistency(args, p, eval_g, eval_tok, eval_lab, groups, held_a: set[int
         if len(rec_h) >= 80:
             break
     if rec_h:
-        conds["holdout_a_shift"] = (torch.tensor(rec_h), torch.tensor(don_h))
+        conds["holdout_a"] = (torch.tensor(rec_h), torch.tensor(don_h))
+    held_s = holdout_set(p, 20, args.seed, 23)
+    rec_s, don_s = [], []
+    for i in range(tok.shape[0]):
+        s = int(lab[i])
+        if s not in held_s:
+            continue
+        key = ((int(tok[i, 0]) + 1) % p, int(tok[i, 1]))
+        if key in table:
+            rec_s.append(i)
+            don_s.append(table[key])
+        if len(rec_s) >= 80:
+            break
+    if rec_s:
+        conds["holdout_sum"] = (torch.tensor(rec_s), torch.tensor(don_s))
 
     for gname, k, units in groups:
         mask = torch.zeros(eval_g.shape[1])
@@ -432,7 +595,7 @@ def select_promising(groups, cons_rows, val_causal_scores):
     best = None
     best_score = -1e9
     for gname, k, units in groups:
-        if gname in {"random", "activity_matched_random", "switch_matched_random", "output_weight", "attribution_proxy"}:
+        if gname not in DISCOVERY_GROUPS:
             continue
         jac = [
             r["mean_jaccard"]
@@ -497,7 +660,17 @@ def run_group_causal(args, model, w, pack, tokens, true, target, ok, rec_r, don_
         }
         rows.append(causal_row(model, tokens, true, target, ok, z_b, z_G, h_frozen, h_G, "group_gate_switch", extra))
         rows.append(causal_row(model, tokens, true, target, ok, z_b, z_comp, h_frozen, h_comp, "complement_gate_switch", extra))
-        if gname in {"sum_assoc", "assoc_and_switch", "switch_both", "attribution_proxy", "random"}:
+        if gname in {
+            "sum_assoc",
+            "assoc_and_switch",
+            "switch_both",
+            "attribution_proxy",
+            "grad_attr",
+            "switch_contrib",
+            "phase_sum",
+            "kmeans_assoc",
+            "random",
+        }:
             print(
                 f"  {gname} k={k} G acc={rows[-2]['acc_target_after']:.3f} "
                 f"comp acc={rows[-1]['acc_target_after']:.3f} ΔP_G={rows[-2]['mean_delta_p_target']:+.3f}"
@@ -532,6 +705,27 @@ def apply_reusable(g_rec, units, p_off, p_on, thresh: float = 0.5):
     return pred
 
 
+def same_sum_index_pairs(tokens, labels, n: int, seed: int):
+    import torch
+
+    lab = labels.detach().cpu().long()
+    by_sum: dict[int, list[int]] = {}
+    for i in range(lab.shape[0]):
+        by_sum.setdefault(int(lab[i]), []).append(i)
+    g = torch.Generator().manual_seed(seed)
+    rec, don = [], []
+    for idxs in by_sum.values():
+        if len(idxs) < 2:
+            continue
+        perm = torch.randperm(len(idxs), generator=g)
+        for t in range(min(4, len(idxs) - 1)):
+            rec.append(idxs[int(perm[t])])
+            don.append(idxs[int(perm[t + 1])])
+            if len(rec) >= n:
+                return torch.tensor(rec), torch.tensor(don)
+    return torch.tensor(rec), torch.tensor(don)
+
+
 def run_reusable(args, model, w, p, train_g, train_tok, eval_g, eval_tok, eval_lab, eval_ok, eval_cache, pack_builder, promising):
     import torch
 
@@ -541,14 +735,20 @@ def run_reusable(args, model, w, p, train_g, train_tok, eval_g, eval_tok, eval_l
     table_tr = pair_index(train_tok)
     table_ev = pair_index(eval_tok)
     r_mid_e = site_vec(eval_cache, "resid_mid")
+    train_lab = (train_tok[:, 0] + train_tok[:, 1]) % p
     rows, comp = [], []
+    held_a = holdout_set(p, 20, args.seed, 11)
 
-    def shift_pairs(table, tokens, da, db, n=96, seed=0):
+    def shift_pairs(table, tokens, da, db, n=96, seed=0, require_a=None, forbid_a=None):
         g = torch.Generator().manual_seed(seed)
         rec, don = [], []
         keys = list(table.keys())
         for t in torch.randperm(len(keys), generator=g).tolist():
             a, b = keys[t]
+            if require_a is not None and a not in require_a:
+                continue
+            if forbid_a is not None and a in forbid_a:
+                continue
             key = ((a + da) % p, (b + db) % p)
             if key in table:
                 rec.append(table[(a, b)])
@@ -557,12 +757,7 @@ def run_reusable(args, model, w, p, train_g, train_tok, eval_g, eval_tok, eval_l
                 break
         return torch.tensor(rec), torch.tensor(don)
 
-    for delta in SHIFT_DELTAS:
-        tr_r, tr_d = shift_pairs(table_tr, train_tok, delta, 0, 160, args.seed + 7 * delta)
-        te_r, te_d = shift_pairs(table_ev, eval_tok, delta, 0, 80, args.seed + 11 * delta)
-        if te_r.numel() < MIN_PAIRS or tr_r.numel() < MIN_PAIRS:
-            continue
-        p_off, p_on = fit_reusable_flip(train_g, tr_r, tr_d, units)
+    def eval_maps(delta, p_off, p_on, te_r, te_d, tag: str):
         tokens = eval_tok[te_r]
         true = eval_lab[te_r]
         target = (eval_tok[te_r, 0] + delta + eval_tok[te_r, 1]) % p
@@ -570,78 +765,202 @@ def run_reusable(args, model, w, p, train_g, train_tok, eval_g, eval_tok, eval_l
         rec_r = r_mid_e[te_r]
         don_r = r_mid_e[te_d]
         u_r, d_r, h_r = pre_and_gates(rec_r, w)
-        u_d, d_d, h_d = pre_and_gates(don_r, w)
-        dh_lin, dh_gate, _ = decompose_delta(u_r, d_r, u_d, d_d)
+        u_d, d_d, _ = pre_and_gates(don_r, w)
+        _, dh_gate, _ = decompose_delta(u_r, d_r, u_d, d_d)
         with torch.no_grad():
             z_b = model(tokens)[:, -1, :]
-        # A: pair-specific donor gates on group
         mask = torch.zeros_like(dh_gate)
         mask[:, units] = 1.0
         h_A = (d_r * u_d) + dh_gate * mask
         z_A = apply_post(model, tokens, rec_r, h_A, args.batch_size)
-        # B: reusable predicted gates, applied to recipient preactivation (off-manifold if forced on)
         d_pred = apply_reusable(d_r, units, p_off, p_on)
         h_B = d_pred * u_r
         z_B = apply_post(model, tokens, rec_r, h_B, args.batch_size)
-        # logit steering baseline: add constant to target class
         z_steer = z_b.clone()
         tgt = target.detach().cpu().long()
         z_steer[range(tgt.shape[0]), tgt.to(z_steer.device)] += 4.0
-        # shuffled reusable: permute train donor gates
+        return tokens, true, target, ok, z_b, z_A, z_B, z_steer, d_r, h_r, h_A, h_B, d_pred
+
+    deltas = tuple(SHIFT_DELTAS) + tuple(EXTRA_DELTAS)
+    for delta in deltas:
+        tr_r, tr_d = shift_pairs(table_tr, train_tok, delta, 0, 160, args.seed + 7 * delta)
+        te_r, te_d = shift_pairs(table_ev, eval_tok, delta, 0, 80, args.seed + 11 * delta)
+        if te_r.numel() < MIN_PAIRS or tr_r.numel() < MIN_PAIRS:
+            continue
+        p_off, p_on = fit_reusable_flip(train_g, tr_r, tr_d, units)
+        tokens, true, target, ok, z_b, z_A, z_B, z_steer, d_r, h_r, h_A, h_B, d_pred = eval_maps(
+            delta, p_off, p_on, te_r, te_d, "shift"
+        )
         perm = torch.randperm(tr_d.numel())
         p_off_s, p_on_s = fit_reusable_flip(train_g, tr_r, tr_d[perm], units)
         d_sh = apply_reusable(d_r, units, p_off_s, p_on_s)
-        z_sh = apply_post(model, tokens, rec_r, d_sh * u_r, args.batch_size)
+        z_sh = apply_post(model, tokens, r_mid_e[te_r], d_sh * pre_and_gates(r_mid_e[te_r], w)[0], args.batch_size)
         for name, za, hb, ha, note in (
-            ("pair_specific_group", z_A, d_r * u_d, h_A, "uses donor gates"),
+            ("pair_specific_group", z_A, d_r * pre_and_gates(r_mid_e[te_d], w)[0], h_A, "uses donor gates"),
             ("reusable_no_donor", z_B, h_r, h_B, "forced gates on recipient u_r; may be off-manifold"),
             ("logit_steer_plus4", z_steer, h_r, h_r, "direct logit baseline, not internal arithmetic"),
-            ("shuffled_reusable", z_sh, h_r, d_sh * u_r, "scrambled train pairing"),
+            ("shuffled_reusable", z_sh, h_r, d_sh * pre_and_gates(r_mid_e[te_r], w)[0], "scrambled train pairing"),
         ):
-            row = causal_row(
-                model,
-                tokens,
-                true,
-                target,
-                ok,
-                z_b,
-                za,
-                hb,
-                ha,
-                name,
-                {"group": gname, "size": k, "delta": delta, "note": note},
+            rows.append(
+                causal_row(
+                    model,
+                    tokens,
+                    true,
+                    target,
+                    ok,
+                    z_b,
+                    za,
+                    hb,
+                    ha,
+                    name,
+                    {"group": gname, "size": k, "delta": delta, "split": "all_a", "note": note},
+                )
             )
-            rows.append(row)
         print(
             f"  Δ={delta} pair-specific acc={rows[-4]['acc_target_after']:.3f} "
             f"reusable={rows[-3]['acc_target_after']:.3f} steer={rows[-2]['acc_target_after']:.3f} "
             f"shuffle={rows[-1]['acc_target_after']:.3f}"
         )
 
+    # held-out operand a: fit on complement, test on held a
+    tr_r, tr_d = shift_pairs(table_tr, train_tok, 1, 0, 160, args.seed + 71, forbid_a=held_a)
+    te_r, te_d = shift_pairs(table_ev, eval_tok, 1, 0, 80, args.seed + 73, require_a=held_a)
+    if te_r.numel() >= MIN_PAIRS and tr_r.numel() >= MIN_PAIRS:
+        p_off, p_on = fit_reusable_flip(train_g, tr_r, tr_d, units)
+        tokens, true, target, ok, z_b, z_A, z_B, z_steer, d_r, h_r, h_A, h_B, d_pred = eval_maps(
+            1, p_off, p_on, te_r, te_d, "holdout_a"
+        )
+        perm = torch.randperm(tr_d.numel())
+        p_off_s, p_on_s = fit_reusable_flip(train_g, tr_r, tr_d[perm], units)
+        u_r = pre_and_gates(r_mid_e[te_r], w)[0]
+        d_sh = apply_reusable(d_r, units, p_off_s, p_on_s)
+        z_sh = apply_post(model, tokens, r_mid_e[te_r], d_sh * u_r, args.batch_size)
+        for name, za, hb, ha, note in (
+            ("pair_specific_group", z_A, d_r * pre_and_gates(r_mid_e[te_d], w)[0], h_A, "holdout-a donor gates"),
+            ("reusable_no_donor", z_B, h_r, h_B, "holdout-a reusable map"),
+            ("logit_steer_plus4", z_steer, h_r, h_r, "direct logit baseline"),
+            ("shuffled_reusable", z_sh, h_r, d_sh * u_r, "scrambled holdout-a pairing"),
+        ):
+            rows.append(
+                causal_row(
+                    model,
+                    tokens,
+                    true,
+                    target,
+                    ok,
+                    z_b,
+                    za,
+                    hb,
+                    ha,
+                    name,
+                    {"group": gname, "size": k, "delta": 1, "split": "holdout_a", "note": note},
+                )
+            )
+        print(
+            f"  holdout_a reusable acc={rows[-3]['acc_target_after']:.3f} "
+            f"pair-specific={rows[-4]['acc_target_after']:.3f}"
+        )
+
     maps = {}
-    for delta in (0, 1, 2, 3, 5, 10):
-        if delta == 0:
-            maps[0] = (torch.zeros(len(units)), torch.ones(len(units)))
-            continue
-        rr, dd = shift_pairs(table_tr, train_tok, delta, 0, 100, args.seed + 50 + delta)
+    for delta in (1, 2, 3, 4, 5, 7, 10):
+        rr, dd = shift_pairs(table_tr, train_tok, delta, 0, 120, args.seed + 50 + delta)
         if rr.numel() >= MIN_PAIRS:
             maps[delta] = fit_reusable_flip(train_g, rr, dd, units)
-    te_r, _ = shift_pairs(table_ev, eval_tok, 1, 0, 80, args.seed + 99)
+    # real G_0: fit flip table on same-sum pairs (not hardcoded identity)
+    tr0_r, tr0_d = same_sum_index_pairs(train_tok, train_lab, 160, args.seed + 19)
+    te0_r, te0_d = same_sum_index_pairs(eval_tok, eval_lab, 80, args.seed + 29)
+    if tr0_r.numel() >= MIN_PAIRS:
+        maps[0] = fit_reusable_flip(train_g, tr0_r, tr0_d, units)
+
+    te_r, te_d = shift_pairs(table_ev, eval_tok, 3, 0, 80, args.seed + 99)
     if te_r.numel() >= MIN_PAIRS and 1 in maps and 2 in maps and 3 in maps:
+        tokens = eval_tok[te_r]
+        true = eval_lab[te_r]
+        target = (eval_tok[te_r, 0] + 3 + eval_tok[te_r, 1]) % p
+        ok = eval_ok[te_r]
+        rec_r = r_mid_e[te_r]
+        u_r, d_r, h_r = pre_and_gates(rec_r, w)
+        with torch.no_grad():
+            z_b = model(tokens)[:, -1, :]
 
         def apply_map(g, delta):
             off, on = maps[delta]
             return apply_reusable(g, units, off, on)
 
-        d_r = eval_g[te_r]
         g12 = apply_map(apply_map(d_r, 1), 2)
         g3 = apply_map(d_r, 3)
-        g0 = apply_map(d_r, 0)
+        h_12 = g12 * u_r
+        h_3 = g3 * u_r
+        z_12 = apply_post(model, tokens, rec_r, h_12, args.batch_size)
+        z_3 = apply_post(model, tokens, rec_r, h_3, args.batch_size)
         fro12 = float((g12[:, units] - g3[:, units]).abs().mean())
-        fro0 = float((g0[:, units] - d_r[:, units]).abs().mean())
-        comp.append({"pair": "G1 G2 vs G3", "mean_bit_disagreement": fro12, "n": int(te_r.numel()), "group": gname, "size": k})
-        comp.append({"pair": "G0 vs I", "mean_bit_disagreement": fro0, "n": int(te_r.numel()), "group": gname, "size": k})
-        print(f"  compose G1G2 vs G3 bit-dis={fro12:.3f}; G0 vs I bit-dis={fro0:.3f}")
+        row12 = causal_row(
+            model, tokens, true, target, ok, z_b, z_12, h_r, h_12, "compose_G1G2",
+            {"group": gname, "size": k, "delta": 3, "note": "causal G1 then G2 on recipient u_r"},
+        )
+        row3 = causal_row(
+            model, tokens, true, target, ok, z_b, z_3, h_r, h_3, "compose_G3",
+            {"group": gname, "size": k, "delta": 3, "note": "causal G3 on recipient u_r"},
+        )
+        rows.append(row12)
+        rows.append(row3)
+        comp.append(
+            {
+                "pair": "G1 G2 vs G3",
+                "mean_bit_disagreement": fro12,
+                "acc_compose": row12["acc_target_after"],
+                "acc_direct": row3["acc_target_after"],
+                "mean_kl_compose": row12["mean_kl"],
+                "mean_kl_direct": row3["mean_kl"],
+                "n": int(te_r.numel()),
+                "group": gname,
+                "size": k,
+            }
+        )
+        print(
+            f"  compose G1∘G2 acc={row12['acc_target_after']:.3f} vs G3 acc={row3['acc_target_after']:.3f} "
+            f"bit-dis={fro12:.3f}"
+        )
+
+    if 0 in maps and te0_r.numel() >= MIN_PAIRS:
+        tokens = eval_tok[te0_r]
+        true = eval_lab[te0_r]
+        target = eval_lab[te0_r]
+        ok = eval_ok[te0_r]
+        rec_r = r_mid_e[te0_r]
+        u_r, d_r, h_r = pre_and_gates(rec_r, w)
+        d0 = apply_reusable(d_r, units, maps[0][0], maps[0][1])
+        h0 = d0 * u_r
+        with torch.no_grad():
+            z_b = model(tokens)[:, -1, :]
+        z0 = apply_post(model, tokens, rec_r, h0, args.batch_size)
+        zI = apply_post(model, tokens, rec_r, h_r, args.batch_size)
+        fro0 = float((d0[:, units] - d_r[:, units]).abs().mean())
+        don_bits = float((d0[:, units] - eval_g[te0_d][:, units]).abs().mean()) if te0_d.numel() == te0_r.numel() else float("nan")
+        row0 = causal_row(
+            model, tokens, true, target, ok, z_b, z0, h_r, h0, "G0_same_sum",
+            {"group": gname, "size": k, "delta": 0, "note": "fitted same-sum flip table, not hardcoded I"},
+        )
+        rowI = causal_row(
+            model, tokens, true, target, ok, z_b, zI, h_r, h_r, "identity_same_sum",
+            {"group": gname, "size": k, "delta": 0, "note": "leave recipient gates unchanged"},
+        )
+        rows.append(row0)
+        rows.append(rowI)
+        comp.append(
+            {
+                "pair": "G0 vs I",
+                "mean_bit_disagreement": fro0,
+                "mean_bit_vs_donor": don_bits,
+                "acc_G0": row0["acc_target_after"],
+                "acc_identity": rowI["acc_target_after"],
+                "n": int(te0_r.numel()),
+                "group": gname,
+                "size": k,
+            }
+        )
+        print(f"  G0 (fitted same-sum) vs I bit-dis={fro0:.3f} acc_G0={row0['acc_target_after']:.3f}")
+    _ = pack_builder
     return rows, comp, None
 
 
@@ -699,10 +1018,40 @@ def decide(ident, cons, causal, reusable, groups, promising) -> dict:
     steer_acc = sum(r["acc_target_after"] for r in steer) / len(steer) if steer else float("nan")
     shuf_acc = sum(r["acc_target_after"] for r in shuf) / len(shuf) if shuf else float("nan")
 
-    same = [r for r in cons if r["condition"] == "same_sum" and promising and r["group"] == promising[0] and r["size"] == promising[1]]
-    shift = [r for r in cons if r["condition"] == "shift_1" and promising and r["group"] == promising[0] and r["size"] == promising[1]]
-    jac_same = same[0]["mean_jaccard"] if same else float("nan")
-    jac_shift = shift[0]["mean_jaccard"] if shift else float("nan")
+    def cons_val(cond):
+        hit = [
+            r
+            for r in cons
+            if r["condition"] == cond and promising and r["group"] == promising[0] and r["size"] == promising[1]
+        ]
+        return hit[0]["mean_jaccard"] if hit else float("nan")
+
+    jac_same = cons_val("same_sum")
+    jac_shift = cons_val("shift_1")
+    jac_a = cons_val("a_only")
+    jac_b = cons_val("b_only")
+    jac_ha = cons_val("holdout_a")
+    jac_hs = cons_val("holdout_sum")
+
+    g_rows = [
+        r
+        for r in causal
+        if r["intervention"] == "group_gate_switch"
+        and promising
+        and r.get("group") == promising[0]
+        and r.get("size") == promising[1]
+    ]
+    damage = (
+        float(g_rows[0]["acc_true_before"] - g_rows[0]["acc_true_after"]) if g_rows else float("nan")
+    )
+    c12 = [r for r in reusable if r["intervention"] == "compose_G1G2"]
+    c3 = [r for r in reusable if r["intervention"] == "compose_G3"]
+    g0 = [r for r in reusable if r["intervention"] == "G0_same_sum"]
+    ident_ss = [r for r in reusable if r["intervention"] == "identity_same_sum"]
+    compose_acc = c12[0]["acc_target_after"] if c12 else float("nan")
+    direct_acc = c3[0]["acc_target_after"] if c3 else float("nan")
+    g0_acc = g0[0]["acc_target_after"] if g0 else float("nan")
+    id_acc = ident_ss[0]["acc_target_after"] if ident_ss else float("nan")
 
     reusable_ok = (
         reuse_acc == reuse_acc
@@ -713,12 +1062,16 @@ def decide(ident, cons, causal, reusable, groups, promising) -> dict:
         and reuse_acc >= 0.50 * max(pair_acc, 1e-6)
     )
     beats_attr = g_acc == g_acc and attr_acc == attr_acc and g_acc >= attr_acc + 0.10 and g_acc >= rand_acc + 0.10
+    compose_ok = compose_acc != compose_acc or direct_acc != direct_acc or abs(compose_acc - direct_acc) <= 0.12
+    g0_ok = g0_acc != g0_acc or id_acc != id_acc or abs(g0_acc - id_acc) <= 0.12
     structure = (
         jac_same == jac_same
         and jac_shift == jac_shift
         and jac_same >= jac_shift + 0.08
         and beats_attr
         and reusable_ok
+        and compose_ok
+        and g0_ok
     )
 
     if structure:
@@ -772,10 +1125,22 @@ def decide(ident, cons, causal, reusable, groups, promising) -> dict:
         "shuffle_acc": shuf_acc,
         "jaccard_same": jac_same,
         "jaccard_shift": jac_shift,
+        "jaccard_a_only": jac_a,
+        "jaccard_b_only": jac_b,
+        "jaccard_holdout_a": jac_ha,
+        "jaccard_holdout_sum": jac_hs,
+        "correct_damage": damage,
+        "compose_G1G2_acc": compose_acc,
+        "compose_G3_acc": direct_acc,
+        "G0_acc": g0_acc,
+        "identity_acc": id_acc,
     }
 
 
 def write_report(path, decision, ident_ok: bool):
+    def num(key, default=float("nan")):
+        return decision.get(key, default)
+
     md = f"""# 07k scientific report
 
 **Official 07d: NO_GO (unchanged). 07g–07i: B (unchanged). 07j: A (unchanged).**
@@ -792,30 +1157,35 @@ Identity Δh = D_r(u_d−u_r)+(D_d−D_r)u_d and Δz_gate = Δh_gate T were veri
 
 ## 2. Candidate groups
 
-Discovery used training data only. Groups (sizes {list(GROUP_SIZES)}): sum association, a/b/both switch frequency, output-weight, attribution proxy, assoc∧switch, and matched random controls. Val selected: {decision['promising']}.
+Discovery used training data only. Groups (sizes {list(GROUP_SIZES)}): sum association, a/b/both switch frequency, phase(sum), switch-contrib, k-means, SVD of gates/flips, gradient |T[j,y]|, output-weight, attribution proxy, shuffled-label rediscovery, assoc∧switch, and matched random controls. Val selected: {decision['promising']}.
 
-High sum-association is not treated as causal.
+High sum-association is not treated as causal. Shuffled-label rediscovery is a control.
 
 ## 3. Mathematical consistency
 
-Same-sum Jaccard vs shift-1 Jaccard for the selected group: {decision['jaccard_same']:.3f} vs {decision['jaccard_shift']:.3f}. Individual gates are not required to be same-sum invariant.
+Conditions are distinct: same-sum; shift_1 = (+2,−1) so both operands change and the sum shifts; a_only; b_only; holdout_a; holdout_sum.
+Selected group Jaccard: same-sum={num('jaccard_same'):.3f}, shift_1={num('jaccard_shift'):.3f}, a_only={num('jaccard_a_only'):.3f}, b_only={num('jaccard_b_only'):.3f}, holdout_a={num('jaccard_holdout_a'):.3f}, holdout_sum={num('jaccard_holdout_sum'):.3f}.
+Individual gates are not required to be same-sum invariant.
 
 ## 4–5. Causal necessity / sufficiency vs controls
 
-Full recompute acc={decision['full_acc']:.3f}. Frozen recipient acc={decision['frozen_acc']:.3f}. All-512 gate-switch acc={decision['all_gate_acc']:.3f}.
-Selected group-only acc={decision['group_acc']:.3f}. Complement acc={decision['complement_acc']:.3f}.
-Random={decision['random_acc']:.3f}. Attribution proxy={decision['attr_acc']:.3f}. Output-weight={decision['weight_acc']:.3f}.
+Full recompute acc={num('full_acc'):.3f}. Frozen recipient acc={num('frozen_acc'):.3f}. All-512 gate-switch acc={num('all_gate_acc'):.3f}.
+Selected group-only acc={num('group_acc'):.3f}. Complement acc={num('complement_acc'):.3f}.
+Random={num('random_acc'):.3f}. Attribution proxy={num('attr_acc'):.3f}. Output-weight={num('weight_acc'):.3f}.
+Correct-example damage (drop in acc_true)={num('correct_damage'):.3f}.
 
 Sufficiency: group-only vs full. Necessity: complement vs full. Interventions use observed u_r, u_d (exact decomposition), not invented preactivations, except the reusable map which is labeled off-manifold.
 
 ## 6–7. Reusable transform and composition
 
-Pair-specific (needs donor gates) acc={decision['pair_acc']:.3f}.
-Reusable no-donor acc={decision['reuse_acc']:.3f}.
-Logit-steer baseline acc={decision['steer_acc']:.3f}.
-Shuffled-label reusable acc={decision['shuffle_acc']:.3f}.
+Pair-specific (needs donor gates) acc={num('pair_acc'):.3f}.
+Reusable no-donor acc={num('reuse_acc'):.3f}.
+Logit-steer baseline acc={num('steer_acc'):.3f}.
+Shuffled-label reusable acc={num('shuffle_acc'):.3f}.
+Causal G1∘G2 acc={num('compose_G1G2_acc'):.3f} vs G3 acc={num('compose_G3_acc'):.3f}.
+Fitted G_0 (same-sum flip table, not hardcoded I) acc={num('G0_acc'):.3f} vs identity acc={num('identity_acc'):.3f}.
 
-A reusable map that only forces logits does not count. G_0 and G_Δ1 G_Δ2 are reported in `07k_group_composition.csv` when defined.
+A reusable map that only forces logits does not count. G_0 and G1∘G2 vs G3 are reported in `07k_group_composition.csv` when defined. Extra shifts 4 and 7 are included.
 
 ## 8. Error prediction
 
@@ -823,7 +1193,7 @@ See `07k_error_prediction.csv`. Marked NOT APPLICABLE unless Parts B–E produce
 
 ## 9. Controls
 
-Random, activity/switch-matched random, attribution, output-weight, shuffled pairings, same-sum vs shift, wrong-sum targets, correct-example damage columns, train/val selection only. Representation is not claimed unique (superposition / redundancy).
+Random, activity/switch-matched random, attribution, gradient |T|, output-weight, shuffled-label rediscovery, shuffled pairings, same-sum vs shift_1 vs a_only, holdout-a / holdout-sum, wrong-sum targets, correct-example damage columns, train/val selection only. Representation is not claimed unique (superposition / redundancy). Controls: {sorted(CONTROL_GROUPS)}.
 
 ## What this is not
 
@@ -861,7 +1231,7 @@ def make_figures(figures_dir: Path, feats, causal, cons, groups) -> None:
     names = sorted({r["group"] for r in cons if r["size"] == 32})
     if names:
         fig, ax = plt.subplots(figsize=(8, 4))
-        for cond, marker in (("same_sum", "o"), ("shift_1", "s")):
+        for cond, marker in (("same_sum", "o"), ("shift_1", "s"), ("a_only", "^")):
             xs, ys = [], []
             for i, name in enumerate(names):
                 hit = [r for r in cons if r["group"] == name and r["size"] == 32 and r["condition"] == cond]

@@ -12,10 +12,12 @@ from src.othello_r1_eval import (
     choose_wrong_donors,
     evaluate_completion,
     intended_disagreed_squares,
+    isolate_r1_results_dir,
     local_source_readiness,
     nonempty_csv,
     prefix_overlap_by_length,
     real_outputs_scientifically_usable,
+    resolve_probe_path,
     score_hook_event,
     wrong_square_linear_edit,
 )
@@ -241,6 +243,38 @@ def test_real_outputs_reject_synthetic_or_empty(tmp_path: Path):
     assert ok is False
     assert "synthetic" in reason or "numeric" in reason or "schema" in reason
     assert nonempty_csv(tmp_path / "08r1_real_corrected_probability_metrics.csv", ["became_legal_delta_mass"])
+
+
+def test_resolve_probe_path_uses_explicit_file_not_default(tmp_path: Path):
+    ckpt = tmp_path / "ckpts"
+    ckpt.mkdir()
+    default = ckpt / "08c_selected_probe.pkl"
+    default.write_bytes(b"default-probe")
+    explicit = tmp_path / "drive_root" / "08c_selected_probe.pkl"
+    explicit.parent.mkdir()
+    explicit.write_bytes(b"discovered-probe")
+    info = resolve_probe_path(explicit, ckpt)
+    assert info["source"] == "explicit_probe_path"
+    assert info["fallback_used"] == 0
+    assert info["exists"] is True
+    assert Path(info["probe_path"]).read_bytes() == b"discovered-probe"
+    missing = resolve_probe_path(tmp_path / "absent.pkl", ckpt)
+    assert missing["exists"] is False
+    assert missing["fallback_used"] == 0
+    assert Path(missing["probe_path"]).name == "absent.pkl"
+
+
+def test_results_dir_nests_when_historical_artifacts_present(tmp_path: Path):
+    hist = tmp_path / "results"
+    hist.mkdir()
+    (hist / "08a_dataset_manifest.json").write_text("{}", encoding="utf-8")
+    (hist / "08i_decision.json").write_text("{}", encoding="utf-8")
+    out = isolate_r1_results_dir(hist)
+    assert out["nested"] == 1
+    assert Path(out["results_dir"]).name == "08r1_real"
+    assert "08a_dataset_manifest.json" in out["historical_artifacts_seen"]
+    clean = isolate_r1_results_dir(tmp_path / "empty_results")
+    assert clean["nested"] == 0
 
 
 def test_08d_missing_probe_exits_blocked(tmp_path: Path):

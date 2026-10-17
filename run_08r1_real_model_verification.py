@@ -31,8 +31,10 @@ from src.othello_r1_eval import (
     dist_stats,
     evaluate_completion,
     intended_disagreed_squares,
+    isolate_r1_results_dir,
     real_outputs_scientifically_usable,
     record_hf_revision,
+    resolve_probe_path,
     score_hook_event,
     sha256_file,
     wrong_square_linear_edit,
@@ -71,6 +73,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--results-dir", default=None)
     p.add_argument("--data-dir", default=None)
     p.add_argument("--checkpoints-dir", default=None)
+    p.add_argument("--probe-path", default=None, help="Exact 08c_selected_probe.pkl. No silent substitute.")
     p.add_argument("--device", default=None)
     p.add_argument("--n-pairs", type=int, default=None)
     p.add_argument("--n-inspect", type=int, default=8)
@@ -438,7 +441,11 @@ def main() -> None:
         cfg["data_dir"] = args.data_dir
     if args.checkpoints_dir:
         cfg["checkpoints_dir"] = args.checkpoints_dir
-    results_dir = ensure_dir(cfg["results_dir"])
+    isolation = isolate_r1_results_dir(cfg["results_dir"])
+    if isolation["collisions"]:
+        raise SystemExit("REFUSING to overwrite historical 08a-08i artifacts: " + ",".join(isolation["collisions"]))
+    results_dir = ensure_dir(isolation["results_dir"])
+    print(f"  results_dir={results_dir} requested={isolation['requested']} nested={isolation['nested']}")
     status_path = Path(results_dir) / "08r1_real_model_status.json"
     n_pairs = int(args.n_pairs or cfg["n_pairs"])
     n_boot = int(args.n_boot)
@@ -477,10 +484,15 @@ def main() -> None:
         raise SystemExit("FAILED: checkpoint identity")
     stages["checkpoint_identity"] = "PASS"
 
-    probe_path = Path(cfg["checkpoints_dir"]) / "08c_selected_probe.pkl"
+    probe_info = resolve_probe_path(args.probe_path, cfg["checkpoints_dir"])
+    probe_path = Path(probe_info["probe_path"])
     probe_hash = sha256_file(probe_path)
     pack = None
-    if probe_path.exists():
+    print(
+        f"  probe_path={probe_path} exists={probe_info['exists']} "
+        f"source={probe_info['source']} fallback_used={probe_info['fallback_used']}"
+    )
+    if probe_info["exists"]:
         with probe_path.open("rb") as handle:
             pack = pickle.load(handle)
 
@@ -921,8 +933,12 @@ def main() -> None:
         "device": str(next(model.parameters()).device),
         "git_commit": git_hash(),
         "dataset_sha256": data_hashes,
-        "probe_path": str(probe_path) if probe_path.exists() else None,
+        "probe_path": str(probe_path) if probe_path.exists() else str(probe_path),
+        "probe_exists": bool(probe_info["exists"]),
+        "probe_source": probe_info["source"],
+        "probe_fallback_used": probe_info["fallback_used"],
         "probe_sha256": probe_hash,
+        "results_isolation": isolation,
         "n_pairs": len(pairs),
         "n_inspect": inspect_n,
         "n_test_prefixes": len(test),

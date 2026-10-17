@@ -31,6 +31,9 @@ def test_real_runner_exists_and_compiles():
     assert "evaluate_completion" in text
     assert "choose_wrong_donors" in text
     assert "wrong_square_linear_edit" in text
+    assert "--probe-path" in text
+    assert "resolve_probe_path" in text
+    assert "isolate_r1_results_dir" in text
 
 
 def test_missing_real_stack_exits_pending_not_passed():

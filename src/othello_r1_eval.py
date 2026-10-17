@@ -57,7 +57,63 @@ REQUIRED_SOURCE_MARKERS = (
     "BLOCKED_MISSING_ARTIFACT",
     "evaluate_completion",
     "prefix_overlap_by_length",
+    "--probe-path",
+    "resolve_probe_path",
 )
+
+HISTORICAL_RESULT_PREFIXES = ("08a_", "08b_", "08c_", "08d_", "08e_", "08f_", "08g_", "08h_", "08i_")
+R1_WRITE_NAMES = REQUIRED_REAL_FILES + ("08r1_real_activation_tensors.npz",)
+
+
+def resolve_probe_path(explicit: str | Path | None, checkpoints_dir: str | Path) -> dict:
+    """Use the exact --probe-path when given. Never silently substitute another pickle."""
+    default = Path(checkpoints_dir) / "08c_selected_probe.pkl"
+    if explicit is not None and str(explicit).strip():
+        path = Path(explicit)
+        return {
+            "probe_path": str(path),
+            "probe_path_resolved": str(path.resolve()) if path.exists() else str(path),
+            "exists": path.is_file(),
+            "source": "explicit_probe_path",
+            "fallback_used": 0,
+            "default_path": str(default),
+            "default_exists": default.is_file(),
+        }
+    return {
+        "probe_path": str(default),
+        "probe_path_resolved": str(default.resolve()) if default.exists() else str(default),
+        "exists": default.is_file(),
+        "source": "checkpoints_dir_default",
+        "fallback_used": 0,
+        "default_path": str(default),
+        "default_exists": default.is_file(),
+    }
+
+
+def isolate_r1_results_dir(requested: str | Path) -> dict:
+    """Write 08R1 outputs under a dedicated directory so 08a–08i files are not overwritten."""
+    requested = Path(requested)
+    historical = []
+    if requested.exists() and requested.is_dir():
+        historical = sorted(
+            p.name for p in requested.iterdir() if p.name.startswith(HISTORICAL_RESULT_PREFIXES)
+        )
+    if historical:
+        out = requested / "08r1_real"
+        reason = "requested directory contains historical 08a-08i artifacts; nesting 08r1_real/"
+    else:
+        out = requested
+        reason = "requested directory has no historical 08a-08i artifacts"
+    collisions = [name for name in R1_WRITE_NAMES if (requested / name).exists() and name.startswith(HISTORICAL_RESULT_PREFIXES)]
+    return {
+        "requested": str(requested),
+        "results_dir": str(out),
+        "nested": int(out != requested),
+        "historical_artifacts_seen": historical,
+        "collisions": collisions,
+        "reason": reason,
+        "write_names": list(R1_WRITE_NAMES),
+    }
 
 
 def sha256_bytes(data: bytes) -> str:

@@ -138,8 +138,9 @@ def patch_and_audit(model, token_lists, expected_hook: str, values, batch_size: 
             chunk_vals = values[start : start + len(chunk)]
             grabbed = []
 
-            def patch_fn(act, hook_obj, vals=chunk_vals, lens=lengths, expected=expected_hook):
+            def patch_fn(act, hook, vals=chunk_vals, lens=lengths, expected=expected_hook):
                 nonlocal fire_count, others_ok
+                hook_obj = hook  # TransformerLens calls hook(act, hook=self)
                 name = getattr(hook_obj, "name", None)
                 if name is None:
                     raise RuntimeError(f"hook_obj.name missing for expected {expected}")
@@ -157,7 +158,8 @@ def patch_and_audit(model, token_lists, expected_hook: str, values, batch_size: 
                         others_ok = False
                 return out
 
-            def grab_fn(act, hook_obj, lens=lengths, expected=expected_hook):
+            def grab_fn(act, hook, lens=lengths, expected=expected_hook):
+                hook_obj = hook  # TransformerLens calls hook(act, hook=self)
                 name = getattr(hook_obj, "name", None)
                 if str(name) != expected:
                     raise RuntimeError(f"readback hook_obj.name={name!r} != {expected!r}")

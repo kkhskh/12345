@@ -566,7 +566,6 @@ def random_untrained_othello(seed: int = 0, device: str | None = None):
 
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
-    g = torch.Generator().manual_seed(seed)
     cfg = HookedTransformerConfig(
         n_layers=int(MODEL_SPEC["n_layers"]),
         d_model=int(MODEL_SPEC["d_model"]),
@@ -581,9 +580,10 @@ def random_untrained_othello(seed: int = 0, device: str | None = None):
         seed=seed,
     )
     model = HookedTransformer(cfg)
-    with torch.no_grad():
-        for p in model.parameters():
-            p.normal_(generator=g)
+    # CPU generator: p.normal_(generator=cpu_gen) raises if parameters are already on CUDA.
+    from src.othello_r1 import apply_cpu_normal_to_tensors
+
+    apply_cpu_normal_to_tensors(model.parameters(), seed)
     model.to(device)
     model.eval()
     return model

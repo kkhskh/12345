@@ -7,6 +7,7 @@ from src.toy_othello import pad_batch, softmax_np
 
 
 def test_pad_batch_preserves_lengths():
+    pytest.importorskip("torch")
     toks, lengths = pad_batch([[1, 2, 3], [4]], device=None)
     assert lengths == [3, 1]
     assert int(toks[0, 2]) == 3
@@ -14,6 +15,7 @@ def test_pad_batch_preserves_lengths():
 
 
 def test_softmax_rows_sum_to_one():
+    pytest.importorskip("torch")
     p = softmax_np(np.zeros((4, 61)))
     assert np.allclose(p.sum(axis=-1), 1.0)
 

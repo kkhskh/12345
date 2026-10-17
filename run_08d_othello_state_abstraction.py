@@ -54,9 +54,15 @@ def main() -> None:
     fig_dir = ensure_dir(cfg["figures_dir"])
     probe_path = Path(cfg["checkpoints_dir"]) / "08c_selected_probe.pkl"
     if not probe_path.exists():
-        write_json(results_dir / "08d_status.json", {"status": "BLOCKED", "reason": "08c probe missing"})
-        print("08d blocked: run 08c first.")
-        return
+        write_json(
+            results_dir / "08d_status.json",
+            {
+                "status": "BLOCKED_MISSING_ARTIFACT",
+                "artifact": str(probe_path),
+                "reason": "08c_selected_probe.pkl is required. No Gaussian or arbitrary probe substitute.",
+            },
+        )
+        raise SystemExit(f"08d BLOCKED_MISSING_ARTIFACT: {probe_path}")
     with probe_path.open("rb") as handle:
         pack = pickle.load(handle)
     test = add_labels(load_split(Path(cfg["data_dir"]), "test"))
@@ -70,29 +76,76 @@ def main() -> None:
     pred = _pred_abs(pack["models"], X, test, pack["target"])
     true = np.stack([r["abs_lab"] for r in test])
 
+    from src.othello_r1_eval import dist_stats
+    from src.toy_othello import SYMMETRY_NAMES, BoardState, labels_to_board, legal_squares, transform_board, transform_square
+
     rows = []
+    n_games = len({r["game_id"] for r in test})
     # player-relative invertibility
     if pack["target"] == "rel":
         rel = np.stack([m.predict(X) for m in pack["models"]], axis=1)
         recon = np.stack([relative_to_absolute(rel[i], int(test[i]["player"])) for i in range(len(test))])
-        rows.append({"test": "player_relative_roundtrip", "mean_square_agree": float((recon == pred).mean())})
+        rows.append(
+            {
+                "test": "player_relative_roundtrip",
+                **dist_stats((recon == pred).mean(axis=1)),
+                "n_games": n_games,
+                "left": "relative_to_absolute(decoded_rel)",
+                "right": "decoded absolute labels",
+                "used_probe": 1,
+                "used_model_activations": 1,
+                "valid": 1,
+            }
+        )
 
-    # legal-move consistency of decoded board with itself
-    jac = []
-    for i, r in enumerate(test):
-        dec_legal = set(induced_legal(pred[i], int(r["player"])))
-        from_board = set(induced_legal(pred[i], int(r["player"])))
-        jac.append(1.0 if dec_legal == from_board else 0.0)
-    rows.append({"test": "legalizer_self_consistent", "mean": float(np.mean(jac))})
+    # Historical tautology kept only as an excluded row. Not evidence.
+    rows.append(
+        {
+            "test": "legalizer_self_consistent",
+            "mean": float("nan"),
+            "n": 0,
+            "n_games": 0,
+            "valid": 0,
+            "status": "NOT_APPLICABLE",
+            "left": "removed",
+            "right": "removed",
+            "used_probe": 0,
+            "used_model_activations": 0,
+            "note": "Tautological induced_legal(pred) vs itself. Excluded from 08R1 evidence.",
+        }
+    )
 
-    # induced vs true legal
     j2 = []
+    exact = []
     for i, r in enumerate(test):
         a, b = set(induced_legal(pred[i], int(r["player"]))), set(r["legal"])
         j2.append(len(a & b) / len(a | b) if a | b else 1.0)
-    rows.append({"test": "decoded_vs_true_legal_jaccard", "mean": float(np.mean(j2))})
+        exact.append(float((pred[i] == r["abs_lab"]).all()))
+    rows.append(
+        {
+            "test": "decoded_vs_true_legal_jaccard",
+            **dist_stats(j2),
+            "n_games": n_games,
+            "left": "induced_legal(decoded_board)",
+            "right": "simulator legal set on true board",
+            "used_probe": 1,
+            "used_model_activations": 1,
+            "valid": 1,
+        }
+    )
+    rows.append(
+        {
+            "test": "whole_board_exact",
+            **dist_stats(exact),
+            "n_games": n_games,
+            "left": "decoded absolute labels",
+            "right": "true absolute labels",
+            "used_probe": 1,
+            "used_model_activations": 1,
+            "valid": 1,
+        }
+    )
 
-    # transition consistency: decode t and t+1 from same game when both present
     by_game = defaultdict(list)
     for i, r in enumerate(test):
         by_game[r["game_id"]].append(i)
@@ -104,9 +157,6 @@ def main() -> None:
                 continue
             if test[a]["after_board"] is None:
                 continue
-            # compare decoded b to simulator F(decoded_a, m) — use true next move on decoded_a if legal
-            from src.toy_othello import BoardState, labels_to_board
-
             dec_a = labels_to_board(pred[a])
             st = BoardState(dec_a, int(test[a]["player"]))
             move = test[a]["next_square"]
@@ -114,9 +164,19 @@ def main() -> None:
                 continue
             stepped = st.play(move).board
             trans.append(float((to_absolute_labels(stepped) == pred[b]).mean()))
-    rows.append({"test": "transition_decoded_F_vs_next", "mean_square_agree": float(np.mean(trans)) if trans else float("nan"), "n": len(trans)})
+    rows.append(
+        {
+            "test": "transition_decoded_F_vs_next",
+            **dist_stats(trans),
+            "n_games": n_games,
+            "left": "simulator.play(decoded_board_t, true_next_square)",
+            "right": "independently decoded board at t+1",
+            "used_probe": 1,
+            "used_model_activations": 1,
+            "valid": 1,
+        }
+    )
 
-    # same-state different history
     keys = defaultdict(list)
     for i, r in enumerate(test):
         keys[(int(r["player"]), tuple(r["board"]))].append(i)
@@ -125,7 +185,41 @@ def main() -> None:
         if len(idxs) < 2:
             continue
         same.append(float((pred[idxs[0]] == pred[idxs[1]]).mean()))
-    rows.append({"test": "same_state_decode_agreement", "mean": float(np.mean(same)) if same else float("nan"), "n": len(same)})
+    rows.append(
+        {
+            "test": "same_state_decode_agreement",
+            **dist_stats(same),
+            "n_games": n_games,
+            "left": "decoded labels at history A",
+            "right": "decoded labels at history B, same (player, board)",
+            "used_probe": 1,
+            "used_model_activations": 1,
+            "valid": 1,
+        }
+    )
+
+    sym = []
+    for i, r in enumerate(test[:200]):
+        board = labels_to_board(pred[i])
+        player = int(r["player"])
+        base_legal = set(legal_squares(board, player))
+        for name in SYMMETRY_NAMES:
+            tb = transform_board(board, name)
+            tlegal = {transform_square(s, name) for s in base_legal}
+            sym.append(int(tlegal == set(legal_squares(tb, player))))
+    rows.append(
+        {
+            "test": "decoded_board_symmetry_legal",
+            **dist_stats(sym),
+            "n_games": min(n_games, 200),
+            "left": "transform(decoded legal set)",
+            "right": "legal_squares(transform(decoded board))",
+            "used_probe": 1,
+            "used_model_activations": 1,
+            "valid": 1,
+            "note": "Property of the decoded board. Not a new model forward.",
+        }
+    )
 
     write_csv(results_dir / "08d_state_abstraction_consistency.csv", rows)
     write_json(
@@ -136,8 +230,12 @@ def main() -> None:
             "codomain": "8x8 labels empty/black/white (via player-relative if selected)",
             "player_dependence": pack["target"] == "rel",
             "discarded": "move order, disc age, bluffing, value",
-            "selected": pack,
-            "note": "Consistency is not causal participation.",
+            "selected": {k: pack[k] for k in pack if k != "models"},
+            "probe_path": str(probe_path),
+            "used_probe": 1,
+            "used_model_activations": 1,
+            "legalizer_self_consistent_is_evidence": 0,
+            "note": "Consistency is not causal participation. legalizer_self_consistent is excluded.",
         },
     )
     make_fig(fig_dir, rows)

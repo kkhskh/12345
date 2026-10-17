@@ -122,6 +122,11 @@ def legality_partition(rec_legal: list[int], don_legal: list[int]) -> dict[str, 
 
 
 def mean_prob_on(probs: np.ndarray, squares: list[int], token_fn) -> float:
+    """Historical 0A helper: mean P(token) over a set, not total legal mass.
+
+    Kept unchanged so re-running 08e/08f reproduces the original tables.
+    Corrected mass/mean pair is `src.othello_r1.intervention_probability_metrics`.
+    """
     if not squares:
         return float("nan")
     toks = [token_fn(s) for s in squares if s != -100]

@@ -172,7 +172,7 @@ def gather_pairs(pool, delta: int, n_recipients: int, n_donors: int, seed: int, 
         "donor_sums": labels[don],
         "h_rec": h[rec.cpu()],
         "h_don": h[don.cpu()],
-        "recip_correct": correct[rec],
+        "recip_correct": correct[rec].detach().cpu(),
     }
 
 
@@ -190,7 +190,12 @@ def collect_train_diffs(train_pool, p: int, n_recipients: int, n_donors: int, se
     return torch.cat(chunks, dim=0)
 
 
+def _on(mask, tensor):
+    return mask.to(device=tensor.device)
+
+
 def stratified(logits_b, logits_a, labels, donor_sums, h_r, h_d, recip_correct):
+    recip_correct = recip_correct.detach().cpu()
     row = pair_metrics(logits_b, logits_a, labels, donor_sums, h_r, h_d, recip_correct)
     for name, mask in (
         ("recip_correct", recip_correct.bool()),
@@ -199,12 +204,12 @@ def stratified(logits_b, logits_a, labels, donor_sums, h_r, h_d, recip_correct):
         if int(mask.sum()) < 8:
             continue
         sub = pair_metrics(
-            logits_b[mask],
-            logits_a[mask],
-            labels[mask],
-            donor_sums[mask],
-            h_r[mask],
-            h_d[mask],
+            logits_b[_on(mask, logits_b)],
+            logits_a[_on(mask, logits_a)],
+            labels[_on(mask, labels)],
+            donor_sums[_on(mask, donor_sums)],
+            h_r[_on(mask, h_r)],
+            h_d[_on(mask, h_d)],
             recip_correct[mask],
         )
         for key in (

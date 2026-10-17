@@ -19,6 +19,7 @@ from src.othello_r1_eval import (
     real_outputs_scientifically_usable,
     resolve_probe_path,
     score_hook_event,
+    score_written_outputs,
     wrong_square_linear_edit,
 )
 
@@ -206,6 +207,46 @@ def test_evaluate_completion_rejects_missing_numeric_results():
 def test_evaluate_completion_complete_only_when_all_real_passes():
     out = evaluate_completion(_all_pass_stages(), _all_files_ok())
     assert out["decision"] == "08R1_COMPLETE"
+
+
+def test_score_written_outputs_requires_status_file_already_present(tmp_path: Path):
+    for name in REQUIRED_REAL_FILES:
+        if name.endswith(".json"):
+            continue
+        with (tmp_path / name).open("w", encoding="utf-8") as handle:
+            writer = csv.DictWriter(
+                handle,
+                fieldnames=[
+                    "became_legal_delta_mass",
+                    "total_legal_mass_target_after",
+                    "ci95_low",
+                    "ci95_high",
+                    "ok",
+                    "mean",
+                    "natural_state",
+                    "provenance",
+                ],
+            )
+            writer.writeheader()
+            writer.writerow(
+                {
+                    "became_legal_delta_mass": "0.1",
+                    "total_legal_mass_target_after": "0.2",
+                    "ci95_low": "0.05",
+                    "ci95_high": "0.15",
+                    "ok": "1",
+                    "mean": "0.1",
+                    "natural_state": "1",
+                    "provenance": "real_model",
+                }
+            )
+    missing = score_written_outputs(tmp_path, _all_pass_stages())
+    assert missing["decision"] == "08R1_INCOMPLETE"
+    assert "08r1_real_model_status.json" in missing["files_missing"]
+    (tmp_path / "08r1_real_model_status.json").write_text('{"stages":{}}', encoding="utf-8")
+    present = score_written_outputs(tmp_path, _all_pass_stages())
+    assert present["decision"] == "08R1_COMPLETE"
+    assert present["numeric_ok"] is True
 
 
 def test_local_source_readiness_ready_when_paths_exist():

@@ -36,6 +36,8 @@ def test_real_runner_exists_and_compiles():
     assert "isolate_r1_results_dir" in text
     assert "def patch_fn(act, hook" in text
     assert "def grab_fn(act, hook" in text
+    assert "--validate-only" in text
+    assert "score_written_outputs" in text
 
 
 def test_missing_real_stack_exits_pending_not_passed():

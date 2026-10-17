@@ -430,6 +430,20 @@ def inspect_real_csv_has_numeric(path: Path, col: str) -> bool:
     return bool(vals) and any(v == v for v in vals)
 
 
+def score_written_outputs(results_dir: Path, stages: dict[str, str]) -> dict:
+    """Score existing 08r1_real_* files. Status JSON must already exist."""
+    results_dir = Path(results_dir)
+    file_ok = {
+        name: (results_dir / name).exists() and (results_dir / name).stat().st_size > 0
+        for name in REQUIRED_REAL_FILES
+    }
+    numeric_ok, numeric_reason = real_outputs_scientifically_usable(results_dir)
+    out = evaluate_completion(stages, file_ok, synthetic_counted=False, numeric_ok=numeric_ok)
+    out["numeric_ok"] = numeric_ok
+    out["numeric_reason"] = numeric_reason
+    return out
+
+
 def real_outputs_scientifically_usable(results_dir: Path) -> tuple[bool, str]:
     """Fail closed if a required real CSV is empty, synthetic, or missing numeric results."""
     checks = (

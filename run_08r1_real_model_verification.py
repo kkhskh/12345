@@ -32,10 +32,10 @@ from src.othello_r1_eval import (
     evaluate_completion,
     intended_disagreed_squares,
     isolate_r1_results_dir,
-    real_outputs_scientifically_usable,
     record_hf_revision,
     resolve_probe_path,
     score_hook_event,
+    score_written_outputs,
     sha256_file,
     wrong_square_linear_edit,
 )
@@ -82,6 +82,11 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--skip-untrained", action="store_true")
     p.add_argument("--untrained-max-train", type=int, default=None)
     p.add_argument("--untrained-max-test", type=int, default=None)
+    p.add_argument(
+        "--validate-only",
+        action="store_true",
+        help="Rescore existing 08r1_real_* files. Does not load the model.",
+    )
     return p.parse_args()
 
 
@@ -430,8 +435,42 @@ def write_status(path: Path, payload: dict) -> None:
     print(json.dumps({k: payload.get(k) for k in ("scientific_decision", "nanda_argmax_match", "failed_required")}, indent=2))
 
 
+def validate_only(args) -> None:
+    """Re-run the completion validator on already-written real-model files."""
+    cfg = load_config(args.config)
+    if args.results_dir:
+        cfg["results_dir"] = args.results_dir
+    isolation = isolate_r1_results_dir(cfg["results_dir"])
+    results_dir = Path(isolation["results_dir"])
+    status_path = results_dir / "08r1_real_model_status.json"
+    if not status_path.exists():
+        raise SystemExit(f"08R1_INCOMPLETE missing {status_path}")
+    payload = json.loads(status_path.read_text(encoding="utf-8"))
+    stages = payload.get("stages")
+    if not stages:
+        raise SystemExit("08R1_INCOMPLETE status JSON has no stages")
+    completion = score_written_outputs(results_dir, stages)
+    payload["scientific_decision"] = completion["decision"]
+    payload["completion"] = completion
+    payload["validator"] = "validate_only"
+    payload["official_0A_letter"] = "C / PARTIAL"
+    write_status(status_path, payload)
+    print("=== stages ===")
+    for k, v in stages.items():
+        print(f"  {k}={v}")
+    print(f"numeric_ok={completion.get('numeric_ok')} {completion.get('numeric_reason')}")
+    print(f"scientific_decision={completion['decision']}")
+    print("Official 0A letter unchanged: C / PARTIAL")
+    if completion["decision"] != "08R1_COMPLETE":
+        raise SystemExit(completion["decision"])
+    print("08R1_COMPLETE")
+
+
 def main() -> None:
     args = parse_args()
+    if args.validate_only:
+        validate_only(args)
+        return
     torch, transformer_lens = _require_real_stack()
     if int(args.n_boot) < 1000:
         raise SystemExit("08R1 scientific run requires --n-boot >= 1000")
@@ -903,11 +942,12 @@ def main() -> None:
         logits_post=post_z.cpu().numpy(),
     )
 
-    file_ok = {name: (Path(results_dir) / name).exists() and (Path(results_dir) / name).stat().st_size > 0 for name in REQUIRED_REAL_FILES}
-    numeric_ok, numeric_reason = real_outputs_scientifically_usable(Path(results_dir))
+    # Status must exist before scoring so the required-file check is not tautologically incomplete.
+    write_json(status_path, {"scientific_decision": "PENDING", "stages": stages, "official_0A_letter": "C / PARTIAL"})
+    completion = score_written_outputs(Path(results_dir), stages)
+    numeric_ok = completion.get("numeric_ok", False)
     if not numeric_ok:
-        print(f"  numeric/schema check failed: {numeric_reason}")
-    completion = evaluate_completion(stages, file_ok, synthetic_counted=False, numeric_ok=numeric_ok)
+        print(f"  numeric/schema check failed: {completion.get('numeric_reason')}")
     data_hashes = {
         "prefixes_train": sha256_file(Path(cfg["data_dir"]) / "prefixes_train.jsonl"),
         "prefixes_val": sha256_file(Path(cfg["data_dir"]) / "prefixes_val.jsonl"),

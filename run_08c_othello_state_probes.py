@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import pickle
 from pathlib import Path
 
@@ -21,6 +22,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--data-dir", default=None)
     parser.add_argument("--device", default=None)
     parser.add_argument("--max-train", type=int, default=None)
+    parser.add_argument(
+        "--skip-sweep",
+        action="store_true",
+        help="Reuse 08c_state_decode.csv; refit only the val-selected probe and write remaining artifacts.",
+    )
+
     return parser.parse_args()
 
 
@@ -94,6 +101,103 @@ def _metadata_features(rows: list[dict]) -> np.ndarray:
     )
 
 
+def _nan_score() -> dict:
+    return {
+        "square_acc": float("nan"),
+        "exact_board": float("nan"),
+        "occupied_acc": float("nan"),
+        "empty_acc": float("nan"),
+        "macro_f1": float("nan"),
+        "n": 0,
+    }
+
+
+def _val_score(row: dict) -> float:
+    return float(row["val_exact_board"]) + 0.25 * float(row["val_square_acc"])
+
+
+def _load_decode_csv(path: Path) -> list[dict]:
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    keep = {"site", "hook", "target", "method"}
+    for row in rows:
+        for key, value in list(row.items()):
+            if key in keep or value in (None, ""):
+                continue
+            if key == "layer" or key.endswith("_n"):
+                row[key] = int(float(value))
+            else:
+                try:
+                    row[key] = float(value)
+                except ValueError:
+                    pass
+    return rows
+
+
+def _run_primary_controls(cfg, train, test, Xtr, Xte, hook: str) -> list[dict]:
+    ytr = np.stack([r["rel_lab"] for r in train])
+    yte = np.stack([r["rel_lab"] for r in test])
+    y_shuf = ytr.copy()
+    rng = np.random.default_rng(0)
+    rng.shuffle(y_shuf)
+    models_sh = _per_square_train("linear", Xtr, y_shuf, cfg["linear_c"], 32, 1e-3)
+    rows = [{"hook": hook, "control": "shuffled_labels", **_score_board(_per_square_pred(models_sh, Xte), yte)}]
+
+    meta = _metadata_features(train)
+    meta_te = _metadata_features(test)
+    models_m = _per_square_train("linear", meta, ytr, cfg["linear_c"], 32, 1e-3)
+    rows.append({"hook": hook, "control": "metadata_only", **_score_board(_per_square_pred(models_m, meta_te), yte)})
+
+    rng_proj = rng.normal(size=(Xtr.shape[1], 16)).astype(np.float32)
+    rng_proj /= np.linalg.norm(rng_proj, axis=0, keepdims=True) + 1e-8
+    models_r = _per_square_train("linear", Xtr @ rng_proj, ytr, cfg["linear_c"], 32, 1e-3)
+    rows.append({"hook": hook, "control": "random_subspace16", **_score_board(_per_square_pred(models_r, Xte @ rng_proj), yte)})
+    return rows
+
+
+def _run_untrained_control(cfg, args, train, test) -> dict:
+    print("  untrained-model control on primary site")
+    try:
+        try:
+            import torch
+
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        except Exception:
+            pass
+        umodel = random_untrained_othello(0, device=args.device or cfg.get("device"))
+        hook = cfg["primary_site"]
+        Xu_tr = cache_site(umodel, tokens_of(train), hook, cfg["cache_batch"]).numpy()
+        Xu_te = cache_site(umodel, tokens_of(test), hook, cfg["cache_batch"]).numpy()
+        ytr = np.stack([r["rel_lab"] for r in train])
+        yte = np.stack([r["rel_lab"] for r in test])
+        models_u = _per_square_train("linear", Xu_tr, ytr, cfg["linear_c"], 32, 1e-3)
+        return {"hook": hook, "control": "untrained_model", **_score_board(_per_square_pred(models_u, Xu_te), yte)}
+    except Exception as exc:
+        print(f"    untrained-model control failed: {exc}")
+        return {"hook": cfg["primary_site"], "control": "untrained_model", **_nan_score(), "error": str(exc)}
+
+
+def _write_gate_artifacts(results_dir, ckpt_dir, fig_dir, decode_rows, control_rows, best) -> str:
+    write_csv(results_dir / "08c_state_decode.csv", decode_rows)
+    write_csv(results_dir / "08c_probe_controls.csv", control_rows)
+    if best is not None:
+        hook, target, method, models = best[0], best[1], best[2], best[3]
+        with (ckpt_dir / "08c_selected_probe.pkl").open("wb") as handle:
+            pickle.dump({"hook": hook, "target": target, "method": method, "models": models}, handle)
+        print(f"  val-selected {method} {target} at {hook}")
+    lin = [r for r in decode_rows if r["method"] == "linear"]
+    shuf = [r for r in control_rows if r["control"] == "shuffled_labels"]
+    gate1 = decide_gate1(lin, shuf)
+    write_json(
+        results_dir / "08c_gate1.json",
+        {"gate1": gate1, "selected": None if best is None else {"hook": best[0], "target": best[1], "method": best[2]}},
+    )
+    make_figure(fig_dir, decode_rows)
+    print(f"  Gate 1 {gate1}")
+    return gate1
+
+
 def main() -> None:
     args = parse_args()
     cfg = load_config(args.config)
@@ -126,11 +230,37 @@ def main() -> None:
         print(f"BLOCKED: {exc}")
         return
 
+    decode_path = results_dir / "08c_state_decode.csv"
     layers = list(cfg["probe_layers"])
     sites = list(cfg["probe_sites"])
     decode_rows, control_rows = [], []
     best = None
     best_score = -1.0
+    primary_cache = None
+
+    if args.skip_sweep:
+        if not decode_path.exists():
+            raise SystemExit("08c --skip-sweep needs 08c_state_decode.csv from the finished sweep.")
+        decode_rows = _load_decode_csv(decode_path)
+        winner = max(decode_rows, key=_val_score)
+        print(
+            f"=== 08c finalize from {decode_path.name} ===\n"
+            f"  reuse {len(decode_rows)} decode rows; refit {winner['method']} {winner['target']} at {winner['hook']}"
+        )
+        hook = winner["hook"]
+        target = winner["target"]
+        method = winner["method"]
+        key = "abs_lab" if target == "abs" else "rel_lab"
+        Xtr = cache_site(model, tokens_of(train), hook, cfg["cache_batch"]).numpy()
+        models = _per_square_train(method, Xtr, np.stack([r[key] for r in train]), cfg["linear_c"], cfg["mlp_hidden"], cfg["mlp_alpha"])
+        best = (hook, target, method, models)
+        if hook != cfg["primary_site"]:
+            Xtr = cache_site(model, tokens_of(train), cfg["primary_site"], cfg["cache_batch"]).numpy()
+        Xte = cache_site(model, tokens_of(test), cfg["primary_site"], cfg["cache_batch"]).numpy()
+        control_rows.extend(_run_primary_controls(cfg, train, test, Xtr, Xte, cfg["primary_site"]))
+        control_rows.append(_run_untrained_control(cfg, args, train, test))
+        _write_gate_artifacts(results_dir, ckpt_dir, fig_dir, decode_rows, control_rows, best)
+        return
 
     print("=== 08c probes ===")
     for layer in layers:
@@ -165,9 +295,10 @@ def main() -> None:
                         "test_induced_legal_jaccard": legal_j,
                     }
                     decode_rows.append(row)
+                    write_csv(decode_path, decode_rows)
                     score = sva["exact_board"] + 0.25 * sva["square_acc"]
                     if score > best_score:
-                        best_score, best = score, (hook, target, method, models, Xtr)
+                        best_score, best = score, (hook, target, method, models)
                     print(
                         f"    {target} {method} val_exact={sva['exact_board']:.3f} "
                         f"val_sq={sva['square_acc']:.3f} test_exact={ste['exact_board']:.3f}"
@@ -175,52 +306,15 @@ def main() -> None:
 
             if hook != cfg["primary_site"]:
                 continue
-            ytr = np.stack([r["rel_lab"] for r in train])
-            yte = np.stack([r["rel_lab"] for r in test])
-            y_shuf = ytr.copy()
-            rng = np.random.default_rng(0)
-            rng.shuffle(y_shuf)
-            models_sh = _per_square_train("linear", Xtr, y_shuf, cfg["linear_c"], 32, 1e-3)
-            sh = _score_board(_per_square_pred(models_sh, Xte), yte)
-            control_rows.append({"hook": hook, "control": "shuffled_labels", **sh})
+            primary_cache = (Xtr, Xte)
+            control_rows.extend(_run_primary_controls(cfg, train, test, Xtr, Xte, hook))
 
-            meta = _metadata_features(train)
-            meta_te = _metadata_features(test)
-            models_m = _per_square_train("linear", meta, ytr, cfg["linear_c"], 32, 1e-3)
-            control_rows.append({"hook": hook, "control": "metadata_only", **_score_board(_per_square_pred(models_m, meta_te), yte)})
-
-            rng_proj = rng.normal(size=(Xtr.shape[1], 16)).astype(np.float32)
-            rng_proj /= np.linalg.norm(rng_proj, axis=0, keepdims=True) + 1e-8
-            models_r = _per_square_train("linear", Xtr @ rng_proj, ytr, cfg["linear_c"], 32, 1e-3)
-            control_rows.append({"hook": hook, "control": "random_subspace16", **_score_board(_per_square_pred(models_r, Xte @ rng_proj), yte)})
-
-    print("  untrained-model control on primary site")
-    try:
-        umodel = random_untrained_othello(0, device=args.device or cfg.get("device"))
-        hook = cfg["primary_site"]
-        Xu_tr = cache_site(umodel, tokens_of(train), hook, cfg["cache_batch"]).numpy()
-        Xu_te = cache_site(umodel, tokens_of(test), hook, cfg["cache_batch"]).numpy()
-        ytr = np.stack([r["rel_lab"] for r in train])
-        yte = np.stack([r["rel_lab"] for r in test])
-        models_u = _per_square_train("linear", Xu_tr, ytr, cfg["linear_c"], 32, 1e-3)
-        control_rows.append({"hook": hook, "control": "untrained_model", **_score_board(_per_square_pred(models_u, Xu_te), yte)})
-    except Exception as exc:
-        control_rows.append({"hook": cfg["primary_site"], "control": "untrained_model", "square_acc": float("nan"), "exact_board": float("nan"), "error": str(exc)})
-
-    write_csv(results_dir / "08c_state_decode.csv", decode_rows)
-    write_csv(results_dir / "08c_probe_controls.csv", control_rows)
-    if best is not None:
-        hook, target, method, models, _ = best
-        with (ckpt_dir / "08c_selected_probe.pkl").open("wb") as handle:
-            pickle.dump({"hook": hook, "target": target, "method": method, "models": models}, handle)
-        print(f"  val-selected {method} {target} at {hook}")
-
-    lin = [r for r in decode_rows if r["method"] == "linear"]
-    shuf = [r for r in control_rows if r["control"] == "shuffled_labels"]
-    gate1 = decide_gate1(lin, shuf)
-    write_json(results_dir / "08c_gate1.json", {"gate1": gate1, "selected": None if best is None else {"hook": best[0], "target": best[1], "method": best[2]}})
-    make_figure(fig_dir, decode_rows)
-    print(f"  Gate 1 {gate1}")
+    if primary_cache is None:
+        Xtr = cache_site(model, tokens_of(train), cfg["primary_site"], cfg["cache_batch"]).numpy()
+        Xte = cache_site(model, tokens_of(test), cfg["primary_site"], cfg["cache_batch"]).numpy()
+        control_rows.extend(_run_primary_controls(cfg, train, test, Xtr, Xte, cfg["primary_site"]))
+    control_rows.append(_run_untrained_control(cfg, args, train, test))
+    _write_gate_artifacts(results_dir, ckpt_dir, fig_dir, decode_rows, control_rows, best)
 
 
 def json_gate(results_dir: Path) -> str:

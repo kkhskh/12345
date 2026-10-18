@@ -7,6 +7,7 @@
   "obstruction_ready": "NO",
   "results_subdir": "08r2",
   "smoke_results_subdir": "08r2/smoke",
+  "validation_results_subdir": "08r2/validation",
   "protocol": "ABD_v1",
   "preregistration": "configs/08r2_preregistration.md",
   "preregistration_amendment": "configs/08r2_preregistration_amendment_abd.md",

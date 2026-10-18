@@ -27,9 +27,12 @@ def test_abd_quotas_and_smoke_keep_both_categories():
 def test_smoke_results_are_isolated():
     out = isolate_r2_results_dir("artifacts/results/toy_othello", smoke=True)
     assert out["results_dir"].endswith("08r2/smoke")
-    val = isolate_r2_results_dir("artifacts/results/toy_othello", smoke=False)
-    assert val["results_dir"].endswith("08r2")
-    assert not val["results_dir"].endswith("08r2/smoke")
+    val = isolate_r2_results_dir("artifacts/results/toy_othello", smoke=False, validation=True)
+    assert val["results_dir"].endswith("08r2/validation")
+    assert "smoke" not in val["results_dir"].split("/")
+    prep = isolate_r2_results_dir("artifacts/results/toy_othello", smoke=False)
+    assert prep["results_dir"].endswith("08r2")
+    assert not prep["results_dir"].endswith("08r2/validation")
 
 
 def test_near_zero_random_kl_is_floored():

@@ -76,6 +76,17 @@ def evaluate_r2_completeness(out_dir: str | Path, *, smoke: bool = False) -> dic
         failures.append("missing_category_D")
     if pair_counts.get("C_same_legal_diff_board", 0):
         failures.append("fabricated_category_C")
+    if not smoke:
+        if pair_counts.get("A_legal_diff") != 24:
+            failures.append("validation_n_a_not_24")
+        if pair_counts.get("B_similar_board_legal_change") != 8:
+            failures.append("validation_n_b_not_8")
+        if pair_counts.get("D_wrong_target") != 32:
+            failures.append("validation_n_d_not_32")
+        if "validation" not in Path(out_dir).parts and summary.get("validation") != 1:
+            failures.append("validation_outputs_not_isolated")
+        if int(summary.get("n_boot") or 0) < 2000:
+            failures.append("n_boot_below_2000")
     if smoke and "smoke" not in Path(out_dir).parts and summary.get("smoke") != 1:
         failures.append("smoke_outputs_not_isolated")
     if not summary.get("editor_attempt_accounting"):

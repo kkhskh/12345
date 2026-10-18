@@ -45,6 +45,7 @@ MARKERS = {
         "FakeResidualForward_ABSENT_SENTINEL",
         "NOT_SELECTED_SMOKE",
         "08r2/smoke",
+        "08r2/validation",
         "def patch_fn(act, hook",
     ),
     "run_08r2_confirmation.py": (

@@ -449,19 +449,28 @@ KL_RANDOM_MULTIPLIER = 1.5
 PROTOCOL_ABD = {"n_a": 24, "n_b": 8, "include_c": False, "name": "ABD_v1"}
 
 
-def isolate_r2_results_dir(requested: str | Path, smoke: bool = False) -> dict:
-    """Write 08R2 outputs under 08r2/, smoke under 08r2/smoke/. Never overwrite 08R1."""
+def isolate_r2_results_dir(requested: str | Path, smoke: bool = False, validation: bool = False) -> dict:
+    """Smoke → 08r2/smoke/. Validation → 08r2/validation/. Never overwrite 08R1."""
     requested = Path(requested)
     base = requested if requested.name == R2_DIRNAME else requested / R2_DIRNAME
-    if requested.name == "smoke" and requested.parent.name == R2_DIRNAME:
+    if requested.name in {"smoke", "validation"} and requested.parent.name == R2_DIRNAME:
         base = requested.parent
-    out = base / "smoke" if smoke else base
+    if smoke:
+        out = base / "smoke"
+        reason = "08R2 smoke writes under 08r2/smoke/"
+    elif validation:
+        out = base / "validation"
+        reason = "08R2 validation writes under 08r2/validation/"
+    else:
+        out = base
+        reason = "08R2 writes only under 08r2/"
     return {
         "requested": str(requested),
         "results_dir": str(out),
         "nested": int(out != requested),
         "smoke": int(smoke),
-        "reason": "08R2 smoke writes under 08r2/smoke/" if smoke else "08R2 writes only under 08r2/",
+        "validation": int(validation),
+        "reason": reason,
     }
 
 
@@ -752,6 +761,24 @@ def r2_pair_categories(
     return primary + wrong
 
 
+def pair_manifest_hash(pairs: list[dict]) -> str:
+    from src.toy_othello import sha256_json
+
+    payload = [
+        {
+            "recip": p.get("recip"),
+            "donor": p.get("donor"),
+            "r2_type": p.get("r2_type"),
+            "recip_game": p.get("recip_game"),
+            "target_game": p.get("target_game"),
+            "hamming": p.get("hamming"),
+            "intended_target_game": p.get("intended_target_game"),
+        }
+        for p in pairs
+    ]
+    return sha256_json(payload)
+
+
 def pair_census_public(rows: list[dict], holdout_ids: set[str] | None = None) -> dict:
     strict = pair_category_census(rows, holdout_ids, 0)
     slack = pair_category_census(rows, holdout_ids, 1)
@@ -838,6 +865,24 @@ def editor_attempt_accounting(rows: list[dict], floors: dict | None = None) -> d
             "unconditional_joint_rate": (len(joint) / attempted) if attempted else float("nan"),
             "conditional_mean_S_legal": float(np.mean(valid_s)) if valid_s else float("nan"),
             "conditional_n": len(executed),
+            "conditional_mean_changed_acc": float(np.nanmean([r.get("changed_acc", float("nan")) for r in executed])) if executed else float("nan"),
+            "conditional_mean_unchanged_acc": float(np.nanmean([r.get("unchanged_acc", float("nan")) for r in executed])) if executed else float("nan"),
+            "conditional_mean_board_exact": float(np.nanmean([r.get("board_exact", float("nan")) for r in executed])) if executed else float("nan"),
+            "conditional_mean_dP_gain": float(np.nanmean([r.get("dP_gain", float("nan")) for r in executed])) if executed else float("nan"),
+            "conditional_mean_dP_loss": float(np.nanmean([r.get("dP_loss", float("nan")) for r in executed])) if executed else float("nan"),
+            "conditional_mean_l2": float(np.nanmean([r.get("delta_norm", float("nan")) for r in executed])) if executed else float("nan"),
+            "conditional_mean_kl": float(np.nanmean([r.get("kl", float("nan")) for r in executed])) if executed else float("nan"),
+            "prereg_joint_successes": len(
+                [
+                    r
+                    for r in state_ok
+                    if r.get("joint_metric_eligible")
+                    and r.get("dP_gain") == r.get("dP_gain")
+                    and r.get("dP_loss") == r.get("dP_loss")
+                    and float(r["dP_gain"]) >= floors.get("causal", 0.05)
+                    and float(r["dP_loss"]) <= -floors.get("causal", 0.05)
+                ]
+            ),
         }
     return out
 

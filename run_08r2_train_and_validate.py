@@ -47,6 +47,7 @@ from src.othello_r2 import (
     mean_square_edit_safe,
     outcome_bucket,
     pair_census_public,
+    pair_manifest_hash,
     pca_patch,
     probe_direction_edit_safe,
     r2_pair_categories,
@@ -319,13 +320,20 @@ def main() -> None:
         cfg["data_dir"] = args.data_dir
     if args.checkpoints_dir:
         cfg["checkpoints_dir"] = args.checkpoints_dir
-    isolated = isolate_r2_results_dir(cfg["results_dir"], smoke=bool(args.smoke))  # .../08r2/smoke when --smoke
+    isolated = isolate_r2_results_dir(cfg["results_dir"], smoke=bool(args.smoke), validation=not bool(args.smoke))  # .../08r2/validation
     out_dir = ensure_dir(isolated["results_dir"])
-    n_pairs = int(args.n_pairs or (4 if args.smoke else cfg["n_val_pairs"]))
-    n_boot = int(args.n_boot or (200 if args.smoke else cfg["n_boot"]))
-    if (not args.smoke) and n_boot < 1000:
-        raise SystemExit("n_boot must be >= 1000")
-    n_a, n_b = abd_pair_quotas(n_pairs, smoke=bool(args.smoke))
+    if args.smoke:
+        n_pairs = int(args.n_pairs or 4)
+        n_boot = int(args.n_boot or 200)
+        n_a, n_b = abd_pair_quotas(n_pairs, smoke=True)
+    else:
+        if args.n_pairs not in {None, 32}:
+            raise SystemExit(f"PREFLIGHT_BLOCKED frozen validation requires --n-pairs 32, got {args.n_pairs}")
+        n_pairs = 32
+        n_a, n_b = int(PROTOCOL_ABD["n_a"]), int(PROTOCOL_ABD["n_b"])
+        n_boot = int(args.n_boot or cfg["n_boot"])
+        if n_boot < 2000:
+            raise SystemExit(f"PREFLIGHT_BLOCKED frozen validation requires n_boot>=2000, got {n_boot}")
 
     holdout = load_holdout_game_ids(cfg["holdout_manifest"])
     holdout_hash = holdout["manifest_sha256"]
@@ -356,7 +364,73 @@ def main() -> None:
     )
     pair_counts = dict(Counter(p["r2_type"] for p in pairs))
     if pair_counts.get("A_legal_diff", 0) < 1 or pair_counts.get("B_similar_board_legal_change", 0) < 1:
-        raise SystemExit(f"ABD sampler must include A and B; got {pair_counts}")
+        raise SystemExit(f"PREFLIGHT_BLOCKED ABD sampler must include A and B; got {pair_counts}")
+    if pair_counts.get("C_same_legal_diff_board", 0):
+        raise SystemExit("PREFLIGHT_BLOCKED category C was fabricated")
+    if not args.smoke:
+        if pair_counts.get("A_legal_diff") != 24 or pair_counts.get("B_similar_board_legal_change") != 8 or pair_counts.get("D_wrong_target") != 32:
+            raise SystemExit(f"PREFLIGHT_BLOCKED expected 24A/8B/32D, got {pair_counts}")
+    primary_pairs = [p for p in pairs if p["r2_type"] in PRIMARY_TYPES]
+    d_pairs = [p for p in pairs if p["r2_type"] == "D_wrong_target"]
+    recip_primary = {p["recip_game"] for p in primary_pairs}
+    recip_d = {p["recip_game"] for p in d_pairs}
+    if not args.smoke and recip_d - recip_primary:
+        raise SystemExit("PREFLIGHT_BLOCKED D controls introduced extra recipient games")
+    pair_hash = pair_manifest_hash(pairs)
+    root = Path(__file__).resolve().parent
+    protocol_files = {
+        "preregistration": root / "configs/08r2_preregistration.md",
+        "amendment": root / "configs/08r2_preregistration_amendment_abd.md",
+        "config": root / "configs/toy_othello_08r2.json",
+        "parent_config": root / args.parent_config,
+    }
+    preflight = {
+        "git_hash": git_hash(),
+        "site": SITE,
+        "protocol": PROTOCOL_ABD,
+        "n_pairs": n_pairs,
+        "n_a": n_a,
+        "n_b": n_b,
+        "n_boot": n_boot,
+        "pair_counts": pair_counts,
+        "n_recipient_games_primary": len(recip_primary),
+        "n_target_games_primary": len({p["target_game"] for p in primary_pairs}),
+        "n_recipient_games_D": len(recip_d),
+        "n_target_games_D": len({p["target_game"] for p in d_pairs}),
+        "D_is_paired_control": int(recip_d <= recip_primary),
+        "pair_manifest_sha256": pair_hash,
+        "checkpoint_path": str(ckpt),
+        "checkpoint_sha256": sha256_file(ckpt),
+        "probe_path": str(probe_path),
+        "probe_sha256": sha256_file(probe_path),
+        "holdout_sha256": holdout_hash,
+        "confirmation_sealed": True,
+        "required_baselines": list(REQUIRED_BASELINES),
+        "completion_validator": "src/othello_r2_eval.py:evaluate_r2_completeness",
+        "results_dir": str(out_dir),
+        "smoke": int(args.smoke),
+        "validation": int(not args.smoke),
+        "file_hashes": {name: sha256_file(path) for name, path in protocol_files.items()},
+        "hyperparameters_from_smoke": 0,
+        "official_0A_letter": OFFICIAL_0A_LETTER,
+    }
+    write_json(out_dir / "08r2_validation_preflight.json", preflight)
+    print("08R2 PREFLIGHT")
+    for key in (
+        "git_hash",
+        "checkpoint_sha256",
+        "probe_sha256",
+        "site",
+        "pair_manifest_sha256",
+        "pair_counts",
+        "n_recipient_games_primary",
+        "n_target_games_primary",
+        "n_boot",
+        "results_dir",
+    ):
+        print(f"  {key}={preflight[key]}")
+    print(f"  protocol_hashes={preflight['file_hashes']}")
+    print(f"  confirmation_sealed={preflight['confirmation_sealed']}")
     write_json(
         out_dir / "08r2_validation_pairs.json",
         {
@@ -368,9 +442,15 @@ def main() -> None:
             "seed": int(cfg["pair_seed"]),
             "used_confirmation": 0,
             "smoke": int(args.smoke),
+            "pair_manifest_sha256": pair_hash,
+            "n_recipient_games_primary": len(recip_primary),
+            "n_target_games_primary": len({p["target_game"] for p in primary_pairs}),
             "pairs": pairs,
         },
     )
+    for name, path in protocol_files.items():
+        if path.is_file() and name in {"preregistration", "amendment"}:
+            (out_dir / path.name).write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
 
     with probe_path.open("rb") as handle:
         pack = pickle.load(handle)
@@ -767,6 +847,10 @@ def main() -> None:
         "editor_attempt_accounting": accounting,
         "kl_norm_comparisons": comparisons,
         "same_legal_invariance": "NOT_ESTABLISHABLE_ABD_NO_CATEGORY_C",
+        "pair_manifest_sha256": pair_hash,
+        "n_recipient_games_primary": len(recip_primary),
+        "n_target_games_primary": len({p["target_game"] for p in primary_pairs}),
+        "D_is_paired_control": int(recip_d <= recip_primary),
         "n_pairs": len(pairs),
         "n_boot": n_boot,
         "boot_seed": int(cfg["boot_seed"]),
@@ -784,8 +868,11 @@ def main() -> None:
         "model_params_unchanged": True,
         "probe_params_unchanged": True,
         "smoke": int(args.smoke),
+        "validation": int(not args.smoke),
+        "preflight": preflight,
         "explicit_failures": failures[:50],
         "required_baselines": list(REQUIRED_BASELINES),
+        "file_hashes": preflight["file_hashes"],
     }
     write_json(out_dir / "08r2_validation_summary.json", summary)
     write_json(
@@ -814,10 +901,25 @@ def main() -> None:
     _write_report(out_dir / "08r2_scientific_report.md", {**summary, "results_dir": str(out_dir)})
     completeness = evaluate_r2_completeness(out_dir, smoke=bool(args.smoke))
     summary["completeness"] = completeness
-    if completeness["ok"]:
-        summary["status"] = completeness["status"]
+    if args.smoke:
+        summary["status"] = completeness["status"] if completeness["ok"] else "REAL_MODEL_VALIDATION_FAILED"
+        scientific = summary["status"]
+    elif not completeness["ok"]:
+        scientific = "08R2_VALIDATION_FAILED — ENGINEERING"
+        summary["status"] = scientific
+    elif selected.get("rep_ok") and selected.get("beh_ok") and selected.get("kl_ok"):
+        scientific = "08R2_VALIDATION_COMPLETE — POSITIVE"
+        summary["status"] = scientific
+    elif selected.get("beh_ok"):
+        scientific = "08R2_VALIDATION_COMPLETE — NEGATIVE"
+        summary["status"] = scientific
+    elif selected.get("rep_ok"):
+        scientific = "08R2_VALIDATION_COMPLETE — NEGATIVE"
+        summary["status"] = scientific
     else:
-        summary["status"] = "REAL_MODEL_VALIDATION_FAILED"
+        scientific = "08R2_VALIDATION_COMPLETE — INCONCLUSIVE"
+        summary["status"] = scientific
+    summary["scientific_status"] = scientific
     write_json(out_dir / "08r2_validation_summary.json", summary)
     print(summary["status"])
     print(f"  outcome={outcome}")

@@ -134,7 +134,8 @@ def _logit_steer(model, tokens, hook, h, rec, tgt, budget, steps, lr, batch_size
     for _ in range(int(steps)):
         opt.zero_grad(set_to_none=True)
 
-        def patch_fn(act, hook_obj, val=h0 + delta, last=t - 1):
+        def patch_fn(act, hook, val=h0 + delta, last=t - 1):
+            # TransformerLens calls hook(act, hook=self)
             out = act.clone()
             out[0, last, :] = val.to(dtype=out.dtype)
             return out

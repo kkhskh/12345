@@ -28,6 +28,8 @@ def test_validate_runner_is_not_a_fake_model_and_keeps_confirmation_sealed():
     assert "used_model_logits" in text
     assert "evaluate_r2_completeness" in text
     assert "torch_parity_report" in text
+    assert "def patch_fn(act, hook" in text
+    assert "def patch_fn(act, hook_obj" not in text
 
 
 def test_confirmation_script_refuses_by_default():

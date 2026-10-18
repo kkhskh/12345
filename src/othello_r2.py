@@ -174,6 +174,25 @@ class LinearBoardDecoder:
         return mod
 
 
+def sklearn_logit_weight(clf, label: int) -> np.ndarray | None:
+    """Class weight matching LinearBoardDecoder. Binary sklearn coef is (1, d)."""
+    if not hasattr(clf, "coef_") or not hasattr(clf, "classes_"):
+        return None
+    classes = np.asarray(clf.classes_)
+    coef = np.asarray(clf.coef_, dtype=np.float64)
+    if coef.ndim == 1:
+        coef = coef.reshape(1, -1)
+    idx = np.where(classes == int(label))[0]
+    if idx.size != 1:
+        return None
+    row = int(idx[0])
+    if len(classes) == 2 and coef.shape[0] == 1:
+        return np.zeros(coef.shape[1], dtype=np.float64) if row == 0 else coef[0].copy()
+    if row >= coef.shape[0]:
+        return None
+    return coef[row].copy()
+
+
 def sklearn_proba_pack(models, x: np.ndarray) -> np.ndarray:
     x = np.asarray(x, dtype=np.float64)
     if x.ndim == 1:
@@ -1010,16 +1029,12 @@ def probe_direction_edit_safe(x, rec_lab, don_lab, models, budget: float) -> dic
         if rec_lab[j] == don_lab[j]:
             continue
         clf = models[j]
-        if not hasattr(clf, "coef_") or not hasattr(clf, "classes_"):
-            return _failed_edit("probe_missing_linear_params", square=j)
-        classes = np.asarray(clf.classes_)
-        coef = np.asarray(clf.coef_, dtype=np.float64)
-        src = np.where(classes == int(rec_lab[j]))[0]
-        tgt = np.where(classes == int(don_lab[j]))[0]
-        if src.size != 1 or tgt.size != 1:
+        w_src = sklearn_logit_weight(clf, int(rec_lab[j]))
+        w_tgt = sklearn_logit_weight(clf, int(don_lab[j]))
+        if w_src is None or w_tgt is None:
             skipped += 1
             continue
-        delta = delta + (coef[int(tgt[0])] - coef[int(src[0])])
+        delta = delta + (w_tgt - w_src)
         n += 1
     if n == 0:
         return _failed_edit("probe_direction_no_mapped_class_changes", skipped=skipped)
@@ -1078,21 +1093,38 @@ def mean_square_edit_safe(Xtr, ytr, rec_x, rec_lab, don_lab, budget: float) -> d
 
 
 def wrong_square_edit_safe(x, rec_lab, don_lab, models, budget: float, rng) -> dict:
-    from src.othello_r1_eval import wrong_square_linear_edit
+    from src.othello_r1_eval import intended_disagreed_squares
 
-    out = wrong_square_linear_edit(x, rec_lab, don_lab, models, budget, rng)
-    if out is None:
+    x = np.asarray(x, dtype=np.float64).reshape(-1)
+    rec_lab = np.asarray(rec_lab)
+    don_lab = np.asarray(don_lab)
+    intended = set(intended_disagreed_squares(rec_lab, don_lab))
+    cands = [j for j in range(64) if j not in intended and j not in {27, 28, 35, 36}]
+    if not cands:
         return _failed_edit("wrong_square_unavailable")
-    return {
-        "status": STATUS_EXECUTED,
-        "valid_edit": 1,
-        "edited": np.asarray(out["edited"], dtype=np.float64).reshape(-1),
-        "delta_norm": float(out.get("edit_norm", np.nan)),
-        "wrong_square": out.get("wrong_square"),
-        "used_donor_activation": 0,
-        "used_model_logits": 0,
-        "reason": "wrong_square_target_specificity",
-    }
+    for j in rng.permutation(cands):
+        src = int(rec_lab[j])
+        tgt = 0 if src != 0 else 1
+        w_src = sklearn_logit_weight(models[j], src)
+        w_tgt = sklearn_logit_weight(models[j], tgt)
+        if w_src is None or w_tgt is None:
+            continue
+        vec = w_tgt - w_src
+        nrm = float(np.linalg.norm(vec))
+        if nrm <= 1e-12:
+            continue
+        step = vec * (float(budget) / nrm)
+        return {
+            "status": STATUS_EXECUTED,
+            "valid_edit": 1,
+            "edited": x + step,
+            "delta_norm": float(np.linalg.norm(step)),
+            "wrong_square": int(j),
+            "used_donor_activation": 0,
+            "used_model_logits": 0,
+            "reason": "wrong_square_target_specificity",
+        }
+    return _failed_edit("wrong_square_unavailable")
 
 
 REQUIRED_BASELINES = (

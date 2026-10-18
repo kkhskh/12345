@@ -25,6 +25,21 @@ def test_probe_direction_uses_classes_not_row_index():
     assert np.allclose(got / np.linalg.norm(got), expected / np.linalg.norm(expected), atol=1e-6)
 
 
+def test_probe_direction_handles_sklearn_binary_one_row_coef():
+    pack = _pack()
+    d = pack["models"][0].coef_.shape[1]
+    w = np.linspace(0.2, 1.3, d)
+    pack["models"][5] = FakeLR(w.reshape(1, -1), np.array([0.1]), np.array([0, 1]))
+    x = np.zeros(d)
+    rec = np.zeros(64, dtype=int)
+    tgt = rec.copy()
+    tgt[5] = 1
+    out = probe_direction_edit_safe(x, rec, tgt, pack["models"], 3.0)
+    assert out["valid_edit"] == 1
+    got = out["edited"] - x
+    assert np.allclose(got / np.linalg.norm(got), w / np.linalg.norm(w), atol=1e-6)
+
+
 def test_mean_square_does_not_claim_identity_as_edit():
     X = np.zeros((10, 4))
     y = np.zeros((10, 64), dtype=int)

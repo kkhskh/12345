@@ -23,6 +23,7 @@ from src.othello_r1 import cluster_bootstrap, paired_cluster_diff
 from src.othello_r1_eval import resolve_probe_path, sha256_file
 from src.othello_r2 import (
     OFFICIAL_0A_LETTER,
+    PROTOCOL_ABD,
     REQUIRED_BASELINES,
     REQUIRED_VALIDATION_FILES,
     SITE,
@@ -30,15 +31,18 @@ from src.othello_r2 import (
     STATUS_EXECUTED,
     STATUS_FAILED,
     LinearBoardDecoder,
+    abd_pair_quotas,
     apply_reusable_map,
     attribution_sign_edit,
     causal_scores,
     confirmation_guard_text,
     decoder_state_effects,
+    editor_attempt_accounting,
     finite_difference_grad_check,
     fit_reusable_map,
     isolate_r2_results_dir,
     iterative_state_edit,
+    kl_norm_comparisons,
     load_holdout_game_ids,
     mean_square_edit_safe,
     outcome_bucket,
@@ -47,6 +51,7 @@ from src.othello_r2 import (
     probe_direction_edit_safe,
     r2_pair_categories,
     random_edit_safe,
+    random_kl_threshold,
     require_no_confirmation,
     torch_parity_report,
     train_activation_stats,
@@ -166,7 +171,7 @@ def _boot_rows(rows, field, n_boot, seed, label):
     return out
 
 
-def _select_editor(state_rows, causal_rows, floors) -> dict:
+def _select_editor(state_rows, causal_rows, floors, *, smoke: bool = False) -> dict:
     by = defaultdict(list)
     for r in causal_rows:
         if r.get("r2_type") not in PRIMARY_TYPES:
@@ -193,7 +198,7 @@ def _select_editor(state_rows, causal_rows, floors) -> dict:
         kl = float(np.nanmean([g["kl"] for g in group]))
         nrm = float(np.nanmean([g["delta_norm"] for g in group]))
         rand = [r for r in causal_rows if r.get("method") == "random_same_norm" and r.get("budget") == key[1] and r.get("valid_edit") and r.get("r2_type") in PRIMARY_TYPES]
-        rand_kl = float(np.nanmean([r["kl"] for r in rand])) if rand else float("nan")
+        gate = random_kl_threshold([r["kl"] for r in rand])
         cand = {
             "method": key[0],
             "budget": float(key[1]),
@@ -204,19 +209,32 @@ def _select_editor(state_rows, causal_rows, floors) -> dict:
             "S_legal": sleg,
             "mean_kl": kl,
             "mean_l2": nrm,
-            "random_kl": rand_kl,
+            "random_kl": gate["random_kl_mean"],
+            "kl_threshold": gate["threshold"],
+            "kl_gate_status": gate["status"],
+            "S_legal_per_kl": (sleg / kl) if sleg == sleg and kl and kl == kl else float("nan"),
+            "S_legal_per_l2": (sleg / nrm) if sleg == sleg and nrm and nrm == nrm else float("nan"),
             "n": len(group),
             "rep_ok": ch >= floors["changed"] and kp >= floors["unchanged"],
             "beh_ok": gain >= floors["causal"] and loss <= -floors["causal"],
-            "kl_ok": (not rand) or (kl == kl and rand_kl == rand_kl and kl <= 1.5 * rand_kl),
+            "kl_ok": gate["threshold"] is not None and kl == kl and kl <= gate["threshold"],
             "used_donor_activation": int(group[0].get("used_donor_activation") or 0),
             "used_model_logits": 0,
+            "note": "Do not claim superiority from donor access, larger KL, or unequal coverage.",
         }
         ranked.append(cand)
+    if smoke:
+        return {
+            "method": None,
+            "status": "NOT_SELECTED_SMOKE",
+            "reason": "Smoke does not select hyperparameters or the official editor.",
+            "comparisons": ranked,
+        }
     if not ranked:
-        return {"method": None, "status": "NO_EDITOR_SELECTED"}
+        return {"method": None, "status": "NO_EDITOR_SELECTED", "comparisons": ranked}
     passing = [c for c in ranked if c["rep_ok"] and c["beh_ok"] and c["kl_ok"]]
-    return max(passing or ranked, key=lambda c: (c["S_legal"] if c["S_legal"] == c["S_legal"] else -1e9))
+    chosen = max(passing or ranked, key=lambda c: (c["S_legal"] if c["S_legal"] == c["S_legal"] else -1e9))
+    return {**chosen, "comparisons": ranked, "status": "SELECTED" if passing else "NO_PASSING_EDITOR"}
 
 
 def _write_report(path: Path, payload: dict) -> None:
@@ -253,6 +271,26 @@ def _write_report(path: Path, payload: dict) -> None:
         "",
         f"`{payload.get('pair_counts')}`",
         "",
+        "Category C is unavailable and was not fabricated. A/B/D cannot establish same-legal-state invariance.",
+        "",
+        "## Category slices",
+        "",
+        f"`{payload.get('category_slices')}`",
+        "",
+        "Pooled A+B is descriptive only.",
+        "",
+        "## Editor attempt accounting",
+        "",
+        f"`{payload.get('editor_attempt_accounting')}`",
+        "",
+        "Unconditional rates use all attempted edits as the denominator. Conditional effect sizes use valid edits only.",
+        "",
+        "## KL / L2 comparisons",
+        "",
+        "Threshold = 1.5 × max(mean random-same-norm KL, 1e-3). Near-zero random KL is floored, not a free pass.",
+        "",
+        f"`{payload.get('kl_norm_comparisons')}`",
+        "",
         "## Selected editor",
         "",
         f"`{payload.get('selected')}`",
@@ -280,12 +318,13 @@ def main() -> None:
         cfg["data_dir"] = args.data_dir
     if args.checkpoints_dir:
         cfg["checkpoints_dir"] = args.checkpoints_dir
-    isolated = isolate_r2_results_dir(cfg["results_dir"])
+    isolated = isolate_r2_results_dir(cfg["results_dir"], smoke=bool(args.smoke))  # .../08r2/smoke when --smoke
     out_dir = ensure_dir(isolated["results_dir"])
     n_pairs = int(args.n_pairs or (4 if args.smoke else cfg["n_val_pairs"]))
     n_boot = int(args.n_boot or (200 if args.smoke else cfg["n_boot"]))
     if (not args.smoke) and n_boot < 1000:
         raise SystemExit("n_boot must be >= 1000")
+    n_a, n_b = abd_pair_quotas(n_pairs, smoke=bool(args.smoke))
 
     holdout = load_holdout_game_ids(cfg["holdout_manifest"])
     holdout_hash = holdout["manifest_sha256"]
@@ -305,10 +344,31 @@ def main() -> None:
     val = add_labels(load_split(data_dir, "val"))
     require_no_confirmation(train, holdout["game_ids"])
     require_no_confirmation(val, holdout["game_ids"])
-    pairs = r2_pair_categories(val, n_pairs, int(cfg["pair_seed"]), holdout["game_ids"])
+    pairs = r2_pair_categories(
+        val,
+        n_pairs,
+        int(cfg["pair_seed"]),
+        holdout["game_ids"],
+        n_a=n_a,
+        n_b=n_b,
+        include_c=False,
+    )
+    pair_counts = dict(Counter(p["r2_type"] for p in pairs))
+    if pair_counts.get("A_legal_diff", 0) < 1 or pair_counts.get("B_similar_board_legal_change", 0) < 1:
+        raise SystemExit(f"ABD sampler must include A and B; got {pair_counts}")
     write_json(
         out_dir / "08r2_validation_pairs.json",
-        {"n": len(pairs), "counts": dict(Counter(p["r2_type"] for p in pairs)), "seed": int(cfg["pair_seed"]), "used_confirmation": 0, "pairs": pairs},
+        {
+            "n": len(pairs),
+            "counts": pair_counts,
+            "n_a": n_a,
+            "n_b": n_b,
+            "protocol": PROTOCOL_ABD["name"],
+            "seed": int(cfg["pair_seed"]),
+            "used_confirmation": 0,
+            "smoke": int(args.smoke),
+            "pairs": pairs,
+        },
     )
 
     with probe_path.open("rb") as handle:
@@ -329,10 +389,22 @@ def main() -> None:
     probe_coef_before = decoder.coef.copy()
 
     needed = sorted({p["recip"] for p in pairs} | {p["donor"] for p in pairs})
-    val_tokens = tokens_of(val)
-    H = cache_site(model, val_tokens, SITE, batch_size=int(cfg.get("cache_batch", 32))).numpy()
-    base_logits = run_model_logits(model, val_tokens, batch_size=int(cfg.get("batch_size", 64))).numpy()
-    base_probs = np.stack([softmax_np(row) for row in base_logits], axis=0)
+    if args.smoke:
+        val_idx = needed
+        pos = {i: j for j, i in enumerate(val_idx)}
+        val_sub = [val[i] for i in val_idx]
+        H_sub = cache_site(model, tokens_of(val_sub), SITE, batch_size=int(cfg.get("cache_batch", 32))).numpy()
+        logits_sub = run_model_logits(model, tokens_of(val_sub), batch_size=int(cfg.get("batch_size", 64))).numpy()
+        H = np.full((len(val), H_sub.shape[1]), np.nan, dtype=H_sub.dtype)
+        base_logits = np.full((len(val), logits_sub.shape[1]), np.nan, dtype=logits_sub.dtype)
+        for i, j in pos.items():
+            H[i] = H_sub[j]
+            base_logits[i] = logits_sub[j]
+    else:
+        val_tokens = tokens_of(val)
+        H = cache_site(model, val_tokens, SITE, batch_size=int(cfg.get("cache_batch", 32))).numpy()
+        base_logits = run_model_logits(model, val_tokens, batch_size=int(cfg.get("batch_size", 64))).numpy()
+    base_probs = np.stack([softmax_np(row) if np.isfinite(row).all() else np.full_like(row, np.nan) for row in base_logits], axis=0)
 
     rng = np.random.default_rng(int(cfg["pair_seed"]) + 3)
     stat_idx = rng.choice(len(train), size=min(int(cfg["n_train_stat_rows"]), len(train)), replace=False)
@@ -341,7 +413,26 @@ def main() -> None:
     ytr = np.stack([r["rel_lab"] for r in train_sub], axis=0)
     stats = train_activation_stats(Xtr, rank=int(cfg["pca_rank"]))
 
-    map_pairs = [p for p in r2_pair_categories(train, int(cfg["n_train_map_pairs"]), int(cfg["pair_seed"]) + 5, holdout["game_ids"]) if p["r2_type"] in PRIMARY_TYPES]
+    map_n = int(cfg["n_train_map_pairs"] if not args.smoke else min(32, int(cfg["n_train_map_pairs"])))
+    map_a, map_b = abd_pair_quotas(map_n, smoke=False)
+    map_fail = None
+    try:
+        map_pairs = [
+            p
+            for p in r2_pair_categories(
+                train,
+                map_n,
+                int(cfg["pair_seed"]) + 5,
+                holdout["game_ids"],
+                n_a=map_a,
+                n_b=map_b,
+                include_c=False,
+            )
+            if p["r2_type"] in PRIMARY_TYPES
+        ]
+    except RuntimeError as exc:
+        map_pairs = []
+        map_fail = f"TRAIN_MAP_PAIRING_FAILED:{exc}"
     if map_pairs:
         map_idx = sorted({p["recip"] for p in map_pairs} | {p["donor"] for p in map_pairs})
         train_map_rows = [train[i] for i in map_idx]
@@ -356,9 +447,12 @@ def main() -> None:
             ridge=float(cfg["reusable_ridge"]),
         )
     else:
-        reusable = {"status": STATUS_EDITOR_C_FIT_FAILED, "reason": "INSUFFICIENT_TRAIN_PAIRS", "n": 0}
+        reusable = {"status": STATUS_EDITOR_C_FIT_FAILED, "reason": map_fail or "INSUFFICIENT_TRAIN_PAIRS", "n": 0}
 
-    parity_idx = rng.choice(len(val), size=min(int(cfg["n_parity"]), len(val)), replace=False)
+    if args.smoke:
+        parity_idx = np.array(needed[: min(8, len(needed))], dtype=int)
+    else:
+        parity_idx = rng.choice(len(val), size=min(int(cfg["n_parity"]), len(val)), replace=False)
     torch_parity = torch_parity_report(decoder, pack["models"], H[parity_idx])
     write_csv(out_dir / "08r2_probe_parity.csv", [torch_parity])
     if torch_parity["max_abs_proba"] > 1e-4 or torch_parity["board_agree"] < 1.0:
@@ -595,15 +689,40 @@ def main() -> None:
             if wrong_g:
                 boot_rows.append({**_boot_rows(wrong_g, "S_legal", n_boot, int(cfg["boot_seed"]), f"{method}|{budget}|wrong_target"), "metric": "S_legal_wrong_target"})
 
-    selected = _select_editor(state_rows, causal_rows, {
+    floors = {
         "changed": float(cfg["representation_changed_acc_min"]),
         "unchanged": float(cfg["representation_unchanged_acc_min"]),
         "causal": float(cfg["causal_abs_min"]),
-    })
+    }
+    selected = _select_editor(state_rows, causal_rows, floors, smoke=bool(args.smoke))
+    accounting = editor_attempt_accounting(causal_rows, floors)
+    comparisons = kl_norm_comparisons(causal_rows)
+    write_json(out_dir / "08r2_editor_attempt_accounting.json", accounting)
+    write_csv(out_dir / "08r2_kl_norm_comparisons.csv", comparisons)
     buckets = Counter(r["outcome"] for r in primary_causal if r.get("is_primary_editor"))
-    if selected.get("rep_ok") and selected.get("beh_ok") and selected.get("kl_ok"):
+    slice_rows = {}
+    for name, types in (
+        ("A", {"A_legal_diff"}),
+        ("B", {"B_similar_board_legal_change"}),
+        ("pooled_AB", PRIMARY_TYPES),
+    ):
+        group = [r for r in primary_causal if r.get("r2_type") in types and r.get("is_primary_editor")]
+        slice_rows[name] = {
+            "n": len(group),
+            "mean_S_legal": float(np.nanmean([r["S_legal"] for r in group if r.get("joint_metric_eligible")])) if group else float("nan"),
+            "mean_dP_gain": float(np.nanmean([r["dP_gain"] for r in group if r.get("dP_gain_defined")])) if group else float("nan"),
+            "mean_dP_loss": float(np.nanmean([r["dP_loss"] for r in group if r.get("dP_loss_defined")])) if group else float("nan"),
+        }
+    if args.smoke:
+        outcome = "SMOKE_TECHNICAL_INTEGRATION_ONLY"
+        note = (
+            "A smoke-test pass establishes technical integration only. "
+            "It is not scientific evidence that the mathematical state editor works. "
+            "A/B/D cannot establish same-legal-state invariance. Category C is unavailable."
+        )
+    elif selected.get("rep_ok") and selected.get("beh_ok") and selected.get("kl_ok"):
         outcome = "A_promising_state_specific_causal_editor"
-        note = "Validation suggests a promising editor. Confirmation remains sealed."
+        note = "Validation suggests a promising editor. Confirmation remains sealed. A/B/D cannot establish same-legal-state invariance."
     elif selected.get("rep_ok") and not selected.get("beh_ok"):
         outcome = "B_probe_editing_without_causal_control"
         note = "Decoder moves toward the target board, but legal-set behavior does not."
@@ -639,7 +758,14 @@ def main() -> None:
         "torch_parity_status": "PASS" if torch_parity["max_abs_proba"] <= 1e-4 and torch_parity["board_agree"] >= 1.0 else "FAIL",
         "grad_checks": grad_ok,
         "pair_counts": dict(Counter(p["r2_type"] for p in pairs)),
-        "pair_census": pair_census_public(val, holdout["game_ids"]),
+        "pair_census": None if args.smoke else pair_census_public(val, holdout["game_ids"]),
+        "protocol": PROTOCOL_ABD,
+        "n_a": n_a,
+        "n_b": n_b,
+        "category_slices": slice_rows,
+        "editor_attempt_accounting": accounting,
+        "kl_norm_comparisons": comparisons,
+        "same_legal_invariance": "NOT_ESTABLISHABLE_ABD_NO_CATEGORY_C",
         "n_pairs": len(pairs),
         "n_boot": n_boot,
         "boot_seed": int(cfg["boot_seed"]),

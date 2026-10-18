@@ -9,6 +9,18 @@ from pathlib import Path
 from src.othello_r2 import REQUIRED_BASELINES, REQUIRED_VALIDATION_FILES, SITE
 
 ESSENTIAL_CAUSAL = ("dP_gain", "dP_loss", "kl", "delta_norm", "changed_acc", "unchanged_acc")
+SMOKE_PASS_CRITERIA = (
+    "checkpoint_and_probe_identities_correct",
+    "pytorch_sklearn_parity_pass",
+    "at_least_one_editor_ran_real_optimization_steps",
+    "all_three_editor_paths_exercised_or_explicit_blocking_failure",
+    "hooks_fire_and_readback_matches",
+    "downstream_logits_from_real_model",
+    "required_outputs_contain_numerical_rows",
+    "no_fake_or_synthetic_model_in_scientific_rows",
+    "required_failures_reported_not_hidden",
+    "confirmation_data_remain_sealed",
+)
 READINESS_GATES = (
     "ENGINEERING_IMPORT_READY",
     "IMPLEMENTATION_TESTS_PASSED",
@@ -49,6 +61,29 @@ def evaluate_r2_completeness(out_dir: str | Path, *, smoke: bool = False) -> dic
     summary = {}
     if files.get("08r2_validation_summary.json"):
         summary = json.loads((out_dir / "08r2_validation_summary.json").read_text(encoding="utf-8"))
+    pairs_doc = {}
+    if files.get("08r2_validation_pairs.json"):
+        try:
+            pairs_doc = json.loads((out_dir / "08r2_validation_pairs.json").read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            pairs_doc = {}
+    pair_counts = pairs_doc.get("counts") or summary.get("pair_counts") or {}
+    if pair_counts.get("A_legal_diff", 0) < 1:
+        failures.append("missing_category_A")
+    if pair_counts.get("B_similar_board_legal_change", 0) < 1:
+        failures.append("missing_category_B")
+    if pair_counts.get("D_wrong_target", 0) < 1:
+        failures.append("missing_category_D")
+    if pair_counts.get("C_same_legal_diff_board", 0):
+        failures.append("fabricated_category_C")
+    if smoke and "smoke" not in Path(out_dir).parts and summary.get("smoke") != 1:
+        failures.append("smoke_outputs_not_isolated")
+    if not summary.get("editor_attempt_accounting"):
+        failures.append("missing_editor_attempt_accounting")
+    if not summary.get("kl_norm_comparisons"):
+        failures.append("missing_kl_norm_comparisons")
+    if smoke and summary.get("selected", {}).get("status") != "NOT_SELECTED_SMOKE":
+        failures.append("smoke_selected_editor_or_hyperparameters")
 
     if summary.get("nanda_ok") != 1 and summary.get("nanda", {}).get("nanda_argmax_match") is not True:
         failures.append("checkpoint_identity")
@@ -68,6 +103,8 @@ def evaluate_r2_completeness(out_dir: str | Path, *, smoke: bool = False) -> dic
     traces = _read_csv(out_dir / "08r2_optimization_traces.csv")
     if len(traces) < 2:
         failures.append("empty_or_header_only_traces")
+    if smoke and traces and not any(_finite(r.get("step")) or _finite(r.get("loss")) for r in traces):
+        failures.append("traces_lack_numerical_rows")
 
     causal = _read_csv(out_dir / "08r2_validation_causal_effects.csv")
     if not causal:
@@ -87,6 +124,13 @@ def evaluate_r2_completeness(out_dir: str | Path, *, smoke: bool = False) -> dic
         failures.append("editor_C_missing_executed_rows")
     if c_status == "EDITOR_C_FIT_FAILED" and any(r.get("method") == "editor_C_reusable" and str(r.get("valid_edit")) in {"1", "1.0"} for r in causal):
         failures.append("editor_C_identity_claimed_as_success")
+    if smoke and not any(_finite(r.get("step")) and int(float(r.get("step"))) >= 1 for r in traces):
+        if traces:
+            failures.append("no_real_optimization_steps")
+    if smoke and summary.get("hook_ok") != 1:
+        failures.append("hooks_did_not_fire_or_readback_mismatch")
+    if smoke and not any(_finite(r.get("kl")) for r in causal):
+        failures.append("downstream_logits_missing")
 
     for base in REQUIRED_BASELINES:
         tagged = [r for r in causal if r.get("method") == base]

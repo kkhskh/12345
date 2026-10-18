@@ -15,6 +15,8 @@ from src.othello_r1_eval import resolve_probe_path, sha256_file
 from src.othello_r2 import (
     CONFIRMATION_SPLIT,
     OFFICIAL_0A_LETTER,
+    PROTOCOL_ABD,
+    abd_pair_quotas,
     confirmation_guard_text,
     isolate_r2_results_dir,
     load_holdout_game_ids,
@@ -38,6 +40,7 @@ SOURCE_FILES = (
     "run_08r2_check_readiness.py",
     "src/othello_r2_eval.py",
     "configs/08r2_preregistration.md",
+    "configs/08r2_preregistration_amendment_abd.md",
     "configs/08r2_protocol_option1_full_abcd.md",
     "configs/08r2_protocol_option2_narrow_ad.md",
     "run_08r1_real_model_verification.py",
@@ -45,6 +48,7 @@ SOURCE_FILES = (
     "run_08f_othello_state_causal_edits.py",
     "configs/toy_othello_08r2.json",
     "configs/08r1_fresh_holdout_manifest.json",
+    "tests/test_othello_r2_protocol_freeze.py",
 )
 
 
@@ -130,7 +134,16 @@ def main() -> None:
     if data_files["prefixes_val"].is_file():
         val_rows = add_labels(load_split(data_dir, "val"))
         require_no_confirmation(val_rows, holdout["game_ids"])
-        pairs = r2_pair_categories(val_rows, int(cfg["n_val_pairs"]), int(cfg["pair_seed"]), holdout["game_ids"])
+        n_a, n_b = abd_pair_quotas(int(cfg["n_val_pairs"]), smoke=False)
+        pairs = r2_pair_categories(
+            val_rows,
+            int(cfg["n_val_pairs"]),
+            int(cfg["pair_seed"]),
+            holdout["game_ids"],
+            n_a=n_a,
+            n_b=n_b,
+            include_c=False,
+        )
         pair_counts = dict(Counter(p["r2_type"] for p in pairs))
         census = pair_census_public(val_rows, holdout["game_ids"])
         write_json(
@@ -138,11 +151,14 @@ def main() -> None:
             {
                 "n": len(pairs),
                 "counts": pair_counts,
+                "n_a": n_a,
+                "n_b": n_b,
                 "census": census,
                 "seed": int(cfg["pair_seed"]),
                 "split": "val",
                 "used_confirmation": 0,
-                "protocol_choice": "UNFROZEN_AWAITING_REVIEW",
+                "protocol_choice": PROTOCOL_ABD["name"],
+                "same_legal_invariance": "NOT_ESTABLISHABLE_ABD_NO_CATEGORY_C",
                 "pairs": pairs,
             },
         )
@@ -226,6 +242,9 @@ def main() -> None:
     prereg = root / "configs/08r2_preregistration.md"
     if prereg.is_file():
         (out_dir / "08r2_preregistration.md").write_text(prereg.read_text(encoding="utf-8"), encoding="utf-8")
+    amendment = root / "configs/08r2_preregistration_amendment_abd.md"
+    if amendment.is_file():
+        (out_dir / "08r2_preregistration_amendment_abd.md").write_text(amendment.read_text(encoding="utf-8"), encoding="utf-8")
 
     missing = [k for k, v in audit["data"].items() if not v["exists"]]
     if not audit["checkpoint"]["exists"]:

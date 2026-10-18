@@ -425,15 +425,24 @@ def train_activation_stats(X: np.ndarray, rank: int = 32) -> dict:
     return {"mean": mean, "pca_basis": vt[:k].T, "singular_values": s[:k], "n": int(X.shape[0]), "rank": k}
 
 
-def isolate_r2_results_dir(requested: str | Path) -> dict:
-    """Always write 08R2 outputs under 08r2/. Never overwrite 08a–08i or 08R1."""
+RANDOM_KL_FLOOR = 1e-3
+KL_RANDOM_MULTIPLIER = 1.5
+PROTOCOL_ABD = {"n_a": 24, "n_b": 8, "include_c": False, "name": "ABD_v1"}
+
+
+def isolate_r2_results_dir(requested: str | Path, smoke: bool = False) -> dict:
+    """Write 08R2 outputs under 08r2/, smoke under 08r2/smoke/. Never overwrite 08R1."""
     requested = Path(requested)
-    out = requested if requested.name == R2_DIRNAME else requested / R2_DIRNAME
+    base = requested if requested.name == R2_DIRNAME else requested / R2_DIRNAME
+    if requested.name == "smoke" and requested.parent.name == R2_DIRNAME:
+        base = requested.parent
+    out = base / "smoke" if smoke else base
     return {
         "requested": str(requested),
         "results_dir": str(out),
         "nested": int(out != requested),
-        "reason": "08R2 writes only under 08r2/",
+        "smoke": int(smoke),
+        "reason": "08R2 smoke writes under 08r2/smoke/" if smoke else "08R2 writes only under 08r2/",
     }
 
 
@@ -593,12 +602,41 @@ def pair_category_census(rows: list[dict], holdout_ids: set[str] | None = None, 
     }
 
 
-def r2_pair_categories(rows: list[dict], n: int, seed: int, holdout_ids: set[str] | None = None, n_b_reserve: int = 8) -> list[dict]:
-    """Reserve genuine B pairs when they exist. Do not relabel A as B/C."""
+def smoke_ab_quotas(n_primary: int) -> tuple[int, int]:
+    """`--n-pairs 4` must keep at least one A and one B."""
+    n = max(2, int(n_primary))
+    n_b = max(1, n // 2)
+    n_a = n - n_b
+    if n_a < 1:
+        n_a, n_b = 1, n - 1
+    return int(n_a), int(n_b)
+
+
+def abd_pair_quotas(n_primary: int, *, smoke: bool = False) -> tuple[int, int]:
+    """Frozen A/B/D quotas. Smoke keeps both categories even when n_primary is small."""
+    if smoke:
+        return smoke_ab_quotas(n_primary)
+    n = int(n_primary)
+    n_b = min(int(PROTOCOL_ABD["n_b"]), max(1, n - 1))
+    n_a = n - n_b
+    return int(n_a), int(n_b)
+
+
+def r2_pair_categories(
+    rows: list[dict],
+    n: int,
+    seed: int,
+    holdout_ids: set[str] | None = None,
+    n_b_reserve: int | None = None,
+    n_a: int | None = None,
+    n_b: int | None = None,
+    include_c: bool = False,
+) -> list[dict]:
+    """Frozen A/B/D sampler. Never relabels C. Does not fabricate pairs."""
     census = pair_category_census(rows, holdout_ids, occupancy_slack=0)
     labeled = census["labeled"]
     found = census["found"]
-    slack_census = pair_category_census(rows, holdout_ids, occupancy_slack=1)
+    slack_census = pair_category_census(rows, holdout_ids, occupancy_slack=1) if include_c else None
     primary = []
     used_recip = set()
     used_idx = set()
@@ -631,49 +669,30 @@ def r2_pair_categories(rows: list[dict], n: int, seed: int, holdout_ids: set[str
             used_recip.add(rec["game_id"])
             used_idx.add(i)
 
-    n_b = min(int(n_b_reserve), int(n), census["categories"]["B_similar_board_legal_change"]["n_recip_games"])
-    _take("B_similar_board_legal_change", n_b)
-    _take("A_legal_diff", int(n) - len(primary))
-    n_c_avail = slack_census["categories"]["C_same_legal_diff_board"]["n_recip_games"]
-    c_pairs = []
-    if n_c_avail and found["C_same_legal_diff_board"]:
-        _take("C_same_legal_diff_board", min(4, n_c_avail))
-    elif slack_census["categories"]["C_same_legal_diff_board"]["n_ordered_pairs"]:
-        # Broader bucket (±1 occupancy quartile) only if strict search found none.
-        extra = slack_census["found"]["C_same_legal_diff_board"]
-        labeled_s = slack_census["labeled"]
-        for i, j, ham in extra:
-            rec = labeled_s[i]
-            if rec["game_id"] in used_recip:
-                continue
-            don = labeled_s[j]
-            c_pairs.append(
-                {
-                    "recip": i,
-                    "donor": j,
-                    "type": "C_same_legal_diff_board",
-                    "r2_type": "C_same_legal_diff_board",
-                    "hamming": ham,
-                    "n_became_legal": 0,
-                    "n_became_illegal": 0,
-                    "same_player": 1,
-                    "recip_game": rec["game_id"],
-                    "target_game": don["game_id"],
-                    "used_confirmation": 0,
-                    "occupancy_slack": 1,
-                    "note": "found only after ±1 occupancy-bucket slack",
-                }
-            )
-            used_recip.add(rec["game_id"])
-            if len(c_pairs) >= 4:
-                break
-    primary.extend(c_pairs)
+    avail_b = census["categories"]["B_similar_board_legal_change"]["n_recip_games"]
+    avail_a = census["categories"]["A_legal_diff"]["n_recip_games"]
+    if n_a is None or n_b is None:
+        want_b = int(n_b_reserve if n_b_reserve is not None else PROTOCOL_ABD["n_b"])
+        want_b = min(want_b, int(n), avail_b)
+        want_a = int(n) - want_b
+    else:
+        want_b = min(int(n_b), avail_b)
+        want_a = min(int(n_a), avail_a)
+    if want_a < 1 or want_b < 1:
+        raise RuntimeError(f"ABD sampler requires at least one A and one B; got n_a={want_a} n_b={want_b} avail_a={avail_a} avail_b={avail_b}")
+    _take("B_similar_board_legal_change", want_b)
+    _take("A_legal_diff", want_a)
+    got_a = sum(p["r2_type"] == "A_legal_diff" for p in primary)
+    got_b = sum(p["r2_type"] == "B_similar_board_legal_change" for p in primary)
+    if got_a < 1 or got_b < 1:
+        raise RuntimeError(f"ABD sample missing A or B: A={got_a} B={got_b}")
     for p in primary:
         p["census"] = {
             "A": census["categories"]["A_legal_diff"]["n_ordered_pairs"],
             "B": census["categories"]["B_similar_board_legal_change"]["n_ordered_pairs"],
             "C_strict": census["categories"]["C_same_legal_diff_board"]["n_ordered_pairs"],
-            "C_slack1": slack_census["categories"]["C_same_legal_diff_board"]["n_ordered_pairs"],
+            "C_slack1": None if slack_census is None else slack_census["categories"]["C_same_legal_diff_board"]["n_ordered_pairs"],
+            "protocol": "ABD_v1",
         }
     wrong = []
     rng = np.random.default_rng(seed + 19)
@@ -726,6 +745,145 @@ def pair_census_public(rows: list[dict], holdout_ids: set[str] | None = None) ->
         "c_available_slack1": slack["categories"]["C_same_legal_diff_board"]["n_ordered_pairs"] > 0,
         "b_available": strict["categories"]["B_similar_board_legal_change"]["n_recip_games"] > 0,
     }
+
+
+def random_kl_threshold(random_kls) -> dict:
+    """Frozen KL gate. Near-zero random KL uses RANDOM_KL_FLOOR, not a free pass."""
+    vals = [float(v) for v in random_kls if v == v]
+    if not vals:
+        return {
+            "threshold": None,
+            "random_kl_mean": float("nan"),
+            "status": "KL_BASELINE_MISSING",
+            "floor": RANDOM_KL_FLOOR,
+            "multiplier": KL_RANDOM_MULTIPLIER,
+        }
+    mean = float(np.mean(vals))
+    used_floor = mean < RANDOM_KL_FLOOR
+    ref = max(mean, RANDOM_KL_FLOOR)
+    return {
+        "threshold": KL_RANDOM_MULTIPLIER * ref,
+        "random_kl_mean": mean,
+        "status": "RANDOM_KL_NEAR_ZERO_FLOOR_APPLIED" if used_floor else "OK",
+        "floor": RANDOM_KL_FLOOR,
+        "multiplier": KL_RANDOM_MULTIPLIER,
+        "n": len(vals),
+    }
+
+
+def editor_attempt_accounting(rows: list[dict], floors: dict | None = None) -> dict:
+    floors = floors or {"changed": 0.40, "unchanged": 0.80}
+    out = {}
+    for method in ("editor_A_fullspace", "editor_B_rowspace", "editor_C_reusable"):
+        group = [r for r in rows if r.get("method") == method]
+        attempted = len(group)
+        def _valid(r: dict) -> bool:
+            return r.get("valid_edit") in {1, 1.0, True, "1", "1.0"}
+
+        executed = [r for r in group if _valid(r)]
+        fit_reasons = {STATUS_EDITOR_C_FIT_FAILED, "INSUFFICIENT_TRAIN_PAIRS", "INSUFFICIENT_STATE_CHANGES"}
+        fit_fail = [
+            r
+            for r in group
+            if str(r.get("reason")) in fit_reasons or r.get("baseline_status") == STATUS_EDITOR_C_FIT_FAILED
+        ]
+        fit_ids = {id(r) for r in fit_fail}
+        opt_fail = [r for r in group if not _valid(r) and id(r) not in fit_ids]
+        near_zero = [r for r in executed if r.get("near_zero_edit") or (r.get("delta_norm") == r.get("delta_norm") and float(r.get("delta_norm", 1)) < 1e-6)]
+        state_ok = [
+            r
+            for r in executed
+            if r.get("changed_acc") == r.get("changed_acc")
+            and r.get("unchanged_acc") == r.get("unchanged_acc")
+            and float(r["changed_acc"]) >= floors["changed"]
+            and float(r["unchanged_acc"]) >= floors["unchanged"]
+        ]
+        joint = [
+            r
+            for r in state_ok
+            if r.get("joint_metric_eligible")
+            and r.get("dP_gain") == r.get("dP_gain")
+            and r.get("dP_loss") == r.get("dP_loss")
+            and float(r["dP_gain"]) > 0
+            and float(r["dP_loss"]) < 0
+        ]
+        valid_s = [r["S_legal"] for r in executed if r.get("joint_metric_eligible") and r.get("S_legal") == r.get("S_legal")]
+        out[method] = {
+            "attempted": attempted,
+            "executed": len(executed),
+            "optimization_failures": len(opt_fail),
+            "fit_failures": len(fit_fail),
+            "near_zero_valid": len(near_zero),
+            "state_target_successes": len(state_ok),
+            "joint_state_behavior_successes": len(joint),
+            "unconditional_joint_rate": (len(joint) / attempted) if attempted else float("nan"),
+            "conditional_mean_S_legal": float(np.mean(valid_s)) if valid_s else float("nan"),
+            "conditional_n": len(executed),
+        }
+    return out
+
+
+def kl_norm_comparisons(causal_rows: list[dict]) -> list[dict]:
+    """Effect-versus-KL and effect-versus-L2 for every method. Not a superiority ranking."""
+    rows = []
+    methods = sorted({r.get("method") for r in causal_rows if r.get("method")})
+    budgets = sorted({float(r["budget"]) for r in causal_rows if r.get("budget") == r.get("budget")})
+    slices = (
+        ("A", {"A_legal_diff"}),
+        ("B", {"B_similar_board_legal_change"}),
+        ("pooled_AB", {"A_legal_diff", "B_similar_board_legal_change"}),
+    )
+    for method in methods:
+        for budget in budgets:
+            for slice_name, types in slices:
+                group = [
+                    r
+                    for r in causal_rows
+                    if r.get("method") == method
+                    and float(r.get("budget", budget)) == budget
+                    and r.get("r2_type") in types
+                    and r.get("valid_edit") in {1, 1.0, True, "1", "1.0"}
+                ]
+                if not group:
+                    continue
+                sleg = [r["S_legal"] for r in group if r.get("S_legal") == r.get("S_legal") and r.get("joint_metric_eligible") in {1, 1.0, True, "1", "1.0"}]
+                kls = [float(r["kl"]) for r in group if r.get("kl") == r.get("kl")]
+                nrms = [float(r["delta_norm"]) for r in group if r.get("delta_norm") == r.get("delta_norm")]
+                mean_s = float(np.mean(sleg)) if sleg else float("nan")
+                mean_kl = float(np.mean(kls)) if kls else float("nan")
+                mean_l2 = float(np.mean(nrms)) if nrms else float("nan")
+                rand = [
+                    r
+                    for r in causal_rows
+                    if r.get("method") == "random_same_norm"
+                    and float(r.get("budget", budget)) == budget
+                    and r.get("r2_type") in types
+                    and r.get("valid_edit") in {1, 1.0, True, "1", "1.0"}
+                    and r.get("kl") == r.get("kl")
+                ]
+                gate = random_kl_threshold([r["kl"] for r in rand])
+                donor = int(any(r.get("used_donor_activation") for r in group))
+                rows.append(
+                    {
+                        "method": method,
+                        "budget": budget,
+                        "slice": slice_name,
+                        "n": len(group),
+                        "mean_S_legal": mean_s,
+                        "mean_kl": mean_kl,
+                        "mean_l2": mean_l2,
+                        "S_legal_per_kl": (mean_s / mean_kl) if mean_s == mean_s and mean_kl and mean_kl == mean_kl else float("nan"),
+                        "S_legal_per_l2": (mean_s / mean_l2) if mean_s == mean_s and mean_l2 and mean_l2 == mean_l2 else float("nan"),
+                        "used_donor_activation": donor,
+                        "used_model_logits": int(any(r.get("used_model_logits") for r in group)),
+                        "random_kl_mean": gate["random_kl_mean"],
+                        "kl_threshold": gate["threshold"],
+                        "kl_gate_status": gate["status"],
+                        "kl_ok": int(gate["threshold"] is not None and mean_kl == mean_kl and mean_kl <= gate["threshold"]),
+                        "note": "Do not claim superiority from donor access, larger KL, or unequal coverage.",
+                    }
+                )
+    return rows
 
 
 def decoder_state_effects(decoder: LinearBoardDecoder, h: np.ndarray, rec_lab, tgt_lab) -> dict:

@@ -20,8 +20,10 @@ REQUIRED = (
     "run_08r2_check_readiness.py",
     "configs/toy_othello_08r2.json",
     "configs/08r2_preregistration.md",
+    "configs/08r2_preregistration_amendment_abd.md",
     "configs/08r2_protocol_option1_full_abcd.md",
     "configs/08r2_protocol_option2_narrow_ad.md",
+    "tests/test_othello_r2_protocol_freeze.py",
     "tests/test_othello_r2_probe_parity.py",
     "tests/test_othello_r2_optimizer.py",
     "tests/test_othello_r2_intervention.py",
@@ -41,6 +43,8 @@ MARKERS = {
         "evaluate_r2_completeness",
         "nanda_argmax_match",
         "FakeResidualForward_ABSENT_SENTINEL",
+        "NOT_SELECTED_SMOKE",
+        "08r2/smoke",
     ),
     "run_08r2_confirmation.py": (
         "CONFIRMATION_EVALUATOR_NOT_IMPLEMENTED",
@@ -51,6 +55,9 @@ MARKERS = {
         "joint_metric_eligible",
         "pair_category_census",
         "probe_direction_edit_safe",
+        "editor_attempt_accounting",
+        "random_kl_threshold",
+        "ABD_v1",
     ),
 }
 

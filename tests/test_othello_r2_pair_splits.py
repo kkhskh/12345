@@ -6,7 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from src.othello_r2 import load_holdout_game_ids, pair_census_public, r2_pair_categories, require_no_confirmation
+from collections import Counter
+
+from src.othello_r2 import load_holdout_game_ids, pair_census_public, r2_pair_categories, require_no_confirmation, smoke_ab_quotas
 from src.othello_runutil import add_labels, load_split
 
 
@@ -33,15 +35,19 @@ def test_validation_pairs_are_game_grouped_and_disjoint_from_holdout():
     holdout = load_holdout_game_ids(HOLDOUT)
     rows = add_labels(load_split(VAL.parent, "val"))
     require_no_confirmation(rows, holdout["game_ids"])
-    pairs = r2_pair_categories(rows, 16, 1082, holdout["game_ids"])
+    n_a, n_b = smoke_ab_quotas(4)
+    pairs = r2_pair_categories(rows, 4, 1082, holdout["game_ids"], n_a=n_a, n_b=n_b, include_c=False)
     assert pairs
     games = {p["recip_game"] for p in pairs} | {p["target_game"] for p in pairs}
     assert not (games & holdout["game_ids"])
-    types = {p["r2_type"] for p in pairs}
-    assert "D_wrong_target" in types
+    counts = Counter(p["r2_type"] for p in pairs)
+    assert counts["A_legal_diff"] == 2
+    assert counts["B_similar_board_legal_change"] == 2
+    assert counts["D_wrong_target"] == 4
+    assert counts.get("C_same_legal_diff_board", 0) == 0
     census = pair_census_public(rows, holdout["game_ids"])
-    if census["b_available"]:
-        assert "B_similar_board_legal_change" in types
+    assert census["b_available"]
+    assert not census["c_available_strict"]
     primary = [p for p in pairs if p["r2_type"] != "D_wrong_target"]
     assert all(p["same_player"] == 1 for p in primary)
     assert all(p["recip_game"] != p["target_game"] for p in primary)

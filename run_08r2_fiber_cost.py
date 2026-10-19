@@ -48,9 +48,11 @@ from src.othello_r2_fiber_cost import (
     VERDICT_INCONCLUSIVE,
     decide_cost_verdict,
     evaluate_cost_completeness,
+    adopt_drive_defaults,
     isolate_cost_dir,
     load_frozen_spec_manifest,
     match_output_js,
+    reconstruct_frozen_pairs,
     resolve_spec_dir,
     unit_direction,
 )
@@ -191,31 +193,18 @@ def main() -> None:
         cfg["data_dir"] = args.data_dir
     if args.checkpoints_dir:
         cfg["checkpoints_dir"] = args.checkpoints_dir
-    try:
-        spec_res = resolve_spec_dir(args.spec_dir, cfg["results_dir"])
-        spec_dir = Path(spec_res["spec_dir"])
-    except FileNotFoundError as exc:
-        out_dir = ensure_dir(isolate_cost_dir(cfg["results_dir"])["results_dir"])
-        write_awaiting(out_dir, f"BLOCKED_MISSING_SPEC_MANIFEST {exc}")
-        return
-    if args.results_dir is None and "MyDrive" in str(spec_dir):
-        cfg["results_dir"] = str(spec_dir.parent.parent)
-    if args.data_dir is None:
-        local_val = Path(cfg["data_dir"]) / "prefixes_val.jsonl"
-        drive_val = spec_dir.parent.parent / "data" / "prefixes_val.jsonl"
-        if not local_val.is_file() and drive_val.is_file():
-            cfg["data_dir"] = str(drive_val.parent)
-    if args.checkpoints_dir is None:
-        ckpt_name = cfg.get("checkpoint_file", "synthetic_model.pth")
-        local_ckpt = Path(cfg["checkpoints_dir"]) / ckpt_name
-        drive_ckpt = spec_dir.parent.parent / "checkpoints"
-        if not local_ckpt.is_file() and (drive_ckpt / ckpt_name).is_file():
-            cfg["checkpoints_dir"] = str(drive_ckpt)
+    adopted = adopt_drive_defaults(cfg, args)
+    spec_res = resolve_spec_dir(args.spec_dir, cfg["results_dir"])
+    spec_dir = Path(spec_res["spec_dir"]) if spec_res["spec_dir"] is not None else None
     out_dir = ensure_dir(isolate_cost_dir(cfg["results_dir"])["results_dir"])
     print(f"08R2-FIBER-COST PATHS spec_dir={spec_dir} source={spec_res['source']}")
     print(f"  results_dir={cfg['results_dir']}")
     print(f"  data_dir={cfg['data_dir']}")
     print(f"  checkpoints_dir={cfg['checkpoints_dir']}")
+    if adopted:
+        print(f"  adopted={adopted}")
+    if spec_res["source"] == "missing":
+        print(f"  spec_tried={spec_res['tried']}")
     prereg_src = Path(cfg.get("preregistration", "docs/experiments/08r2_fiber_cost_preregistration.md"))
     if prereg_src.is_file():
         (out_dir / "fiber_cost_preregistration.md").write_text(prereg_src.read_text(encoding="utf-8"), encoding="utf-8")
@@ -226,6 +215,9 @@ def main() -> None:
             for k in cfg
             if k in {
                 "expected_pair_manifest_sha256",
+                "n_a",
+                "n_b",
+                "pair_seed",
                 "js_atol",
                 "js_rtol",
                 "n_bisect",
@@ -252,11 +244,23 @@ def main() -> None:
     val = add_labels(load_split(data_dir, "val"))
     require_no_confirmation(val, holdout["game_ids"])
 
+    expected_hash = cfg.get("expected_pair_manifest_sha256")
     try:
-        manifest = load_frozen_spec_manifest(spec_dir, cfg.get("expected_pair_manifest_sha256"))
-    except FileNotFoundError as exc:
-        write_awaiting(out_dir, f"BLOCKED_MISSING_SPEC_MANIFEST {exc}")
-        return
+        if spec_dir is not None:
+            manifest = load_frozen_spec_manifest(spec_dir, expected_hash)
+            pair_source = spec_res["source"]
+        else:
+            manifest = reconstruct_frozen_pairs(
+                val,
+                holdout["game_ids"],
+                expected_hash,
+                n_a=int(cfg.get("n_a", 32)),
+                n_b=int(cfg.get("n_b", 16)),
+                pair_seed=int(cfg.get("pair_seed", 2182)),
+                n_wrong=int(cfg.get("n_wrong", 3)),
+                wrong_seed=int(cfg.get("wrong_seed", 2282)),
+            )
+            pair_source = "reconstructed_from_frozen_seeds"
     except ValueError as exc:
         raise SystemExit(f"{VERDICT_ENGINEERING} {exc}")
     write_json(out_dir / "fiber_cost_pair_manifest.json", manifest)
@@ -264,8 +268,9 @@ def main() -> None:
     wrongs = manifest["wrong_donors"]
     print("08R2-FIBER-COST FROZEN PAIRS")
     print(f"  spec_dir={spec_dir}")
+    print(f"  pair_source={pair_source}")
     print(f"  A={manifest['n_a']} B={manifest['n_b']} hash={manifest['pair_manifest_sha256']}")
-    print(f"  hash_ok={int(manifest['pair_manifest_sha256'] == cfg.get('expected_pair_manifest_sha256'))}")
+    print(f"  hash_ok={int(manifest['pair_manifest_sha256'] == expected_hash)}")
 
     try:
         _require_real_stack()
@@ -328,8 +333,8 @@ def main() -> None:
         raise SystemExit(f"{VERDICT_ENGINEERING} no nullspace")
     p_n = svd["P_N"]
     spec_vecs = None
-    spec_vec_path = spec_dir / "fiber_spec_nullspace_vectors.npz"
-    if spec_vec_path.is_file():
+    spec_vec_path = (spec_dir / "fiber_spec_nullspace_vectors.npz") if spec_dir is not None else None
+    if spec_vec_path is not None and spec_vec_path.is_file():
         spec_vecs = np.load(spec_vec_path)
 
     rows = []

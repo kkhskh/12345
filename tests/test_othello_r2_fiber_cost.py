@@ -17,6 +17,7 @@ from src.othello_r2_fiber_cost import (
     js_match_ok,
     load_frozen_spec_manifest,
     match_output_js,
+    reconstruct_frozen_pairs,
     resolve_spec_dir,
     unit_direction,
 )
@@ -89,6 +90,17 @@ def test_spec_dir_discovery_uses_existing_manifest(tmp_path: Path):
     found = resolve_spec_dir(None, tmp_path)
     assert Path(found["spec_dir"]) == spec
     assert found["source"] == "discovered"
+
+
+def test_missing_spec_dir_is_not_fatal(tmp_path: Path):
+    found = resolve_spec_dir(tmp_path / "absent", tmp_path)
+    assert found["spec_dir"] is None
+    assert found["source"] == "missing"
+
+
+def test_reconstruct_rejects_hash_mismatch():
+    with pytest.raises(ValueError, match="reconstructed pair hash"):
+        reconstruct_frozen_pairs([], set(), "deadbeef", exclude_fiber=False)
 
 
 def test_frozen_manifest_rejects_wrong_hash(tmp_path: Path):

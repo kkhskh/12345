@@ -11,7 +11,18 @@ from pathlib import Path
 import numpy as np
 
 from src.othello_r2_fiber import js_divergence
-from src.othello_r2_fiber_spec import isolate_spec_dir
+from src.othello_r2_fiber_spec import (
+    N_WRONG,
+    PAIR_SEED,
+    WANT_A,
+    WANT_B,
+    WRONG_SEED,
+    enumerate_candidates,
+    fiber_excluded_games,
+    isolate_spec_dir,
+    match_wrong_donors,
+    select_disjoint_pairs,
+)
 
 
 COST_DIRNAME = "fiber_cost"
@@ -121,24 +132,26 @@ def match_output_js(eval_alpha, target_js: float, alpha_hi: float, atol: float =
 
 COMMON_SPEC_DIRS = (
     "/content/drive/MyDrive/ml_research_artifacts/toy_othello/08r2/fiber_spec",
+    "/content/12345/artifacts/results/toy_othello/08r2/fiber_spec",
+    "/content/ml_research/artifacts/results/toy_othello/08r2/fiber_spec",
     "artifacts/results/toy_othello/08r2/fiber_spec",
 )
+DRIVE_ROOT = Path("/content/drive/MyDrive/ml_research_artifacts/toy_othello")
 
 
 def resolve_spec_dir(explicit: str | Path | None, results_dir: str | Path) -> dict:
-    """Use --spec-dir if given. Otherwise take the first existing frozen SPEC folder."""
+    """Return an existing SPEC folder if present. Missing is not fatal; pairs can be rebuilt."""
     tried = []
+    candidates = []
     if explicit:
-        path = Path(explicit)
-        tried.append(str(path))
-        if (path / "fiber_spec_pair_manifest.json").is_file():
-            return {"spec_dir": path, "source": "explicit", "tried": tried}
-        raise FileNotFoundError(f"missing frozen SPEC pair manifest: {path / 'fiber_spec_pair_manifest.json'}")
-    candidates = [
-        Path(isolate_spec_dir(results_dir)["results_dir"]),
-        Path(results_dir) / "08r2" / "fiber_spec",
-        Path(results_dir).parent / "08r2" / "fiber_spec",
-    ]
+        candidates.append(Path(explicit))
+    candidates.extend(
+        [
+            Path(isolate_spec_dir(results_dir)["results_dir"]),
+            Path(results_dir) / "08r2" / "fiber_spec",
+            Path(results_dir).parent / "08r2" / "fiber_spec",
+        ]
+    )
     candidates.extend(Path(p) for p in COMMON_SPEC_DIRS)
     seen = set()
     for path in candidates:
@@ -148,8 +161,70 @@ def resolve_spec_dir(explicit: str | Path | None, results_dir: str | Path) -> di
         seen.add(key)
         tried.append(key)
         if (path / "fiber_spec_pair_manifest.json").is_file():
-            return {"spec_dir": path, "source": "discovered", "tried": tried}
-    raise FileNotFoundError(f"missing frozen SPEC pair manifest; tried {tried}")
+            source = "explicit" if explicit and Path(explicit) == path else "discovered"
+            return {"spec_dir": path, "source": source, "tried": tried}
+    return {"spec_dir": None, "source": "missing", "tried": tried}
+
+
+def reconstruct_frozen_pairs(
+    val_rows: list[dict],
+    holdout_ids: set[str],
+    expected_hash: str,
+    *,
+    n_a: int = WANT_A,
+    n_b: int = WANT_B,
+    pair_seed: int = PAIR_SEED,
+    n_wrong: int = N_WRONG,
+    wrong_seed: int = WRONG_SEED,
+    exclude_fiber: bool = True,
+) -> dict:
+    excl = fiber_excluded_games(val_rows, holdout_ids) if exclude_fiber else set()
+    enum = enumerate_candidates(val_rows, holdout_ids, excl)
+    selected = select_disjoint_pairs(enum["found"], int(n_a), int(n_b), int(pair_seed))
+    got = selected["pair_manifest_sha256"]
+    if expected_hash and got != expected_hash:
+        raise ValueError(f"reconstructed pair hash {got} != frozen {expected_hash}")
+    if not selected.get("feasible") or selected["n_a"] != int(n_a) or selected["n_b"] != int(n_b):
+        raise ValueError(f"reconstructed pair set infeasible A={selected['n_a']} B={selected['n_b']}")
+    wrongs = [match_wrong_donors(enum["labeled"], p, holdout_ids, int(n_wrong), int(wrong_seed)) for p in selected["pairs"]]
+    if any(not w.get("ok") for w in wrongs):
+        raise ValueError("reconstructed wrong-donor matching incomplete")
+    return {
+        "n": len(selected["pairs"]),
+        "n_a": selected["n_a"],
+        "n_b": selected["n_b"],
+        "feasible": selected["feasible"],
+        "n_recipient_games": selected["n_recipient_games"],
+        "n_target_games": selected["n_target_games"],
+        "recip_target_overlap": selected["recip_target_overlap"],
+        "pair_manifest_sha256": got,
+        "expected_sha256": expected_hash,
+        "hash_ok": 1,
+        "seed": selected["seed"],
+        "exclude_fiber_games": 1,
+        "pairs": selected["pairs"],
+        "wrong_donors": wrongs,
+        "source": "reconstructed_from_frozen_seeds",
+    }
+
+
+def adopt_drive_defaults(cfg: dict, args) -> dict:
+    adopted = {}
+    if not DRIVE_ROOT.is_dir():
+        return adopted
+    if getattr(args, "results_dir", None) is None and Path(cfg.get("results_dir", "")).as_posix().startswith("artifacts/"):
+        cfg["results_dir"] = str(DRIVE_ROOT)
+        adopted["results_dir"] = cfg["results_dir"]
+    if getattr(args, "data_dir", None) is None and not (Path(cfg["data_dir"]) / "prefixes_val.jsonl").is_file():
+        if (DRIVE_ROOT / "data" / "prefixes_val.jsonl").is_file():
+            cfg["data_dir"] = str(DRIVE_ROOT / "data")
+            adopted["data_dir"] = cfg["data_dir"]
+    if getattr(args, "checkpoints_dir", None) is None:
+        ckpt_name = cfg.get("checkpoint_file", "synthetic_model.pth")
+        if not (Path(cfg["checkpoints_dir"]) / ckpt_name).is_file() and (DRIVE_ROOT / "checkpoints" / ckpt_name).is_file():
+            cfg["checkpoints_dir"] = str(DRIVE_ROOT / "checkpoints")
+            adopted["checkpoints_dir"] = cfg["checkpoints_dir"]
+    return adopted
 
 
 def load_frozen_spec_manifest(spec_dir: str | Path, expected_hash: str | None) -> dict:

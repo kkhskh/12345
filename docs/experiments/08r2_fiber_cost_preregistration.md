@@ -23,7 +23,7 @@ Output JS is a scalar disruption budget. Matching it is not equality of output d
 
 ## Reused objects
 
-- Frozen 48-pair manifest hash `2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3`
+- Frozen 48-pair manifest hash `2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3`. If the SPEC JSON is absent, rebuild from the same seeds and accept only if this hash matches.
 - The same correct donor, three wrong donors, and three random seeds
 - Frozen 08c contrast matrix, rank tolerance `1e-8`, Editor A budget-16 settings
 

@@ -44,6 +44,21 @@ BANNED = {
 }
 
 
+def jsonable_prefix(row: dict) -> dict:
+    skip = {"abs_lab", "rel_lab", "legal_mask", "board_np"}
+    out = {}
+    for key, val in row.items():
+        if key in skip:
+            continue
+        if isinstance(val, np.ndarray):
+            out[key] = val.tolist()
+        elif isinstance(val, (np.integer, np.floating)):
+            out[key] = val.item()
+        else:
+            out[key] = val
+    return out
+
+
 def isolate_vnf_dir(requested: str | Path) -> dict:
     requested = Path(requested)
     if requested.name == VNF_DIRNAME:

@@ -275,7 +275,7 @@ def pack_a_online(labeled: list[dict], elig: list[int], used: set[str], n_a: int
 
 
 def enumerate_kind_triplets(rows: list[dict], kinds: set[str]) -> dict:
-    labeled = add_labels(list(rows))
+    labeled = add_labels([{**r} for r in rows])
     elig = [i for i, r in enumerate(labeled) if r.get("legal") and not r.get("terminal")]
     found = {k: [] for k in ("A_legal_diff", "B_similar_board_legal_change")}
     for i in elig:

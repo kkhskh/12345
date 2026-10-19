@@ -51,6 +51,7 @@ from src.othello_r2_visible_null import (
     interaction_ok,
     interaction_scores,
     isolate_vnf_dir,
+    jsonable_prefix,
     project_check,
     random_null_unit,
     rhat,
@@ -166,15 +167,15 @@ def stage2(cfg, out_dir: Path) -> None:
         "method": selected.get("method"),
         "upper_b": selected.get("upper_b"),
     }
-    write_json(out_dir / "vnf_census.json", census)
-    write_json(out_dir / "vnf_triplet_manifest.json", selected)
-    with (out_dir / "vnf_prefixes.jsonl").open("w", encoding="utf-8") as handle:
-        for r in rows:
-            handle.write(json.dumps(r) + "\n")
     print("08R2-VISIBLE-NULL-FACTORIAL STAGE 2")
     print(f"  seed={census['cohort_seed']} kept={census['n_kept']} dropped={census['n_dropped']} prefixes={census['n_prefixes']}")
     print(f"  selected={census['selected_A']}A+{census['selected_B']}B union={census['n_union']} feasible={census['feasible']}")
     print(f"  triplet_hash={census['triplet_sha256']}")
+    write_json(out_dir / "vnf_census.json", census)
+    write_json(out_dir / "vnf_triplet_manifest.json", selected)
+    with (out_dir / "vnf_prefixes.jsonl").open("w", encoding="utf-8") as handle:
+        for r in rows:
+            handle.write(json.dumps(jsonable_prefix(r)) + "\n")
     if not census["feasible"]:
         write_json(out_dir / "vnf_completion_status.json", {"status": STATUS_INFEASIBLE, "census": census, "used_confirmation": 0})
         raise SystemExit(STATUS_INFEASIBLE)

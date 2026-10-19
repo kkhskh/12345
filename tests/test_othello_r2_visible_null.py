@@ -2,9 +2,13 @@
 
 from __future__ import annotations
 
+import json
+
 import numpy as np
 import pytest
 
+from src.othello_r2_symmetric_target_census_audit import synthetic_b_triplet_rows
+from src.othello_r2_symmetric_target_fresh import joint_pack_from_rows
 from src.othello_r2_visible_null import (
     VERDICT_NOT,
     VERDICT_SUPPORTED,
@@ -13,6 +17,7 @@ from src.othello_r2_visible_null import (
     interaction_ok,
     interaction_scores,
     isolate_vnf_dir,
+    jsonable_prefix,
     project_check,
     unit,
 )
@@ -45,6 +50,13 @@ def test_orthogonal_budget_and_interaction():
     xo = interaction_scores(y_t, y_w)
     assert xo["I_T"] == pytest.approx(0.09)
     assert xo["I_W"] == pytest.approx(0.07)
+
+
+def test_packing_leaves_prefixes_json_serializable():
+    rows = synthetic_b_triplet_rows()
+    joint_pack_from_rows(rows, 1, 1, 0, n_trials=2)
+    json.dumps(jsonable_prefix(rows[0]))
+    json.dumps(rows[0])
 
 
 def test_gate():

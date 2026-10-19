@@ -250,10 +250,34 @@ def unit_direction(vec: np.ndarray, min_norm: float = 1e-8) -> np.ndarray | None
     return v / nrm
 
 
+def build_cost_gate(attempts: dict, n_pairs: int, *, hooks_ok: int, parity_ok: int, slices: dict, behavior_floor: float = BEHAVIOR_FLOOR) -> dict:
+    pooled = slices.get("pooled") or {}
+    ci = pooled.get("delta_specific_ci") or {}
+    rci = pooled.get("delta_random_ci") or {}
+    matching_ok = int(
+        int(attempts.get("valid", 0)) == int(n_pairs)
+        and int(attempts.get("js_fail", 0)) == 0
+        and int(attempts.get("invariance_fail", 0)) == 0
+        and int(attempts.get("direction_fail", 0)) == 0
+    )
+    return {
+        "invariance_ok": int(int(attempts.get("invariance_fail", 0)) == 0 and int(attempts.get("valid", 0)) > 0),
+        "js_match_ok": int(int(attempts.get("js_fail", 0)) == 0 and int(attempts.get("valid", 0)) == int(n_pairs)),
+        "matching_support_ok": matching_ok,
+        "mean_delta_specific_positive": int(pooled.get("mean_delta_specific", 0) > 0),
+        "ci_lower_gt_0": int(ci.get("ci95_low", 0) > 0) if ci else 0,
+        "mean_delta_ge_floor": int(pooled.get("mean_delta_specific", 0) >= float(behavior_floor)),
+        "both_components_correct_sign": int(pooled.get("mean_dG", 0) > 0 and pooled.get("mean_dQ", 0) < 0),
+        "beats_random": int(pooled.get("mean_delta_random", 0) > 0 and (rci.get("ci95_low", 0) > 0 if rci else 0)),
+        "integrity_ok": int(bool(hooks_ok) and bool(parity_ok) and int(attempts.get("editor_fail", 0)) == 0 and int(attempts.get("pairs", 0)) == int(n_pairs)),
+    }
+
+
 def decide_cost_verdict(gate: dict) -> str:
     needed = (
         "invariance_ok",
         "js_match_ok",
+        "matching_support_ok",
         "mean_delta_specific_positive",
         "ci_lower_gt_0",
         "mean_delta_ge_floor",
@@ -265,6 +289,8 @@ def decide_cost_verdict(gate: dict) -> str:
         return VERDICT_INCONCLUSIVE
     if not gate.get("integrity_ok"):
         return VERDICT_ENGINEERING
+    if not gate.get("matching_support_ok") or not gate.get("js_match_ok") or not gate.get("invariance_ok"):
+        return VERDICT_INCONCLUSIVE
     if all(bool(gate[k]) for k in needed):
         return VERDICT_SUPPORTED
     return VERDICT_NOT_SUPPORTED
@@ -287,7 +313,7 @@ def evaluate_cost_completeness(out_dir: str | Path, *, real_model: bool = True) 
     if status.get("used_confirmation"):
         failures.append("confirmation_accessed")
     if real_model and status.get("status") == STATUS_COMPLETE:
-        for key in ("checkpoint_loaded", "probe_loaded", "pairs_ok", "js_matched_controls", "full_outputs_saved"):
+        for key in ("checkpoint_loaded", "probe_loaded", "pairs_ok", "full_outputs_saved"):
             if status.get(key) != 1:
                 failures.append(f"complete_missing_{key}")
     if "fiber_cost" not in Path(out_dir).parts:

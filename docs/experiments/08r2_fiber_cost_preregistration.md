@@ -70,7 +70,7 @@ Bootstrap: 2000, seed 82. Aggregate the three wrong and three random responses i
 
 - `TARGET_SPECIFIC_AT_EQUAL_JS_SUPPORTED` only if the gate holds.
 - `TARGET_SPECIFIC_AT_EQUAL_JS_NOT_SUPPORTED` if the study completes and the gate fails.
-- `TARGET_SPECIFIC_AT_EQUAL_JS_INCONCLUSIVE` if matching support is insufficient.
+- `TARGET_SPECIFIC_AT_EQUAL_JS_INCONCLUSIVE` if matching support is insufficient. Incomplete JS matching is a scientific outcome, not an engineering-file failure.
 - `FIBER_COST_ENGINEERING_FAILED` for identity or implementation failure.
 
 A negative COST result does not retract SPEC. A positive COST result still does not define a unique germ.

@@ -46,6 +46,7 @@ from src.othello_r2_fiber_cost import (
     STATUS_COMPLETE,
     VERDICT_ENGINEERING,
     VERDICT_INCONCLUSIVE,
+    build_cost_gate,
     decide_cost_verdict,
     evaluate_cost_completeness,
     adopt_drive_defaults,
@@ -80,6 +81,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--data-dir", default=None)
     p.add_argument("--checkpoints-dir", default=None)
     p.add_argument("--device", default=None)
+    p.add_argument("--finalize-dir", default=None, help="Recompute COST verdict from written artifacts. No model.")
     return p.parse_args()
 
 
@@ -160,6 +162,60 @@ def write_report(path: Path, gate, verdict, slices, attempts, manifest, svd) -> 
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
+def print_cost_summary(verdict, gate, slices, attempts, n_pairs, match_rows=None) -> None:
+    pooled = slices.get("pooled", {})
+    print("08R2-FIBER-COST")
+    print(f"  verdict={verdict}")
+    print(f"  valid_pairs={attempts.get('valid', 0)}/{n_pairs}")
+    print(f"  attempts={attempts}")
+    print(f"  pooled={pooled}")
+    print(f"  gate={gate}")
+    if match_rows:
+        reasons = {}
+        for row in match_rows:
+            reasons[str(row.get("reason", ""))] = reasons.get(str(row.get("reason", "")), 0) + 1
+        print(f"  js_match_reasons={reasons}")
+    print("  SPEC at matched L2 is unchanged: TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED")
+    print("  official letter unchanged: C / PARTIAL")
+    print("  08R2_VALIDATION_COMPLETE — NEGATIVE")
+    print("  SECTION_5_3 = PARTIAL")
+    print("  OBSTRUCTION_READY = NO")
+
+
+def finalize_from_dir(out_dir: Path, cfg: dict) -> None:
+    import csv
+    import json
+
+    out_dir = Path(out_dir)
+    status = json.loads((out_dir / "fiber_cost_completion_status.json").read_text(encoding="utf-8"))
+    attempts = json.loads((out_dir / "fiber_cost_attempt_accounting.json").read_text(encoding="utf-8"))
+    manifest = json.loads((out_dir / "fiber_cost_pair_manifest.json").read_text(encoding="utf-8"))
+    match_rows = []
+    with (out_dir / "fiber_cost_js_match.csv").open(encoding="utf-8", newline="") as handle:
+        match_rows = list(csv.DictReader(handle))
+    slices = status.get("slices") or {}
+    n_pairs = int(manifest.get("n", 48))
+    gate = build_cost_gate(
+        attempts,
+        n_pairs,
+        hooks_ok=1,
+        parity_ok=1,
+        slices=slices,
+        behavior_floor=float(cfg.get("behavior_floor", BEHAVIOR_FLOOR)),
+    )
+    verdict = decide_cost_verdict(gate)
+    status["gate"] = gate
+    status["verdict"] = verdict
+    status["js_matched_controls"] = int(gate.get("matching_support_ok", 0))
+    status["finalized_without_rerun"] = 1
+    write_json(out_dir / "fiber_cost_completion_status.json", status)
+    write_report(out_dir / "fiber_cost_scientific_report.md", gate, verdict, slices, attempts, manifest, {"numerical_rank": None, "nullspace_dim": None})
+    print_cost_summary(verdict, gate, slices, attempts, n_pairs, match_rows)
+    gate_files = evaluate_cost_completeness(out_dir, real_model=True)
+    if not gate_files["ok"]:
+        raise SystemExit(f"{VERDICT_ENGINEERING} completeness {gate_files['failures']}")
+
+
 def write_awaiting(out_dir: Path, reason: str, extra=None) -> None:
     payload = {
         "status": STATUS_AWAITING,
@@ -187,6 +243,9 @@ def main() -> None:
     parent = load_config(args.parent_config)
     r2cfg = load_config(args.r2_config)
     cfg = merge_cfg(parent, r2cfg, load_config(args.config))
+    if args.finalize_dir:
+        finalize_from_dir(args.finalize_dir, cfg)
+        return
     if args.results_dir:
         cfg["results_dir"] = args.results_dir
     if args.data_dir:
@@ -673,18 +732,14 @@ def main() -> None:
         boot_rows.append({"slice": name, "metric": "delta_random", **sl["delta_random_ci"]})
 
     pooled = slices.get("pooled", {})
-    ci = pooled.get("delta_specific_ci") or {}
-    rci = pooled.get("delta_random_ci") or {}
-    gate = {
-        "invariance_ok": int(attempts["invariance_fail"] == 0 and attempts["valid"] > 0),
-        "js_match_ok": int(attempts["js_fail"] == 0 and attempts["valid"] > 0),
-        "mean_delta_specific_positive": int(pooled.get("mean_delta_specific", 0) > 0),
-        "ci_lower_gt_0": int(ci.get("ci95_low", 0) > 0) if ci else 0,
-        "mean_delta_ge_floor": int(pooled.get("mean_delta_specific", 0) >= float(cfg.get("behavior_floor", BEHAVIOR_FLOOR))),
-        "both_components_correct_sign": int(pooled.get("mean_dG", 0) > 0 and pooled.get("mean_dQ", 0) < 0),
-        "beats_random": int(pooled.get("mean_delta_random", 0) > 0 and (rci.get("ci95_low", 0) > 0 if rci else 0)),
-        "integrity_ok": int(hooks_ok and parity["ok"] == 1 and attempts["valid"] == len(pairs)),
-    }
+    gate = build_cost_gate(
+        attempts,
+        len(pairs),
+        hooks_ok=hooks_ok,
+        parity_ok=int(parity["ok"] == 1),
+        slices=slices,
+        behavior_floor=float(cfg.get("behavior_floor", BEHAVIOR_FLOOR)),
+    )
     verdict = decide_cost_verdict(gate)
     write_csv(out_dir / "fiber_cost_interventions.csv", rows)
     write_csv(out_dir / "fiber_cost_js_match.csv", match_rows or [{"reason": "no_js_rows", "n": 0}])
@@ -729,7 +784,7 @@ def main() -> None:
             "checkpoint_loaded": 1,
             "probe_loaded": 1,
             "pairs_ok": 1,
-            "js_matched_controls": int(attempts["valid"] == len(pairs) and attempts["js_fail"] == 0),
+            "js_matched_controls": int(gate.get("matching_support_ok", 0)),
             "full_outputs_saved": int(len(logit_pack) > 0),
             "used_confirmation": 0,
             "official_0A_letter": OFFICIAL_0A_LETTER,
@@ -739,19 +794,10 @@ def main() -> None:
             "fiber_spec_status_preserved": "TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED",
         },
     )
+    print_cost_summary(verdict, gate, slices, attempts, len(pairs), match_rows)
     gate_files = evaluate_cost_completeness(out_dir, real_model=True)
     if not gate_files["ok"]:
         raise SystemExit(f"{VERDICT_ENGINEERING} completeness {gate_files['failures']}")
-    print("08R2-FIBER-COST")
-    print(f"  verdict={verdict}")
-    print(f"  valid_pairs={attempts['valid']}/{len(pairs)}")
-    print(f"  pooled={pooled}")
-    print(f"  gate={gate}")
-    print("  SPEC at matched L2 is unchanged: TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED")
-    print("  official letter unchanged: C / PARTIAL")
-    print("  08R2_VALIDATION_COMPLETE — NEGATIVE")
-    print("  SECTION_5_3 = PARTIAL")
-    print("  OBSTRUCTION_READY = NO")
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ import pytest
 
 from src.othello_r2_fiber_cost import (
     VERDICT_ENGINEERING,
+    VERDICT_INCONCLUSIVE,
     VERDICT_NOT_SUPPORTED,
     VERDICT_SUPPORTED,
     decide_cost_verdict,
@@ -62,6 +63,7 @@ def test_verdict_requires_js_match_not_l2():
     gate = {
         "invariance_ok": 1,
         "js_match_ok": 1,
+        "matching_support_ok": 1,
         "mean_delta_specific_positive": 1,
         "ci_lower_gt_0": 1,
         "mean_delta_ge_floor": 1,
@@ -70,9 +72,14 @@ def test_verdict_requires_js_match_not_l2():
         "integrity_ok": 1,
     }
     assert decide_cost_verdict(gate) == VERDICT_SUPPORTED
-    gate["js_match_ok"] = 0
+    gate["mean_delta_ge_floor"] = 0
     assert decide_cost_verdict(gate) == VERDICT_NOT_SUPPORTED
+    gate["mean_delta_ge_floor"] = 1
+    gate["js_match_ok"] = 0
+    gate["matching_support_ok"] = 0
+    assert decide_cost_verdict(gate) == VERDICT_INCONCLUSIVE
     gate["js_match_ok"] = 1
+    gate["matching_support_ok"] = 1
     gate["integrity_ok"] = 0
     assert decide_cost_verdict(gate) == VERDICT_ENGINEERING
 

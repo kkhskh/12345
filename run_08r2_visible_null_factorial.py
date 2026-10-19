@@ -209,7 +209,7 @@ def stage3(cfg, out_dir: Path, args, nst: Path, sem: Path) -> None:
     for i in ho_idx[:256]:
         lab = np.asarray(train[int(i)]["rel_lab"], dtype=np.int64)
         p_nat = decoder.proba_np(H[int(i)]).reshape(64, 3)
-        p_hat = decoder.proba_np(rhat(B[int(i)], final)).reshape(64, 3)
+        p_hat = decoder.proba_np(rhat(B[int(i)], diag)).reshape(64, 3)
         ln = float(np.log(np.clip(p_nat[np.arange(64), np.clip(lab, 0, 2)], 1e-12, 1.0)).mean())
         lh = float(np.log(np.clip(p_hat[np.arange(64), np.clip(lab, 0, 2)], 1e-12, 1.0)).mean())
         nat_lp.append(ln)

@@ -33,6 +33,7 @@ COVERAGE_MIN = 44
 N_BOOT = 2000
 BOOT_SEED = 82
 Y_RECON_ATOL = 1e-6
+FIXED_JS_PAIR_HASH = "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3"
 
 VERDICT_SUPPORTED = "DONOR_FREE_NULL_STATE_TRANSFER_SUPPORTED"
 VERDICT_NOT_SUPPORTED = "DONOR_FREE_NULL_STATE_TRANSFER_NOT_SUPPORTED"
@@ -145,12 +146,20 @@ def verify_simulator_legal(row: dict) -> dict:
     }
 
 
-def rescore_y_from_logits(logits: np.ndarray, rec_legal, tgt_legal) -> dict:
-    return y_components(softmax(np.asarray(logits, dtype=np.float64)), rec_legal, tgt_legal)
+def rescore_y_from_logits(logits: np.ndarray, rec_legal, tgt_legal, probs=None) -> dict:
+    if probs is None:
+        probs = softmax(np.asarray(logits, dtype=np.float64))
+    return y_components(np.asarray(probs, dtype=np.float64), rec_legal, tgt_legal)
+
+
+def saved_y_present(saved_row: dict) -> bool:
+    return all(saved_row.get(k) not in (None, "") for k in ("Y", "G", "Q"))
 
 
 def audit_saved_y(saved_row: dict, recomputed: dict, atol: float = Y_RECON_ATOL) -> dict:
-    out = {"ok": 1, "mismatches": []}
+    if not saved_y_present(saved_row):
+        return {"ok": None, "mismatches": [], "compared": 0, "missing_saved": [k for k in ("Y", "G", "Q") if saved_row.get(k) in (None, "")]}
+    out = {"ok": 1, "mismatches": [], "compared": 1, "abs_Y": 0.0, "abs_G": 0.0, "abs_Q": 0.0}
     for key in ("Y", "G", "Q"):
         a, b = saved_row.get(key), recomputed.get(key)
         try:
@@ -159,10 +168,32 @@ def audit_saved_y(saved_row: dict, recomputed: dict, atol: float = Y_RECON_ATOL)
             out["ok"] = 0
             out["mismatches"].append(key)
             continue
-        if abs(fa - fb) > float(atol) and not (fa != fa and fb != fb):
-            out["ok"] = 0
-            out["mismatches"].append(key)
+        err = abs(fa - fb) if fa == fa and fb == fb else float("nan")
+        out[f"abs_{key}"] = err
+        if err != err or err > float(atol):
+            if not (fa != fa and fb != fb):
+                out["ok"] = 0
+                out["mismatches"].append(key)
     return out
+
+
+def resolve_pair_rows(val_rows: list[dict], pair: dict) -> dict:
+    rec = val_rows[int(pair["recip"])]
+    tgt = val_rows[int(pair["donor"])]
+    if rec["game_id"] != pair["recip_game"] or tgt["game_id"] != pair["target_game"]:
+        raise ValueError(f"pair index/game mismatch {pair['recip_game']}|{pair['target_game']}")
+    last_rec = None
+    last_tgt = None
+    for row in val_rows:
+        if row["game_id"] == pair["recip_game"]:
+            last_rec = row
+        if row["game_id"] == pair["target_game"]:
+            last_tgt = row
+    return {
+        "rec": rec,
+        "tgt": tgt,
+        "last_prefix_same_as_pair": int(last_rec is rec and last_tgt is tgt),
+    }
 
 
 def fit_pca(Z: np.ndarray, k: int) -> dict:

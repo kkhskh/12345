@@ -23,6 +23,8 @@ from src.othello_r2_null_state import (
     pack_model,
     predict_z,
     rescore_y_from_logits,
+    resolve_pair_rows,
+    saved_y_present,
     select_ridge_pca,
     split_leakage_audit,
     stage_mean_name,
@@ -91,6 +93,23 @@ def test_rescore_y_matches_direct_components():
     assert chk["ok"] == 1
     bad = audit_saved_y({"Y": exp["Y"] + 0.01, "G": exp["G"], "Q": exp["Q"]}, got)
     assert bad["ok"] == 0
+    missing = audit_saved_y({"cell": "editor_A"}, got)
+    assert missing["ok"] is None
+    assert missing["compared"] == 0
+    assert not saved_y_present({"cell": "editor_A", "Y": ""})
+
+
+def test_resolve_pair_uses_frozen_index_not_last_prefix():
+    val = [
+        {"game_id": "g1", "legal": [1], "board": [0]},
+        {"game_id": "g1", "legal": [2], "board": [1]},
+        {"game_id": "g2", "legal": [3], "board": [2]},
+        {"game_id": "g2", "legal": [4], "board": [3]},
+    ]
+    got = resolve_pair_rows(val, {"recip": 0, "donor": 2, "recip_game": "g1", "target_game": "g2"})
+    assert got["rec"]["legal"] == [1]
+    assert got["tgt"]["legal"] == [3]
+    assert got["last_prefix_same_as_pair"] == 0
 
 
 def test_isolate_avoids_prior_experiments():

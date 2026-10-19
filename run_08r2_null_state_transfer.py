@@ -33,7 +33,7 @@ from src.othello_r2_fiber import (
     softmax,
     svd_probe_geometry,
 )
-from src.othello_r2_fiber_cost import adopt_drive_defaults
+from src.othello_r2_fiber_cost import adopt_drive_defaults, reconstruct_frozen_pairs
 from src.othello_r2_fiber_cost_fixed import SCALE_GRID, calibrate_fixed_js, scaled_displacement
 from src.othello_r2_fiber_spec import enumerate_candidates, match_wrong_donors, select_disjoint_pairs, slice_boot, y_components
 from src.othello_r2_null_state import (
@@ -42,6 +42,7 @@ from src.othello_r2_null_state import (
     COVERAGE_MIN,
     CV_SEED,
     FEATURE_NAMES,
+    FIXED_JS_PAIR_HASH,
     FIXED_JS,
     FIXED_JS_TOL,
     KS,
@@ -71,6 +72,8 @@ from src.othello_r2_null_state import (
     prior_eval_games,
     r2_score,
     rescore_y_from_logits,
+    resolve_pair_rows,
+    saved_y_present,
     select_ridge_pca,
     split_leakage_audit,
     stage_key,
@@ -147,7 +150,15 @@ def stage0(cfg, out_dir: Path, args) -> dict:
     val = add_labels(load_split(Path(cfg["data_dir"]), "val"))
     holdout = load_holdout_game_ids(cfg["holdout_manifest"])
     require_no_confirmation(val, holdout["game_ids"])
-    by = _by_game(val)
+    man_path = fixed / "fixed_js_pair_manifest.json"
+    expected_hash = cfg.get("fixed_js_pair_hash", FIXED_JS_PAIR_HASH)
+    if man_path.is_file():
+        man = json.loads(man_path.read_text(encoding="utf-8"))
+        if expected_hash and man.get("pair_manifest_sha256") != expected_hash:
+            raise SystemExit(f"{STATUS_STAGE0_FAIL} archived pair hash {man.get('pair_manifest_sha256')} != {expected_hash}")
+    else:
+        man = reconstruct_frozen_pairs(val, holdout["game_ids"], expected_hash)
+    pair_by = {(p["recip_game"], p["target_game"]): p for p in man["pairs"]}
     inter = list(csv.DictReader((fixed / "fixed_js_interventions.csv").open(encoding="utf-8")))
     cals = list(csv.DictReader((fixed / "fixed_js_calibrations.csv").open(encoding="utf-8"))) if (fixed / "fixed_js_calibrations.csv").is_file() else []
     logits = np.load(fixed / "fixed_js_full_logits.npz")
@@ -163,36 +174,63 @@ def stage0(cfg, out_dir: Path, args) -> dict:
     n_bad = 0
     n_legal_bad = 0
     n_missing_logits = 0
+    n_skipped_no_saved = 0
+    n_last_prefix_wrong = 0
+    abs_y = []
+    softmax_backend = "softmax_np"
+    try:
+        _ = softmax_np(np.zeros(3, dtype=np.float32))
+    except Exception:
+        softmax_backend = "numpy_f64"
     for row in inter:
         rg, tg, cell = row.get("recip_game"), row.get("target_game"), row.get("cell")
-        if cell in {"pair_contrast"} or rg not in by or tg not in by:
+        if cell in {"pair_contrast"} or (rg, tg) not in pair_by:
             continue
-        rec, tgt = by[rg], by[tg]
+        resolved = resolve_pair_rows(val, pair_by[(rg, tg)])
+        rec, tgt = resolved["rec"], resolved["tgt"]
         vrec = verify_simulator_legal(rec)
         vtgt = verify_simulator_legal(tgt)
         if not vrec["ok"] or not vtgt["ok"]:
             n_legal_bad += 1
         key = f"{rg}|{tg}"
         if key not in legal_doc:
+            n_last_prefix_wrong += int(not resolved["last_prefix_same_as_pair"])
             became = _became(rec, tgt)
             legal_doc[key] = {
                 "recipient": legal_record(rec),
                 "target": legal_record(tgt),
+                "recip_index": int(pair_by[(rg, tg)]["recip"]),
+                "target_index": int(pair_by[(rg, tg)]["donor"]),
                 **became,
                 "sim_ok": int(vrec["ok"] and vtgt["ok"]),
+                "last_prefix_same_as_pair": resolved["last_prefix_same_as_pair"],
             }
         lkey = f"{rg}__{tg}__{cell}"
         if lkey not in logits.files:
             n_missing_logits += 1
             continue
-        recon = rescore_y_from_logits(logits[lkey], rec["legal"], tgt["legal"])
+        raw = logits[lkey]
+        probs = softmax_np(raw) if softmax_backend == "softmax_np" else softmax(np.asarray(raw, dtype=np.float64))
+        recon = rescore_y_from_logits(raw, rec["legal"], tgt["legal"], probs=probs)
+        if not saved_y_present(row):
+            n_skipped_no_saved += 1
+            score_rows.append({
+                "cell": cell, "recip_game": rg, "target_game": tg, "ok": "", "compared": 0,
+                "saved_Y": row.get("Y"), "recomputed_Y": recon["Y"],
+                "saved_G": row.get("G"), "recomputed_G": recon["G"],
+                "saved_Q": row.get("Q"), "recomputed_Q": recon["Q"],
+                "mismatches": "missing_saved_Y",
+            })
+            continue
         chk = audit_saved_y(row, recon, float(cfg.get("y_recon_atol", Y_RECON_ATOL)))
+        if chk.get("abs_Y") == chk.get("abs_Y"):
+            abs_y.append(float(chk["abs_Y"]))
         score_rows.append({
-            "cell": cell, "recip_game": rg, "target_game": tg, "ok": chk["ok"],
+            "cell": cell, "recip_game": rg, "target_game": tg, "ok": chk["ok"], "compared": 1,
             "saved_Y": row.get("Y"), "recomputed_Y": recon["Y"],
             "saved_G": row.get("G"), "recomputed_G": recon["G"],
             "saved_Q": row.get("Q"), "recomputed_Q": recon["Q"],
-            "mismatches": ",".join(chk["mismatches"]),
+            "abs_Y": chk.get("abs_Y"), "mismatches": ",".join(chk["mismatches"]),
         })
         n_ok += int(chk["ok"] == 1)
         n_bad += int(chk["ok"] == 0)
@@ -203,6 +241,11 @@ def stage0(cfg, out_dir: Path, args) -> dict:
         "n_mismatch": n_bad,
         "n_legal_mismatch": n_legal_bad,
         "n_missing_logits": n_missing_logits,
+        "n_skipped_missing_saved_y": n_skipped_no_saved,
+        "n_pairs_last_prefix_would_be_wrong": n_last_prefix_wrong,
+        "pair_manifest_sha256": man.get("pair_manifest_sha256"),
+        "max_abs_Y": float(max(abs_y)) if abs_y else float("nan"),
+        "softmax_backend": softmax_backend,
         "secondary_js_runs_present": secondary_present,
         "secondary_js_runs_note": "JS=0.005 and JS=0.02 were not in the uploaded primary archive" if not secondary_present else "secondary rows found",
         "fixed_js_dir": str(fixed),
@@ -212,7 +255,9 @@ def stage0(cfg, out_dir: Path, args) -> dict:
     write_json(out_dir / "null_state_stage0_legal_sets.json", legal_doc)
     write_json(out_dir / "null_state_stage0_status.json", status)
     print("08R2-NULL-STATE STAGE 0")
-    print(f"  ok={status['ok']} rescored={status['n_rescored']} mismatch={n_bad} legal_bad={n_legal_bad} missing_logits={n_missing_logits}")
+    print(f"  ok={status['ok']} compared={status['n_rescored']} match={n_ok} mismatch={n_bad} legal_bad={n_legal_bad}")
+    print(f"  skipped_missing_saved_y={n_skipped_no_saved} last_prefix_wrong_if_naive={n_last_prefix_wrong} max_abs_Y={status['max_abs_Y']}")
+    print(f"  pair_hash={status['pair_manifest_sha256']} softmax={softmax_backend}")
     print(f"  secondary_js_runs_present={secondary_present} ({status['secondary_js_runs_note']})")
     if not status["ok"]:
         write_json(out_dir / "null_state_completion_status.json", {"status": STATUS_STAGE0_FAIL, "stage0": status, "used_confirmation": 0})

@@ -11,6 +11,7 @@ from pathlib import Path
 import numpy as np
 
 from src.othello_r2_fiber import js_divergence
+from src.othello_r2_fiber_spec import isolate_spec_dir
 
 
 COST_DIRNAME = "fiber_cost"
@@ -116,6 +117,39 @@ def match_output_js(eval_alpha, target_js: float, alpha_hi: float, atol: float =
         "js_abs_err": abs(float(best.get("js", np.nan)) - target_js),
         "trace": trace,
     }
+
+
+COMMON_SPEC_DIRS = (
+    "/content/drive/MyDrive/ml_research_artifacts/toy_othello/08r2/fiber_spec",
+    "artifacts/results/toy_othello/08r2/fiber_spec",
+)
+
+
+def resolve_spec_dir(explicit: str | Path | None, results_dir: str | Path) -> dict:
+    """Use --spec-dir if given. Otherwise take the first existing frozen SPEC folder."""
+    tried = []
+    if explicit:
+        path = Path(explicit)
+        tried.append(str(path))
+        if (path / "fiber_spec_pair_manifest.json").is_file():
+            return {"spec_dir": path, "source": "explicit", "tried": tried}
+        raise FileNotFoundError(f"missing frozen SPEC pair manifest: {path / 'fiber_spec_pair_manifest.json'}")
+    candidates = [
+        Path(isolate_spec_dir(results_dir)["results_dir"]),
+        Path(results_dir) / "08r2" / "fiber_spec",
+        Path(results_dir).parent / "08r2" / "fiber_spec",
+    ]
+    candidates.extend(Path(p) for p in COMMON_SPEC_DIRS)
+    seen = set()
+    for path in candidates:
+        key = str(path)
+        if key in seen:
+            continue
+        seen.add(key)
+        tried.append(key)
+        if (path / "fiber_spec_pair_manifest.json").is_file():
+            return {"spec_dir": path, "source": "discovered", "tried": tried}
+    raise FileNotFoundError(f"missing frozen SPEC pair manifest; tried {tried}")
 
 
 def load_frozen_spec_manifest(spec_dir: str | Path, expected_hash: str | None) -> dict:

@@ -51,9 +51,10 @@ from src.othello_r2_fiber_cost import (
     isolate_cost_dir,
     load_frozen_spec_manifest,
     match_output_js,
+    resolve_spec_dir,
     unit_direction,
 )
-from src.othello_r2_fiber_spec import N_RANDOM, N_WRONG, RANDOM_SEEDS, isolate_spec_dir, pair_contrasts, slice_boot, y_components
+from src.othello_r2_fiber_spec import N_RANDOM, N_WRONG, RANDOM_SEEDS, pair_contrasts, slice_boot, y_components
 from src.othello_runutil import add_labels, load_split, tokens_of, write_json
 from src.toy_othello import (
     cache_site,
@@ -173,6 +174,10 @@ def write_awaiting(out_dir: Path, reason: str, extra=None) -> None:
         payload.update(extra)
     write_json(out_dir / "fiber_cost_completion_status.json", payload)
     print(STATUS_AWAITING)
+    print(f"  reason={reason}")
+    if extra:
+        for key in extra:
+            print(f"  {key}={extra[key]}")
 
 
 def main() -> None:
@@ -186,8 +191,31 @@ def main() -> None:
         cfg["data_dir"] = args.data_dir
     if args.checkpoints_dir:
         cfg["checkpoints_dir"] = args.checkpoints_dir
+    try:
+        spec_res = resolve_spec_dir(args.spec_dir, cfg["results_dir"])
+        spec_dir = Path(spec_res["spec_dir"])
+    except FileNotFoundError as exc:
+        out_dir = ensure_dir(isolate_cost_dir(cfg["results_dir"])["results_dir"])
+        write_awaiting(out_dir, f"BLOCKED_MISSING_SPEC_MANIFEST {exc}")
+        return
+    if args.results_dir is None and "MyDrive" in str(spec_dir):
+        cfg["results_dir"] = str(spec_dir.parent.parent)
+    if args.data_dir is None:
+        local_val = Path(cfg["data_dir"]) / "prefixes_val.jsonl"
+        drive_val = spec_dir.parent.parent / "data" / "prefixes_val.jsonl"
+        if not local_val.is_file() and drive_val.is_file():
+            cfg["data_dir"] = str(drive_val.parent)
+    if args.checkpoints_dir is None:
+        ckpt_name = cfg.get("checkpoint_file", "synthetic_model.pth")
+        local_ckpt = Path(cfg["checkpoints_dir"]) / ckpt_name
+        drive_ckpt = spec_dir.parent.parent / "checkpoints"
+        if not local_ckpt.is_file() and (drive_ckpt / ckpt_name).is_file():
+            cfg["checkpoints_dir"] = str(drive_ckpt)
     out_dir = ensure_dir(isolate_cost_dir(cfg["results_dir"])["results_dir"])
-    spec_dir = Path(args.spec_dir) if args.spec_dir else Path(isolate_spec_dir(cfg["results_dir"])["results_dir"])
+    print(f"08R2-FIBER-COST PATHS spec_dir={spec_dir} source={spec_res['source']}")
+    print(f"  results_dir={cfg['results_dir']}")
+    print(f"  data_dir={cfg['data_dir']}")
+    print(f"  checkpoints_dir={cfg['checkpoints_dir']}")
     prereg_src = Path(cfg.get("preregistration", "docs/experiments/08r2_fiber_cost_preregistration.md"))
     if prereg_src.is_file():
         (out_dir / "fiber_cost_preregistration.md").write_text(prereg_src.read_text(encoding="utf-8"), encoding="utf-8")
@@ -248,7 +276,17 @@ def main() -> None:
     probe_info = resolve_probe_path(args.probe_path, cfg["checkpoints_dir"])
     ckpt = resolve_checkpoint(cfg, args.checkpoint)
     if not probe_info["exists"] or ckpt is None or not Path(ckpt).is_file():
-        write_awaiting(out_dir, "BLOCKED_MISSING_ARTIFACT", {"checkpoint_loaded": 0, "probe_loaded": 0})
+        write_awaiting(
+            out_dir,
+            "BLOCKED_MISSING_ARTIFACT",
+            {
+                "checkpoint_loaded": 0,
+                "probe_loaded": int(probe_info["exists"]),
+                "checkpoint_path": str(ckpt) if ckpt is not None else str(Path(cfg["checkpoints_dir"]) / cfg.get("checkpoint_file", "synthetic_model.pth")),
+                "probe_path": probe_info["probe_path"],
+                "checkpoints_dir": cfg["checkpoints_dir"],
+            },
+        )
         return
 
     with Path(probe_info["probe_path"]).open("rb") as handle:

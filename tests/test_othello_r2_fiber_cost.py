@@ -17,6 +17,7 @@ from src.othello_r2_fiber_cost import (
     js_match_ok,
     load_frozen_spec_manifest,
     match_output_js,
+    resolve_spec_dir,
     unit_direction,
 )
 
@@ -79,6 +80,15 @@ def test_cost_dir_is_isolated():
     out = isolate_cost_dir("/tmp/results/toy_othello")
     assert out["results_dir"].endswith("08r2/fiber_cost")
     assert "fiber_spec" not in Path(out["results_dir"]).parts
+
+
+def test_spec_dir_discovery_uses_existing_manifest(tmp_path: Path):
+    spec = tmp_path / "08r2" / "fiber_spec"
+    spec.mkdir(parents=True)
+    (spec / "fiber_spec_pair_manifest.json").write_text("{}", encoding="utf-8")
+    found = resolve_spec_dir(None, tmp_path)
+    assert Path(found["spec_dir"]) == spec
+    assert found["source"] == "discovered"
 
 
 def test_frozen_manifest_rejects_wrong_hash(tmp_path: Path):

@@ -1,0 +1,172 @@
+{
+ "PA1": {
+  "pass": true,
+  "detail": "sign(m)=+ iff a=b in all four cells, with and without final LN"
+ },
+ "PA2": {
+  "pass": true,
+  "detail": "pre-MLP readout margin is 0 in every cell"
+ },
+ "PA3": {
+  "pass": true,
+  "detail": "50 random clamped attention rows (any positive weights on both sources): sign unchanged in all cells"
+ },
+ "PA4": {
+  "pass": true,
+  "detail": "flip A or flip B reverses sign(m); flipping both leaves m unchanged"
+ },
+ "PA_ref_maxdiff": 1.7763568394002505e-15,
+ "PA5_relu_formula_maxerr": 1.1102230246251565e-15,
+ "PA5": {
+  "pass": true,
+  "detail": "sign(m)=sign(xy) on 144-cell grid for ['gelu', 'gelu_erf', 'relu', 'silu', 'softplus']; violations={'gelu': 0, 'gelu_erf': 0, 'relu': 0, 'silu': 0, 'softplus': 0}; ReLU formula max err=1.1e-15"
+ },
+ "PA6": {
+  "pass": true,
+  "detail": "max |m| for odd/constant-sum activations: {'tanh': 3.2932616111572786e-16, 'sigmoid': 4.0993976121820866e-16}"
+ },
+ "PA7": {
+  "pass": true,
+  "detail": "small-signal ratio to 4sqrt(2/pi)xy -> [np.float64(0.9999500897102092), np.float64(0.9999995008752258)]; large-signal ratio to 2 sgn(xy) min -> [np.float64(1.0), np.float64(1.0)]"
+ },
+ "PA8": {
+  "pass": true,
+  "detail": "matched S=2 triple (1,1),(2,0),(3,-1) via residual intervention: [1.270372, -0.0, -1.363022]"
+ },
+ "PA9": {
+  "pass": false,
+  "detail": "sum-only reader separates binary agree/disagree (min agree 1.4111 > max dis -0.0000) yet is constant on the matched-sum triple [1.270372, 1.121527, 0.830114]"
+ },
+ "PA9_binary_equivalence_maxdiff": 3.1086244689504383e-15,
+ "PA10": {
+  "pass": false,
+  "detail": "fraction of grid cells with sign(m)!=sign(ab): {A1 skewed read: 0.083, A1' read offset: 0.042, A2 unequal out: 0.000, A3 tanh: 0.500, A4 direct path: 0.042, A4 LN bias: 0.042}"
+ },
+ "PA11": {
+  "pass": true,
+  "detail": "binary cells survive small perturbations; errors concentrate where the weaker source is small (grid values in [0.25,1.5])"
+ },
+ "PA12": {
+  "pass": true,
+  "detail": "continuous family with final LN: violations 0/144"
+ },
+ "PA13": {
+  "pass": true,
+  "detail": "max |m(a,b) - m(-a,-b)| = 2.0e-15: agreeing on c' pushes toward c (not candidate-relative)"
+ },
+ "PB1": {
+  "pass": true,
+  "detail": "score(read->B) = lam x^ y^/sqrt2 exactly, other scores 0; B's weight is monotone in x^y^"
+ },
+ "PB2": {
+  "pass": true,
+  "detail": "agreeing cells: sign(m) = shared sign"
+ },
+ "PB3": {
+  "pass": true,
+  "detail": "spread of B's vote over a: full 4.2380, routing-fixed 0.1041 (prediction: ~0), values-fixed 4.6506"
+ },
+ "PB4": {
+  "pass": true,
+  "detail": "query-only -4.2122, key-only -4.2122, both -0.0000, non-additivity +8.4244"
+ },
+ "PB5": {
+  "pass": true,
+  "detail": "242 conflicting cells where fixed routing follows B but the gate follows A; e.g. [(np.float64(-1.5), np.float64(1.1), 0.018, -1.3831), (np.float64(-1.5), np.float64(1.2), 0.1109, -1.3839), (np.float64(-1.5), np.float64(1.3), 0.1976, -1.3844)]"
+ },
+ "PB6": {
+  "pass": true,
+  "detail": "qk_off: relation-blind=True, additivity residual 2.08e-01; gated: relation-blind=False"
+ },
+ "PB7": {
+  "pass": true,
+  "detail": "B after the read position: max |m(b) - m(-b)| = 0.0e+00"
+ },
+ "PB8": {
+  "pass": true,
+  "detail": "(a, w_B+, w_B-, m_gate, m_fixed) = [(1.0, np.float64(0.9905), np.float64(0.0), 5.192, 0.9122), (-1.0, np.float64(0.0), np.float64(0.9928), -5.4306, -1.0273)]"
+ },
+ "PB9": {
+  "pass": true,
+  "detail": "cells where sign(total change) != sign(gated head's direct change): 26; kinds ['reread MLP']; e.g. [('reread MLP', -1.0, -0.5, -1.0, -0.0258, 0.4435), ('reread MLP', -1.0, 0.5, 0.5, 1.9047, -7.3152)]"
+ },
+ "PC1": {
+  "pass": true,
+  "detail": "sign(m) = sign(S^) on 156 grid cells with S^ != 0 (violations 0)"
+ },
+ "PC2": {
+  "pass": true,
+  "detail": "agreement amplifies the S-favoured preference at fixed S (True); with any prior in (0.2434,4.1874) [here 2.2154] the decision is c under agreement (+1.9720) and c' under disagreement (-1.9720)"
+ },
+ "PC3": {
+  "pass": true,
+  "detail": "interchange of block-1 MLP output (dis<-agree): m +0.2434 -> +3.9278 (agree run +4.1874); agreement gap at fixed S with block-1 MLP +3.9440, ablated +0.1817"
+ },
+ "PC4": {
+  "pass": true,
+  "detail": "bottleneck: matched-sum pairs give identical margins (max diff 1.8e-15)"
+ },
+ "PC5": {
+  "pass": true,
+  "detail": "unread residual component: sign flips 0/169"
+ },
+ "PC6": {
+  "pass": true,
+  "detail": "single wide ReLU layer on (x,y): held-out relative RMSE 0.0317, sign agreement 0.923; no q variable in it"
+ },
+ "PI1": {
+  "pass": true,
+  "detail": "max |logit change| 4.4e-16; per-head direct effects [2.1112, 2.1112] -> [1.7026, 2.5198]; per-head patch effects [-2.1061, -2.1061] -> [-1.6985, -2.5137]; sum of patch effects -4.2122 vs -4.2122"
+ },
+ "PI2": {
+  "pass": true,
+  "detail": "QK and VO gauges: scores, head outputs and logits fixed; Q, K, V vectors changed"
+ },
+ "PI3": {
+  "pass": true,
+  "detail": "ReLU rescaling: max |logit change| 8.9e-16; per-unit output weights changed"
+ },
+ "PI4": {
+  "pass": true,
+  "detail": "residual rotation R1=1: logits change 1.1e-15; reader preactivations (source coordinates) change 7.8e-16; raw residual coordinate on fixed e1 changes 2.026"
+ },
+ "PI5": {
+  "pass": true,
+  "detail": "neuron split: logits change 4.4e-16; unit 0's output weight halved (attribution split over two units)"
+ },
+ "PA9_posthoc_designed": [
+  [
+   1.477093863,
+   0.0,
+   1.270372
+  ],
+  [
+   1.477093863,
+   1.4771,
+   -0.0
+  ],
+  [
+   1.477093863,
+   2.9542,
+   -1.675411
+  ]
+ ],
+ "PA9_posthoc_sum-only": [
+  [
+   1.477093863,
+   0.0,
+   1.270372
+  ],
+  [
+   1.477093863,
+   1.4771,
+   1.270372
+  ],
+  [
+   1.477093863,
+   2.9542,
+   1.270372
+  ]
+ ],
+ "PA10_posthoc_A2_errors": 60
+}

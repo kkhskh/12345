@@ -471,10 +471,41 @@ def ident():
     record("PI5", dl < 1e-12 and ms.layers[0].Wout.shape[0] == 5, f"neuron split: logits change {dl:.1e}; unit 0's output weight halved (attribution split over two units)")
 
 
+def posthoc():
+    """NOT preregistered. Added after PA9 and PA10 failed; labelled post hoc everywhere."""
+    log("\n=== POST-HOC analyses (not preregistered; added after PA9/PA10 failed) ===")
+    from scipy.optimize import brentq
+    d = 6
+    # PA9-posthoc: match on the reader's ACTUAL input, S^ = <e1+e2, LN(mid)>, by scaling (x, y)
+    for name, fam in (("designed", agreement_family), ("sum-only", sum_only_family)):
+        m, basis, emb, coords = fam(act="gelu")
+        e1, e2, e5 = basis[0], basis[1], basis[4]
+        tr0 = forward(m, emb(1.0, 1.0), 2)
+        def run(x, y):
+            mid = tr0.mid[0].copy(); mid[2] = x * e1 + y * e2 + 3.0 * e5
+            t = forward(m, emb(1.0, 1.0), 2, replace_site(0, "mid", mid))
+            z = layernorm(t.mid[0][2], m.layers[0].g2, m.layers[0].b2, m.eps)
+            return margin(t), float(z @ (e1 + e2)), float(z @ (e1 - e2))
+        target = run(1.0, 1.0)[1]
+        out = []
+        for dx, dy in ((1, 1), (2, 0), (3, -1)):
+            t = brentq(lambda t: run(t * dx, t * dy)[1] - target, 1e-3, 10)
+            mm, sh, dd = run(t * dx, t * dy)
+            out.append((round(sh, 9), round(dd, 4), round(mm, 6)))
+        log(f"  {name}: matched on post-LN S^ -> (S^, D^, m) = {out}")
+        RES[f"PA9_posthoc_{name}"] = out
+    # PA10-posthoc: dense grid including small evidence for A2 (unequal output weights)
+    mm, _, emb, _ = agreement_family(out_w=(1.3, 1.3, -1, -1))
+    fine = [v for v in np.linspace(-1.5, 1.5, 61) if abs(v) > 1e-9]
+    bad = [(round(a, 3), round(b, 3)) for a in fine for b in fine if np.sign(margin(forward(mm, emb(a, b), 2))) != np.sign(a * b)]
+    log(f"  A2 unequal output weights on a 60x60 grid incl. small values: {len(bad)} sign errors; smallest-|b| examples {sorted(bad, key=lambda t: abs(t[1]))[:4]}")
+    RES["PA10_posthoc_A2_errors"] = len(bad)
+
+
 if __name__ == "__main__":
-    mech_A(); mech_B(); mech_C(); ident()
+    mech_A(); mech_B(); mech_C(); ident(); posthoc()
     n_pass = sum(1 for k, v in RES.items() if isinstance(v, dict) and v.get("pass"))
-    n_tot = sum(1 for v in RES.values() if isinstance(v, dict))
+    n_tot = sum(1 for v in RES.values() if isinstance(v, dict) and "pass" in v)
     log(f"\nSUMMARY: {n_pass}/{n_tot} preregistered predictions passed")
     logs = HERE.parent / "logs"
     logs.mkdir(exist_ok=True)

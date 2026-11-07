@@ -24,15 +24,17 @@ Theorem labels refer to `THEOREMS_AND_COUNTEREXAMPLES.md`.
 3. **New mechanism:**
    - A (MLP XNOR);
    - B (QK gate);
-   - C (gated amplification).
+   - C (gated amplification);
+   - C′ (conditional rereading through attention; depth is necessary, by C′2).
 4. **Surviving claim:**
    - A1: in `𝓕_A`, `sign m = sign(xy)`.
    - B1: in `𝓕_B`, agreement raises the agreeing source's weight, with an exact reversal band.
    - C1: in `𝓕_C`, agreement amplifies the net-evidence candidate; for a stated prior interval it decides the candidate at fixed net evidence.
+   - C′1: agreement routes to the sources; conflict routes to the prior, whichever source is stronger.
 5. **Assumptions:** weight-structure conditions (A1–A4, B1–B4, the `𝓕_C` conditions), including no downstream re-reader.
 6. **Independently identified?** Checkable from weights modulo gauges, and only for designed weights. No trained model was examined.
 7. **Proved:** implemented-mechanism structural theorems: computation → relation → decision, inside the classes.
-8. **Unproved:** that any trained model meets the conditions. Also that the conditions are more than "an agreement gate exists" (check 5 fails in part).
+8. **Unproved:** that any trained model meets the conditions. Also that the conditions are more than "an agreement gate exists": check 5 **fails** (R2), and the bridge is rejected as explanatory.
 9. **Status change:** **partial.** The bridge exists as an *implemented-mechanism existence theorem* in Transformer blocks. That settles architectural possibility, which the previous package wrongly implied was excluded. It is not a discovered decision theory. **UNRESOLVED** as a theory of trained-model decisions.
 
 ### F2 — Lower consistency discrepancy can worsen the candidate margin
@@ -52,7 +54,7 @@ Theorem labels refer to `THEOREMS_AND_COUNTEREXAMPLES.md`.
 ### F3 — Candidate consistency ranking need not match logit preference
 1. **Original problem:** `D_c < D_{c'} ⇒ L_c > L_{c'}` is unsupported.
 2. **Strongest known counterexample:** Phase 1 Attacks A and C.
-3. **New mechanism:** B, C (candidate-relative); A is candidate-symmetric.
+3. **New mechanism:** B, C, C′ are candidate-relative, but only for a binary pair with scalar evidence (R1 S2: with three or more candidates the gate's relation is not agreement about the preferred candidate). A is candidate-symmetric.
 4. **Surviving claim:**
    - B1.3–B1.4: unanimity fixes the preferred candidate; in conflict, A wins iff `|v_A| > k|ŷ|w(−λ|x̂ŷ|)`.
    - C1.3: a prior interval in which agreement decides the candidate.
@@ -85,11 +87,11 @@ Theorem labels refer to `THEOREMS_AND_COUNTEREXAMPLES.md`.
 3. **New mechanism:** —
 4. **Surviving claim:**
    - Identifiable modulo the stated gauge groups: input-level effects, reader compositions, summed same-layer writes, and patterns.
-   - Not identifiable: per-head and per-unit quantities, Q/K/V vectors, raw residual coordinates.
+   - Not identifiable: per-head and per-unit quantities, Q/K/V vectors, raw residual coordinates, raw scores and patterns, raw preactivations, summed writes, and source polarity, which is fixed only through the outcome pathway (R3).
    - Equivalent implementations give different "consistency" values with identical decisions, in three ways (A2, C3, ID1/2).
 5. **Assumptions:** the listed groups; designed weights.
 6. **Independently identified?** —
-7. **Proved:** ID1, ID2, A2, C3 (approximate).
+7. **Proved:** ID1, ID2 (ten map types), A2 (no final LN), C3 (exact non-representability; non-identification from finite behavior).
 8. **Unproved:**
    - identification of source directions in a trained model;
    - completeness of the gauge list.
@@ -110,7 +112,7 @@ Theorem labels refer to `THEOREMS_AND_COUNTEREXAMPLES.md`.
 1. **Original problem:** flexible choices could be tuned on outcomes.
 2. **Strongest known counterexample:** Phase 1 `04` §4; 2D's `β = 2`.
 3. **New mechanism:** —
-4. **Surviving claim:** this step froze its constructions (`b85222b`) and its predictions (`ddf935d`) before the first run. Two predictions failed and are kept. Post-hoc analyses are labeled. The one demonstrative parameter (the C1.3 prior) is labeled as chosen to demonstrate an interval claim.
+4. **Surviving claim:** this step froze its constructions (`b85222b`) and predictions (`ddf935d`) before the first run, and the C′ predictions (`fdc87d8`) before its code. Original preregistration, rescored: 29 passed, 3 failed, 1 non-discriminating. Addendum: 4 of 5 passed. The failures are kept. Post-hoc analyses are labeled. The C1.3 prior is labeled as demonstrative. R1 notes that a two-minute gap between commits cannot by itself exclude interactive runs; the parameter sweeps show the predictions do not depend on the constants chosen.
 5. **Assumptions:** git history as evidence.
 6. **Independently identified?** —
 7. **Proved:** procedure followed for synthetic work.

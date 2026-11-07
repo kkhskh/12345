@@ -554,12 +554,6 @@ def supplementary():
         cell = {(a, b): mfun(a, b) for a in (-1.0, 1.0) for b in (-1.0, 1.0)}
         n_bin += all(np.sign(cell[(a, b)]) == np.sign(a * b) for a, b in cell) or all(np.sign(cell[(a, b)]) == -np.sign(a * b) for a, b in cell)
         n_law += err(mm, emb) == 0 or err(mm, emb, ref=lambda a, b: -np.sign(a * b)) == 0
-        tr0 = forward(mm, emb(1.0, 1.0), 2)
-        def at(x, y):
-            mid = tr0.mid[0].copy(); mid[2] = x * e1 + y * e2 + 3.0 * e5
-            return margin(forward(mm, emb(1.0, 1.0), 2, replace_site(0, "mid", mid)))
-        vals = [at(1, 1), at(2, 0), at(3, -1)]   # same post-LN norm? not matched; report D-dependence via S fixed after scaling below
-        n_suminsuff += np.ptp(vals) > 1e-6
     # mirror of Mechanism C: the gate opens on DISagreement (gamma < 0); same architecture
     def a_of(x, kappa=2.0, d=8, eps=1e-5):
         return np.sign(x) * np.sqrt(x * x * (kappa * kappa / d + eps) / (1 - x * x / d))
@@ -568,7 +562,7 @@ def supplementary():
         mm, _, emb = reconciliation(gamma=gam)
         log(f"  Mechanism C with gamma={gam:+.1f}: m(agree)={margin(forward(mm, emb(*ag), 2)):+.4f} m(disagree)={margin(forward(mm, emb(*dg), 2)):+.4f} at matched S")
     log(f"  random 4-unit GELU readers of (x,y), N={N}: binary sign pattern = +-agreement {n_bin}/{N}; "
-        f"agreement sign law on the whole grid {n_law}/{N}; output varies across the raw matched-sum triple {n_suminsuff}/{N}")
+        f"agreement sign law on the whole grid {n_law}/{N}")
 
 
 def addendum():
@@ -619,6 +613,15 @@ def addendum():
     # one-block baseline: the same block-2 head without block 1 cannot route on agreement (PR3 is the proof)
 
     log("\n=== Corrections requested by reviews ===")
+    # verify the LN-coupling explanation of the PB3 routing-fixed residual and the PB6 additivity failure
+    for qo in (False, True):
+        mq, Dq, eq = qk_gate(qk_off=qo)
+        yh = []
+        for a in (-1.0, -0.5, 0.5, 1.0):
+            X, r = eq(a, 1.0); tq = forward(mq, X, r)
+            yh.append(float(layernorm(tq.mid[0][1], mq.layers[1].g1, mq.layers[1].b1, mq.eps) @ Dq["fB"]))
+        log(f"  B's LN-coordinate y^ across a (b=+1), {'qk_off' if qo else 'gated'}: {np.round(yh,5).tolist()} spread {np.ptp(yh):.5f} "
+            f"(equals the PB3 routing-fixed spread: LN coupling via layer-1's copy of A into B's residual)")
     # (R1 S6 / R2 S2) Mechanism C: match pairs exactly at the block-2 reader S^
     def Shat(model, a, b):
         tr = forward(model, model._emb(a, b), 2)

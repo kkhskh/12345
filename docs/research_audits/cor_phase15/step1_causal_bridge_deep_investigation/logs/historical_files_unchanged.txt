@@ -1,0 +1,3 @@
+Command: git diff --stat 49c1ec6 -- . ":!docs/research_audits/cor_phase15/step1_causal_bridge_deep_investigation"
+Output:
+(empty output = no file outside this package differs from base 49c1ec6; historical audits unmodified)

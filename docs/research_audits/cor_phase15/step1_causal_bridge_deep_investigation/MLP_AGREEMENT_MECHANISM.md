@@ -25,7 +25,7 @@ The construction is `src/cbmath.py::positive_control`, and the exact matrices ar
 - Ablating the MLP output gives margin 0 in every cell.
 - The causal readout decomposition is: residual before the MLP, 0; MLP write, all of the margin.
 
-**Attention is not responsible.** Clamping the read row of the attention pattern to 50 random positive weightings (a mechanism-dissection intervention) leaves every sign unchanged (PA3). That is Corollary A1.3: separate positive rescalings of `x` and `y` preserve `sign(xy)`.
+**Attention is not responsible.** Clamping the read row of the attention pattern to 50 random positive weightings leaves every sign unchanged (PA3). This is a *mechanism-dissection* intervention. It is Corollary A1.3: separate positive rescalings of `x` and `y` preserve `sign(xy)`. That holds as long as each reader coordinate depends on one source only (source separation, A0). With two heads whose routing mixes the sources, the law fails: the circuit then follows A alone (R1 S1).
 
 **Independent implementations.**
 1. `cbmath.py`, in numpy.
@@ -79,8 +79,8 @@ This distinction is why Mechanisms B and C, which are candidate-relative, are ne
 
 ## 5. What separates relation computation from a nonlinearity of net evidence
 
-- **Binary data cannot.** A sum-only reader with an offset reproduces the positive control's margins exactly on the four cells, to `3.1e−15` (Theorem A2).
-- **Matched post-normalization sum can** (Theorem A4). At fixed reader coordinate `Ŝ`, the sum-only reader is constant: `1.270372` three times. The designed reader goes `1.270 → 0 → −1.675` as `|D̂|` grows.
+- **Binary data cannot.** A sum-only reader with an offset reproduces the positive control's margins exactly on the four cells, to `3.1e−15` (Theorem A2). This holds without final LN; with final LN even the decisions differ (R2). At the weight level, "reads `x − y`" is not invariant: cancelling linear units can add such a reading without changing the function (R3).
+- **Matched post-normalization sum can** (Theorem A4). At fixed reader coordinate `Ŝ`, the sum-only reader is constant: `1.270372` three times. The designed reader goes `1.270 → 0 → −1.675` as `|D̂|` grows. Those values use residual interventions, some of them on states no input reaches. **With input substitution only**, on reachable inputs: designed `0.307 → 0 → −0.720`, sum-only `0.307412` three times.
 
 **Preregistration failure PA9, kept.** Matching the *raw* sum `x + y` in the residual does not work. The reader's LN divides by `‖h‖`, which depends on `x² + y²`, so the sum-only reader varies (`1.270, 1.122, 0.830`). Pre-norm LN is itself a non-sum coupling of the sources. Matched-statistic controls must be matched at the reader's input.
 
@@ -90,6 +90,8 @@ Witnesses were found by search. Details are in the theorem file. In short:
 - skewed read directions, a read bias, a direct readout path, and a final-LN bias each break the law on 4–8% of the grid;
 - an odd activation zeroes it;
 - unequal output weights break it only near the axes. On the preregistered grid PA10 failed to show this; post hoc, there are 60 errors at `|b| = 0.05`.
+
+**Vector evidence (supplementary).** With three-dimensional sources and coordinatewise pairing, `sign q = sign⟨u,v⟩` in 100% of draws in the small-signal regime, 95% at scale 1, and 92% at scale 5. Agreement is an inner product only for weak signals. For strong signals it is coordinatewise and depends on the basis.
 
 **Supplementary variants, not preregistered.**
 
@@ -103,8 +105,8 @@ Witnesses were found by search. Details are in the theorem file. In short:
 | noise on an unread direction | 0 |
 | noise on a read direction | 0.17 |
 
-- **Perturbations (PA11).** The binary cells survive relative noise of 0.03 in all 20 seeds. Grid errors grow to 24% at 0.1. Errors concentrate where the weaker source is small.
-- **Generic MLPs.** Of 400 random 4-unit GELU readers of `(x, y)`: 10 reproduce the agreement sign pattern on the binary cells, none reproduce the sign law on the continuous grid, and all 400 depend on more than the raw sum. In short, relation sensitivity is generic, and the agreement law is a special, designed property.
+- **Perturbations.** PA11 is reclassified as non-discriminating: its test could not fail (R1 S5). Descriptively, the binary cells survive relative noise of 0.03 in all 20 seeds. Grid errors grow to 24% at 0.1. Errors concentrate where the weaker source is small.
+- **Generic MLPs.** Of 400 random 4-unit GELU readers of `(x, y)`, 10 reproduce the agreement sign pattern on the binary cells, and none reproduce the sign law on the continuous grid. The agreement law is a special, designed property. An earlier "400/400 depend on more than the sum" statistic used raw-sum matching, which has no power (R1 S6). It is withdrawn.
 
 ## 7. What this mechanism establishes, and what it does not
 

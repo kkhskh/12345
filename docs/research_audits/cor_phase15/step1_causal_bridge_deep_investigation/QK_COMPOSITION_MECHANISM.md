@@ -42,7 +42,7 @@ The attention pattern is genuinely dynamic. B's weight runs from 0.002 to 0.99 a
 | layer-2 pattern clamped to its `a = 0` value (routing fixed) | 0.104 |
 | layer-2 value vectors clamped (values fixed, routing free) | 4.651 |
 
-Routing carries the effect. The remaining 0.104 under fixed routing is LN coupling: layer 1 also writes A into B's residual, which moves B's LN scale and so `ŷ`. The idealized class B1 has no such coupling.
+Routing carries the effect. The remaining 0.104 under fixed routing is LN coupling: layer 1 also writes A into B's residual, which moves B's LN scale and so `ŷ`. **This was checked directly:** `ŷ` varies across `a` by exactly 0.10407, both in the gated model and with `W_Q = 0`. The same coupling explains PB6's additivity failure. The idealized class B1 has no such coupling.
 
 **Query-only, key-only, and both (PB4), from `(a,b) = (1,1)`.**
 
@@ -55,10 +55,18 @@ Routing carries the effect. The remaining 0.104 under fixed routing is LN coupli
 The non-additivity is +8.42. The gate responds to the *product* of query and key features, not to either one.
 
 **Negative controls.**
-- `W_Q = 0` in layer 2 is relation-blind by the ordinal LP test. The margin table is not exactly additive (residual 0.21), again because of LN coupling (PB6).
+- `W_Q = 0` in layer 2 is relation-blind by the ordinal LP test. But PB6 also predicted the margin would be additive, and it is not (residual 0.208, from LN coupling). **Rescored per the addendum, PB6 FAILED.** The first run scored it PASS on the relation-blindness part alone (R1 S4).
 - Putting B after the read position removes every `b` dependence (PB7, causal mask).
 
 **Full-margin claim (mandate §5B).** In the class B1 the head-level identity *is* the full margin, because (B4) excludes downstream readers. Add one layer-2 MLP that re-reads `f_U` and subtracts above a threshold, and 26 cells show the gated head's direct change and the total margin change with opposite signs. For example, `a: −1 → 0.5` at `b = 0.5` gives a head change of +1.905 and a margin change of −7.315 (PB9). A final LN with bias produced no such cell on the tested grid. So the head-level identity does not determine the decision when a downstream component re-reads the head's output.
+
+**Scope of Theorem B1 (corrected).** (B4) must exclude *other* writers of source-dependent content along `Δu`. One extra head with `W_Q = 0` breaks unanimity in 348 of 450 agreeing cells (R1 S3). The reversal band in B1.4 assumes the other scores share the read row's offset. With an offset (R2 S3), the reversal can go toward B instead.
+
+**Invisible to 2×2 sign-flip designs (R2).** At the input level, every sign-symmetric square `(±a, ±b)` has exactly zero four-term interaction in this class. Only designs with unequal levels detect the gate.
+
+**Perturbations (supplementary).** Unanimity holds in 20 of 20 seeds at noise 0.03 and in 18 of 20 at 0.1. The reversal band stays non-empty in 20 of 20. R1 reports similar robustness.
+
+**More than two candidates (R1 S2).** The gate's relation is the inner product of feature vectors. It is not agreement about the preferred candidate. Both sources can prefer `c_1` while `⟨x,y⟩ = −1.70`, and the gate then cuts the agreeing source's weight from 0.333 to 0.003. R1 gives a full-block case where `c_2` wins. Candidate-relativity is established only for a binary pair with scalar evidence.
 
 ## Source consistency, or an attention-score comparison?
 

@@ -95,7 +95,7 @@ positive control final_ln=False
   noise sd 0.5 on read token along read e1-e2: grid error rate 0.167
   Mechanism C with gamma=+1.5: m(agree)=+4.1874 m(disagree)=+0.2434 at matched S
   Mechanism C with gamma=-1.5: m(agree)=+0.2463 m(disagree)=+3.1848 at matched S
-  random 4-unit GELU readers of (x,y), N=400: binary sign pattern = +-agreement 10/400; agreement sign law on the whole grid 0/400; output varies across the raw matched-sum triple 400/400
+  random 4-unit GELU readers of (x,y), N=400: binary sign pattern = +-agreement 10/400; agreement sign law on the whole grid 0/400
 
 === ADDENDUM: C' conditional rereading through attention (post-review) ===
 [PASS] PR1: agree -> sign(m)=sign(a); disagree -> m<0 (prior c') in all 36 cells, whichever source is stronger
@@ -105,6 +105,8 @@ positive control final_ln=False
 [PASS] PR5: disagreement with the stronger source growing: margins [-2.631, -2.631, -2.631, -2.631, -2.631, -2.631, -2.631, -2.631]
 
 === Corrections requested by reviews ===
+  B's LN-coordinate y^ across a (b=+1), gated: [1.421, 1.52506, 1.52506, 1.421] spread 0.10407 (equals the PB3 routing-fixed spread: LN coupling via layer-1's copy of A into B's residual)
+  B's LN-coordinate y^ across a (b=+1), qk_off: [1.421, 1.52506, 1.52506, 1.421] spread 0.10407 (equals the PB3 routing-fixed spread: LN coupling via layer-1's copy of A into B's residual)
   C designed: agree (0.5,0.5) S^=1.079536212 m=+4.5880; disagree (1.6,-0.2663) S^=1.079536212 m=+0.2699; gap +4.3181
   C block-1 MLP ablated: agree (0.5,0.5) S^=1.230753792 m=+1.5692; disagree (1.6,-0.1761) S^=1.230753792 m=+1.5692; gap +0.0000
   C1.2 both units active (S=0.9, q=1.2): g(q-0.1)=1.8000 g(q)=1.8000 g(q+0.1)=1.8000 (flat = 2 beta S)

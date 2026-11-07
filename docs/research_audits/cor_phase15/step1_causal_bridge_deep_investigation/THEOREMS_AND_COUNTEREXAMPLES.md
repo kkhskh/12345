@@ -1,242 +1,272 @@
 # Theorems and counterexamples
 
-Implementation: `src/cbmath.py`. Experiments: `src/experiments.py` (log in `logs/experiments.txt`). Tests: `tests/test_deep.py`. Each theorem is stated with every hypothesis. Proved theorems are labeled **PROVED**. Statements checked only on constructions are labeled **VERIFIED (construction)**. Numerical tests are not offered as proofs of universal claims.
+Implementation: `src/cbmath.py`. Experiments: `src/experiments.py`, with the log in `logs/experiments.txt`. Tests: `tests/test_deep.py` (31 tests). This version incorporates the separate-context reviews `reviews/R1–R4`. Every change made in response to them is listed in `ADJUDICATION.md`.
 
-**Common setting.** Pre-norm residual Transformer layers: LN, multi-head causal attention, residual add, LN, MLP, residual add. Optional final LN with `ε > 0`, then a linear unembedding. Candidate margin: `m = L_c − L_{c'} = Δu^T ĥ + Δb`, where `ĥ` is the read-position final residual, after final LN if present. An intervention replaces the value of a named site (an input token, `Q`, `K`, `V`, scores, pattern, head outputs, `mid`, MLP preactivations or output, `final`) and recomputes everything downstream. A *mechanism-dissection* intervention clamps one site (for example, a pattern) while another changes. It is labeled as such and is not an ordinary recomputed intervention.
+Status labels:
+- **PROVED**: a full proof is given here.
+- **VERIFIED**: checked on constructions only.
+- **FAILED / COUNTEREXAMPLE**: kept on record.
+
+A numerical test is not a proof of a universal claim.
+
+**Common setting.** Pre-norm residual Transformer layers: LN, multi-head causal attention, residual add, LN, MLP, residual add. An optional final LN with `ε > 0` precedes a linear unembedding. The margin is `m = L_c − L_{c'}`, read at the read position.
+
+- A **recomputed intervention** replaces one named site and recomputes everything downstream. Sites are the input token, `Q`, `K`, `V`, scores, pattern, head outputs, `mid`, MLP preactivations or output, and `final`.
+- A **mechanism-dissection** intervention clamps one site while another changes. It is always labeled as such.
+- Several residual-site interventions (PA8; PA9 post hoc) set states that no input reaches, for example `x = 3 > √6`. Where this matters, the result is repeated using input substitution only.
 
 ---
 
 ## 1. Corrected prerequisites
 
-### SS* — same-cut screening, no bypass (corrects the earlier Theorem SS)
+### SS*: same-cut screening, no bypass (PROVED)
 
-**Hypotheses.** Writers `c_1, …, c_K` feed an aggregate `S = B + Σ_k c_k`. A downstream variable `Y` satisfies **no bypass**: every directed path from any `c_k` to `Y` passes through `S`. Equivalently, `Y = F(S, U)` where no variable in `U` is a descendant of any `c_k`, except through `S`.
+**Hypotheses.**
+- Writers `c_1, …, c_K` and a base `B` feed `S = B + Σ_k c_k`.
+- `B` is not a descendant of any `c_k`. Review R2's example: with `B = c_1²`, the edit `(1,0) → (2,−1)` keeps `Σc` fixed and moves `Y` from 2 to 5.
+- `Y = F(S, U)`, where no variable in `U` descends from any `c_k` except through `S`. That is, there is no bypass.
 
-**Claim.** Every edit `c_k ↦ c_k + δ_k` with `Σ_k δ_k = 0` leaves `Y` unchanged. Any relation among the writers that is not a function of `S` is causally inert for `Y` once `S` is held fixed.
+**Claim.** If `Σ_k δ_k = 0`, then `Y` is unchanged. Any relation among the writers that is not a function of their sum is inert for `Y` once `S` is fixed.
 
-**Proof.** `S` is unchanged and `U` is unchanged, so `F(S, U)` is unchanged. ∎
+**Proof.** `S`, `B` and `U` are all unchanged. ∎
 
-**Counterexample to the earlier wording.** `S = c_1 + c_2` and `Y = S + c_1`. Here `c_1` is "upstream of `S`", which the earlier wording allowed. The edit `(2, −1) → (5, −4)` keeps `S = 1` and changes `Y` from 3 to 6 (`test_SSstar_…`; independent audit §5).
+**The earlier wording was wrong.** It allowed `Y = S + c_1`. Under the edit `(2,−1) → (5,−4)`, that `Y` moves from 3 to 6 while `S` stays fixed.
 
-**Transformer instance.** The heads of one attention layer are consumed only through the residual add. A standard pre-norm or parallel block therefore has no bypass, and SS* applies to zero-sum head-output edits (checked with two heads, 10 random zero-sum edits, to `1e-12`). SS* does **not** apply when an analysis reads a head output separately (a hook, a per-head gate), or to writers at different layers.
+**Transformer instance.** The heads of one layer are consumed only through the residual add, so there is no bypass. SS* therefore holds for zero-sum head-output edits (tested to `1e−12`). This does not depend on the downstream map being linear.
 
-**Scope reminder (mandate §6).** SS* rules out effects at a fixed sum `S`. It does not rule out relational computation when `S` is a *vector* that keeps the sources apart. In the positive control, `S = a e_1 + b e_2` keeps both, and the MLP reads both.
+### ID: identification (corrected after R2, R3, R4)
 
-### ID — three levels of identification (correction B)
+**Definitions.** Let `θ` and `θ'` be parameterizations, possibly of different widths (after a split, for example), with `f_θ = f_{θ'}`. A site correspondence `π` maps sites of `θ` to sets of sites of `θ'`: a split unit maps to its two copies, a permuted unit to its image.
 
-Let `θ` be a parameterization, `x` an input, and `G` a group of reparameterizations with `f_{g·θ} = f_θ` for every `g`.
+1. **Fixed-parameterization observability.** `Q(θ, x)` can be computed from `θ` and the activations of `f_θ`.
+2. **Causal intervention attribution.** `Q` is an interventional contrast on a site of `θ`.
+3. **Identifiability modulo `𝓖`.** `Q(θ, x) = Q^π(θ', x)` for every function-preserving pair `(θ, θ')` in a stated family `𝓖`, where `Q^π` is `Q` computed through `π`. `𝓖` is a set of maps, not necessarily a group, because splitting changes width.
+4. **Function-level.** `Q` depends only on `f_θ` restricted to an input intervention family. Such a quantity is identifiable modulo every `𝓖`.
 
-- **Fixed-parameterization observability.** `Q(θ, x)` can be computed from `θ` and the activations of `f_θ`. Example: a per-head direct effect in one checkpoint.
-- **Causal intervention attribution.** `Q(θ, x) = f_θ(x; do(site ← v)) − f_θ(x)` for a site in the computational graph of `θ`. It is well defined given `θ`. Example: patching head `h`.
-- **Identifiability modulo `G`.** `Q(g·θ, x) = Q(θ, x)` for all `g ∈ G`. **Function-level** quantities, which depend only on `f_θ` restricted to an intervention family on inputs, are identifiable modulo every `G`.
+**ID1: head redistribution (PROVED).** If heads `h_1` and `h_2` share `W_Q`, `W_K` and `W_V`, then replacing `W_O^{h_1}` by `W_O^{h_1} + E` and `W_O^{h_2}` by `W_O^{h_2} − E` preserves `f_θ`. Per-head writes, direct effects, consensus scalars and patching effects all change. This needs identical heads, so it is a **non-generic** case (R4).
 
-**Proposition ID1 (head redistribution).** If heads `h_1, h_2` of one layer have identical `W_Q`, `W_K`, `W_V`, then `W_O^{h_1} ↦ W_O^{h_1} + E` together with `W_O^{h_2} ↦ W_O^{h_2} − E` preserves `f_θ`. Per-head writes, per-head direct effects, per-head consensus scalars, and **per-head patching effects** all change in general.
+*Verified (PI1).* Logits change by at most `4.4e−16`. Per-head patch effects move from `[−2.106, −2.106]` to `[−1.699, −2.514]`.
 
-*Proof.* The two heads have identical patterns and values `Y`, so their summed write `Y(W_O^1 + W_O^2)` is unchanged. By SS*, everything downstream is unchanged. Individually, `Y(W_O^1 + E) ≠ Y W_O^1` whenever `YE ≠ 0`. ∎
+**ID2: further maps that preserve `f_θ` (PROVED by substitution; verified).**
 
-*Verified (PI1).* Logits change by at most `4.4e−16`. Per-head direct effects go from `[2.111, 2.111]` to `[1.703, 2.520]`. Per-head patch effects go from `[−2.106, −2.106]` to `[−1.699, −2.514]`. Their sum is unchanged (`−4.212`).
+| Map | What it changes |
+|---|---|
+| QK gauge `(W_Q M, W_K M^{−T})` | `Q` and `K` vectors |
+| VO gauge `(W_V N, N^{−1} W_O)` | `V` vectors |
+| Positive rescaling of a ReLU unit | per-unit weights |
+| Splitting a unit into copies | per-unit attribution |
+| Orthogonal `R` with `R1 = 1` acting on the residual | raw residual coordinates; summed writes rotate with it (R2) |
+| Folding a nonuniform LN gain, even one with mixed signs, into the next weights (R3) | LN coordinates of fixed directions. The gain is itself a gauge; the earlier claim that non-uniform gains "shrink the group" is withdrawn |
+| Row-constant score shift (R2, R3): an LN bias along `1` plus a `W_K` shift, or a constant key component | every score in a row moves by the same input-dependent amount; patterns are unchanged |
+| Cancelling linear units (R3): since `φ(t) − φ(−t) = t` for GELU, ReLU and SiLU, a pair of units on `±w` with opposite output weights is an exact linear map | a reader can be made to "read `x − y`" with any coefficient; an exact zero-output combination can be added |
+| Emptying a duplicated head | the emptied head's pattern becomes arbitrary |
+| Redistributing ReLU linear pairs (R2) | C's `ε`-units can read `x̂` and `ŷ` separately instead of `Ŝ` |
 
-So per-head causal attribution is observable within one checkpoint, but not identifiable modulo `G`. The previous package's statement that per-head `v_j`, `M`, and centered writes are invariant under the architecture's symmetries **is withdrawn**.
-
-**Proposition ID2 (other gauges).** Each of the following preserves `f_θ` and changes the listed quantities:
-
-- `(W_Q, W_K) ↦ (W_Q M, W_K M^{-T})` changes `Q` and `K` vectors; scores are unchanged.
-- `(W_V, W_O) ↦ (W_V N, N^{-1} W_O)` changes `V` vectors; head writes are unchanged.
-- For ReLU only, positive per-unit rescaling `(W_in[:,k], b_k, W_out[k]) ↦ (s W_in[:,k], s b_k, W_out[k]/s)` changes per-unit weights.
-- Splitting a unit into two copies with output weights `t W_out[k]` and `(1−t) W_out[k]` changes per-unit attribution.
-- For an orthogonal `R` with `R1 = 1` and uniform LN gains, mapping residuals `h ↦ hR^T` with all weights transformed accordingly changes raw residual coordinates. Reader preactivations are unchanged.
-
-*Proofs.* Direct substitution. For the residual map, `LN(hR^T) = LN(h)R^T` because `R` fixes `1` and preserves norms. *Verified (PI2–PI5).*
-
-**Identifiable objects used below.** Function-level effects of input-level interventions. Reader preactivations as *compositions* "source write → normalization → reader direction", modulo unit permutation (and positive rescaling for ReLU). Attention scores and patterns. Summed same-layer writes. Per-head and per-unit quantities are used only as fixed-parameterization statements and are labeled as such.
+**Identifiable quantities used in this package (corrected).**
+- Function-level input effects.
+- **Within-row score differences** `s_{rj} − s_{rk}`, and **pattern mass over positions whose value writes differ.** Raw scores and raw patterns are not identifiable.
+- **The even part of the reader, grouped by read direction.** For each direction pair `±w`, this is `φ(⟨w,ζ⟩) + φ(−⟨w,ζ⟩)` times its output weight, together with the matched-`Ŝ` contrast of A4. Raw preactivations, and which directions a given unit reads, are not identifiable.
+- **Products and readout-normalized signs only.**
+  - B: `x̂ŷ` is identifiable as a score difference. `x̂` and `ŷ` separately are not, because the QK sign gauge flips both.
+  - A: `sign(xy)` is identifiable only after fixing each unit pair's scale by its output along `Δu`, and only up to a joint sign flip. Otherwise ReLU rescaling changes the recovered coordinates, and 44 of 144 cells come out wrong (R3).
+  - C: `q̂` is identifiable up to a positive scale.
+- **Source polarity**, meaning which sign of a source "supports `c`", is **not** identified internally (R3).
+  - In A, a single source has exactly zero effect, so polarity is purely a convention of the input coding.
+  - In B and C, polarity is fixed only by the source's direct vote path to `Δu`, which is the outcome pathway.
+  - All claims are therefore stated relative to the designer's input semantics.
 
 ---
 
 ## 2. Mechanism A: agreement-sensitive MLP
 
-Let `h(t) = φ(t) + φ(−t)` be the even part of the activation, times 2.
+Throughout, `h(t) = φ(t) + φ(−t)`.
 
-### A1 — agreement law (PROVED)
+### A1: agreement law (PROVED; hypotheses strengthened after R1 S1 and R2 S5)
 
-**Class `𝓕_A`.** At the read position, the MLP input is `ζ = LN_2(h_read)`. Define the source coordinates `x = ⟨p, ζ⟩` and `y = ⟨r, ζ⟩` for two reader directions `p` and `r`. The conditions:
-
-- **(A1)** Four units with preactivations `c(x+y)`, `−c(x+y)`, `c(x−y)`, `−c(x−y)`, `c > 0`, zero bias.
-- **(A2)** Output vectors `λv`, `λv`, `−λv`, `−λv`, with `λ > 0`.
+**Class `𝓕_A`.**
+- **(A0) Source separation.** The MLP input at the read position is `ζ = LN_2(h_read)`. There are reader directions `p, r` with `x = ⟨p,ζ⟩ = f_A(a)` and `y = ⟨r,ζ⟩ = f_B(b)`, where each `f` preserves sign and depends on one source only. Also `Δu^T h_read = 0`.
+- **(A1)** Four units with preactivations `±c(x+y)` and `±c(x−y)`, with `c > 0` and zero bias.
+- **(A2)** Output vectors `λv, λv, −λv, −λv`, with `λ > 0` and `Δu^T v > 0`.
 - **(A3)** `h` is strictly increasing on `[0, ∞)`.
-- **(A4)** `m = s·Δu^T(h_read + MLP(ζ)) + κ`, with `s > 0` (the final-LN scale, or 1), `Δu^T v > 0`, `Δu^T h_read = 0` (no direct path), and `κ = 0`.
+- **(A4)** `m = s·Δu^T(h_read + MLP(ζ)) + κ` with `s > 0` and `κ = 0`, and nothing else writes along `Δu`. With a final LN present, `Δu ⊥ 1` and the gain is uniform; otherwise `s = 1`.
 
 **Claim.**
-1. `sign(m) = sign(xy)` for every real `x, y`.
-2. Under ReLU, `MLP·Δu = 2λc·(Δu^T v)·sgn(xy)·min(|x|, |y|)` exactly.
-3. Under GELU, `q(x,y) := h(c(x+y)) − h(c(x−y))` behaves like `4√(2/π)·c²xy` for small signals and like `2c·sgn(xy)·min(|x|,|y|)` for large ones.
+1. `sign m = sign(ab)` for all real `a, b`.
+2. For ReLU, `MLP·Δu = 2λc(Δu^T v)·sgn(xy)·min(|x|,|y|)` exactly.
+3. For GELU, `q ≈ 4√(2/π)c²xy` for small signals and `q ≈ 2c·sgn(xy)·min(|x|,|y|)` for large ones.
 
-**Proof.** `m = sλ(Δu^T v)·q`, and `q = h(c(x+y)) − h(c(x−y))`. Because `h` is even and strictly increasing in `|t|`, `sign q = sign(|x+y| − |x−y|)`. Squaring, `|x+y|² − |x−y|² = 4xy`. For ReLU, `h(t) = |t|`, and `|x+y| − |x−y| = 2 sgn(xy) min(|x|, |y|)`. For tanh-GELU, `h(t) = t·tanh(√(2/π)(t + 0.044715t³))`, which is `√(2/π)t² + O(t⁴)` near 0 and `|t| + o(1)` at infinity. ∎
+**Proof.** First, `m = sλ(Δu^T v)[h(c(x+y)) − h(c(x−y))]`. Because `h` is even and increasing in `|t|`, the sign of this is `sign(|x+y| − |x−y|)`. Since `|x+y|² − |x−y|² = 4xy`, that equals `sign(xy)`. By (A0), `sign(xy) = sign(ab)`. For ReLU, `h(t) = |t|`. For tanh-GELU, `h(t) = t·tanh(√(2/π)(t + 0.044715t³))`, which gives both regimes. ∎
 
 **Corollaries.**
-- **A1.1.** `m(x, 0) = m(0, y) = 0`. A single source has no effect; the effect is pure interaction.
-- **A1.2.** `m(x, y) = m(−x, −y)`. Agreement on `c'` pushes toward `c`. The rule is **not candidate-relative**.
-- **A1.3.** `sign m` is invariant under separate positive rescalings `x ↦ αx`, `y ↦ βy`. So any attention pattern that gives positive weight to both sources, and any LN scale, leaves `sign m` unchanged (*verified* PA3: 50 random clamped patterns).
+- **A1.1.** `m(a,0) = m(0,b) = 0`: either source alone has no effect.
+- **A1.2.** `m(a,b) = m(−a,−b)` in sign, and in value when `κ = 0` and the final LN has no bias. The rule is not candidate-relative.
+- **A1.3.** `sign m` is unchanged by separate positive rescalings of `x` and `y`. In particular, any single attention pattern that gives positive weight to each source leaves it unchanged, **provided (A0) holds.**
+
+**Counterexample to A1.3 without (A0) (R1 S1).** With two heads and moving attention, the second head's routing can flip the sign of `x` as a function of B. The circuit then follows A alone: 50% error against `sign(ab)`, and 0% against `sign a`. A single head with moving attention keeps the law (R1: 0 errors in 7,200 cells), but the source weights can fall to about `10^{−76}`, so the margin all but vanishes.
 
 **Verified.**
-- PA1 to PA7 and PA12.
-- The positive control gives margins `±3.2142216080` with final LN and `±3.8183907764` without.
-- The pre-MLP readout margin is below `1e−16`.
-- An independent pure-Python implementation agrees to `1.8e−15`.
-- The law holds on 144-cell grids in the fully recomputed continuous family for GELU (both forms), ReLU, SiLU, and softplus. The ReLU formula error is below `1.1e−15`.
+- Positive-control margins of `±3.2142216080`, reproduced by three independent implementations.
+- 144-cell grids for GELU (both forms), ReLU, SiLU and softplus, including with a final LN.
+- The ReLU formula, to `1.1e−15`.
 
-**Removing one condition at a time.** Witnesses are found by search on a 60×60 grid (`test_A1_each_removed_condition_has_a_witness`). Grid error fractions are from PA10.
+**Removing one condition at a time.** Each witness was found by search.
 
-| Removed | Construction | Result |
-|---|---|---|
-| A1 (symmetric read) | read `2e_1 + e_2` instead of `e_1 + e_2` | 8.3% of grid cells wrong |
-| A1 (zero bias) | preactivation offsets `(0.3, 0.3, 0, 0)` | 4.2% wrong |
-| A2 (equal output weights) | `(1.3, 1.3, −1, −1)` | 0% on the preregistered grid (**PA10 failed as tested**). Post hoc, a 60×60 grid finds 60 errors, all at `|b| = 0.05`: near the axis, `q → 0.3h(cx) > 0` |
-| A3 (even part increasing) | tanh: `h ≡ 0`; sigmoid: `h ≡ 1` | `m ≡ 0` |
-| A4 (no direct path) | readout `e_3 + 0.5e_1` | 4.2% wrong; evidence wins when the interaction is weak |
-| A4 (`κ = 0`) | final-LN bias with `Δu^Tβ = 0.3` | 4.2% wrong |
+| Condition removed | Result |
+|---|---|
+| symmetric read directions (skewed read) | 8.3% grid errors |
+| zero bias (read bias added) | 4.2% |
+| no direct path | 4.2% |
+| `κ = 0` (LN bias added) | 4.2% |
+| (A3), with an odd activation | `m ≡ 0` |
+| equal output weights | 60 errors at `|b| = 0.05`, found post hoc. **PA10 failed as tested**, because the preregistered grid was too coarse to reach them |
 
-**Perturbations (PA11, VERIFIED).** i.i.d. relative weight noise of size `η` on `W_V`, `W_O`, `W_in`, `W_out`, and `W_U`, 20 seeds each:
+**Perturbations (descriptive).** PA11's preregistered test could not fail, so it is reclassified as **non-discriminating** (R1 S5). With relative noise 0.03, the binary cells stay correct in 20 of 20 seeds. Grid error rates are 3.8% at noise 0.03, 24% at 0.1, and 46% at 0.3.
 
-| `η` | binary cells all correct | grid error rate |
-|---|---|---|
-| 0.01 | 20/20 | 0 |
-| 0.03 | 20/20 | 3.8% |
-| 0.1 | 12/20 | 24% |
-| 0.3 | 1/20 | 46% |
+### A2: binary indistinguishability (PROVED; scope corrected after R2 S6)
 
-Errors concentrate where the weaker source is small: the median of `min(|a|,|b|)` at errors is 0.25–0.5. Exact pairing is a measure-zero condition. Approximate pairing is correct only where `|q|` exceeds the perturbation.
+Assume no final LN and `h(0) = 0`. Take a reader of net evidence only: units `±c(x+y)`, output weights `2λv`, and a margin offset of `−2λ(Δu^T v)h(2c)`. On the four binary cells it reproduces the designed circuit's margins exactly (to `3.1e−15`).
 
-### A2 — the binary positive control cannot identify relation computation (PROVED)
+**Scope.**
+- With a final LN the equivalence fails: in the agreeing cells the margins are 3.214 against −0.067 (R2).
+- With softplus, `h(0) ≠ 0` and the offset must change.
+- The weight-level statement that the two "differ in whether they read `x − y`" is not invariant. Cancelling linear units can make the sum-only model "read" `x − y`, with a direct effect of about 9.5, without changing its function (R3). What is invariant is the grouped even part, and the A4 contrast.
 
-Take the sum-only reader with units `±c(x+y)`, output weights `2λv`, and margin offset `−2λ(Δu^Tv)h(2c)`. On the four binary cells it reproduces the designed circuit's margins **exactly**.
+### A3: interaction and the odd–odd component do not separate them (PROVED)
 
-*Proof.* The designed circuit gives `q = ±h(2c)`. The sum-only reader gives `2h(S) − h(2c)` with `S ∈ {±2c, 0}`. ∎
+For even `h`, `E_oo[h(x+y)] = q/2`. Equivalently, `q` is exactly twice the odd–odd component of the single-index function `h(x+y)` (R4).
 
-*Verified.* The maximum difference is `3.1e−15`. Two implementations with identical decisions on the binary family differ in whether they read `x − y` at all.
+So no contrast built from sign flips can separate the designed circuit from a function of net evidence. The interaction `I(a,b) = m(a,b) − m(a,0) − m(0,b) + m(0,0)` measures non-additivity on a fixed scale. For `h(a+b)` it has the sign of `ab` in the small-signal regime. Strictly, `h(x+y)` is a nonlinear function of one additive index, not a removable interaction in Loftus's sense (R4).
 
-### A3 — interaction and agreement contrast do not separate them (PROVED)
+### A4: matched post-normalization sum (PROVED; conditions added after R1)
 
-For any even `h`, the sum-only function `s(x,y) = h(x+y)` has odd–odd component `E_oo[s] = [s(x,y) − s(−x,y) − s(x,−y) + s(−x,−y)]/4 = q(x,y)/2`, which is exactly half of the designed circuit's.
+Let `Ŝ = ⟨p+r, ζ⟩` and `D̂ = ⟨p−r, ζ⟩`. If a final LN is present, assume `Δu ⊥ 1` and a uniform gain.
 
-The finite interaction `I(a,b) = m(a,b) − m(a,0) − m(0,b) + m(0,0)` measures non-additivity of `m` on the chosen scale. For the designed circuit `I = q`. For `s` it is `h(a+b) − h(a) − h(b) + h(0)`, which has sign `sign(ab)` in the small-signal regime (`h ≈ kt²`).
+**Claim.** A reader that depends on the sources only through `Ŝ` is constant on any family with `Ŝ` held fixed. The designed reader `h(cŜ) − h(cD̂)` decreases strictly in `|D̂|` at fixed `Ŝ ≠ 0`, and changes sign at `|D̂| = |Ŝ|`. At `Ŝ = 0`, `q ≤ 0` and there is no sign change.
 
-*Proof.* Substitute and use evenness. ∎ *Verified* in tests.
+**Verified on reachable inputs**, by input substitution only, with no residual hook:
 
-So a nonzero interaction, and even the right sign of the agreement contrast, is produced by an even nonlinearity of **net evidence**, a function of a single scalar. Neither is evidence that a relation between the sources is computed.
+| Reader | Margins at matched `Ŝ` |
+|---|---|
+| designed | `0.307`, `0`, `−0.720` |
+| sum-only | `0.307412`, three times |
 
-### A4 — matched post-normalization sum: what does separate them (PROVED; post hoc after PA9)
-
-Let `Ŝ = ⟨p + r, ζ⟩` and `D̂ = ⟨p − r, ζ⟩` be the *reader's* coordinates. A reader that depends on the sources only through `Ŝ` is constant on every family with fixed `Ŝ`. The designed reader is `q = h(cŜ) − h(cD̂)`. At fixed `Ŝ` it is strictly decreasing in `|D̂|` and changes sign at `|D̂| = |Ŝ|`.
-
-*Proof.* Immediate from A1. ∎
-
-*Verified post hoc.* Matched at `Ŝ = 1.4771`, the sum-only margins are `1.270372` three times, while the designed margins are `1.270, 0, −1.675`.
-
-**The preregistered PA9 failed** because it matched the *raw* sum `x + y` at the residual. The reader's LN divides by `‖h_read‖`, which depends on `x² + y²`. The sum-only margins were then `1.270, 1.122, 0.830`. This failure is kept (`test_A4_raw_sum_matching_is_not_enough…`). It shows that pre-norm LN is itself a non-sum (norm) coupling of the sources. Matched-statistic controls must therefore be matched at the reader's actual input.
+**The preregistered PA9 failed, and is kept.** It matched the raw residual sum, but the reader's LN rescales by the residual norm, so the margins were `1.270, 1.122, 0.830`.
 
 ---
 
 ## 3. Mechanism B: query–key agreement gate
 
-### B1 — QK gate (PROVED for the class; VERIFIED for the construction)
+### B1 (PROVED for the class; corrected after R1 S3 and R2 S3)
 
-**Class `𝓕_B`** (two layers, positions A, B, read). The conditions:
+**Class `𝓕_B`.**
+- **(B1)** Layer 1 gives the read token a feature `x̂` with `sign x̂ = sign a` (up to the joint QK sign gauge), and a direct vote `v_A(a)` with `sign v_A = sign a`.
+- **(B2)** In layer 2, the read-row score difference is `s_{rB} − s_0 = λx̂ŷ/√d_h`, with `λ > 0` and `sign ŷ = sign b`. The other `n` unmasked scores in the row all equal `s_0`.
+- **(B3)** The head's value at B projects to `kŷ` on `Δu`, with `k > 0`. At every other position it projects to 0.
+- **(B4)** `m = v_A + kŷw` exactly. **No other component writes source-dependent content along `Δu`**: R1 S3 shows one extra head with `W_Q = 0` breaks unanimity in 348 of 450 agreeing cells. No downstream component reads the head's output, and there is no final LN.
 
-- **(B1)** Layer 1 delivers to the read residual a feature whose LN-coordinate `x̂` along `f_Q` has `sign x̂ = sign a`. It may also add a direct vote `v_A(a)` toward `c` that depends on `a` only.
-- **(B2)** Layer 2 has head scores `s_{rB} = λ x̂ ŷ /√d_h` with `λ > 0`, where `ŷ` is B's LN-coordinate along `f_B` and `sign ŷ = sign b`. The other `n` unmasked scores in the read row equal a constant `s_0`.
-- **(B3)** The head's value at B projects to `k ŷ` on `Δu` with `k > 0`. Other positions project to 0.
-- **(B4)** No component after this head reads its output, except the linear readout (no final LN, or final LN at a fixed positive scale with `κ = 0`).
+**Claim.** The gate weight depends only on score differences:
 
-**Claim.** `m = v_A(a) + T` with `T = k ŷ w(λ x̂ŷ)` and `w(z) = e^{z/√d_h}/(e^{z/√d_h} + n e^{s_0})`. Then:
+`w = e^{λx̂ŷ/√d_h} / (e^{λx̂ŷ/√d_h} + n)`.
 
-1. `w` is strictly increasing in `x̂ŷ`. B's vote counts more the more A agrees with it.
-2. `sign T = sign b`, and at fixed `|x̂|` and `|ŷ|`, `|T|` is larger when `ab > 0` than when `ab < 0`.
-3. If `ab > 0` and `v_A` has the sign of `a`, then `sign m = sign a`.
-4. If `ab < 0`, A's candidate wins iff `|v_A| > k|ŷ| w(−λ|x̂ŷ|)`. Relative to fixed routing at `w(0) = 1/(1+n)`, the decision reverses toward A exactly on the band `k|ŷ| w(−λ|x̂ŷ|) < |v_A| < k|ŷ|/(1+n)`.
-5. Substituting the query alone and the key alone gives non-additive effects, because the score is bilinear.
+1. `w` is strictly increasing in `x̂ŷ`.
+2. `sign(kŷw) = sign b`. At fixed `|x̂|` and `|ŷ|`, B's vote is larger when `ab > 0`.
+3. **Unanimity.** If `ab > 0`, then `sign m = sign a`.
+4. **Conflict.** A wins iff `|v_A| > k|ŷ|w(−λ|x̂ŷ|)`. Compared with fixed routing at `w_0 = 1/(1+n)`, the decision reverses toward A exactly on the band `k|ŷ|w(−λ|x̂ŷ|) < |v_A| < k|ŷ|w_0`.
+   - In raw-score form with `s_0 ≠ 0`, `w_0 = 1/(1+n e^{s_0 − s_{rB}(0)})`.
+   - If the row shift pushes the gated weight above `w_0`, the reversal goes toward B instead. R2 S3: with `n = 2` and `s_0 = −3`, the gated weight is 0.787 against 1/3.
+5. Substituting the query site alone, or the key site alone, gives non-additive effects. **At the input level, however, every sign-symmetric square `(±a, ±b)` has exactly zero four-term interaction** (R2): `v_A` cancels, and the four `kŷw` terms cancel in pairs. So 2×2 sign-flip designs cannot detect the gate. Designs with unequal levels can: PB6 finds the gated table relation-sensitive.
 
-**Proof.** Under (B2)–(B4), the head's output projected on `Δu` is `k ŷ w`. The rest follows from the strict monotonicity of the logistic function. ∎
+**Proof.** The logistic function is strictly monotone; the rest is direct substitution. ∎
 
 **Verified.**
-- PB1: score `= λx̂ŷ/√2` exactly, other scores 0, `w` monotone.
-- PB2: unanimity holds in all agreeing cells.
-- PB4: query-only `−4.212`, key-only `−4.212`, both together `0.000`; the non-additivity is `+8.424`.
-- PB5: 242 conflict cells reverse relative to fixed routing.
-- PB8: with two B sources, attention concentrates on the one that agrees with A (0.99 against 0.00).
-- PB1 and the test check the exact margin formula `m = v_A + 2kŷw` to `1e−12`.
+- The score is exactly bilinear, and `w` is monotone.
+- The margin formula holds to `1e−12`.
+- Unanimity holds; 242 grid cells reverse; under competition the weights go 0.99 against 0.00.
+- Dissection: with routing fixed, B's vote spreads by 0.104 across `a`, against 4.238 when fully recomputed.
+- Robust to perturbation: unanimity holds in 20 of 20 seeds at noise 0.03 and 18 of 20 at 0.1, and the reversal band is non-empty in 20 of 20.
 
-**Dissection (PB3; mechanism-dissection interventions).** With the layer-2 pattern clamped to its `a = 0` value, B's vote varies by 0.104 across `a`, against 4.238 when fully recomputed. The residual 0.104 is **not zero**. Layer 1 also copies A into B's residual, which changes B's LN scale and hence `ŷ`. That is an LN coupling the structural class idealizes away. With values clamped, the spread is 4.651: routing carries the effect.
-
-**Negative controls.**
-- `W_Q = 0` in layer 2 (PB6): relation-blind under RB. It is not exactly additive (residual 0.208), because of that same LN coupling.
-- B placed after the read position (PB7): `b` has no effect, to `1e−16`.
-
-**Counterexample to the decision-level extension (PB9).** A layer-2 MLP that re-reads `Δu` and subtracts above a threshold produces 26 cells in which the gated head's direct change and the total margin change have opposite signs. Example: `a: −1 → 0.5` at `b = 0.5`, head change `+1.905`, margin change `−7.315`. Final LN with bias produced **no** such cell on the tested grid. B1 is therefore a theorem about the class with no downstream re-reader (B4). Without B4, the head-level identity does not determine the decision.
+**Failures and counterexamples.**
+- **PB6 failed** on its additivity part after the registered rescoring: residual 0.208, caused by LN coupling at B. Its relation-blindness part holds.
+- **PB9.** A downstream MLP that re-reads the head produces 26 cells where the head's change and the total change have opposite signs. A final LN with bias gives 18 of 450 unanimity failures (R1).
+- **Three or more candidates (R1 S2).** The gate's relation is an inner product of the two sources' feature vectors, which is not the same as "both prefer the same candidate". Example: both sources prefer `c_1`, but `⟨x,y⟩ = −1.70`, so the gate cuts B's weight from 0.333 to 0.003. R1 gives a full-block case in which the decision flips to `c_2`. **Candidate-relativity is established only for a binary candidate pair with scalar evidence.**
 
 ---
 
-## 4. Mechanism C: two-block reconciliation
+## 4. Mechanisms C and C′: multi-block
 
-### C1 — agreement-gated amplification of net evidence (PROVED for the class)
+### C1: gated amplification of net evidence (PROVED for the class; C1.2 corrected after R2 S1)
 
-**Class `𝓕_C`.** Block 1 computes an agreement signal as in `𝓕_A`, written to a direction `e_3` that `Δu` does not read. Block 2's MLP reads `Ŝ = ⟨e_1 + e_2, ζ_2⟩` and `q̂ = ⟨e_3, ζ_2⟩`, with units
+**Class `𝓕_C`.** Block 2's MLP reads `Ŝ` and `q̂` through units `ReLU(±βŜ + γq̂ − θ) → ±λ_2Δu/‖Δu‖²` and `ReLU(±εŜ) → ±Δu/‖Δu‖²`. There is no other path to `Δu`. A prior `−κ_0` enters through the bias.
 
-`ReLU(βŜ + γq̂ − θ)`, `ReLU(−βŜ + γq̂ − θ)` writing `±λ_2 Δu/‖Δu‖²`, and `ReLU(±εŜ)` writing `±Δu/‖Δu‖²`,
+Let `g = ReLU(βŜ+γq̂−θ) − ReLU(−βŜ+γq̂−θ)`.
 
-where `β, γ, θ, λ_2, ε > 0`. There is no other path to `m`, and the margin has a prior offset `−κ_0`.
+**Claim.**
+1. `g` is odd in `Ŝ`, and `sign g ∈ {0, sign Ŝ}`. With `κ_0 = 0`, `sign m = sign Ŝ`.
+2. At fixed `Ŝ`, `|m + κ_0|` is nondecreasing in `q̂`. It increases strictly **iff exactly the unit with the sign of `Ŝ` is active.** When both units are active, `g = 2βŜ` does not change with `q̂` (R2: `g = 1.8` at `q̂ = 1.1, 1.2, 1.3`).
+3. Take `Ŝ > 0`, a pair matched exactly at `Ŝ` with `q̂_ag > q̂_dis`, and any prior `κ_0` between `m^{dis}` and `m^{ag}`. Then agreement decides `c` over `c'`.
 
-**Claim.** Write `g(Ŝ, q̂) = ReLU(βŜ+γq̂−θ) − ReLU(−βŜ+γq̂−θ)`, so that `m = −κ_0 + εŜ + λ_2 g(Ŝ, q̂)`.
+**Proof.** ReLU is monotone. Swapping the two units gives oddness. The derivative in `q̂` is `γ(1[·] − 1[·])`. ∎
 
-1. `g` is odd in `Ŝ` and `sign g ∈ {0, sign Ŝ}`. With `κ_0 = 0`, `sign m = sign Ŝ`: agreement never reverses the net-evidence direction.
-2. At fixed `Ŝ`, `|m + κ_0|` is nondecreasing in `q̂`, and strictly increasing wherever the unit with the sign of `Ŝ` is active. Agreement amplifies the candidate favored by net evidence. **This is candidate-relative.**
-3. Let `m^{ag}` and `m^{dis}` be the margins with `κ_0 = 0` of a matched-`Ŝ` pair with `q̂_ag > q̂_dis`. For any prior `κ_0` in `(m^{dis}, m^{ag})` (when `Ŝ > 0`), the decision is `c` under agreement and `c'` under disagreement, at fixed net evidence.
-4. At fixed `Ŝ`, `q̂` is the only block-2 input that varies with agreement. Ablating block 1's MLP sets `q̂ = 0` and removes the amplification.
+**Verified, with pairs matched exactly at the block-2 reader.** This corrects R1 S6 and R2 S2: the earlier pairs were matched at block 1, repeating the PA9 mistake.
+- At `Ŝ = 1.0795`, the agreeing pair gives `m = 4.588` and the disagreeing pair `m = 0.270`, a gap of 4.318.
+- **With block 1's MLP ablated, the gap is exactly 0.0000.** The earlier figure of 0.182, attributed to LN coupling, was a matching error.
+- `sign m = sign Ŝ` in all 156 cells.
+- Interchanging block 1's MLP output moves `m` from 0.243 to 3.928.
 
-**Proof.** For `Ŝ > 0`, the first ReLU argument is at least the second, and ReLU is monotone, so `g ≥ 0`. Oddness follows from swapping the two units. `∂g/∂q̂ = γ(1[βŜ+γq̂>θ] − 1[−βŜ+γq̂>θ]) ≥ 0` for `Ŝ > 0`, and the case `Ŝ < 0` is symmetric. Claim 3 is the intermediate value property of a constant shift. ∎
+**Robustness and boundaries.**
+- **C's sign law is fragile.** It holds across the whole grid in 0 of 20 seeds at noise 0.03, because perturbed output weights add generic paths. Amplification is robust: 20 of 20 at 0.03, 17 of 20 at 0.1.
+- **Outside the class**, a final LN with bias gives 34 sign errors. A third block that re-reads `Δu` can make agreement decide *against* net evidence (`m = −8.02`, R1).
+- **The direction is not architectural.** The mirrored gate (`γ < 0`) amplifies under disagreement instead: 3.185 against 0.246.
+- **At `κ_0 = 0`, C's decision is exactly `sign Ŝ`**, which a single sum-only unit reproduces (R2). Agreement affects C's decision only through a prior (C1.3). Otherwise it is a stability, or confidence, property.
 
-**Verified.**
-- PC1: `sign m = sign Ŝ` on 156 grid cells.
-- PC2: matched-`Ŝ` pairs have `m^{ag} = 4.187` against `m^{dis} = 0.243`. With `κ_0 = 2.215` (the midpoint, chosen to *demonstrate* claim 3, not predicted), the decision is `c` under agreement and `c'` under disagreement.
-- PC3: interchanging block 1's MLP output from the agreeing run into the disagreeing run moves `m` from `0.243` to `3.928` (the agreeing run gives `4.187`). The remainder is LN-scale coupling. Ablating block 1's MLP shrinks the agreement gap at fixed `Ŝ` from `3.944` to `0.182`.
-- PC5: an unread residual component flips no sign.
+### C2: bottleneck screening (PROVED, by SS*)
 
-### C2 — bottleneck screening (PROVED, by SS*)
+If both sources are written onto one direction, every matched-sum pair gives identical margins (to `1.8e−15`).
 
-If block 1 writes both sources onto `e_1 + e_2` (identity lost), the read residual depends on the sources only through `x + y`. Every matched-sum pair then gives identical margins. *Verified* (PC4): the maximum difference is `1.8e−15`, with the pairs matched exactly in input space by inverting the source LN.
+### C3: what the I/O function identifies (revised after R2 and R3)
 
-### C3 — the I/O function does not identify the two-block mechanism (VERIFIED, with a sketch of exactness)
+- **Exact non-representability (PROVED).** A one-hidden-layer ReLU network of `(x, y)` is piecewise affine. The C margin is not: it has nonzero second differences outside a measure-zero set. So no one-layer ReLU network represents it exactly, and the exact I/O function *does* distinguish the two implementations. This replaces the earlier kink-curve sketch, which R2 found incomplete.
+- **Approximation.** A 300-unit random-feature fit reaches relative RMSE 0.032, but its sign agreement with C is only 0.923. Wide networks can approximate almost anything. The earlier headline, "the I/O function does not identify the mechanism", is withdrawn. The correct statement is that finite-precision behavior on a finite intervention family does not identify it.
+- **Within C's own architecture**, R3 found no exact reparameterization that removes `q̂`.
+- That computation can move between attention and MLP "only approximately" in general is a **CONJECTURE**.
 
-A single wide ReLU layer on `(x, y)`, with 300 random features and a least-squares fit, approximates the C margin function with held-out relative RMSE `0.032` and sign agreement `0.923` (PC6). It has no `q` variable.
+### C′: conditional rereading through attention (post-review; addendum predictions)
 
-*Exactness sketch.* A one-hidden-layer ReLU network of `(x, y)` is smooth off a finite union of lines. The C margin has a kink on `{βŜ + γq̂ = θ}`, the zero set of a non-affine analytic function, which contains no line segment generically. So exact representation by one ReLU layer fails, while approximation succeeds. Depth gives an exact *implementation*, but behavior on the tested family does not reveal it. *Status: sketch; not a full proof.*
+**Construction.** Block 1 computes `q` with the Mechanism-A pairing. In block 2, a head's **query reads `q̂`**. Its keys are positive at the source positions and negative at a prior token P. When the sources agree, the head attends to them and copies their votes. When they conflict, it attends to P, which carries a vote for `c'`.
+
+**C′1 (PROVED for the construction's structural form; VERIFIED).** In agreeing cells, `sign m = sign a`. In conflicting cells, `m < 0` whichever source is stronger: the margin stays at −2.631 as the stronger source grows from 0.6 to 4.0 (PR1, PR5).
+
+**C′2: depth is necessary for relation-dependent routing (PROVED).** In a single pre-norm attention layer, the read row's score for position `j` is `⟨Q(LN x_r), K(LN x_j)⟩`, which depends only on `x_r` and `x_j`. Therefore `log(α_A/α_P) = s_{rA} − s_{rP}` does not depend on `x_B`. No single attention layer can make the allocation between A and P depend on how A relates to B. Verified with 30 random heads: the spread is at most `3.6e−15`. The mechanism requires an earlier layer to write a relation-dependent feature into the read token's query (Q-composition).
+
+**C′3: mediation (VERIFIED).** Interchanging block 1's MLP output from an agreeing run into a disagreeing run flips the decision (from −2.631 to +1.879) and moves the source attention mass from 0.000 to 1.000. Ablating block 1's MLP makes block 2's routing identical whether or not the sources agree (uniform 0.25).
+
+**PR2 failed, and is kept.** Across cells, source mass is not monotone in `q̂`. The score is `λq̂·k̂_j`, and the key coordinates `k̂_j` vary with each source's LN scale, so `q̂` alone does not order the routing.
 
 ---
 
-## 5. Attempted causal-bridge theorem (mandate §8)
+## 5. Attempted causal-bridge theorem (mandate §8): rejected as an explanatory bridge
 
-**Strongest candidate.** Classes `𝓕_B` and `𝓕_C`, "agreement-gated evidence". They are candidate-relative, unlike `𝓕_A`.
+**The strongest candidate is agreement-gated evidence:** classes `𝓕_B`, `𝓕_C` and C′.
 
-- **Model class:** `𝓕_B ∪ 𝓕_C` as above.
-- **Margin:** `m_c = L_c − L_{c'}`.
-- **Source representations:** the reader coordinates `x̂, ŷ` (B) or `(Ŝ, D̂)` (C). These are compositions "input token → LN → write → LN → reader direction", identifiable modulo the groups of ID2.
-- **Relation:** `C = x̂ŷ` (B, the bilinear score), or `C = q̂ = h(cŜ) − h(cD̂)` (C).
-- **Operator:** a softmax gate on a bilinear score (B); a ReLU gate on `(Ŝ, q̂)` (C).
-- **Interventions:** input substitution at the source slots, recomputed.
-- **Assumptions:** (B1)–(B4) or the `𝓕_C` conditions. All are conditions on weights and LN-coordinates, checkable without the response.
+| Element | B | C | C′ |
+|---|---|---|---|
+| model class | `𝓕_B` | `𝓕_C` | C′'s structural form |
+| source representations | `x̂`, `ŷ` | `Ŝ`, `D̂` | `Ŝ`, `D̂` |
+| relation | `x̂ŷ` | `q̂ = h(cŜ) − h(cD̂)` | `q̂` |
+| operator | softmax gate on a bilinear score | ReLU gate on `(Ŝ, q̂)` | query-composed attention routing |
+| intervention family | input substitution | input substitution | input substitution |
+| proved implication | B1.2–B1.4 | C1.1–C1.3 | C′1 |
 
-**Implication.**
-- B1.1–B1.4: agreement increases the weight of the agreeing source's vote toward *that source's* candidate. In conflict there is a characterized reversal band relative to fixed routing.
-- C1.1–C1.3: agreement amplifies the net-evidence candidate at fixed net evidence, and there is a prior interval in which agreement decides the candidate.
+The assumptions are the class conditions, and each implication is proved inside its class.
 
-**The five checks on the assumptions.**
+**The mandate's five checks.**
+1. **Independently identified: no.** Source polarity is fixed only through the outcome pathway, and the recovered coordinates depend on the parameterization (ID).
+2. **Computationally meaningful: yes.**
+3. **Plausibly present in a Transformer: not established.** The gating structures are measure-zero design conditions. C's sign law is fragile. B is robust within its own class but breaks with one additional parallel writer.
+4. **Noncircular: yes**, in the narrow sense that no response is used to define anything.
+5. **Not merely the desired output sign in disguise: fails.** Every directional conclusion comes from a sign hypothesis: `sign x̂ = sign a`, `k > 0`, the signs of the unit outputs, `Δu^T v > 0`, and the key signs at the sources and at P. What remains is a restated threshold (R2). The mirrored circuits are just as easy to implement.
 
-1. **Independently identified.** Yes, in principle: they are weight and composition conditions, modulo `G`.
-2. **Computationally meaningful.** Yes.
-3. **Plausibly present in a Transformer.** QK composition is common. The exact gating structure is a measure-zero design condition. Approximate versions hold only where the gated quantity exceeds the deviation (PA11). Not established in any trained model.
-4. **Noncircular.** Yes. No response is used.
-5. **Not the output sign in disguise.** **Partly fails.** The assumptions say, in weight terms, "an agreement gate exists". The conclusions then follow by monotonicity in one or two lines.
-
-**Classification.** **Implemented-mechanism structural theorems.** They are not an independently discovered decision theory. The decision-level extension to models with downstream re-readers is refuted (PB9). In the classes as stated it holds, but only because (B4) excludes those re-readers.
+**Verdict.** The theorem is **rejected as an explanatory causal bridge** under mandate §8. In the mandate's own terms, these are **implemented-mechanism existence theorems**: deliberately programmed gates produce relation-dependent decisions, and the boundaries of each class are proved.
 
 ---
 
@@ -245,15 +275,24 @@ A single wide ReLU layer on `(x, y)`, with 300 random features and a least-squar
 | ID | Status |
 |---|---|
 | SS* | PROVED |
-| ID1, ID2 | PROVED (verified) |
-| A1 and corollaries | PROVED |
-| A1 condition witnesses | VERIFIED (construction) |
-| A2, A3 | PROVED |
-| A4 | PROVED (post hoc) |
-| PA9 (raw-sum matching) | FAILED prediction, kept |
-| PA10 (A2 witness on the preregistered grid) | FAILED as tested; post-hoc witness found |
-| B1 | PROVED (class); verified construction; dissection residual 0.104 from LN coupling |
-| PB9 | COUNTEREXAMPLE (downstream re-reader) |
-| C1, C2 | PROVED |
-| C3 | VERIFIED; exactness is a sketch |
-| Bridge (§5) | implemented-mechanism structural theorem; fails check 5 in part; not identified in trained models |
+| ID1, ID2, corrected identifiable list | PROVED |
+| A1, with (A0) | PROVED |
+| A1.3 without (A0) | COUNTEREXAMPLE (R1) |
+| A2 (no final LN, `h(0) = 0`) | PROVED; fails with a final LN |
+| A3, A4 | PROVED |
+| PA9 | FAILED (kept) |
+| PA10 | FAILED as tested (kept) |
+| PA11 | NON-DISCRIMINATING |
+| B1, with (B4) | PROVED |
+| PB6 | FAILED (additivity part) |
+| PB9 | COUNTEREXAMPLE |
+| three-candidate gate | COUNTEREXAMPLE (R1) |
+| C1 (C1.2 corrected), C2 | PROVED |
+| C3 | revised: exact non-representability PROVED; non-identification from finite behavior VERIFIED |
+| C′1 | VERIFIED |
+| C′2 | PROVED |
+| C′3 | VERIFIED |
+| PR2 | FAILED (kept) |
+| bridge (§5) | rejected as explanatory; implemented-mechanism existence theorems |
+| original preregistration, rescored | 29 passed, 3 failed, 1 non-discriminating, out of 33 |
+| addendum | 4 of 5 passed |

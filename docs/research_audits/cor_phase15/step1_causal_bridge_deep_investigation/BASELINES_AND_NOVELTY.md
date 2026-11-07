@@ -10,6 +10,7 @@ For each result, the table gives the strongest non-COR explanation. The mapping 
 | A4: matched post-LN sum contrast | An interchange or matched-statistic intervention (causal abstraction, Geiger et al. 2021†, JMLR 2025), performed at the reader's actual input | nothing. The failed PA9 is an example of matching at the wrong site |
 | B1: QK gate | Q/K composition and content-based routing (Elhage et al. 2021). Copy-suppression heads (McDougall et al. 2023†) are a trained-model example with the opposite sign. PB9 is the familiar gap between direct and total effects (path patching, backup heads, Hydra effect: McGrath et al. 2023) | nothing |
 | C1–C3: two-block reconciliation | A gated multiplicative interaction (GLU-style gating; Jayakumar et al. 2020†). C1.3 is the intermediate value theorem. C2 is screening-off. C3 is Méloux et al.† again | nothing |
+| C′: conditional rereading; C′2 depth theorem | Q-composition: a later head's query reads an earlier MLP feature (Elhage et al. 2021). C′2 is the elementary fact that a single attention layer's score for position `j` depends only on the read token and `j` | nothing; C′2 is a restatement of the composition requirement |
 | ID1, ID2: gauges | Standard function-preserving weight symmetries (Chen, Lu and Hecht-Nielsen 1993†; Godfrey et al. 2022†). Attention weights are not unique in general (Brunner et al. 2020). ID1 requires identical heads and is **non-generic** | nothing; the corrections are restorations of known facts |
 | SS*: no-bypass screening | Screening-off in a causal graph | nothing |
 

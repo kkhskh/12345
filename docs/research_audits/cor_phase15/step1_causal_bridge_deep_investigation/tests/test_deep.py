@@ -296,3 +296,54 @@ def test_other_gauges():
         t, tR = forward(mp, ep(a, b), 2), forward(mR, mapX(ep(a, b)), 2)
         assert np.allclose(t.logits, tR.logits, atol=1e-12) and np.allclose(t.mlp_pre[0], tR.mlp_pre[0], atol=1e-12)
         assert np.allclose(t.logits, forward(ms, ep(a, b), 2).logits, atol=1e-12)
+
+# ---------------------------------------------------- C' rereading through attention (post-review)
+
+
+def test_Cprime_agreement_routes_to_sources_conflict_defers_to_prior():
+    from cbmath import rereading
+    m, D, emb = rereading()
+    for a in (-1.5, -0.5, 0.5, 1.5):
+        for b in (-1.5, -0.5, 0.5, 1.5):
+            mm = margin(forward(m, emb(a, b), 3))
+            assert (np.sign(mm) == np.sign(a)) if a * b > 0 else mm < 0
+
+
+def test_Cprime_one_layer_cannot_route_on_the_relation():
+    """In one attention layer, log(alpha_A/alpha_P) at the read row depends only on the read,
+    A and P tokens (pre-norm keys and queries read only their own token), not on b."""
+    import copy
+    from cbmath import rereading
+    m, D, emb = rereading()
+    rng = np.random.default_rng(0)
+    for _ in range(10):
+        one = copy.deepcopy(m); one.layers = [copy.deepcopy(m.layers[1])]
+        one.layers[0].WQ = rng.normal(size=one.layers[0].WQ.shape)
+        one.layers[0].WK = rng.normal(size=one.layers[0].WK.shape)
+        r = [np.log(forward(one, emb(0.8, b), 3).pattern[0][0][3][1] / forward(one, emb(0.8, b), 3).pattern[0][0][3][0]) for b in (-1.5, 0.2, 1.5)]
+        assert np.ptp(r) < 1e-10
+
+
+def test_Cprime_mediator_interchange_and_ablation():
+    from cbmath import rereading
+    m, D, emb = rereading()
+    ta, td = forward(m, emb(1.0, 1.0), 3), forward(m, emb(1.0, -1.0), 3)
+    p = td.mlp_out[0].copy(); p[3] = ta.mlp_out[0][3]
+    assert margin(td) < 0 < margin(forward(m, emb(1.0, -1.0), 3, replace_site(0, "mlp_out", p)))
+    mab, _, e2 = rereading(block1_mlp=False)
+    assert np.allclose(forward(mab, e2(1.0, 1.0), 3).pattern[1][0][3], forward(mab, e2(1.0, -1.0), 3).pattern[1][0][3])
+
+
+def test_C_exact_match_at_block2_reader_gap_vanishes_when_ablated():
+    from scipy.optimize import brentq
+    gaps = {}
+    for kw in ({}, {"block1_mlp": False}):
+        mc, Dc, ec = reconciliation(**kw)
+        s = Dc["e1"] + Dc["e2"]
+        def S(a, b):
+            tr = forward(mc, ec(a, b), 2)
+            return float(layernorm(tr.resid_in[1][2], mc.layers[1].g2, mc.layers[1].b2, mc.eps) @ s), margin(tr)
+        tgt, mag = S(0.5, 0.5)
+        bd = brentq(lambda b: S(1.6, b)[0] - tgt, -1.6, 0.0)
+        gaps[bool(kw)] = mag - S(1.6, bd)[1]
+    assert gaps[False] > 4.0 and abs(gaps[True]) < 1e-9

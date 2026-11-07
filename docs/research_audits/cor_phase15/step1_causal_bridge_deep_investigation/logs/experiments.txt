@@ -27,7 +27,7 @@ positive control final_ln=False
   odd-odd component: designed [0.977116, -0.977116, 2.107654, -2.107654]  sum-only [0.488558, -0.488558, 1.053827, -1.053827]
 [FAIL] PA10: fraction of grid cells with sign(m)!=sign(ab): {A1 skewed read: 0.083, A1' read offset: 0.042, A2 unequal out: 0.000, A3 tanh: 0.500, A4 direct path: 0.042, A4 LN bias: 0.042}
   perturbations: {0.01: {'binary_all_correct': '20/20', 'grid_err_mean': 0.0, 'median_min_abs_evidence_at_errors': None}, 0.03: {'binary_all_correct': '20/20', 'grid_err_mean': 0.0378, 'median_min_abs_evidence_at_errors': 0.25}, 0.1: {'binary_all_correct': '12/20', 'grid_err_mean': 0.2396, 'median_min_abs_evidence_at_errors': 0.5}, 0.3: {'binary_all_correct': '1/20', 'grid_err_mean': 0.4635, 'median_min_abs_evidence_at_errors': 0.5}}
-[PASS] PA11: binary cells survive small perturbations; errors concentrate where the weaker source is small (grid values in [0.25,1.5])
+[NON-DISCRIMINATING] PA11: threshold (median min|evidence| <= 0.75) could not fail: a uniform spread already gives ~0.5 (review R1 S5); reported descriptively
 [PASS] PA12: continuous family with final LN: violations 0/144
 [PASS] PA13: max |m(a,b) - m(-a,-b)| = 2.0e-15: agreeing on c' pushes toward c (not candidate-relative)
   candidate quantities on binary cells (source writes at read: a e1, b e2):
@@ -59,7 +59,7 @@ positive control final_ln=False
 [PASS] PB3: spread of B's vote over a: full 4.2380, routing-fixed 0.1041 (prediction: ~0), values-fixed 4.6506
 [PASS] PB4: query-only -4.2122, key-only -4.2122, both -0.0000, non-additivity +8.4244
 [PASS] PB5: 242 conflicting cells where fixed routing follows B but the gate follows A; e.g. [(np.float64(-1.5), np.float64(1.1), 0.018, -1.3831), (np.float64(-1.5), np.float64(1.2), 0.1109, -1.3839), (np.float64(-1.5), np.float64(1.3), 0.1976, -1.3844)]
-[PASS] PB6: qk_off: relation-blind=True, additivity residual 2.08e-01; gated: relation-blind=False
+[FAIL] PB6: qk_off: relation-blind=True, additivity residual 2.08e-01 (preregistered: additive -> fails; LN coupling at B); gated: relation-blind=False
 [PASS] PB7: B after the read position: max |m(b) - m(-b)| = 0.0e+00
 [PASS] PB8: (a, w_B+, w_B-, m_gate, m_fixed) = [(1.0, np.float64(0.9905), np.float64(0.0), 5.192, 0.9122), (-1.0, np.float64(0.0), np.float64(0.9928), -5.4306, -1.0273)]
 [PASS] PB9: cells where sign(total change) != sign(gated head's direct change): 26; kinds ['reread MLP']; e.g. [('reread MLP', -1.0, -0.5, -1.0, -0.0258, 0.4435), ('reread MLP', -1.0, 0.5, 0.5, 1.9047, -7.3152)]
@@ -97,4 +97,27 @@ positive control final_ln=False
   Mechanism C with gamma=-1.5: m(agree)=+0.2463 m(disagree)=+3.1848 at matched S
   random 4-unit GELU readers of (x,y), N=400: binary sign pattern = +-agreement 10/400; agreement sign law on the whole grid 0/400; output varies across the raw matched-sum triple 400/400
 
-SUMMARY: 31/33 preregistered predictions passed
+=== ADDENDUM: C' conditional rereading through attention (post-review) ===
+[PASS] PR1: agree -> sign(m)=sign(a); disagree -> m<0 (prior c') in all 36 cells, whichever source is stronger
+[FAIL] PR2: block-2 mass on sources increasing and on P decreasing in q^ (q^ range -2.601..2.601)
+[PASS] PR3: 30 random one-layer heads: max spread of log(alpha_A/alpha_P) over b = 3.6e-15
+[PASS] PR4: interchange block-1 MLP output (dis<-agree): m -2.631 -> +1.879, source mass 0.000 -> 1.000; ablated block-1 MLP: routing identical for agree/disagree ([0.25, 0.25, 0.25, 0.25])
+[PASS] PR5: disagreement with the stronger source growing: margins [-2.631, -2.631, -2.631, -2.631, -2.631, -2.631, -2.631, -2.631]
+
+=== Corrections requested by reviews ===
+  C designed: agree (0.5,0.5) S^=1.079536212 m=+4.5880; disagree (1.6,-0.2663) S^=1.079536212 m=+0.2699; gap +4.3181
+  C block-1 MLP ablated: agree (0.5,0.5) S^=1.230753792 m=+1.5692; disagree (1.6,-0.1761) S^=1.230753792 m=+1.5692; gap +0.0000
+  C1.2 both units active (S=0.9, q=1.2): g(q-0.1)=1.8000 g(q)=1.8000 g(q+0.1)=1.8000 (flat = 2 beta S)
+  A4 on reachable inputs (input substitution only), designed: margins at matched S^ = [0.307412, -0.0, -0.720141]
+  A4 on reachable inputs (input substitution only), sum-only: margins at matched S^ = [0.307412, 0.307412, 0.307412]
+  perturbation eta=0.03: B unanimity holds in 20/20 seeds, B reversal band non-empty in 20/20; C sign law holds on the whole grid in 0/20, C amplification (agree > disagree at similar S) in 20/20
+  perturbation eta=0.1: B unanimity holds in 18/20 seeds, B reversal band non-empty in 20/20; C sign law holds on the whole grid in 0/20, C amplification (agree > disagree at similar S) in 17/20
+  C with final LN and bias (outside the class): sign(m) != sign(net evidence) in 34 cells
+  vector evidence (3 dims, coordinatewise pairing), scale 0.05: sign(q) = sign(<u,v>) in 1.000 of draws
+  vector evidence (3 dims, coordinatewise pairing), scale 1.0: sign(q) = sign(<u,v>) in 0.950 of draws
+  vector evidence (3 dims, coordinatewise pairing), scale 5.0: sign(q) = sign(<u,v>) in 0.924 of draws
+  small-signal 2-dim agreement is rotation-invariant (<Ru,Rv>=<u,v>): agreement with sign(<u,v>) 1.000; large-signal coordinatewise agreement is basis-dependent (see scale 5.0 above)
+  three candidates, QK gate on the inner product of 2-dim evidence: both sources prefer c1 (A [1.0, -3.0], B [1.0, 0.9]) but <x,y>=-1.70; B's weight gated 0.0030 vs fixed 0.3333; c1-c2 margin gated +4.000 vs fixed +4.050: the gate suppresses a source that AGREES on the preferred candidate (class formula; review R1 S2 gives a full-block case where the decision flips)
+
+SUMMARY (original preregistration, rescored per addendum): 29 passed, 3 failed, 1 non-discriminating, of 33
+SUMMARY (addendum C'): 4/5 passed

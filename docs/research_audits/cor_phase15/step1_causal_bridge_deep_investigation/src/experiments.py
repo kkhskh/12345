@@ -210,9 +210,9 @@ def mech_A():
         summ[eta] = dict(binary_all_correct=f"{bin_ok}/20", grid_err_mean=round(float(np.mean(grid_err)), 4),
                          median_min_abs_evidence_at_errors=(round(float(np.median(near_axis)), 3) if near_axis else None))
     log("  perturbations:", summ)
-    record("PA11", summ[0.01]["binary_all_correct"] == "20/20" and
-           all(v["median_min_abs_evidence_at_errors"] is None or v["median_min_abs_evidence_at_errors"] <= 0.75 for v in summ.values()),
-           "binary cells survive small perturbations; errors concentrate where the weaker source is small (grid values in [0.25,1.5])")
+    RES["PA11"] = {"pass": None, "status": "NON-DISCRIMINATING",
+                   "detail": "threshold (median min|evidence| <= 0.75) could not fail: a uniform spread already gives ~0.5 (review R1 S5); reported descriptively"}
+    log("[NON-DISCRIMINATING] PA11: " + RES["PA11"]["detail"])
 
     m, _, emb, coords = agreement_family(act="gelu", final_ln=True)
     bad = sum(np.sign(margin(forward(m, emb(a, b), 2))) != np.sign(a * b) for a in GRID for b in GRID)
@@ -306,8 +306,9 @@ def mech_B():
     T = np.array([[margin(forward(mo, *embed(a, b))) for b in LV] for a in LV])
     add_res = float(np.abs(T - T[:, [0]] - T[[0], :] + T[0, 0]).max())
     Tg = np.array([[margin(forward(model, *embed(a, b))) for b in LV] for a in LV])
-    record("PB6", is_relation_blind(T) and not is_relation_blind(Tg),
-           f"qk_off: relation-blind={is_relation_blind(T)}, additivity residual {add_res:.2e}; gated: relation-blind={is_relation_blind(Tg)}")
+    # rescored per PREREGISTRATION_ADDENDUM: both preregistered parts (additivity AND relation-blindness)
+    record("PB6", is_relation_blind(T) and add_res < 1e-6 and not is_relation_blind(Tg),
+           f"qk_off: relation-blind={is_relation_blind(T)}, additivity residual {add_res:.2e} (preregistered: additive -> fails; LN coupling at B); gated: relation-blind={is_relation_blind(Tg)}")
 
     dev = max(abs(margin(forward(model, *embed(a, b, layout="ARB"))) - margin(forward(model, *embed(a, -b, layout="ARB")))) for a in LV for b in LV)
     record("PB7", dev < 1e-12, f"B after the read position: max |m(b) - m(-b)| = {dev:.1e}")
@@ -570,11 +571,144 @@ def supplementary():
         f"agreement sign law on the whole grid {n_law}/{N}; output varies across the raw matched-sum triple {n_suminsuff}/{N}")
 
 
+def addendum():
+    """PREREGISTRATION_ADDENDUM.md: C' predictions (PR1-PR5) and review-driven corrections."""
+    from scipy.optimize import brentq
+    from cbmath import rereading
+    log("\n=== ADDENDUM: C' conditional rereading through attention (post-review) ===")
+    m, D, emb = rereading()
+    LV = [-1.5, -1.0, -0.5, 0.5, 1.0, 1.5]
+    ok1 = True; rows = []
+    for a in LV:
+        for b in LV:
+            tr = forward(m, emb(a, b), 3)
+            mm = margin(tr); w = tr.pattern[1][0][3]
+            ok1 &= (np.sign(mm) == np.sign(a)) if a * b > 0 else (mm < 0)
+            q3 = float(layernorm(tr.resid_in[1][3], m.layers[1].g1, m.layers[1].b1, m.eps) @ D["e3"])
+            rows.append((q3, w[1] + w[2], w[0]))
+    record("PR1", ok1, "agree -> sign(m)=sign(a); disagree -> m<0 (prior c') in all 36 cells, whichever source is stronger")
+    rows.sort()
+    ok2 = all(rows[i][1] <= rows[i + 1][1] + 1e-12 and rows[i][2] >= rows[i + 1][2] - 1e-12 for i in range(len(rows) - 1))
+    record("PR2", ok2, f"block-2 mass on sources increasing and on P decreasing in q^ (q^ range {rows[0][0]:.3f}..{rows[-1][0]:.3f})")
+    # PR3 one-layer impossibility: random single-layer heads, ratio alpha_A/alpha_P independent of b
+    worst = 0.0
+    for k in range(30):
+        rr = np.random.default_rng(k)
+        L = m.layers[1]
+        import copy as _c
+        one = _c.deepcopy(m); one.layers = [_c.deepcopy(L)]
+        one.layers[0].WQ = rr.normal(0, 1, L.WQ.shape); one.layers[0].WK = rr.normal(0, 1, L.WK.shape)
+        for a in (-1.0, 0.7):
+            ratios = []
+            for b in (-1.5, -0.3, 0.4, 1.5):
+                A_ = forward(one, emb(a, b), 3).pattern[0][0][3]
+                ratios.append(np.log(A_[1] / A_[0]))
+            worst = max(worst, float(np.ptp(ratios)))
+    record("PR3", worst < 1e-10, f"30 random one-layer heads: max spread of log(alpha_A/alpha_P) over b = {worst:.1e}")
+    # PR4 mediation
+    ta, td = forward(m, emb(1.0, 1.0), 3), forward(m, emb(1.0, -1.0), 3)
+    patched = td.mlp_out[0].copy(); patched[3] = ta.mlp_out[0][3]
+    tp = forward(m, emb(1.0, -1.0), 3, replace_site(0, "mlp_out", patched))
+    mab, _, emb2 = rereading(block1_mlp=False)
+    wab = [forward(mab, emb2(a, b), 3).pattern[1][0][3] for a, b in ((1.0, 1.0), (1.0, -1.0))]
+    record("PR4", np.sign(margin(td)) < 0 < np.sign(margin(tp)) and np.allclose(wab[0], wab[1], atol=1e-12),
+           f"interchange block-1 MLP output (dis<-agree): m {margin(td):+.3f} -> {margin(tp):+.3f}, source mass {td.pattern[1][0][3][1:3].sum():.3f} -> {tp.pattern[1][0][3][1:3].sum():.3f}; ablated block-1 MLP: routing identical for agree/disagree ({np.round(wab[0],4).tolist()})")
+    # PR5 strength control in disagreement
+    s5 = [margin(forward(m, emb(a, -0.5), 3)) for a in (0.6, 1.0, 2.0, 4.0)] + [margin(forward(m, emb(-0.5, b), 3)) for b in (0.6, 1.0, 2.0, 4.0)]
+    record("PR5", all(v < 0 for v in s5), f"disagreement with the stronger source growing: margins {np.round(s5,3).tolist()}")
+    # one-block baseline: the same block-2 head without block 1 cannot route on agreement (PR3 is the proof)
+
+    log("\n=== Corrections requested by reviews ===")
+    # (R1 S6 / R2 S2) Mechanism C: match pairs exactly at the block-2 reader S^
+    def Shat(model, a, b):
+        tr = forward(model, model._emb(a, b), 2)
+        z = layernorm(tr.resid_in[1][2], model.layers[1].g2, model.layers[1].b2, model.eps)
+        return float(z @ model._s), margin(tr)
+    for label, kw in (("designed", {}), ("block-1 MLP ablated", {"block1_mlp": False})):
+        mc, Dc, ec = reconciliation(**kw); mc._emb = ec; mc._s = Dc["e1"] + Dc["e2"]
+        tgt, m_ag = Shat(mc, 0.5, 0.5)
+        b_dis = brentq(lambda b: Shat(mc, 1.6, b)[0] - tgt, -1.6, 0.0)
+        s_dis, m_dis = Shat(mc, 1.6, b_dis)
+        log(f"  C {label}: agree (0.5,0.5) S^={tgt:.9f} m={m_ag:+.4f}; disagree (1.6,{b_dis:.4f}) S^={s_dis:.9f} m={m_dis:+.4f}; gap {m_ag-m_dis:+.4f}")
+        RES[f"C_exact_match_{label}"] = (tgt, m_ag, m_dis)
+    # C1.2 flat region when both units are active (R2 S1)
+    beta, gamma, theta = 1.0, 1.5, 0.6
+    g = lambda S, q: max(beta * S + gamma * q - theta, 0) - max(-beta * S + gamma * q - theta, 0)
+    log(f"  C1.2 both units active (S=0.9, q=1.2): g(q-0.1)={g(0.9,1.1):.4f} g(q)={g(0.9,1.2):.4f} g(q+0.1)={g(0.9,1.3):.4f} (flat = 2 beta S)")
+    # A4 on reachable inputs: matched post-LN S^ triple realised by input substitution (no residual hook)
+    mA, bA, eA, cA = agreement_family()
+    xinv = lambda x: np.sign(x) * np.sqrt(x * x * (4.0 / 6 + 1e-5) / (1 - x * x / 6))
+    def at_inputs(fam, x, y):
+        mm, bb, ee, cc = fam()
+        tr = forward(mm, ee(xinv(x), xinv(y)), 2)
+        z = layernorm(tr.mid[0][2], mm.layers[0].g2, mm.layers[0].b2, mm.eps)
+        return margin(tr), float(z @ (bb[0] + bb[1]))
+    for name, fam in (("designed", agreement_family), ("sum-only", sum_only_family)):
+        tgt = at_inputs(fam, 0.4, 0.4)[1]; vals = []
+        for dx, dy in ((1, 1), (2, 0), (3, -1)):
+            t = brentq(lambda t: at_inputs(fam, t * dx, t * dy)[1] - tgt, 1e-3, 2.4 / max(abs(dx), abs(dy)))
+            vals.append(round(at_inputs(fam, t * dx, t * dy)[0], 6))
+        log(f"  A4 on reachable inputs (input substitution only), {name}: margins at matched S^ = {vals}")
+        RES[f"A4_reachable_{name}"] = vals
+    # B and C perturbation robustness (R1 S8)
+    import copy as _c
+    for eta in (0.03, 0.1):
+        uok = rev = 0; cs = camp = 0; N = 20
+        for k in range(N):
+            rr = np.random.default_rng(500 + k)
+            mb, Db, eb = qk_gate(); mo, _, _ = qk_gate(qk_off=True)
+            for L in mb.layers:
+                for nm in ("WQ", "WK", "WV", "WO"):
+                    A_ = getattr(L, nm); setattr(L, nm, A_ + eta * rr.normal(0, 1, A_.shape) * max(np.abs(A_).max(), 1e-9))
+            ag = [(a, b) for a in (-1.0, -0.5, 0.5, 1.0) for b in (-1.0, -0.5, 0.5, 1.0) if a * b > 0]
+            uok += all(np.sign(margin(forward(mb, *eb(a, b)))) == np.sign(a) for a, b in ag)
+            rev += any(np.sign(margin(forward(mo, *eb(a, b)))) == np.sign(b) and np.sign(margin(forward(mb, *eb(a, b)))) == np.sign(a)
+                       for a in np.linspace(-1.5, 1.5, 11) for b in np.linspace(-1.5, 1.5, 11) if a * b < 0)
+            mc, Dc, ec = reconciliation()
+            for L in mc.layers:
+                for nm in ("Win", "Wout", "WO"):
+                    A_ = getattr(L, nm); setattr(L, nm, A_ + eta * rr.normal(0, 1, A_.shape) * max(np.abs(A_).max(), 1e-9))
+            grid = [(a, b) for a in np.linspace(-1.5, 1.5, 9) for b in np.linspace(-1.5, 1.5, 9) if abs(a + b) > 0.2]
+            cs += all(np.sign(margin(forward(mc, ec(a, b), 2))) == np.sign(a + b) for a, b in grid)
+            camp += margin(forward(mc, ec(0.6, 0.6), 2)) > margin(forward(mc, ec(1.6, -0.4), 2))
+        log(f"  perturbation eta={eta}: B unanimity holds in {uok}/{N} seeds, B reversal band non-empty in {rev}/{N}; "
+            f"C sign law holds on the whole grid in {cs}/{N}, C amplification (agree > disagree at similar S) in {camp}/{N}")
+    # C with final LN and bias (outside the class)
+    mc, Dc, ec = reconciliation()
+    mc.final_ln = True; mc.bf = 0.6 * Dc["fU"]
+    bad = sum(np.sign(margin(forward(mc, ec(a, b), 2))) != np.sign(a + b) for a in np.linspace(-1.5, 1.5, 13) for b in np.linspace(-1.5, 1.5, 13) if abs(a + b) > 1e-9)
+    log(f"  C with final LN and bias (outside the class): sign(m) != sign(net evidence) in {bad} cells")
+    # vector evidence (higher-dimensional): coordinatewise XNOR vs inner-product agreement
+    rr = np.random.default_rng(9)
+    h = lambda t: even_part("gelu", t)
+    for scale in (0.05, 1.0, 5.0):
+        U = rr.normal(0, scale, (4000, 3)); V = rr.normal(0, scale, (4000, 3))
+        qv = (h(U + V) - h(U - V)).sum(axis=1)
+        log(f"  vector evidence (3 dims, coordinatewise pairing), scale {scale}: sign(q) = sign(<u,v>) in {np.mean(np.sign(qv) == np.sign((U*V).sum(1))):.3f} of draws")
+    # rotated reader: same function class, agreement measured in a rotated basis
+    R2 = np.array([[np.cos(0.6), -np.sin(0.6)], [np.sin(0.6), np.cos(0.6)]])
+    U = rr.normal(0, 0.05, (4000, 2)); V = rr.normal(0, 0.05, (4000, 2))
+    qr = (h(U @ R2.T + V @ R2.T) - h(U @ R2.T - V @ R2.T)).sum(axis=1)
+    log(f"  small-signal 2-dim agreement is rotation-invariant (<Ru,Rv>=<u,v>): agreement with sign(<u,v>) {np.mean(np.sign(qr) == np.sign((U*V).sum(1))):.3f}; "
+        f"large-signal coordinatewise agreement is basis-dependent (see scale 5.0 above)")
+    # three candidates: candidate-relativity of the QK gate fails (R1 S2), class formula
+    xa = np.array([1.0, -3.0]); yb = np.array([1.0, 0.9])     # logit contributions (c1, c2) relative to c3
+    w = lambda z: np.exp(z) / (np.exp(z) + 2)
+    lamv = 3.0
+    gated = xa + 1.5 * yb * w(lamv * xa @ yb); fixed = xa + 1.5 * yb * w(0.0)
+    log(f"  three candidates, QK gate on the inner product of 2-dim evidence: both sources prefer c1 (A {xa.tolist()}, B {yb.tolist()}) but <x,y>={xa@yb:+.2f}; "
+        f"B's weight gated {w(lamv * xa @ yb):.4f} vs fixed {w(0.0):.4f}; c1-c2 margin gated {gated[0]-gated[1]:+.3f} vs fixed {fixed[0]-fixed[1]:+.3f}: "
+        f"the gate suppresses a source that AGREES on the preferred candidate (class formula; review R1 S2 gives a full-block case where the decision flips)")
+
+
 if __name__ == "__main__":
-    mech_A(); mech_B(); mech_C(); ident(); posthoc(); supplementary()
-    n_pass = sum(1 for k, v in RES.items() if isinstance(v, dict) and v.get("pass"))
-    n_tot = sum(1 for v in RES.values() if isinstance(v, dict) and "pass" in v)
-    log(f"\nSUMMARY: {n_pass}/{n_tot} preregistered predictions passed")
+    mech_A(); mech_B(); mech_C(); ident(); posthoc(); supplementary(); addendum()
+    pre = [k for k in RES if k[:2] in ("PA", "PB", "PC", "PI") and isinstance(RES[k], dict) and "pass" in RES[k]]
+    add = [k for k in RES if k.startswith("PR") and isinstance(RES[k], dict)]
+    cnt = lambda ks, v: sum(1 for k in ks if RES[k]["pass"] is v)
+    log(f"\nSUMMARY (original preregistration, rescored per addendum): {cnt(pre, True)} passed, {cnt(pre, False)} failed, "
+        f"{sum(1 for k in pre if RES[k]['pass'] is None)} non-discriminating, of {len(pre)}")
+    log(f"SUMMARY (addendum C'): {cnt(add, True)}/{len(add)} passed")
     logs = HERE.parent / "logs"
     logs.mkdir(exist_ok=True)
     (logs / "experiments.txt").write_text("\n".join(OUT) + "\n")

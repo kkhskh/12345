@@ -531,3 +531,42 @@ def gauge_residual_rotation(model: Model, R: np.ndarray):
     m.bf = m.bf @ R.T
     m.WU = R @ m.WU
     return m, (lambda X: X @ R.T)
+
+
+# ====================================================================
+# Mechanism C': conditional rereading through attention (post-review, R1 S7)
+# ====================================================================
+
+
+def rereading(lam=6.0, mu=3.0, kappa=2.0, rho=3.0, lam1=1.5, c1=1.5, wv=1.0, prior_v=1.0,
+              block1_mlp=True, d=10, eps=1e-5):
+    """Positions: P (prior token, 0), A (1), B (2), read (3).
+    Block 1: a uniform head copies the e1/e2 evidence to read; a GELU MLP with the
+    Mechanism-A pairing writes the agreement signal q onto e3.
+    Block 2: a head whose QUERY reads e3 and whose KEY reads (marker_src - marker_P):
+    agreement -> attend to the sources and copy their votes (e1+e2 -> fU);
+    disagreement -> attend to P, which carries a prior vote -prior_v * fU (for c').
+    No MLP in block 2, no final LN."""
+    Bs = mean_zero_basis(d)
+    e1, e2, e3, fU, anS, anR, mkS, mkP, sp = Bs[:9]
+    WQ1 = np.zeros((1, d, d)); WK1 = np.zeros((1, d, d)); WV1 = np.eye(d)[None]
+    WO1 = (4.0 * (np.outer(e1, e1) + np.outer(e2, e2)))[None]
+    Win1 = c1 * np.column_stack([e1 + e2, -(e1 + e2), e1 - e2, -(e1 - e2)])
+    Wout1 = np.stack([lam1 * e3, lam1 * e3, -lam1 * e3, -lam1 * e3])
+    b1 = Layer(WQ=WQ1, WK=WK1, WV=WV1, WO=WO1, bO=np.zeros(d), Win=Win1, bin=np.zeros(4),
+               Wout=Wout1, bout=np.zeros(d), act="gelu", mlp_on=block1_mlp)
+    e0 = np.array([1.0, 0.0])
+    WQ2 = (lam * np.outer(e3, e0))[None]
+    WK2 = np.outer(mkS - mkP, e0)[None]
+    WV2 = (np.outer(wv * (e1 + e2) - prior_v * mkP, e0))[None]
+    WO2 = np.zeros((1, 2, d)); WO2[0, 0] = fU
+    b2 = Layer(WQ=WQ2, WK=WK2, WV=WV2, WO=WO2, bO=np.zeros(d), Win=np.zeros((d, 1)), bin=np.zeros(1),
+               Wout=np.zeros((1, d)), bout=np.zeros(d), mlp_on=False)
+    WU = np.stack([fU / 2, -fU / 2], axis=1)
+    model = Model(layers=[b1, b2], WU=WU, bU=np.zeros(2), final_ln=False, eps=eps)
+    dirs = dict(e1=e1, e2=e2, e3=e3, fU=fU, anS=anS, anR=anR, mkS=mkS, mkP=mkP)
+
+    def embed(a, b):
+        return np.stack([mu * mkP + kappa * anS, a * e1 + kappa * anS + mu * mkS,
+                         b * e2 + kappa * anS + mu * mkS, rho * anR])
+    return model, dirs, embed

@@ -1,0 +1,26 @@
+{
+ "T1/TF1/s0": {
+  "max_param_abs_diff": 0.0,
+  "acc_retrained": 1.0,
+  "acc_historical": 1.0,
+  "bitwise_identical": true
+ },
+ "T1/TF2AO/s1": {
+  "max_param_abs_diff": 0.0,
+  "acc_retrained": 0.99995,
+  "acc_historical": 0.99995,
+  "bitwise_identical": true
+ },
+ "T3/TF2/s0": {
+  "max_param_abs_diff": 0.0,
+  "acc_retrained": 1.0,
+  "acc_historical": 1.0,
+  "bitwise_identical": true
+ },
+ "T4/TF1/s3": {
+  "max_param_abs_diff": 0.0,
+  "acc_retrained": 0.99955,
+  "acc_historical": 0.99955,
+  "bitwise_identical": true
+ }
+}

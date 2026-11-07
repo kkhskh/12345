@@ -1,0 +1,15 @@
+import sys, time, numpy as np, warnings; warnings.filterwarnings("ignore")
+sys.path.insert(0,'src')
+import mediator as MD, generators as G, ckpt
+t=time.time()
+for task, arch, hook in [("REL-XNOR","TF1","resid_mid0"),("REL-GATE","TF1","resid_mid0"),("REL-XNOR","TF2","resid_mid1"),("REL-GATE","TF2","resid_mid1")]:
+    P=ckpt.load(f"checkpoints/historical/{MD.CODE[task]}_{arch}_s0.npz")
+    site=MD.Site(P,task,hook)
+    rng=np.random.default_rng(5001); A,C=G.matched_pairs(task,1000,rng)
+    Ae,Ce=G.matched_pairs(task,600,np.random.default_rng(5002))
+    bank=G.sample(task,2000,np.random.default_rng(5003))
+    U,k,ev=MD.s_rel(site,A,C)
+    full=MD.iia(site,Ae,Ce,None)
+    r=MD.iia(site,Ae,Ce,U)
+    rnd=np.mean([MD.iia(site,Ae,Ce,MD.s_rand(U.shape[0],k,s))[0] for s in range(5)])
+    print(task,arch,hook,"k",k,"ev",np.round(ev[:4],3),"IIA full",full,"S_rel",r,"rand",round(rnd,3), "suff",round(MD.complement_interchange(site,Ae,Ce,U),3), MD.pair_mean_ablation(site,Ae,Ce,U), round(time.time()-t,1))

@@ -1,0 +1,188 @@
+# COR Phase 1.5 Step 1 — Learned Causal Mediator Identification
+
+Continue from `step1_mechanism_identification_continuation`. Do not restart the research or create additional hand-designed agreement circuits as the principal result.
+
+**Research target:** Identify and causally validate the computation responsible for source-relationship-sensitive decisions in the already trained synthetic Transformers, then determine whether a consistency-based explanation contributes anything beyond established nonlinear computation and causal abstraction.
+
+Your previous study established learned task behavior but failed to identify a specific internal mediator. That is now the principal unresolved research problem.
+
+## A. First, make the learned evidence reproducible
+
+The previous release omitted trained checkpoints and required an undocumented executable dependency on the earlier package.
+
+Recover or regenerate the learned T1/T4 models, including TF1, TF2, and attention-only variants where relevant.
+
+Save actual model parameters, source generator configurations, seeds, optimizer settings, training logs, and validation records.
+
+Provide a standalone release that runs without an unpinned sibling directory.
+
+If retraining changes the original results, record the differences instead of replacing the historical evidence.
+
+Before any new confirmation tests, freeze the mechanism-identification procedures and independent held-out evaluations.
+
+## B. Define a controlled source-relationship problem
+
+Develop source generators where:
+
+- Source identity and candidate support are externally specified.
+- Agreement and disagreement can vary independently of total evidence strength where the data support permits.
+- Matched pairs have the same designated aggregate statistic but different source relationships.
+- Some tasks genuinely depend on the relationship.
+- Other tasks depend only on an aggregate such as \(a+b\).
+- Additional tasks make agreement irrelevant or misleading.
+
+Use continuous evidence strengths and multiple candidates where feasible.
+
+Do not select the definition of consistency from the final model margins.
+
+Most importantly, include a strong aggregate-only control such as:
+
+\[
+z=a+b,\qquad m=h(z)
+\]
+
+for a flexible nonlinear \(h\).
+
+Behavioral order reversals do not identify a relational mechanism because a nonlinear function of z alone can produce them.
+
+The analysis must distinguish the exact aggregate-only hypothesis from a relation-sensitive computation that retains and uses information beyond z.
+
+## C. Localize candidate mediators in the learned models
+
+Use the task-defined source variables to investigate intermediate states.
+
+Search for individual units, small subspaces, attention/MLP pathways, and distributed representations that carry the relevant source relationship.
+
+Do not require a particular signed encoding such as \(\operatorname{sign}(q)=\operatorname{sign}(ab)\).
+
+An affine shift, invertible transformation, or distributed code may represent the same relationship.
+
+The identification procedure must specify:
+
+1. The independently defined relation being sought.
+2. The frozen internal site or computational subgraph.
+3. The information used to select it.
+4. Whether the feature is merely decodable or causally used.
+5. Whether identification relies on candidate output information.
+6. Relevant function-preserving reparameterization ambiguities.
+
+Freeze the proposed mediator and intervention protocol before final evaluation.
+
+If unit-level localization fails, investigate distributed mediation rather than concluding the mechanism is absent.
+
+## D. Perform real causal mediator tests
+
+For each candidate mediator:
+
+- Change source A while holding source B fixed.
+- Change B while holding A fixed.
+- Change their relationship while matching a predefined aggregate statistic.
+- Patch or interchange the proposed mediator between carefully matched reachable states.
+- Ablate or replace it while testing whether the relation-sensitive decision effect decreases.
+- Restore it where a meaningful sufficiency intervention can be defined.
+- Check whether residual bypasses or alternative pathways explain the output.
+- Compare against random, matched-dimensional, and equally informative alternative mediators.
+
+Distinguish ordinary input-level interventions from surgical internal interventions. Report off-manifold interventions separately.
+
+A successful patch is not automatically unique mediation.
+
+Do not infer causality from probe accuracy, attention visualization, or behavioral interaction alone.
+
+## E. Derive the strongest decision-related theorem
+
+From the identified computation, attempt a formal result connecting:
+
+\[
+\text{independently specified source relationship}
+\]
+
+through:
+
+\[
+\text{identified internal computation}
+\]
+
+to:
+
+\[
+\text{candidate-specific causal response}.
+\]
+
+State the exact frozen-model class, source semantics, structural assumptions, readout, intervention family, and prediction.
+
+Control competing residual contributions. The previous MLP theorem established the sign of its branch contribution, not necessarily the total candidate margin.
+
+Do not assume a source-specific normalized coordinate depends only on that source when LayerNorm couples the coordinates.
+
+The theorem must account for actual computation, including bypasses and downstream transformations.
+
+If a full decision-sign theorem is unavailable, provide the strongest valid conditional statement and identify the missing condition.
+
+## F. Establish whether the mechanism is distinctive
+
+Compare with equally informed:
+
+- Aggregate-only nonlinear models.
+- Matched-capacity MLP explanations.
+- Standard source interactions.
+- Path-specific causal mediation.
+- Causal abstraction.
+- Direct downstream sensitivity.
+
+Determine whether the proposed consistency concept provides an independently testable restriction, transfer prediction, or mechanistic identification advantage.
+
+Do not call an ordinary learned nonlinear gate a novel COR theory merely because it responds to agreement.
+
+Conversely, do not dismiss an actual restricted causal mechanism merely because its mathematics uses familiar operators.
+
+## G. Replication and generalization
+
+Run new held-out seeds and source distributions that were not used to select the mediator.
+
+Test relevant architectures, source strengths, candidate counts, and matched aggregate contrasts.
+
+Preserve failures.
+
+Do not tune the mediator-selection rule on the final evaluation outcomes.
+
+If no identified mediator generalizes, characterize exactly whether the failure is caused by nonidentifiability, redundant mechanisms, task-specific implementation, optimization variability, or an inadequate identification method.
+
+## H. Correct the existing mathematical and verification limitations
+
+As supporting work:
+
+- Narrow the A1* result to the MLP contribution, or explicitly control all competing contributions to the total margin.
+- Scope T-RF′ to the monotone single-index class that it actually tests.
+- Treat T-MS as a representation-specific diagnostic, not a universal necessity.
+- Correct any unsupported interval-certification language.
+- Re-review the results introduced after the previous adversarial reviews.
+
+These corrections must not consume the bulk of the research effort.
+
+## I. Required final scientific outputs
+
+Produce a reproducible package containing:
+
+1. The actual trained checkpoints and exact source generators.
+2. A frozen mediator-identification protocol.
+3. Candidate internal mechanisms and causal graphs.
+4. Executed intervention results, including failures.
+5. Matched aggregate-versus-relationship controls.
+6. Independent or separately implemented verification.
+7. The strongest conditional candidate-decision theorem.
+8. Counterexamples and reparameterization limitations.
+9. Fair comparisons with ordinary nonlinear and causal-abstraction explanations.
+10. A concrete update to original failures F1–F7, F25, F29, and F30.
+
+The principal document must answer:
+
+**Did we identify a computation in a learned Transformer that uses an independently defined source-consistency relationship to causally influence candidate selection?**
+
+If yes, specify the exact computation, independent identification procedure, causal evidence, and limits of the claim.
+
+If no, determine what failed and why. Do not replace the missing mediator with a behavioral statistic.
+
+Remain within Phase 1.5 Step 1. Do not run pretrained-model experiments, access sealed confirmation material, or proceed to Phase 2.
+
+**Prioritize actual learned-mechanism identification and causal testing over producing additional reports or engineered existence proofs.**

@@ -1,0 +1,452 @@
+{
+ "T1_TF1_s0": {
+  "pkl_sha256": "9c14fd6c5f1f6469e61e203dfe29be14c67917cea6a275cafab1f81cf73d9963",
+  "npz_sha256": "956195ba0aaca31f82f74263fff7466b8e4391eda3a3380ff9e675f5b125ac92",
+  "roundtrip_exact": true
+ },
+ "T1_TF1_s1": {
+  "pkl_sha256": "0ff2c1129f266dc85adb4bfd5ff69bdfe9d67335c68a3123f9d52affcd011053",
+  "npz_sha256": "e58756d8c5bbb5151424b3bd7cda5bbdb85f0eca8aad44198e4e6828077e323f",
+  "roundtrip_exact": true
+ },
+ "T1_TF1_s2": {
+  "pkl_sha256": "cd9774854e3ff2748e1ff67b2c0a7247fbe7f2b5b15fdef6b35819d8658c916d",
+  "npz_sha256": "ce9731969e4609cadf34b3a54efc2d9926da77f5748a715efe3b5c940b2d55ea",
+  "roundtrip_exact": true
+ },
+ "T1_TF1_s3": {
+  "pkl_sha256": "aef66861527907c46723e30d8e1356e5319c6afe8a37776b292d82aeba11be83",
+  "npz_sha256": "286cff1067acc67cf34fa98b54fe3f58d57b97ff937bf9e441aa295b22476da6",
+  "roundtrip_exact": true
+ },
+ "T1_TF1_s4": {
+  "pkl_sha256": "7ec69edb760e329d009146872a90f502c0fc9338da393105ba375d2e6d85e3a9",
+  "npz_sha256": "69889cfc144bc916892520eabd561abe294ae36349201bdc8b77c582be39e9e3",
+  "roundtrip_exact": true
+ },
+ "T1_TF2AO_s0": {
+  "pkl_sha256": "01a20949e824e394b6f57af02363e9dac1e69f32f28c50499e4b311a07edc195",
+  "npz_sha256": "cd4a0563943dd93da31a00927a5a6135f5386e556fda80b7c3d3d4b1f1efa57d",
+  "roundtrip_exact": true
+ },
+ "T1_TF2AO_s1": {
+  "pkl_sha256": "57dad45ba1b3c7707f54fe2a5b12bc95279296977b20fee0631a4bb93c5e0061",
+  "npz_sha256": "8f1debfa0fc7671dbf825bc4bbdf207f20a5dc2c6339ef11e96afbdb16703209",
+  "roundtrip_exact": true
+ },
+ "T1_TF2AO_s2": {
+  "pkl_sha256": "4abd70165c1c15fd9c1d9e851663e9c2501550012696341f8b9ab32fa97477db",
+  "npz_sha256": "c3364349b854e32df480964dac75e9477d81f9829ce179b80248405b43f01cec",
+  "roundtrip_exact": true
+ },
+ "T1_TF2AO_s3": {
+  "pkl_sha256": "9923624aafbd3a8efab8a9e93866a94dffad0d9129b27af9463e1ee691f6ac28",
+  "npz_sha256": "67cd2531dae4db666963657ebf13313adb89f64dea8654b202f3ecd279ab717c",
+  "roundtrip_exact": true
+ },
+ "T1_TF2AO_s4": {
+  "pkl_sha256": "0d7b628b467a9cde0f81427152c495a0d974802b1242bfc36d63110487ead156",
+  "npz_sha256": "6f23d6a58588dc0d4fdd2885f418e6e3320a970787f4246114d7c3523a36357c",
+  "roundtrip_exact": true
+ },
+ "T1_TF2_s0": {
+  "pkl_sha256": "a068c1a67b692324bceaf0ea0bc580bb6a34bfc394167c954d8287b7eef8e7ab",
+  "npz_sha256": "d2ba11858a3b2a23988236d6c03a0efbd39f2a47b6cc86987cdfa32d29f7ebe1",
+  "roundtrip_exact": true
+ },
+ "T1_TF2_s1": {
+  "pkl_sha256": "ec3564140685c7c7eb033e15a44512bd8d5ab11a93d283c52d02987f8c8ad22e",
+  "npz_sha256": "78e40ac26324a2b09e577f34171da61248b1ab1f89cf9c21c94bef015fd03284",
+  "roundtrip_exact": true
+ },
+ "T1_TF2_s2": {
+  "pkl_sha256": "b57fc24f5cd781e5e7c55a1a986dc5ad3c4ca5065a1f8ae10b69bdcdd8f12f47",
+  "npz_sha256": "56246b1001ee5a4da01dd759e533ba2ab357f0abf6f1e87f9066ca2e3497bf49",
+  "roundtrip_exact": true
+ },
+ "T1_TF2_s3": {
+  "pkl_sha256": "d08290344598f9187e7a841f9196e08755eabea1c08234da81f0ee85ce2a803b",
+  "npz_sha256": "d3693694afbf19631f0ed3c7d00ca36b3b090aa3ec706d7c74b3f183695baa32",
+  "roundtrip_exact": true
+ },
+ "T1_TF2_s4": {
+  "pkl_sha256": "53bcbf28fdc43140efd2619d9a1d34dae23d77b53450ecd7891c838b9ccb44d8",
+  "npz_sha256": "a0ec484aaab310a363a7a3f9a4b0ff97bb77cf4f4870ea11f8a72e9fc4561fde",
+  "roundtrip_exact": true
+ },
+ "T2_TF1_s0": {
+  "pkl_sha256": "460dfd378b448d27715fbce89b70ab88ad45676c887fd3c13d9e5c6ecc2056b1",
+  "npz_sha256": "8d9e15fb4dfdf433987c38e70abeb89f590798dd0ce049797c9c4bd2a75d6d6c",
+  "roundtrip_exact": true
+ },
+ "T2_TF1_s1": {
+  "pkl_sha256": "1397a84f765e058ebd399ec214f549685e2116d369d47e55621c9a0bb2684320",
+  "npz_sha256": "8b2b48c16c0e8176342222dd7b3932367f875f48ee1aaf0b98c55570ee709697",
+  "roundtrip_exact": true
+ },
+ "T2_TF1_s2": {
+  "pkl_sha256": "08fe95eb1f8197be45c12a4c23de91257dc58d2a1836714943cd8f0b3ec2b693",
+  "npz_sha256": "043173bce4c3e0339163da8932c276c7144e1d15a0287b61dc97a7b03552421e",
+  "roundtrip_exact": true
+ },
+ "T2_TF1_s3": {
+  "pkl_sha256": "791fb2a8969623e34bb76f290398347dbc289783965dc2cff0a699cd0ea37661",
+  "npz_sha256": "de00ce47c5394ee56b983ba42e2d3886380e01fc37aed5196b5062a6dde68d02",
+  "roundtrip_exact": true
+ },
+ "T2_TF1_s4": {
+  "pkl_sha256": "fe68360f001f425fe9d3a86187891483453bd3aeb4f364045a30d6794162e5e1",
+  "npz_sha256": "3c03a349e5fe81cad99f6fbe12be2925fc1b37f734e69d9b8346e69b6ee13f1c",
+  "roundtrip_exact": true
+ },
+ "T2_TF2AO_s0": {
+  "pkl_sha256": "21c9732654ef706774bdfb44ba9e232f67a14d66554a9da75e9ea2790e2650aa",
+  "npz_sha256": "ed0d7e1a6f8665dff4f05a935f0481651a0d65b5728246f9685cff47f3004783",
+  "roundtrip_exact": true
+ },
+ "T2_TF2AO_s1": {
+  "pkl_sha256": "1615f65d510f1a59543592e97d34145ec007d5836a70d41d8020767f946cc1ee",
+  "npz_sha256": "be934d3ad134a0f1c46c48c35bb1815441e253b15895df05673a8ac9a8e4c461",
+  "roundtrip_exact": true
+ },
+ "T2_TF2AO_s2": {
+  "pkl_sha256": "7454811b5353241cb48e49d442c82fb5e59b6aea3bd55831b2bc73940f7d0e33",
+  "npz_sha256": "de27cba72415035219d1384b0749e5b7fbb5f8d16f37c056bb61890262db3102",
+  "roundtrip_exact": true
+ },
+ "T2_TF2AO_s3": {
+  "pkl_sha256": "8f4e732dd93ebb0cf96cf7e6bd5cb58f02743398f9f0dca0bde66cf91f3754bf",
+  "npz_sha256": "6bfa74b1efd60a8c362d18a364633b4c65b06a6cc957ced790ac17f7fa63d8ae",
+  "roundtrip_exact": true
+ },
+ "T2_TF2AO_s4": {
+  "pkl_sha256": "342c9ed1ade1c9c5f11f449fa39079fd99de597dc5b2e0495cddc02f83925021",
+  "npz_sha256": "64bae1549b06db73781a32cc67c7f480e7521d33f3e0abddde2865578975f032",
+  "roundtrip_exact": true
+ },
+ "T2_TF2_s0": {
+  "pkl_sha256": "559908d8a57ed9574e6809f16be2eeb3fa85b6d021786ef0e7568e548877e15a",
+  "npz_sha256": "6392b290ba397367ded730ce0267cf4f49488a008a6326fb8926cf23e86f07cc",
+  "roundtrip_exact": true
+ },
+ "T2_TF2_s1": {
+  "pkl_sha256": "603e54a5f55e0c3c77f9d86e1c1e9ebb702035f3ad8b8f17380cbe3f3376a82d",
+  "npz_sha256": "c6615cf6a64a20f58c98f98e44352f2f83bb57b65596bbf0f8a561f92b8ec38c",
+  "roundtrip_exact": true
+ },
+ "T2_TF2_s2": {
+  "pkl_sha256": "00ab4becb11600d828cf01b018c815441c7ea486b8fc15c1df22c0bd05d28653",
+  "npz_sha256": "3cef965f2d34372c8593c380dc227a6a84ea80c1ed7bf602a25f959808ae44ff",
+  "roundtrip_exact": true
+ },
+ "T2_TF2_s3": {
+  "pkl_sha256": "1dbf860e63e2a6ec83a0b08d362d8887e0c706782141036199cc69eda59524d9",
+  "npz_sha256": "2d2021f5209bc853584d467f6a41100e11bbecea0682ff9802508162840b6e54",
+  "roundtrip_exact": true
+ },
+ "T2_TF2_s4": {
+  "pkl_sha256": "d6af8350676a766900077819ce1f5cdcdd448eb03671ace42e8bb35f990dd6dc",
+  "npz_sha256": "ef987b4d835b9756934d633b861dfcef682379a6ae0a7a8056fd4a6a09647a40",
+  "roundtrip_exact": true
+ },
+ "T3_TF1_s0": {
+  "pkl_sha256": "f18cf36f9505a3463fa1b2bfc00fd3dcc6071371254bf7d101d1f4bbdf0e53eb",
+  "npz_sha256": "cb8c7e088ed0e994c1aa8eca5333bafa74ace3208740f6dc81a80ee80877fa4f",
+  "roundtrip_exact": true
+ },
+ "T3_TF1_s1": {
+  "pkl_sha256": "c782d8a048a90c2bf3c3c8822775896347f3e3da6cb63a70b0ca2f698c284e36",
+  "npz_sha256": "ea89f612a1084e919a3f0f61fafe6996a00ab1a98e256444235fe30c7fdd4076",
+  "roundtrip_exact": true
+ },
+ "T3_TF1_s2": {
+  "pkl_sha256": "91ca6545cbb368e7527528f91f52c30d38a8856d9d4d73eb5d06252da45f198e",
+  "npz_sha256": "14cc24d62c0582f54c0ec3878e900b15e3b0dda942ccb902390859a64979353f",
+  "roundtrip_exact": true
+ },
+ "T3_TF1_s3": {
+  "pkl_sha256": "bc52e91b724b1c3833669b42d82a9ccded3badae700b54c161d2912f5bd1f215",
+  "npz_sha256": "3b22bae4dde0d23ca5748329754f3449d5bb7b58dfcceef7086fa23a48895066",
+  "roundtrip_exact": true
+ },
+ "T3_TF1_s4": {
+  "pkl_sha256": "41f05ef9f4e4f28075104ed2d9cc7e01002bbe6ba92691aee32d6d002343e7bf",
+  "npz_sha256": "4497d9be80b4fda8db7c2b99a200be0325ac746f818e8078945a13d2dfe08e0a",
+  "roundtrip_exact": true
+ },
+ "T3_TF2AO_s0": {
+  "pkl_sha256": "fc82eb994147bf59278192734bf299bcff821c5dd1e7d66aab4ed7ae8fec6c62",
+  "npz_sha256": "89c7ba75397f878e7742c18f75ce0c81a59d1e3824ae1e572bc6a9c6c5d80e41",
+  "roundtrip_exact": true
+ },
+ "T3_TF2AO_s1": {
+  "pkl_sha256": "c48b33d892af8809654ba7082efcc72568225656a5613ab6da132e45e8359010",
+  "npz_sha256": "687a8bbb63c9488f3f1c35f19d12096d6192526c889faae255b5fcf22670ff30",
+  "roundtrip_exact": true
+ },
+ "T3_TF2AO_s2": {
+  "pkl_sha256": "77757b8e41d9d091d0122db2c7a109256a5c5fb07051c8e1775ddd0c26a2eb80",
+  "npz_sha256": "bf3c803d1eedeed9fbf6479f46b6bdfc976f43c2ce654b5930c3b54d630d05d5",
+  "roundtrip_exact": true
+ },
+ "T3_TF2AO_s3": {
+  "pkl_sha256": "feb11ccdaa01a99960588e9a158383946f5f437330ff92ace41aeec31a26d721",
+  "npz_sha256": "004e41884428b79ab1a1b968f215f36382756f86e4509bba8d3cab9af7b47393",
+  "roundtrip_exact": true
+ },
+ "T3_TF2AO_s4": {
+  "pkl_sha256": "cfefca7b26ac5ed62d282c1a4210e6e84d8f6e77282d947de28a837f89850e94",
+  "npz_sha256": "abba1633a9fd1851cb62922efcab5d6af2045d7f3147b73c89407768b0160bd4",
+  "roundtrip_exact": true
+ },
+ "T3_TF2_s0": {
+  "pkl_sha256": "818ba93b6400bf4fda9d0a4139743f97bb161bd1a627da77c6e94d8c448d0a94",
+  "npz_sha256": "251c2a1eb85b61a72ead79730a7bfd227a3a1b9ff4db0f87199dcc9cc4176ea0",
+  "roundtrip_exact": true
+ },
+ "T3_TF2_s1": {
+  "pkl_sha256": "f651d78d6833468f6037c5aa38be5ceeb5c1ee01526c0a96bf6032b944d09671",
+  "npz_sha256": "79c9124570b19798d112cd07cd7628595493c9ace3eecedeb93715cda615295d",
+  "roundtrip_exact": true
+ },
+ "T3_TF2_s2": {
+  "pkl_sha256": "49653779dd7170f381c198a813992e68a4e4dfb03294eecd942dff196b2f2a30",
+  "npz_sha256": "000f9a08333816edbda073fdae949156bc56b9b47ca72aeb09b5fb664b1890f1",
+  "roundtrip_exact": true
+ },
+ "T3_TF2_s3": {
+  "pkl_sha256": "9ef150117bd42129c6d21814be3f47745655ee9bc33228ba88a974b77976f9dc",
+  "npz_sha256": "c74273fd19cd49922e260858857102fed83a0bfbab2bcf2c063d671ff0908a5c",
+  "roundtrip_exact": true
+ },
+ "T3_TF2_s4": {
+  "pkl_sha256": "a1ddf85a284da90fc88d1c35a7326267b1cdb2b893512077e87f0479f2243e2d",
+  "npz_sha256": "d2761b9e1dbd7b3b51ad7a23a97eb16d9b7be788417071e051aa52d40ce1928d",
+  "roundtrip_exact": true
+ },
+ "T4_TF1_s0": {
+  "pkl_sha256": "262a26124b662a90699f2429f993481224568e4e02da48aa50d087ebe7e24ced",
+  "npz_sha256": "ca2996f3803c3aaacc36f00ccc235b15fe13427c60ace37ec3a1237722b5ddce",
+  "roundtrip_exact": true
+ },
+ "T4_TF1_s1": {
+  "pkl_sha256": "2038141b44f0945ff22c9124b55c52b7fe068dadda694ae3724bbae6b360c959",
+  "npz_sha256": "fc49f65b6c4c2a7d3a8753bdbfb11c4081a717e013009babde27f54bb9146e06",
+  "roundtrip_exact": true
+ },
+ "T4_TF1_s2": {
+  "pkl_sha256": "f13dc92473059358c25ade8c66955afc83f650ee093e8bc719b060f5e66d5bc0",
+  "npz_sha256": "a9883dca5d522ab1f846dc591c7e7e7ef5a65491776256d972a900c1fc9662c9",
+  "roundtrip_exact": true
+ },
+ "T4_TF1_s3": {
+  "pkl_sha256": "6a91434238499915979f389b9fc9753cde3418c52bfc1b38ded610cf6084e45f",
+  "npz_sha256": "457b4948790b867233cf70b12a2111bc9c540dee11386fb52af7664a77a481cb",
+  "roundtrip_exact": true
+ },
+ "T4_TF1_s4": {
+  "pkl_sha256": "d9fbfe588a05db0243756d2c2227f69115e9b92cd2dffa4e287c78384b2a4c5d",
+  "npz_sha256": "cffc1a620af2821487400db2816091ea9b1dfcc2bd045f85d32992256248633c",
+  "roundtrip_exact": true
+ },
+ "T4_TF2AO_s0": {
+  "pkl_sha256": "07a050dd08606588aa9b9bac917e1790dddd889f17a35e89634e8952cc53b25a",
+  "npz_sha256": "8c740a00ea00c12794414e67945da0db1f3fc9529a7039d3fe533ed8e74eee7f",
+  "roundtrip_exact": true
+ },
+ "T4_TF2AO_s1": {
+  "pkl_sha256": "fbf1c5baa97b2b39da677c1a2414dfd0fa6f4d2b74be72231953d5059bdcba35",
+  "npz_sha256": "ae6475b57f2a7d56e89ecaac53f315f6bba77d0a8c7194e2294a73477fe74c25",
+  "roundtrip_exact": true
+ },
+ "T4_TF2AO_s2": {
+  "pkl_sha256": "1d2a6fff5fda9a27edcae6ef5f6cb1d31f44b5b84dbfbbb9a3cab5fd8e1a8a98",
+  "npz_sha256": "80978e680cff0833b25222043142168be9e3d11bf8f0ad36fb2949fc98d6a580",
+  "roundtrip_exact": true
+ },
+ "T4_TF2AO_s3": {
+  "pkl_sha256": "0709c403c101458cb23ce5bbbb2f5c56273bbafc0751343933655cd812bcdd31",
+  "npz_sha256": "2f1d210519ae46116556279f4586fb7a1413994ec79f715eaa39079c0af1e3a5",
+  "roundtrip_exact": true
+ },
+ "T4_TF2AO_s4": {
+  "pkl_sha256": "a4122887065f0a934bc07e30a6502a837c9d7dd192e5a89886e871a420d850bb",
+  "npz_sha256": "f93d7d5665768b2ea8bf37d1cf1c70af8e5242eb16b9a31a84e8c7586764ccaa",
+  "roundtrip_exact": true
+ },
+ "T4_TF2_s0": {
+  "pkl_sha256": "4e2a7f2da6f223f7c4b867aad99e3f6e2f9a60504622eb27141d103f5eb30fbe",
+  "npz_sha256": "c8187970932f445a80643f302815acdf2748d1a57ad67d8ce06b1927c7469d12",
+  "roundtrip_exact": true
+ },
+ "T4_TF2_s1": {
+  "pkl_sha256": "a4c01b05aecb6555e16777f0f02dde7c09077aa4cec6e868a180454370729a69",
+  "npz_sha256": "cb7a280c35eb8d7d8c815717b62881564c09713fda59541455acc606933584a5",
+  "roundtrip_exact": true
+ },
+ "T4_TF2_s2": {
+  "pkl_sha256": "25f856d934bac7dab09d5f3f4efac236a70dc33493d607f6b26427c84cf3a3d1",
+  "npz_sha256": "266b491e91ab444ddfb49b5b0848c80a0c37110804edf319e38a8fe56de4c243",
+  "roundtrip_exact": true
+ },
+ "T4_TF2_s3": {
+  "pkl_sha256": "2507e934a4c0df4b86135277ad43ed533ae49241cb5ac78fcd309faf1dbecc30",
+  "npz_sha256": "88c09bfcfa1f7aeef6cf2aa7c29366f720c98e08dabc31a9fa6f7d3262100f14",
+  "roundtrip_exact": true
+ },
+ "T4_TF2_s4": {
+  "pkl_sha256": "814a8e7cfc0fb1372359dfc992ad73cba1d8e7fe7829f9ad400ac59e4b1bce49",
+  "npz_sha256": "f9de61e5836027935871f54b86ecbe22107b4450ab78adaf96aa5bd2020b9b90",
+  "roundtrip_exact": true
+ },
+ "T5a_TF1_s0": {
+  "pkl_sha256": "fbf76e28f7c3d4fe00836faa2e2abec9afe8164a8f181310b293bc134c13da79",
+  "npz_sha256": "110ecac29afd2623b9e2d9977f8ae09e53aa773a396458687a8aff9b561f9fbf",
+  "roundtrip_exact": true
+ },
+ "T5a_TF1_s1": {
+  "pkl_sha256": "2162bd5411e24947532008a95da31eeb95c37b60ff64acc6fe8623b45c3c2624",
+  "npz_sha256": "68cbc1506674c458e56a7e7f71d8480bc8b8cc60c8daaa8628bdeb7ef612ac54",
+  "roundtrip_exact": true
+ },
+ "T5a_TF1_s2": {
+  "pkl_sha256": "81c9d3c8dece513ecd1c5880b3bce86d0d769ade4c17a6264f388e21b7b39f98",
+  "npz_sha256": "c73410ad2844b4f47a704e09ad0ff18d6adf89243ccba1bd81243b5c24277f03",
+  "roundtrip_exact": true
+ },
+ "T5a_TF1_s3": {
+  "pkl_sha256": "b1bbf2f9da6281b55189c59449ca0725b176f82e91aceaa123978be32a8b5c3f",
+  "npz_sha256": "7c408dcb739d6d376262fdf9b3e93bb36ae3981abdfda6c80a5ef8099b28bfd6",
+  "roundtrip_exact": true
+ },
+ "T5a_TF1_s4": {
+  "pkl_sha256": "ea29105c724b23b49a0bcda58f262a4d5de24ad7019b40dd651e3d0e84094309",
+  "npz_sha256": "34cabe25ffc4fb47cc815139cef2e65a45acd387c040112b512c277e35e84d0b",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2AO_s0": {
+  "pkl_sha256": "58ffeee6da591f3d8add30e2d070b3e380f2de529503ea64c04413c5c4a23e01",
+  "npz_sha256": "147c43a68bb7db154951105b03c6678a32f9ec711e7df55eb7cd7df24db136b4",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2AO_s1": {
+  "pkl_sha256": "f705c7a398ad9242db86aa5bb0464b1297fe0ce90e4dc835b6c093e73485ac6a",
+  "npz_sha256": "11efbf60efde6f7146e49f96000e7263966d80e6cd7e8bf79bade1364f7fbff3",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2AO_s2": {
+  "pkl_sha256": "1c16f1b65a671247175ce8a363c724f583413f45e14062e7e9f416fe45d5af16",
+  "npz_sha256": "215cd594367579fab9dffaf3f86487006344859c09b9c1451d8f14023f5a3d83",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2AO_s3": {
+  "pkl_sha256": "7dfe3747d91d5d9d027bb1a185e5c2e4db2cf5e9817f239b4697ce77c284ed8b",
+  "npz_sha256": "762f35e0fbb2769be383fe7932ce9860c4ff7a649c0f45fa9866fa3632a65415",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2AO_s4": {
+  "pkl_sha256": "cecbddc1c1608a003d13d7e642c666959053ebf5a938b6a92eb6576382851083",
+  "npz_sha256": "6023339413ee997fae1fc2e6cbe8117976eb9631331368fa3aaaa9ae43758785",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2_s0": {
+  "pkl_sha256": "c10cb01c0f2fb18a34aa647cdff03f742ec9223e043435782f20fe879eac9ed6",
+  "npz_sha256": "28a33c67328657bda3d222309590d91a138bdfa198cd39ab001a823b648daa18",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2_s1": {
+  "pkl_sha256": "e193d9267095d4b6e9461192c1616ec8888ee1029ead3f91c2f72dbdbc93db52",
+  "npz_sha256": "6274ecd50d2b763255f7622a8af915cc32570fcc8d31ee18439384dc5f3e5a21",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2_s2": {
+  "pkl_sha256": "4a4bbb51af67953d3df956c573ab4f92e10b876f616e81a9f0e83bc2da62547a",
+  "npz_sha256": "c46a81af090f3776b94515dfd7ecefbddcf5ad7beea75075aafa5090cf654282",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2_s3": {
+  "pkl_sha256": "f3f9a93ff6c8a5f8c2618be59756734963042fecddaf22fbe41ef3bffc1eab93",
+  "npz_sha256": "7c66b5f40f4ab165e430aac89a31ec6e819315a44a1d3678abfc2b46fa271893",
+  "roundtrip_exact": true
+ },
+ "T5a_TF2_s4": {
+  "pkl_sha256": "b653abf4a3fef5e2463c5f93ccc4296a7c3fa04575eeb9ff0d9a8a5ed1af07f2",
+  "npz_sha256": "34f61e04a51247880c8d341b5cd264cf17c0aada8d3613991feddde9f62c3ade",
+  "roundtrip_exact": true
+ },
+ "T5b_TF1_s0": {
+  "pkl_sha256": "d62051cee8c97943f5adb1b20140a285dc7c41d63509ed0c00c3b2e300841430",
+  "npz_sha256": "3e6e2ab2a0498a44f3ec99e8118f8cadc72b1155286373462b717151d5b806e8",
+  "roundtrip_exact": true
+ },
+ "T5b_TF1_s1": {
+  "pkl_sha256": "aedea8530fe5548bf166575718efe27eb5bfee589e237903793c512a6de84b37",
+  "npz_sha256": "20ba3870391b73f81b179ed228711b555f296d377437adddb27b26035c996f70",
+  "roundtrip_exact": true
+ },
+ "T5b_TF1_s2": {
+  "pkl_sha256": "f3d7e07c0a5441396a7c8c53e27689bb36db991c140bcb7877939c52417c5a9c",
+  "npz_sha256": "6a1d2e6cba806c58e3ca061b01f574f81822a6857feeb537a5634157eda5e3eb",
+  "roundtrip_exact": true
+ },
+ "T5b_TF1_s3": {
+  "pkl_sha256": "4da4da9f35413c3b77448e9eb0bd9e24442b3db0709e420076637eecd29ebba3",
+  "npz_sha256": "b7c0addb3cfb8b9570f84583149de5b97312c26ba97c65008f347c18ca2d36cf",
+  "roundtrip_exact": true
+ },
+ "T5b_TF1_s4": {
+  "pkl_sha256": "d7f648ba3b49f2db782fa9a2de032e0e81310f6e5f41ec9d85b57788b9594043",
+  "npz_sha256": "1ae7cf03717df0bec49fbf8b8daa514f097f375080dc7264fdaefe8e2740b4a1",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2AO_s0": {
+  "pkl_sha256": "b181952d7b404ab35299ed1df6d3a8cbf350c668c3f1c09819eaa786e8b4ccf7",
+  "npz_sha256": "99d0c9c1ecab1d1d17be3068b78f9aa6a010d44412ab17f412231ecdf84be821",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2AO_s1": {
+  "pkl_sha256": "0192e11d8720a88758565bd3b64464abe8abff97be20155ebf0576d5288990c9",
+  "npz_sha256": "9646b02893dcfa535732eef83cab603dac26b6adc8d25c52e5153453ee313ce3",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2AO_s2": {
+  "pkl_sha256": "6376fd0a3b6b0e20cba6f019d6dab04ebf07654332416cf70ec70881f4947eaf",
+  "npz_sha256": "8309f4773c2ca49d2c3ad7dc80d1cbe55484cae805e1b177fe2df3115f0a89f8",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2AO_s3": {
+  "pkl_sha256": "18dee9833369df64e4219d3adf8d7d9b3c7a2f855c55daac5b1e0b2519e8ff81",
+  "npz_sha256": "af87c4e1edff6ddff5ccbd594fdea77a62a6957be7861ad6301f68d476622aeb",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2AO_s4": {
+  "pkl_sha256": "f05120043ddd1d44b9f12724bedaa024212826aabd395881650ac73cab998305",
+  "npz_sha256": "d30fa6e4dbb783bb40092529699179ba3905d2e63348854666871a1d4f15f202",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2_s0": {
+  "pkl_sha256": "74b918c928a7247488c8b7f9e8c9e574010aa21acb75a0d066d979e0d4a4e96e",
+  "npz_sha256": "0a17598163b14b8416ed40a2a652afd9469945bc55e3bfee835f32978d53da05",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2_s1": {
+  "pkl_sha256": "b112122b3274ea39c31f35e5ff3e74158ac87a5fab138a25e2f9e22cc592d622",
+  "npz_sha256": "cb753af55a6b5e1c6c39a0aea2013a31ae7ebb8f0e0ac096a1cb9f7fa6feb599",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2_s2": {
+  "pkl_sha256": "9c9f30fab54da55a3f2353c421eebd6501b18ed46aa5e0ffe44567f1c8d3fbb0",
+  "npz_sha256": "6ca152f8a1cacb0ea075aa9f910cbcaaded66267dfc472318839da76e44dedc5",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2_s3": {
+  "pkl_sha256": "891db473fe020aef79a70b4f1f0ac5a8c1a1775655f417c5267280dde0ac6f14",
+  "npz_sha256": "b94c61745c83bc97015c4844c6ca8217d9ee7a6b139f9949054dfc3c541845ec",
+  "roundtrip_exact": true
+ },
+ "T5b_TF2_s4": {
+  "pkl_sha256": "228ab24a4d1fec89181952ce17267c176cbdf1ae06fa7771601d648acc71a5a1",
+  "npz_sha256": "33b58270be8e2dd61410d51a5a9df0251ada0b3eac45c1414b7889a08586a0d2",
+  "roundtrip_exact": true
+ }
+}

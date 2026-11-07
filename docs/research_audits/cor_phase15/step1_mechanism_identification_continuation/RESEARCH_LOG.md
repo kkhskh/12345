@@ -6,3 +6,4 @@
 - Preregistration commit: 32121da (pushed).
 - Analysis code frozen + dev results: c4bc553. Held-out training started after this commit.
 - Review round: commit d1aa97d reviewed by 7 subagents; adjudication + corrections committed next.
+- Clean-room export (git archive of HEAD) reproduced all engineered logs byte-identically; 21 tests pass.

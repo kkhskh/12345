@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "proofs"))
 from bridge_math import (  # noqa: E402
     Model, centered_functional, consensus_update, decision_null_basis, dilution_model,
     factorial, forward, has_crossover, head_direct_quantities, is_relation_blind, kappa,
-    margin, mixed_step, prompt, random_model, rb_forces, rb_margin, sigma,
+    dedicated_heads_model, margin, mixed_step, prompt, random_model, rb_forces, rb_margin, sigma,
 )
 
 # ---------------------------------------------------------------- T-SS ------
@@ -368,3 +368,73 @@ def test_MIX_output_term_nonnegative_consistency_term_unsigned():
         if cons < 0 < tot:
             neg_cons_pos_total += 1
     assert neg_cons_pos_total > 0
+
+
+def test_D_nearby_negative_model_dedicated_heads_is_relation_blind():
+    """Same tokens and evidence values, but each source reaches the read residual through
+    its own head (a sum, Theorem SS) instead of sharing one softmax: no crossover,
+    relation-blind margins, additive numerator up to the finite-score leakage."""
+    m, P = dedicated_heads_model()
+    levels = ["N", "W", "S", "OPP"]
+    ut = centered_functional(m, 0, 1)
+    Ta = np.array([[ut @ forward(m, P(a, b), 3).final[3] for b in levels] for a in levels])
+    Tm = np.array([[margin(forward(m, P(a, b), 3).logits, 0, 1) for b in levels] for a in levels])
+    assert np.abs(Ta - Ta[:, [0]] - Ta[[0], :] + Ta[0, 0]).max() < 1e-4
+    assert not has_crossover(Tm)
+    assert is_relation_blind(Tm)
+
+
+def test_CI_star_relation_enters_only_through_attention_reallocation():
+    """Corrected CI (review C FATAL-2, review D SERIOUS-5): for a substitution at one
+    position, Delta M = [w_j (v'_j - v_j) + (w'_j - w_j)(v'_j - M)] / Z' (common score scale).
+    The consensus deviation matters only through the weight change.  In Construction D the
+    crossover is carried by the reallocation term; with the weight held fixed it vanishes."""
+    m, E = dilution_model(mlp="off")
+    ut = centered_functional(m, 0, 1)
+    for b, expect_sign in (("N", 1), ("S", -1), ("OPP", 1)):
+        t0 = forward(m, prompt(E, "N", b), 3); t1 = forward(m, prompt(E, "W", b), 3)
+        w = np.exp(t0.scores[0][0][3][:4]); w2 = np.exp(t1.scores[0][0][3][:4])
+        _, v = head_direct_quantities(m, t0, 0, 0, 3, ut); _, v2 = head_direct_quantities(m, t1, 0, 0, 3, ut)
+        M = w @ v / w.sum(); Z2 = w2.sum()
+        own = w[1] * (v2[1] - v[1]) / Z2
+        realloc = (w2[1] - w[1]) * (v2[1] - M) / Z2
+        de = (t1.head_out[0][0][3] - t0.head_out[0][0][3]) @ ut
+        assert np.isclose(own + realloc, de, atol=1e-10)   # other positions unchanged at layer 0
+        assert own > 0                                      # own-change term is relation-free
+        assert np.sign(de) == expect_sign
+        # holding the weight fixed (w'_j = w_j) removes the dependence on the other source
+        assert np.sign(w[1] * (v2[1] - v[1])) == 1
+
+
+def test_NC_rmsnorm_analogue_never_flips():
+    """Review D SERIOUS-1: with RMSNorm (no centring, no bias) and no unembedding bias,
+    m = a/rho with kappa = 0, so null edits rescale every margin and flip none."""
+    rng = np.random.default_rng(0)
+    d, V = 8, 3
+    g = 1 + rng.normal(0, 0.1, d); WU = rng.normal(0, 1, (d, V)); h = rng.normal(0, 1, d)
+    rows = np.array([g * (WU[:, c] - WU[:, 0]) for c in range(1, V)])
+    _, s, Vt = np.linalg.svd(rows); B = Vt[(s > 1e-10).sum():].T
+    def logits(x):
+        return (g * x / np.sqrt((x @ x) / d + 1e-5)) @ WU
+    base = np.argsort(logits(h))
+    for _ in range(2000):
+        v = B @ rng.normal(0, rng.uniform(0.1, 50), B.shape[1])
+        assert (np.argsort(logits(h + v)) == base).all()
+
+
+def test_RB_ties_count_as_independence_violations():
+    T = np.array([[0.0, 0.0], [0.0, 1.0]])
+    assert has_crossover(T) and not is_relation_blind(T)
+
+
+def test_NC_two_flips_on_a_non_monotone_path():
+    """Review B, S5: 'at most one flip along any path' is false; the single crossing is in
+    sigma.  An out-and-back path in N_C flips a flippable pair twice."""
+    m, X = _nc_setup(seed=5)
+    B = decision_null_basis(m, [0, 1, 2]); h = forward(m, X, r=3).final[3]
+    a = centered_functional(m, 0, 1) @ h; k = kappa(m, 0, 1)
+    n = B[:, 0]
+    path = [t * n for t in np.concatenate([np.geomspace(1e-3, 1e4, 300), np.geomspace(1e4, 1e-3, 300)])]
+    signs = [np.sign(a / sigma(m, h + v) + k) for v in path]
+    flips = sum(1 for x, y in zip(signs, signs[1:]) if x != y)
+    assert flips == 2

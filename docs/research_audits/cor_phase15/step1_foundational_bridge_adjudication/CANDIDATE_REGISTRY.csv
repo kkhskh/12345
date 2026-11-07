@@ -1,0 +1,6 @@
+id,name,phenomenon,decision_target,key_relation,status,dossier
+H1,softmax consensus reconciliation,convex combination in a head,pair margin,v'_j - M (only via weight change),REJECTED_CANDIDATE (ordinary normalization; identity CI PROVED and KNOWN),CANDIDATE_H1_RECONCILIATION.md
+H2,causal-sufficiency consistency,joint sufficiency of partial representations,response invariance,relation among parts,REJECTED_CANDIDATE (REDUNDANT_WITH_KNOWN_THEORY),CANDIDATE_H2_CAUSAL_SUFFICIENCY.md
+H3,evidence coordination / relation-sensitive aggregation,non-additive aggregation of sources,margin order over factorial,source-source agreement; RB,REJECTED_CANDIDATE as mechanism; RB retained as necessary condition,CANDIDATE_H3_EVIDENCE_COORDINATION.md
+NC,norm channel,final-LN rescaling,ranking within C (|C|<d),norm of the residual sum (not a relation),PROVED_UNDER_RESTRICTED_ASSUMPTIONS; mechanism KNOWN; not a consistency mechanism,CAUSAL_BRIDGE_MAIN_ARGUMENT.md
+OD,original O/D obstruction,graph residual of fitted germs,pair margin,coboundary norm,REJECTED (Phase 1; 1A-1E; this step),CAUSAL_BRIDGE_MAIN_ARGUMENT.md#11

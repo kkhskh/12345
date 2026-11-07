@@ -274,16 +274,19 @@ def is_relation_blind(table: np.ndarray, thresh: float = 1e-9) -> bool:
 
 
 def has_crossover(table: np.ndarray, tol: float = 1e-12) -> bool:
-    """Independence (single cancellation) violation on either factor."""
-    nA, nB = table.shape
+    """Violation of independence (single cancellation) on either factor, in the strong
+    sense used by RB.3/RB.4: the sign pattern of m(a,b) - m(a',b) over b, with zero counted
+    as its own sign, is not constant.  (Review B, M1: a tie against a strict difference,
+    e.g. [[0,0],[0,1]], is a violation.)"""
     for T_ in (table, table.T):
-        n1, n2 = T_.shape
+        n1 = T_.shape[0]
         for i in range(n1):
             for k in range(n1):
                 if i == k:
                     continue
                 d = T_[i] - T_[k]
-                if (d > tol).any() and (d < -tol).any():
+                signs = {int(np.sign(x)) if abs(x) > tol else 0 for x in d}
+                if len(signs) > 1:
                     return True
     return False
 
@@ -397,6 +400,10 @@ def rb_forces(nA: int, nB: int, strict_pairs: list, p: tuple, q: tuple) -> bool:
     held-out comparison.  Decided by an LP: maximise (f_q+g_q) - (f_p+g_p)
     subject to the training inequalities with unit separation (scale-free, since
     any strict representation can be rescaled)."""
+    if nA > 3 or nB > 3:
+        # the [-100,100] box is justified by the Hadamard bound (<=16) only up to 3x3
+        # (review B, M2); larger designs need an unbounded LP and are not supported here
+        raise ValueError("rb_forces is verified only for designs up to 3x3")
     nv = nA + nB
     A_ub, b_ub = [], []
     for (i, j), (k, l) in strict_pairs:
@@ -412,3 +419,40 @@ def rb_forces(nA: int, nB: int, strict_pairs: list, p: tuple, q: tuple) -> bool:
     if not res.success:
         raise ValueError("training observations are themselves not additively representable")
     return res.fun > 1e-9
+
+
+def dedicated_heads_model(d: int = 8, eps: float = 1e-5) -> tuple:
+    """Nearby negative model for Construction D: same tokens and evidence values, but two
+    heads, each attending (with overwhelming score) to one evidence slot only, so the
+    sources reach the read residual through a sum of separate heads (Theorem SS)
+    rather than through one softmax.  Positional one-hot coordinates select the slot."""
+    E = _token_embeddings(d)
+    e = {"BOS": 0.0, "N": 0.0, "W": 0.5, "S": 2.0, "Q": 0.0, "OPP": -2.0}
+    T = 4
+    g1 = np.ones(d + T); b1 = np.zeros(d + T)
+    D = d + T
+    def emb(tok, pos):
+        x = np.zeros(D); x[:d] = E[tok]; x[d + pos] = 3.0
+        return x
+    # design on LN'd (token, position) pairs actually used
+    pairs = [(t, p) for p in range(T) for t in TOKENS]
+    Z = np.array([layernorm(emb(t, p), g1, b1, eps) for t, p in pairs])
+    dh = 2
+    heads = []
+    for slot in (1, 2):
+        Kt = np.array([[30.0 if p == slot else 0.0, 0.0] for t, p in pairs])
+        Qt = np.array([[np.sqrt(dh) if (t == "Q" and p == 3) else 0.0, 0.0] for t, p in pairs])
+        Vt = np.array([[e[t] if p == slot else 0.0, 0.0] for t, p in pairs])
+        WK = np.linalg.lstsq(Z, Kt, rcond=None)[0]
+        WQ = np.linalg.lstsq(Z, Qt, rcond=None)[0]
+        WV = np.linalg.lstsq(Z, Vt, rcond=None)[0]
+        heads.append((WQ, WK, WV))
+    e_out = np.zeros(D); e_out[0], e_out[1] = 1 / np.sqrt(2), -1 / np.sqrt(2)
+    WO = np.zeros((dh, D)); WO[0] = e_out
+    layer = Layer(WQ=np.array([h[0] for h in heads]), WK=np.array([h[1] for h in heads]),
+                  WV=np.array([h[2] for h in heads]), WO=np.array([WO, WO]), bO=np.zeros(D),
+                  g1=g1, b1=b1, g2=np.ones(D), b2=np.zeros(D), Win=np.zeros((D, 4)), bin=np.zeros(4),
+                  Wout=np.zeros((4, D)), bout=np.zeros(D), mlp_on=False)
+    WU = np.zeros((D, 3)); WU[:, 0] = e_out; WU[:, 1] = -e_out
+    model = Model(layers=[layer], gf=np.ones(D), bf=np.zeros(D), WU=WU, bU=np.zeros(3), eps=eps)
+    return model, (lambda a, b: np.array([emb("BOS", 0), emb(a, 1), emb(b, 2), emb("Q", 3)]))

@@ -1,0 +1,2 @@
+Command: git diff --stat origin/cursor/overnight-reconstruction-b68c -- . ":!docs/research_audits/cor_phase15/step1_foundational_bridge_adjudication"
+Result: empty output (no file outside this package differs from the base commit 680c5fd).

@@ -1,0 +1,17 @@
+# 13. What the six Phase 1.5 workstreams gain from this
+
+The six overnight workstreams are not redone. Each is asked only whether Theorem S, Theorem Align, Theorem Kernel-out, or the failure of R1–R3 changes its status.
+
+**Workstream 1, causal bridge.** A noncircular finite constraint exists: Theorem S bounds `|R|` from weights and `δ` without evaluating `R`. It is a composition of Lipschitz constants and the exact skip inner product. It is not a relation between pathways beyond the triangle inequality. The missing condition for a relational bridge is a `Q` with `B_joint < B_align` under Regime 1. That condition was not met. The bridge status stays negative for a successor mechanism, and it is no longer an impossibility claim about every directional bound.
+
+**Workstream 2, decision-state identification.** Theorem S reads `w`, the factor matrices, and `δ`. It does not need a projected decision germ. Inventing one would add a representation the bound does not use. Theorem Kernel-out is a condition on `W_O w` and `W2.T w`, which are already the causal gains of the two branches. No identification theorem for a latent state is opened or closed beyond the overnight negative results.
+
+**Workstream 3, compatibility.** R3's gap is surrogate error of the skip readout. The recomputed structural residual is zero on states whose margins have opposite signs. No `ρ` map is introduced. A nonzero scalar still cannot distinguish a missing parent from an off-manifold stitch.
+
+**Workstream 4, geometry.** The certificates use the Euclidean operator norm and the linear functional `w`. They do not use `O`, `D`, a cohomology, or a metric built from `∇m`. A metric built from `∇m` would be Regime 2 and would inherit the response's linear term. Signed permutations of the tanh hidden units, and orthogonal remixes of the concatenated heads, preserve both the function and the spectral norms, so they preserve `B_dir`. A non-orthogonal change of residual basis is not function-preserving for LayerNorm, so it is not an equivalence. The certificate is a bound in the parameterization's Euclidean structure. It is not a coordinate-free invariant of an abstract causal effect. That dependence is a reason to avoid calling the number a mechanism, not a reason to doubt the inequality in these coordinates.
+
+**Workstream 5, prediction.** Theorem S is a fixed, falsifiable bound: an observed `|R|` larger than `B_dir`, under the stated hypotheses, refutes the certificate. Computing `B_dir` does not use the target response. On `w·δ = 0` with both branches live, the bound is an interval symmetric about zero and does not predict the sign of `R`. The output-kernel case predicts the exact value `w·δ`, including its sign, and the prediction uses only the kernel conditions and `w`. It is a unary circuit fact. It is not a prospective task-level claim, and it is not authorized as an experiment.
+
+**Workstream 6, adversarial review.** Theorem S survived the scale grid, the token grid, the final-LayerNorm counterexample (by failing, as it should, on that other readout), and the comparison with Theorem L. R1 survived as a linear identity and failed as a finite constraint. The passes in `reviews/` are same-context critiques, not external review.
+
+No workstream is marked successful because a section exists. The only positive finite-response statements are Theorems S, S-iso, Align, Kernel-out, Persist, and the final-LayerNorm diameter. All of them are standard estimates or exact factorizations on this block.

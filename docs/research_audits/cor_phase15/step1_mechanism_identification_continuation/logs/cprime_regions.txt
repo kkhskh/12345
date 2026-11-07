@@ -1,0 +1,66 @@
+E1 closed form vs forward (400 fresh points, seed 101): max |diff| = 1.388e-14
+E2 audit counterexamples (closed form):
+   m(0.01,0.01) = -0.6308419542  audit -0.6308419542  target +1
+   m(0.05,0.05) = -0.3576101163  audit -0.3576101163  target +1
+   m(0.08,0.08) = -0.0605622099  audit -0.0605622099  target +1
+   m(1.0,-0.001) = +0.1946247153  audit +0.1946247153  target -1
+   m(0.0,0.0) = -0.6577909845  audit -0.6577909845  target +0
+   m(1.0,0.0) = +0.2651922423  audit +0.2651922423  target +0
+E3 certified sign map, min box width 2e-3 (interval arithmetic with outward rounding)
+   Q++ agree: certified correct 99.6400%, certified WRONG 0.3089%, undecided 0.0511%  (target sign pos)
+   Q-- agree: certified correct 100.0000%, certified WRONG 0.0000%, undecided 0.0000%  (target sign neg)
+   Q+- conflict: certified correct 99.7080%, certified WRONG 0.2218%, undecided 0.0702%  (target sign neg)
+   Q-+ conflict: certified correct 99.8449%, certified WRONG 0.0996%, undecided 0.0555%  (target sign neg)
+E4 exact boundary {m=0}
+   agree ray theta= 5 deg: roots r* = [np.float64(0.235223)]  (m<0 for r<r*, m>0 beyond)
+   agree ray theta=15 deg: roots r* = [np.float64(0.158644)]  (m<0 for r<r*, m>0 beyond)
+   agree ray theta=30 deg: roots r* = [np.float64(0.128078)]  (m<0 for r<r*, m>0 beyond)
+   agree ray theta=45 deg: roots r* = [np.float64(0.122254)]  (m<0 for r<r*, m>0 beyond)
+   agree ray theta=60 deg: roots r* = [np.float64(0.132543)]  (m<0 for r<r*, m>0 beyond)
+   agree ray theta=75 deg: roots r* = [np.float64(0.171703)]  (m<0 for r<r*, m>0 beyond)
+   agree ray theta=85 deg: roots r* = [np.float64(0.270051)]  (m<0 for r<r*, m>0 beyond)
+   conflict a=0.25: roots b* = []  ratio |b*|/a = []
+   conflict a=0.5: roots b* = []  ratio |b*|/a = []
+   conflict a=1.0: roots b* = [np.float64(-0.003613)]  ratio |b*|/a = [np.float64(0.0036)]
+   conflict a=1.5: roots b* = [np.float64(-0.007558)]  ratio |b*|/a = [np.float64(0.005)]
+   conflict a=2.0: roots b* = [np.float64(-0.011386)]  ratio |b*|/a = [np.float64(0.0057)]
+   conflict a=3.0: roots b* = [np.float64(-0.017965)]  ratio |b*|/a = [np.float64(0.006)]
+   conflict b=0.25: roots a* = []
+   conflict b=0.5: roots a* = []
+   conflict b=1.0: roots a* = []
+   conflict b=1.5: roots a* = [np.float64(-0.002783)]
+   conflict b=2.0: roots a* = [np.float64(-0.005856)]
+   conflict b=3.0: roots a* = [np.float64(-0.01109)]
+E5 Theorem C'1* on 20000 fresh points (seed 202): soundness violations 0; target rule correct at 99.80% of points; sufficient conditions cover 99.93% of the correct points
+E6 certified rectangular operating regions (step 0.01)
+   Q++: rule CERTIFIED on |a|,|b| in [tau,3] for tau = 0.09
+   Q--: rule CERTIFIED on |a|,|b| in [tau,3] for tau = 0.0
+   Q+-: rule CERTIFIED on |a|,|b| in [tau,3] for tau = 0.02
+   Q-+: rule CERTIFIED on |a|,|b| in [tau,3] for tau = 0.02
+   Q+- conflict with |weak|/|strong| >= 0.05 and strong in [0.2,3.05]: certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.1 and strong in [0.2,3.05]: certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.2 and strong in [0.2,3.05]: certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.3 and strong in [0.2,3.05]: certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.5 and strong in [0.2,3.05]: certified m<0: True
+E7 failure mechanism: routing gain G, prior term, evidence value mass
+   (0.01,0.01): qR=+6.1365e-04 G=+4.1164e-03 alphaP=0.2466 prior|vP|=2.6312 evidence vA+vB+vR=+0.0719 m=-0.6308
+   (0.08,0.08): qR=+3.8897e-02 G=+2.6074e-01 alphaP=0.0921 prior|vP|=2.6312 evidence vA+vB+vR=+0.5743 m=-0.0606
+   (0.2,0.2): qR=+2.3124e-01 G=+1.5358e+00 alphaP=0.0002 prior|vP|=2.6312 evidence vA+vB+vR=+1.4112 m=+0.5193
+   (1.0,-0.001): qR=-3.3374e-03 G=-2.1549e-02 alphaP=0.2672 prior|vP|=2.6312 evidence vA+vB+vR=+3.6892 m=+0.1946
+   (1.0,-0.05): qR=-1.6673e-01 G=-1.0730e+00 alphaP=0.9348 prior|vP|=2.6312 evidence vA+vB+vR=+3.5459 m=-2.4005
+   (1.0,-0.3): qR=-9.7191e-01 G=-5.6679e+00 alphaP=1.0000 prior|vP|=2.6312 evidence vA+vB+vR=+2.7428 m=-2.6312
+   (1.0,-1.0): qR=-2.4513e+00 G=-1.0081e+01 alphaP=1.0000 prior|vP|=2.6312 evidence vA+vB+vR=+1.3640 m=-2.6312
+E8 parameter dependence of the agreement floor r*(45 deg) and conflict ratio at a=2
+   lam=  3.0 prior_v=0.25: agree floor r*~0.09024724540901502  conflict root b*(a=2)~-0.06751784546136519
+   lam=  3.0 prior_v=1.00: agree floor r*~0.1603617696160267  conflict root b*(a=2)~-0.02300673993498359
+   lam=  3.0 prior_v=2.00: agree floor r*~0.1904108514190317  conflict root b*(a=2)~-0.002001499124780981
+   lam=  6.0 prior_v=0.25: agree floor r*~0.08023088480801335  conflict root b*(a=2)~-0.03400948512127999
+   lam=  6.0 prior_v=1.00: agree floor r*~0.12530450751252084  conflict root b*(a=2)~-0.011503869967491642
+   lam=  6.0 prior_v=2.00: agree floor r*~0.14533722871452417  conflict root b*(a=2)~-0.0010012495623903384
+   lam= 12.0 prior_v=0.25: agree floor r*~0.06520634390651085  conflict root b*(a=2)~-0.017005242560639955
+   lam= 12.0 prior_v=1.00: agree floor r*~0.09525542570951585  conflict root b*(a=2)~-0.00600249737434333
+   lam= 12.0 prior_v=2.00: agree floor r*~0.11027996661101835  conflict root b*(a=2)~-0.000501124781195017
+   lam= 24.0 prior_v=0.25: agree floor r*~0.050181803005008345  conflict root b*(a=2)~-0.008503121280319714
+   lam= 24.0 prior_v=1.00: agree floor r*~0.07522270450751252  conflict root b*(a=2)~-0.0030017486871716237
+   lam= 24.0 prior_v=2.00: agree floor r*~0.08023088480801335  conflict root b*(a=2)~-0.000501124781195017
+   C'1* at 40 fresh parameter settings x 300 points: violations 0/12000; decided fraction median 0.997 min 0.953

@@ -1,0 +1,21 @@
+M1 shared LN2: coordinate of source A at the read token depends on b; ratio is invariant
+   a=0.8 b=0.2: u=0.708674 v=0.189869  u/v=3.732433688129  x/y=3.732433688129
+   a=0.8 b=0.5: u=0.698383 v=0.456076  u/v=1.531283895485  x/y=1.531283895485
+   a=0.8 b=1.5: u=0.643596 v=1.039762  u/v=0.618983429673  x/y=0.618983429673
+M2 sign q = sign(xy) under shared LN2, random distractor content, GELU/ReLU, c in (0.3,1.5,6): violations 0/120000
+M3 sum-only reader s(z) = c<z, e1+e2>: sign = sign(x+y) always; magnitude depends on xy at fixed x+y
+   S=0.5: (xy, <LN(r), e1+e2>) = (+0.062, 0.4054), (+0.000, 0.4027), (-0.188, 0.3948), (-0.938, 0.3672), (-3.938, 0.2960)
+   S=1.0: (xy, <LN(r), e1+e2>) = (+0.250, 0.7947), (+0.188, 0.7895), (+0.000, 0.7746), (-0.750, 0.7223), (-3.750, 0.5855)
+   S=2.0: (xy, <LN(r), e1+e2>) = (+1.000, 1.4771), (+0.938, 1.4688), (+0.750, 1.4446), (+0.000, 1.3587), (-3.000, 1.1239)
+M4 cross-talk: read directions e1' = e1 + t12 e2, e2' = e2 + t21 e1.  Predicted law:
+   sign q = sign(u'v'),  u' = u + t12 v,  v' = v + t21 u;  equals sign(uv) iff |v/u| in cone ( |t21| , 1/|t12| ) for same-sign t's (general: see doc)
+   predicted-law violations 0/20000; original-law (sign xy) failures 3504/20000
+M5 unequal output weights w2/w1 = r (here r=2): predicted boundary
+   ReLU (h(t)=|t|):  q>0  iff |u+v| > r|u-v|        (homogeneous; independent of LN scale)
+   GELU:             q>0  iff h(c|u+v|) > r h(c|u-v|) (depends on c*||(u,v)||, hence on sigma)
+   relu: agreement boundary t*=v/u at input scale 0.2, 1, 5: [0.33350037509377345, 0.33350037509377345, 0.33350037509377345]
+   gelu: agreement boundary t*=v/u at input scale 0.2, 1, 5: [0.17412003000750187, 0.23207651912978244, 0.33350037509377345]
+   ReLU analytic t* = (r-1)/(r+1) = 0.3333;  GELU small-scale analytic (sqrt r -1)/(sqrt r +1) = 0.1716
+M6 LN gain g and bias beta: u = (x e1'De1 + y e1'De2 + e1'Dw)/sigma + e1'beta  (cross-talk + offset)
+   predicted-law violations 0/10000; original-law failures 866/10000
+M7 read-token q (c=1) vs cbmath.agreement_family margin, 300 fresh points: max diff 8.88e-16

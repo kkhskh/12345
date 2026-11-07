@@ -1,0 +1,32 @@
+C2 mediation on C': agreement-changing source change (a,b) -> (a,-b), recomputed.
+   Sites: MLP1 output at R (q_R; query route) and at B (q_B; LN-scale/value route); block-2 scores; values.
+   q_R interchange (off-manifold): {'median_share_of_TE': 0.999999999999137, 'decision_matches_counterfactual': 1.0}
+   q_B interchange (off-manifold): {'median_share_of_TE': 0.0, 'decision_matches_counterfactual': 0.0}
+   q_R+q_B interchange (off-manifold): {'median_share_of_TE': 0.999999999999137, 'decision_matches_counterfactual': 1.0}
+   block-2 scores interchange: {'median_share_of_TE': 0.9999999999991371, 'decision_matches_counterfactual': 1.0}
+   block-2 values interchange: {'median_share_of_TE': 0.01820853713847769, 'decision_matches_counterfactual': 0.0}
+   TE median: -4.91767897154984
+C2-manifold: min over inputs (a'',b'') on a 241x241 grid of || block-1 output(a'',b'') - patched state ||
+   (1.0,1.0): patched-state distance to manifold 5.4897  (patch norm 7.3539; same search on the unpatched state 0.3456)
+   (2.0,0.5): patched-state distance to manifold 3.7388  (patch norm 4.1680; same search on the unpatched state 0.2879)
+C3 composition variants: P(target rule) on agree / conflict cells of a 30x30 grid with |a|,|b| >= 0.1
+   base C'                                                 agree 1.000  conflict 1.000
+   bypass beta=0.5                                         agree 1.000  conflict 1.000
+   bypass beta=2                                           agree 1.000  conflict 1.000
+   bypass beta=6                                           agree 1.000  conflict 0.978
+   extra head reading relation, reversed values, w=0.5     agree 0.998  conflict 1.000
+   extra head reading relation, reversed values, w=1.5     agree 0.002  conflict 1.000
+   downstream MLP gamma=1 (compress)                       agree 1.000  conflict 1.000
+   downstream MLP gamma=3 (over-compress)                  agree 0.680  conflict 0.440
+   later rereading head w=1                                agree 1.000  conflict 1.000
+   later rereading head w=4                                agree 1.000  conflict 0.844
+   redundant relation feature                              agree 1.000  conflict 1.000
+   competing reversed relation feature 0.5                 agree 0.998  conflict 1.000
+   competing reversed relation feature 1.5                 agree 0.500  conflict 0.502
+   permuted source positions (A<->B): decision unchanged on 1.000 of cells; rule on permuted: (np.float64(1.0), np.float64(1.0))
+   redundant relation: decision preserved after ablating e3-copy 200/200, sp-copy 200/200, both 167/200
+C4 theorem checks.
+   (i) bypass dominance condition held at 107 points; violations of 'decision = sign(bypass)' 0
+   (ii) downstream MLP gamma=0.5: rule agree/conflict = (np.float64(1.0), np.float64(1.0))
+   (ii) downstream MLP gamma=1.0: rule agree/conflict = (np.float64(1.0), np.float64(1.0))
+   (ii) downstream MLP gamma=3.0: rule agree/conflict = (np.float64(0.68), np.float64(0.44))

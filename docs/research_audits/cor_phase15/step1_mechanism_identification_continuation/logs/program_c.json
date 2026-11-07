@@ -1,0 +1,115 @@
+{
+ "C2": {
+  "q_R interchange (off-manifold)": {
+   "median_share_of_TE": 0.999999999999137,
+   "decision_matches_counterfactual": 1.0
+  },
+  "q_B interchange (off-manifold)": {
+   "median_share_of_TE": 0.0,
+   "decision_matches_counterfactual": 0.0
+  },
+  "q_R+q_B interchange (off-manifold)": {
+   "median_share_of_TE": 0.999999999999137,
+   "decision_matches_counterfactual": 1.0
+  },
+  "block-2 scores interchange": {
+   "median_share_of_TE": 0.9999999999991371,
+   "decision_matches_counterfactual": 1.0
+  },
+  "block-2 values interchange": {
+   "median_share_of_TE": 0.01820853713847769,
+   "decision_matches_counterfactual": 0.0
+  },
+  "TE median": -4.91767897154984
+ },
+ "C2_manifold": {
+  "1.0,1.0": {
+   "min_dist_patched": 5.489671166351208,
+   "min_dist_unpatched_control": 0.3456454094760383,
+   "patch_size": 7.353903515926354
+  },
+  "2.0,0.5": {
+   "min_dist_patched": 3.73877606807044,
+   "min_dist_unpatched_control": 0.28791540885770456,
+   "patch_size": 4.168007924187459
+  }
+ },
+ "C3": {
+  "base C'": [
+   1.0,
+   1.0
+  ],
+  "bypass beta=0.5": [
+   1.0,
+   1.0
+  ],
+  "bypass beta=2": [
+   1.0,
+   1.0
+  ],
+  "bypass beta=6": [
+   1.0,
+   0.9777777777777777
+  ],
+  "extra head reading relation, reversed values, w=0.5": [
+   0.9977777777777778,
+   1.0
+  ],
+  "extra head reading relation, reversed values, w=1.5": [
+   0.0022222222222222222,
+   1.0
+  ],
+  "downstream MLP gamma=1 (compress)": [
+   1.0,
+   1.0
+  ],
+  "downstream MLP gamma=3 (over-compress)": [
+   0.68,
+   0.44
+  ],
+  "later rereading head w=1": [
+   1.0,
+   1.0
+  ],
+  "later rereading head w=4": [
+   1.0,
+   0.8444444444444444
+  ],
+  "redundant relation feature": [
+   1.0,
+   1.0
+  ],
+  "competing reversed relation feature 0.5": [
+   0.9977777777777778,
+   1.0
+  ],
+  "competing reversed relation feature 1.5": [
+   0.5,
+   0.5022222222222222
+  ],
+  "permuted_same_decision": 1.0,
+  "redundant_ablation": {
+   "e3": 200,
+   "sp": 200,
+   "both": 167
+  }
+ },
+ "C4_bypass": {
+  "n": 107,
+  "violations": 0
+ },
+ "C4_downstream": {
+  "0.5": [
+   1.0,
+   1.0
+  ],
+  "1.0": [
+   1.0,
+   1.0
+  ],
+  "3.0": [
+   0.68,
+   0.44
+  ]
+ }
+}

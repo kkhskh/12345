@@ -1,0 +1,115 @@
+T1 TF1 seed 0: val acc 1.0000  final loss 0.0002  8.5s
+T1 TF2 seed 0: val acc 0.9999  final loss 0.0002  15.1s
+T1 TF2AO seed 0: val acc 1.0000  final loss 0.0003  10.0s
+T1 B-sum seed 0: val acc 0.5898
+T1 B-lin seed 0: val acc 0.5809
+T1 B-MLP seed 0: val acc 0.9984
+T1 TF1 seed 1: val acc 1.0000  final loss 0.0000  9.0s
+T1 TF2 seed 1: val acc 1.0000  final loss 0.0000  16.6s
+T1 TF2AO seed 1: val acc 1.0000  final loss 0.0001  11.6s
+T1 B-sum seed 1: val acc 0.6148
+T1 B-lin seed 1: val acc 0.4128
+T1 B-MLP seed 1: val acc 0.9987
+T1 TF1 seed 2: val acc 0.9999  final loss 0.0001  8.6s
+T1 TF2 seed 2: val acc 1.0000  final loss 0.0001  17.6s
+T1 TF2AO seed 2: val acc 0.9998  final loss 0.0003  10.2s
+T1 B-sum seed 2: val acc 0.5924
+T1 B-lin seed 2: val acc 0.4430
+T1 B-MLP seed 2: val acc 0.9994
+T2 TF1 seed 0: val acc 0.9998  final loss 0.4812  8.2s
+T2 TF2 seed 0: val acc 0.9996  final loss 0.4812  15.9s
+T2 TF2AO seed 0: val acc 0.9990  final loss 0.4812  9.8s
+T2 B-sum seed 0: val acc 1.0000
+T2 B-lin seed 0: val acc 1.0000
+T2 B-MLP seed 0: val acc 0.9989
+T2 TF1 seed 1: val acc 0.9994  final loss 0.4782  7.8s
+T2 TF2 seed 1: val acc 0.9992  final loss 0.4782  15.7s
+T2 TF2AO seed 1: val acc 0.9982  final loss 0.4782  9.9s
+T2 B-sum seed 1: val acc 1.0000
+T2 B-lin seed 1: val acc 1.0000
+T2 B-MLP seed 1: val acc 0.9988
+T2 TF1 seed 2: val acc 0.9994  final loss 0.4853  8.6s
+T2 TF2 seed 2: val acc 0.9994  final loss 0.4853  16.1s
+T2 TF2AO seed 2: val acc 0.9990  final loss 0.4853  10.5s
+T2 B-sum seed 2: val acc 1.0000
+T2 B-lin seed 2: val acc 1.0000
+T2 B-MLP seed 2: val acc 0.9994
+T3 TF1 seed 0: val acc 0.9999  final loss 0.0027  18.4s
+T3 TF2 seed 0: val acc 1.0000  final loss 0.0024  37.3s
+T3 TF2AO seed 0: val acc 1.0000  final loss 0.0023  28.1s
+T3 B-sum seed 0: val acc 0.8591
+T3 B-lin seed 0: val acc 0.8590
+T3 B-MLP seed 0: val acc 0.9981
+T3 TF1 seed 1: val acc 0.9999  final loss 0.0000  17.6s
+T3 TF2 seed 1: val acc 0.9999  final loss 0.0001  36.6s
+T3 TF2AO seed 1: val acc 0.9999  final loss 0.0001  30.4s
+T3 B-sum seed 1: val acc 0.8590
+T3 B-lin seed 1: val acc 0.8590
+T3 B-MLP seed 1: val acc 0.9982
+T3 TF1 seed 2: val acc 1.0000  final loss 0.0008  17.7s
+T3 TF2 seed 2: val acc 1.0000  final loss 0.0012  35.4s
+T3 TF2AO seed 2: val acc 1.0000  final loss 0.0009  30.2s
+T3 B-sum seed 2: val acc 0.8590
+T3 B-lin seed 2: val acc 0.8591
+T3 B-MLP seed 2: val acc 0.9967
+T4 TF1 seed 0: val acc 0.9983  final loss 0.0079  8.1s
+T4 TF2 seed 0: val acc 0.9993  final loss 0.0045  15.1s
+T4 TF2AO seed 0: val acc 0.9996  final loss 0.0022  9.9s
+T4 B-sum seed 0: val acc 0.5021
+T4 B-lin seed 0: val acc 0.5021
+T4 B-MLP seed 0: val acc 0.9907
+T4 TF1 seed 1: val acc 0.9980  final loss 0.0243  8.0s
+T4 TF2 seed 1: val acc 0.9989  final loss 0.0106  15.6s
+T4 TF2AO seed 1: val acc 0.9988  final loss 0.0140  9.8s
+T4 B-sum seed 1: val acc 0.5039
+T4 B-lin seed 1: val acc 0.5038
+T4 B-MLP seed 1: val acc 0.9932
+T4 TF1 seed 2: val acc 0.9995  final loss 0.0031  8.1s
+T4 TF2 seed 2: val acc 0.9991  final loss 0.0027  15.0s
+T4 TF2AO seed 2: val acc 0.9996  final loss 0.0025  10.1s
+T4 B-sum seed 2: val acc 0.5039
+T4 B-lin seed 2: val acc 0.5063
+T4 B-MLP seed 2: val acc 0.9940
+T5a TF1 seed 0: val acc 0.9990  final loss 0.5330  8.6s
+T5a TF2 seed 0: val acc 0.9984  final loss 0.5330  15.9s
+T5a TF2AO seed 0: val acc 0.9992  final loss 0.5330  10.5s
+T5a B-sum seed 0: val acc 1.0000
+T5a B-lin seed 0: val acc 1.0000
+T5a B-MLP seed 0: val acc 0.9968
+T5a B-bil seed 0: val acc 1.0000
+T5a TF1 seed 1: val acc 0.9990  final loss 0.5535  7.7s
+T5a TF2 seed 1: val acc 0.9984  final loss 0.5535  15.5s
+T5a TF2AO seed 1: val acc 0.9992  final loss 0.5535  9.9s
+T5a B-sum seed 1: val acc 1.0000
+T5a B-lin seed 1: val acc 1.0000
+T5a B-MLP seed 1: val acc 0.9968
+T5a B-bil seed 1: val acc 1.0000
+T5a TF1 seed 2: val acc 0.9991  final loss 0.5450  8.4s
+T5a TF2 seed 2: val acc 0.9987  final loss 0.5450  14.9s
+T5a TF2AO seed 2: val acc 0.9989  final loss 0.5450  10.1s
+T5a B-sum seed 2: val acc 1.0000
+T5a B-lin seed 2: val acc 1.0000
+T5a B-MLP seed 2: val acc 0.9959
+T5a B-bil seed 2: val acc 1.0000
+T5b TF1 seed 0: val acc 0.9820  final loss 0.0256  17.8s
+T5b TF2 seed 0: val acc 0.9990  final loss 0.0068  33.8s
+T5b TF2AO seed 0: val acc 0.9947  final loss 0.0122  28.4s
+T5b B-sum seed 0: val acc 0.8126
+T5b B-lin seed 0: val acc 0.8128
+T5b B-MLP seed 0: val acc 0.9849
+T5b B-bil seed 0: val acc 0.8551
+T5b TF1 seed 1: val acc 0.9877  final loss 0.0227  16.8s
+T5b TF2 seed 1: val acc 0.9991  final loss 0.0028  32.2s
+T5b TF2AO seed 1: val acc 0.9930  final loss 0.0174  27.5s
+T5b B-sum seed 1: val acc 0.8129
+T5b B-lin seed 1: val acc 0.8125
+T5b B-MLP seed 1: val acc 0.9840
+T5b B-bil seed 1: val acc 0.8552
+T5b TF1 seed 2: val acc 0.9817  final loss 0.0737  17.9s
+T5b TF2 seed 2: val acc 0.9992  final loss 0.0034  34.6s
+T5b TF2AO seed 2: val acc 0.9921  final loss 0.0364  30.7s
+T5b B-sum seed 2: val acc 0.8125
+T5b B-lin seed 2: val acc 0.8130
+T5b B-MLP seed 2: val acc 0.9833
+T5b B-bil seed 2: val acc 0.8549
+total wall time 1036.9s

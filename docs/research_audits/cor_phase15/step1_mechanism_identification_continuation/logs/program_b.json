@@ -1,0 +1,74 @@
+{
+ "B1": {
+  "bilinear": 0.82115,
+  "mlp": 0.987,
+  "base": 0.58665
+ },
+ "B2": {
+  "sign_score_eq_sign_dot": 1.0,
+  "P_routing_suppressed_given_agree": 0.08435708435708436,
+  "P_routing_enhanced_given_disagree": 0.4345137717818999
+ },
+ "B3": {
+  "hit": 3000,
+  "n": 3000
+ },
+ "B4": {
+  "recomputed source change (zB dis->ag)": [
+   -0.6174346225567229,
+   4.310590549302486
+  ],
+  "Q0-only patch (layer 2) from agree run": -0.6174346225567229,
+  "K0-only patch (layer 2) from agree run": -3.081442949917177,
+  "V0-only patch (layer 2) from agree run": 1.8465822219420314,
+  "routing ablation (uniform) on agree run": 1.8465822219420314,
+  "support-preserving zB x0.25 (agree)": 1.7341067552226086,
+  "agreement-changing equal-dot zB=(0,-2,0)": 1.846582221942031,
+  "agree-on-0 with <zA,zB>=+1 : alpha_B": 0.7337586955776016,
+  "agree-on-0 with <zA,zB>=-1.75 : alpha_B": 0.017280533321468106,
+  "  margin(0 vs 2) full vs uniform": [
+   0.22144894309964808,
+   1.9050017753197204
+  ]
+ },
+ "B5": {
+  "baseline": {
+   "agree": 4.310590549302486,
+   "disagree": -0.6174346225567229,
+   "agree_uniform": 1.8465822219420314,
+   "routing_effect_on_agree": 2.464008327360454
+  },
+  "competing head kC=3": {
+   "agree": 1.8465737048037316,
+   "disagree": 1.8465822219420303,
+   "agree_uniform": -0.6174346225567233,
+   "routing_effect_on_agree": 2.464008327360455
+  },
+  "rereading MLP 3.0": {
+   "agree": -2.5551486023756462,
+   "disagree": 0.7907845040652832,
+   "agree_uniform": -1.3543515138997546,
+   "routing_effect_on_agree": -1.2007970884758916
+  },
+  "final LN, bias 0": {
+   "agree": 2.588579717226043,
+   "disagree": -0.4694063755406689,
+   "agree_uniform": 1.3669779119472616,
+   "routing_effect_on_agree": 1.2216018052787816
+  },
+  "final LN, bias +2 on fU_0": {
+   "agree": 4.588579717226043,
+   "disagree": 1.5305936244593317,
+   "agree_uniform": 3.366977911947262,
+   "routing_effect_on_agree": 1.2216018052787811
+  },
+  "kC_sweep": {
+   "0.0": 4.9280251718592085,
+   "1.0": 3.2853472755267052,
+   "2.0": 1.6426693791942029,
+   "3.0": -8.517138298635984e-06,
+   "4.0": -1.6426864134708026,
+   "6.0": -4.928042206135807
+  }
+ }
+}

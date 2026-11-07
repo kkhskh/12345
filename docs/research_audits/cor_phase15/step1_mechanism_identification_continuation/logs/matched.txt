@@ -1,0 +1,43 @@
+D. same-value / different-decision cases for each consistency definition
+   D1 {"pair": [[1.5, 1.2], [-1.5, -1.2]], "value": [1, 1], "T3_target": [1, -1], "Cprime_m": [2.3262343496059894, -2.3262343496059894]}
+   D2 {"pair": [[1, 1], [-1, -1]], "value": [1, 1], "T3_target": [1, -1], "Cprime_m": [1.8902612997972532, -1.8902612997972532]}
+   D3 {"pair": [[2, 0.5], [-2, -0.5]], "A_m": [0.9969141320686793, 0.99691413206868], "Cprime_m": [1.995993235502046, -1.9959932355024503]}
+   D4 {"frac_agree_cells_compatible": 0.76, "frac_conflict_cells_compatible": 0.3087400681044268}
+D-K3 (T5 generator, 50000 draws, seed 21): {"P_agree": 0.41848, "P_dot_neg_given_agree": 0.07952590326897342, "P_dot_pos_given_disagree": 0.43627046361260147, "P_centred_dot_neg_given_agree": 0.030156757790097497, "P_centred_dot_pos_given_disagree": 0.2893795570229743, "sign_dot_accuracy_for_agreement": 0.71302, "sign_centred_dot_accuracy": 0.8191, "crm_sign_accuracy": 1.0}
+   explicit: zA=[ 1. -3.  0.], zB=[ 1.  0. -3.]: argmax both 0, <zA,zB>=1.0, centred dot=-0.333
+X1 raw-sum matched pair (1,1) vs (3,-1) at A's reader site
+   (1, 1): u=0.79471 v=0.79471  S^=u+v=1.58943  |(u,v)|=1.12389  m_A=+1.41109
+   (3, -1): u=1.31770 v=-0.70824  S^=u+v=0.60946  |(u,v)|=1.49597  m_A=-1.66059
+X2 exact post-LN aggregate matching S^(a',b') = S^(a,b), opposite agreement, A vs sum-only
+   (1,1) -> a'=2.5: no conflicting b' reaches S^=1.5894 (unreachable)
+   (1,1) -> a'=3.0: no conflicting b' reaches S^=1.5894 (unreachable)
+   (1,1) -> a'=4.0: no conflicting b' reaches S^=1.5894 (unreachable)
+   (0.5,0.5) S^=0.93419 m_A=+0.6068 m_sum=+0.6068  |  (2.5,-0.45226) S^=0.93419 m_A=-0.9040 m_sum=+0.6068
+   (0.5,0.5) S^=0.93419 m_A=+0.6068 m_sum=+0.6068  |  (3.0,-0.53585) S^=0.93419 m_A=-1.0366 m_sum=+0.6068
+   (0.5,0.5) S^=0.93419 m_A=+0.6068 m_sum=+0.6068  |  (4.0,-0.63934) S^=0.93419 m_A=-1.1824 m_sum=+0.6068
+   (2,1) -> a'=2.5: no conflicting b' reaches S^=1.9063 (unreachable)
+   (2,1) -> a'=3.0: no conflicting b' reaches S^=1.9063 (unreachable)
+   (2,1) -> a'=4.0: no conflicting b' reaches S^=1.9063 (unreachable)
+   (1.5,0.3) -> a'=2.5: no conflicting b' reaches S^=1.3362 (unreachable)
+   (1.5,0.3) S^=1.33617 m_A=+0.6256 m_sum=+1.0932  |  (3.0,-0.04854) S^=1.33617 m_A=-0.1009 m_sum=+1.0932
+   (1.5,0.3) S^=1.33617 m_A=+0.6256 m_sum=+1.0932  |  (4.0,-0.13301) S^=1.33617 m_A=-0.2690 m_sum=+1.0932
+X3 A's reader input (u,v) determines (x,y), hence the relation: matched non-relational AND relational coordinates are the same state. Numerical inversion check:
+   inversion max error 6.22e-15 (requires u^2+v^2 < d, always true)
+X4 C': pairs with equal relation-blind margin m_blind (block-1 MLP ablated) but opposite agreement
+   (1.0,1.0) -> a'=2.0: unreachable
+   (1.0,1.0) m_blind=+0.8221 m=+1.8903  |  (3.0,-0.2381) m_blind=+0.8221 m=-2.6300  decision flip: True
+   (1.0,1.0) m_blind=+0.8221 m=+1.8903  |  (4.0,-0.4583) m_blind=+0.8221 m=-2.6312  decision flip: True
+   (1.5,0.5) -> a'=2.0: unreachable
+   (1.5,0.5) m_blind=+0.8446 m=+2.1413  |  (3.0,-0.2002) m_blind=+0.8446 m=-2.6269  decision flip: True
+   (1.5,0.5) m_blind=+0.8446 m=+2.1413  |  (4.0,-0.4184) m_blind=+0.8446 m=-2.6311  decision flip: True
+   (0.6,0.6) m_blind=+0.3380 m=+1.3073  |  (2.0,-0.6343) m_blind=+0.3380 m=-2.6312  decision flip: True
+   (0.6,0.6) m_blind=+0.3380 m=+1.3073  |  (3.0,-1.0959) m_blind=+0.3380 m=-2.6312  decision flip: True
+   (0.6,0.6) m_blind=+0.3380 m=+1.3073  |  (4.0,-1.4065) m_blind=+0.3380 m=-2.6312  decision flip: True
+   (2.0,2.0) -> a'=2.0: unreachable
+   (2.0,2.0) -> a'=3.0: unreachable
+   (2.0,2.0) -> a'=4.0: unreachable
+X6 B (QK gate): matched value-path input (B's value coordinate y and A's direct vote x) cannot differ in agreement; the relation enters only through the score. Matched direct-path margin:
+   (1.0,1.0) -> a'=2.5: unreachable under uniform routing
+   (1.0,1.0) m_uniform=+2.3907 m=+5.1921 | (3.5,-0.0551) m_uniform=+2.3907 m=+2.4046
+   (1.5,0.7) -> a'=2.5: unreachable under uniform routing
+   (1.5,0.7) m_uniform=+2.3525 m=+4.2313 | (3.5,-0.0904) m_uniform=+2.3525 m=+2.3879

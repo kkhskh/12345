@@ -1,0 +1,20 @@
+B1 argmax-agreement classifiers (train seed 42, test seed 43): best bilinear+linear sign 0.8212; MLP(64,64) 0.9870; base rate 0.5867. K=2 bilinear sign(tA tB) exact: 1.0
+B2 routing to B in qk3 (3000 T5b draws, seed 41): {"sign_score_eq_sign_dot": 1.0, "P_routing_suppressed_given_agree": 0.08435708435708436, "P_routing_enhanced_given_disagree": 0.4345137717818999}
+B3 total-margin theorem (no rereader, no competing writer, no final LN): predicted sign of routing effect on margin(k*, runner-up) correct 3000/3000
+B4 recomputed source change (zB dis->ag): (-0.6174346225567229, 4.310590549302486)
+B4 Q0-only patch (layer 2) from agree run: -0.6174346225567229
+B4 K0-only patch (layer 2) from agree run: -3.081442949917177
+B4 V0-only patch (layer 2) from agree run: 1.8465822219420314
+B4 routing ablation (uniform) on agree run: 1.8465822219420314
+B4 support-preserving zB x0.25 (agree): 1.7341067552226086
+B4 agreement-changing equal-dot zB=(0,-2,0): 1.846582221942031
+B4 agree-on-0 with <zA,zB>=+1 : alpha_B: 0.7337586955776016
+B4 agree-on-0 with <zA,zB>=-1.75 : alpha_B: 0.017280533321468106
+B4   margin(0 vs 2) full vs uniform: (0.22144894309964808, 1.9050017753197204)
+B5 attacks on the total-margin conclusion (agree pair zA=zB=(2,0,0) vs disagree zB=(0,2,0); margin 0 vs 1)
+   baseline                     m(agree)=+4.3106 m(disagree)=-0.6174  routing effect on agree run +2.4640
+   competing head kC=3          m(agree)=+1.8466 m(disagree)=+1.8466  routing effect on agree run +2.4640
+   rereading MLP 3.0            m(agree)=-2.5551 m(disagree)=+0.7908  routing effect on agree run -1.2008
+   final LN, bias 0             m(agree)=+2.5886 m(disagree)=-0.4694  routing effect on agree run +1.2216
+   final LN, bias +2 on fU_0    m(agree)=+4.5886 m(disagree)=+1.5306  routing effect on agree run +1.2216
+   competing-head sweep, m(agree) - m(disagree) vs kC: 0.0: +4.9280, 1.0: +3.2853, 2.0: +1.6427, 3.0: -0.0000, 4.0: -1.6427, 6.0: -4.9280

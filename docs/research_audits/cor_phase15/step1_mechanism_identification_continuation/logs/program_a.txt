@@ -1,0 +1,39 @@
+A-sig. decision response to intervention families (3000 points, seed 31): P(sign unchanged) under I-pol, I-flip, I-mag
+   R1 designed        I-pol=1.000  I-flip=0.000  I-mag=1.000
+   R2 net             I-pol=0.000  I-flip=0.483  I-mag=1.000
+   R3 generic         I-pol=0.357  I-flip=0.481  I-mag=0.928
+   R4 reversed        I-pol=1.000  I-flip=0.000  I-mag=1.000
+   R5 magnitude       I-pol=1.000  I-flip=1.000  I-mag=0.631
+   R6 agree+support   I-pol=0.384  I-flip=0.484  I-mag=0.977
+A-law. P(sign m = sign(ab)) on the same points
+   R1 designed        1.000
+   R2 net             0.508
+   R3 generic         0.639
+   R4 reversed        0.000
+   R5 magnitude       0.496
+   R6 agree+support   0.697
+A-matchS. matched S^ with opposite agreement (reachable pairs only): mean |delta m| and decision flips
+   R1 designed        mean|dm|=1.2598  decision flips=1.000  (n=188)
+   R2 net             mean|dm|=0.0000  decision flips=0.000  (n=188)
+   R3 generic         mean|dm|=0.7829  decision flips=0.261  (n=188)
+   R4 reversed        mean|dm|=1.2598  decision flips=1.000  (n=188)
+   R5 magnitude       mean|dm|=0.6887  decision flips=0.356  (n=188)
+   R6 agree+support   mean|dm|=1.2598  decision flips=0.293  (n=188)
+A-dec. R6 = q-group + S-group. Group ablation is a real intervention; the decomposition is additive in the pre-final-LN logit difference only.
+   agree cells: ablating q changes decision 0.000, ablating S 0.484; conflict cells: ablating q 0.379, ablating S 0.120
+   'q reverses the net-evidence decision iff sign q != sign S and |q| > |S|': violations 0/3000
+   agreement-for-c' cells where q overrides net evidence (R6 says c): 0/731
+A-fLN. with a final LN (unit gain, zero bias) on a residual h = w + m*du (|du|=1, du mean-zero, w ⟂ du):
+   sign(du . LN(h)) = sign(m) exactly; du.LN(h) = m/sigma(h) is not additive across unit groups (sigma depends on all contributions).
+   m=0.5: LN margin 0.4027; sum of LN margins of halves 0.4068
+   m=1.0: LN margin 0.7746; sum of LN margins of halves 0.8054
+   m=2.0: LN margin 1.3587; sum of LN margins of halves 1.5492
+A-stab. R1 designed reader: architectural perturbation (weight noise) vs semantic drift (encoding mix)
+   weight noise sd=0.0: P(sign law) min 1.000 mean 1.000 over 20 seeds
+   weight noise sd=0.05: P(sign law) min 0.972 mean 0.984 over 20 seeds
+   weight noise sd=0.1: P(sign law) min 0.955 mean 0.972 over 20 seeds
+   weight noise sd=0.2: P(sign law) min 0.887 mean 0.945 over 20 seeds
+   semantic drift mix=0.0 (weights unchanged): P(sign law) 1.000
+   semantic drift mix=0.1 (weights unchanged): P(sign law) 0.992
+   semantic drift mix=0.3 (weights unchanged): P(sign law) 0.958
+   semantic drift mix=0.6 (weights unchanged): P(sign law) 0.895

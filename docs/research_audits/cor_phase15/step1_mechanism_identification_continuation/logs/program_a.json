@@ -1,0 +1,105 @@
+{
+ "signature": {
+  "R1 designed": {
+   "I-pol": 1.0,
+   "I-flip": 0.0,
+   "I-mag": 1.0
+  },
+  "R2 net": {
+   "I-pol": 0.0,
+   "I-flip": 0.48333333333333334,
+   "I-mag": 1.0
+  },
+  "R3 generic": {
+   "I-pol": 0.35733333333333334,
+   "I-flip": 0.4806666666666667,
+   "I-mag": 0.928
+  },
+  "R4 reversed": {
+   "I-pol": 1.0,
+   "I-flip": 0.0,
+   "I-mag": 1.0
+  },
+  "R5 magnitude": {
+   "I-pol": 1.0,
+   "I-flip": 1.0,
+   "I-mag": 0.6313333333333333
+  },
+  "R6 agree+support": {
+   "I-pol": 0.38366666666666666,
+   "I-flip": 0.484,
+   "I-mag": 0.9773333333333334
+  }
+ },
+ "law": {
+  "R1 designed": 1.0,
+  "R2 net": 0.5083333333333333,
+  "R3 generic": 0.6386666666666667,
+  "R4 reversed": 0.0,
+  "R5 magnitude": 0.49633333333333335,
+  "R6 agree+support": 0.6966666666666667
+ },
+ "matchS": {
+  "R1 designed": {
+   "mean_abs_delta": 1.2598332594096324,
+   "flip": 1.0
+  },
+  "R2 net": {
+   "mean_abs_delta": 1.012783237889438e-16,
+   "flip": 0.0
+  },
+  "R3 generic": {
+   "mean_abs_delta": 0.7828551616101431,
+   "flip": 0.26063829787234044
+  },
+  "R4 reversed": {
+   "mean_abs_delta": 1.2598332594096324,
+   "flip": 1.0
+  },
+  "R5 magnitude": {
+   "mean_abs_delta": 0.6887112898569822,
+   "flip": 0.35638297872340424
+  },
+  "R6 agree+support": {
+   "mean_abs_delta": 1.2598332594096322,
+   "flip": 0.2925531914893617
+  }
+ },
+ "R6_groups": {
+  "agree": [
+   0.0,
+   0.48378557246856385
+  ],
+  "conflict": [
+   0.3794492948287441,
+   0.12021490933512424
+  ]
+ },
+ "R6_reversal_rule_violations": 0,
+ "R6_override_agree_cprime": {
+  "agree c'": 0.0,
+  "agree c'_n": 731
+ },
+ "stability": {
+  "weight_noise_0.0": [
+   1.0,
+   1.0
+  ],
+  "weight_noise_0.05": [
+   0.9716666666666667,
+   0.984
+  ],
+  "weight_noise_0.1": [
+   0.955,
+   0.9716666666666669
+  ],
+  "weight_noise_0.2": [
+   0.8866666666666667,
+   0.9446666666666665
+  ],
+  "semantic_mix_0.0": 1.0,
+  "semantic_mix_0.1": 0.9916666666666667,
+  "semantic_mix_0.3": 0.9583333333333334,
+  "semantic_mix_0.6": 0.895
+ }
+}

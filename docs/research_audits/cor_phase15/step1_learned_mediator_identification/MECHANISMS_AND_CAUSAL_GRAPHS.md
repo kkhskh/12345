@@ -65,11 +65,21 @@ Layer 0 runs at all positions. Layer-1 attention at R reads all positions. `resi
 - The interaction is created inside layer-1 attention.
 - **No mediator was identified** at the tested cut. This is reported as a failure of single-cut localisation, **not** as evidence that the mechanism is absent: freezing the patterns drops TF2-AO to chance (previous package).
 
+## Corrections after review
+
+- **TF2 `resid_mid1@R` is readout-equivalent.** Deleting the final MLP leaves accuracy at 0.999–1.000, and U has cosine 0.79–0.97 with the readout direction (R_counterexample F1, R_causal F2). Verdicts at that site describe the decision variable itself.
+- **The cut check is a code check.** It is guaranteed by the architecture.
+- **S_alt is only partially decodable.** It decodes agreement at 0.52–0.73.
+- **REL-XOR3.** See `XOR3_RESULTS.md`:
+  - TF1 and TF2 R sites carry the **target**;
+  - TF2-AO layer-0 outputs carry the **two source signs** separately, as source-additive content.
+  - No computed agreement intermediate was found.
+
 ## Mechanisms by task
 
 | task | mechanism |
 |---|---|
-| **REL-XNOR** | Agreement-indicator coordinate `≈ c·sign(ab)` plus additive terms, created by the attention normalizer. LN-saturated per-source keys and values make each source sign-like, and the shared softmax denominator couples them. Read by the MLP and the readout. |
+| **REL-XNOR** | A target (logit) coordinate `≈ c·sign(ab)` plus additive terms. In TF1 it is created by the attention normalizer: LN-saturated per-source keys and values make each source sign-like, and the shared softmax denominator couples them. Because the target here **is** agreement, this is a learnability control. |
 | **REL-MIS** | A cross-source interaction that is **not** `sign(ab)`-shaped. Created by layer-0 attention (TF1) or layer-1 attention (TF2), and read mainly through the direct residual path. |
 | **REL-GATE and K3-GATE** | Source-additive mediator. The decision is threshold logic on per-source support and the prior. **No relation is computed.** |
 | **Aggregate tasks** | No relation-sensitive behaviour. |

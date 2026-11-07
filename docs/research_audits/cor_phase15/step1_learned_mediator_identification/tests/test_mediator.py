@@ -51,3 +51,14 @@ def test_headline_mediator_xnor_tf2_s2():
 
 def test_aggregate_only_ceiling():
     assert abs(G.aggregate_only_ceiling("REL-XNOR", n=400000) - 0.754) < 0.01
+
+
+def test_xor3_late_site_carries_target_not_agreement():
+    import intermediate as IM
+    P = ckpt.load(ROOT / "checkpoints/new/T7_TF2_s2.npz")
+    site = MD.Site(P, "REL-XOR3", "resid_mid1", "R")
+    A, C = G.matched_pairs("REL-XOR3", 400, np.random.default_rng(5001))
+    U, k, _ = MD.s_rel(site, A, C)
+    B, S = IM.pairs_opp_p(300, 7002)
+    d = IM.patched(site, B, S, U); pr = IM.predictions(B, S)
+    assert (d == pr["H_y"]).mean() > 0.95 and (d == pr["H_AB"]).mean() < 0.05

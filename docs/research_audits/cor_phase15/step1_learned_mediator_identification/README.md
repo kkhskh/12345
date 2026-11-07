@@ -9,6 +9,9 @@ This package is standalone: it has no dependency on sibling directories.
 | item | file or folder |
 |---|---|
 | frozen protocol (commit `ff180da`, before evaluation) | `PROTOCOL.md` |
+| REL-XOR3 addendum (commit `c7bcd2c`, before training) | `PROTOCOL_ADDENDUM_XOR3.md` |
+| REL-XOR3 results | `XOR3_RESULTS.md` |
+| review findings and dispositions | `ADJUDICATION.md` |
 | every per-model result, generated from the logs | `INTERVENTION_RESULTS.md` |
 | mechanisms and causal graphs | `MECHANISMS_AND_CAUSAL_GRAPHS.md` |
 | T-ATT (exact) and T-MED (conditional) | `DECISION_THEOREM.md` |
@@ -41,7 +44,9 @@ python3 src/run_protocol.py E2 REL-XNOR,REL-GATE,REL-MIS,K3-GATE TF1,TF2,TF2AO 7
 python3 src/run_protocol.py E3 AGG-NL TF1,TF2,TF2AO 0,1,2,3,4 checkpoints/new
 python3 src/run_protocol.py E4a REL-XNOR,REL-GATE,REL-MIS TF1,TF2 2,3,4 checkpoints/historical gauss
 python3 src/run_protocol.py E4b REL-XNOR,REL-GATE,REL-MIS TF1,TF2 7,8,9 checkpoints/new gauss
-python3 src/locus.py E1 E2; python3 src/explore_followups.py; python3 scripts/make_tables.py
+python3 scripts/train_xor3.py; python3 src/intermediate.py 2,3,4,5,6 TF1,TF2,TF2AO eval
+python3 src/run_protocol.py E5 REL-XOR3 TF1,TF2,TF2AO 2,3,4,5,6 checkpoints/new
+python3 src/locus.py E1 E2; python3 src/explore_followups.py; python3 scripts/aggnl_reversals.py; python3 scripts/make_tables.py
 python3 -m pytest -q tests/
 ```
 

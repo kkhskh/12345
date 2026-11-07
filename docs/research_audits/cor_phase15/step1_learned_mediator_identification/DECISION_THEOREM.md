@@ -13,7 +13,7 @@
 **Statement.** The R residual after attention is
 
 ```
-h_R(a, b, p) = E_R + Σ_h [ Σ_j ω_j^h(x_j) · v^h(x_j) ] / [ Σ_j ω_j^h(x_j) ] · W_O^h ,
+h_R(a, b, p) = E_R + b_O + Σ_h [ Σ_j ω_j^h(x_j) · v^h(x_j) ] / [ Σ_j ω_j^h(x_j) ] · W_O^h ,
 ω_j^h(x_j) = exp(⟨q^h(LN E_R), k^h(LN x_j)⟩ / √d_h)
 ```
 
@@ -32,46 +32,50 @@ Here j ranges over the tokens A, B, (P) and R. In each head, the numerator and t
 - So each score `s_j` depends on its own token only, and each value `v(x_j)` likewise.
 - Substituting the softmax gives the displayed form. With the weights α fixed, the sum is additive. ∎
 
-**Check.** Freezing the layer-0 pattern makes the interaction share of U exactly 0.000 in all 7 TF1 relation-computing models (`logs/locus_E1_E2.json`).
+The `b_O` term was missing in the reviewed version (R_math). With it added, the formula matches the forward pass to 3e−7.
 
-## Theorem T-MED (conditional decision theorem for an identified mediator)
+**Check.**
+- Freezing the layer-0 pattern makes the interaction share of U exactly 0.000 in all 7 TF1 relation-computing models (`logs/locus_E1_E2.json`).
+- Freezing only the normalizers gives ≤ 1e−28 (R_math).
+- T-ATT applies to **one-layer** models only. In two layers, layer-1 attention reads mixed states, so the theorem's Consequence 3 does not hold.
 
-**Class.** A frozen learned model F, together with:
+## Theorem T-MED (conditional; corrected after review)
 
-- a site h that is a **complete cut** for the readout-position decision, verified by full-state interchange IIA = 1;
-- a k-dimensional subspace U identified output-free (S_rel);
-- the matched-pair family `M = {(x, x′) : z(x) = z(x′), p(x) = p(x′), s(x) ≠ s(x′)}`, drawn from the stated generator;
-- `δ(·)`, the candidate decision of the **total** margin. This includes every residual, bypass, MLP and LN contribution, because each intervention is evaluated on F's full output.
+**Class.** A frozen model F, together with:
 
-**Hypotheses.** Each is measured on held-out pairs from M on which `δ(x) ≠ δ(x′)`:
+- a complete cut h. This holds by architecture; the full-state interchange is a code check, not evidence;
+- a k-dimensional subspace U;
+- the matched family M, as before;
+- `δ`, the decision of the total margin.
 
-- **(H1) interchange:** `δ(F[h_x + UUᵀ(h_x′ − h_x)]) = δ(x′)` on a fraction ≥ 1 − ε₁ of pairs.
-- **(H2) sufficiency:** `δ(F[h_x′ + UUᵀ(h_x − h_x′)]) = δ(x)` on a fraction ≥ 1 − ε₂.
+**Hypotheses** (measured on held-out pairs from M on which the model's decisions differ):
+
+- **(H1) interchange in both directions:** patching U from the partner makes `δ` follow the partner, on a fraction ≥ 1 − ε₁ of pairs.
+  - The "sufficiency" test of the reviewed version builds exactly the same patched states as the reverse-direction interchange. It is equal in 150 of 150 logged rows, so it is **not** an extra hypothesis (R_math 1, R_causal F3).
 - **(H3) necessity:** after pair-mean ablation of U, `δ` differs within the pair on a fraction ≤ ε₃.
-- **(H4) content:** U's coordinates satisfy `Uᵀh_x = f(a, p) + g(b, p) + c·σ(a, b) + r(a, b)`. Here σ is the independently defined relation and the residual satisfies `‖r‖²/‖Uᵀh − f − g‖² ≤ ε₄`.
+- **(H4′) content, on pairs:**
+  - On held-out pairs, the additive surrogate of U's coordinates leaves `δ` different within the pair on a fraction ≤ ε₄. That is, the per-source part of U alone does not separate the decisions.
+  - The reviewed version measured content on the grid only, which is insufficient (R_math 2).
 
-**Conclusion.** On M, up to the stated ε's:
+**Conclusion** (on M, up to the ε's). The within-pair decision difference is mediated by the **non-additive** component of U's coordinates.
 
-1. The candidate decision difference between matched-aggregate inputs is determined by the k coordinates `Uᵀh`.
-   - (H1) and (H2): exchanging `Uᵀh` exchanges the decision, and keeping it keeps the decision, whatever the rest of the state is.
-   - (H3): removing its within-pair variation removes the decision difference.
-2. With (H4), the part of `Uᵀh` that differs within a matched pair **beyond the per-source terms** is `c·[σ(x) − σ(x′)]`, plus `r`.
-3. The relation therefore causally determines the candidate decision on M through the identified computation (T-ATT for TF1), and **total**-margin effects are accounted for. This is not limited to a branch sign, which is how T-MED corrects the earlier A1* limitation.
+- (H1) and (H3) show that U carries the difference.
+- (H4′) shows that the per-source part of U does not.
 
-**Instantiation.** For the TF2 XNOR models, the measured values on held-out pairs are:
+This holds for the **total** margin, because every intervention is evaluated on F's output.
 
-| quantity | value |
-|---|---|
-| ε₁ | 0 |
-| ε₂ | 0 |
-| ε₃ | ≤ 0.152 |
-| ε₄ | ≤ 0.003 (R² by `sign(ab)` of 0.997–1.000), with σ = `sign(ab)` |
+**What T-MED cannot conclude.**
 
-**What T-MED does not give, and the missing condition.**
+- **It cannot say which variable the non-additive component is.** On REL-XNOR and REL-MIS pairs, the relation and the target are confounded, so "mediated by agreement" and "mediated by the target" are the same claim there.
+- **On REL-XOR3, where they differ, the non-additive component is the target** (`XOR3_RESULTS.md`).
+- **It does not cover states other than the matched partner's.** "Whatever the rest of the state is" in the reviewed version overclaimed (R_math 3), and the patched states are off-manifold.
+- **It is not a uniform decision-sign theorem.** That would additionally need a certificate on the downstream map over the reachable set (missing condition).
 
-- **It is an ε-statement on the sampled support M, not a bound.** A uniform decision-sign theorem needs a guarantee that the downstream map `Φ(U-coordinate, complement)` has the measured sign behaviour for **all** inputs in the domain. That would require certifying the downstream map, for example by interval or Lipschitz bounds over the reachable state set. This was not done.
-- **The relation is not separable from the spread.** At fixed z, `σ = sign(ab)` is a deterministic threshold function of `|a − b|`. T-MED cannot distinguish "relation" from "thresholded spread".
-- **(H1) and (H2) are evaluated on off-manifold patched states** (nearest-neighbour ratio 18–189 for the headline models). The conclusion is about the frozen computation's response to the U-coordinate, including at unnatural values.
+**Which models satisfy (H4′).**
+
+- TF2 XNOR seeds 2, 7 and 9: ε₄ = 0.010–0.020.
+- **Not** TF2 XNOR seeds 4 and 8: the additive part alone keeps 34–37% of the decision differences.
+- TF1 XNOR seed 4: no (58%).
 
 ## Comparison with the earlier engineered theorems
 

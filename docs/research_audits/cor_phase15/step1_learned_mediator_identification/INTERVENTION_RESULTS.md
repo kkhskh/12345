@@ -158,7 +158,7 @@ One row per model and site. Rates are model-relative and computed on matched pai
 | AGG-NL/TF2AO/s3/train | resid_post0@ALL | no relation-sensitive behaviour: model decisions differ on 1 of 500 matched pairs; contrast energy 0.813; acc 0.999 | | | | | | | | | | | | | | |
 | AGG-NL/TF2AO/s4/train | resid_post0@ALL | no relation-sensitive behaviour: model decisions differ on 1 of 500 matched pairs; contrast energy 0.971; acc 0.999 | | | | | | | | | | | | | | |
 
-## E4a: gauss evaluation inputs + new pair seed, seeds 2-4
+## E4a: gauss ACCURACY sample + new pair seed (pairs still uniform; NOT a pair-distribution shift), seeds 2-4
 
 | model | site | verdict | k | cut | S_rel | S_das | S_grad | S_pca | S_alt | S_rand mean / max | nec | suff | addR2 | surrogates: exact / additive / linear / aggregate | path (mlp / direct) | manifold |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -190,7 +190,7 @@ One row per model and site. Rates are model-relative and computed on matched pai
 | REL-MIS/TF2/s4/gauss | resid_mid1@R | SOURCE_ADDITIVE_MEDIATOR | 1 | 1.000 | 0.998 | 1.000 | 0.882 | 0.998 | 0.000 | 0.026 / 0.161 | 0.008 | 0.998 | 0.951 | (0.996, 1.000) / (0.965, 0.984) / (0.533, 0.020) / (0.727, 0.010) | 0.28 / 0.72 | 6.4 |
 | REL-MIS/TF2/s4/gauss | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 0.977 | 0.987 | 0.767 | 0.034 | 0.000 | 0.044 / 0.144 | 0.380 | 0.977 | 1.000 | (0.999, 1.000) / (0.996, 0.996) / (0.859, 0.640) / (0.754, 0.284) | - | 4.7 |
 
-## E4b: gauss evaluation inputs + new pair seed, seeds 7-9
+## E4b: same as E4a, seeds 7-9
 
 | model | site | verdict | k | cut | S_rel | S_das | S_grad | S_pca | S_alt | S_rand mean / max | nec | suff | addR2 | surrogates: exact / additive / linear / aggregate | path (mlp / direct) | manifold |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -221,3 +221,28 @@ One row per model and site. Rates are model-relative and computed on matched pai
 | REL-MIS/TF2/s8/gauss | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 0.968 | 0.981 | 0.743 | 0.192 | 0.000 | 0.022 / 0.099 | 0.490 | 0.968 | 1.000 | (0.999, 1.000) / (0.999, 1.000) / (0.932, 0.732) / (0.782, 0.242) | - | 4.6 |
 | REL-MIS/TF2/s9/gauss | resid_mid1@R | SOURCE_ADDITIVE_MEDIATOR | 1 | 1.000 | 1.000 | 1.000 | 0.873 | 1.000 | 0.000 | 0.024 / 0.114 | 0.002 | 1.000 | 0.976 | (0.996, 1.000) / (0.962, 0.988) / (0.533, 0.032) / (0.751, 0.030) | 0.25 / 0.75 | 3.3 |
 | REL-MIS/TF2/s9/gauss | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 0.981 | 0.989 | 0.585 | 0.187 | 0.000 | 0.058 / 0.181 | 0.480 | 0.981 | 1.000 | (1.000, 1.000) / (0.998, 1.000) / (0.945, 0.752) / (0.738, 0.174) | - | 4.4 |
+
+## E5: REL-XOR3 (added after review), seeds 2-6
+
+| model | site | verdict | k | cut | S_rel | S_das | S_grad | S_pca | S_alt | S_rand mean / max | nec | suff | addR2 | surrogates: exact / additive / linear / aggregate | path (mlp / direct) | manifold |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| REL-XOR3/TF1/s2/train | resid_mid0@R | SOURCE_ADDITIVE_MEDIATOR | 2 | 1.000 | 1.000 | 1.000 | 0.756 | 1.000 | 0.000 | 0.037 / 0.243 | 0.000 | 1.000 | 0.871 | (0.998, 1.000) / (0.991, 1.000) / (0.733, 0.000) / (0.757, 0.000) | 0.76 / 0.24 | 63.0 |
+| REL-XOR3/TF1/s3/train | resid_mid0@R | no relation-sensitive behaviour: model decisions differ on 0 of 500 matched pairs; contrast energy 1.432; acc 0.494 | | | | | | | | | | | | | | |
+| REL-XOR3/TF1/s4/train | resid_mid0@R | SOURCE_ADDITIVE_MEDIATOR | 2 | 1.000 | 1.000 | 1.000 | 0.243 | 1.000 | 0.000 | 0.057 / 0.378 | 0.002 | 1.000 | 0.921 | (0.997, 0.998) / (0.985, 0.982) / (0.727, 0.004) / (0.753, 0.010) | 0.76 / 0.24 | 35.0 |
+| REL-XOR3/TF1/s5/train | resid_mid0@R | MEDIATOR_NOT_IDENTIFIED | 1 | 1.000 | 1.000 | 1.000 | 0.122 | 1.000 | 0.000 | 0.037 / 0.361 | 0.754 | 1.000 | 0.996 | (0.998, 1.000) / (0.996, 1.000) / (0.816, 0.262) / (0.807, 0.228) | 0.49 / 0.51 | 3548.0 |
+| REL-XOR3/TF1/s6/train | resid_mid0@R | SOURCE_ADDITIVE_MEDIATOR | 2 | 1.000 | 1.000 | 1.000 | 0.449 | 1.000 | 0.000 | 0.000 / 0.002 | 0.000 | 1.000 | 0.865 | (0.758, 1.000) / (0.754, 1.000) / (0.623, 0.012) / (0.630, 0.004) | 0.55 / 0.45 | 24.5 |
+| REL-XOR3/TF2/s2/train | resid_mid1@R | RELATION_COMPUTING_MEDIATOR | 1 | 1.000 | 1.000 | 1.000 | 0.000 | 1.000 | 0.000 | 0.020 / 0.408 | 0.000 | 1.000 | 0.017 | (0.995, 0.998) / (0.486, 0.038) / (0.487, 0.000) / (0.755, 0.028) | 0.00 / 0.93 | 139.1 |
+| REL-XOR3/TF2/s2/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 3 | 1.000 | 0.861 | 1.000 | 0.296 | 0.615 | 0.000 | 0.007 / 0.040 | 0.566 | 0.861 | 0.969 | (1.000, 1.000) / (0.996, 0.996) / (0.892, 0.872) / (0.755, 0.374) | - | 6.9 |
+| REL-XOR3/TF2/s3/train | resid_mid1@R | RELATION_COMPUTING_MEDIATOR | 2 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 0.000 | 0.026 / 0.148 | 0.110 | 1.000 | 0.181 | (0.993, 1.000) / (0.411, 0.350) / (0.440, 0.014) / (0.755, 0.010) | 0.85 / 0.27 | 201.5 |
+| REL-XOR3/TF2/s3/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 0.398 | 0.983 | 0.191 | 0.439 | 0.000 | 0.005 / 0.078 | 0.670 | 0.398 | 0.995 | (1.000, 1.000) / (0.998, 1.000) / (0.943, 0.812) / (0.755, 0.504) | - | 8.6 |
+| REL-XOR3/TF2/s4/train | resid_mid1@R | RELATION_COMPUTING_MEDIATOR | 2 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 0.000 | 0.019 / 0.371 | 0.004 | 1.000 | 0.131 | (0.995, 1.000) / (0.388, 0.250) / (0.472, 0.000) / (0.755, 0.028) | 0.12 / 0.88 | 179.6 |
+| REL-XOR3/TF2/s4/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 3 | 1.000 | 0.996 | 1.000 | 0.620 | 0.404 | 0.000 | 0.021 / 0.099 | 0.338 | 0.996 | 0.958 | (0.992, 0.990) / (0.858, 0.726) / (0.700, 0.432) / (0.789, 0.256) | - | 10.1 |
+| REL-XOR3/TF2/s5/train | resid_mid1@R | RELATION_COMPUTING_MEDIATOR | 2 | 1.000 | 1.000 | 1.000 | 0.636 | 1.000 | 0.000 | 0.036 / 0.303 | 0.022 | 1.000 | 0.542 | (0.994, 0.998) / (0.790, 0.520) / (0.634, 0.052) / (0.757, 0.026) | 0.78 / 0.22 | 201.7 |
+| REL-XOR3/TF2/s5/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 3 | 1.000 | 0.877 | 1.000 | 0.339 | 0.624 | 0.000 | 0.023 / 0.090 | 0.552 | 0.877 | 0.929 | (0.994, 0.996) / (0.882, 0.758) / (0.779, 0.468) / (0.674, 0.222) | - | 15.3 |
+| REL-XOR3/TF2/s6/train | resid_mid1@R | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 1.000 | 1.000 | 0.882 | 1.000 | 0.000 | 0.014 / 0.135 | 0.230 | 1.000 | 0.158 | (0.995, 0.998) / (0.562, 0.486) / (0.482, 0.256) / (0.758, 0.106) | 0.07 / 0.94 | 105.1 |
+| REL-XOR3/TF2/s6/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 3 | 1.000 | 0.826 | 1.000 | 0.338 | 0.270 | 0.000 | 0.000 / 0.005 | 0.712 | 0.826 | 0.946 | (0.998, 1.000) / (0.991, 0.990) / (0.801, 0.470) / (0.810, 0.330) | - | 11.5 |
+| REL-XOR3/TF2AO/s2/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 1.000 | 1.000 | 0.000 | 1.000 | 0.000 | 0.002 / 0.042 | 0.244 | 1.000 | 1.000 | (0.995, 0.998) / (0.996, 1.000) / (0.765, 0.140) / (0.764, 0.078) | - | 8.3 |
+| REL-XOR3/TF2AO/s3/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 0.979 | 1.000 | 0.089 | 0.612 | 0.000 | 0.039 / 0.154 | 0.474 | 0.979 | 1.000 | (0.994, 0.992) / (0.995, 0.996) / (0.800, 0.406) / (0.650, 0.414) | - | 3.1 |
+| REL-XOR3/TF2AO/s4/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 1.000 | 0.999 | 0.669 | 0.901 | 0.000 | 0.004 / 0.052 | 0.260 | 1.000 | 1.000 | (0.981, 0.978) / (0.975, 0.976) / (0.801, 0.484) / (0.711, 0.062) | - | 2.8 |
+| REL-XOR3/TF2AO/s5/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 0.805 | 0.981 | 0.359 | 0.464 | 0.000 | 0.066 / 0.203 | 0.554 | 0.805 | 0.998 | (0.993, 0.994) / (0.989, 0.986) / (0.910, 0.792) / (0.761, 0.254) | - | 4.2 |
+| REL-XOR3/TF2AO/s6/train | resid_post0@ALL | MEDIATOR_NOT_IDENTIFIED | 2 | 1.000 | 1.000 | 1.000 | 0.000 | 1.000 | 0.000 | 0.023 / 0.251 | 0.480 | 1.000 | 1.000 | (0.998, 1.000) / (0.997, 1.000) / (0.765, 0.122) / (0.764, 0.092) | - | 5.4 |

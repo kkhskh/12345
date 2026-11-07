@@ -117,7 +117,17 @@ All steps use generator labels and frozen activations. **No step selects a probe
 
 ## 9. Deviations
 
-None at the time of commit. Any later deviation will be appended here with its reason.
+None at the time of the preregistration commit (32121da). The following clarifications were added after the dev-seed training began. Only training loss and validation accuracy had been seen at that point; no mechanism metric had been computed:
+
+- **D1, T3 grids.** §5–§6 did not fix the prior token on the grids. Every T3 grid metric is computed separately for `p = +1` and `p = −1`, and both are reported.
+- **D2, T5 analogues of the §6–§7 metrics.** These were left unspecified in the preregistration and are fixed here:
+  - **Sum-invariance deficit:** `D_sum^K = E_x[Var_δ(logits | z_A+δ, z_B−δ)] / Var(logits)`, with `δ ~ N(0, I)` and 16 draws per base point over 2,000 base points.
+  - **Unit relation share:** `I_agree^K` is the R² gain from adding `[⟨z_A, z_B⟩, 1[argmax agree]]` to the base features. The base features are degree-2 polynomials in `s = z_A + z_B` plus degree-2 polynomials in `z_A` and `z_B` separately.
+  - **Unit sum deficit:** `D_sum^K(unit) = 1 − R²` of a degree-2 polynomial in `s`.
+  - The thresholds are the same as for the binary tasks (0.2 and 0.2).
+- **D3, interchange control.** Every probe-direction interchange is also run along a random unit direction (seed 999) as a negative control.
+- **D4, initialization.** Before any run, the initialization in `learned.py` was corrected to the preregistered stds: 0.02 for attention, 0.1 for MLP and input weights.
+
 
 ## 10. Compute budget
 

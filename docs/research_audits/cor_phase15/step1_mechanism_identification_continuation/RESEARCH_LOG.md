@@ -3,3 +3,4 @@
 - Start: HEAD bec0a64 (branch cor-phase15-step1-deep-investigation). New branch: cor-phase15-step1-mechanism-identification.
 - The independent audit file INDEPENDENT_STEP1_DEEP_AUDIT.md was not accessible; its findings as restated in the mandate were reproduced exactly (CPRIME_CORRECTED_OPERATING_REGIONS.md §0, MLP_NORMALIZATION_THEOREMS.md §0).
 - Checkpoint 1: C′ regions + MLP normalization theorems + learned-model preregistration committed before any training.
+- Preregistration commit: 32121da (pushed).

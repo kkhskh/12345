@@ -1,12 +1,30 @@
 C2 mediation on C': agreement-changing source change (a,b) -> (a,-b), recomputed.
    Sites: MLP1 output at R (q_R; query route) and at B (q_B; LN-scale/value route); block-2 scores; values.
-   q_R interchange (off-manifold): {'median_share_of_TE': 0.999999999999137, 'decision_matches_counterfactual': 1.0}
-   q_B interchange (off-manifold): {'median_share_of_TE': 0.0, 'decision_matches_counterfactual': 0.0}
-   q_R+q_B interchange (off-manifold): {'median_share_of_TE': 0.999999999999137, 'decision_matches_counterfactual': 1.0}
-   block-2 scores interchange: {'median_share_of_TE': 0.9999999999991371, 'decision_matches_counterfactual': 1.0}
-   block-2 values interchange: {'median_share_of_TE': 0.01820853713847769, 'decision_matches_counterfactual': 0.0}
-   TE median: -4.91767897154984
-C2-manifold: min over inputs (a'',b'') on a 241x241 grid of || block-1 output(a'',b'') - patched state ||
+   family b-flip (a,b)->(a,-b):
+      q_R interchange (off-manifold): {'median_share_of_TE': 0.999999999999137, 'decision_matches_counterfactual': 1.0}
+      q_B interchange (off-manifold): {'median_share_of_TE': 0.0, 'decision_matches_counterfactual': 0.0}
+      q_R+q_B interchange (off-manifold): {'median_share_of_TE': 0.999999999999137, 'decision_matches_counterfactual': 1.0}
+      block-2 scores interchange: {'median_share_of_TE': 0.9999999999991371, 'decision_matches_counterfactual': 1.0}
+      block-2 values interchange: {'median_share_of_TE': 0.01820853713847769, 'decision_matches_counterfactual': 0.0}
+      TE median: -4.91767897154984
+      P(base and cf decisions differ): 1.0
+   family a-flip (a,b)->(-a,b):
+      q_R interchange (off-manifold): {'median_share_of_TE': 0.9999999999991656, 'decision_matches_counterfactual': 1.0}
+      q_B interchange (off-manifold): {'median_share_of_TE': 0.0, 'decision_matches_counterfactual': 0.0}
+      q_R+q_B interchange (off-manifold): {'median_share_of_TE': 0.9999999999991656, 'decision_matches_counterfactual': 1.0}
+      block-2 scores interchange: {'median_share_of_TE': 0.9999999999991656, 'decision_matches_counterfactual': 1.0}
+      block-2 values interchange: {'median_share_of_TE': 0.9085504591462288, 'decision_matches_counterfactual': 1.0}
+      TE median: -4.917678971549816
+      P(base and cf decisions differ): 1.0
+   family asymmetric (a,b)->(-0.5a, 1.7b):
+      q_R interchange (off-manifold): {'median_share_of_TE': 0.9999999999996306, 'decision_matches_counterfactual': 1.0}
+      q_B interchange (off-manifold): {'median_share_of_TE': -0.009776422914393217, 'decision_matches_counterfactual': 0.0}
+      q_R+q_B interchange (off-manifold): {'median_share_of_TE': 0.9999999999996306, 'decision_matches_counterfactual': 1.0}
+      block-2 scores interchange: {'median_share_of_TE': 0.9999999999978735, 'decision_matches_counterfactual': 1.0}
+      block-2 values interchange: {'median_share_of_TE': 0.7533826646935016, 'decision_matches_counterfactual': 1.0}
+      TE median: -4.917678969112247
+      P(base and cf decisions differ): 1.0
+C2-manifold: min over inputs (a'',b'') on a 61x61 grid over [-4,4]^2 of || block-1 output(a'',b'') - patched state ||
    (1.0,1.0): patched-state distance to manifold 5.4897  (patch norm 7.3539; same search on the unpatched state 0.3456)
    (2.0,0.5): patched-state distance to manifold 3.7388  (patch norm 4.1680; same search on the unpatched state 0.2879)
 C3 composition variants: P(target rule) on agree / conflict cells of a 30x30 grid with |a|,|b| >= 0.1

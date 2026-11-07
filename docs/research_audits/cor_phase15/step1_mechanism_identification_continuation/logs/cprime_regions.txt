@@ -37,11 +37,22 @@ E6 certified rectangular operating regions (step 0.01)
    Q--: rule CERTIFIED on |a|,|b| in [tau,3] for tau = 0.0
    Q+-: rule CERTIFIED on |a|,|b| in [tau,3] for tau = 0.02
    Q-+: rule CERTIFIED on |a|,|b| in [tau,3] for tau = 0.02
-   Q+- conflict with |weak|/|strong| >= 0.05 and strong in [0.2,3.05]: certified m<0: True
-   Q+- conflict with |weak|/|strong| >= 0.1 and strong in [0.2,3.05]: certified m<0: True
-   Q+- conflict with |weak|/|strong| >= 0.2 and strong in [0.2,3.05]: certified m<0: True
-   Q+- conflict with |weak|/|strong| >= 0.3 and strong in [0.2,3.05]: certified m<0: True
-   Q+- conflict with |weak|/|strong| >= 0.5 and strong in [0.2,3.05]: certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.05, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q-+ conflict with |weak|/|strong| >= 0.05, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.1, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q-+ conflict with |weak|/|strong| >= 0.1, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.2, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q-+ conflict with |weak|/|strong| >= 0.2, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.3, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q-+ conflict with |weak|/|strong| >= 0.3, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q+- conflict with |weak|/|strong| >= 0.5, strong in [0.2,3.05] (covering boxes): certified m<0: True
+   Q-+ conflict with |weak|/|strong| >= 0.5, strong in [0.2,3.05] (covering boxes): certified m<0: True
+E6b conflict root b* for strong a beyond 3 (rectangles are claimed only on [tau,3])
+   a=3.0: b* = [-0.018]
+   a=5.0: b* = [-0.0263]
+   a=10.0: b* = [-0.0338]
+   a=20.0: b* = [-0.0371]
+   a=50.0: b* = [-0.039]
 E7 failure mechanism: routing gain G, prior term, evidence value mass
    (0.01,0.01): qR=+6.1365e-04 G=+4.1164e-03 alphaP=0.2466 prior|vP|=2.6312 evidence vA+vB+vR=+0.0719 m=-0.6308
    (0.08,0.08): qR=+3.8897e-02 G=+2.6074e-01 alphaP=0.0921 prior|vP|=2.6312 evidence vA+vB+vR=+0.5743 m=-0.0606

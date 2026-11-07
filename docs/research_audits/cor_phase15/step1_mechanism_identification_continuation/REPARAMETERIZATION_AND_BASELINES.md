@@ -33,11 +33,11 @@ The gauges were applied to the T1/TF1, T3/TF2 and T4/TF1 checkpoints (seed 0). E
   - unit indices and unit counts;
   - any per-unit share of the effect;
   - any coordinate inside a head's Q/K or V/O space.
-- **The equivalence-class statement we can defend:** "the population of MLP hidden units at R whose activation has `I_agree ≥ 0.2` and `D_sum ≥ 0.2` carries a set-level ablation effect E." This statement is invariant under permutation and splitting.
+- The population-level statement ("flagged units carry set-level effect E") is invariant under permutation and splitting. This holds **by construction**: an exact split duplicates the activation (R4 F9, R5). The criterion itself was later found non-specific (`LEARNED_SYNTHETIC_MECHANISMS.md` §3), so this invariance carries no identification weight.
 
-**Gauges not applied.**
+**Gauges not applied by us.**
 
-- *Residual-basis rotation.* The learned LN biases feed bias-free Q, K and V maps, so a rotation cannot be conjugated through LN without adding parameters.
+- *Residual-basis rotation.* This bullet was **wrong** in the reviewed version, which said a rotation could not be conjugated through LN. A rotation fixing **1** can be conjugated exactly by rotating the LN gain and bias together with the adjacent weights. The reviewer implemented it (`reviews/R4_checks/c4_resid_rotation.py`): logit change ≤ 8e−6, and residual-site results are unchanged when probes are refit in the rotated basis. Our earlier argument, "intrinsic because the residual was untransformed", was circular and is withdrawn.
 - *Positive unit rescaling.* GELU is not positively homogeneous, so rescaling does not preserve the function.
 
 The engineered-circuit gauges from the previous package still apply: head redistribution, QK, VO, ReLU rescale, neuron split, residual rotation fixing 1, LN gain folding.
@@ -61,6 +61,10 @@ The held-out seeds (3, 4) are reported in `LEARNED_SYNTHETIC_MECHANISMS.md` §2.
 
 **Reading the baselines.**
 
+0. **Post-review stricter baselines (K5):**
+   - **B-add3** is `f(a) + g(b) + h(p)`: no term reads a source together with the prior. It scores T3 0.996, T4 0.930 and T5b 0.979.
+   - **B-signs** is linear on per-source sign or argmax one-hots plus the prior. It scores **T3 1.000 and T5b 1.000**, exactly.
+   - B-add as defined below lets f and g each read p, so it is over-specified (R5).
 1. **B-add is the decisive baseline.** It uses the same source information, but **no term can read both sources** (§15: "same source information but no explicit relation variable").
    - It matches the Transformers on T2, T3, T5a and T5b.
    - It fails only on T1, and partially on T4.
@@ -68,7 +72,14 @@ The held-out seeds (3, 4) are reported in `LEARNED_SYNTHETIC_MECHANISMS.md` §2.
    - T4 is LP-feasible as an additive rule on grids. B-add's 0.92 reflects the steep discontinuities that a smooth additive network needs near `b = 0`, not a representational barrier.
 2. **B-MLP**, a matched-capacity unstructured nonlinear model, matches everything. Nothing the Transformers do exceeds generic nonlinear function approximation.
 3. **B-bil vs B-add on T5b.** The bilinear source-interaction model (0.855) is worse than the relation-free additive model (0.991). The bilinear relation ⟨z_A, z_B⟩ is the wrong relation for candidate-relative agreement, as T-B-IMP predicts.
-4. **TF2-AO**, an attention-only model, solves T1, which is XNOR, without any MLP. The required cross-source interaction can be produced by softmax/LN normalization across positions, not only by MLP gating. An "MLP agreement detector" is therefore one implementation among several.
+4. **TF2-AO**, an attention-only model, solves T1 (XNOR) without any MLP.
+   - Freezing its attention patterns drops it to chance, so input-dependent routing is necessary (R3).
+   - LN contributes, but it is per-position.
+   - An "MLP agreement detector" is therefore one implementation among several.
+5. **Parameter counts (R5).**
+   - B-MLP has 1,250 parameters, against 2,338 (TF1) and 4,514 (TF2). A wider B-MLP still ties.
+   - B-bil vs B-add is confounded: they differ in per-source nonlinearity and in how p enters.
+   - The fair contrast is B-bil (0.855) against a model gated by the true agreement indicator (0.9998, R5).
 
 ## 3. Strong-baseline accounting (§15 checklist)
 
@@ -76,7 +87,7 @@ The held-out seeds (3, 4) are reported in `LEARNED_SYNTHETIC_MECHANISMS.md` §2.
 |---|---|
 | net-evidence-only predictor | B-sum: fails T1, T3, T4 and T5b; ties on T2 and T5a |
 | matched-capacity nonlinear predictor | B-MLP: ties on everything |
-| ordinary MLP interaction explanation | the T1 relation units are ordinary GELU interaction units. Ablating them reduces Δagree by about half, and attention-side computation carries the rest |
+| ordinary MLP interaction explanation | the T1 interaction is ordinary. Unit-level localisation failed (the criterion is non-specific) |
 | direct candidate-margin information | the readout direction is used only for the step-6 sign prediction |
 | path-specific effects | C2: the query route carries 100% and the value route 1.8% (C′) |
 | causal-abstraction account | C′ abstracts to "AND of per-source supports, defer otherwise". A relation-free model (T-RF construction) realises the **same high-level causal model at the decision level**. The relation variable is needed only to abstract C′'s *internal* routing variable |

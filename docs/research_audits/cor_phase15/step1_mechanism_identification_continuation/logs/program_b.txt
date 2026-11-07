@@ -1,6 +1,10 @@
-B1 argmax-agreement classifiers (train seed 42, test seed 43): best bilinear+linear sign 0.8212; MLP(64,64) 0.9870; base rate 0.5867. K=2 bilinear sign(tA tB) exact: 1.0
+B1 argmax-agreement classifiers (train seed 42, test seed 43): best bilinear+linear sign 0.8212; MLP(64,64) 0.9870; base rate 0.5867. (K=2: sign(tA tB) is itself bilinear.)
+B1b single bilinear score on per-source one-hot(argmax) features: agreement accuracy 1.0000
 B2 routing to B in qk3 (3000 T5b draws, seed 41): {"sign_score_eq_sign_dot": 1.0, "P_routing_suppressed_given_agree": 0.08435708435708436, "P_routing_enhanced_given_disagree": 0.4345137717818999}
 B3 total-margin theorem (no rereader, no competing writer, no final LN): predicted sign of routing effect on margin(k*, runner-up) correct 3000/3000
+B3b B-TM with valA=1.0 (nonzero value at A): predicted sign correct 3000/3000
+B3b B-TM with final LN, zero bias: predicted sign correct 2980/3000
+B3b B-TM with valA=1.0 + final LN: predicted sign correct 2960/3000
 B4 recomputed source change (zB dis->ag): (-0.6174346225567229, 4.310590549302486)
 B4 Q0-only patch (layer 2) from agree run: -0.6174346225567229
 B4 K0-only patch (layer 2) from agree run: -3.081442949917177

@@ -1,4 +1,4 @@
-# Learned synthetic mechanisms (§9–§10)
+# Learned synthetic mechanisms (§9–§10), corrected after review
 
 **Scope.** This program is exploratory. It does **not** validate COR in any pretrained language model.
 
@@ -7,137 +7,130 @@
 | commit | content |
 |---|---|
 | `32121da` | preregistration, before any training |
-| `fad7f89` | clarifications D1–D4, before any mechanism metric was computed |
-| `c4bc553` | frozen analysis code and dev-seed results, before the held-out seeds were trained |
+| `fad7f89` | clarifications D1–D4 |
+| `c4bc553` | frozen analysis and dev results, before the held-out seeds were trained |
+
+Deviations D5–D7 were declared after review.
 
 **Code.**
 
-- `src/learned.py`: training
-- `src/learned_analysis.py`: the preregistered analysis
-- `src/learned_posthoc.py` and `src/additive_lp.py`: **exploratory**, added after the dev results were seen
-- `src/reparam.py`
-- `src/transfer.py`: exploratory
-
-**Logs.** `logs/learned_*`, `logs/reparam.txt`, `logs/transfer.txt`.
+- Preregistered: `src/learned.py`, `src/learned_analysis.py`
+- Exploratory: `src/learned_posthoc.py`, `src/additive_lp.py`, `src/learned_review_checks.py` (post-review), `src/transfer.py`, `src/reparam.py`
 
 **Compute.**
 
 | run | wall time |
 |---|---|
-| dev training (54 Transformers and 60 baselines) | 1,037 s |
+| dev training | 1,037 s |
 | held-out training | ≈ 900 s |
-| analyses | under 5 minutes in total |
+| transfer | 992 s |
+| post-review checks | ≈ 10 min |
 
-Everything ran on 2 CPU cores and used well under the 2-hour budget.
+All runs used 2 CPU cores.
 
 ## 1. Answer first
 
-1. **Relation computation appears only when the target is a candidate-symmetric agreement rule (T1, XNOR).** In every T1 model, across all seeds and all three architectures:
-   - preregistered relation-sensitive units exist;
-   - interchange along the agreement probe transfers the decision (1.0, against 0.0 for the random direction);
-   - ablating the identified units roughly halves the matched agreement contrast Δagree, and drops accuracy to about 0.75 in 7 of the 10 T1 models that have MLPs.
-2. **It does not appear when it is not demanded (T2, T5a).** The margin is a function of the aggregate alone, with `D_sum` between 1e−6 and 3e−5 (binary) and `D_sum^K` ≈ 2e−4 (K = 3). No decision changes on matched-sum pairs.
-3. **It does not appear in the tasks *designed* to need agreement-conditional reconciliation (T3, T4, T5b), because those tasks do not need it.**
-   - Theorem T-RF (`CONDITIONAL_CAUSAL_THEOREMS.md`) shows that candidate-directed agreement rules are threshold logic on per-source support. The binary T3 rule is AND or OR, selected by the prior; T5b is solved by additive scores.
-   - The relation-free baseline B-add (no term reads two sources) reaches:
-     - T3: 0.997
-     - T5b: 0.991
-     - T4: 0.920 (T4 is LP-feasible as an additive rule)
-   - The learned T3 and T4 margins are largely additive: `R²_add` ≈ 0.65–0.70, and the additive fit's sign agrees with the margin on 97–100% of the grid.
-   - Interchange along the agreement-probe direction transfers **0%** of the differing decisions. So agreement is partly decodable (0.6–0.8) but not used.
-4. **Decodability is not relation computation.** In T2, `ab` is linearly decodable from the post-MLP residual (R² 0.88–0.99), yet the margin depends only on `a + b`. This works because `ab = ((a+b)² − a² − b²)/2` is a linear function of non-relational features.
-5. **Attention alone can compute the relation.** The attention-only TF2-AO solves T1 (val acc ≥ 0.9998) with no MLP: the cross-source interaction comes from softmax and LN across positions. In TF1, `sign(ab)` is already linearly decodable after attention, before the MLP, at 0.998.
+1. **T2 and T5a (Bayesian integration).** The learned margin is a function of the aggregate alone, but only on the training range.
+   - `D_sum` is between 1e−6 and 3.5e−5 over 15 models and 24 transfer models.
+   - `D_sum^K` is about 2e−4.
+   - The graded test (T-RF′) finds 0 order reversals.
+   - Outside [−3, 3], equal-sum pairs diverge (R6).
+   - **No relation-sensitive computation emerges when it is not demanded.** This null is robust across seeds, widths, head counts and MLP widths.
+2. **T1 (candidate-symmetric agreement, XNOR) is a learnability control.**
+   - Every architecture learns it, except one transfer run: heads1/TF1 seed 5 reached 0.74, an optimization failure.
+   - The attention-only model TF2-AO also learns it. Freezing its attention patterns drops it to chance (R3), so input-dependent routing is necessary there.
+   - Because XNOR is not additively sign-representable (T-RF), any solution must contain a cross-source interaction. The graded test confirms it: 255–272 of 465 row pairs reverse, by up to 2.1 SD.
+   - **Where that interaction is implemented is not identified** (§3–§4).
+3. **T3 (conflict → prior)** is solved by an essentially relation-free function.
+   - B-signs, linear on per-source signs plus the prior, scores **1.000**.
+   - The graded reversals in the learned margins are tiny: ≤ 0.07 SD for TF1/TF2, ≤ 0.25 SD for TF2-AO.
+   - So the margins are consistent with `h(f(a) + g(b))` up to small distortions.
+4. **T4 (coherent-but-wrong).** The reviewed version said no relation was used. That was **wrong**.
+   - The decision rule is additively representable on grids (LP).
+   - But the learned margins show **28–337 reversing row pairs, up to 1.1 SD**, so the models implement it with a cross-source interaction.
+   - The preregistered unit criterion missed this because it cannot see odd interactions such as `ab(a−b)` (R4 F5).
+5. **T5b (K = 3, argmax agreement → prior)** is threshold logic (T-RF): B-signs scores 1.000, and B-add3 scores 0.979.
+6. **Decodability is not use.** `ab` is linearly decodable in T2 (R² up to 0.99), yet the T2 margin is a function of `a + b`. Note, however, that `ab` and `sign(ab)` are themselves functions of non-relational features: `ab = ((a+b)² − a² − b²)/2` (R4 F2). So "relational" must be defined relative to a declared function class. Here that class is source-additive functions `h(f(a) + g(b))`.
 
 ## 2. Accuracy
 
-Mean validation accuracy, with dev seeds 0–2 and held-out seeds 3–4 reported separately:
+Mean validation accuracy. Each Transformer cell gives dev seeds 0–2 / held-out seeds 3–4.
 
-| task | TF1 dev / held-out | TF2 | TF2-AO | B-sum | B-lin | B-MLP | B-add (expl.) |
-|---|---|---|---|---|---|---|---|
-| T1 | 1.000 / 1.000 | 1.000 / 1.000 | 1.000 / 1.000 | 0.599 | 0.479 | 0.999 | 0.482 |
-| T2 | 1.000 / 0.999 | 0.999 / 0.999 | 0.999 / 0.999 | 1.000 | 1.000 | 0.999 | 1.000 |
-| T3 | 1.000 / 1.000 | 1.000 / 1.000 | 1.000 / 1.000 | 0.859 | 0.859 | 0.998 | 0.997 |
-| T4 | 0.999 / 0.999 | 0.999 / 0.999 | 0.999 / 0.999 | 0.503 | 0.504 | 0.993 | 0.920 |
-| T5a | 0.999 / 0.999 | 0.999 / 0.999 | 0.999 / 0.999 | 1.000 | 1.000 | 0.997 | 0.998 |
-| T5b | 0.984 / 0.983 | 0.999 / 0.998 | 0.993 / 0.991 | 0.813 | 0.813 | 0.984 | 0.991 |
+| task | TF1 | TF2 | TF2-AO | B-sum | B-lin | B-MLP | B-add (p in f, g) | B-add3 | B-signs |
+|---|---|---|---|---|---|---|---|---|---|
+| T1 | 1.000 / 1.000 | 1.000 / 1.000 | 1.000 / 1.000 | 0.599 | 0.479 | 0.999 | 0.482 | 0.518 | 0.500 |
+| T2 | 1.000 / 0.999 | 0.999 / 0.999 | 0.999 / 0.999 | 1.000 | 1.000 | 0.999 | 1.000 | 0.999 | 0.752 |
+| T3 | 1.000 / 1.000 | 1.000 / 1.000 | 1.000 / 1.000 | 0.859 | 0.859 | 0.998 | 0.997 | 0.996 | **1.000** |
+| T4 | 0.999 / 0.999 | 0.999 / 0.999 | 0.999 / 0.999 | 0.503 | 0.504 | 0.993 | 0.920 | 0.930 | 0.751 |
+| T5a | 0.999 / 0.999 | 0.999 / 0.999 | 0.999 / 0.999 | 1.000 | 1.000 | 0.997 | 0.998 | 0.998 | 0.697 |
+| T5b | 0.984 / 0.983 | 0.999 / 0.998 | 0.993 / 0.991 | 0.813 | 0.813 | 0.984 | 0.991 | 0.979 | **1.000** |
 
-Exact per-seed values for the held-out runs are in `logs/learned_train_heldout.json`. No architecture failed to learn any task, so the optimization-vs-representation question (§9) does not arise for the Transformers.
+On T4, B-add trained 4× longer reaches 0.978 (R5), and an exact additive construction exists. B-add's lower score is an optimization limit, not a representational one.
 
-B-add's 0.92 on T4 is an optimization or smoothness limit, not a representational one. The task is LP-feasible as an additive rule, but needs steep jumps at `b = 0`.
+## 3. The preregistered unit-level identification failed
 
-## 3. Preregistered mechanism metrics
+The preregistered criterion was `I_agree ≥ 0.2` and `D_sum ≥ 0.2`, followed by mean ablation and a sign prediction. The review found four problems with it (R2, R4):
 
-Relation units are those with `I_agree ≥ 0.2` and `D_sum ≥ 0.2`. Ablation is mean ablation. "Sign prediction" means: the unit's frozen-weight direction, times its agreement-conditional activation difference, compared with the sign of its actual ablation contribution.
+1. **It is not specific.**
+   - It flags 50–83% of all hidden units in T1, and 45–72% in T3.
+   - Ablating random unit sets of the same size gives similar effects (R4 F3).
+   - The effect disappears at threshold 0.25.
+2. **It is not the literal definition.**
+   - It adds `ab` and `sign(ab)` as regressors against a two-way ANOVA baseline, rather than backfitting.
+   - Under the literal definition, `ab` itself would count as non-relational.
+   - This is declared as deviation D5.
+3. **Its ablation results depend on the method** (post-review K3).
 
-| task / arch | n relation units (dev; held-out) | acc after ablating them | Δagree full → ablated | sign prediction hits | surrogate acc |
-|---|---|---|---|---|---|
-| T1 / TF1 | 22, 26, 23; 16, 19 | 0.746, 0.999, 0.749; 0.749, 0.750 | ≈ 21 → 7–11 | **61/71; 33/35** | 0.80–0.87 |
-| T1 / TF2 | 39, 53, 49; 47, 50 | 1.000, 0.750, 0.995; 0.750, 0.749 | ≈ 21 → 10–17 | 100/141; 73/97 | 0.79–0.995 |
-| T2 / TF1, TF2 | 0–2 | unchanged | ≈ 0 → ≈ 0 | — | unchanged |
-| T3 / TF1 | 20, 20, 23; 17, 18 | ≥ 0.999 | ≈ −11 → −8 to −9 | 34/63; 23/35 (≈ chance) | 0.78–0.9997 |
-| T3 / TF2 | 34, 36, 38; 33, 29 | ≥ 0.998 | ≈ −11 → −10 | 53/108; 33/62 (chance) | ≥ 0.998 |
-| T4 / TF1 | 0; 0 | unchanged | ≈ 0 | — | — |
-| T4 / TF2 | 0; 8, 6 | unchanged | ≈ 0 | 11/14 | unchanged |
+   | model | mean-ablate flagged | resample-ablate flagged |
+   |---|---|---|
+   | T1/TF1 | 0.75, 0.998, 0.75, 0.75, 0.75 | 0.50–0.69 |
+   | T1/TF2 seed 0 | 1.000 | 0.995 |
 
-**Grid metrics.**
+   For T1/TF2 seed 0, ablating the **non**-flagged units is what drops accuracy, to 0.749 or 0.688.
+4. **It misses odd interactions**, which is why it reported nothing for T4.
 
-| task | `D_sum` | Δagree | M-flip |
+**Sign prediction.**
+
+| | T1/TF1 | T1/TF2 | T3 |
 |---|---|---|---|
-| T1 | 0.437 | 20.5–21.6 | 1.0 |
-| T2 | ≤ 3.5e−5 | ≈ 0 | 0 |
-| T3 (`p = ±1`) | 0.29 | ±10.4–11.6 (the sign follows p) | 0.5 |
-| T4 | 0.45 | ≈ 0, but −20 when signed by S | 1.0 |
+| hits | 61/71 dev, **33/35 held-out** | 100/141, 73/97 (71–75%) | at chance |
 
-**Reading.**
+The held-out TF1 rate is the one genuinely prospective, preregistered prediction in the program. It depends on how units are counted (unit splits), and it ignores the final-LN mean (R4 F7).
 
-- **T1.**
-  - Identified relation units are causally used: in 7 of 10 models, ablating them drops accuracy to about 0.75, i.e. one quadrant pair is lost.
-  - Their effect directions are predictable from frozen weights: 86% for TF1 dev and 94% for TF1 held-out.
-  - In the three models where ablation leaves accuracy intact, the relation is computed **redundantly**. Attention already makes `sign(ab)` decodable at 0.998 before the MLP. Δagree still falls.
-  - A sum-only surrogate costs 13–20 points of accuracy.
-- **T3.**
-  - Units pass the activation-level criterion, but are **not necessary**: ablation leaves accuracy ≥ 0.998.
-  - Their direction is not predictable (chance-level hit rate).
-  - The `I_agree` criterion flags units whose activation correlates with agreement in a model whose decision is additive given p. **The preregistered unit criterion is not sufficient for "used for agreement"**, and the ablation and interchange steps are what catch this.
-- **T4.** There are almost no relation units, and the learned function is about 98% sign-additive.
+**Verdict.** The criterion is reported as a **failed identification procedure**. It is a counterexample to the idea that activation statistics select used units, and it is not evidence of an identified mechanism. The population-level gauge invariance reported earlier holds by construction: an exact split duplicates the activation (R4 F9, R5).
 
-## 4. Interchange: decodability vs use
+## 4. Interchange at the final residual is uninformative
 
-This table restricts to matched pairs whose decisions differ (exploratory refinement, `learned_posthoc.py`). It reports the fraction of differing decisions that a probe-direction interchange at the final residual site transfers to the source.
+The preregistered interchange along the `sign(ab)` probe at the final residual measures alignment with the readout, not use (R2 FATAL-2, R4 F4, R5 H3).
 
-| task | agreement-probe direction | random direction |
+| task | \|cos(probe, readout)\| | readout-direction interchange transfer |
 |---|---|---|
-| T1 (all archs, all seeds) | **1.000** | 0.000 |
-| T3 (all) | 0.000 | 0.000 |
-| T4 (all) | 0.000 | ≤ 0.003 |
-| T2 | (no differing pairs) | — |
+| T1 | 0.89–0.99 | 1.0 |
+| T2 | 0.01–0.15 | — (no differing pairs) |
+| T3 | ≤ 0.08 | 1.0 |
+| T4 | ≤ 0.14 | 1.0 |
 
-The full-site patch at R transfers 1.0 in every model; this is the upper bound.
+Upstream, the T1 probe transfers only 0–0.5. The reviewed claims "agreement is causally used in T1" and "decodable but not used in T3/T4", both based on this test, are **withdrawn**.
 
-**Probe accuracy for `sign(ab)` at the final residual** (dev seed 0):
+## 5. What survives
 
-| task | probe accuracy |
+1. **The T2/T5a null**, on the training range: no relation emerges when it is not demanded. It holds across 5 seeds, 3 architectures and 6 transfer variants.
+2. **T3 and T5b are threshold logic**: exact relation-free baselines exist. The T3 learned margins are near-additive.
+3. **T1 and T4 learned margins contain a cross-source interaction** (T-RF′ reversals), but its *locus* is not identified.
+4. **TF2-AO needs input-dependent attention routing to solve XNOR** (R3).
+5. **The preregistered sign prediction** for T1/TF1 held out: 33/35.
+
+## 6. Transfer (exploratory, seeds 5–6)
+
+Variants were residual width 8 and 32, 1 and 4 heads, and MLP width 8 and 64. `logs/transfer.txt` has the numbers.
+
+- **T2:** `D_sum` ≤ 2e−5 and 0–1 flagged units in all 24 runs. The null transfers.
+- **T1:** learned in 23 of 24 runs (heads1/TF1 seed 5 reached 0.74). Mean-ablation effects vary from 0.69 to 0.999, which is consistent with §3: the criterion is unreliable.
+
+## 7. Identification status
+
+| | |
 |---|---|
-| T1 | 0.999–1.0 |
-| T2 | 0.59–0.80 |
-| T3 | 0.65–0.79 |
-| T4 | 0.60–0.70 |
-
-Partial decodability coexists with zero causal use in T2–T4.
-
-## 5. Transfer (exploratory, seeds 5–6)
-
-Results are in `logs/transfer.txt`; the variants are residual width 8 and 32, 1 and 4 heads, and MLP width 8 and 64. If that log is present, its summary is added in `FINAL_RESEARCH_SYNTHESIS.md` §T.
-
-## 6. Identification status
-
-**Identified relative to the external generator labels, with selection never using the margin:**
-
-- the source variables `a`, `b` (probes, R² up to 0.97–1.0 in T2; lower when the model compresses them);
-- the agreement variable in T1, both decodable and causally used;
-- a population of relation units in T1, with a set-level causal effect that is invariant under every applied gauge (`REPARAMETERIZATION_AND_BASELINES.md` §1).
-
-**Not identified:**
-
-- a unique unit-level implementation: indices and counts change under permutation and splitting, and the implementation is redundant across MLP and attention;
-- the T1 relation feature as "the same mechanism as A". A's XNOR uses a designed `h(u+v) − h(u−v)` pairing; the learned units are not checked for that pairing, and attention-only models solve T1 without it.
+| **Identified**, relative to generator labels | the source variables (probes); the *existence* of a cross-source interaction in T1 and T4 (T-RF′); its absence in T2/T5a (on range) |
+| **Not identified** | any unit-, direction- or site-level implementation of the T1 or T4 interaction; equivalence to the designed A pairing |
+| **Residual-rotation gauge** | applicable exactly (R4 `c4`: logit change ≤ 8e−6, residual-site results unchanged under the conjugated rotation). The reviewed claim that it could not be applied was wrong. |

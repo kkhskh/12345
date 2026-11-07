@@ -1,4 +1,5 @@
 {
+ "B1b_onehot_score": 1.0,
  "B1": {
   "bilinear": 0.82115,
   "mlp": 0.987,
@@ -11,6 +12,18 @@
  },
  "B3": {
   "hit": 3000,
+  "n": 3000
+ },
+ "B3b valA=1.0 (nonzero value at A)": {
+  "hit": 3000,
+  "n": 3000
+ },
+ "B3b final LN, zero bias": {
+  "hit": 2980,
+  "n": 3000
+ },
+ "B3b valA=1.0 + final LN": {
+  "hit": 2960,
   "n": 3000
  },
  "B4": {

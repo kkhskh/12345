@@ -1,22 +1,28 @@
 # Open research obligations (within Phase 1.5 Step 1)
 
-Ordered by priority. None of these is Step 2 or Phase 2 work.
+These are listed in priority order. None of them is Step 2 or Phase 2 work.
 
-1. **A preregistered confirmation of T-RF's empirical consequences.** Use a new task family and new seeds. Predict *in advance* that:
-   - learned models do not compute a causally used relation for candidate-directed reconciliation rules;
-   - they do compute one for candidate-symmetric rules.
+1. **Fresh adversarial review.** The mechanisms added after the review round need their own review, as §19 requires:
+   - T-MS (mediator sign test, S1–S3);
+   - T-RF′ (graded single cancellation);
+   - N2 (LN coupling);
+   - the corrected T-CO;
+   - the C2 three-family table.
+2. **A preregistered confirmation in a new task family with new seeds.** It should predict in advance:
+   - (a) no graded cross-source interaction under integration objectives;
+   - (b) exact relation-free solutions for fixed-prior deferral rules;
+   - (c) interaction for XNOR-type and "unpicked candidate" rules.
+3. **An on-manifold version of S2.** Find reachable input pairs that differ only in the sign pattern of the mediator. Alternatively, prove that none exist.
+4. **Localising the learned T1 and T4 interaction.** Possible tools:
+   - path patching with resample ablation;
+   - specificity controls (random same-size sets);
+   - criteria that detect odd interactions (for example `ab(a−b)`);
+   - subspace interchange at upstream sites.
 
-   The present B-add and additivity analyses were exploratory (post hoc), so they cannot serve as that confirmation.
-2. **Tasks where a candidate-directed rule is *not* threshold-representable.** For example, rules whose outcome depends on agreement **strength** at a fixed support pattern, such as "follow the sources only if both exceed a magnitude ratio". Determine whether a relation feature then becomes necessary, and whether learned models develop it.
-3. **Continuous T-RF.**
-   - Prove or refute that T4's additive sign-representability holds with continuous (not only grid) functions.
-   - Characterise exactly which continuous-evidence rules are additively representable outside dead bands.
-4. **Residual-basis gauge in learned models.** Retrain with LN bias disabled, or with bias-carrying Q/K/V maps, so that residual rotations can be conjugated through LN. Then test the invariance of probe directions as subspaces.
-5. **A unit criterion that implies use.** The preregistered `I_agree`/`D_sum` criterion flags unused units in T3. Develop a criterion that combines activation statistics with a *generator-only* interventional test, so that units are selected by use without touching the margin.
-6. **The K ≥ 3 learned mechanism.** TF2-AO reaches 0.991 on T5b despite T-B-IMP. Identify how two attention layers implement candidate-relative agreement. Candidates are multi-position softmax normalization and LN centring. Then test whether the result is a relation computation or the additive solution.
-7. **Redundancy-aware mediation.** Generalise the C3 redundancy result into a necessity test that ablates all copies. Use subspace interchange on the union of identified sites, and report *set*-necessity.
-8. **Reachability-aware matched contrasts for learned models.** Extend T-R and X4 to learned models by solving for input pairs that match the model's own relation-blind pathway. The candidate pathway is the model with its relation-unit population mean-ablated.
-9. **Transfer (§16).** Report and interpret the exploratory width, head and MLP-width transfer runs (`logs/transfer.txt`). Then extend to:
-   - different normalisation (no final LN; RMSNorm);
-   - additional bypass paths in learned models.
-10. **A fresh adversarial review** of any mechanism added after the current review round, as §19 requires.
+   The current unit criterion is non-specific and should be discarded.
+5. **Strength-dependent rules that are not threshold-representable.** Test whether learned models then develop a relation feature that passes T-MS.
+6. **T5b and TF2-AO.** Determine how two attention layers solve K = 3 deferral at 0.991, given that B-signs is exact at 1.000.
+7. **Continuous T-RF.** Give an exact continuous additive construction for T4. Characterise which continuous-evidence rules are additive outside dead bands.
+8. **Out-of-range behaviour.** The T2 null and the relation-free twin hold only on [−3, 3]². Study extrapolation.
+9. **An LN-aware definition of "relation-free".** N2 shows that architectural separation is insufficient. Develop function-class definitions and tests that are robust to normalization coupling.
+10. **Learned-model reachable matched contrasts**, following X4 and T-MS. These need a declared relation-blind pathway for the learned models.

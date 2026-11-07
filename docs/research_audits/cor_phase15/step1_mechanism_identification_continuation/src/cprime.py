@@ -77,7 +77,7 @@ def closed_form(a: float, b: float, p: P = P()) -> dict:
     w = {k: math.exp(s[k] - mx) for k in s}
     Z = sum(w.values())
     m = sum(w[k] * v[k] for k in s) / Z
-    F = sum(math.exp(s[k]) * v[k] for k in s)  # sign(F) = sign(m)
+    F = sum(w[k] * v[k] for k in s)  # = e^{-max s} * sum_j e^{s_j} v_j : same sign as m (post-review: shifted, no overflow)
     return dict(m=m, F=F, qR=qR, qhat=qhat, G=G, s=s, v=v, alpha={k: w[k] / Z for k in s}, x=x, y=y)
 
 
@@ -90,12 +90,22 @@ def forward_margin(a: float, b: float, p: P = P()) -> float:
 # ------------------------------------------------------------------ interval arithmetic
 
 
+PAD = 8e-16   # post-review (R1 F6): ~4 ulps relative padding per operation (single nextafter was insufficient)
+
+
 def _dn(x):
-    return np.nextafter(x, -np.inf)
+    x = float(x)
+    return np.nextafter(x - abs(x) * PAD, -np.inf)
 
 
 def _up(x):
-    return np.nextafter(x, np.inf)
+    x = float(x)
+    return np.nextafter(x + abs(x) * PAD, np.inf)
+
+
+def C_(v):
+    """an exactly-enclosed constant computed in floating point"""
+    return I(_dn(v), _up(v))
 
 
 class I:
@@ -159,7 +169,7 @@ def iheven(t: I) -> I:
         lo, hi = heven(t.hi), heven(t.lo)
     else:
         lo, hi = 0.0, max(heven(t.lo), heven(t.hi))
-    pad = 1e-15 * (1 + abs(hi))
+    pad = 4e-15 * (1 + abs(hi))
     return I(lo - pad, hi + pad)
 
 
@@ -167,13 +177,13 @@ def interval_m(a: I, b: I, p: P = P()) -> I:
     d, e = p.d, p.eps
     sig = lambda sq: (sq / d + e).sqrt()
     k2m2 = p.kappa ** 2 + p.mu ** 2
-    sP = math.sqrt((p.mu ** 2 + p.kappa ** 2) / d + e)
+    sP = (C_(p.mu ** 2 + p.kappa ** 2) / d + e).sqrt()
     sA = sig(a.sq() + k2m2)
     sB = sig(b.sq() + k2m2)
     # x = a / sA is monotone increasing in a (derivative k2m2/d+e > 0 over sA^3): use endpoint evaluation
     fx = lambda t: t / math.sqrt((t * t + k2m2) / d + e)
-    x = I(_dn(fx(a.lo)), _up(fx(a.hi)))
-    y = I(_dn(fx(b.lo)), _up(fx(b.hi)))
+    x = I(_dn(_dn(fx(a.lo))), _up(_up(fx(a.hi))))
+    y = I(_dn(_dn(fx(b.lo))), _up(_up(fx(b.hi))))
     A1 = a + 2 * x
     B1u = (4.0 / 3.0) * x
     B1v = b + (4.0 / 3.0) * y
@@ -186,9 +196,9 @@ def interval_m(a: I, b: I, p: P = P()) -> I:
     sA2 = sig(A1.sq() + k2m2)
     sB2 = sig(B1u.sq() + B1v.sq() + k2m2 + (p.lam1 * qB).sq())
     sR2 = sig(p.rho ** 2 + x.sq() + y.sq() + (p.lam1 * qR).sq())
-    G = (p.lam / math.sqrt(2.0)) * (p.lam1 * qR / sR2)
+    G = (C_(p.lam) / C_(2.0).sqrt()) * (p.lam1 * qR / sR2)
     sPs, sAs, sBs = -(G * (p.mu / sP)), G * p.mu / sA2, G * p.mu / sB2
-    vP = -p.prior_v * p.mu / sP
+    vP = -(p.prior_v * p.mu / sP)
     vA = p.wv * A1 / sA2
     vB = p.wv * (B1u + B1v) / sB2
     vR = p.wv * (x + y) / sR2

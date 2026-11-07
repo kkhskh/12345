@@ -132,3 +132,17 @@ None at the time of the preregistration commit (32121da). The following clarific
 ## 10. Compute budget
 
 The budget is CPU only (JAX 0.12, optax), at most about 2 CPU-hours for all training. Actual usage is recorded in `logs/learned_train.txt`.
+
+**Deviations declared after review (R4 F8).** These were not listed before the review and are recorded here as deviations:
+
+- **D5.** The step-4 statistic `I_agree` was implemented differently from the preregistered text. It uses:
+  - the R² gain of `[ab, sign(ab)]` over `[additive fit, sum bin-mean fit]`;
+  - the additive fit computed exactly as two-way ANOVA main effects on the product grid, instead of by backfitting.
+
+  The literal definition would classify `ab` itself as non-relational. The criterion has been reported as a failed procedure (`LEARNED_SYNTHETIC_MECHANISMS.md` §3).
+- **D6.** `learned_analysis.py` was edited during dev-seed analysis (last edit 20:36, while dev checkpoints existed). §8.2 permits developing analysis code on dev seeds. It was frozen at `c4bc553` before the held-out seeds were trained.
+- **D7.** Two kinds of run happened before the preregistered initialization fix (D4):
+  - a 300-step timing run (T1, seed 0, all three architectures) used the old initialization;
+  - after the fix, a full-length smoke test was run (T1 and T3, TF2, seed 0).
+
+  Neither run's checkpoints or results were used. The dev training run began about 4 minutes before the D1–D4 commit (git and file timestamps). Only losses and accuracies had been seen at that point.

@@ -22,8 +22,8 @@ Write `D = diag(g)` for the LN gain and `β` for the LN bias.
 |---|---|---|
 | P1 raw separable encoding | the pre-LN residual carries `x(a)` on e1 and `y(b)` on e2 | yes, by construction (block-1 LN is per position) |
 | P2 jointly normalized coordinates | `(u, v) = (x, y)/σ(x, y, w)` | yes; this is what the MLP reads |
-| P3 sign preservation | `sign u = sign x` and `sign v = sign y` | **yes** when `D = γI` and `β ⟂ e1, e2` |
-| P4 magnitude preservation | `u` is a function of `x` alone | **no**: `∂u/∂y = −xy/(dσ³) ≠ 0` |
+| P3 sign preservation | `sign u = sign x` and `sign v = sign y` | **yes** when `D = γI` with `γ > 0` and `β ⟂ e1, e2` |
+| P4 magnitude preservation | `u` is a function of `x` alone | **no**, generically: `∂u/∂y = −xy/(dσ³)`, which is nonzero whenever `xy ≠ 0` |
 | P5 ratio preservation | `u/v = x/y` exactly | **yes**: a common positive scale cancels (M1, to 1e−12) |
 
 **Normalization-created interaction.** Any reader of `(u, v)` that is not invariant to a common positive rescaling picks up dependence on `x² + y² + ‖w‖²`, and so on the relation between the sources. This happens even if the reader is a pure sum unit (§3).
@@ -78,7 +78,7 @@ Suppose the read directions are `e1' = e1 + t12 e2` and `e2' = e2 + t21 e1`.
 - With `ρ = v/u`, `sign(u'v') = sign(uv)·sign((1 + t12ρ)(1 + t21/ρ))`. So the original law holds exactly where `(1 + t12ρ)(1 + t21/ρ) > 0`.
 - For `0 < t12, t21` with `t12·t21 < 1`, agreement cells (`ρ > 0`) are always correct. A conflict cell is correct if and only if `|ρ| ∈ (t21, 1/t12)`. This is the **operating cone**: the law fails when the second source is too weak relative to the first (`|ρ| ≤ t21`) or too strong (`|ρ| ≥ 1/t12`).
 - For `t12, t21 < 0`, the roles of agreement and conflict are swapped.
-- For mixed signs, one cone on one side of the diagonal fails.
+- For mixed signs, there are **two** failure cones, one for each sign of ρ (post-review, R1 F10).
 
 **Check (M4).** Over 200 random `(t12, t21)` in [−0.6, 0.6]², with 100 fresh points each (seed 12):
 
@@ -104,10 +104,12 @@ The thresholds come from the perturbation, not from any outcome.
 
 `q > 0` if and only if `h(c|u+v|) > r·h(c|u−v|)`.
 
-- **ReLU:** `h` is homogeneous of degree 1, so the boundary is the scale-free cone `|u+v| > r|u−v|`. For agreement with `t = v/u > 0`, this is `t > (r−1)/(r+1)`. Because the boundary is homogeneous, **the LN scale σ is irrelevant**.
+- **ReLU:** `h` is homogeneous of degree 1, so the boundary is the scale-free cone `|u+v| > r|u−v|`. For agreement with `t = v/u > 0`, this is `(r−1)/(r+1) < t < (r+1)/(r−1)`.
+  - The upper bound was missing in the reviewed version and is added after review (R1 F4). At `r = 2`, `t = 3.1` gives `q < 0`.
+  - Because the boundary is homogeneous, **the LN scale σ is irrelevant**.
 - **GELU:** `h` is not homogeneous. `h ≈ Kt²` near 0 and `h ≈ |t|` far out, so the boundary moves from `(√r−1)/(√r+1)` at small scale to `(r−1)/(r+1)` at large scale. **The shared LN scale σ, and hence the distractor content `‖w‖` and the other source's magnitude, move the decision boundary.**
 
-**Check (M5)**, at `r = 2`:
+**Check (M5)**, at `r = 2`. The scan covers `t ≤ 1` only, so it checks the lower bound alone:
 
 | activation | t* at input scale 0.2 | t* at 1 | t* at 5 | analytic limits |
 |---|---|---|---|---|
@@ -130,6 +132,19 @@ The thresholds come from the perturbation, not from any outcome.
 
   These are different failure modes, and the cones say which one applies.
 
+## 5b. Proposition N2: shared LN is itself a cross-source operation (added after review, R1 F5)
+
+Suppose each source's magnitude carries its sign, for example `P(a) = 1.5 − 0.5·tanh(5a)` and `Q(b) = 2 − tanh(5b)`.
+
+- After shared LN, a **single** coordinate `X = P(a)/σ(P, Q)` takes four distinct values, one per sign pattern.
+- A ReLU bump reading only `X` then computes XNOR exactly: 100% on a 120 × 120 grid (`reviews/r1_scripts/xnor_ln.py`).
+
+So in a pre-norm Transformer, **"no unit reads two sources" does not imply "relation-free"**, because the normalization couples the sources. A relation-free claim must instead be stated at the level of the computed function, as in T-RF and T-RF′ (`CONDITIONAL_CAUSAL_THEOREMS.md`).
+
+## 5c. Parameterization caveat (R4 F11)
+
+The architectural-vs-semantic split in §5 depends on parameterization. For example, folding a non-scalar LN gain into `W1` turns a gain violation (N1) into a cross-talk violation (N3). The *derived law* is invariant to this choice; the *labels* are not.
+
 ## 6. Verification
 
 - M7: the read-token formula with `c = 1` matches the `cbmath.agreement_family` forward margin to `8.9e−16` on 300 fresh points.
@@ -142,5 +157,6 @@ The thresholds come from the perturbation, not from any outcome.
 | A1* sign law under shared LN2, assuming (N1)–(N4) | **PROVED**; 0/120,000 (M2) |
 | P5 ratio invariance | **PROVED**; exact to 1e−12 (M1) |
 | N1, normalization-created interaction in sum readers | **PROVED**; demonstrated (M3) |
-| cross-talk, gain and bias, and unequal-weight cones | **DERIVED**; 0 violations of the derived laws on fresh points (M4–M6) |
+| cross-talk, gain and bias, and unequal-weight cones | **DERIVED**; 0 violations of the derived laws on fresh points (M4–M6). The ReLU cone's upper bound and the second mixed-sign cone were added after review |
+| N2, shared LN couples the sources | **SHOWN** by a reviewer construction |
 | GELU boundary depends on LN scale; ReLU boundary does not | **PROVED**; matches analytic limits (M5) |

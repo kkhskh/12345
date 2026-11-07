@@ -5,3 +5,4 @@
 - Checkpoint 1: C′ regions + MLP normalization theorems + learned-model preregistration committed before any training.
 - Preregistration commit: 32121da (pushed).
 - Analysis code frozen + dev results: c4bc553. Held-out training started after this commit.
+- Review round: commit d1aa97d reviewed by 7 subagents; adjudication + corrections committed next.

@@ -24,7 +24,9 @@ Positions are A, B and R, with causal attention.
 - Key `= fB_k`-coordinates.
 - Value `= fB_k`-coordinates, written to `fU_k` with weight 1.5.
 
-**Score and value equations.** Let `z̃` denote the LN-scaled evidence coordinates, so `z̃_A = (wQ/3)·LN-scale·z_A`, and likewise for `z̃_B`. Then:
+**Score and value equations.** Let `z̃` denote the LN-scaled evidence coordinates: `z̃_A` is `wQ` times the LN scale times the head-averaged copy of `z_A`, and `z̃_B` is defined likewise. The "/3" factor in the reviewed version was wrong (R3).
+
+In layer 1, B also attends to A (weight about 0.5), so B's residual carries a copy of `z_A` on `fQ`/`fU`. Its layer-2 *value* reads only `fB`, so the value equations below are unaffected. Then:
 
 - `s_RB = λ⟨z̃_A, z̃_B⟩/√3`
 - `s_RA = s_RR = 0`, because those positions carry no `fB` content.
@@ -50,7 +52,11 @@ The queries and keys are nonzero, and the routing pattern varies with the input.
    - so do small balls around these points.
 4. Hence `H` and `C_0` differ on a set of positive measure. ∎
 
-**Corollary for attention.** A pre-norm head with zero LN bias has score `⟨W_Q LN(x_r), W_K LN(x_j)⟩`. Since `LN(x) = Px/σ(x)` and `σ > 0`, the sign of the score is the sign of a bilinear form in the linearly encoded evidence. So **no single attention score can switch sign exactly on candidate-relative agreement when K ≥ 3.** For K = 2 with `z = (t, −t)`, agreement is `sign(t_A t_B)`, which is bilinear, and the obstruction disappears.
+**Corollary for attention, scoped after review (R3 MAJOR-2).** A pre-norm head with zero LN bias, whose query and key encode the evidence **linearly**, has score `⟨W_Q LN(x_r), W_K LN(x_j)⟩`. Its sign is the sign of a bilinear form in the evidence. So such a score cannot switch sign exactly on candidate-relative agreement when K ≥ 3.
+
+- The measure argument: the result holds for every `z_B` in an open set, so Fubini applies.
+- **The corollary does not extend to features that pass through a per-source nonlinearity first.** One-hot(argmax) features with a single bilinear score detect agreement exactly (B1b: 1.000).
+- For K = 2, agreement is itself bilinear.
 
 **Quantitative check.** Trained on 20,000 draws (seed 42) and tested on 20,000 (seed 43):
 
@@ -83,16 +89,20 @@ Example pair: `z_A = (1, −3, 0.5)` and `z_B = (1, 0.5, −3)`. They agree on c
   - Let the logit difference for candidates `(k, j)` at R be `Δ = c + Σ_i α_i w_i`.
   - Here `w_i` is the gate head's value-output margin at position i, and c is everything else (bypass and direct votes).
   - Assume `w_i` and c do not depend on the gate's scores: no competing writer reads the gate's output, and there is no rereader.
-  - Assume no nonlinearity sits between the residual and the readout, except a final LN with zero bias and a mean-zero readout difference.
+  - Assume no nonlinearity sits between the residual and the readout. **No final LN is allowed.** The zero-bias final-LN clause of the reviewed version is withdrawn, because the LN scale depends on the routing state.
 - **Claim.** Suppose only `s_B` changes, from `s` to `s′`. Then `ΔΔ = (α′_B − α_B)·(w_B − w̄_{−B})`, where `w̄_{−B} = Σ_{i≠B} α_i w_i/(1 − α_B)`. The sign of the total margin consequence is therefore `sign(Δs_B)·sign(w_B − w̄_{−B})`.
 
 *Proof.*
 
 1. Under softmax, changing only `s_B` rescales the other weights proportionally: `α′_i = α_i(1 − α′_B)/(1 − α_B)` for `i ≠ B`.
 2. Substitute into `Σ_i α_i w_i` and subtract.
-3. The final LN with zero bias multiplies the logit difference by `1/σ > 0`, so the sign is unchanged. ∎
+∎
 
-**Check.** Against uniform-routing ablation on 3,000 draws, the predicted sign is correct on **3,000/3,000**.
+**Checks.**
+
+- Against uniform-routing ablation on 3,000 draws, the predicted sign is correct on **3,000/3,000**. This test is weak, because the values at A and R are zero.
+- Nontrivial check, with a nonzero value at A: 3,000/3,000.
+- **With a zero-bias final LN:** 2,980/3,000, and 2,960/3,000 with value at A. The counterexamples refute the reviewed clause (R1 F2, R3, R6).
 
 ## B4. Causal tests
 
@@ -144,25 +154,33 @@ See `CPRIME_CORRECTED_OPERATING_REGIONS.md`:
 - the continuity obstruction C′-CO;
 - the trade-off between λ and π.
 
-## C2. Mediation graph
+## C2. Mediation graph (corrected after review)
 
 The graph is: sources `(a, b)` → block-1 LN coordinates `(x, y)` at A, B and R → MLP1 relation feature (`q_R` at R and `q_B` at B) → block-2 query gain `G = λq̂/√2` → scores `s_j` → routing `α` → values `v_j` (which depend on the sources and on `q_B` through `σ_B2`) → margin.
 
-**Interventions.** The source change is `(a, b) → (a, −b)` on 200 random points (seed 51). The median total effect is −4.92.
+**Interventions.** 200 random points (seed 51), in three counterfactual families. The TE median is about −4.92 in each, and every base/counterfactual pair differs in decision.
 
-| site interchanged (from the conflict run into the agree run) | median share of TE | decision → counterfactual |
-|---|---|---|
-| `q_R` (MLP1 output at R) | **1.000** | 1.000 |
-| `q_B` (MLP1 output at B) | 0.000 | 0.000 |
-| `q_R + q_B` | 1.000 | 1.000 |
-| block-2 scores | 1.000 | 1.000 |
-| block-2 values | 0.018 | 0.000 |
+Each cell gives the median share of TE, then the fraction of decisions that move to the counterfactual.
+
+| site interchanged | b-flip `(a,b) → (a,−b)` | a-flip `(a,b) → (−a,b)` | asymmetric `(a,b) → (−0.5a, 1.7b)` |
+|---|---|---|---|
+| `q_R` (MLP1 output at R) | 1.000, 1.000 | 1.000, 1.000 | 1.000, 1.000 |
+| `q_B` (MLP1 output at B) | 0.000, 0.000 | 0.000, 0.000 | −0.010, 0.000 |
+| block-2 scores | 1.000, 1.000 | 1.000, 1.000 | 1.000, 1.000 |
+| block-2 values | 0.018, 0.000 | **0.909, 1.000** | **0.753, 1.000** |
+
+The reviewed version reported only the b-flip column. Its claim that the relation effect travels "entirely through the query route" is **withdrawn** (R2 MAJOR-3, R3).
+
+- **`q_R` is always sufficient** on its own.
+- **The value path alone is also sufficient** when A's evidence changes. At an agreeing base, routing concentrates on A (about 0.995), so A's value dominates.
+- The shares are not a decomposition: they sum to more than 1.
+- `q_B`'s exact 0 in the symmetric families is forced by the symmetry.
 
 **On or off the manifold.**
 
 *Proposition C2-OFF.* After block 1, R's e1 and e2 coordinates are exactly `(x, y)`, and its e3 coordinate is `λ1·q(x, y)`. The `q_R`-patched state has e3 coordinate `λ1·q(x′, y′)`. That is reachable only if `q(x′, y′) = q(x, y)`, which fails whenever the patch moves the state. So **the `q_R` interchange is off-manifold.*
 
-A grid search agrees:
+A grid search agrees. The grid is 61 × 61 over [−4, 4]²; the reviewed text said 241 × 241, which was wrong:
 
 | base point | distance from patched state to reachable states | resolution control |
 |---|---|---|
@@ -171,7 +189,11 @@ A grid search agrees:
 
 The **on-manifold** counterpart is the matched relation-blind pair (`MATCHED_RELATION_INTERVENTIONS.md` §4). There, two real inputs share an identical relation-blind margin and still reach opposite decisions.
 
-**Path-specific conclusion.** The relation effect travels entirely through the query route, by way of `q_R` and the scores. The value route through `q_B` carries nothing measurable.
+**Path-specific conclusion.** The *relation feature's* effect runs through the query route: `q_R` → scores. The relation's own value-side route, through `q_B`, carries at most 1%.
+
+The *source change* also acts directly through the values. That is the source's own content, not the relation.
+
+Whether `q_R` is a relation at all is settled by the mediator sign test (`MATCHED_RELATION_INTERVENTIONS.md` §4b), not by C2.
 
 ## C3. Composition
 
@@ -184,13 +206,13 @@ These results are on a 30 × 30 grid with `|a|, |b| ≥ 0.1`. The target rule is
 | bypass β = 6 | 1.000 | 0.978 | bypass starts to dominate conflict cells |
 | extra head reading the relation, reversed values, w = 0.5 | 0.998 | 1.000 | masked |
 | same, w = 1.5 | **0.002** | 1.000 | **reversed** in agreement |
-| downstream MLP γ = 1 (compressive) | 1.000 | 1.000 | monotone, preserves |
-| downstream MLP γ = 3 (non-monotone) | 0.680 | 0.440 | **reverses** large margins |
+| downstream MLP γ = 1 (reads LN(h); not a scalar map of m) | 1.000 | 1.000 | preserves |
+| downstream MLP γ = 3 | 0.680 | 0.440 | **reverses** large margins |
 | later rereading head w = 1 | 1.000 | 1.000 | |
 | later rereading head w = 4 | 1.000 | 0.844 | net-evidence vote overrides the prior |
-| redundant relation feature | 1.000 | 1.000 | function unchanged |
-| competing reversed relation feature 0.5 | 0.998 | 1.000 | weakened |
-| competing reversed relation feature 1.5 | 0.500 | 0.502 | **gate inverted**: agreement → prior |
+| "redundant" relation feature (gain split across e3 and sp) | 1.000 | 1.000 | **not** function-preserving: Δm up to 0.33 (R3) |
+| competing reversed relation feature 0.5 | 0.998 | 1.000 | equivalent to rescaling the gate gain to 6(1−0.5) (R3) |
+| competing reversed relation feature 1.5 | 0.500 | 0.502 | gain 6(1−1.5) < 0: **gate inverted** |
 | permuted source positions A ↔ B | identical decisions on 100% of cells | | C′'s decision is symmetric in the sources |
 
 **Redundancy breaks unique mediation.** With the relation stored in two copies, ablating either copy preserves 200/200 decisions. Ablating both preserves 167/200. The 33 changed decisions are those where uniform routing gives the other answer. A single-site necessity test would wrongly report "not used".

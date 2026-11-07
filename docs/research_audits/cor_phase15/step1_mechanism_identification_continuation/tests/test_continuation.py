@@ -143,3 +143,23 @@ def test_bilinear_impossibility_witness():
     # complement of the agreement cone is not convex: p, q outside C0, midpoint inside
     p, q = np.array([0, 1, -2.0]), np.array([0, -2, 1.0])
     assert p.argmax() != 0 and q.argmax() != 0 and ((p + q) / 2).argmax() == 0
+
+
+def test_mediator_sign_test_separates_relation_from_additive_gate():
+    from mediator_sign_test import additive_twin, gate_feature, C
+    T = additive_twin()
+    for m, want in ((C, True), (T, False)):
+        rel = gate_feature(m, 1, .7) > 0 and gate_feature(m, -1, -.7) > 0 and gate_feature(m, 1, -.7) < 0 and gate_feature(m, -1, .7) < 0
+        assert rel == want
+
+
+def test_same_G_opposite_margin_witness():
+    c1, c2 = closed_form(0.07, 0.07), closed_form(0.2202, 0.02296)
+    assert abs(c1["G"] - c2["G"]) < 1e-4 and c1["m"] < 0 < c2["m"]
+
+
+def test_min_has_no_dead_band():
+    rng = np.random.default_rng(14)
+    for a, b in rng.uniform(-3, 3, (5000, 2)):
+        t = (1 if a > 0 else -1) if a * b > 0 else -1
+        assert np.sign(min(a, b)) == t

@@ -44,7 +44,9 @@ All token embeddings are mean-zero in the 10-dimensional residual stream, and ev
 **The exact boundary is `{(a,b) : F(a,b) = 0}`** with F as above. It is an explicit, elementary, analytic function, so the boundary is that level set. E4 locates it by bracketing and bisection:
 
 - **Agreement (Q++).** There is one root per ray. The floor is `r*` = 0.235 at 5°, 0.159 at 15°, 0.128 at 30°, **0.122 at 45°**, 0.133 at 60°, 0.172 at 75° and 0.270 at 85°. m < 0 inside the floor and m > 0 outside it.
-- **Conflict, a > 0 > b.** For `a ≤ 0.5` there is no root in `b ∈ [−3, 0)`: the prior wins throughout. For `a = 1, 1.5, 2, 3` the root is `b* = −0.0036, −0.0076, −0.0114, −0.0180`, so the error band has relative width `|b*|/a ≈ 0.4–0.6%`.
+- **Conflict, a > 0 > b.** For `a ≤ 0.5` there is no root in `b ∈ [−3, 0)`: the prior wins throughout. For `a = 1, 1.5, 2, 3` the root is `b* = −0.0036, −0.0076, −0.0114, −0.0180`, so the error band has relative width `|b*|/a ≈ 0.4–0.6%` on `[0, 3]`.
+  - **Beyond 3 (post-review, E6b):** the band grows in absolute terms and saturates. `b*` is −0.026, −0.034, −0.037 and −0.039 at `a` = 5, 10, 20 and 50. So the "≈ 0.6% of the strong source" description holds only up to `a ≈ 3`.
+  - Uniqueness of the root along each ray and line is established numerically, not proved.
 - **Conflict, a < 0 < b.** The analogue has roots `a* = −0.0028, −0.0059, −0.0111` for `b = 1.5, 2, 3`, and none for `b ≤ 1`.
 - **Both negative (Q−−).** There is no boundary: m < 0 everywhere.
 
@@ -74,7 +76,7 @@ Proof:
 - the relation feature, through `G`;
 - the aggregate evidence magnitude, through the value mass.
 
-So the C′ decision is **not** a function of the relation alone.
+**The decision is not a function of `G` alone.** This needs a witness, because sufficient conditions alone do not imply it (post-review, R1 F8). The witness: `(0.07, 0.07)` and `(0.2202, 0.02296)` have the same routing gain, `G = 0.200124`, but margins −0.159 and +0.0008.
 
 **Validation on new points (E5, E8).**
 - On 20,000 fresh points (seed 202), the sufficient conditions have **0 soundness violations**. They decide 99.93% of the points where the target rule is correct, so they are nearly tight.
@@ -83,6 +85,13 @@ So the C′ decision is **not** a function of the relation alone.
 ## 4. Certified inner and outer approximations
 
 The certification is an interval-arithmetic implementation of F with outward rounding on every operation, combined with branch-and-bound down to box width `2e−3` (E3).
+
+**Post-review hardening (R1 F6).** The original single-ulp outward rounding did not enclose every endpoint. The fix:
+- relative padding of about 4 ulps on every operation;
+- enclosed constants;
+- doubled padding on the endpoint evaluation of `x(a)`.
+
+Every number in this section was reproduced unchanged with the hardened arithmetic.
 
 | region | certified correct (inner approx.) | certified WRONG | undecided |
 |---|---|---|---|
@@ -98,24 +107,36 @@ For each quadrant, the certified-correct boxes form an **inner approximation** o
 - τ = 0 (Q−−)
 - τ = 0.02 (Q+− and Q−+)
 
-It is also certified on the conflict region `{0.05·|strong| ≤ |weak| ≤ |strong|, |strong| ∈ [0.2, 3.05]}`.
+It is also certified on the conflict region `{0.05·|strong| ≤ |weak| ≤ |strong|, |strong| ∈ [0.2, 3.05]}`, in **both** conflict quadrants.
 
-## 5. Why the failures are unavoidable in kind (continuity obstruction)
+The original code's boxes left about 2.5% of this region uncovered, and the Q−+ quadrant was never run (R1 F7). The region is now covered by superset boxes and certified for both Q+− and Q−+ at ratios 0.05, 0.1, 0.2, 0.3 and 0.5.
 
-**Proposition C′-CO.** Let m be continuous on ℝ² (every Transformer margin with ε > 0 is). Let `T(a,b) = sign a` if `ab > 0`, and `T = −1` if `ab < 0`.
+The rectangles are claimed only on `[τ, 3]`: the conflict band grows beyond 3 (E6b).
+
+## 5. What continuity does and does not force (corrected after review)
+
+**Proposition C′-CO.** Let m be continuous on ℝ². Every Transformer margin with ε > 0 is. Let `T(a,b) = sign a` if `ab > 0`, and `T = −1` if `ab < 0`.
+
 1. If `m(a0, 0) ≠ 0` for some `a0 > 0`, then T fails on a set of positive measure in every neighbourhood of `(a0, 0)`. The same holds on the positive b-axis.
 2. If `m(0, 0) ≠ 0`, T fails on a positive-measure set in every neighbourhood of the origin.
 
-Proof:
+*Proof.*
 1. T is +1 just above the positive a-axis and −1 just below it.
 2. m has a constant sign on a small ball around `(a0, 0)`, so it disagrees with T on one of the two half-balls.
 3. Part 2 follows the same way. ∎
 
-So no continuous circuit, C′ or any other, can implement T on all of ℝ². The only way out is a margin that vanishes identically on the positive axes, i.e. a non-robust, zero-confidence decision there. The correct form of any such claim is therefore **"T holds outside a dead band around the positive axes and the origin, of certified width w."** C′'s bands are:
-- agreement floor ≈ 0.12 at the diagonal;
-- conflict band ≈ 0.6% of the strong source.
+**Correct consequence.** A continuous margin implements T everywhere off the axes **only if it vanishes on the positive axes and at the origin**. Example: `m = min(a, b)`, or `min(u, v)` on shared-LN coordinates. Such a margin gives zero confidence at the boundary but has **no dead band**: it implements T at every point with `ab ≠ 0` (R1, R5, R6; 0 errors in 10⁶ points).
 
-The historical claim was not merely numerically wrong: its form was impossible.
+**What this implies for C′.**
+- C′'s dead bands come from its design: `m(a, 0) ≠ 0` and `m(0, 0) = −0.658` are nonzero because of the prior term.
+- The historical unrestricted C′1 was **false for C′**. Its form was not impossible.
+- An earlier version of this section claimed "every relation-gated sign rule needs a dead band". **That claim was wrong and is withdrawn.**
+
+C′'s bands are:
+- an agreement floor of about 0.12 at the diagonal;
+- a conflict band of about 0.6% of the strong source on [0, 3].
+
+The trade-off below is a property of the prior-plus-gate design, not of all continuous circuits.
 
 ## 6. Failure mechanism and the parameter trade-off (E7, E8)
 
@@ -131,7 +152,7 @@ The historical claim was not merely numerically wrong: its form was impossible.
 - Raising the prior π shrinks the conflict band but raises the agreement floor. At λ = 6:
   - π = 0.25 gives floor 0.080 and root −0.034;
   - π = 2 gives floor 0.145 and root −0.001.
-- No finite parameter setting removes both bands, consistent with C′-CO.
+- No tested parameter setting removes both bands. This is a property of C′'s prior-plus-gate form. It is not forced by continuity alone; see §5.
 
 ## 7. Status
 
@@ -140,6 +161,6 @@ The historical claim was not merely numerically wrong: its form was impossible.
 | historical C′1 (unrestricted) | **FALSE** (positive-measure certified error sets, E3) |
 | C′1* sufficient conditions S+/S−/S−0 | **PROVED**; 0 violations on fresh points and fresh parameters |
 | exact boundary = `{F = 0}` with explicit F | **DERIVED**, verified against the forward pass to 1e−14 |
-| certified operating rectangles (τ = 0.09 / 0 / 0.02 / 0.02) | **CERTIFIED** (interval arithmetic) |
-| continuity obstruction C′-CO | **PROVED**; every relation-gated sign rule needs a dead band |
-| decision depends on relation **and** aggregate magnitude | **PROVED** from C′1* (G and value mass enter separately) |
+| certified operating rectangles (τ = 0.09 / 0 / 0.02 / 0.02, on [τ, 3]); ratio regions in both conflict quadrants | **CERTIFIED** (hardened interval arithmetic) |
+| continuity obstruction C′-CO | **PROVED** in its conditional form. The corollary "every gated rule needs a dead band" is **withdrawn** (counterexample: `min(a, b)`) |
+| decision depends on relation **and** aggregate magnitude | **SHOWN** by witness (equal G, opposite margins) |

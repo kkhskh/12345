@@ -40,7 +40,7 @@ def log(*a):
 
 
 def qk3(lam=3.0, L1=12.0, kappa=1.5, mu=3.0, rho=3.0, wQ=2.0, wU=0.3, kB=1.5, kC=0.0, reread=0.0,
-        final_ln=False, bias=0.0, qk_off=False, d=16, eps=1e-5):
+        final_ln=False, bias=0.0, qk_off=False, valA=0.0, d=16, eps=1e-5):
     Bs = cbmath.mean_zero_basis(d)
     fA, fB, fQ, fU = Bs[0:3], Bs[3:6], Bs[6:9], Bs[9:12]
     anS, anR, mkA = Bs[12], Bs[13], Bs[14]
@@ -60,7 +60,7 @@ def qk3(lam=3.0, L1=12.0, kappa=1.5, mu=3.0, rho=3.0, wQ=2.0, wU=0.3, kB=1.5, kC
     for k in range(3):
         WQ2[0, :, k] = (0.0 if qk_off else lam) * fQ[k]
         WK2[0, :, k] = fB[k]
-        WV2[0, :, k] = fB[k]
+        WV2[0, :, k] = fB[k] + (valA / kB) * fA[k]   # post-review: optional nonzero value at A (nontrivial B-TM test)
         WO2[0, k] = kB * fU[k]
         if kC:
             # competing head: uniform routing (no query), reads B's evidence, writes it with opposite sign
@@ -104,11 +104,14 @@ def main():
     lr = LogisticRegression(C=100.0, max_iter=5000).fit(feats(tr), ytr)
     mlp = MLPClassifier((64, 64), max_iter=600, random_state=0).fit(np.concatenate([tr.zA, tr.zB], 1), ytr)
     acc_bil = float(lr.score(feats(te), yte)); acc_mlp = float(mlp.score(np.concatenate([te.zA, te.zB], 1), yte))
-    # binary analogue: z = (t, -t), agreement = sign(tA tB) is bilinear-exact
-    tA, tB = np.random.default_rng(44).uniform(-3, 3, (2, 20000))
-    acc_bin = float(((tA * tB > 0) == (tA * tB > 0)).mean())
     log(f"B1 argmax-agreement classifiers (train seed 42, test seed 43): best bilinear+linear sign {acc_bil:.4f}; "
-        f"MLP(64,64) {acc_mlp:.4f}; base rate {max(yte.mean(), 1 - yte.mean()):.4f}. K=2 bilinear sign(tA tB) exact: {acc_bin}")
+        f"MLP(64,64) {acc_mlp:.4f}; base rate {max(yte.mean(), 1 - yte.mean()):.4f}. (K=2: sign(tA tB) is itself bilinear.)")
+    # post-review (R3 MAJOR-2): with a per-source nonlinearity before the score (one-hot of argmax), a single
+    # bilinear score detects agreement exactly; the impossibility needs linear encodings.
+    oh = lambda z: np.eye(3)[z.argmax(1)]
+    acc_oh = float((((oh(te.zA) * oh(te.zB)).sum(1) > 0.5) == yte).mean())
+    log(f"B1b single bilinear score on per-source one-hot(argmax) features: agreement accuracy {acc_oh:.4f}")
+    OUT["B1b_onehot_score"] = acc_oh
     OUT["B1"] = dict(bilinear=acc_bil, mlp=acc_mlp, base=float(max(yte.mean(), 1 - yte.mean())))
 
     # B2 routing vs relation
@@ -141,6 +144,23 @@ def main():
     log(f"B3 total-margin theorem (no rereader, no competing writer, no final LN): predicted sign of routing "
         f"effect on margin(k*, runner-up) correct {hit}/{tot}")
     OUT["B3"] = dict(hit=int(hit), n=int(tot))
+    # post-review: nontrivial test (nonzero value at A) and the final-LN case (R1 F2, R3 MAJOR-1, R6)
+    for tag, kw in (("valA=1.0 (nonzero value at A)", dict(valA=1.0)), ("final LN, zero bias", dict(final_ln=True)),
+                    ("valA=1.0 + final LN", dict(valA=1.0, final_ln=True))):
+        mm, ee = qk3(**kw); mmo, eeo = qk3(qk_off=True, **kw)
+        hit = tot = 0
+        for i in range(len(zA)):
+            k = int(zA[i].argmax()); j = int(np.argsort(zA[i])[-2])
+            t = run(mm, ee, zA[i], zB[i]); to = run(mmo, eeo, zA[i], zB[i])
+            dm = (t.logits[k] - t.logits[j]) - (to.logits[k] - to.logits[j])
+            al = t.pattern[1][0][2]; al0 = to.pattern[1][0][2]
+            w = np.array([t.VO[1][0][i_] @ (mm.WU[:, k] - mm.WU[:, j]) for i_ in range(3)])
+            wbar = (al[0] * w[0] + al[2] * w[2]) / max(1 - al[1], 1e-300)
+            pred = np.sign(al[1] - al0[1]) * np.sign(w[1] - wbar)
+            if abs(dm) > 1e-9:
+                tot += 1; hit += pred == np.sign(dm)
+        log(f"B3b B-TM with {tag}: predicted sign correct {hit}/{tot}")
+        OUT[f"B3b {tag}"] = dict(hit=int(hit), n=int(tot))
 
     # B4 causal tests on a fixed agree/disagree example pair
     za = np.array([2.0, 0.0, 0.0]); zb_ag = np.array([2.0, 0.0, 0.0]); zb_dis = np.array([0.0, 2.0, 0.0])

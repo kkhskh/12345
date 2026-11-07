@@ -97,40 +97,49 @@ def main():
     log("C2 mediation on C': agreement-changing source change (a,b) -> (a,-b), recomputed.")
     log("   Sites: MLP1 output at R (q_R; query route) and at B (q_B; LN-scale/value route); block-2 scores; values.")
     rng = np.random.default_rng(51)
-    rows = []
-    for a, b in rng.uniform(0.3, 3.0, (200, 2)):
-        base = cbmath.forward(BASE, EMB(a, b), R)
-        cf = cbmath.forward(BASE, EMB(a, -b), R)
-        mb, mc = cbmath.margin(base), cbmath.margin(cf)
-        def patch_mlp(pos_list):
-            val = base.mlp_out[0].copy()
-            for p in pos_list:
-                val[p] = cf.mlp_out[0][p]
-            return M(BASE, a, b, cbmath.replace_site(0, "mlp_out", val))
-        qR, qB, qRB = patch_mlp([3]), patch_mlp([2]), patch_mlp([2, 3])
-        sc = M(BASE, a, b, cbmath.replace_site(1, "scores0", cf.scores[1][0]))
-        vv = M(BASE, a, b, cbmath.replace_site(1, "V0", cf.V[1][0]))
-        rows.append((mb, mc, qR, qB, qRB, sc, vv))
-    r = np.array(rows)
-    TE = r[:, 1] - r[:, 0]
-    share = lambda col: float(np.median((r[:, col] - r[:, 0]) / TE))
-    flip = lambda col: float(np.mean(np.sign(r[:, col]) == np.sign(r[:, 1])))
-    res = {k: dict(median_share_of_TE=share(c), decision_matches_counterfactual=flip(c))
-           for k, c in [("q_R interchange (off-manifold)", 2), ("q_B interchange (off-manifold)", 3),
-                        ("q_R+q_B interchange (off-manifold)", 4), ("block-2 scores interchange", 5),
-                        ("block-2 values interchange", 6)]}
-    res["TE median"] = float(np.median(TE))
-    for k, v in res.items():
-        log(f"   {k}: {v}")
-    OUT["C2"] = res
+    PTS = rng.uniform(0.3, 3.0, (200, 2))
+    OUT["C2"] = {}
+    # post-review (R2 MAJOR-3, R3): the value share depends on which source is flipped, and q_B's zero share is
+    # forced by the symmetric b-flip; report three counterfactual families.
+    fams = {"b-flip (a,b)->(a,-b)": lambda a, b: (a, -b), "a-flip (a,b)->(-a,b)": lambda a, b: (-a, b),
+            "asymmetric (a,b)->(-0.5a, 1.7b)": lambda a, b: (-0.5 * a, 1.7 * b)}
+    for fam, T in fams.items():
+        rows = []
+        for a, b in PTS:
+            base = cbmath.forward(BASE, EMB(a, b), R)
+            cf = cbmath.forward(BASE, EMB(*T(a, b)), R)
+            mb, mc = cbmath.margin(base), cbmath.margin(cf)
+            def patch_mlp(pos_list):
+                val = base.mlp_out[0].copy()
+                for p in pos_list:
+                    val[p] = cf.mlp_out[0][p]
+                return M(BASE, a, b, cbmath.replace_site(0, "mlp_out", val))
+            qR, qB, qRB = patch_mlp([3]), patch_mlp([2]), patch_mlp([2, 3])
+            sc = M(BASE, a, b, cbmath.replace_site(1, "scores0", cf.scores[1][0]))
+            vv = M(BASE, a, b, cbmath.replace_site(1, "V0", cf.V[1][0]))
+            rows.append((mb, mc, qR, qB, qRB, sc, vv))
+        r = np.array(rows)
+        TE = r[:, 1] - r[:, 0]
+        ok = np.abs(TE) > 1e-6
+        share = lambda col: float(np.median(((r[:, col] - r[:, 0]) / np.where(ok, TE, np.nan))[ok]))
+        flip = lambda col: float(np.mean(np.sign(r[:, col]) == np.sign(r[:, 1])))
+        res = {k: dict(median_share_of_TE=share(c), decision_matches_counterfactual=flip(c))
+               for k, c in [("q_R interchange (off-manifold)", 2), ("q_B interchange (off-manifold)", 3),
+                            ("q_R+q_B interchange (off-manifold)", 4), ("block-2 scores interchange", 5),
+                            ("block-2 values interchange", 6)]}
+        res["TE median"] = float(np.median(TE))
+        res["P(base and cf decisions differ)"] = float(np.mean(np.sign(r[:, 0]) != np.sign(r[:, 1])))
+        log(f"   family {fam}:")
+        for k, v in res.items():
+            log(f"      {k}: {v}")
+        OUT["C2"][fam] = res
 
     # manifold check: is the q_R-patched block-1 output reachable by any input?
-    log("C2-manifold: min over inputs (a'',b'') on a 241x241 grid of || block-1 output(a'',b'') - patched state ||")
+    log("C2-manifold: min over inputs (a'',b'') on a 61x61 grid over [-4,4]^2 of || block-1 output(a'',b'') - patched state ||")
     gg = np.linspace(-4, 4, 241)
     outs = {}
     for (a, b) in [(1.0, 1.0), (2.0, 0.5)]:
         base = cbmath.forward(BASE, EMB(a, b), R); cf = cbmath.forward(BASE, EMB(a, -b), R)
-        target_state = base.resid_in[1].copy() if False else None
         H1 = base.mid[0] + base.mlp_out[0]
         patched = H1.copy(); patched[3] = base.mid[0][3] + cf.mlp_out[0][3]
         best = min(np.linalg.norm((lambda t: t.mid[0] + t.mlp_out[0])(cbmath.forward(BASE, EMB(x, y), R)) - patched)
@@ -173,7 +182,7 @@ def main():
     def ablate_dir(v):
         def hk(li, site, arr):
             if li == 0 and site == "mlp_out":
-                arr = arr.copy(); arr[3] = arr[3] - np.outer(arr[3] @ v, v)[0] if arr.ndim == 1 else arr[3]
+                arr = arr.copy()
                 arr[3] = arr[3] - (arr[3] @ v) * v
             return arr
         return hk
@@ -200,9 +209,9 @@ def main():
         mv = variant(bypass=beta)
         for a, b in rng.uniform(-3, 3, (300, 2)):
             tr = cbmath.forward(mv, EMB(a, b), R)
-            Z = cbmath.layernorm(tr.mid[0], mv.layers[1].g1, mv.layers[1].b1, mv.eps)
+            Z = cbmath.layernorm(tr.resid_in[1], mv.layers[1].g1, mv.layers[1].b1, mv.eps)   # post-review: block-2 input
             vproj = (Z @ mv.layers[1].WV[0] @ mv.layers[1].WO[0]) @ (mv.WU[:, 0] - mv.WU[:, 1])
-            m_bp = float((tr.mid[0][R] + tr.mlp_out[0][R]) @ (mv.WU[:, 0] - mv.WU[:, 1]))
+            m_bp = float(tr.resid_in[1][R] @ (mv.WU[:, 0] - mv.WU[:, 1]))
             if abs(m_bp) > np.max(np.abs(vproj)):
                 nchk += 1
                 viol += np.sign(cbmath.margin(tr)) != np.sign(m_bp)
@@ -212,7 +221,6 @@ def main():
     # the downstream MLP (gamma) gives phi(m) = m - gamma*sign(m)*relu(|m|/s - 0.5)*s', monotone iff gamma*slope < 1
     for gam in [0.5, 1.0, 3.0]:
         mv = variant(down_mlp=gam)
-        ms = np.linspace(-3, 3, 601)
         log(f"   (ii) downstream MLP gamma={gam}: rule agree/conflict = {grid_stats(mv)}")
     OUT["C4_downstream"] = {g_: grid_stats(variant(down_mlp=g_)) for g_ in [0.5, 1.0, 3.0]}
 

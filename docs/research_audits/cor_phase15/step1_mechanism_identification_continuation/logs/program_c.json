@@ -1,26 +1,77 @@
 {
  "C2": {
-  "q_R interchange (off-manifold)": {
-   "median_share_of_TE": 0.999999999999137,
-   "decision_matches_counterfactual": 1.0
+  "b-flip (a,b)->(a,-b)": {
+   "q_R interchange (off-manifold)": {
+    "median_share_of_TE": 0.999999999999137,
+    "decision_matches_counterfactual": 1.0
+   },
+   "q_B interchange (off-manifold)": {
+    "median_share_of_TE": 0.0,
+    "decision_matches_counterfactual": 0.0
+   },
+   "q_R+q_B interchange (off-manifold)": {
+    "median_share_of_TE": 0.999999999999137,
+    "decision_matches_counterfactual": 1.0
+   },
+   "block-2 scores interchange": {
+    "median_share_of_TE": 0.9999999999991371,
+    "decision_matches_counterfactual": 1.0
+   },
+   "block-2 values interchange": {
+    "median_share_of_TE": 0.01820853713847769,
+    "decision_matches_counterfactual": 0.0
+   },
+   "TE median": -4.91767897154984,
+   "P(base and cf decisions differ)": 1.0
   },
-  "q_B interchange (off-manifold)": {
-   "median_share_of_TE": 0.0,
-   "decision_matches_counterfactual": 0.0
+  "a-flip (a,b)->(-a,b)": {
+   "q_R interchange (off-manifold)": {
+    "median_share_of_TE": 0.9999999999991656,
+    "decision_matches_counterfactual": 1.0
+   },
+   "q_B interchange (off-manifold)": {
+    "median_share_of_TE": 0.0,
+    "decision_matches_counterfactual": 0.0
+   },
+   "q_R+q_B interchange (off-manifold)": {
+    "median_share_of_TE": 0.9999999999991656,
+    "decision_matches_counterfactual": 1.0
+   },
+   "block-2 scores interchange": {
+    "median_share_of_TE": 0.9999999999991656,
+    "decision_matches_counterfactual": 1.0
+   },
+   "block-2 values interchange": {
+    "median_share_of_TE": 0.9085504591462288,
+    "decision_matches_counterfactual": 1.0
+   },
+   "TE median": -4.917678971549816,
+   "P(base and cf decisions differ)": 1.0
   },
-  "q_R+q_B interchange (off-manifold)": {
-   "median_share_of_TE": 0.999999999999137,
-   "decision_matches_counterfactual": 1.0
-  },
-  "block-2 scores interchange": {
-   "median_share_of_TE": 0.9999999999991371,
-   "decision_matches_counterfactual": 1.0
-  },
-  "block-2 values interchange": {
-   "median_share_of_TE": 0.01820853713847769,
-   "decision_matches_counterfactual": 0.0
-  },
-  "TE median": -4.91767897154984
+  "asymmetric (a,b)->(-0.5a, 1.7b)": {
+   "q_R interchange (off-manifold)": {
+    "median_share_of_TE": 0.9999999999996306,
+    "decision_matches_counterfactual": 1.0
+   },
+   "q_B interchange (off-manifold)": {
+    "median_share_of_TE": -0.009776422914393217,
+    "decision_matches_counterfactual": 0.0
+   },
+   "q_R+q_B interchange (off-manifold)": {
+    "median_share_of_TE": 0.9999999999996306,
+    "decision_matches_counterfactual": 1.0
+   },
+   "block-2 scores interchange": {
+    "median_share_of_TE": 0.9999999999978735,
+    "decision_matches_counterfactual": 1.0
+   },
+   "block-2 values interchange": {
+    "median_share_of_TE": 0.7533826646935016,
+    "decision_matches_counterfactual": 1.0
+   },
+   "TE median": -4.917678969112247,
+   "P(base and cf decisions differ)": 1.0
+  }
  },
  "C2_manifold": {
   "1.0,1.0": {

@@ -26,6 +26,8 @@ For a base pair that agrees, we solve by bisection for a conflicting pair with e
 
 For A, with `d = 6` and `ρ = 3`, these are 1.549 and 2.619. A conflicting partner with aggregate `Ŝ` exists if and only if `|Ŝ| < Ŝ_conf_max`.
 
+These are suprema, approached as `|a| → ∞`. Within `|a| ≤ 3`, the largest conflict value is 1.376 (R1 F12).
+
 *Proof.*
 1. `x = a/σ_A` increases strictly toward `√d`.
 2. In conflict, `Ŝ = (x+y)/σ_R` with `y < 0`. Its supremum is approached as `x → √d` and `y → 0⁻`.
@@ -73,7 +75,27 @@ The aggregate here is the **relation-blind margin** `m_blind`: the same circuit 
 
 Strong agreement, e.g. (2, 2), has no conflicting partner with equal `m_blind`. This is the same reachability limit as in §2.
 
-**This is the strongest on-manifold relation result in the package.** Two real inputs reach identical relation-blind computations and opposite decisions. The only computational difference between them is the relation feature, which enters through the block-2 query.
+**What X4 shows, and what it does not (corrected after review: R2 FATAL-1, R5 H1).**
+
+- X4 shows that, on reachable inputs, **the block-1 MLP pathway is necessary for the decision difference**. Two real inputs with identical relation-blind margins reach opposite decisions.
+- X4 does **not** show that the pathway computes a *relation*:
+  - An additive-gate twin passes X4 identically. This twin has the same weights except a per-source AND gate in block 1: same blind pathway, same flips, same C2 shares, and 100% the same decisions.
+  - So does the fully relation-free twin. Its blind margin is constant, so every pair counts as matched.
+  - The two inputs also differ in more than the relation feature: their values differ too.
+- The reviewed claim "the only computational difference is the relation feature" is **withdrawn**.
+
+### 4b. The mediator sign test that does separate them (added after review)
+
+Code is in `src/mediator_sign_test.py`; the log is `logs/mediator_sign_test.txt`.
+
+| test | C′ | additive twin |
+|---|---|---|
+| S1: gate feature at R, signs (++, −−, +−, −+) at magnitudes (1, 0.7) | +2.99, +2.99, −2.99, −2.99 | +1.84, **−5.52**, −1.84, −1.84 |
+| S1: candidate-symmetric pattern on 500 random magnitude draws | 500/500 | 0/500 |
+| S2: interchange R's block-1 output from (−a, −b) into (a, −b) [off-manifold] | routes to sources 1.000 | routes to prior 1.000 |
+| S3: graded single cancellation (T-RF′), order reversals out of 435 row pairs | 357 | 0 |
+
+S1 and S2 identify the gate feature as a candidate-symmetric relation (D1). S3 is the behavioural (graded) signature of a cross-source interaction. **X4, S1 and S2 together** make the engineered identification chain complete.
 
 ## 5. B: matched uniform-routing margin (X6)
 
@@ -84,7 +106,7 @@ Strong agreement, e.g. (2, 2), has no conflicting partner with equal `m_blind`. 
 | mechanism | input association | controlled source intervention | mediation | necessity | sufficiency |
 |---|---|---|---|---|---|
 | A (designed) | yes | yes (recomputed I-flip: 0% sign kept) | the reader is the only path; `q` mediates 100% by construction (no bypass, X5 holds) | yes: removing the agreement units leaves only the sum statistic, so matched pairs are identical | yes, off-manifold (q is a function of `(u, v)`) |
-| C′ | yes | yes (TE median −4.92 for `(a,b) → (a,−b)`) | q_R interchange carries a median **100%** of TE, q_B 0%, block-2 scores 100%, values 1.8% (`PROGRAM_C`, C2). This is **off-manifold**: q_R is a deterministic function of R's e1/e2 coordinates, so the patched state is unreachable (proof in `DYNAMIC_ATTENTION_AND_DEEP_MECHANISMS.md` §C2; grid distance 5.49 vs a 0.35 resolution control) | yes: with block 1's MLP ablated, routing is uniform and the decision flips on matched pairs | yes, off-manifold |
-| C′, on-manifold | — | — | **matched relation-blind pairs (X4) give an on-manifold contrast**: no off-manifold state is used | — | — |
+| C′ | yes | yes (TE median −4.92) | The q_R interchange alone reproduces a median **100%** of TE in all three counterfactual families. The value interchange alone reproduces 1.8% (b-flip), **90.9% (a-flip)** and 75.3% (asymmetric). q_B carries 0 to −1%. The shares are **not additive**: each patch alone can be sufficient. This is **off-manifold** (C2-OFF). | the block-1 pathway is necessary (X4) | yes, off-manifold; relation identity by S1/S2 |
+| C′, on-manifold | — | — | matched relation-blind pairs (X4) are on-manifold, but show only that the pathway is necessary | — | — |
 | B | yes | yes | K-only and V-only patches separate the routes (Program B, B4) | routing ablation removes the agreement-dependent magnitude | yes |
-| redundant C′ variant | yes | yes | **not unique**: ablating either copy alone preserves 200/200 decisions | per-copy necessity fails | — |
+| gain-redistributed C′ variant | yes | yes | **not unique**: ablating either copy alone preserves 200/200 decisions. The variant is not exactly function-preserving (Δm ≤ 0.33, R3) | per-copy necessity fails | — |

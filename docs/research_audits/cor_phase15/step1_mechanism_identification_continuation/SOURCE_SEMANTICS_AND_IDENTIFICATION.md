@@ -60,6 +60,11 @@ All semantic variables are defined by the data-generating process. **No variable
 | accuracy of the centred dot product (what an LN-centred encoder yields) | 0.819 |
 | accuracy of the candidate-relative margin agreement `min_s(z_s[k*] − max_{j≠k*} z_s[j]) > 0` | 1.000 (exact by construction) |
 
+**Post-review note (R4 F10).**
+- K = 3 agreement is defined on the *noisy observations* `z_s`. It differs from agreement of the latent per-source candidates `Y_s` on 34% of draws.
+- `μ_s` and `Y_s` are generated but not returned by `sample_k`.
+- The 1.000 row for candidate-relative margin agreement holds by definition.
+
 Explicit example: `z_A = (1, −3, 0)` and `z_B = (1, 0, −3)` agree on candidate 0. Their dot product is +1, but the centred dot product is −0.333.
 
 **Verdict on the definitions.**
@@ -87,6 +92,16 @@ The procedure is preregistered in `PREREGISTRATION_LEARNED_MODELS.md` §7 and im
 7. **Relation-blind surrogate.** Each identified unit is replaced by its bin-mean as a function of `a + b`.
 
 **Where the readout is used.** Step 6 uses the readout weights `ΔW_U` and the final-LN gain. They are inspectable frozen parameters, not the evaluated margin. This is recorded as a dependence: unit *direction* is identified relative to the readout; unit *selection* is not.
+
+**Post-review status.** Steps 3–5 failed in practice:
+- Final-site interchange measures readout alignment.
+- The unit criterion is non-specific, and it misses odd interactions.
+
+The defensible identification tools are:
+- the graded single-cancellation test (T-RF′), which detects the *existence* of a cross-source interaction behaviourally;
+- in engineered circuits, the mediator sign test (T-MS).
+
+See `LEARNED_SYNTHETIC_MECHANISMS.md` §3–§5.
 
 **Fixed-checkpoint observability vs function-level uniqueness.** The procedure identifies units at a fixed checkpoint. `REPARAMETERIZATION_AND_BASELINES.md` tests which outputs survive gauge transformations. Unit indices do not survive permutation, and unit counts do not survive splitting. The probe R² and interchange effects in the residual stream are invariant under all applied gauges.
 

@@ -181,22 +181,36 @@ def main():
                 best = round(float(tau), 2); break
         log(f"   {name}: rule CERTIFIED on |a|,|b| in [tau,3] for tau = {best}")
         OUT["E6"][name] = best
-    # conflict ratio region: |weak| >= r |strong| in Q+-, strong in [0.2,3]
+    # conflict ratio region (post-review R1 F7: covering boxes, both conflict quadrants)
+    # region: strong s in [0.2, 3.05], weak w with r*s <= |w| <= s, opposite signs.
+    # cover by boxes over strong-cells [s_i, s_{i+1}]: weak range [r*s_i, s_{i+1}] (a superset).
+    edges = np.linspace(0.2, 3.05, 115)
     for r in [0.05, 0.1, 0.2, 0.3, 0.5]:
         ok = True
-        for a in np.linspace(0.2, 3.0, 57):
-            for sign_case in [0, 1]:
-                # weak b: |b| in [r a, a];   weak a: a in [r|b|,|b|]
-                if sign_case == 0:
-                    pos, neg, und = certify((a, a + 0.05, -a, -r * a), min_w=5e-3, max_boxes=20000)
-                else:
-                    pos, neg, und = certify((r * a, a, -a - 0.05, -a), min_w=5e-3, max_boxes=20000)
-                if pos or und:
-                    ok = False; break
-            if not ok:
-                break
-        log(f"   Q+- conflict with |weak|/|strong| >= {r} and strong in [0.2,3.05]: certified m<0: {ok}")
-        OUT["E6"][f"Q+-_ratio_{r}"] = ok
+        for quad in ["Q+-", "Q-+"]:
+            for s0, s1 in zip(edges[:-1], edges[1:]):
+                for weak_is_b in (True, False):
+                    if quad == "Q+-":   # a > 0 > b
+                        box = (s0, s1, -s1, -r * s0) if weak_is_b else (r * s0, s1, -s1, -s0)
+                    else:               # a < 0 < b
+                        box = (-s1, -s0, r * s0, s1) if weak_is_b else (-s1, -r * s0, s0, s1)
+                    pos, neg, und = certify(box, min_w=2e-3, max_boxes=200000)
+                    if pos or und:
+                        ok = False; break
+                if not ok:
+                    break
+            log(f"   {quad} conflict with |weak|/|strong| >= {r}, strong in [0.2,3.05] (covering boxes): certified m<0: {ok}")
+            OUT["E6"][f"{quad}_ratio_{r}"] = ok
+
+    # beyond the certified range (post-review R6): conflict band at large strong source
+    log("E6b conflict root b* for strong a beyond 3 (rectangles are claimed only on [tau,3])")
+    OUT["E6b"] = {}
+    for a in [3.0, 5.0, 10.0, 20.0, 50.0]:
+        f = lambda b: closed_form(a, b)["m"]
+        grid = np.linspace(-0.5, -1e-7, 4000); vals = [f(b) for b in grid]
+        roots = [float(grid[i]) for i in range(len(grid) - 1) if (vals[i] > 0) != (vals[i + 1] > 0)]
+        OUT["E6b"][a] = roots
+        log(f"   a={a}: b* = {[round(x, 4) for x in roots]}")
 
     # E7 failure mechanism
     log("E7 failure mechanism: routing gain G, prior term, evidence value mass")

@@ -1,0 +1,6 @@
+{
+ "grid_same": 1.0,
+ "random_points_outside_dead_bands_same": 1.0,
+ "n": 19577,
+ "any_unit_reads_both_sources": false
+}

@@ -1,0 +1,17 @@
+{
+ "T1 p=0 n=12": false,
+ "T1 p=0 n=24": false,
+ "T1 p=0 n=48": false,
+ "T2 p=0 n=12": true,
+ "T2 p=0 n=24": true,
+ "T2 p=0 n=48": true,
+ "T3 p=1 n=12": true,
+ "T3 p=1 n=24": true,
+ "T3 p=1 n=48": true,
+ "T3 p=-1 n=12": true,
+ "T3 p=-1 n=24": true,
+ "T3 p=-1 n=48": true,
+ "T4 p=0 n=12": true,
+ "T4 p=0 n=24": true,
+ "T4 p=0 n=48": true
+}

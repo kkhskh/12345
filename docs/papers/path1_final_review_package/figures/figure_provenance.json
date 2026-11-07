@@ -1,0 +1,79 @@
+{
+  "environment": {
+    "matplotlib": "3.8.4",
+    "numpy": "1.26.4",
+    "python": "3.9.13"
+  },
+  "figures": {
+    "fig1_probe_geometry": {
+      "inputs": {},
+      "outputs": [
+        "figures/fig1_probe_geometry.pdf",
+        "figures/fig1_probe_geometry.png"
+      ],
+      "script": "scripts/reproduce_figures.py",
+      "outputs_sha256": {
+        "figures/fig1_probe_geometry.pdf": "9033e95d856611707abed27d77ac5a82e639abf5cf85a9d1f1711f507907b73e",
+        "figures/fig1_probe_geometry.png": "d5cc7baacfca0d5adfa8952a499cdee444f1cdbd7ec0ec36d83532855c2e8711"
+      }
+    },
+    "fig2_probe_and_output_by_category": {
+      "inputs": {
+        "analysis/fixed_js_pairs.csv": "c64c9f3e44274c592b222dd15451ba68018d4761473136a798cf08053422f27b"
+      },
+      "outputs": [
+        "figures/fig2_probe_and_output_by_category.pdf",
+        "figures/fig2_probe_and_output_by_category.png"
+      ],
+      "script": "scripts/reproduce_figures.py",
+      "outputs_sha256": {
+        "figures/fig2_probe_and_output_by_category.pdf": "3e9ba6a092dfc00d2d6c4ed52c781ddb288edaf7f10505f39ef6d9030e234384",
+        "figures/fig2_probe_and_output_by_category.png": "5c3b4a7f5ec9c9dda8f23691b89879f4d02e6a2bf2d6e84ba780cee6dfed6b5c"
+      }
+    },
+    "fig3_fixed_js_contrasts": {
+      "inputs": {
+        "analysis/fixed_js_pairs.csv": "c64c9f3e44274c592b222dd15451ba68018d4761473136a798cf08053422f27b",
+        "tables/table3_recomputed_contrasts.csv": "80360c55c0639af709cb169abb1c6a56ea8003abc6093ddb30c740b8bfc9bb49"
+      },
+      "outputs": [
+        "figures/fig3_fixed_js_contrasts.pdf",
+        "figures/fig3_fixed_js_contrasts.png"
+      ],
+      "script": "scripts/reproduce_figures.py",
+      "outputs_sha256": {
+        "figures/fig3_fixed_js_contrasts.pdf": "5e8634a5b54b0dc6e9da9083078859a0655d7d2012c7a6e06b367d24f707b1ca",
+        "figures/fig3_fixed_js_contrasts.png": "320089fa637fd46363a0ab425c9644d78e498c648419147d0b30789b223fddf7"
+      }
+    },
+    "fig4_nst_transfer": {
+      "inputs": {
+        "analysis/nst_pairs.csv": "f396e81a4beb8cbe95ddbdf6250ee7f9dc4ad011e825649f8043eb2d0f2678da",
+        "tables/table3_recomputed_contrasts.csv": "80360c55c0639af709cb169abb1c6a56ea8003abc6093ddb30c740b8bfc9bb49"
+      },
+      "outputs": [
+        "figures/fig4_nst_transfer.pdf",
+        "figures/fig4_nst_transfer.png"
+      ],
+      "script": "scripts/reproduce_figures.py",
+      "outputs_sha256": {
+        "figures/fig4_nst_transfer.pdf": "cb11aa65be313cd099c5c6903b0d8728c24fe6ded86c6557793ab9d4990c34f7",
+        "figures/fig4_nst_transfer.png": "16b6fc5559a09bfb548f8d77cd61f0e66b69e0f6d21fa111957b1eb9c6956385"
+      }
+    },
+    "fig5_completeness_tests": {
+      "inputs": {
+        "analysis/results.json": "635e8cbb687ed1f7f53000d16b27671423688182e97e64ba2a4801c9ec0cf2ee"
+      },
+      "outputs": [
+        "figures/fig5_completeness_tests.pdf",
+        "figures/fig5_completeness_tests.png"
+      ],
+      "script": "scripts/reproduce_figures.py",
+      "outputs_sha256": {
+        "figures/fig5_completeness_tests.pdf": "d91a660594c927e8948192c61c0ae04a8a1d0ddd49d7b3ecda7cc8fe4c59fd08",
+        "figures/fig5_completeness_tests.png": "b03eb53b70c2c9b6b68c6cb43fccd8821cd626fb87d1c9fe02d815f921c36f59"
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "audit": "cor_phase15_step1_causal_bridge",
+  "git_head": "f95d134fee8bfd870561e21bc57ada18c46248be",
+  "verdict": "PHASE15_STEP1_ONLY_GENERIC_BOUNDS_SURVIVE",
+  "phase_2": "NO GO",
+  "obstruction_ready": "NO",
+  "preserved_phase1_verdict": "COR_PHASE1_CONDITIONAL_THEORY_REPAIR_REQUIRED",
+  "transformer_runs": 0,
+  "synthetic_tests": "tests/test_causal_bridge_math.py",
+  "note": "Manifest lists audit files plus the synthetic test. It does not include its own bytes.",
+  "files": [
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/01_authoritative_source_register.md",
+      "sha256": "c985b5464d3b2fa82bbd726ed0b72181b5100cc920d07fd607b0caeaa39056bb",
+      "bytes": 6463
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/02_unrestricted_causal_bridge_impossibility.md",
+      "sha256": "6731be9b6dc34ffb30af32cad43c0727fa7984b8680bb0358a82ca8cb8245479",
+      "bytes": 5070
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/03_exact_vs_approximate_computation.md",
+      "sha256": "32cd4f5ab37659cad35d2a618d60287647e87e33f63767f0f30b3b2ed339dc4f",
+      "bytes": 6502
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/04_intervention_semantics_and_outcomes.md",
+      "sha256": "9cb2e4d66c67455150d30ebadbe53149313cb1483e3f03f716c230f30e9e0709",
+      "bytes": 3588
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/05_competing_bridge_families.md",
+      "sha256": "0ac0af8ac629eb9e4aab2f6689a453b05e63dc1571102e3d32c390f46b32877c",
+      "bytes": 18181
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/06_bridge_equivalence_and_separation.md",
+      "sha256": "778406831bc4ff0b81037280303de8d0f1e6beae96026e9dede4e98e6b412b14",
+      "bytes": 3302
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/07_identifiability_and_leakage.md",
+      "sha256": "2dfe5440bd853339c474acede581b9372af4121ad5e8993bae6d6e5af003d83e",
+      "bytes": 5947
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/08_representation_and_metric_invariance.md",
+      "sha256": "ff6ac043e64ba9412371a4d5bb56c53076b6275e9727784bce9479ac60fc9106",
+      "bytes": 3636
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/09_response_direction_and_obstruction.md",
+      "sha256": "b7a9907c61b9a8340c8281d4eddf8f1620ab520b536f46611c49efaac5c5a49b",
+      "bytes": 4584
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/10_counterexample_catalog.md",
+      "sha256": "314c25fa0605d735fa43f25ca83e257602ed36b101094d4bde360538bed881bc",
+      "bytes": 9629
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/11_related_theory_and_novelty.md",
+      "sha256": "d4c4dc53b9d0f113efc3cb2bff20fb54a1512494eb9ef1ad960d2b41849dc6da",
+      "bytes": 5752
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/12_baseline_equivalence_analysis.md",
+      "sha256": "e7d2ef62bec34988df15d1edde32dc0f1cae0e6b7f393974e4e1dfd0b80f14a0",
+      "bytes": 4017
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/13_theorem_and_proof_obligations.csv",
+      "sha256": "22eb750930b9fb9f0f021abeb7a7b906408a42c4af06019416aa070acd4e0a36",
+      "bytes": 3898
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/14_review_cross_examination.md",
+      "sha256": "3150830f79ac926b7a7e9e5cca77ecf7da12ba1a5525e498ed9e40ea6d347d2c",
+      "bytes": 4316
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/15_causal_dependency_structure.md",
+      "sha256": "eaa287e095feaf40434453ab1a88f07471c864ad5fe9af487c374493a525fb4c",
+      "bytes": 2432
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/16_surviving_prediction_candidates.md",
+      "sha256": "45b7ff236b5613b4a59984b4dce7397650428a7c697c8d96e5fe8e86cf548dbc",
+      "bytes": 1037
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/17_stop_go_gate_matrix.md",
+      "sha256": "bde4dd5ae0a293f1655214ed208304866f6465b744842a8147a1b8bcaf0edc0d",
+      "bytes": 3304
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/18_final_causal_bridge_verdict.md",
+      "sha256": "f1efbe5c1e0d8bc99e36344cde55accee24123950af898036dc0984bafeb0773",
+      "bytes": 11203
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/README.md",
+      "sha256": "cdbdc0873dcb32d840d65c895dc8d211171aa1d53aba7b211666ff23cececbc2",
+      "bytes": 2327
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/reviews/adversarial_mathematics.md",
+      "sha256": "06df094d92ad73474d8288622ee0c7f8db81868558dab25c74fa5dd91714c23c",
+      "bytes": 2025
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/reviews/causal_inference.md",
+      "sha256": "49fac333d459c116bbb6b7aac1a5db33a6e00ac2f82b19e9b967594403b38db1",
+      "bytes": 2599
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/reviews/functional_analysis.md",
+      "sha256": "10a36e1882172d6fd6d8d4d3a9ecda0b750a81ed178d7e91e455e675d6a20d74",
+      "bytes": 2519
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/reviews/mechanistic_interpretability.md",
+      "sha256": "d276c37a0b6da6a4286c09d118137d5bf97812643b8f0851687dd1456980b1bb",
+      "bytes": 2331
+    },
+    {
+      "path": "docs/research_audits/cor_phase15/step1_causal_bridge/reviews/novelty.md",
+      "sha256": "ca7befe34648f8b21617afa62c0dbfb32bd490bb422f58cc926e682127a0b5e8",
+      "bytes": 1638
+    },
+    {
+      "path": "tests/test_causal_bridge_math.py",
+      "sha256": "97a2fe3cc759ad095d02e7c2d6c4bf4d9cb7a35648772a15c15d5dbf599d6cbf",
+      "bytes": 13894
+    }
+  ]
+}

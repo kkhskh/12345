@@ -1,0 +1,2 @@
+manifest ok: 33 files
+EXIT:0

@@ -1,0 +1,22 @@
+{
+  "n_rows": 11997,
+  "n_games": 2000,
+  "best": {
+    "k": 64,
+    "alpha": 10.0,
+    "cv_r2": 0.32646021422016747,
+    "n_scores": 5
+  },
+  "train_r2": 0.3416926062173662,
+  "heldout_unused_val_residual": {
+    "n_rows": 408,
+    "n_games": 68,
+    "r2": 0.3046696513842041
+  },
+  "explained_variance_ratio": 0.5456408335197582,
+  "reconstructed_rank": 64,
+  "nullspace_dim": 388,
+  "probe_rank": 124,
+  "uses_donor_activation": 0,
+  "site": "blocks.6.hook_resid_mid"
+}

@@ -1,0 +1,3 @@
+08R2-VISIBLE-NULL-FACTORIAL STAGE 3
+  alpha=10 rank_search=0 holdout_r2=0.9405 train_r2=0.9426
+  holdout_logp_nat=-0.0006987612389248727 rhat=-0.00018606655944412438 improves=1 frac=0.9609375

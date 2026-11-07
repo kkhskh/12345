@@ -1,0 +1,18 @@
+{
+  "stage": "PHASE_1.5_STEP_1B",
+  "hypotheses": [
+    {"id": "H-BLIND", "status": "PROVED", "role": "necessary_condition"},
+    {"id": "H-SUF", "status": "REDUNDANT_WITH_EXISTING_THEORY", "lemma": "N2"},
+    {"id": "H-COORD", "status": "REDUNDANT_WITH_EXISTING_THEORY"},
+    {"id": "H-CORR", "status": "EMPIRICALLY_UNTESTED"},
+    {"id": "H-MULTI", "status": "PROVED_UNDER_RESTRICTED_ASSUMPTIONS"},
+    {"id": "H-STAB", "status": "REDUNDANT_WITH_EXISTING_THEORY"},
+    {"id": "H-COMPOSE", "status": "REDUNDANT_WITH_EXISTING_THEORY", "toy": "PROVED"},
+    {"id": "H-EVID", "status": "UNIDENTIFIED"},
+    {"id": "H-BOTT", "status": "UNIDENTIFIED"},
+    {"id": "H-ABS", "status": "REDUNDANT_WITH_EXISTING_THEORY"},
+    {"id": "H-INV", "status": "PROVED_UNDER_RESTRICTED_ASSUMPTIONS"},
+    {"id": "H-REP", "status": "OUTSIDE_SCOPE", "note": "Direction 1 independent"},
+    {"id": "H-OD", "status": "DISPROVED", "scope": "unrestricted implication to L"}
+  ]
+}

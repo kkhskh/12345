@@ -1,0 +1,881 @@
+wrote 6 tables and audits/recomputation_report.md
+PASS analysis/results.json equals in-memory recomputation from data/raw
+PASS analysis/fiber_pairs.csv equals recomputation
+PASS analysis/fixed_js_interventions.csv equals recomputation
+PASS analysis/fixed_js_pairs.csv equals recomputation
+PASS analysis/nst_pairs.csv equals recomputation
+PASS analysis/spec_pairs.csv equals recomputation
+PASS tables regenerate
+PASS tables/table1_study_overview.csv is reproducible
+PASS tables/table2_fixed_js_by_category.csv is reproducible
+PASS tables/table3_recomputed_contrasts.csv is reproducible
+PASS tables/table4_archival_values.csv is reproducible
+PASS tables/table5_stage_share.csv is reproducible
+PASS tables/table6_integrity_checks.csv is reproducible
+PASS tables/ has no unreproducible files
+PASS audits/recomputation_report.md is reproducible
+PASS manuscript has exactly two pipe tables
+PASS manuscript table matches tables/table1_study_overview.csv
+PASS manuscript table matches tables/table2_fixed_js_by_category.csv
+PASS claim ledger is not empty
+PASS ledger gen01: token inside context
+PASS ledger gen01: 64 (RECOMPUTED)
+PASS ledger gen02: token inside context
+PASS ledger gen02: 3 (RECOMPUTED)
+PASS ledger gen03: token inside context
+PASS ledger gen03: 64 (RECOMPUTED)
+PASS ledger gen04: token inside context
+PASS ledger gen04: JS calibration target
+PASS ledger gen05: token inside context
+PASS ledger gen05: nominal interval level
+PASS ledger gen06: token inside context
+PASS ledger gen06: context-only rows are labeled CONTEXT
+PASS ledger gen07: token inside context
+PASS ledger gen07: context-only rows are labeled CONTEXT
+PASS ledger gen08: token inside context
+PASS ledger gen08: 2.2\times10^{-14} (RECOMPUTED)
+PASS ledger gen09: token inside context
+PASS ledger gen09: 13 (ARCHIVAL)
+PASS ledger gen10: token inside context
+PASS ledger gen10: 32 (ARCHIVAL)
+PASS ledger gen11: token inside context
+PASS ledger gen11: 60% gate
+PASS ledger gen12: token inside context
+PASS ledger gen12: 48 (RECOMPUTED)
+PASS ledger abs01: token inside context
+PASS ledger abs01: 48 (RECOMPUTED)
+PASS ledger abs02: token inside context
+PASS ledger abs02: Jensen–Shannon divergence (0.01)
+PASS ledger abs03: token inside context
+PASS ledger abs03: 48 (RECOMPUTED)
+PASS ledger abs04: token inside context
+PASS ledger abs04: 47 (RECOMPUTED)
+PASS ledger abs05: token inside context
+PASS ledger abs05: 48 (RECOMPUTED)
+PASS ledger abs06: token inside context
+PASS ledger abs06: 56% (DERIVED)
+PASS ledger set01: token inside context
+PASS ledger set01: 512 (RECOMPUTED)
+PASS ledger set02: token inside context
+PASS ledger set02: 64 (RECOMPUTED)
+PASS ledger set03: token inside context
+PASS ledger set03: 512 (RECOMPUTED)
+PASS ledger set04: token inside context
+PASS ledger set04: context-only rows are labeled CONTEXT
+PASS ledger set05: token inside context
+PASS ledger set05: 61 (RECOMPUTED)
+PASS ledger set06: token inside context
+PASS ledger set06: context-only rows are labeled CONTEXT
+PASS ledger set07: square_to_token is a bijection onto 1..60
+PASS ledger set08: token inside context
+PASS ledger set08: 64 (RECOMPUTED)
+PASS ledger set09: token inside context
+PASS ledger set09: 124 (RECOMPUTED)
+PASS ledger set10: token inside context
+PASS ledger set10: 512 (RECOMPUTED)
+PASS ledger set11: token inside context
+PASS ledger set11: 124 (RECOMPUTED)
+PASS ledger set12: token inside context
+PASS ledger set12: 10^{-8} (PROTOCOL)
+PASS ledger set13: token inside context
+PASS ledger set13: 124 (RECOMPUTED)
+PASS ledger set14: token inside context
+PASS ledger set14: 388 (RECOMPUTED)
+PASS ledger set15: token inside context
+PASS ledger set15: 388 (RECOMPUTED)
+PASS ledger set16: token inside context
+PASS ledger set16: 10^{-15} (RECOMPUTED)
+PASS ledger set17: token inside context
+PASS ledger set17: 10^{-14} (RECOMPUTED)
+PASS ledger set18: token inside context
+PASS ledger set18: context-only rows are labeled CONTEXT
+PASS ledger set19: token inside context
+PASS ledger set19: context-only rows are labeled CONTEXT
+PASS ledger set20: L2 budget 16, 40 gradient steps, learning rate 0.4
+PASS ledger set21: token inside context
+PASS ledger set21: 0.93 (RECOMPUTED)
+PASS ledger set22: token inside context
+PASS ledger set22: context-only rows are labeled CONTEXT
+PASS ledger set23: token inside context
+PASS ledger set23: =0.01\pm0.0002
+PASS ledger set24: token inside context
+PASS ledger set24: =0.01\pm0.0002
+PASS ledger set25: grid from 0.003125 to 8 followed by 16 bisection s
+PASS ledger set26: token inside context
+PASS ledger set26: 0.043 (RECOMPUTED)
+PASS ledger set27: token inside context
+PASS ledger set27: 64 (RECORDED)
+PASS ledger set28: token inside context
+PASS ledger set28: 10 (RECORDED)
+PASS ledger set29: token inside context
+PASS ledger set29: 258 (RECORDED)
+PASS ledger set30: token inside context
+PASS ledger set30: 192 one-hot + 64 legal + player + occupancy
+PASS ledger set31: token inside context
+PASS ledger set31: context-only rows are labeled CONTEXT
+PASS ledger set32: token inside context
+PASS ledger set32: 61 (RECOMPUTED)
+PASS ledger set33: token inside context
+PASS ledger set33: 10^{-12} (RECOMPUTED)
+PASS ledger set34: token inside context
+PASS ledger set34: greater than 8 and category B pairs have distance 
+PASS ledger set35: token inside context
+PASS ledger set35: greater than 8 and category B pairs have distance 
+PASS ledger set36: token inside context
+PASS ledger set36: 32 (RECOMPUTED)
+PASS ledger set37: token inside context
+PASS ledger set37: 16 (RECOMPUTED)
+PASS ledger set38: token inside context
+PASS ledger set38: 48 (RECOMPUTED)
+PASS ledger set39: token inside context
+PASS ledger set39: 48 (RECOMPUTED)
+PASS ledger set40: new 400-game simulator cohort (seeds 9182 and 1018
+PASS ledger set41: token inside context
+PASS ledger set41: 336 (RECOMPUTED)
+PASS ledger set42: token inside context
+PASS ledger set42: 48 (RECOMPUTED)
+PASS ledger set43: token inside context
+PASS ledger set43: with 2000 replicates from seed 82
+PASS ledger set44: token inside context
+PASS ledger set44: with 2000 replicates from seed 82
+PASS ledger set45: token inside context
+PASS ledger set45: used 5000 replicates
+PASS ledger set46: token inside context
+PASS ledger set46: 3\times10^{-8} (RECOMPUTED)
+PASS ledger fib01: token inside context
+PASS ledger fib01: 388 (RECOMPUTED)
+PASS ledger fib02: token inside context
+PASS ledger fib02: 512 (RECOMPUTED)
+PASS ledger fib03: token inside context
+PASS ledger fib03: 388 (RECOMPUTED)
+PASS ledger fib04: token inside context
+PASS ledger fib04: 32 (RECOMPUTED)
+PASS ledger fib05: token inside context
+PASS ledger fib05: 7.7\times10^{-15} (RECOMPUTED)
+PASS ledger fib06: token inside context
+PASS ledger fib06: 0.380 (RECOMPUTED)
+PASS ledger fib07: token inside context
+PASS ledger fib07: 0.185 (RECOMPUTED)
+PASS ledger fib08: token inside context
+PASS ledger fib08: 32 (RECOMPUTED)
+PASS ledger fib09: token inside context
+PASS ledger fib09: 24 (RECOMPUTED)
+PASS ledger spc01: token inside context
+PASS ledger spc01: 48 (RECOMPUTED)
+PASS ledger spc02: token inside context
+PASS ledger spc02: 18.33 (RECOMPUTED)
+PASS ledger spc03: token inside context
+PASS ledger spc03: 0.3916 (RECOMPUTED)
+PASS ledger spc04: token inside context
+PASS ledger spc04: 0.3175 (RECOMPUTED)
+PASS ledger spc05: token inside context
+PASS ledger spc05: 0.4758 (RECOMPUTED)
+PASS ledger spc06: token inside context
+PASS ledger spc06: 46 (RECOMPUTED)
+PASS ledger spc07: token inside context
+PASS ledger spc07: 48 (RECOMPUTED)
+PASS ledger spc08: token inside context
+PASS ledger spc08: 0.7086 (RECOMPUTED)
+PASS ledger spc09: token inside context
+PASS ledger spc09: 0.6021 (RECOMPUTED)
+PASS ledger spc10: token inside context
+PASS ledger spc10: 0.8170 (RECOMPUTED)
+PASS ledger spc11: token inside context
+PASS ledger spc11: 48 of 48)
+PASS ledger spc12: token inside context
+PASS ledger spc12: 0.144 (RECOMPUTED)
+PASS ledger spc13: token inside context
+PASS ledger spc13: -0.248 (RECOMPUTED)
+PASS ledger spc14: token inside context
+PASS ledger spc14: -0.565 (RECOMPUTED)
+PASS ledger spc15: token inside context
+PASS ledger spc15: -0.639 (RECOMPUTED)
+PASS ledger spc16: token inside context
+PASS ledger spc16: -0.707 (RECOMPUTED)
+PASS ledger spc17: token inside context
+PASS ledger spc17: 0.279 (RECOMPUTED)
+PASS ledger spc18: token inside context
+PASS ledger spc18: 0.223 (RECOMPUTED)
+PASS ledger spc19: token inside context
+PASS ledger spc19: 0.038 (RECOMPUTED)
+PASS ledger fjs01: token inside context
+PASS ledger fjs01: reference activation is 0.01. The first
+PASS ledger fjs02: token inside context
+PASS ledger fjs02: 336 (RECOMPUTED)
+PASS ledger fjs03: token inside context
+PASS ledger fjs03: 48 (RECOMPUTED)
+PASS ledger fjs04: token inside context
+PASS ledger fjs04: 1.23\times10^{-6} (RECOMPUTED)
+PASS ledger fjs05: token inside context
+PASS ledger fjs05: 1.19\times10^{-14} (RECOMPUTED)
+PASS ledger fjs06: token inside context
+PASS ledger fjs06: 5.298 (RECOMPUTED)
+PASS ledger fjs07: token inside context
+PASS ledger fjs07: 6.368 (RECOMPUTED)
+PASS ledger fjs08: token inside context
+PASS ledger fjs08: 12.265 (RECOMPUTED)
+PASS ledger fjs09: token inside context
+PASS ledger fjs09: 0.077 (RECOMPUTED)
+PASS ledger fjs10: token inside context
+PASS ledger fjs10: was 0.077 for correct, 0.080 for wrong, and 0.080 
+PASS ledger fjs11: token inside context
+PASS ledger fjs11: 48 (RECOMPUTED)
+PASS ledger fjs12: token inside context
+PASS ledger fjs12: 1.2\times10^{-14} (RECOMPUTED)
+PASS ledger fjs13: token inside context
+PASS ledger fjs13: from the Editor A reference is 0.01
+PASS ledger fjs14: token inside context
+PASS ledger fjs14: 0.0266 (RECOMPUTED)
+PASS ledger fjs15: token inside context
+PASS ledger fjs15: 0.0179 (RECOMPUTED)
+PASS ledger fjs16: token inside context
+PASS ledger fjs16: 0.0357 (RECOMPUTED)
+PASS ledger fjs17: token inside context
+PASS ledger fjs17: 40 (RECOMPUTED)
+PASS ledger fjs18: token inside context
+PASS ledger fjs18: 48 (RECOMPUTED)
+PASS ledger fjs19: token inside context
+PASS ledger fjs19: 0.0230 (RECOMPUTED)
+PASS ledger fjs20: token inside context
+PASS ledger fjs20: 0.0103 (RECOMPUTED)
+PASS ledger fjs21: token inside context
+PASS ledger fjs21: 0.0360 (RECOMPUTED)
+PASS ledger fjs22: token inside context
+PASS ledger fjs22: 30 (RECOMPUTED)
+PASS ledger fjs23: token inside context
+PASS ledger fjs23: 48 (RECOMPUTED)
+PASS ledger fjs24: token inside context
+PASS ledger fjs24: 0.0133 (RECOMPUTED)
+PASS ledger fjs25: token inside context
+PASS ledger fjs25: -0.0133 (RECOMPUTED)
+PASS ledger fjs26: token inside context
+PASS ledger fjs26: -0.592 (RECOMPUTED)
+PASS ledger fjs27: token inside context
+PASS ledger fjs27: -0.619 (RECOMPUTED)
+PASS ledger fjs28: token inside context
+PASS ledger fjs28: -0.615 (RECOMPUTED)
+PASS ledger fjs29: token inside context
+PASS ledger fjs29: 48 (RECOMPUTED)
+PASS ledger fjs30: token inside context
+PASS ledger fjs30: 32 (RECOMPUTED)
+PASS ledger fjs31: token inside context
+PASS ledger fjs31: 16 (RECOMPUTED)
+PASS ledger fjs32: token inside context
+PASS ledger fjs32: 22 (RECOMPUTED)
+PASS ledger fjs33: token inside context
+PASS ledger fjs33: 26 (RECOMPUTED)
+PASS ledger fjs34: token inside context
+PASS ledger fjs34: 0.02 (RECOMPUTED)
+PASS ledger fjs35: token inside context
+PASS ledger fjs35: 0.03 (RECOMPUTED)
+PASS ledger fjs36: token inside context
+PASS ledger fjs36: 0.0477 (RECOMPUTED)
+PASS ledger fjs37: token inside context
+PASS ledger fjs37: 0.0238 (RECOMPUTED)
+PASS ledger fjs38: token inside context
+PASS ledger fjs38: 0.0722 (RECOMPUTED)
+PASS ledger fjs39: token inside context
+PASS ledger fjs39: 0.0395 (RECOMPUTED)
+PASS ledger fjs40: token inside context
+PASS ledger fjs40: 0.0199 (RECOMPUTED)
+PASS ledger fjs41: token inside context
+PASS ledger fjs41: 0.0584 (RECOMPUTED)
+PASS ledger fjs42: token inside context
+PASS ledger fjs42: 0.0106 (RECOMPUTED)
+PASS ledger fjs43: token inside context
+PASS ledger fjs43: -0.0033 (RECOMPUTED)
+PASS ledger fjs44: token inside context
+PASS ledger fjs44: 0.0246 (RECOMPUTED)
+PASS ledger fjs45: token inside context
+PASS ledger fjs45: 0.0090 (RECOMPUTED)
+PASS ledger fjs46: token inside context
+PASS ledger fjs46: -0.0077 (RECOMPUTED)
+PASS ledger fjs47: token inside context
+PASS ledger fjs47: 0.0264 (RECOMPUTED)
+PASS ledger fjs48: qualitative claim
+PASS ledger nst01: token inside context
+PASS ledger nst01: 3.5\times10^{-15} (RECOMPUTED)
+PASS ledger nst02: token inside context
+PASS ledger nst02: 3.7\times10^{-15} (RECOMPUTED)
+PASS ledger nst03: token inside context
+PASS ledger nst03: 0.342 (RECORDED)
+PASS ledger nst04: token inside context
+PASS ledger nst04: 0.305 (RECORDED)
+PASS ledger nst05: token inside context
+PASS ledger nst05: 0.0201 (RECOMPUTED)
+PASS ledger nst06: token inside context
+PASS ledger nst06: 0.0108 (RECOMPUTED)
+PASS ledger nst07: token inside context
+PASS ledger nst07: 0.0298 (RECOMPUTED)
+PASS ledger nst08: token inside context
+PASS ledger nst08: 39 (RECOMPUTED)
+PASS ledger nst09: token inside context
+PASS ledger nst09: 48 (RECOMPUTED)
+PASS ledger nst10: token inside context
+PASS ledger nst10: 0.0314 (RECOMPUTED)
+PASS ledger nst11: token inside context
+PASS ledger nst11: 0.0185 (RECOMPUTED)
+PASS ledger nst12: token inside context
+PASS ledger nst12: 0.0453 (RECOMPUTED)
+PASS ledger nst13: token inside context
+PASS ledger nst13: 35 (RECOMPUTED)
+PASS ledger nst14: token inside context
+PASS ledger nst14: 48 (RECOMPUTED)
+PASS ledger nst15: token inside context
+PASS ledger nst15: 0.0220 (RECOMPUTED)
+PASS ledger nst16: token inside context
+PASS ledger nst16: 0.0158 (RECOMPUTED)
+PASS ledger nst17: token inside context
+PASS ledger nst17: 0.0293 (RECOMPUTED)
+PASS ledger nst18: token inside context
+PASS ledger nst18: 42 (RECOMPUTED)
+PASS ledger nst19: token inside context
+PASS ledger nst19: 48 (RECOMPUTED)
+PASS ledger nst20: token inside context
+PASS ledger nst20: 0.0537 (RECOMPUTED)
+PASS ledger nst21: token inside context
+PASS ledger nst21: 0.0452 (RECOMPUTED)
+PASS ledger nst22: token inside context
+PASS ledger nst22: 0.0618 (RECOMPUTED)
+PASS ledger nst23: token inside context
+PASS ledger nst23: 47 (RECOMPUTED)
+PASS ledger nst24: token inside context
+PASS ledger nst24: 48 (RECOMPUTED)
+PASS ledger nst25: token inside context
+PASS ledger nst25: 0.0195 (RECOMPUTED)
+PASS ledger nst26: token inside context
+PASS ledger nst26: 0.0342 (RECOMPUTED)
+PASS ledger nst27: token inside context
+PASS ledger nst27: -0.582 (RECOMPUTED)
+PASS ledger nst28: token inside context
+PASS ledger nst28: -0.636 (RECOMPUTED)
+PASS ledger nst29: token inside context
+PASS ledger nst29: -0.701 (RECOMPUTED)
+PASS ledger nst30: token inside context
+PASS ledger nst30: -0.583 (RECOMPUTED)
+PASS ledger nst31: token inside context
+PASS ledger nst31: 1 (RECOMPUTED)
+PASS ledger nst32: token inside context
+PASS ledger nst32: 48 (RECOMPUTED)
+PASS ledger nst33: token inside context
+PASS ledger nst33: 0.792 (RECOMPUTED)
+PASS ledger nst34: token inside context
+PASS ledger nst34: 0.850 (RECOMPUTED)
+PASS ledger nst35: token inside context
+PASS ledger nst35: 0.757 (RECOMPUTED)
+PASS ledger nst36: token inside context
+PASS ledger nst36: 0.998 (RECOMPUTED)
+PASS ledger nst37: token inside context
+PASS ledger nst37: 0.991 (RECOMPUTED)
+PASS ledger nst38: token inside context
+PASS ledger nst38: 0.994 (RECOMPUTED)
+PASS ledger nst39: token inside context
+PASS ledger nst39: 7 (RECOMPUTED)
+PASS ledger nst40: token inside context
+PASS ledger nst40: 48 (RECOMPUTED)
+PASS ledger nst41: token inside context
+PASS ledger nst41: (24 each)
+PASS ledger nst42: token inside context
+PASS ledger nst42: preregistered 0.01 floor
+PASS ledger nst43: token inside context
+PASS ledger nst43: 24 (RECOMPUTED)
+PASS ledger nst44: token inside context
+PASS ledger nst44: 0.0113 (RECOMPUTED)
+PASS ledger nst45: token inside context
+PASS ledger nst45: -0.0013 (RECOMPUTED)
+PASS ledger nst46: token inside context
+PASS ledger nst46: 0.0232 (RECOMPUTED)
+PASS ledger nst47: token inside context
+PASS ledger nst47: 0.0155 (RECOMPUTED)
+PASS ledger nst48: token inside context
+PASS ledger nst48: -0.0015 (RECOMPUTED)
+PASS ledger nst49: token inside context
+PASS ledger nst49: 0.0336 (RECOMPUTED)
+PASS ledger nst50: token inside context
+PASS ledger nst50: 24 (RECOMPUTED)
+PASS ledger nst51: token inside context
+PASS ledger nst51: 0.0288 (RECOMPUTED)
+PASS ledger nst52: token inside context
+PASS ledger nst52: 0.0474 (RECOMPUTED)
+PASS ledger nst53: token inside context
+PASS ledger nst53: 48 (RECOMPUTED)
+PASS ledger sem01: token inside context
+PASS ledger sem01: 0.053713 (ARCHIVAL)
+PASS ledger sem02: token inside context
+PASS ledger sem02: 7\times10^{-9} (DERIVED)
+PASS ledger sem03: token inside context
+PASS ledger sem03: 0.0041 (ARCHIVAL)
+PASS ledger sem04: token inside context
+PASS ledger sem04: 0.0019 (ARCHIVAL)
+PASS ledger sem05: token inside context
+PASS ledger sem05: 0.0066 (ARCHIVAL)
+PASS ledger sem06: token inside context
+PASS ledger sem06: 0.0056 (ARCHIVAL)
+PASS ledger sem07: token inside context
+PASS ledger sem07: 0.0021 (ARCHIVAL)
+PASS ledger sem08: token inside context
+PASS ledger sem08: 0.0090 (ARCHIVAL)
+PASS ledger sem09: token inside context
+PASS ledger sem09: preregistered \(+0.01\) floor
+PASS ledger sem10: token inside context
+PASS ledger sem10: 0.0180 (ARCHIVAL)
+PASS ledger sem11: token inside context
+PASS ledger sem11: 0.0195 (ARCHIVAL)
+PASS ledger sem12: token inside context
+PASS ledger sem12: 0.0041 (ARCHIVAL)
+PASS ledger sem13: token inside context
+PASS ledger sem13: 0.0195 (ARCHIVAL)
+PASS ledger sem14: token inside context
+PASS ledger sem14: 0.0236 (DERIVED)
+PASS ledger sem15: token inside context
+PASS ledger sem15: 0.0056 (ARCHIVAL)
+PASS ledger sem16: token inside context
+PASS ledger sem16: 0.0180 (ARCHIVAL)
+PASS ledger sem17: token inside context
+PASS ledger sem17: 0.0236 (DERIVED)
+PASS ledger sem18: token inside context
+PASS ledger sem18: 0.0537 (RECOMPUTED)
+PASS ledger sem19: token inside context
+PASS ledger sem19: 0.0301 (DERIVED)
+PASS ledger sem20: token inside context
+PASS ledger sem20: 56.04% (DERIVED)
+PASS ledger sem21: token inside context
+PASS ledger sem21: 58.5% (ARCHIVAL)
+PASS ledger sem22: token inside context
+PASS ledger sem22: 52.6% (ARCHIVAL)
+PASS ledger sem23: token inside context
+PASS ledger sem23: 56.8% (ARCHIVAL)
+PASS ledger sem24: token inside context
+PASS ledger sem24: 55.0% (ARCHIVAL)
+PASS ledger frs01: token inside context
+PASS ledger frs01: contained 2 category-B pairs but no category-B tri
+PASS ledger frs02: token inside context
+PASS ledger frs02: 9182 (ARCHIVAL)
+PASS ledger frs03: token inside context
+PASS ledger frs03: seed 9182 supplied 16 A and 16 B triplets
+PASS ledger frs04: token inside context
+PASS ledger frs04: 0.0285 (ARCHIVAL)
+PASS ledger frs05: token inside context
+PASS ledger frs05: 0.0165 (ARCHIVAL)
+PASS ledger frs06: token inside context
+PASS ledger frs06: 0.0406 (ARCHIVAL)
+PASS ledger frs07: token inside context
+PASS ledger frs07: 81% (ARCHIVAL)
+PASS ledger frs08: token inside context
+PASS ledger frs08: 0.0186 (ARCHIVAL)
+PASS ledger frs09: token inside context
+PASS ledger frs09: 0.0072 (ARCHIVAL)
+PASS ledger frs10: token inside context
+PASS ledger frs10: 0.0301 (ARCHIVAL)
+PASS ledger frs11: token inside context
+PASS ledger frs11: 56% (ARCHIVAL)
+PASS ledger frs12: token inside context
+PASS ledger frs12: 40.6% (ARCHIVAL)
+PASS ledger frs13: token inside context
+PASS ledger frs13: 0.0158 (ARCHIVAL)
+PASS ledger frs14: token inside context
+PASS ledger frs14: 0.0151 (ARCHIVAL)
+PASS ledger frs15: token inside context
+PASS ledger frs15: 0.0002 (ARCHIVAL)
+PASS ledger frs16: token inside context
+PASS ledger frs16: 0.0018 (ARCHIVAL)
+PASS ledger vnf01: token inside context
+PASS ledger vnf01: 10182 (ARCHIVAL)
+PASS ledger vnf02: token inside context
+PASS ledger vnf02: \(\rho=\nu=3.5\)
+PASS ledger vnf03: token inside context
+PASS ledger vnf03: 0.0008 (ARCHIVAL)
+PASS ledger vnf04: token inside context
+PASS ledger vnf04: -0.0009 (ARCHIVAL)
+PASS ledger vnf05: token inside context
+PASS ledger vnf05: 0.0030 (ARCHIVAL)
+PASS ledger vnf06: token inside context
+PASS ledger vnf06: 17 (ARCHIVAL)
+PASS ledger vnf07: token inside context
+PASS ledger vnf07: positive in 17 of 32 triplets
+PASS ledger vnf08: token inside context
+PASS ledger vnf08: 0.0010 (ARCHIVAL)
+PASS ledger vnf09: token inside context
+PASS ledger vnf09: -0.0001 (ARCHIVAL)
+PASS ledger vnf10: token inside context
+PASS ledger vnf10: 0.0022 (ARCHIVAL)
+PASS ledger vnf11: token inside context
+PASS ledger vnf11: 19 (ARCHIVAL)
+PASS ledger vnf12: token inside context
+PASS ledger vnf12: 19 of 32)
+PASS ledger vnf13: token inside context
+PASS ledger vnf13: preregistered \(+0.005\) floor
+PASS ledger vnf14: token inside context
+PASS ledger vnf14: 0.9405 (ARCHIVAL)
+PASS ledger vnf15: token inside context
+PASS ledger vnf15: on 32 fresh triplets
+PASS ledger vnf16: token inside context
+PASS ledger vnf16: 0.005 floor
+PASS ledger vnf17: token inside context
+PASS ledger vnf17: second fresh cohort of 32 triplets
+PASS ledger dis01: token inside context
+PASS ledger dis01: FRESH cohort of 400 games, 24 board-and-player sta
+PASS ledger dis02: token inside context
+PASS ledger dis02: 24 (ARCHIVAL)
+PASS ledger dis03: token inside context
+PASS ledger dis03: among the 32 selected triplets
+PASS ledger dis04: token inside context
+PASS ledger dis04: -0.58 (RECOMPUTED)
+PASS ledger dis05: token inside context
+PASS ledger dis05: share 48 pairs, and NST and SEM share another 48
+PASS ledger apA01: \(s\in\{0,\dots,63\}\)
+PASS ledger apA02: token inside context
+PASS ledger apA02: token \(s+1-c(s)\)
+PASS ledger apA03: center squares (27, 28, 35, 36)
+PASS ledger apA04: L2 budget of 16, 40 steps, learning rate 0.4, and 
+PASS ledger apA05: on 22 of the 48 SPEC pairs and on 24 of the 48 NST
+PASS ledger apA06: token inside context
+PASS ledger apA06: within a slack of 4
+PASS ledger apA07: token inside context
+PASS ledger apA07: 8\times10^{-16} (RECOMPUTED)
+PASS ledger apA08: 0.003125, 0.00625, 0.0125, 0.025, 0.05, 0.1, 0.2, 
+PASS ledger apA09: token inside context
+PASS ledger apA09: with JS at least 0.01 is bisected 16 times
+PASS ledger apA10: token inside context
+PASS ledger apA10: with JS at least 0.01 is bisected 16 times
+PASS ledger apA11: token inside context
+PASS ledger apA11: cannot reach 0.01 fails
+PASS ledger apA12: token inside context
+PASS ledger apA12: 7 (RECOMPUTED)
+PASS ledger apA13: token inside context
+PASS ledger apA13: 48 (RECOMPUTED)
+PASS ledger apA14: token inside context
+PASS ledger apA14: contrast of at least 0.05
+PASS ledger apA15: token inside context
+PASS ledger apA15: required 44 of 48 complete pairs, a mean correct-m
+PASS ledger apA16: token inside context
+PASS ledger apA16: required 44 of 48 complete pairs, a mean correct-m
+PASS ledger apA17: token inside context
+PASS ledger apA17: required 44 of 48 complete pairs, a mean correct-m
+PASS ledger apA18: token inside context
+PASS ledger apA18: learned-minus-wrong contrast of at least 0.01
+PASS ledger apA19: token inside context
+PASS ledger apA19: incremental advantage of at least 0.01
+PASS ledger apA20: FRESH required at least 29 of 32 complete triplets
+PASS ledger apA21: token inside context
+PASS ledger apA21: on at least 60% of triplets
+PASS ledger apA22: token inside context
+PASS ledger apA22: 0.0471 (ARCHIVAL)
+PASS ledger apA23: token inside context
+PASS ledger apA23: 0.0316 (ARCHIVAL)
+PASS ledger apA24: token inside context
+PASS ledger apA24: 0.0629 (ARCHIVAL)
+PASS ledger apA25: VNF required at least 29 of 32 complete triplets, 
+PASS ledger apA26: the 2.5th and 97.5th percentiles
+PASS ledger apA27: Seeds are 82 plus a metric offset; NST subgroups a
+PASS ledger apA28: seeds 9482 and 10482 with 5000 replicates
+PASS ledger apB01: token inside context
+PASS ledger apB01: 336 (RECOMPUTED)
+PASS ledger apB02: token inside context
+PASS ledger apB02: 1.3\times10^{-7} (RECOMPUTED)
+PASS ledger apB03: token inside context
+PASS ledger apB03: 4.4\times10^{-9} (RECOMPUTED)
+PASS ledger apB04: token inside context
+PASS ledger apB04: 4.4\times10^{-16} (RECOMPUTED)
+PASS ledger apB05: token inside context
+PASS ledger apB05: 0.0181 (RECOMPUTED)
+PASS ledger apB06: token inside context
+PASS ledger apB06: 0.0074 (RECOMPUTED)
+PASS ledger apB07: token inside context
+PASS ledger apB07: 0.0294 (RECOMPUTED)
+PASS ledger apB08: token inside context
+PASS ledger apB08: 0.0239 (RECOMPUTED)
+PASS ledger apB09: token inside context
+PASS ledger apB09: 0.0075 (RECOMPUTED)
+PASS ledger apB10: token inside context
+PASS ledger apB10: 0.0416 (RECOMPUTED)
+PASS ledger apB11: token inside context
+PASS ledger apB11: 0.0188 (RECOMPUTED)
+PASS ledger apB12: token inside context
+PASS ledger apB12: 0.0041 (RECOMPUTED)
+PASS ledger apB13: token inside context
+PASS ledger apB13: 0.0338 (RECOMPUTED)
+PASS ledger apB14: token inside context
+PASS ledger apB14: 0.0566 (RECOMPUTED)
+PASS ledger apB15: token inside context
+PASS ledger apB15: 0.0331 (RECOMPUTED)
+PASS ledger apB16: token inside context
+PASS ledger apB16: 0.0798 (RECOMPUTED)
+PASS ledger apB17: token inside context
+PASS ledger apB17: 0.045 (RECOMPUTED)
+PASS ledger apB18: token inside context
+PASS ledger apB18: 0.030 (RECOMPUTED)
+PASS ledger set40: token inside context
+PASS ledger set40: context-only rows are labeled CONTEXT
+PASS ledger apA34: token inside context
+PASS ledger apA34: sign gate on became-legal mass
+PASS ledger apA35: token inside context
+PASS ledger apA35: sign gate on became-illegal mass
+PASS ledger set41: token inside context
+PASS ledger set41: 10^{-9} (RECOMPUTED)
+PASS ledger set41: token inside context
+PASS ledger set41: 10^{-9} (RECOMPUTED)
+PASS ledger na01: token inside context
+PASS ledger na01: 0.000316 (RECOMPUTED)
+PASS ledger na02: token inside context
+PASS ledger na02: 0.000173 (RECOMPUTED)
+PASS ledger na03: token inside context
+PASS ledger na03: 0.00151 (RECOMPUTED)
+PASS ledger na04: token inside context
+PASS ledger na04: 4.76\times10^{-5} (RECOMPUTED)
+PASS ledger na05: token inside context
+PASS ledger na05: context-only rows are labeled CONTEXT
+PASS ledger na06: token inside context
+PASS ledger na06: context-only rows are labeled CONTEXT
+PASS ledger fb01: token inside context
+PASS ledger fb01: -0.689 (RECOMPUTED)
+PASS ledger fb02: token inside context
+PASS ledger fb02: 0.251 (RECOMPUTED)
+PASS ledger fb03: token inside context
+PASS ledger fb03: 0.404 (RECOMPUTED)
+PASS ledger fb04: token inside context
+PASS ledger fb04: 0.758 (RECOMPUTED)
+PASS ledger fb05: token inside context
+PASS ledger fb05: -0.586 (RECOMPUTED)
+PASS ledger spc40: token inside context
+PASS ledger spc40: 0.363 (RECOMPUTED)
+PASS ledger spc41: token inside context
+PASS ledger spc41: 0.725 (RECOMPUTED)
+PASS ledger spc42: token inside context
+PASS ledger spc42: 0.144 (RECOMPUTED)
+PASS ledger nst60: token inside context
+PASS ledger nst60: 0.0223 (RECOMPUTED)
+PASS ledger nst61: token inside context
+PASS ledger nst61: 34 (RECOMPUTED)
+PASS ledger nst62: token inside context
+PASS ledger nst62: 48 (RECOMPUTED)
+PASS ledger sem30: token inside context
+PASS ledger sem30: 0.0058 (ARCHIVAL)
+PASS ledger sem31: token inside context
+PASS ledger sem31: -0.0003 (ARCHIVAL)
+PASS ledger sem32: token inside context
+PASS ledger sem32: 0.0124 (ARCHIVAL)
+PASS ledger sem33: token inside context
+PASS ledger sem33: 0.0301 (DERIVED)
+PASS ledger proto_cost: token inside context
+PASS ledger proto_cost: first matched-divergence floor
+PASS ledger proto_js02: token inside context
+PASS ledger proto_js02: floor of 0.02
+PASS ledger proto_fix: token inside context
+PASS ledger proto_fix: fixed-0.01
+PASS ledger proto_n: token inside context
+PASS ledger proto_n: 48 (RECOMPUTED)
+PASS ledger dep01: token inside context
+PASS ledger dep01: 31 (RECOMPUTED)
+PASS ledger dep02: token inside context
+PASS ledger dep02: 48 (RECOMPUTED)
+PASS ledger dep03: token inside context
+PASS ledger dep03: 7 (RECOMPUTED)
+PASS ledger fib25: token inside context
+PASS ledger fib25: 25 (RECOMPUTED)
+PASS ledger fib26: token inside context
+PASS ledger fib26: 32 (RECOMPUTED)
+PASS ledger cor01: token inside context
+PASS ledger cor01: 0.155 (RECOMPUTED)
+PASS ledger cor02: token inside context
+PASS ledger cor02: 0.846 (RECOMPUTED)
+PASS ledger cor03: token inside context
+PASS ledger cor03: 0.452 (RECOMPUTED)
+PASS ledger sec01: token inside context
+PASS ledger sec01: named, not run
+PASS ledger sec02: token inside context
+PASS ledger sec02: targets of 0.005 and 0.02
+PASS ledger set43b: token inside context
+PASS ledger set43b: same-seed caveat; replicate count
+PASS citation year 2019 appears in the reference list
+PASS citation year 2020 appears in the reference list
+PASS citation year 2021 appears in the reference list
+PASS citation year 2022 appears in the reference list
+PASS citation year 2023 appears in the reference list
+PASS citation year 2024 appears in the reference list
+PASS citation year 2025 appears in the reference list
+PASS citation year 2026 appears in the reference list
+PASS every numeric token in the manuscript is covered by the ledger (462 tokens)
+PASS letter verbatim in manuscript: 08R2_VALIDATION_COMPLETE — NEGATIVE
+PASS letter verbatim in manuscript: TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED
+PASS letter verbatim in manuscript: FIXED_JS_TARGET_SPECIFICITY_SUPPORTED
+PASS letter verbatim in manuscript: TARGET_SPECIFIC_AT_EQUAL_JS_INCONCLUSIVE
+PASS letter verbatim in manuscript: DONOR_FREE_NULL_STATE_TRANSFER_SUPPORTED
+PASS letter verbatim in manuscript: LEGAL_MASK_SUFFICES_IN_TESTED_FAMILY
+PASS letter verbatim in manuscript: SYMMETRIC_TARGET_SWITCHING_NOT_SUPPORTED
+PASS letter verbatim in manuscript: SYMMETRIC_TARGET_CENSUS_INFEASIBLE
+PASS letter verbatim in manuscript: TARGET_SPECIFIC_VISIBLE_NULL_INTERACTION_NOT_SUPPORTED
+PASS letter verbatim in manuscript: 0A = C / PARTIAL
+PASS letter verbatim in manuscript: SECTION_5_3 = PARTIAL
+PASS letter verbatim in manuscript: OBSTRUCTION_READY = NO
+PASS raw completion letter for spec appears in manuscript
+PASS raw completion letter for fixed_js appears in manuscript
+PASS raw completion letter for nst appears in manuscript
+PASS every code span is an official letter, the configured site, or a configured pair-manifest hash
+PASS forbidden phrase absent: 'unedited recipient'
+PASS forbidden phrase absent: 'import src'
+PASS forbidden phrase absent: 'from src'
+PASS forbidden phrase absent: 'plotting_scripts/'
+PASS forbidden phrase absent: 'verified_data/'
+PASS forbidden phrase absent: 'fig2_probe_preservation'
+PASS manuscript uses no hard-coded section numbers
+PASS manuscript headings are unnumbered (LaTeX numbers them)
+PASS manuscript headings are unique
+PASS figures numbered 1..N in order
+PASS figure files exist: fig1_probe_geometry.png
+PASS figure files exist: fig2_probe_and_output_by_category.png
+PASS figure files exist: fig3_fixed_js_contrasts.png
+PASS figure files exist: fig4_nst_transfer.png
+PASS figure files exist: fig5_completeness_tests.png
+PASS figures/ contains exactly the manuscript figures
+PASS tables numbered 1..N in order
+PASS every Figure reference resolves
+PASS every Table reference resolves
+PASS every Appendix reference resolves
+PASS manuscript names the Editor A reference activation explicitly
+PASS directional claim is present, not reversed: The absolute score stayed negative.
+PASS directional claim is present, not reversed: below a preregistered 60% gate
+PASS directional claim is present, not reversed: That interval includes zero.
+PASS directional claim is present, not reversed: not by itself evidence of a stage-specific corre
+PASS directional claim is present, not reversed: It does not replace the inconclusive letter
+PASS directional claim is present, not reversed: Kernel steps of similar length barely move the o
+PASS references.bib has exactly one entry per manuscript reference
+PASS protocol constant fresh_floor=0.005 appears in 08r2_symmetric_target_fresh_preregistration.md
+PASS protocol constant fresh_both_positive_gate=0.6 appears in 08r2_symmetric_target_fresh_preregistration.md
+PASS protocol constant vnf_floor=0.005 appears in 08r2_visible_null_factorial_preregistration.md
+PASS protocol constant fixed_js_floor=0.02 appears in 08r2_fiber_cost_fixed_js_preregistration.md
+PASS protocol constant nst_floor=0.01 appears in 08r2_null_state_transfer_preregistration.md
+PASS protocol constant spec_floor=0.05 appears in 08r2_fiber_spec_preregistration.md
+PASS protocol constant cost_floor=0.05 appears in 08r2_fiber_cost_preregistration.md
+PASS protocol constant sem_floor=0.01 appears in 08r2_state_semantics_preregistration.md
+PASS protocol constant fresh_coverage=29 appears in 08r2_symmetric_target_fresh_preregistration.md
+PASS hash matches provenance manifest: data/archival/console_excerpts/sem_full_run.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/sem_stage_share_subgroups.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/symmetric_target_census.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/symmetric_target_census_audit.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/fresh_cohort.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/fresh_full_run.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/fresh_anchor_audit.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/vnf_stage1.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/vnf_cohort.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/vnf_rowspace_map.txt
+PASS hash matches provenance manifest: data/archival/console_excerpts/vnf_full_run.txt
+PASS hash matches provenance manifest: data/protocols/08r2_fiber_spec_preregistration.md
+PASS hash matches provenance manifest: data/protocols/08r2_fiber_cost_preregistration.md
+PASS hash matches provenance manifest: data/protocols/08r2_fiber_cost_fixed_js_preregistration.md
+PASS hash matches provenance manifest: data/protocols/08r2_null_state_transfer_preregistration.md
+PASS hash matches provenance manifest: data/protocols/08r2_state_semantics_preregistration.md
+PASS hash matches provenance manifest: data/protocols/08r2_state_semantics_mean_level_correction.md
+PASS hash matches provenance manifest: data/protocols/08r2_symmetric_target_preregistration.md
+PASS hash matches provenance manifest: data/protocols/08r2_symmetric_target_census_audit.md
+PASS hash matches provenance manifest: data/protocols/08r2_symmetric_target_fresh_preregistration.md
+PASS hash matches provenance manifest: data/protocols/08r2_visible_null_factorial_preregistration.md
+PASS hash matches provenance manifest: data/protocols/toy_othello_08r2_fiber.json
+PASS hash matches provenance manifest: data/protocols/toy_othello_08r2_fiber_spec.json
+PASS hash matches provenance manifest: data/protocols/toy_othello_08r2_fiber_cost_fixed_js.json
+PASS hash matches provenance manifest: data/protocols/toy_othello_08r2_null_state_transfer.json
+PASS hash matches provenance manifest: data/protocols/toy_othello_08r2_state_semantics.json
+PASS hash matches provenance manifest: data/protocols/toy_othello_08r2_symmetric_target_fresh.json
+PASS hash matches provenance manifest: data/protocols/toy_othello_08r2_visible_null_factorial.json
+PASS every protocol and console excerpt in the package is in the provenance manifest
+PASS archival sem.A_W: quoted text occurs verbatim in sem_full_run.txt
+PASS archival sem.A_W: value 0.005799583933168003 occurs in its excerpt
+PASS archival sem.full_minus_legal: quoted text occurs verbatim in sem_full_run.txt
+PASS archival sem.full_minus_legal: value 0.004104134766249008 occurs in its excerpt
+PASS archival sem.full_minus_board: quoted text occurs verbatim in sem_full_run.txt
+PASS archival sem.full_minus_board: value 0.005563672412523128 occurs in its excerpt
+PASS archival sem.board_minus_stage: quoted text occurs verbatim in sem_full_run.txt
+PASS archival sem.board_minus_stage: value 0.01804976557236297 occurs in its excerpt
+PASS archival sem.legal_minus_stage: quoted text occurs verbatim in sem_full_run.txt
+PASS archival sem.legal_minus_stage: value 0.019509303218637086 occurs in its excerpt
+PASS archival sem.full_minus_editor: quoted text occurs verbatim in sem_full_run.txt
+PASS archival sem.full_minus_editor: value 0.05371273508264925 occurs in its excerpt
+PASS archival sem.full_minus_wrong: quoted text occurs verbatim in sem_full_run.txt
+PASS archival sem.full_minus_wrong: value 0.020057007168831593 occurs in its excerpt
+PASS archival sem.share_A: quoted text occurs verbatim in sem_stage_share_subgroups.txt
+PASS archival sem.share_A: value 0.5847493447241059 occurs in its excerpt
+PASS archival sem.share_B: quoted text occurs verbatim in sem_stage_share_subgroups.txt
+PASS archival sem.share_B: value 0.5261071905854282 occurs in its excerpt
+PASS archival sem.share_exact: quoted text occurs verbatim in sem_stage_share_subgroups.txt
+PASS archival sem.share_exact: value 0.5676478731821903 occurs in its excerpt
+PASS archival sem.share_nonexact: quoted text occurs verbatim in sem_stage_share_subgroups.txt
+PASS archival sem.share_nonexact: value 0.5499292399942715 occurs in its excerpt
+PASS archival sym.leftover_B_triplets: quoted text occurs verbatim in symmetric_target_census_audit.txt
+PASS archival sym.leftover_B_triplets: value 0 occurs in its excerpt
+PASS archival sym.leftover_B_pairs: quoted text occurs verbatim in symmetric_target_census_audit.txt
+PASS archival sym.leftover_B_pairs: value 2 occurs in its excerpt
+PASS archival fresh.seed: quoted text occurs verbatim in fresh_cohort.txt
+PASS archival fresh.seed: value 9182 occurs in its excerpt
+PASS archival fresh.cohort_state_overlap: quoted text occurs verbatim in fresh_cohort.txt
+PASS archival fresh.cohort_state_overlap: value 24 occurs in its excerpt
+PASS archival fresh.roles: quoted text occurs verbatim in fresh_cohort.txt
+PASS archival fresh.roles: value 96 occurs in its excerpt
+PASS archival fresh.A_T: quoted text occurs verbatim in fresh_full_run.txt
+PASS archival fresh.A_T: value 0.0284998707684192 occurs in its excerpt
+PASS archival fresh.A_W: quoted text occurs verbatim in fresh_full_run.txt
+PASS archival fresh.A_W: value 0.01856145964513889 occurs in its excerpt
+PASS archival fresh.C: quoted text occurs verbatim in fresh_full_run.txt
+PASS archival fresh.C: value 0.04706133041355809 occurs in its excerpt
+PASS archival fresh.A_T_win: quoted text occurs verbatim in fresh_full_run.txt
+PASS archival fresh.A_T_win: value 0.8125 occurs in its excerpt
+PASS archival fresh.A_W_win: quoted text occurs verbatim in fresh_full_run.txt
+PASS archival fresh.A_W_win: value 0.5625 occurs in its excerpt
+PASS archival fresh.both_positive_frac: quoted text occurs verbatim in fresh_full_run.txt
+PASS archival fresh.both_positive_frac: value 0.40625 occurs in its excerpt
+PASS archival fresh.cells_both: quoted text occurs verbatim in fresh_anchor_audit.txt
+PASS archival fresh.cells_both: value 13 occurs in its excerpt
+PASS archival fresh.cells_t_only: quoted text occurs verbatim in fresh_anchor_audit.txt
+PASS archival fresh.cells_t_only: value 13 occurs in its excerpt
+PASS archival fresh.cells_w_only: quoted text occurs verbatim in fresh_anchor_audit.txt
+PASS archival fresh.cells_w_only: value 5 occurs in its excerpt
+PASS archival fresh.cells_neither: quoted text occurs verbatim in fresh_anchor_audit.txt
+PASS archival fresh.cells_neither: value 1 occurs in its excerpt
+PASS archival fresh.cells_t_only: quoted text occurs verbatim in fresh_anchor_audit.txt
+PASS archival fresh.cells_t_only: value 13 occurs in its excerpt
+PASS archival fresh.cells_w_only: quoted text occurs verbatim in fresh_anchor_audit.txt
+PASS archival fresh.cells_w_only: value 5 occurs in its excerpt
+PASS archival fresh.cells_neither: quoted text occurs verbatim in fresh_anchor_audit.txt
+PASS archival fresh.cells_neither: value 1 occurs in its excerpt
+PASS archival fresh.D_T: quoted text occurs verbatim in vnf_stage1.txt
+PASS archival fresh.D_T: value 0.015775249852042705 occurs in its excerpt
+PASS archival fresh.D_W: quoted text occurs verbatim in vnf_stage1.txt
+PASS archival fresh.D_W: value 0.015114756996519096 occurs in its excerpt
+PASS archival vnf.seed: quoted text occurs verbatim in vnf_cohort.txt
+PASS archival vnf.seed: value 10182 occurs in its excerpt
+PASS archival vnf.rowspace_holdout_r2: quoted text occurs verbatim in vnf_rowspace_map.txt
+PASS archival vnf.rowspace_holdout_r2: value 0.9405 occurs in its excerpt
+PASS archival vnf.I_T: quoted text occurs verbatim in vnf_full_run.txt
+PASS archival vnf.I_T: value 0.0008076023895302598 occurs in its excerpt
+PASS archival vnf.I_W: quoted text occurs verbatim in vnf_full_run.txt
+PASS archival vnf.I_W: value 0.0009723259609861756 occurs in its excerpt
+PASS archival vnf.I_T_win: quoted text occurs verbatim in vnf_full_run.txt
+PASS archival vnf.I_T_win: value 0.53125 occurs in its excerpt
+PASS archival vnf.I_W_win: quoted text occurs verbatim in vnf_full_run.txt
+PASS archival vnf.I_W_win: value 0.59375 occurs in its excerpt
+PASS manuscript .tex, .pdf and build record exist
+PASS PDF was built from the current paper_master.md
+PASS paper_master.tex header carries the current md hash
+PASS build record matches paper_master.tex
+PASS build record matches paper_master.pdf
+PASS LaTeX build had no overfull boxes or undefined references
+PASS fig1_probe_geometry: file matches figure provenance: figures/fig1_probe_geometry.pdf
+PASS fig1_probe_geometry: file matches figure provenance: figures/fig1_probe_geometry.png
+PASS fig2_probe_and_output_by_category: input unchanged since the figure was drawn: analysis/fixed_js_pairs.csv
+PASS fig2_probe_and_output_by_category: file matches figure provenance: figures/fig2_probe_and_output_by_category.pdf
+PASS fig2_probe_and_output_by_category: file matches figure provenance: figures/fig2_probe_and_output_by_category.png
+PASS fig3_fixed_js_contrasts: input unchanged since the figure was drawn: analysis/fixed_js_pairs.csv
+PASS fig3_fixed_js_contrasts: input unchanged since the figure was drawn: tables/table3_recomputed_contrasts.csv
+PASS fig3_fixed_js_contrasts: file matches figure provenance: figures/fig3_fixed_js_contrasts.pdf
+PASS fig3_fixed_js_contrasts: file matches figure provenance: figures/fig3_fixed_js_contrasts.png
+PASS fig4_nst_transfer: input unchanged since the figure was drawn: analysis/nst_pairs.csv
+PASS fig4_nst_transfer: input unchanged since the figure was drawn: tables/table3_recomputed_contrasts.csv
+PASS fig4_nst_transfer: file matches figure provenance: figures/fig4_nst_transfer.pdf
+PASS fig4_nst_transfer: file matches figure provenance: figures/fig4_nst_transfer.png
+PASS fig5_completeness_tests: input unchanged since the figure was drawn: analysis/results.json
+PASS fig5_completeness_tests: file matches figure provenance: figures/fig5_completeness_tests.pdf
+PASS fig5_completeness_tests: file matches figure provenance: figures/fig5_completeness_tests.png
+PASS PDF was built with the current figure files
+PASS no sealed-confirmation protocol or checkpoint files in package
+PASS no package module imports the research repository
+
+878 passed, 0 failed

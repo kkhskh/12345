@@ -1,0 +1,35 @@
+id,study,quantity,value,ci95,n_boot,source_excerpt
+fresh.A_T,FRESH,A_T natural-anchor FULL at JS=0.01,0.0284998707684192,0.016515968492432753; 0.040615703803947904,5000,data/archival/console_excerpts/fresh_full_run.txt
+fresh.A_T_win,FRESH,A_T win fraction,0.8125,,,data/archival/console_excerpts/fresh_full_run.txt
+fresh.A_W,FRESH,A_W natural-anchor FULL at JS=0.01,0.01856145964513889,0.007179035431873415; 0.03009126998474713,5000,data/archival/console_excerpts/fresh_full_run.txt
+fresh.A_W_win,FRESH,A_W win fraction,0.5625,,,data/archival/console_excerpts/fresh_full_run.txt
+fresh.C,FRESH,C = A_T + A_W natural-anchor FULL at JS=0.01,0.04706133041355809,0.031606687081763174; 0.06291074652473115,5000,data/archival/console_excerpts/fresh_full_run.txt
+fresh.D_T,FRESH,Editor A visible contrast D_T,0.015775249852042705,0.00020525966124369544; 0.029894823806567248,,data/archival/console_excerpts/vnf_stage1.txt
+fresh.D_W,FRESH,Editor A visible contrast D_W,0.015114756996519096,0.00179520136936166; 0.029871224457666937,,data/archival/console_excerpts/vnf_stage1.txt
+fresh.both_positive_frac,FRESH,Fraction of triplets with A_T>0 and A_W>0,0.40625,,,data/archival/console_excerpts/fresh_full_run.txt
+fresh.cells_both,FRESH,Triplets with both contrasts positive,13,,,data/archival/console_excerpts/fresh_anchor_audit.txt
+fresh.cells_neither,FRESH,Triplets with neither contrast positive,1,,,data/archival/console_excerpts/fresh_anchor_audit.txt
+fresh.cells_t_only,FRESH,Triplets with only A_T positive,13,,,data/archival/console_excerpts/fresh_anchor_audit.txt
+fresh.cells_w_only,FRESH,Triplets with only A_W positive,5,,,data/archival/console_excerpts/fresh_anchor_audit.txt
+fresh.cohort_state_overlap,FRESH,Cohort prefixes whose board+player state also occurs in earlier splits,24,,,data/archival/console_excerpts/fresh_cohort.txt
+fresh.roles,FRESH,Distinct game roles in the 32 triplets,96,,,data/archival/console_excerpts/fresh_cohort.txt
+fresh.seed,FRESH,Cohort generation seed,9182,,,data/archival/console_excerpts/fresh_cohort.txt
+sem.A_W,SEM,"reverse switching contrast A_W on the NST pairs, Editor A anchor",0.005799583933168003,-0.0003093532607958192; 0.012373616130695137,5000,data/archival/console_excerpts/sem_full_run.txt
+sem.board_minus_stage,SEM,BOARD_ONLY minus STAGE_ONLY,0.01804976557236297,0.011112938104802812; 0.02568608371596117,5000,data/archival/console_excerpts/sem_full_run.txt
+sem.full_minus_board,SEM,FULL minus BOARD_ONLY (d_legal_inc),0.005563672412523128,0.002098374570631201; 0.008964994019775631,5000,data/archival/console_excerpts/sem_full_run.txt
+sem.full_minus_editor,SEM,FULL minus Editor A (console value; FULL is the NST learned map on the NST pairs),0.05371273508264925,0.04520171599322736; 0.062051482015050397,5000,data/archival/console_excerpts/sem_full_run.txt
+sem.full_minus_legal,SEM,"FULL minus LEGAL_ONLY (d_board_inc), mean Y over 48 pairs",0.004104134766249008,0.001851377910273122; 0.0066065369232195074,5000,data/archival/console_excerpts/sem_full_run.txt
+sem.full_minus_wrong,SEM,FULL minus wrong target (console value),0.020057007168831593,,5000,data/archival/console_excerpts/sem_full_run.txt
+sem.legal_minus_stage,SEM,LEGAL_ONLY minus STAGE_ONLY,0.019509303218637086,0.01172010969777076; 0.027773905929288537,5000,data/archival/console_excerpts/sem_full_run.txt
+sem.share_A,SEM,"Stage share, category A (n=32)",0.5847493447241059,,,data/archival/console_excerpts/sem_stage_share_subgroups.txt
+sem.share_B,SEM,"Stage share, category B (n=16)",0.5261071905854282,,,data/archival/console_excerpts/sem_stage_share_subgroups.txt
+sem.share_exact,SEM,"Stage share, Editor A exact board (n=24)",0.5676478731821903,,,data/archival/console_excerpts/sem_stage_share_subgroups.txt
+sem.share_nonexact,SEM,"Stage share, Editor A nonexact board (n=24)",0.5499292399942715,,,data/archival/console_excerpts/sem_stage_share_subgroups.txt
+sym.leftover_B_pairs,SYM,Category-B pairs in leftover unused validation,2,,,data/archival/console_excerpts/symmetric_target_census_audit.txt
+sym.leftover_B_triplets,SYM,Category-B triplets in leftover unused validation,0,,,data/archival/console_excerpts/symmetric_target_census_audit.txt
+vnf.I_T,VNF,Interaction I_T,0.0008076023895302598,-0.000940300476329714; 0.0030170128325769344,5000,data/archival/console_excerpts/vnf_full_run.txt
+vnf.I_T_win,VNF,I_T win fraction,0.53125,,,data/archival/console_excerpts/vnf_full_run.txt
+vnf.I_W,VNF,Interaction I_W,0.0009723259609861756,-8.623079802076993e-05; 0.0022080467274865232,5000,data/archival/console_excerpts/vnf_full_run.txt
+vnf.I_W_win,VNF,I_W win fraction,0.59375,,,data/archival/console_excerpts/vnf_full_run.txt
+vnf.rowspace_holdout_r2,VNF,Rowspace ridge holdout R^2 for P_R h,0.9405,,,data/archival/console_excerpts/vnf_rowspace_map.txt
+vnf.seed,VNF,Cohort generation seed,10182,,,data/archival/console_excerpts/vnf_cohort.txt

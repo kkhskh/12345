@@ -1,0 +1,16 @@
+{
+  "git_hash": "987fb77ed752fbe5901e3c3febd4bee2369fa397",
+  "site": "blocks.6.hook_resid_mid",
+  "checkpoint_path": "/content/drive/MyDrive/ml_research_artifacts/toy_othello/checkpoints/synthetic_model.pth",
+  "checkpoint_sha256": "aef97afb1e7ec9dbef1d9007174458830a5c428d62f1e2338128879b179bd5c4",
+  "probe_path": "/content/drive/MyDrive/ml_research_artifacts/toy_othello/checkpoints/08c_selected_probe.pkl",
+  "probe_sha256": "d587d61d7cba059ecc16059679120c96c7b660ad9fdf00aa18bab1806f3a2a31",
+  "pair_manifest_sha256": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3",
+  "js_target": 0.01,
+  "js_role": "primary",
+  "used_confirmation": 0,
+  "official_0A_letter": "C / PARTIAL",
+  "prior_cost_verdict_preserved": "TARGET_SPECIFIC_AT_EQUAL_JS_INCONCLUSIVE",
+  "fiber_spec_status_preserved": "TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED",
+  "wrote_into_original_fiber_cost": 0
+}

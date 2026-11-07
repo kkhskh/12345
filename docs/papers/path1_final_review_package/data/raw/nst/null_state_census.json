@@ -1,0 +1,22 @@
+{
+  "n_prior_excluded_games": 201,
+  "n_candidate_A": 57992,
+  "n_candidate_B": 144,
+  "selected_A": 32,
+  "selected_B": 16,
+  "n_recipient_games": 48,
+  "n_target_games": 48,
+  "recip_target_overlap": [],
+  "feasible": 1,
+  "pair_manifest_sha256": "39abdc79090211ab4a69e3e5f79f14319231705640f231dcc146233a9f5092e6",
+  "expected_pair_manifest_sha256": "39abdc79090211ab4a69e3e5f79f14319231705640f231dcc146233a9f5092e6",
+  "hash_ok": 1,
+  "seed": 4182,
+  "prior_spec_hash": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3",
+  "split_leakage_ok": 1,
+  "prior": {
+    "n_fiber": 32,
+    "n_spec_pairs": 48,
+    "n_total": 201
+  }
+}

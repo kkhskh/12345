@@ -1,0 +1,5 @@
+08R2-SYMMETRIC-TARGET STAGE 2 CENSUS
+  excluded=332 elig=408 A_cand=280490 B_cand=0
+  selected_A=16 selected_B=0 recip=16 targets=32 feasible=0
+  triplet_hash=d90b84a09cc2cac2fcc2740dfe651d65150ec215998aacd4c882644746e70bc6
+SYMMETRIC_TARGET_CENSUS_INFEASIBLE

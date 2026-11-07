@@ -1,0 +1,1 @@
+Counterexamples live in `tests/test_mechanisms.py` and in Step 1A's catalog, which this step does not replace. New named identities: affine offset, factorization gap, N1 `±L`, two `I` values at residual 0, nested degenerate `I`, majority-vote disagreement, LN non-isometry.

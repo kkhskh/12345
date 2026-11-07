@@ -1,0 +1,17 @@
+{
+  "package": "docs/papers/probe_invisible_causal_information",
+  "level1_local": false,
+  "level2_replay": false,
+  "level3_training": false,
+  "drive_mounted": false,
+  "tables_from": "reported_numbers.json",
+  "figures_from": "reported_numbers.json plus schematic",
+  "frozen_letters_source": "src/othello_r2.py and preregistrations",
+  "do_not": [
+    "modify historical experiment directories",
+    "open sealed confirmation",
+    "push public branches",
+    "submit to arXiv or a conference",
+    "retrain the 64-D map"
+  ]
+}

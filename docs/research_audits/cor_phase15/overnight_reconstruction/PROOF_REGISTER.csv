@@ -1,0 +1,20 @@
+id,statement,status,route_a,route_b,location
+F,Finite LN level set equals the constants when eps>0 and at most one gain is zero,PROVED,restriction plus eps(1-lambda^2)=0,numeric LN and the two-gain algebraic pair,workstream_1/finite_response.md
+F-sym,SymPy residual factors as eps(1-lam^2) with positive solution 1,PROVED,sympy.factor,does not call numeric LN,proofs/layernorm_facts.py
+U,Centered response unbounded in branch scale under budget B0,PROVED,closed form alpha*||w||^2/T,recomputed response at alpha 1 10 100,proofs/response_bounds.py
+L,Lipschitz constant is at least the gradient norm,PROVED,difference quotients,explicit Lambda versus central-difference gradient,workstream_1
+Lambda,Explicit majorant is valid on checked finite moves,PROVED,operator-norm expansion,seeds 0-5 scales to 20,proofs/response_bounds.py
+K,Finite kernel membership implies the skip response,CONDITIONAL,structural equations,branch tensor norm below 1e-15 and R=0,tests
+K-collapse,Injective QKV plus Theorem F leaves only constants,CONDITIONAL,kernel of a rank-4 map is 0,singular values on seeds 0-11,tests
+J,Jacobian membership is not finite membership,COUNTEREXAMPLE_FOUND,JVP equals skip derivative,finite R gap grows with step,tests
+shift,Constant component factors out of every finite edit,REDUNDANT_WITH_KNOWN_RESULT,step 1C-R file 25,seed 7 live versus dead branch,tests
+OD,O is not D; changing M does not change O; D does not rank L,PROVED,pseudoinverse formula,identity-edge numbers,proofs/obstruction_algebra.py
+coh,Exact coboundary has cohomology class 0,PROVED,ds=d(s) and least squares,reconstruction residual 0,tests
+del,Positive sum forbids both deletions being necessary; affine necessity can have interaction 0,PROVED,sign arithmetic,four-term expansion of (u+v)^2 and of squares,proofs/coordination.py
+value,Value-only derivative can oppose the total derivative,COUNTEREXAMPLE_FOUND,two JVPs,seed 16 recorded floats,tests
+rem,Dm=0 does not imply R=0,COUNTEREXAMPLE_FOUND,JVP,finite response at step 0.2,tests
+fiber,A coordinate deletion can hide opposite signs,COUNTEREXAMPLE_FOUND,definition of sufficiency,seed 16 recomputed signs,tests
+final,Final LN readout kills the constant skip,PROVED,LN shift invariance,raw versus LN dots,tests
+source,One residual norm has two sources,PROVED,algebra of -p and +p,same Euclidean norm,tests
+exotic,No non-constant branch zero off the factor kernel,CONJECTURE,local analytic non-vanishing where the linear form is nonzero,search minima on seed 0,workstream_1
+stack,The same boundaries for a stack or post-norm,NOT_EVALUATED,not derived,not run,OPEN_OBLIGATIONS.md

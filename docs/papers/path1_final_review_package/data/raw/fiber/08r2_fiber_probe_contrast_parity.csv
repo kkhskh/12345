@@ -1,0 +1,3 @@
+n,max_abs_sklearn_vs_decoder,max_abs_sklearn_vs_contrast,max_abs_decoder_vs_contrast,square_agree_sklearn_decoder,board_agree_sklearn_decoder,square_agree_sklearn_contrast,board_agree_sklearn_contrast,atol,ok,backend,max_abs_proba,mean_abs_proba,square_agree,board_agree,d_model,hook,target,n_binary_squares,n_multiclass_squares
+16,2.220446049250313e-16,2.220446049250313e-16,1.1492543028346347e-17,1.0,1.0,1.0,1.0,1e-06,1,,,,,,,,,,
+16,,,,,,,,,,torch_vs_sklearn,1.165191515495323e-07,1.2635990551298967e-08,1.0,1.0,512,blocks.6.hook_resid_mid,rel,4,60

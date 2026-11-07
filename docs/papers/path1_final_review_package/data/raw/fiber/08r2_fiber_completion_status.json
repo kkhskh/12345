@@ -1,0 +1,25 @@
+{
+  "status": "FIBER_DIAGNOSTIC_COMPLETE",
+  "verdict": "PROBE_LOGIT_INSUFFICIENCY_SUPPORTED",
+  "checkpoint_loaded": 1,
+  "probe_loaded": 1,
+  "parity_ok": 1,
+  "nullspace_ok": 1,
+  "hooks_ok": 1,
+  "full_outputs_saved": 1,
+  "n_factorial_cells": 128,
+  "n_control_rows": 128,
+  "n_anchor_rows": 768,
+  "n_valid": 32,
+  "n_demo": 32,
+  "synthetic_scientific_rows": 0,
+  "used_confirmation": 0,
+  "official_0A_letter": "C / PARTIAL",
+  "section_5_3_status": "PARTIAL",
+  "obstruction_ready": "NO",
+  "validation_status": "08R2_VALIDATION_COMPLETE \u2014 NEGATIVE",
+  "pair_counts": {
+    "B_similar_board_legal_change": 8,
+    "A_legal_diff": 24
+  }
+}

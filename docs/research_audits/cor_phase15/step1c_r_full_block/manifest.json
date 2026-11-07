@@ -1,0 +1,180 @@
+{
+  "files": [
+    {
+      "path": "01_prior_errors_and_source_fixes.md",
+      "sha256": "da0b4f12a30c9274441968145b8c658ce401d85e6aedccc452ba9084327156cf",
+      "bytes": 2984
+    },
+    {
+      "path": "02_layernorm_epsilon_theory.md",
+      "sha256": "b35e0185b8faee340014c316d130cf0d9523e13b5926c64540f2ef151c96e546",
+      "bytes": 6290
+    },
+    {
+      "path": "03_two_path_necessity_and_interaction.md",
+      "sha256": "0e71f9a9242f5680e0959719605d982035415216a0dfce043bd84a6dafde5bc2",
+      "bytes": 4090
+    },
+    {
+      "path": "04_complete_prenorm_block_definition.md",
+      "sha256": "e28baa25e6df10521421919579879980735fc514d6130ede7e19eb9ac34f4b7d",
+      "bytes": 2805
+    },
+    {
+      "path": "05_residual_intervention_semantics.md",
+      "sha256": "9af30b1c5bc13c2fd2ae0aa7c864fa7f5c3fc5ad846a735a2f226ea408316e86",
+      "bytes": 2367
+    },
+    {
+      "path": "06_attention_qkv_total_derivative.md",
+      "sha256": "d1ccb3157762534740269291414112122ba5a71b85acf5a1026e82f47d0cb578",
+      "bytes": 3850
+    },
+    {
+      "path": "07_residual_mlp_and_normalization_chain.md",
+      "sha256": "18a515ffc647d1b7aaa465317594966ce39f02de68d4f2a27a838de4963a2a76",
+      "bytes": 2823
+    },
+    {
+      "path": "08_exact_vs_linearized_causal_response.md",
+      "sha256": "8ec5c822f4251297cd1499cf61efe7ddc56d3f46a7021648a090af58ab0b3400",
+      "bytes": 3834
+    },
+    {
+      "path": "09_multihead_and_multitoken_extension.md",
+      "sha256": "8fe694703875d433ba41049f5f1415d58ad485414ba8c50dbccd64c8410d9bb6",
+      "bytes": 3315
+    },
+    {
+      "path": "10_causal_sufficiency_and_projection_loss.md",
+      "sha256": "bc0bbf6894a53146c5c6b3af96fd8af0751646444ba63a46657390eff6c8bffd",
+      "bytes": 2358
+    },
+    {
+      "path": "11_exact_computation_vs_surrogate_discrepancy.md",
+      "sha256": "9fd93dae656ca78e0ca3a9ad5b5c57ba0dfbcbfb31ae2a95c6a25a98ef9c3f69",
+      "bytes": 2369
+    },
+    {
+      "path": "12_path_coordination_and_intervention_interactions.md",
+      "sha256": "9e364cdb7e1fc41164a0e9d27320c4d57d140f053a666a171886c945fae9c235",
+      "bytes": 2431
+    },
+    {
+      "path": "13_gradient_redundancy_and_information_budget.md",
+      "sha256": "ab7c76abcf84db376df572cbed4b27238ac2a9907f3a660f0bc414065719e60f",
+      "bytes": 3713
+    },
+    {
+      "path": "14_structural_response_bounds.md",
+      "sha256": "c8ca581fbe4e0133cace836a848e52fdda3f423d8da08a27a8c380ae65be56fe",
+      "bytes": 2224
+    },
+    {
+      "path": "15_representation_and_identification_audit.md",
+      "sha256": "e694933028b85a935ec929883d1bf527cf202b52ca2ec5e9bea35b9ac5b871b5",
+      "bytes": 2850
+    },
+    {
+      "path": "16_theorem_register.md",
+      "sha256": "81986a81a62df9fd0a3314d15028ce7d0d3c38cb5b599dcb93c043e0be67763e",
+      "bytes": 6239
+    },
+    {
+      "path": "17_counterexample_catalog.md",
+      "sha256": "e24de2c3885c0e0f14f39ce91f27727b783220d62b7534aae8c8a55a14de4ca5",
+      "bytes": 5750
+    },
+    {
+      "path": "18_competing_explanations.md",
+      "sha256": "8b40b86ecf44ff6ff5fbd2999c68a8ab3991edcaa009042cee3516edee008ffc",
+      "bytes": 3649
+    },
+    {
+      "path": "19_literature_comparison.md",
+      "sha256": "5a9de550e1c59a34ae2b30811167365856d8c83a31ec285a24def3618bc198a9",
+      "bytes": 4840
+    },
+    {
+      "path": "20_unified_causal_dependency_map.md",
+      "sha256": "5dabebebb8143d4bc40b9a958f4742aaa0735a7839d865a89b92148cd2a7cf23",
+      "bytes": 1973
+    },
+    {
+      "path": "21_surviving_theoretical_candidates.md",
+      "sha256": "95db218044913e53cf58181723806e6fe5d4d6cd415fb8c9cb73f73c686aca0e",
+      "bytes": 2336
+    },
+    {
+      "path": "22_unresolved_assumptions_and_search_coverage.md",
+      "sha256": "fe10869c9bf86981ea7ef006c79a8af6fdb080fe3f2a96f9e15033ca2c2eb66b",
+      "bytes": 2747
+    },
+    {
+      "path": "23_final_step1c_r_verdict.md",
+      "sha256": "cf07bf34c68f4ee05e4459f57605f8dedaa00e77920c5715d95de0a3fc4caf0e",
+      "bytes": 13858
+    },
+    {
+      "path": "24_step1_continuation_decision.md",
+      "sha256": "81accdd0acf81c557afb1c4e5793cbbd060cf8ffdb15eb6a5b2d95470d9252a1",
+      "bytes": 831
+    },
+    {
+      "path": "README.md",
+      "sha256": "946dae649cbed0d81a8136bb0ba3ccc59d808a2da52a450d382dea1cf9c3e8b4",
+      "bytes": 2438
+    },
+    {
+      "path": "counterexamples/catalog.md",
+      "sha256": "15a6ad06988c0907ad7951d7feb665c0dd44b90c749760269ed289e6d7c76b6a",
+      "bytes": 1154
+    },
+    {
+      "path": "logs/clean_room.txt",
+      "sha256": "e2b6f6accaac112b1af709b8e6780006a24217295ff83838f0cb1d8c1c2b82b9",
+      "bytes": 106
+    },
+    {
+      "path": "logs/dev_pytest.txt",
+      "sha256": "ddba92a96b2d8bd2b42986fd5ac2a5531aecbecaa6776a8376f9962092021c8f",
+      "bytes": 106
+    },
+    {
+      "path": "logs/manifest_check.txt",
+      "sha256": "ed4fb979b948f3c1903cdba88024d8dfc940356661f5a397fd6ad1c84024776a",
+      "bytes": 29
+    },
+    {
+      "path": "proofs/README.md",
+      "sha256": "9cdbd6692bd8efcf08d871569731b8dbcfa1b22c847349d9754208b5bf00c739",
+      "bytes": 760
+    },
+    {
+      "path": "proofs/block_math.py",
+      "sha256": "b1a0222b90a46034f15b9f9b4407b18f55b9e8803ad31c49584b91514c63a826",
+      "bytes": 6687
+    },
+    {
+      "path": "reviews/cross_examination.md",
+      "sha256": "d34ee4c9a5ba3223e7d7d23164719aa56f2227df979cb2f3faa5e0b34dd0b83c",
+      "bytes": 4416
+    },
+    {
+      "path": "scripts/verify_manifest.py",
+      "sha256": "c79b5467c0d77791a2b893f9a1c8beef2794a5ef51c4a35a5fb2bf2d5bb0a9cb",
+      "bytes": 1746
+    },
+    {
+      "path": "scripts/write_manifest.py",
+      "sha256": "050f23b64f2399aa83df6b365dccf3bb34c226c30937a0a50f98e13634018cbb",
+      "bytes": 993
+    },
+    {
+      "path": "tests/test_block.py",
+      "sha256": "762014e122fb2d936cfe40d9684c305c8fee72446952bf2ab6709149f2d89aa0",
+      "bytes": 11490
+    }
+  ],
+  "count": 35
+}

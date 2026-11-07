@@ -1,0 +1,20 @@
+{
+  "md_sha256": "2c0708297f77adb7194206ecf690f4ed2656d361b040d76e208f8451c2416b08",
+  "tex_sha256": "8caa3a65de1fd757d679fbc9ac8954286b8eac084b65adfb28b42ad5bcd53b98",
+  "built_utc": "2026-11-06T22:41:45.071740+00:00",
+  "figures_sha256": {
+    "fig1_probe_geometry.pdf": "9033e95d856611707abed27d77ac5a82e639abf5cf85a9d1f1711f507907b73e",
+    "fig2_probe_and_output_by_category.pdf": "3e9ba6a092dfc00d2d6c4ed52c781ddb288edaf7f10505f39ef6d9030e234384",
+    "fig3_fixed_js_contrasts.pdf": "5e8634a5b54b0dc6e9da9083078859a0655d7d2012c7a6e06b367d24f707b1ca",
+    "fig4_nst_transfer.pdf": "cb11aa65be313cd099c5c6903b0d8728c24fe6ded86c6557793ab9d4990c34f7",
+    "fig5_completeness_tests.pdf": "d91a660594c927e8948192c61c0ae04a8a1d0ddd49d7b3ecda7cc8fe4c59fd08"
+  },
+  "figure_environment": {
+    "matplotlib": "3.8.4",
+    "numpy": "1.26.4",
+    "python": "3.9.13"
+  },
+  "pdf_sha256": "45fb83c4a00aaad6e814a3dfb0b072c21e7dd217718fab3d6806871128ed379f",
+  "tectonic": "Tectonic 0.17.0",
+  "latex_warnings": []
+}

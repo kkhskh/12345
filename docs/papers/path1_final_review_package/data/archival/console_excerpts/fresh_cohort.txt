@@ -1,0 +1,7 @@
+08R2-SYMMETRIC-TARGET-FRESH STAGE 1
+  seed=9182 kept_games=400 dropped=0 prefixes=2394
+  sequence_banned=3200 identical_state_overlap=24
+08R2-SYMMETRIC-TARGET-FRESH STAGE 2
+  B_cand=11827 selected=16A+16B union=96 feasible=1
+  witness={'n_a': 16, 'n_b': 16, 'n_recipients': 32, 'n_targets': 64, 'n_union': 96, 'recip_target_overlap': [], 'roles_ok': 1, 'ok': 1} method=b_then_online_a
+  triplet_hash=3ae44e1eabf2684cb3e0b5025ccb9b76cabad6a1a6176454999ebc4b5ce70972

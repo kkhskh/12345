@@ -1,0 +1,302 @@
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\hypersetup{colorlinks=false}
+\title{Causal Information Outside a Frozen Board Probe in Othello-GPT}
+\author{Authors withheld pending human confirmation}
+\date{Private draft. Not submitted.}
+\begin{document}
+\maketitle
+\textbf{Authors:} withheld pending human confirmation. This draft must not be submitted with placeholder authorship.
+
+\textbf{Status:} private manuscript. Not submitted. Authors and affiliations withheld pending human confirmation.
+
+\begin{abstract}
+
+Linear probes can recover Othello-GPT's board with high accuracy, and prior work has shown that changing those probe-readable features changes the model's legal-move predictions. That does not settle whether a frozen probe captures every residual-stream distinction the network uses. We study a single 8-layer Othello-GPT, a frozen 64-square linear board probe, and residual edits at \texttt{blocks.6.hook\_resid\_mid} that are constrained to the probe's contrast nullspace so that the probe's full occupancy-probability vector is preserved. Under that constraint, correct-target donor directions improved a legal-mass response score relative to wrong-target and random nullspace controls, both at matched residual L2 and, in a restored protocol, at matched output Jensen--Shannon divergence of 0.01. A 64-dimensional ridge map trained only on training-split activations produced a similar target-aligned advantage without using the target donor activation at evaluation; mean absolute scores remained negative (recorded \(Y_{\mathrm{learned}}\approx-0.58\)). About 56\% of that map's mean improvement over a probe-space editor was already obtained by a stage-only map. On a fresh 32-triplet cohort, mean target advantages were positive, but joint switching of both arms occurred in 13 of 32 triplets, below a 60\% gate. A factorial test of visible/nullspace interaction yielded estimates near zero. The results support a limited claim: this frozen probe does not exhaust the residual information that affects legal-move outputs, and some of the remainder is predictable from symbolic state, but the recovered map is not a complete transferable board. The matched-JS contrasts were independently recomputed from 336 saved interventions (48 pairs). FRESH, VNF, and SEM pair-level arrays were not in this workspace; those numbers remain tagged to the Colab record. See the reproducibility statement.
+
+\end{abstract}
+
+\section{1. Introduction}
+
+A linear probe that reads the board from Othello-GPT is easy to treat as a description of what the model ``knows.'' Li et al. (2023) trained a GPT-style network on legal Othello move sequences and showed that nonlinear probes recover the board, and that editing the representation those probes read changes which moves the network treats as legal. Nanda, Lee, and Wattenberg (2023) then showed that a simpler player-relative linear probe is enough for that reading, and that adding the corresponding probe directions is enough to steer play. Those papers already give a causal role to a decoded board. They do not show that one frozen probe is a complete causal summary of the residual stream.
+
+The distinction matters because probing and intervention answer different questions. A probe asks whether a feature is linearly readable. An intervention asks whether a specified change to an activation changes the frozen network's output. Elazar et al. (2021) made that gap explicit by \emph{removing} linearly readable information and measuring behavior. High probe accuracy did not imply that the probed feature was what the model used. The complementary experiment is less standard: \emph{add} information that the probe cannot see, keep the probe's output fixed, and ask whether behavior still moves.
+
+We run that experiment on the Nanda redistribution of Othello-GPT, an 8-layer Transformer with residual width 512, trained to predict the next legal move in synthetic games. We freeze a 64-square multinomial linear probe at the last real token of \texttt{blocks.6.hook\_resid\_mid}. Independent class-logit contrasts of that probe define a rowspace and a complementary nullspace. An activation change that lies in the nullspace leaves every square's probe probability vector unchanged, up to a stated numerical tolerance. We call such a change probe-preserving, or probe-invisible relative to this probe. The phrase does not mean that no decoder could read the change, and it does not mean that the model has a second, hidden board.
+
+The output functional is a difference of probability masses. For a recipient position with legal set \(L_r\) and an intended target position with legal set \(L_t\), \(G\) is the mass the model places on squares that became legal, \(Q\) is the mass on squares that became illegal, and \(Y=G-Q\). A positive movement in \(Y\) means the intervention shifted probability toward the target's legal set and away from the recipient's. It is not accuracy, and it is not a claim that the model now plays the target board.
+
+The first question is whether probe-preserving donor residuals change \(Y\) at all, and whether they do so more for the intended target than for wrong-target or random controls. Matching residual L2 and matching output Jensen--Shannon (JS) divergence are different controls; we report both, and we keep an earlier equal-JS attempt that did not follow its own protocol separate from the restored run. The second question is whether a map that sees only symbolic features of the intended target---player-relative occupancy, legal squares, player, and game stage---can produce a similar probe-preserving direction without the target's natural activation at evaluation time. The third question is how far that map goes. We ablate its features, measure how much of its improvement over a probe-space editor is already present in a stage-only map, and test two completeness hypotheses that failed: reliable joint switching between two targets on the same recipient, and a visible/nullspace interaction under a frozen factorial design.
+
+The contribution is empirical and narrow. We do not propose a theory of Transformer decisions. We do not claim that every board probe would miss this information, or that the 64-dimensional map recovered the model's true decision state. What the experiments support is that, for this frozen probe and this model, residual directions that the probe cannot distinguish still carry some target-aligned influence on legal-move predictions, that a portion of that influence can be predicted from symbolic state without a donor at evaluation, and that the resulting intervention is far from complete state transfer.
+
+\section{2. Related work}
+
+Probing treats a linear or nonlinear decoder as evidence that a representation contains a specified variable. The methodological literature has long warned that readout is not use. Hewitt and Liang (2019) introduced control tasks that a probe can solve without tracking linguistic structure. Belinkov (2022) surveyed the resulting gap between encoding and causal role. Elazar et al. (2021) closed part of that gap with amnesic probing: they used iterative nullspace projection (Ravfogel et al., 2020) to remove a property and then asked whether the model's behavior changed. Belrose et al. (2023) later gave a closed-form linear erasure method, LEACE, with a guarantee that no linear classifier can recover the erased concept. Those papers test necessity of probe-readable information by taking it away. They do not test whether the orthogonal complement of a particular probe still contains target-specific causal mass.
+
+Othello-GPT is the setting in which world-model claims have been made most carefully. Li et al. (2023) argued that a network trained only on move tokens still maintains an internal board, using nonlinear probes and interventional edits. Nanda et al. (2023) showed that a player-relative linear basis makes the same board linearly readable and causally steerable by vector arithmetic. Those steering interventions move the model \emph{along} the probe. If the scientific question is whether the probe is a sufficient statistic for legal-move behavior, moving along the probe cannot answer it. One has to move in its kernel.
+
+Later Othello work makes the same readout-versus-use distinction in other designs. Jacopin (2026) reproduced the Li--Nanda linear player-relative board in a masked-diffusion language model trained on the same data. The representation transferred but was weaker, and a Li/Nanda-style causal board intervention had only a small, inconsistent effect (reported mean \(+0.02\), 24\% win rate) compared with a strong autoregressive control. That paper asks whether a readable world model is used under a different training objective. It does not freeze a board probe and add a target-conditioned vector in that probe's kernel. Lin, JackS, Karvonen, and Can (2024) report, in an Alignment Forum research note, that Othello-GPT appears to compute legality through many localized heuristics, including neurons that fire by game stage rather than by a single compact board algorithm. That account is consistent with our stage-only ablation having a large share of mean \(Y\), but it is not a nullspace test of a frozen probe.
+
+Activation steering in language models adds residual directions derived from contrastive prompts or from trained readers (Turner et al., 2023; Zou et al., 2023; Rimsky et al., 2024). Strength is usually a coefficient. Matching the \emph{output} divergence of several directions, including wrong-target donors, is a tighter control on ``the edit merely scrambled the next-token distribution.'' We use that control in one experiment. It is not a new steering algorithm; it is a matching condition.
+
+Causal abstraction and distributed alignment search (Geiger et al., 2024, 2025) ask a stronger question: whether a high-level causal variable lines up with a distributed subspace under interchange interventions. We do not fit such an alignment, and we do not claim faithfulness in that sense. Our estimand is a change in \(Y\) under an explicitly constructed residual edit. That is a causal effect of the intervention, not a proof that we found the variable the network uses.
+
+The closest sentence in prior work is therefore: linear board features in Othello-GPT are readable and steerable, and probes in general are not causal summaries. Jacopin (2026) and Lin et al. (2024) strengthen the warning that a readable board need not be a complete causal account, without running our frozen-probe kernel experiment. The open measurement remains the kernel of one frozen board probe, under target-specific controls, with and without a donor at evaluation, including the tests that fail. Priority is not proven. The controlled combination is still distinct from those sources as described.
+
+\section{3. Experimental setup and methods}
+
+\subsection{3.1 Model, site, and probe}
+
+The model is the TransformerLens LNPre conversion of Nanda's 8-layer Othello-GPT (\(d_{\mathrm{model}}=512\), 8 heads, vocabulary 61, context 59). It predicts the next move in synthetic legal self-play, following Li et al. (2023). Token 0 is pass; tokens 1--60 index the 60 playable squares (D4, D5, E4, E5 omitted). We never fine-tune it. The intervention site is the residual stream at \texttt{blocks.6.hook\_resid\_mid}, last real (non-padding) token. That site was frozen before the studies in this paper; we do not search layers here.
+
+The probe is a frozen pack of 64 square-wise multinomial logistic regressions in the player-relative basis \(\{\text{empty}, \text{mine}, \text{yours}\}\). It was trained on training-split activations only. For each square \(j\) with present classes \(C_j\), we form independent class-logit contrasts \(W_{j,c}-W_{j,\mathrm{ref}}\) against a reference class. Stacking those rows yields a contrast matrix \(W\in\mathbb{R}^{m\times 512}\). An SVD with relative singular-value tolerance \(10^{-8}\) gave recorded numerical rank 124 and nullspace dimension 388. Those two integers were not recomputed from a local weight file in this manuscript package; they are the recorded FIBER geometry. The orthogonal projectors \(P_R=V_R V_R^\top\) and \(P_N=I-P_R\) are defined from that SVD. By construction, \(W P_N=0\), so adding \(P_N\delta\) does not change probe logits, hence does not change probe probabilities, up to floating-point error.
+
+Probe-invisible, in this paper, means: after the edit, the 64×3 probe probability tensor agrees with the pre-edit tensor within an absolute tolerance of \(10^{-5}\) (float32 activations) or tighter in float64 diagnostics. We do not claim invariance of every possible board decoder. Figure 1 shows the geometry. Both the rowspace and the nullspace feed the later layers of the frozen model. Only the rowspace is read by this probe. The diagram is not a claim that probe-visible features are causally unused.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig1_probe_geometry_schematic.pdf}
+\caption{Schematic of the frozen-probe split. Both rowspace and nullspace enter the later layers of the frozen model. Only the rowspace is read by this probe. Probe-invisible means invariant to this probe, not unused by the network.}
+\label{fig:geom}
+\end{figure}
+
+
+\subsection{3.2 Positions, legal sets, and \(Y\)}
+
+A \emph{prefix} is a legal game sequence together with the current player. The simulator supplies occupancy, player, and the legal-move set. We never open the sealed confirmation split (\texttt{confirm\_} games). Training games use seed 0, validation games seed 1, and test games seed 2. Later cohorts use dedicated seeds listed in the experiment registry.
+
+For recipient legal set \(L_r\) and intended-target legal set \(L_t\),
+
+\[
+G = \sum_{s\in L_t\setminus L_r} p(s),\qquad
+Q = \sum_{s\in L_r\setminus L_t} p(s),\qquad
+Y = G-Q,
+\]
+
+where \(p\) is the model's softmax over the 61-token vocabulary, restricted in the obvious way to move tokens that correspond to squares. Stayed-legal and stayed-illegal mass are recorded but are not the primary estimand. JS divergence between two output distributions uses natural-log KL after adding \(10^{-12}\) and renormalizing. Pairwise contrasts are differences of \(Y\) under two interventions scored on the \emph{same} intended \((L_t\setminus L_r, L_r\setminus L_t)\). That scoring convention matters: a wrong-target intervention is still evaluated on the original intended target's legal-set difference, not on the wrong board's own legal set, unless a switching study explicitly swaps the intended target.
+
+\subsection{3.3 Pair and triplet construction}
+
+Unless noted, pairs are ABD-style: same player, nonempty became-legal and became-illegal sets, occupancy-bucket matching, and disjoint recipient and target games. Category A has board Hamming distance greater than 8; category B has distance between 2 and 8 inclusive. The SPEC census froze 32 A + 16 B pairs with pair-manifest SHA-256 \texttt{2789accf...1143d3}. Those 48 pairs are reused for the original COST run and for the restored fixed-JS run; they are not a new sample. The NST census froze a different 48 unused-validation pairs, hash \texttt{39abdc79...5092e6}, after excluding FIBER and SPEC games. Symmetric-target leftover validation was infeasible (0 B triplets). A fresh 32-triplet cohort (seed 9182, hash \texttt{3ae44e1e...e70972}) and a factorial cohort (seed 10182, hash \texttt{d7ceb056...ac81d25}) were generated later, each with 16 A + 16 B and 96 distinct game roles.
+
+Wrong-target donors, where used, are other validation prefixes with the same player and occupancy, legal-set size, and prefix length within slack 4, selected by frozen seeds before seeing \(Y\). Random controls are seeded nullspace directions matched in L2 or calibrated in JS, not random output noise.
+
+\subsection{3.4 Interventions}
+
+\textbf{Natural donor, probe-null.} Let \(h_E\) be the recipient residual and \(h_D\) the donor residual. The correct-target SPEC direction is \(\delta_{\mathrm{correct}}=P_N(h_D-h_E)\), optionally rescaled. Wrong-target directions use other donors; random directions are drawn in the nullspace and matched in L2.
+
+\textbf{Equal-JS calibration.} For a frozen direction \(\delta_j\), we search a relative scale \(t\) so that \(\mathrm{JS}(F(h_E),F(h_E+t\delta_j))=0.01\pm 0.0002\), using a frozen geometric grid and 16 bisections. The search does not use \(Y\). Each of seven directions per pair is calibrated independently. The original COST execution did not follow this rule; a forensic recorded a donor-reference deviation. Only the later restoration is treated as the equal-JS result.
+
+\textbf{Editor A.} A full-space residual editor with board-decoding objective, L2 budget 16, 40 SGD steps, learning rate 0.4. It is a probe-space-oriented baseline, not a nullspace method. Its 08R2 validation letter is negative.
+
+\textbf{Learned donor-free map.} On training activations, \(z=P_N h\) is modeled as \(\mu+U_k a\) with \(k=64\) principal components. A ridge map \(\widehat a(b)=Wb+c\) with \(\alpha=10\) predicts those coefficients from a symbolic vector \(b\): 64×3 player-relative occupancy, a 64-bit legal mask, player-is-black, and occupancy/64. Selection of \(k\) and \(\alpha\) used training-game grouped cross-validation residual \(R^2\), never held-out \(Y\). At evaluation the direction is \(\delta_{\mathrm{learned}}=\widehat z(b_t)-P_N h_E\). The natural target residual \(h_D\) is not used to build that vector. Oracle \(P_N(h_D-h_E)\) was compared only after learned directions were frozen. Ablations drop subsets of \(b\): LEGAL\_ONLY drops occupancy one-hots; BOARD\_ONLY drops the legal mask; STAGE\_ONLY keeps player and occupancy scalar.
+
+\textbf{Factorial visible/null edits.} An independently trained rowspace ridge \(\widehat r(b)\) and the frozen null map are added with coefficients \(\rho=\nu=3.5\), so each of the four cells \(T/W\times\) visible/null has the same total L2 \(\sqrt{24.5}\). There is no JS search. Interaction estimands are \(I_T=d_T(T)-d_T(W)\) and \(I_W=d_W(W)-d_W(T)\).
+
+\subsection{3.5 Statistics}
+
+Primary intervals are percentile bootstrap, clustered on recipient game for the 48-pair studies and on triplet for the 32-triplet studies. SPEC, fixed-JS, and NST used 2000 replicates (seed 82 in the SPEC/NST configs). FRESH and VNF used 5000 replicates (config \texttt{n\_boot}). Sharing a recipient is not treated as independent games. Coverage gates (44/48 or 29/32) were frozen before outcomes. We report means, win rates, and intervals on the \(Y\) scale. We do not call an effect large because an interval excludes zero.
+
+The restored fixed-JS study is independently recomputed in this package from 336 saved intervention rows (\texttt{verified\_data/fixed\_js\_verified\_data.csv}). FRESH, VNF, and SEM pair-level arrays were not supplied here; those decimals remain tagged to the Colab record or to the git-tracked mean-level identity. That is an integrity constraint, not a hedge about the sign of the official letters.
+
+\section{4. Results}
+
+\subsection{4.1 A frozen probe can hold still while the output moves}
+
+The FIBER diagnostic asked whether the contrast nullspace is empty and whether probe-logit-preserving edits can change next-move probabilities. The recorded SVD left 388 of 512 dimensions in the kernel of \(W\). That number is a property of this contrast matrix. It does not mean that 388 dimensions are free of board information under every decoder.
+
+On matched prefixes, edits in the nullspace were required to keep the full probe probability tensor within tolerance while the output distribution moved by more than a negligible JS floor. The official letter is \texttt{PROBE\_LOGIT\_INSUFFICIENCY\_SUPPORTED}. A related observational check, \texttt{DECODED\_BOARD\_INSUFFICIENCY\_SUPPORTED}, found prefixes for which decoded boards agreed and model outputs did not. Observation is not intervention. The interventional claim is the probe-preserving edit.
+
+These diagnostics motivate the rest of the paper. They do not yet show that the kernel carries \emph{target} information rather than generic disruption.
+
+\subsection{4.2 Correct-target nullspace donors beat L2-matched controls}
+
+SPEC applied, on 48 unused-validation pairs (32 A, 16 B), the natural-donor nullspace residual of the intended target, three L2-matched wrong-target donors, and three L2-matched random null directions. Every \(Y\) used the intended target's legal-set difference. Probe probabilities were required to stay within tolerance.
+
+The recorded mean correct-minus-wrong contrast was \(\Delta_{\mathrm{specific}}=+0.391627\) with clustered 95\% interval approximately \([0.317,0.476]\). Mean \(Y\) under the correct donor was \(+0.144\); under wrong donors \(-0.248\); under random directions \(-0.565\). All 48 pairs completed. The official letter is \texttt{TARGET\_SPECIFIC\_NULL\_EFFECT\_SUPPORTED}.
+
+Equal L2 did not equalize output movement. Recorded mean JS at the SPEC scale (\(t=1\), \(\|\delta\|_2\approx 18.33\)) was 0.279 for correct donors, 0.223 for wrong donors, and 0.038 for random directions. Random null vectors of the same length barely moved the output. A specificity contrast against a control that does not perturb the model is not a matched-strength comparison. That is why the next experiment exists.
+
+\subsection{4.3 Target identity still matters when output JS is matched}
+
+The frozen equal-JS protocol scales each of the seven SPEC directions independently so that the output JS relative to the unedited recipient is 0.01. The first COST execution did not implement that protocol. A forensic recorded \texttt{FROZEN\_COST\_PROTOCOL\_DEVIATION\_CONFIRMED}, and the scientific letter on that run remains \texttt{TARGET\_SPECIFIC\_AT\_EQUAL\_JS\_INCONCLUSIVE}. We do not recycle those numbers as an equal-JS result.
+
+The restored run, on the same 48 pairs, calibrated 336 directions to JS \(=0.01\pm 0.0002\) with 48/48 pair coverage. Secondary JS targets 0.005 and 0.02 were not in the primary archive and are not claimed. Independently recomputing \(Y\) from the saved 336-row table gives mean correct-minus-wrong \(\Delta Y=+0.02655064\) and correct-minus-random \(+0.02296572\). Mean residual L2 is 5.298 (correct), 6.368 (wrong), and 12.265 (random). The largest absolute change in any 64×3 probe-probability entry is \(1.19\times 10^{-14}\). The largest deviation from JS \(=0.01\) is \(1.23\times 10^{-6}\). Matching JS forced random directions to a larger activation step, as expected from their small unscaled JS. The official letter is \texttt{FIXED\_JS\_TARGET\_SPECIFICITY\_SUPPORTED}. Figure 2 shows that probe probabilities stay at roundoff while outputs move. Figure 3 shows the paired \(\Delta Y\) contrasts. The 336 rows are seven interventions on 48 pairs; the statistical unit remains the pair, not the intervention.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig2_probe_preservation.pdf}
+\caption{Fixed-JS probe preservation versus output change. Each point is one of 336 interventions on 48 pairs. The inference unit is the pair. Source: \texttt{verified\_data/fixed\_js\_verified\_data.csv}.}
+\label{fig:fig2}
+\end{figure}
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig3_fixed_js_contrasts.pdf}
+\caption{Paired $\Delta Y$ at JS $=0.01$ for correct versus wrong and random controls. $n=48$ pairs.}
+\label{fig:fig3}
+\end{figure}
+
+
+Two qualifications are required. First, this is a follow-up on pairs that had already been used for SPEC; it is not sealed confirmation. Second, the effect is a difference of probability masses on the order of 0.02--0.03, not a recovery of the target policy. Mean \(\Delta G\) and \(\Delta Q\) had the intended signs in the recorded summary (\(+0.0133\) and \(-0.0133\)). Win rates, recomputed from the same table, were 40/48 versus wrong and 30/48 versus random. A matched-JS target effect exists in this sample. It is small, and it is not independent of the SPEC sample.
+
+\subsection{4.4 A train-only map transfers part of the effect without a donor at evaluation}
+
+Donor interventions show that some kernel direction associated with a natural target activation is useful. They do not show that the direction can be built from the target \emph{board} alone. NST fits the 64-dimensional ridge described in Section 3.4 on training activations, freezes it, and evaluates on 48 new unused-validation pairs. The evaluation vector is \(\widehat z(b_t)-P_N h_E\). Natural \(h_D\) is not an input.
+
+Recorded train residual \(R^2\) was 0.342 and unused-validation reconstruction \(R^2\) was 0.305. Reconstruction is not the causal gate. At JS \(=0.01\), the recorded pooled contrasts (\(n=48\) recipient clusters) were
+
+\[
+Y_{\mathrm{learned}}-Y_{\mathrm{wrong}} = 0.020057\ \ [0.010791,\ 0.029784],
+\]
+
+with further recorded advantages versus random (\(0.0314\)), versus a stage-mean null vector (\(0.0220\)), and versus Editor A (\(0.053713\)). Mean \(Y_{\mathrm{learned}}\) was \(-0.582\); mean \(Y_{\mathrm{EditorA}}\) was \(-0.636\). Probability mass moved in the intended directions relative to Editor A (\(\Delta G=+0.0195\), \(\Delta Q=-0.0342\)), but the absolute score stayed negative: after the edit, the model still placed more mass on became-illegal squares than on became-legal squares, on average. The official letter is \texttt{DONOR\_FREE\_NULL\_STATE\_TRANSFER\_SUPPORTED}.
+
+``Donor-free'' is an evaluation-time statement. The map was trained on natural probe-null residuals. The learned and oracle interventions produced highly correlated raw response scores across evaluation pairs (Pearson \(r\approx 0.998\) on \(Y\)), but their activation directions were not identical. Mean cosine similarity of learned versus oracle directions was approximately 0.792, and the learned directions were more similar to mean-state directions (mean cosine approximately 0.850). These comparisons support similar behavioral effects, not recovery of the oracle representation (Figure 4). A gradient baseline reached JS tolerance on only 7 of 48 pairs and is not compared at the full-sample mean.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig4_nst_contrasts.pdf}
+\caption{Donor-free NST paired $\Delta Y$ contrasts. Mean $Y_{\mathrm{learned}}$ remains negative. $n=48$ pairs.}
+\label{fig:fig4}
+\end{figure}
+
+
+Nonexact target boards, in the session record, did not repeat the wrong-target and random advantages with intervals excluding zero. Exact-board subsets were stronger. We treat that split as a limitation of transfer, not as a second independent discovery. The 48 pairs were unused relative to SPEC, but they are still validation games, not confirmation.
+
+\subsection{4.5 Legal-state and stage features explain much of the learned advantage}
+
+STATE-SEMANTICS reused the NST pairs and the frozen PCA basis. It is exploratory. FULL minus LEGAL\_ONLY was recorded at about \(+0.0041\), and FULL minus BOARD\_ONLY at about \(+0.0056\), both below the prespecified \(+0.01\) floor. BOARD\_ONLY minus STAGE\_ONLY was about \(+0.0180\); LEGAL\_ONLY minus STAGE\_ONLY about \(+0.0195\). The exploratory letter is \texttt{LEGAL\_MASK\_SUFFICES\_IN\_TESTED\_FAMILY}. That letter does not mean the legal mask is uniquely necessary. In Othello, occupancy geometry determines legality, so a board one-hot and a legal mask are partly redundant.
+
+A separate, git-tracked mean-level identity uses the archived equal-JS means:
+
+\[
+Y_{\mathrm{FULL}}-Y_{\mathrm{EditorA}}=0.053713,\qquad
+Y_{\mathrm{STAGE}}-Y_{\mathrm{EditorA}}=0.030099,
+\]
+
+so STAGE\_ONLY already accounts for \(0.030099/0.053713\approx 56\%\) of FULL's mean improvement over Editor A. This is a ratio of means under a shared calibration, not a decomposition into independent mechanisms. STAGE\_ONLY is conditioned on the intended target's player and occupancy. It is not a target-blind prior. Residual reconstruction \(R^2\) for STAGE\_ONLY was previously cited as ``only 0.07''; that figure describes reconstruction of probe-null residuals, not share of mean \(Y\), and does not license dismissing the stage map's behavioral contribution.
+
+Taken with Section 4.4, the donor-free result is not ``the 64-dimensional code of the board.'' It is a target-conditioned residual nudge whose average gain over Editor A is partly a stage correction and whose extra content over legal-only or board-only maps is below the study's own meaningful-effect floor.
+
+\subsection{4.6 Reliable target switching and a visible/null interaction were not supported}
+
+If the learned null vector were a drop-in replacement for a target board, asking for board \(T\) versus board \(W\) on the same recipient should move \(Y\) toward each requested target often enough to pass a joint gate. Leftover unused-validation games could not form 16 A + 16 B triplets (\texttt{SYMMETRIC\_TARGET\_CENSUS\_INFEASIBLE}). A new 400-game cohort (seed 9182) could. On 32 triplets, natural-anchor FULL at JS \(=0.01\) gave
+
+\[
+A_T=0.02850\ \ [0.01652,\ 0.04062],\qquad
+A_W=0.01856\ \ [0.00718,\ 0.03009].
+\]
+
+Win rates were 81\% for \(A_T\) and 56\% for \(A_W\). Both-positive switching occurred in 13 of 32 triplets (40.6\%). The prespecified minimum was 60\%. Coverage was 32/32. The letter is \texttt{SYMMETRIC\_TARGET\_SWITCHING\_NOT\_SUPPORTED}. Positive average discrimination and reliable simultaneous switching are different claims. The second is the one the gate tests, and it failed. Figure 5 summarizes this gate and the factorial null.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig5_limits_fresh_vnf.pdf}
+\caption{Limits of the learned map: FRESH joint switching below the 60\% gate, and VNF interaction estimates below $+0.005$.}
+\label{fig:fig5}
+\end{figure}
+
+
+Editor A visible contrasts \(D_T\) and \(D_W\) on the same arrays were small and positive (about \(0.016\) and \(0.015\)) with intervals that barely exclude zero. They are confounded by how well Editor A decoded each board. They are not a compatibility test.
+
+The factorial study asked a cleaner interaction question on a new cohort (seed 10182), with independently fit rowspace maps and frozen null maps, equal L2, no JS dose selection. Recorded
+
+\[
+I_T=0.000808\ \ [-0.000940,\ 0.003017],\qquad
+I_W=0.000972\ \ [-0.000086,\ 0.002208]
+\]
+
+both missed the \(+0.005\) floor. Intervals include zero. Win rates were 17/32 and 19/32. The letter is \texttt{TARGET\_SPECIFIC\_VISIBLE\_NULL\_INTERACTION\_NOT\_SUPPORTED}. The rowspace map was not empty: holdout reconstruction \(R^2\) for \(P_R h\) was 0.9405. Reconstruction of the probe-visible state did not yield the hypothesized interaction on \(Y\).
+
+These failures belong in the main argument. They are the reason the paper does not say that we recovered a transferable decision state.
+
+\subsection{4.7 The original board-edit validation remains negative}
+
+Before the kernel studies, 08R2 validation asked whether Editor A repairs legal-move behavior on frozen validation pairs. The letter is \texttt{08R2\_VALIDATION\_COMPLETE --- NEGATIVE}. Exact pair tables are not in the local Path 1 tree. The letter is still part of the empirical boundary: optimizing a residual toward a decoded board, under that editor, did not establish the behavioral repair the protocol required. Probe-preserving kernel edits are a different intervention family. They should not be narrated as having solved the 08R2 failure. They produce small, target-aligned \(Y\) contrasts under matched controls, with absolute scores that remain negative and with switching that does not meet the joint gate.
+
+\section{5. Discussion}
+
+A specialist should take the following away. For this frozen linear board probe, the residual stream is not a single occupancy code plus unused orthogonal junk. Directions that do not change the probe's 64×3 probabilities can still change legal-move mass, and they can do so more for the intended target than for wrong targets when either residual L2 or output JS is matched. That is a statement about one probe, one site, and one model. It is consistent with Elazar et al.'s warning that readout is not a causal summary, and it is consistent with Li's and Nanda's finding that board features are causally relevant---because those features were the rowspace. The kernel result says the rowspace of this probe is not the whole story.
+
+Donor-free evaluation adds something that a patch from \(h_D\) does not. It shows that a linear map from simulator features into the kernel predicts a direction that retains a target-aligned \(Y\) gap versus wrong-target and random controls. The information budget includes the true legal mask and the true occupancy. The experiment is therefore not ``the network taught us the rules.'' It is ``given the rules and the board, a train-only linear map can build a probe-preserving nudge that is better, on average, than a wrong board's nudge.'' Stage-only features already deliver a large fraction of the gain over Editor A, so even that sentence overstates the amount of board-specific residual geometry in the map.
+
+Causal sufficiency fails several tests that a sufficient decision state would be expected to pass. Absolute \(Y\) remains negative. Joint switching fails a 60\% gate. A factorial visible/null interaction is indistinguishable from zero at the prespecified floor. Off-manifold risk is unruled-out: we did not show that \(h_E+t\delta\) lies on the natural activation manifold, only that this probe accepts it. Equal JS does not equalize L2, so matching is always relative to one scalar. The 48-pair JS study reuses SPEC pairs. The FRESH \emph{cohort} of 400 games reported 24 board+player prefixes that already occurred in earlier splits; whether any of those 24 states appear among the \emph{selected} 32 triplets is \textbf{NOT VERIFIED} from arrays in this package. Game IDs in the selected set are disjoint by construction.
+
+Nothing here is evidence about large language models, factual recall, or safety properties of deployed systems. Othello is deterministic, fully observed, and scored with simulator legal sets. If no later experiment ever succeeded, this manuscript would still describe the same measurements.
+
+\section{6. Limitations}
+
+The study uses one architecture, one checkpoint, one residual site, and one frozen probe. Synthetic legal self-play is not human Othello and not natural language. Target labels and legal masks come from a simulator; methods that receive those masks are not inferring legality from pixels or from ambiguous text.
+
+Probe-invariance is defined relative to this probe's probability vector. Another probe, a nonlinear decoder, or a later-layer readout might see the edit. We did not test ``every board probe.''
+
+Nullspace addition can leave the natural activation manifold. We report no density model or cycle-consistency check that would rule that out. Editor A and learned maps can both produce unnatural residuals.
+
+Effect sizes on \(Y\) after JS matching are on the order of a few hundredths of probability mass. Mean learned \(Y\) is about \(-0.58\). Intervals that exclude zero describe a small, consistent contrast, not a large behavioral repair.
+
+Calibration choices change the scientific object. SPEC's large \(\Delta_{\mathrm{specific}}\) is partly a comparison against weak random disruption. Fixed-JS shrinks the contrast and inflates random L2. VNF matches L2 and finds no interaction. These are not contradictions in \(Y\); they are different interventions.
+
+Evaluation reuse is real. SPEC and fixed-JS share 48 pairs. NST and SEM share 48 other pairs. Only FRESH and VNF are later independent cohorts, and they are the studies that failed completeness tests. Sealed confirmation was not used. Independent external replication has not been performed. Hardware, wall-clock, and a local hash of the checkpoint file are not available in this workspace.
+
+Wrong-target selection uses simulator features, not model responses, which is the intended design. Pairs require nonempty legal-set differences, so they are not a uniform sample of positions. We did not exclude pairs after seeing \(Y\) in the preregistered gates; SEM is labeled exploratory because it reuses NST outcomes.
+
+\section{7. Conclusion}
+
+On Othello-GPT, a frozen linear board probe can be held fixed, in the strong sense of its full occupancy-probability vector, while residual edits in its contrast nullspace still change legal-move predictions. Some of those changes are target-aligned under wrong-target and random controls, including when output JS is matched, and a train-only map can produce part of the effect without a donor activation at evaluation. The same evidence shows that the map is not a complete transferable board: absolute target-response scores stay negative, much of the gain over a probe-space editor is stage-conditioned, joint switching fails its gate, and a factorial visible/null interaction is unsupported. The justified conclusion is the limited one. This probe is not a sufficient causal description of the residual information that affects legal-move outputs. It is not the discovery of a second world model.
+
+\section{8. Reproducibility and data availability}
+
+Protocols, seeds, hashes, scoring code, and the 336-row fixed-JS verification table are in this package. The original NPZ logits, pair manifests, probe weights, and checkpoint remain on a private Drive archive and are not redistributed here. Level 1 for fixed-JS now runs from \texttt{verified\_data/fixed\_js\_verified\_data.csv}. FRESH, VNF, and SEM still need their arrays. Level 2 replay requires the checkpoint. Level 3 training replay is not part of this assignment.
+
+This work used AI assistance for engineering, auditing, and manuscript drafting. An AI system is not an author. Human authors, affiliations, and a final disclosure paragraph remain \textbf{NOT VERIFIED} until the humans who own the project write them.
+
+Official letters preserved: \texttt{08R2\_VALIDATION\_COMPLETE --- NEGATIVE}; \texttt{TARGET\_SPECIFIC\_NULL\_EFFECT\_SUPPORTED}; \texttt{TARGET\_SPECIFIC\_AT\_EQUAL\_JS\_INCONCLUSIVE}; \texttt{FIXED\_JS\_TARGET\_SPECIFICITY\_SUPPORTED}; \texttt{DONOR\_FREE\_NULL\_STATE\_TRANSFER\_SUPPORTED}; \texttt{LEGAL\_MASK\_SUFFICES\_IN\_TESTED\_FAMILY}; \texttt{SYMMETRIC\_TARGET\_CENSUS\_INFEASIBLE}; \texttt{SYMMETRIC\_TARGET\_SWITCHING\_NOT\_SUPPORTED}; \texttt{TARGET\_SPECIFIC\_VISIBLE\_NULL\_INTERACTION\_NOT\_SUPPORTED}; \texttt{0A = C / PARTIAL}; \texttt{SECTION\_5\_3 = PARTIAL}; \texttt{OBSTRUCTION\_READY = NO}.
+
+\section{References}
+
+Belinkov, Y. (2022). Probing classifiers: Promises, shortcomings, and advances. \emph{Computational Linguistics, 48}(1), 207--219.
+
+Belrose, N., Schneider-Joseph, D., Ravfogel, S., Cotterell, R., Raff, E., \& Biderman, S. (2023). LEACE: Perfect linear concept erasure in closed form. \emph{NeurIPS}.
+
+Elazar, Y., Ravfogel, S., Jacovi, A., \& Goldberg, Y. (2021). Amnesic probing: Behavioral explanation with amnesic counterfactuals. \emph{Transactions of the Association for Computational Linguistics, 9}, 160--175. https://doi.org/10.1162/tacl\_a\_00359
+
+Geiger, A., Wu, Z., Potts, C., Icard, T., \& Goodman, N. (2024). Finding alignments between interpretable causal variables and distributed neural representations. \emph{Proceedings of Machine Learning Research, 236}, 160--187. https://proceedings.mlr.press/v236/geiger24a.html
+
+Geiger, A., Ibeling, D., Zur, A., Chaudhary, M., Chauhan, S., Huang, J., Arora, A., Wu, Z., Goodman, N., Potts, C., \& Icard, T. (2025). Causal abstraction: A theoretical foundation for mechanistic interpretability. \emph{Journal of Machine Learning Research, 26}(83), 1--64. https://jmlr.org/papers/v26/23-0058.html
+
+Hewitt, J., \& Liang, P. (2019). Designing and interpreting probes with control tasks. \emph{EMNLP}. https://doi.org/10.18653/v1/D19-1275
+
+Jacopin, É. (2026). Present but barely used: Reproducing the emergent Othello world model in a masked diffusion language model. \emph{Proceedings of the 9th BlackboxNLP Workshop}, 986--1006. https://doi.org/10.18653/2026.blackboxnlp-1.56
+
+Li, K., Hopkins, A. K., Bau, D., Viégas, F., Pfister, H., \& Wattenberg, M. (2023). Emergent world representations: Exploring a sequence model trained on a synthetic task. \emph{ICLR}. https://arxiv.org/abs/2210.13382
+
+Lin, J., JackS, Karvonen, A., \& Can. (2024). OthelloGPT learned a bag of heuristics. \emph{Alignment Forum} research note, 2 July 2024. https://www.alignmentforum.org/posts/gcpNuEZnxAPayaKBY/othellogpt-learned-a-bag-of-heuristics-1 . Not peer-reviewed.
+
+Nanda, N., Lee, A., \& Wattenberg, M. (2023). Emergent linear representations in world models of self-supervised sequence models. \emph{BlackboxNLP}, 16--30. https://doi.org/10.18653/v1/2023.blackboxnlp-1.2
+
+Ravfogel, S., Elazar, Y., Gonen, H., Twiton, M., \& Goldberg, Y. (2020). Null it out: Guarding protected attributes by iterative nullspace projection. \emph{ACL}, 7237--7256. https://doi.org/10.18653/v1/2020.acl-main.647
+
+Rimsky, N., Gabrieli, N., Schulz, J., Tong, M., Hubinger, E., \& Turner, A. (2024). Steering Llama 2 via contrastive activation addition. \emph{ACL}, 15504--15522. https://doi.org/10.18653/v1/2024.acl-long.828
+
+Turner, A. M., Thiergart, L., Leech, G., Udell, D., Vazquez, J. J., Mini, U., \& MacDiarmid, M. (2023). Activation addition: Steering language models without optimization. \emph{arXiv:2308.10248}.
+
+Zou, A., Phan, L., Chen, S., et al. (2023). Representation engineering: A top-down approach to AI transparency. \emph{arXiv:2310.01405}. Full author list: copy from arXiv before any public version.
+
+Meng, K., Bau, D., Andonian, A., \& Belinkov, Y. (2022). Locating and editing factual associations in GPT. \emph{NeurIPS}. arXiv:2202.05262. Cited only as background for causal editing of activations, not as Othello evidence.
+
+\end{document}

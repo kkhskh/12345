@@ -1,0 +1,148 @@
+{
+  "files": [
+    {
+      "path": "00_source_and_scope_register.md",
+      "sha256": "32b0449d1ac5477e5d94d6aaf3d560eb789f3452662303c4b94ddc7fdcf057ed"
+    },
+    {
+      "path": "01_overnight_claim_corrections.md",
+      "sha256": "32781f99d8d973f3213b111bc26dff2082939fb9a38fc579a287d6a98b4a819f"
+    },
+    {
+      "path": "02_theorem_U_restriction.md",
+      "sha256": "aed14af7e391fdc712ea07c80f8682fa351bc37b4ac14a80db89418096ced72d"
+    },
+    {
+      "path": "03_theorem_L_restriction.md",
+      "sha256": "9a475096d17afa688ef0e575b701e31be163a3205c6fef585d84e1ae24ba649b"
+    },
+    {
+      "path": "04_information_vs_computational_access.md",
+      "sha256": "b3ef6cf5f006394a04649a23a6d4b904ef00544433b3eb7ec0b6330c241bd08a"
+    },
+    {
+      "path": "05_independent_counterexample_reproduction.md",
+      "sha256": "8e56d8cb3efa4da8253c9e55a3b3adb8607924cef6c7ff73ee533e37bbe8e462"
+    },
+    {
+      "path": "06_direction_specific_finite_bounds.md",
+      "sha256": "a1049f2352ca9652c419bf90470f6366c3f4b6bed1e6a8323e857a3fe7eb47b2"
+    },
+    {
+      "path": "07_baseline_hierarchy_and_fair_comparison.md",
+      "sha256": "e307cdb4b8e276b19f8e0676345749fee2407e1b6e780f00157446ad6a42cd42"
+    },
+    {
+      "path": "08_nontriviality_and_parameter_regimes.md",
+      "sha256": "a65cef8c6197c836f7d344d477750b8fcfe38e45fc7acfa35b5803f2884e9eec"
+    },
+    {
+      "path": "09_candidate_R1_stable_path_cancellation.md",
+      "sha256": "9daba20a5773d6e2e7b4f1b13a3bff7acef99d8217a09aee0626eb954413615c"
+    },
+    {
+      "path": "10_candidate_R2_shared_response_geometry.md",
+      "sha256": "efd1cd0eff03f4707b11e70a20a96356563b52026e8e027d1982afe3a7d5cb49"
+    },
+    {
+      "path": "11_candidate_R3_surrogate_causal_sufficiency.md",
+      "sha256": "db47377be1b59b247914181a65aa4ad538c0a30a26e989d324bdd05160562ec4"
+    },
+    {
+      "path": "12_relational_vs_nonrelational_separations.md",
+      "sha256": "f40e8543736aa1e4abd3ff03ddf91ab29815c453a06870d60be5b08cca363f6d"
+    },
+    {
+      "path": "13_cross_workstream_implications.md",
+      "sha256": "88592f4df1ffa122aafe3758de6e121e3b532ff6b7940651ddecda00c1b5efe1"
+    },
+    {
+      "path": "14_identifiability_and_novelty.md",
+      "sha256": "b7eff03a4943d6077a2e16c313000a0d042430a660378630c1a757f09005b24a"
+    },
+    {
+      "path": "15_adversarial_counterexample_register.md",
+      "sha256": "ff0fd99156ddae23823492c21c88685730f925d173516eb5f491091ec5051d2c"
+    },
+    {
+      "path": "16_theorem_register.md",
+      "sha256": "bae4f8796102f908190b604f527f938be57e2f7c2453f7bfb17cdaee4bb75a02"
+    },
+    {
+      "path": "17_review_cross_examination.md",
+      "sha256": "1dc999999582edc0ca1771b7bab5e5d401edcc24c342027b415776e87b3dd8d1"
+    },
+    {
+      "path": "18_remaining_open_hypotheses.md",
+      "sha256": "8ccbf878e68c00bdc7713c2e36517dd1ec6dcaf135d1e35f6c46ec78b0baf237"
+    },
+    {
+      "path": "19_final_scientific_verdict.md",
+      "sha256": "af84ad82e7b3479304866bbd3678e54c2a124522aa52c502e50aa6e1efe88b8a"
+    },
+    {
+      "path": "20_next_research_decision.md",
+      "sha256": "78b665ec56df835cf6ef0d94a69638dd4cc7f9013039a4885fe333d60893671a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5af5a39f7cdc226ee501c0f83e43484581d8a5927739939ba8a730b37f6a5ae4"
+    },
+    {
+      "path": "counterexamples/register.md",
+      "sha256": "1a921e31b388e97e2da12fad9ed884c978a6e340bcf018af5bf15e98030af0cb"
+    },
+    {
+      "path": "logs/external_verification.txt",
+      "sha256": "bac36aef60dccd23dd977f271ddf58925480a485feeb7ac2545e1dc2877fb088"
+    },
+    {
+      "path": "proofs/__init__.py",
+      "sha256": "4fcf0b779542f1aa829e06e866c86c4274e35e7e672cf0bcf514ceb0b40642f8"
+    },
+    {
+      "path": "proofs/block_forward.py",
+      "sha256": "83c39e1784fbef5192480849c01aee90dc414aab1be4b8689a842287ee669648"
+    },
+    {
+      "path": "proofs/block_jvp.py",
+      "sha256": "c3356af7058f7eecf8c03f14b0b67936172feb4148950f485b7459e1fda382c3"
+    },
+    {
+      "path": "proofs/block_reference.py",
+      "sha256": "4afd09119752b0b92a5242c5bd9285f5a0bcbc6de64575d879d7b09e4e46b18e"
+    },
+    {
+      "path": "proofs/certificates.py",
+      "sha256": "0310602d742d7a0918aef2d861d81e582c1373a6531f3e23246d63dc3a7bcef1"
+    },
+    {
+      "path": "proofs/sympy_identities.py",
+      "sha256": "4648ec6e0bedd79d42ce275f1ad508bb126d9351f62c929095d1d3d75bbee327"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "dc4e8bbd6e93218c65c0a411faacc7e3bf8e34646fc1ae8e91e42c639e3d22b2"
+    },
+    {
+      "path": "reviews/defense_pass.md",
+      "sha256": "c2bdd429b79fa3c73091236935669d56ca7a7ed59bc18ce5e97a55981d627d9f"
+    },
+    {
+      "path": "reviews/prosecution_pass.md",
+      "sha256": "08d2a1b2b10aa4fd9ea4a0f1aefe290696958a0359a72c1ac8e00b4bc2aabdff"
+    },
+    {
+      "path": "scripts/verify_manifest.py",
+      "sha256": "1c1f53f7ae0deae4ea889c997f2a3f7d02461ce90c6540b80dc5162f88b95ce3"
+    },
+    {
+      "path": "scripts/write_manifest.py",
+      "sha256": "9ea91ad6b2dcdd40027520707d5d9bf72a7f94fd9af2df659e813e50b5452546"
+    },
+    {
+      "path": "tests/test_step1d.py",
+      "sha256": "0cca7348de9bed629d8fe8e33622fd59a3573de5e54860c38745616811447163"
+    }
+  ]
+}

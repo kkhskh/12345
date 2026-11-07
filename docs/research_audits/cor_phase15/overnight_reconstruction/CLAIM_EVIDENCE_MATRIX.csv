@@ -1,0 +1,27 @@
+claim,evidence,status,source
+O equals D in general,identity edge O=1 and D=1/2; equality only at W star,DISPROVED,tests and phase-1 formula rechecked
+D down implies L up,zero cochain lowers D and the first-coordinate readout,DISPROVED,workstream_4
+same obstruction implies same decision,readouts w and -w,DISPROVED,workstream_4
+zero discrepancy is a correct decision,P=0 yields O=D=0,DISPROVED,workstream_2
+changing only M changes O,O fixed and D moves under diag(4 4 1 1),DISPROVED,tests
+cohomology class of ds constrains R,class is 0,CAUSAL_INTERPRETATION_UNSUPPORTED,workstream_4
+eps>0 LayerNorm has rank at most d-2,bracket kernel is span of 1; rank d-1 when gains are nonzero,DISPROVED,prior audit rechecked via spectrum test
+finite level set equals Jacobian kernel statement,Theorem F needs a gain count; two zero gains enlarge the set,PROVED,catalog CE-F
+c1=1 c2=-0.5 makes both deletions necessary,deleting c2 leaves 1,DISPROVED,workstream_6
+nonlinearity implies nonzero interaction,u^2+v^2 has interaction 0,DISPROVED,tests
+constant shift is a new mechanism,pre-norm plus addition,REDUNDANT_WITH_KNOWN_RESULT,step 1C-R
+centered response is weight-free,scale family matches closed form,DISPROVED,Theorem U
+Lipschitz certificate beats Cauchy-Schwarz,Theorem L; seed 0 ratio about 8.16e5,DISPROVED,tests
+kernel test gives a generic non-constant family,QKV injective on seeds 0-11,DISPROVED,Theorem K collapse
+kernel test is vacuous as an identity,manufactured point R=0 branch norm below 1e-15 Cauchy number 0.4555,CONDITIONAL,Theorem K
+Jacobian kernel implies finite identity,gap 0.00741 growing with step,DISPROVED,Theorem J
+value-only sign equals total sign,seed 16 opposite recorded floats,DISPROVED,tests
+Dm=0 implies R=0,seed 0 step 0.2 response about -0.629,DISPROVED,tests
+dropped coordinate preserves sign,seed 16 feature 3,DISPROVED,tests
+raw identity transfers to final LN logits,LN dot difference 0 versus raw a 1^T w,DISPROVED,tests
+structural residual orders margins,residual 0 at margins +0.464 and -1.356,CAUSAL_INTERPRETATION_UNSUPPORTED,tests
+one residual norm has one source,-p and +p share a norm,DISPROVED,workstream_3
+unique intrinsic germ,P=0 and invertible P,IDENTIFICATION_UNRESOLVED,workstream_2
+examined relation is a COR successor,no dossier meets the generic budget,DISPROVED,final/CANDIDATE_THEORIES.md
+exotic branch zero exists at Gaussian weights,search minima positive; not a proof,CONJECTURE,workstream_1
+attribution comparisons were refit,numbers cited as frozen constraints only,NOT_EVALUATED,no new fit

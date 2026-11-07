@@ -1,0 +1,4 @@
+08R2-VISIBLE-NULL-FACTORIAL STAGE 2
+  seed=10182 kept=400 dropped=0 prefixes=2394
+  selected=16A+16B union=96 feasible=1
+  triplet_hash=d7ceb056d16b5c089c8ea491ad162bc9ce72c6c2a502e2ceb5d8b9b53ac81d25

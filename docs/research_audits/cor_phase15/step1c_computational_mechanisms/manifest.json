@@ -1,0 +1,237 @@
+{
+  "stage": "PHASE_1.5_STEP_1C",
+  "verdict": "STEP1C_NECESSARY_CONDITIONS_ADVANCED",
+  "phase_2": "NO GO",
+  "obstruction_ready": "NO",
+  "tests": "31 passed; logs/pytest.txt",
+  "tests_are_not": "a trained Transformer, a proof of a general theorem, or Phase 2",
+  "file_count_excluding_manifest": 45,
+  "empty_files": [],
+  "files": [
+    {
+      "path": "01_step1b_error_corrections.md",
+      "bytes": 7202,
+      "sha256": "0331d9894a228c6d2149771bea3bf40b2ecbf8bb3b7ad0651379636a801ba991"
+    },
+    {
+      "path": "02_unified_prior_evidence_register.md",
+      "bytes": 7133,
+      "sha256": "e89fe3cdc1ac0d2e45ac5b2bc8e0b7e4130042db875c0d05f4acc0c262dbce60"
+    },
+    {
+      "path": "03_causal_dependency_map.md",
+      "bytes": 5925,
+      "sha256": "7e9cbcdeaeeabd79a7755292f5f79b2049844d93012cb8015afb71919baaf88f"
+    },
+    {
+      "path": "04_transformer_computational_equations.md",
+      "bytes": 9175,
+      "sha256": "3bd3312bce2e996b81e5acedf9e2fec3d03516632ab4a8a7025bf0ee34351f37"
+    },
+    {
+      "path": "05_intervention_semantics.md",
+      "bytes": 3731,
+      "sha256": "b089f1d9d5d7424d6c23bebc92e89006bdb5ccdc2fc193b2ea148b0e7cf83a60"
+    },
+    {
+      "path": "06_causal_sufficiency_and_information_loss.md",
+      "bytes": 5791,
+      "sha256": "a0fff222a7f1f20fa8a0539b4f8b3762a43015a0a77e4e582143055fd27ff47e"
+    },
+    {
+      "path": "07_multi_path_coordination.md",
+      "bytes": 6525,
+      "sha256": "8fb791a5987603b1eda1cf555e9ae37d2c7b7f186b8604cddc9e57483c6b3f11"
+    },
+    {
+      "path": "08_computational_consistency.md",
+      "bytes": 6320,
+      "sha256": "720679a360b37141b38ebdde272de50051dcae309dd99ac8a5d1918abdad987a"
+    },
+    {
+      "path": "09_stability_and_response_constraints.md",
+      "bytes": 4673,
+      "sha256": "dc32814dfa7e4a71c17f7363e8c93cd6e4a6658e77c8fa1e0ab697b561113611"
+    },
+    {
+      "path": "10_cross_mechanism_implications.md",
+      "bytes": 6164,
+      "sha256": "99bc38b29beb065c5c7ac23af974032d0772fed7d67012f3023739dd21718553"
+    },
+    {
+      "path": "11_necessary_and_sufficient_conditions.md",
+      "bytes": 5719,
+      "sha256": "ecabc41f2ab44fd4babf0da960f98131a42a96f361c04c505803061f550eb5df"
+    },
+    {
+      "path": "12_identifiability_and_information_accounting.md",
+      "bytes": 6972,
+      "sha256": "f33ede3bf0ed9eca6f6a0568ff3c355913e9c1a8194551e6846edfa775dc75de"
+    },
+    {
+      "path": "13_representation_and_metric_analysis.md",
+      "bytes": 5316,
+      "sha256": "146378d3b04bfb0b8bec11ce5a0bfd3c05482e5d1782a619ebe0a00bffb1480d"
+    },
+    {
+      "path": "14_theorem_boundaries_and_counterexamples.md",
+      "bytes": 4707,
+      "sha256": "8413d72c5fa271ba4923b3b2caeaedd3e0c28c9936069091f3be315d2c683d0b"
+    },
+    {
+      "path": "15_existing_theory_comparison.md",
+      "bytes": 7174,
+      "sha256": "4e559449b2f717bbab355005fc51ef48b05268ceb01aa2a12c579a86145b339c"
+    },
+    {
+      "path": "16_hypothesis_registry.csv",
+      "bytes": 7003,
+      "sha256": "0f2cc35f2758efd02742045b90af746026e9866d5b0b7026ff8bed3d10f55e67"
+    },
+    {
+      "path": "17_adaptive_search_decisions.md",
+      "bytes": 4131,
+      "sha256": "f59d81176aa8e07b7ec1f6103b9bf836a7574b6e309df7b254e60de688beaea7"
+    },
+    {
+      "path": "18_theory_coverage_map.md",
+      "bytes": 3951,
+      "sha256": "bde002b60a1b74cb7769f549b3a8856499441546183b448467a937d0a350c21a"
+    },
+    {
+      "path": "19_unresolved_mechanism_space.md",
+      "bytes": 3645,
+      "sha256": "501c7b7ff576d7adc953676de35be0d053deeec8047c8e28c16cca21108b8004"
+    },
+    {
+      "path": "20_review_cross_examination.md",
+      "bytes": 3558,
+      "sha256": "a299000b079921176e44e71c8b029293babec2abe3f692f2c4baf8249ee64ccd"
+    },
+    {
+      "path": "21_corrected_theorem_register.md",
+      "bytes": 4131,
+      "sha256": "dfe1aade189347cbd374c3c7ecc0e43f4ea9c937ac1ee2dbd5f0670ae0860f27"
+    },
+    {
+      "path": "22_surviving_mechanism_candidates.md",
+      "bytes": 2372,
+      "sha256": "ce8357bbeef2ede0337a1e3eb7e72b834df0590825d96e1eae6f20c961dd7d37"
+    },
+    {
+      "path": "23_step1c_final_verdict.md",
+      "bytes": 12058,
+      "sha256": "49a1277517c9213788ce5f0de42a083a484e82e262f446f2f65418a72d14a302"
+    },
+    {
+      "path": "24_step1_continuation_decision.md",
+      "bytes": 1283,
+      "sha256": "21ee916fdf059615cde0844316f11b44b7918094ab35fe4abdccf212231ce14f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1232,
+      "sha256": "b57f541242c77ffb505d08d54e88a51373a3c850b334c28b8aa575ece01137e5"
+    },
+    {
+      "path": "counterexamples/README.md",
+      "bytes": 4006,
+      "sha256": "8b5a41b7c6cec863c475cc49ba5a29e57df450972718c393fdd3d378495049e7"
+    },
+    {
+      "path": "logs/pytest.txt",
+      "bytes": 99,
+      "sha256": "78dff73741d365bd0897cedb81fd08c0979c17f1bf90778c1a32ca1ce02b5007"
+    },
+    {
+      "path": "proofs/__pycache__/step1c_math.cpython-39.pyc",
+      "bytes": 5525,
+      "sha256": "b30efa712dc4a987f9e0bdb548bf7550fdaa2a4aaeb17dc1c21649260743c80c"
+    },
+    {
+      "path": "proofs/attention_value_linearity.md",
+      "bytes": 2498,
+      "sha256": "5a31e5a4669b61e6aa9f3f1dc2183bc680f30ddc5b5db92e42105186c68d393f"
+    },
+    {
+      "path": "proofs/fiber_and_trace.md",
+      "bytes": 3114,
+      "sha256": "d0276f29783b6797279c461270ab69bcd17d1824cf3356e5b211a03808489398"
+    },
+    {
+      "path": "proofs/interaction_conditions.md",
+      "bytes": 3031,
+      "sha256": "21d6ddcc50868a3a9e70ce5f2cafb6bdfa712a7b8edc4dab762b05170b31e1f6"
+    },
+    {
+      "path": "proofs/layernorm_readout.md",
+      "bytes": 3550,
+      "sha256": "7459472ae657fab32ba4c035bdb887c34e3dc20a30d2550c9ff00526e8b27c48"
+    },
+    {
+      "path": "proofs/measurement_kernel.md",
+      "bytes": 2035,
+      "sha256": "12ad3bae6613999ba510276c80b17ab706c6000dc85a6942850a746b27f25c19"
+    },
+    {
+      "path": "proofs/metric_split.md",
+      "bytes": 1413,
+      "sha256": "5b994da3e39ba88413bb3822808f923fdb282b99144015f337bf8e3d5defbf2b"
+    },
+    {
+      "path": "proofs/step1c_math.py",
+      "bytes": 5058,
+      "sha256": "6962eca2ad31d3587c2d14bea08c369aa6984270fb6ae36973a45826b63822db"
+    },
+    {
+      "path": "reviews/01_mathematical_correctness.md",
+      "bytes": 1853,
+      "sha256": "1e09adb7e298f2a1168f3081bacf87a9948140a5e7becdb8faeeb2a8404d17b6"
+    },
+    {
+      "path": "reviews/02_transformer_architecture.md",
+      "bytes": 2130,
+      "sha256": "b3ce10af5e5fcee534b5c13943f41471525eb6cd8a1234f827d27e9612133a5e"
+    },
+    {
+      "path": "reviews/03_causal_inference.md",
+      "bytes": 1569,
+      "sha256": "640e81b62c6bcf3adeab4d4710fb343b7bc6031b056c498f532143d9ddcff8ea"
+    },
+    {
+      "path": "reviews/04_representation.md",
+      "bytes": 1386,
+      "sha256": "f1d82dda9ab289988b7521cb049a4c45ad2af5012f0d40fb44830666eda7339b"
+    },
+    {
+      "path": "reviews/05_existing_theory_reduction.md",
+      "bytes": 1284,
+      "sha256": "d40600dab5572e467e2e3942694b3bb37cef1b252aec51346bb9e72cac0042c0"
+    },
+    {
+      "path": "reviews/06_counterexamples.md",
+      "bytes": 1443,
+      "sha256": "dfc413f8445025143a2b445ba5bf5fffc6a0374062745c2d88f72d4ae9de7021"
+    },
+    {
+      "path": "reviews/07_underexplored.md",
+      "bytes": 1200,
+      "sha256": "fb6d89243fadde831fa85d511193ce4b85588ef2f84192405beeb688efb758ab"
+    },
+    {
+      "path": "reviews/08_adjudication.md",
+      "bytes": 1862,
+      "sha256": "5986b80ca1e9053ae3900ff3b8a00cdf705a1094249e75c09ca20dd735395893"
+    },
+    {
+      "path": "tests/__pycache__/test_step1c_math.cpython-39-pytest-8.4.2.pyc",
+      "bytes": 55833,
+      "sha256": "ce236073307597ac6cfe29c43efd88dda89970889f4672a212e40910cd7d6815"
+    },
+    {
+      "path": "tests/test_step1c_math.py",
+      "bytes": 15887,
+      "sha256": "10735c2a66e7d69c43111d13acd06febe10a4f1ecddc503d8d0cc11d8bb04bc0"
+    }
+  ]
+}

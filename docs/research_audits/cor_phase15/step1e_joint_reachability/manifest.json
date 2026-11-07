@@ -1,0 +1,188 @@
+{
+  "files": [
+    {
+      "path": "00_source_register.md",
+      "sha256": "0c8c9bc433a409a3aa00d6293863ecaffc6d58c644a0a23b4a74b3a7c433d7f9"
+    },
+    {
+      "path": "01_prior_step1d_scope_adjudication.md",
+      "sha256": "42bc5818c39ec77a44c3d337465c25e88a0e222b1290936c8959cadcd7d37695"
+    },
+    {
+      "path": "02_frozen_block_and_interventions.md",
+      "sha256": "0f2926d5c4d8a91879b265149fd5d9f09fd76eac2ed7dc1c2c251e012e2be347"
+    },
+    {
+      "path": "03_exact_joint_reachable_set.md",
+      "sha256": "fc6b7c23a98e159c15670b878c7c940c17ce89f04a98ab377ae5b2a5c179b3c7"
+    },
+    {
+      "path": "04_product_relaxation_analysis.md",
+      "sha256": "253f069646c18745af1f282168ceee4f9a4b7acda7b9f6e7ed816ee87d382440"
+    },
+    {
+      "path": "05_support_function_theorems.md",
+      "sha256": "b4b8eb2b0ef2bf3b356af8530f939cc67cfc1eaca08fef5348279d6c59630ab5"
+    },
+    {
+      "path": "06_coupling_conditions.md",
+      "sha256": "8f935a4b57f04b89e71910727ce65cadc6d7e200f14e2e11075fc23880d10873"
+    },
+    {
+      "path": "07_finite_path_operator_analysis.md",
+      "sha256": "01fdc0c4680e063b55cff73fd72982c48eafc321ee5d00dbf603c9e35b5dbde3"
+    },
+    {
+      "path": "08_compensation_vs_cancellation.md",
+      "sha256": "d795b8c2ddd26390b83b55812446bc42afbe4332ce8a5baf46e7e37ec66ee334"
+    },
+    {
+      "path": "09_shared_subspace_and_bottleneck_analysis.md",
+      "sha256": "d9ab15c503d0957c6a1ddb7a4a99b682536bc53f2c67dc1fca6c2e877a229cc9"
+    },
+    {
+      "path": "10_sound_joint_outer_approximations.md",
+      "sha256": "394c9811ed48aa8081c32d06dcdb59e2d9f5f012a96f5bf187a55a43f72e6b1a"
+    },
+    {
+      "path": "11_independent_baseline_certificates.md",
+      "sha256": "b5348c70bc1076843555b9a28120810c84c6b6d63674fa0adfc9d61d145dac1f"
+    },
+    {
+      "path": "12_strict_relational_advantage.md",
+      "sha256": "877f21b1b94afb4d5e5fb43a5e52db3d635d4859d76e036247aa6383430ac538"
+    },
+    {
+      "path": "13_nondegeneracy_and_branch_strength.md",
+      "sha256": "d5d2a08d995e2ae5452d5f293d5181adf6a0da02280031292b41c8a63d1fdc5f"
+    },
+    {
+      "path": "14_raw_vs_final_normalized_readouts.md",
+      "sha256": "ddc8a9c2055ffff269b812e10b8796a106369291322992826ebb8d3a64d39dde"
+    },
+    {
+      "path": "15_identifiability_and_computation_budget.md",
+      "sha256": "55546eeac207343b0097c35949ba2d3435029c250a3864c486475094e023eb2b"
+    },
+    {
+      "path": "16_known_theory_and_novelty.md",
+      "sha256": "a12fb151a4002964eb3765c87fd13376be3598d4dcc633091f83c638df90607a"
+    },
+    {
+      "path": "17_counterexample_register.md",
+      "sha256": "8a56588431ec5c61e3ccabe5ac783abcba823a70a7de871e1de23ee35c819e74"
+    },
+    {
+      "path": "18_theorem_register.md",
+      "sha256": "232e2d94ce2386bec2011d8d69aa9edfe5ad333197155650f9021a44a4fcea81"
+    },
+    {
+      "path": "19_adversarial_review_resolutions.md",
+      "sha256": "1684f08658600a9e432aa3086d0a551c20a86473916f5c99f84ab6ba2eb6a46e"
+    },
+    {
+      "path": "20_cross_phase15_workstream_synthesis.md",
+      "sha256": "c932f3beae650bcd4af6f2c56749381e3372780246932c117fc0093955a6930d"
+    },
+    {
+      "path": "21_remaining_open_space.md",
+      "sha256": "ca05ed498ec9500704576422e874e6ad3af3644797fa61c726bbf4b65b9e18d1"
+    },
+    {
+      "path": "22_final_scientific_verdict.md",
+      "sha256": "246ff3ee79a46add5892a867d223e3f87cc98f2fe3bab986337fac376e2200fc"
+    },
+    {
+      "path": "23_next_research_decision.md",
+      "sha256": "3c2ccf41def530d649398261af3a95d46c822060c96845236f3ebeec53e71ada"
+    },
+    {
+      "path": "README.md",
+      "sha256": "1b956383572012e00dba49311b15ec19766f72af3af4683784d5b937f465392d"
+    },
+    {
+      "path": "counterexamples/register.md",
+      "sha256": "f050b662ef286720c347448bd451f79d29d437eb5348f66260c9373a2291533f"
+    },
+    {
+      "path": "logs/external_verification.txt",
+      "sha256": "c376997264a02fbcaa0e864179634fe93391bbf368f34d97825b8dcb9a14e17e"
+    },
+    {
+      "path": "proofs/block.py",
+      "sha256": "7ca36f357babbbfd33a92b5b3c4f7b934cf40ebd34138aa543dcd21ae5c2a893"
+    },
+    {
+      "path": "proofs/certificate.py",
+      "sha256": "3059f2d87766f500fa883be18ae120dd40b3e2c9be89c4f65b3852ed97b386c4"
+    },
+    {
+      "path": "proofs/examples.py",
+      "sha256": "67802140214932e341baa3eaeff692ca56dbf5b53825f83f38fd31d2e5cdd999"
+    },
+    {
+      "path": "proofs/line_model.py",
+      "sha256": "939a772640cbc4910e6da88c4cb8007a843e1d9cdf710be5ccf036c764760049"
+    },
+    {
+      "path": "proofs/reference_block.py",
+      "sha256": "321424762ce6ede1ed6de9558a1608a22e3fc5947b8afd5e140ec74edd5e56b8"
+    },
+    {
+      "path": "proofs/support.py",
+      "sha256": "9df9233969959e4a31d07d1f6cf600ce5f4210f41ddc1a965cc8738577644f94"
+    },
+    {
+      "path": "proofs/sympy_identities.py",
+      "sha256": "4bf994f36c17afd2d656985d3269d2d25d47c2a64100ebb31ff8f7dd8d1c3699"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "dc4e8bbd6e93218c65c0a411faacc7e3bf8e34646fc1ae8e91e42c639e3d22b2"
+    },
+    {
+      "path": "reviews/A_operator.md",
+      "sha256": "1a0af1680bb552efb95dc644058598cb3dd0a54d0cc7e80cf72a0124cf39796d"
+    },
+    {
+      "path": "reviews/B_causal.md",
+      "sha256": "15c0c715ee7a6d9fb5c957751c919ed541cadd48bcdedbc167bfad62da25d1d3"
+    },
+    {
+      "path": "reviews/C_architecture.md",
+      "sha256": "6b2ba500524ec4e681eaa0a453274178ad940031d4cad90e8f451b0d945ebd58"
+    },
+    {
+      "path": "reviews/D_verification.md",
+      "sha256": "7c3afceff06508e99a27a9821370509a3f662b52529c80156f29813ba693a61a"
+    },
+    {
+      "path": "reviews/E_counterexample.md",
+      "sha256": "8f44ab14f06151460672288659210d0387a7dd64f027f1e2e7df6a7bdbccf16b"
+    },
+    {
+      "path": "reviews/F_novelty.md",
+      "sha256": "ee3867be642f0a3035f1b3f4487fec83fb00b26a8f59064f2fd1b2223a0db53e"
+    },
+    {
+      "path": "reviews/G_defense.md",
+      "sha256": "814a8540fab2609de38d928f2d0c013a14c9939d20d5242827930a40f51b8dfc"
+    },
+    {
+      "path": "reviews/H_adjudicator.md",
+      "sha256": "bb4a68a7acec54e02ebe29fa17bc4b9f2b109f0d7451abb14bd976219deed5bd"
+    },
+    {
+      "path": "scripts/verify_manifest.py",
+      "sha256": "1c1f53f7ae0deae4ea889c997f2a3f7d02461ce90c6540b80dc5162f88b95ce3"
+    },
+    {
+      "path": "scripts/write_manifest.py",
+      "sha256": "9ea91ad6b2dcdd40027520707d5d9bf72a7f94fd9af2df659e813e50b5452546"
+    },
+    {
+      "path": "tests/test_step1e.py",
+      "sha256": "c6f75e03ccf80f876e5145140a5c5fd8715cc831a69ff202d462d83aa258308f"
+    }
+  ]
+}

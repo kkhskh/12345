@@ -1,0 +1,8 @@
+recip_game,target_game,r2_type,recip,donor,cell,direction_type,donor_id,target_js,calibration
+val_00154,val_00142,A_legal_diff,926,852,correct_null,correct,val_00142,0.01,fixed_js
+val_00154,val_00142,A_legal_diff,926,852,wrong_null_0,wrong,val_00195,0.01,fixed_js
+val_00154,val_00142,A_legal_diff,926,852,wrong_null_1,wrong,val_00221,0.01,fixed_js
+val_00154,val_00142,A_legal_diff,926,852,wrong_null_2,wrong,val_00220,0.01,fixed_js
+val_00154,val_00142,A_legal_diff,926,852,random_null_0,random,random,0.01,fixed_js
+val_00154,val_00142,A_legal_diff,926,852,random_null_1,random,random,0.01,fixed_js
+val_00154,val_00142,A_legal_diff,926,852,random_null_2,random,random,0.01,fixed_js

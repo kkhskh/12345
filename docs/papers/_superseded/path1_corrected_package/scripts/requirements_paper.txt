@@ -1,0 +1,5 @@
+# Paper-package numerical and plotting dependencies.
+# Use the project environment rather than a parallel stack when possible.
+numpy
+matplotlib
+pytest

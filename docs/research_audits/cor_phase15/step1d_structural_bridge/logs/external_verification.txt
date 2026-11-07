@@ -1,0 +1,18 @@
+Clean-room run of an extract that did not yet contain this log file.
+The package containing this file was hashed and extracted again after the manifest was rebuilt.
+That second extract is the one whose exit codes are required for the release; they are recorded by the verification command outside this file so the hash stays stable.
+Pytest on the first extract follows.
+
+--- pytest ---
+.............                                                            [100%]
+13 passed in 0.42s
+PYTEST_EXIT:0
+extracted_alpha_star 0.00010387929173812708
+extracted_sigma 0.7886607004096067
+extracted_B 0.004051326443971923
+extracted_cauchy 0.8764350281115764
+extracted_R -1.3267974285913198e-07
+extracted_rate 0.004622506611397012
+--- manifest ---
+manifest ok: 35 files
+MANIFEST_EXIT:0

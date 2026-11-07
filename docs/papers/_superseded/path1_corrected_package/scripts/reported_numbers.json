@@ -1,0 +1,324 @@
+{
+  "package": "probe_invisible_causal_information",
+  "generated_for": "Path 1 empirical manuscript",
+  "local_workspace_artifact_root": "artifacts/toy_othello/",
+  "drive_artifact_root_colab": "/content/drive/MyDrive/ml_research_artifacts/toy_othello/",
+  "drive_mounted_in_this_workspace": false,
+  "notes": "Decimal results are tagged by provenance. Do not treat RECONCILIATION_TARGET values as independently recomputed in this package.",
+  "frozen_letters": {
+    "08R2_VALIDATION_COMPLETE": "NEGATIVE",
+    "TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED": true,
+    "FIXED_JS_TARGET_SPECIFICITY_SUPPORTED": true,
+    "TARGET_SPECIFIC_AT_EQUAL_JS_INCONCLUSIVE": true,
+    "FROZEN_COST_PROTOCOL_DEVIATION_CONFIRMED": true,
+    "DONOR_FREE_NULL_STATE_TRANSFER_SUPPORTED": true,
+    "LEGAL_MASK_SUFFICES_IN_TESTED_FAMILY": true,
+    "SYMMETRIC_TARGET_SWITCHING_NOT_SUPPORTED": true,
+    "SYMMETRIC_TARGET_CENSUS_INFEASIBLE": true,
+    "TARGET_SPECIFIC_VISIBLE_NULL_INTERACTION_NOT_SUPPORTED": true,
+    "0A": "C / PARTIAL",
+    "SECTION_5_3": "PARTIAL",
+    "OBSTRUCTION_READY": "NO"
+  },
+  "model": {
+    "name": "Nanda Othello-GPT TransformerLens LNPre",
+    "hf_repo": "NeelNanda/Othello-GPT-Transformer-Lens",
+    "checkpoint_file": "synthetic_model.pth",
+    "n_layers": 8,
+    "d_model": 512,
+    "d_vocab": 61,
+    "site": "blocks.6.hook_resid_mid",
+    "token_position": "last real token",
+    "checkpoint_sha256": {
+      "value": "aef97afb1e7ec9dbef1d9007174458830a5c428d62f1e2338128879b179bd5c4",
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM",
+      "locally_verified": false
+    },
+    "probe_sha256": {
+      "value": "d587d61d7cba059ecc16059679120c96c7b660ad9fdf00aa18bab1806f3a2a31",
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM",
+      "locally_verified": false
+    }
+  },
+  "probe_geometry": {
+    "hidden_dim": 512,
+    "contrast_rank": {
+      "value": 124,
+      "provenance": "PROTOCOL_AND_SESSION_RECORD",
+      "locally_verified": false,
+      "construction": "Independent class-logit contrasts W_cls - W_ref for each of 64 squares; SVD of contrast matrix; primary_tol=1e-8 relative to largest singular value."
+    },
+    "nullspace_dim": {
+      "value": 388,
+      "provenance": "PROTOCOL_AND_SESSION_RECORD",
+      "locally_verified": false
+    },
+    "probe_proba_atol": 1e-5
+  },
+  "hashes": {
+    "spec_pair_manifest": {
+      "value": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3",
+      "provenance": "GIT_TRACKED_PREREGISTRATION",
+      "file": "docs/experiments/08r2_fiber_spec_preregistration.md"
+    },
+    "nst_pair_manifest": {
+      "value": "39abdc79090211ab4a69e3e5f79f14319231705640f231dcc146233a9f5092e6",
+      "provenance": "GIT_TRACKED_PREREGISTRATION",
+      "file": "docs/experiments/08r2_null_state_transfer_preregistration.md"
+    },
+    "fresh_triplet": {
+      "value": "3ae44e1eabf2684cb3e0b5025ccb9b76cabad6a1a6176454999ebc4b5ce70972",
+      "provenance": "GIT_TRACKED_CONSTANT_AND_OPERATOR_PASTED_COLAB_STDOUT",
+      "file": "src/othello_r2_anchor_interaction.py"
+    },
+    "fresh_protocol": {
+      "value": "663335988190e1fd0fe710643db3c55c6bcadd7311c84aeb55ba5cce4cd87231",
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM"
+    },
+    "vnf_triplet": {
+      "value": "d7ceb056d16b5c089c8ea491ad162bc9ce72c6c2a502e2ceb5d8b9b53ac81d25",
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM"
+    }
+  },
+  "spec_l2": {
+    "n_pairs": 48,
+    "n_a": 32,
+    "n_b": 16,
+    "estimand": "Y_correct - mean(Y_wrong_1..3) at matched L2 of nullspace delta",
+    "delta_specific_mean": {
+      "value": 0.391627,
+      "ci95": [0.317, 0.476],
+      "provenance": "SESSION_SCIENTIFIC_RECORD_NOT_RECOMPUTED_FROM_ARRAYS",
+      "locally_verified": false
+    },
+    "delta_random_mean": {
+      "value": 0.708584,
+      "provenance": "SESSION_SCIENTIFIC_RECORD_NOT_RECOMPUTED_FROM_ARRAYS"
+    },
+    "y_correct_mean": 0.143649,
+    "y_wrong_mean": -0.248,
+    "y_random_mean": -0.565,
+    "js_correct_at_t1": 0.279,
+    "js_wrong_at_t1": 0.223,
+    "js_random_at_t1": 0.038,
+    "matched_l2_approx": {
+      "value": 18.33,
+      "provenance": "RECONCILIATION_TARGET_FROM_PATH1_BRIEF_NOT_RECOMPUTED_FROM_ARRAYS",
+      "locally_verified": false
+    },
+    "verdict": "TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED",
+    "coverage": "48/48 recorded in session; NOT VERIFIED FROM LOCAL ARRAYS"
+  },
+  "fixed_js": {
+    "n_pairs": 48,
+    "js_target": 0.01,
+    "js_tolerance": 0.0002,
+    "secondary_js_in_primary_archive": false,
+    "delta_wrong_mean": {
+      "value": 0.026550640060181346,
+      "ci95": [0.0179, 0.0357],
+      "ci95_note": "Interval bounds remain from the archived clustered bootstrap; they were not recomputed in this CSV-only check.",
+      "provenance": "INDEPENDENTLY_RECOMPUTED_FROM_verified_data/fixed_js_verified_data.csv",
+      "locally_verified": true
+    },
+    "delta_random_mean": {
+      "value": 0.022965716384254847,
+      "ci95": [0.0103, 0.0360],
+      "ci95_note": "Interval bounds remain from the archived clustered bootstrap; they were not recomputed in this CSV-only check.",
+      "provenance": "INDEPENDENTLY_RECOMPUTED_FROM_verified_data/fixed_js_verified_data.csv",
+      "locally_verified": true
+    },
+    "max_probe_abs": 1.1879386363489175e-14,
+    "max_js_error": 1.2324118123085287e-06,
+    "mean_l2_correct": 5.298469379078904,
+    "mean_l2_wrong": 6.36829316210767,
+    "mean_l2_random": 12.265195985227887,
+    "coverage_calibrated": "48/48 directions x 7 recorded; 336 calibrations to JS=0.01",
+    "wins_wrong": "40/48",
+    "wins_random": "30/48",
+    "verdict": "FIXED_JS_TARGET_SPECIFICITY_SUPPORTED",
+    "original_cost_verdict": "TARGET_SPECIFIC_AT_EQUAL_JS_INCONCLUSIVE",
+    "original_cost_note": "Original COST run used a donor-reference calibration that deviated from the frozen equal-JS protocol. The later restoration search calibrated each of seven directions independently to JS=0.01. Do not present the original COST numbers as the protocol-compliant result."
+  },
+  "nst": {
+    "n_pairs": 48,
+    "k": 64,
+    "ridge_alpha": 10,
+    "js_target": 0.01,
+    "y_learned_minus_wrong": {
+      "mean": 0.020057007168831593,
+      "ci95": [0.01079050562509556, 0.02978427238954672],
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_PRIOR_SESSION",
+      "locally_verified": false
+    },
+    "y_learned_minus_random": {
+      "mean": 0.031416531839834505,
+      "ci95": [0.01851141420923425, 0.045335127317886095],
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_PRIOR_SESSION",
+      "locally_verified": false
+    },
+    "y_learned_minus_mean_state": {
+      "mean": 0.021998457046033575,
+      "ci95": [0.01580370961396778, 0.029337433021939013],
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_PRIOR_SESSION",
+      "locally_verified": false
+    },
+    "y_learned_vs_oracle_pearson": {
+      "value": 0.997823,
+      "provenance": "INDEPENDENT_SAVED_ARRAY_AUDIT_NOT_LOCAL_NPZ",
+      "quantity": "Pearson correlation of raw Y, learned vs oracle, not direction cosine"
+    },
+    "mean_cosine_learned_oracle": {
+      "value": 0.791998,
+      "provenance": "INDEPENDENT_SAVED_ARRAY_AUDIT_NOT_LOCAL_NPZ"
+    },
+    "mean_cosine_learned_mean_state": {
+      "value": 0.849770,
+      "provenance": "INDEPENDENT_SAVED_ARRAY_AUDIT_NOT_LOCAL_NPZ"
+    },
+    "y_learned_minus_editor_a": {
+      "mean": 0.05371273508264925,
+      "ci95": [0.0452, 0.0618],
+      "ci95_note": "Interval bounds 0.0452 and 0.0618 are rounded reconciliation targets; the mean is from pasted Stage-5 pooled stdout. Full editor CI bounds were truncated in the archived log line.",
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_PRIOR_SESSION",
+      "locally_verified": false
+    },
+    "mean_Y_learned": {
+      "value": -0.5821099868511178,
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_PRIOR_SESSION"
+    },
+    "mean_Y_editor": {
+      "value": -0.6358227219337671,
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_PRIOR_SESSION"
+    },
+    "mean_dG_editor": 0.01950489682927407,
+    "mean_dQ_editor": -0.03420783825337518,
+    "verdict": "DONOR_FREE_NULL_STATE_TRANSFER_SUPPORTED",
+    "absolute_y_sign": "Mean absolute Y remained negative. Recorded in session summaries. NOT VERIFIED FROM LOCAL ARRAYS."
+  },
+  "sem": {
+    "exploratory": true,
+    "verdict": "LEGAL_MASK_SUFFICES_IN_TESTED_FAMILY",
+    "full_minus_legal_only": {
+      "value": 0.0041,
+      "provenance": "RECONCILIATION_TARGET_FROM_PATH1_BRIEF_NOT_RECOMPUTED_FROM_ARRAYS",
+      "locally_verified": false
+    },
+    "full_minus_board_only": {
+      "value": 0.0056,
+      "provenance": "RECONCILIATION_TARGET_FROM_PATH1_BRIEF_NOT_RECOMPUTED_FROM_ARRAYS",
+      "locally_verified": false
+    },
+    "board_only_minus_stage_only": {
+      "value": 0.0180,
+      "provenance": "RECONCILIATION_TARGET_FROM_PATH1_BRIEF_NOT_RECOMPUTED_FROM_ARRAYS",
+      "locally_verified": false
+    },
+    "legal_only_minus_stage_only": {
+      "value": 0.0195,
+      "provenance": "RECONCILIATION_TARGET_FROM_PATH1_BRIEF_NOT_RECOMPUTED_FROM_ARRAYS",
+      "locally_verified": false
+    },
+    "meaningful_effect_floor": 0.01,
+    "mean_level_correction": {
+      "full_minus_editor_a": {
+        "value": 0.053713,
+        "provenance": "GIT_TRACKED_CORRECTION_NOTE",
+        "file": "docs/experiments/08r2_state_semantics_mean_level_correction.md"
+      },
+      "full_minus_stage_only": {
+        "value": 0.023613,
+        "provenance": "GIT_TRACKED_CORRECTION_NOTE"
+      },
+      "stage_only_minus_editor_a": {
+        "value": 0.030099,
+        "provenance": "GIT_TRACKED_CORRECTION_NOTE"
+      },
+      "stage_share_of_full_minus_editor_a": {
+        "value": 0.5604,
+        "provenance": "GIT_TRACKED_CORRECTION_NOTE",
+        "interpretation": "Ratio of mean effects under equal-JS calibration, not an independent causal decomposition."
+      }
+    }
+  },
+  "fresh_symmetric": {
+    "n_triplets": 32,
+    "n_a": 16,
+    "n_b": 16,
+    "cohort_seed": 9182,
+    "coverage": "32/32",
+    "a_t_mean": {
+      "value": 0.0284998707684192,
+      "ci95": [0.01651597, 0.04061570],
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM",
+      "locally_verified": false,
+      "note": "Not recomputed from NPZ in this workspace; recorded from Stage 5 stdout."
+    },
+    "a_w_mean": {
+      "value": 0.01856145964513889,
+      "ci95": [0.00717904, 0.03009127],
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM",
+      "locally_verified": false
+    },
+    "both_positive_fraction": 0.40625,
+    "both_positive_count": 13,
+    "prespecified_minimum_both_positive": 0.60,
+    "verdict": "SYMMETRIC_TARGET_SWITCHING_NOT_SUPPORTED",
+    "witness_hash": {
+      "value": "3ae44e1eabf2684cb3e0b5025ccb9b76cabad6a1a6176454999ebc4b5ce70972",
+      "provenance": "GIT_TRACKED_CONSTANT_AND_OPERATOR_PASTED_COLAB_STDOUT"
+    },
+    "c_mean": 0.04706133041355809,
+    "win_rate_a_t": 0.8125,
+    "win_rate_a_w": 0.5625,
+    "contingency": {"both": 13, "t_only": 13, "w_only": 5, "neither": 1},
+    "stage6_saved": "768/768 recorded in session"
+  },
+  "anchor_audit": {
+    "read_only": true,
+    "d_t_mean": {
+      "value": 0.015775249852042705,
+      "ci95": [0.00020525966124369544, 0.029894823806567248],
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM"
+    },
+    "d_w_mean": {
+      "value": 0.015114756996519096,
+      "ci95": [0.00179520136936166, 0.029871224457666937],
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM"
+    },
+    "interpretation": "Editor A visible D_T/D_W are confounded by target-board decoding quality. Not a compatibility map. Not a COR test."
+  },
+  "vnf": {
+    "n_triplets": 32,
+    "cohort_seed": 10182,
+    "rho": 3.5,
+    "nu": 3.5,
+    "total_l2": 4.949747468305833,
+    "holdout_r2_rowspace_map": 0.9405,
+    "i_t": {
+      "value": 0.0008076023895302598,
+      "ci95": [-0.000940300476329714, 0.0030170128325769344],
+      "win_rate": 0.53125,
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM"
+    },
+    "i_w": {
+      "value": 0.0009723259609861756,
+      "ci95": [-8.623079802076993e-05, 0.0022080467274865232],
+      "win_rate": 0.59375,
+      "provenance": "OPERATOR_PASTED_COLAB_STDOUT_THIS_PROGRAM"
+    },
+    "effect_threshold": 0.005,
+    "coverage": "32/32",
+    "stage6_saved": "128/128",
+    "verdict": "TARGET_SPECIFIC_VISIBLE_NULL_INTERACTION_NOT_SUPPORTED",
+    "stage2_witness_hash": "d7ceb056d16b5c089c8ea491ad162bc9ce72c6c2a502e2ceb5d8b9b53ac81d25"
+  },
+  "bootstrap": {
+    "n_boot": 2000,
+    "seed": 82,
+    "fresh_boot_seed": 9482,
+    "vnf_boot_seed": 10482,
+    "unit_spec_fixedjs_nst": "recipient-game clustered bootstrap on 48 pairs",
+    "unit_fresh_vnf": "triplet clustered bootstrap on 32 triplets"
+  }
+}

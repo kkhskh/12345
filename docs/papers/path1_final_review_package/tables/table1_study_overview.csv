@@ -1,0 +1,11 @@
+Study,Unit,Contrast,Mean,95% interval,Evidence
+SPEC (matched L2),48 pairs,correct − wrong,+0.3916,"[0.3175, 0.4758]",Recomputed
+Matched JS,48 pairs,correct − wrong,+0.0266,"[0.0179, 0.0357]",Recomputed
+Matched JS,48 pairs,correct − random,+0.0230,"[0.0103, 0.0360]",Recomputed
+NST (donor-free),48 pairs,learned − wrong,+0.0201,"[0.0108, 0.0298]",Recomputed
+NST (donor-free),48 pairs,learned − Editor A,+0.0537,"[0.0452, 0.0618]",Recomputed
+SEM ablation,48 pairs,FULL − LEGAL_ONLY,+0.0041,"[0.0019, 0.0066]",Archival
+FRESH switching,32 triplets,A_T,+0.0285,"[0.0165, 0.0406]",Archival
+FRESH switching,32 triplets,A_W,+0.0186,"[0.0072, 0.0301]",Archival
+VNF factorial,32 triplets,I_T,+0.0008,"[−0.0009, 0.0030]",Archival
+VNF factorial,32 triplets,I_W,+0.0010,"[−0.0001, 0.0022]",Archival

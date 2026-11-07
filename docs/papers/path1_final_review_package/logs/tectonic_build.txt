@@ -1,0 +1,18 @@
+note: "version 2" Tectonic command-line interface activated
+note: Running TeX ...
+note: Rerunning TeX because "paper_master.aux" changed ...
+note: Running xdvipdfmx ...
+note: Writing `paper_master.pdf` (231.1240234375 KiB)
+note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
+
+warning: paper_master.tex:160: Underfull \hbox (badness 4899) in paragraph at lines 159--160
+warning: paper_master.tex:255: Underfull \hbox (badness 6016) in paragraph at lines 254--255
+warning: paper_master.tex:255: Underfull \hbox (badness 10000) in paragraph at lines 254--255
+warning: paper_master.tex:255: Underfull \hbox (badness 10000) in paragraph at lines 254--255
+warning: paper_master.tex:335: Underfull \hbox (badness 1701) in paragraph at lines 334--335
+warning: paper_master.tex:160: Underfull \hbox (badness 4899) in paragraph at lines 159--160
+warning: paper_master.tex:255: Underfull \hbox (badness 6016) in paragraph at lines 254--255
+warning: paper_master.tex:255: Underfull \hbox (badness 10000) in paragraph at lines 254--255
+warning: paper_master.tex:255: Underfull \hbox (badness 10000) in paragraph at lines 254--255
+warning: paper_master.tex:335: Underfull \hbox (badness 1701) in paragraph at lines 334--335
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

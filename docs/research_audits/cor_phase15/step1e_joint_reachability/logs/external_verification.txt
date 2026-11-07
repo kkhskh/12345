@@ -1,0 +1,28 @@
+# External verification
+
+This file records a clean extract of the package before this log and before manifest.json existed.
+The extract lived at /tmp/step1e_extract_a/step1e_joint_reachability.
+The zip was /tmp/step1e_pre.zip. It contained no __pycache__, .pyc, or .pytest_cache entries.
+Commands were run from that extract with PYTHONPATH unset.
+Clock reading when the log was written: 2026-11-07 11:04 America/New_York (2026-11-07T16:04:51Z).
+
+## Environment
+
+numpy 1.26.4
+pytest 9.2.0
+sympy 1.14.0
+torch ModuleNotFoundError
+
+## python3 -m pytest -q
+
+........................                                                 [100%]
+24 passed in 0.54s
+PYTEST_EXIT:0
+
+The duration on the pytest line is pytest's own summary of that process. It is not a cost of the certificate.
+
+## Later extract
+
+After this log was added, manifest.json was written and a second zip was built.
+That second extract is not copied into this file: copying its console back would change the manifest.
+The second extract is required to pass `python3 -m pytest -q` and `python3 scripts/verify_manifest.py` from its own root, with PYTHONPATH unset.

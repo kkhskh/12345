@@ -502,8 +502,76 @@ def posthoc():
     RES["PA10_posthoc_A2_errors"] = len(bad)
 
 
+def supplementary():
+    """NOT preregistered: Mechanism A variants required by mandate section 5A that the
+    preregistration did not list. Reported descriptively; no PASS/FAIL."""
+    log("\n=== SUPPLEMENTARY (not preregistered) ===")
+    G = [v for v in np.linspace(-1.5, 1.5, 13) if abs(v) > 1e-9]
+    def err(mm, emb, ref=lambda a, b: np.sign(a * b)):
+        return np.mean([np.sign(margin(forward(mm, emb(a, b), 2))) != ref(a, b) for a in G for b in G])
+    # width: extra random units of increasing output scale
+    out = {}
+    for w in (4, 16, 64):
+        for sc in (0.05, 0.2, 1.0):
+            mm, _, emb, _ = agreement_family(width_extra=w, extra_seed=w)
+            Lw = mm.layers[0]; Lw.Wout[4:] *= sc
+            out[(w, sc)] = round(float(err(mm, emb)), 3)
+    log("  extra random units (width, output scale) -> grid error rate:", out)
+    # non-identical encodings: B written along cos(t) e1 + sin(t) e2 (non-orthogonal sources), unequal norms
+    d = 6
+    Bs = mean_zero_basis(d); e1, e2, e3, e4, e5 = Bs[:5]
+    for t in (np.pi / 2, np.pi / 3, np.pi / 6):
+        mm, _, emb0, _ = agreement_family()
+        dirB = np.cos(t) * e1 + np.sin(t) * e2
+        mm.layers[0].WO[0] = 3.0 * (np.outer(e1, e1) + np.outer(e2, dirB))
+        log(f"  B encoded at angle {np.degrees(t):.0f} deg to A: grid error rate {err(mm, emb0):.3f}")
+    mm, _, emb0, _ = agreement_family()
+    mm.layers[0].WO[0] = 3.0 * (np.outer(e1, e1) + 3.0 * np.outer(e2, e2))
+    log(f"  B's write 3x larger than A's: grid error rate {err(mm, emb0):.3f} (Corollary A1.3 predicts 0)")
+    # noise: random components on the read token along unread and read directions
+    rng = np.random.default_rng(5)
+    for nm, direc in (("unread e4", e4), ("read e1-e2", (e1 - e2) / np.sqrt(2))):
+        bad = 0; tot = 0
+        for a in G:
+            for b in G:
+                X = agreement_family()[2](a, b); X[2] = X[2] + rng.normal(0, 0.5) * direc
+                mm = agreement_family()[0]
+                bad += np.sign(margin(forward(mm, X, 2))) != np.sign(a * b); tot += 1
+        log(f"  noise sd 0.5 on read token along {nm}: grid error rate {bad / tot:.3f}")
+    # generic MLPs reading the two source coordinates: how special is the agreement law?
+    n_bin = n_law = n_suminsuff = 0
+    N = 400
+    for k in range(N):
+        rr = np.random.default_rng(1000 + k)
+        mm, basis, emb, coords = agreement_family()
+        L0 = mm.layers[0]
+        Wsrc = rr.normal(0, 1, (2, 4))
+        L0.Win = np.column_stack([Wsrc[0, j] * e1 + Wsrc[1, j] * e2 for j in range(4)])
+        L0.bin = rr.normal(0, 0.5, 4)
+        L0.Wout = np.stack([rr.normal() * e3 for _ in range(4)])
+        mfun = lambda a, b: margin(forward(mm, emb(a, b), 2))
+        cell = {(a, b): mfun(a, b) for a in (-1.0, 1.0) for b in (-1.0, 1.0)}
+        n_bin += all(np.sign(cell[(a, b)]) == np.sign(a * b) for a, b in cell) or all(np.sign(cell[(a, b)]) == -np.sign(a * b) for a, b in cell)
+        n_law += err(mm, emb) == 0 or err(mm, emb, ref=lambda a, b: -np.sign(a * b)) == 0
+        tr0 = forward(mm, emb(1.0, 1.0), 2)
+        def at(x, y):
+            mid = tr0.mid[0].copy(); mid[2] = x * e1 + y * e2 + 3.0 * e5
+            return margin(forward(mm, emb(1.0, 1.0), 2, replace_site(0, "mid", mid)))
+        vals = [at(1, 1), at(2, 0), at(3, -1)]   # same post-LN norm? not matched; report D-dependence via S fixed after scaling below
+        n_suminsuff += np.ptp(vals) > 1e-6
+    # mirror of Mechanism C: the gate opens on DISagreement (gamma < 0); same architecture
+    def a_of(x, kappa=2.0, d=8, eps=1e-5):
+        return np.sign(x) * np.sqrt(x * x * (kappa * kappa / d + eps) / (1 - x * x / d))
+    ag, dg = (a_of(0.6), a_of(0.6)), (a_of(1.5), a_of(-0.3))
+    for gam in (1.5, -1.5):
+        mm, _, emb = reconciliation(gamma=gam)
+        log(f"  Mechanism C with gamma={gam:+.1f}: m(agree)={margin(forward(mm, emb(*ag), 2)):+.4f} m(disagree)={margin(forward(mm, emb(*dg), 2)):+.4f} at matched S")
+    log(f"  random 4-unit GELU readers of (x,y), N={N}: binary sign pattern = +-agreement {n_bin}/{N}; "
+        f"agreement sign law on the whole grid {n_law}/{N}; output varies across the raw matched-sum triple {n_suminsuff}/{N}")
+
+
 if __name__ == "__main__":
-    mech_A(); mech_B(); mech_C(); ident(); posthoc()
+    mech_A(); mech_B(); mech_C(); ident(); posthoc(); supplementary()
     n_pass = sum(1 for k, v in RES.items() if isinstance(v, dict) and v.get("pass"))
     n_tot = sum(1 for v in RES.values() if isinstance(v, dict) and "pass" in v)
     log(f"\nSUMMARY: {n_pass}/{n_tot} preregistered predictions passed")

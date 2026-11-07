@@ -1,0 +1,740 @@
+# COR PHASE 1.5 — STEP 1: COMPLETE CAUSAL-BRIDGE INVESTIGATION
+
+You are continuing the COR research project from the GitHub repository. This is a serious mathematical and mechanistic-interpretability investigation. You have access to the previous research, source code, audits, counterexamples, and whatever coding, research, terminal, and subagent tools your environment provides.
+
+**Your job is to do the research, not to summarize what the research ought to be.**
+
+The research question is:
+
+**Can an independently defined, computation-grounded consistency relationship between internal Transformer representations have a noncircular causal connection to candidate-specific decisions?**
+
+This is Phase 1.5, Step 1. The ten original unresolved issues are #1–7, #25, and #29–30.
+
+You must investigate the strongest plausible mechanisms, prove what can be proved, construct counterexamples, and determine what survives. You must not substitute unrelated robustness bounds or generic neural-network identities for the decision question.
+
+## 1. Read the actual repository and establish the scientific record
+
+Before making new claims, inspect:
+
+- Original COR theory, definitions, and mathematical propositions.
+- Phase 1 fatality audit and its actual counterexamples.
+- Phase 1.5 Steps 1A, 1B, 1C, 1C-R, 1D, and 1E.
+- The overnight six-workstream reconstruction.
+- The latest `step1_foundational_bridge_adjudication` submission.
+- The independent audit `INDEPENDENT_FOUNDATIONAL_BRIDGE_AUDIT.md`, if it is available.
+- Relevant original implementations, tests, frozen-model architecture definitions, and experimental records.
+
+Locate the source files rather than trusting summary verdicts. Record the repository commit and every missing reference.
+
+Preserve the existing verdicts: the original \(O/D\) score has no established universal decision implication; Direction 1's empirical Othello findings do not validate obstruction; Phase 2 is NO GO.
+
+Do not modify historical audit files or sealed experimental results. Work on a new branch or isolated research directory.
+
+**Do not spend the main research window rewriting the established history. Move quickly from reconstruction into mathematical and computational investigation.**
+
+## 2. Correct the three concrete errors from the last submission
+
+These corrections are prerequisites, not the main research.
+
+**A. Same-cut theorem.** A downstream output is invariant to a zero-sum change in multiple writers only if all causal paths from those edited writers to the downstream output pass through the held-fixed aggregate. Explicitly exclude bypasses. For example, with \(S=c_1+c_2\) and \(Y=S+c_1\), holding \(S\) fixed does not hold \(Y\) fixed. Correct the theorem and its proof.
+
+**B. Per-head identifiability.** Two heads with identical Q/K/V computations can have output matrices transformed as \(W_O^1\mapsto W_O^1+E\) and \(W_O^2\mapsto W_O^2-E\). The total computation is unchanged, while their individual readout contributions change. Therefore per-head measurements in one frozen checkpoint are not automatically uniquely identifiable explanations of the computed function. Formally distinguish fixed-parameterization observability, causal intervention attribution, and identifiability modulo function-preserving reparameterizations.
+
+**C. Mechanism coverage.** The last research package concentrated on softmax-weighted contributions and final LayerNorm while explicitly leaving agreement-sensitive nonlinear MLPs, Q/K-mediated relations, and deeper rereading circuits unexamined. These are major omissions. They must now be investigated, not relegated to another open-questions document.
+
+Do not spend most of the task polishing these corrections.
+
+## 3. Reproduce the independently discovered agreement-sensitive Transformer circuit
+
+This is your initial positive control. You must reproduce and understand it before attempting broader claims.
+
+Construct a one-layer, three-token, four-dimensional pre-norm Transformer-like block.
+
+Two source tokens independently carry evidence signs:
+
+\[
+a,b\in\{-1,+1\}.
+\]
+
+Use two orthonormal mean-zero residual directions \(e_1,e_2\) to carry these signals. A read token initially has no candidate-specific logit contribution.
+
+Use a causal attention head with uniform attention, initially implemented by \(W_Q=W_K=0\), and choose the value/output map so the read token receives:
+
+\[
+a e_1+b e_2.
+\]
+
+Use a standard nonlinear GELU MLP with four hidden units and preactivations:
+
+\[
+a+b,\quad -(a+b),\quad a-b,\quad -(a-b).
+\]
+
+Construct a third readout direction \(e_3\) and an MLP output proportional to:
+
+\[
+q(a,b)
+=
+\operatorname{GELU}(a+b)
++\operatorname{GELU}(-a-b)
+-\operatorname{GELU}(a-b)
+-\operatorname{GELU}(-a+b).
+\]
+
+For binary evidence, \(q>0\) when the signs agree and \(q<0\) when they disagree.
+
+Read the difference between two candidate logits along \(e_3\), optionally after an explicitly included final LayerNorm.
+
+Required outputs:
+
+- Exact parameter matrices.
+- Forward computation for all four \((a,b)\) combinations.
+- Correct candidate-margin signs.
+- Independent interventions on source A and source B.
+- Causal readout decomposition before and after the MLP.
+- Confirmation that fixed attention weights are not responsible for the sign change.
+- An analytic explanation of how the MLP implements the agreement-sensitive operation.
+- A separate implementation that reproduces the behavior.
+
+This establishes that a Transformer-like computation **can implement an agreement-dependent decision rule**. It does not establish that trained Transformers use such a rule, that the mechanism is novel, or that the original COR obstruction score causes anything.
+
+Do not overclaim.
+
+But do not dismiss this positive control as irrelevant merely because its weights were constructed deliberately. It demonstrates architectural possibility and provides a concrete mechanism to generalize, perturb, and attack.
+
+## 4. The critical question: what makes this an actual consistency mechanism?
+
+Do not assume that computing XOR, parity, agreement, or conjunction is automatically evidence of COR.
+
+Define precisely what the two evidence sources represent.
+
+Determine whether the model uses:
+
+1. Two representations carrying independently meaningful candidate-related information.
+2. A relationship between those representations.
+3. A computation that responds to that relationship.
+4. A downstream causal pathway affecting a candidate preference.
+
+For the constructed circuit, distinguish the following proposed notions:
+
+- Binary sign agreement.
+- Euclidean similarity.
+- Cosine similarity.
+- Difference magnitude.
+- Product \(ab\).
+- Agreement relative to a candidate identity.
+- Agreement under a learned or independently specified transformation.
+- Consistency with a structural equation.
+- Consistency of an abstract causal model.
+
+These are different quantities.
+
+Find out which quantity actually explains the MLP behavior.
+
+Determine whether the result is invariant under admissible changes of representation coordinates. If it is not, specify the identification convention and show why that convention is independently justified.
+
+Do not choose a consistency function by trying many functions and reporting whichever best fits the four outputs.
+
+Use the source semantics and computational equations to define the relationship before evaluating predictions.
+
+**The central question is not whether we can fit the decision with an agreement score. It is whether we can identify a relation that the computation actually uses.**
+
+## 5. Investigate three substantially different mechanism families
+
+You must develop and test all three. Do not replace them with three variants of the same toy example.
+
+### Mechanism A — Nonlinear agreement-sensitive MLP computation
+
+Begin with the positive control above.
+
+Extend it systematically.
+
+First, vary evidence magnitudes continuously:
+
+\[
+a,b\in[-r,r].
+\]
+
+Determine whether the response depends on agreement, evidence strength, saturation, or a combination.
+
+Compute the finite interaction:
+
+\[
+I(a,b)
+=
+m(a,b)-m(a,0)-m(0,b)+m(0,0).
+\]
+
+Explain exactly what that interaction measures and why a nonzero interaction alone does not prove a consistency mechanism.
+
+Next investigate:
+
+- ReLU versus GELU.
+- Different MLP widths.
+- Nonidentical evidence encodings.
+- Noise and irrelevant residual directions.
+- Nonzero branch weights with no special exact cancellation.
+- Small parameter perturbations.
+- Different candidate readout directions.
+- Final LayerNorm.
+- Changes in the intervention magnitude.
+- The difference between a designed agreement rule and generic nonlinear evidence aggregation.
+
+Attempt to derive a theorem:
+
+Under independently specified structural conditions on the source representations, nonlinear computation, and candidate readout, a defined agreement relation implies a specified directional candidate-margin effect.
+
+State the conditions exactly.
+
+Then remove them one at a time and construct counterexamples.
+
+Your goal is not to show that all MLPs reward agreement. That is false.
+
+Your goal is to identify a meaningful class of implemented agreement-sensitive mechanisms and their mathematical boundaries.
+
+### Mechanism B — Query–key-dependent evidence composition
+
+Build a genuine dynamic-attention mechanism, not one with \(W_Q=W_K=0\).
+
+Use source information that affects query/key compatibility and therefore changes attention allocation.
+
+Construct at least one model in which a candidate-related relationship between two information sources affects the read token through nonconstant attention weights.
+
+Analyze:
+
+- Query changes.
+- Key changes.
+- Value changes.
+- Their interactions.
+- Causal masking.
+- Multiple source positions.
+- Competition among source contributions.
+- How attention routing changes downstream candidate preference.
+- Whether the behavior reflects source consistency or merely an attention-score comparison.
+
+Carry out exact finite interventions, not only local derivatives.
+
+Perform controls that hold value information fixed while changing routing where the architecture permits, and controls that hold routing fixed while changing values. Label these as mechanism-dissection interventions; do not confuse them with ordinary fully recomputed residual interventions.
+
+Determine whether an independently defined source relation predicts the full candidate-margin response, not merely a single attention head's direct contribution.
+
+Try to prove a restricted causal bridge from source relation to decision response. If you can only prove a direct-head identity, explain why the remaining downstream effects defeat the full claim.
+
+Do not stop at the first counterexample.
+
+### Mechanism C — Multi-layer reconciliation or rereading
+
+Construct at least a two-block Transformer-like system with multiple evidence sources.
+
+One block should form or route representations. A later block should read, compare, reconcile, suppress, amplify, or otherwise combine that information.
+
+Investigate whether a downstream computation can use an earlier source relationship to change candidate preference.
+
+Possible structures include:
+
+- Early evidence aggregation followed by nonlinear comparison.
+- Candidate-specific rereading.
+- A later attention head whose query depends on earlier combined evidence.
+- A downstream MLP that changes its response based on competing signals.
+- A shared bottleneck that retains or loses source identity.
+- Conditional suppression or compensation.
+
+Do not simply label any two-block calculation a reconciliation circuit.
+
+Demonstrate the mechanism with actual computational equations and interventions.
+
+Establish which intermediate variables are necessary, which are sufficient, and which are merely correlated with the result.
+
+Compare the two-block mechanism against a single-block or direct-evidence baseline.
+
+If the extra computation does not contribute meaningful causal structure, say so.
+
+## 6. For each mechanism, perform an actual causal experiment in the synthetic system
+
+The experiments must be designed before looking at favorable outcomes.
+
+At minimum:
+
+**Independent source interventions.** Change A while holding B fixed, change B while holding A fixed, and change both.
+
+**Agreement-changing interventions.** Produce transitions from agreement to disagreement and vice versa.
+
+**Strength controls.** Distinguish changing the relationship from merely increasing or decreasing evidence magnitude.
+
+**Readout controls.** Check whether the measured response concerns the intended candidate margin.
+
+**Mechanism ablations.** Disable or remove the alleged comparing/gating/reconciliation computation and test whether the specific relation-sensitive effect disappears.
+
+**Matched-state controls.** Compare interventions that preserve selected aggregate statistics while changing proposed source relationships, wherever such pairs are computationally possible.
+
+**Negative controls.** Construct systems that aggregate evidence but do not compute the hypothesized relation.
+
+**Reparameterization controls.** Check whether the proposed explanatory quantity survives relevant function-preserving transformations.
+
+Do not claim that you have independently intervened on a consistency score if that score is a deterministic function of the underlying evidence and no unique intervention on the score exists.
+
+The interventions are on actual model variables.
+
+The relation is a specified property of those variables.
+
+You must establish whether the downstream computation is sensitive to that property.
+
+One crucial check: if all information from the sources passes through an additive residual sum \(S\), then downstream output is determined by \(S\). A purported consistency effect that survives while \(S\) and all other downstream inputs are fixed is impossible in a no-bypass model. Use this as a screening theorem, not as an excuse to dismiss relational computations where \(S\) retains the necessary information.
+
+## 7. Connect the mechanism explicitly to candidate decisions
+
+This requirement is nonnegotiable.
+
+Do not end with a theorem about generic output norms, robustness, or maximum response.
+
+For every candidate mechanism, fix two competing candidate logits:
+
+\[
+m_c=L_c-L_{c'}.
+\]
+
+Specify the exact predicted consequence for:
+
+- Candidate-margin sign.
+- Candidate-margin change under intervention.
+- Candidate preference.
+- Or a narrowly defined decision-stability property.
+
+If a theorem proves only response magnitude, label it auxiliary. It is not a resolution of the original decision problem.
+
+Investigate whether the mechanism favors agreement independently of candidate correctness.
+
+A model may coherently combine incorrect evidence and confidently choose the wrong answer.
+
+Therefore distinguish:
+
+- Internally consistent evidence.
+- Evidence supporting candidate c.
+- Correctness according to the task.
+- The model's actual candidate preference.
+
+No theorem may silently equate them.
+
+Also investigate whether consistency is candidate-relative: the same two evidence sources might agree in support of one candidate while opposing another.
+
+A useful candidate-specific theory must explain how the candidate enters the definition without fitting the desired answer into the score.
+
+## 8. Attempt the actual noncircular causal-bridge theorem
+
+This is the central mathematical deliverable.
+
+For the strongest mechanism that survives investigation, define:
+
+- A frozen computational model class \(\mathcal F\).
+- A candidate-margin function \(m_c\).
+- Independently identified source representations \(z_1,z_2,\ldots\).
+- A consistency-related relationship \(C_c(z_1,z_2,\ldots)\).
+- A structural computational operator \(G\) that actually processes those variables.
+- An intervention family \(\mathcal I\).
+- Explicit assumptions \(\mathcal A\) that can be checked without using the target response.
+
+Then prove the strongest defensible implication:
+
+\[
+\mathcal A
+\Longrightarrow
+\mathcal P(C_c,\Delta m_c).
+\]
+
+Here \(\mathcal P\) must be a specific statement about candidate-decision response, not an unspecified association.
+
+Possible outcomes include:
+
+- A signed directional effect under a restricted intervention.
+- A candidate-ranking implication under an explicitly identified aggregation rule.
+- A conditional response interaction with a specified sign.
+- A mechanism-specific invariance or reversal rule.
+- A causal sufficiency result that constrains the candidate margin.
+
+Do not assume one of these must hold.
+
+If a candidate theorem fails, build the counterexample and derive the missing condition.
+
+Then ask whether that missing condition is:
+
+1. Independently identified.
+2. Computationally meaningful.
+3. Plausibly present in a Transformer.
+4. Noncircular.
+5. Not merely the desired output sign in disguise.
+
+If it fails these checks, reject the theorem as an explanatory bridge.
+
+If the only successful theorem is that a deliberately programmed agreement gate produces an agreement-dependent output, call it an **implemented-mechanism existence theorem**, not an independently discovered decision theory.
+
+## 9. The identifiability problem must be attacked, not described away
+
+The previous submission incorrectly treated canonical per-head quantities as invariant under relevant function-preserving transformations.
+
+You must determine what level of identification is actually possible.
+
+Investigate:
+
+- Fixed-checkpoint parameterization.
+- Function-preserving changes of basis.
+- Head output redistribution.
+- Redundant units.
+- Nonunique representations.
+- Alternative decompositions of the same downstream computation.
+- Source-feature identification.
+- Candidate dependence.
+- Different consistency functions that fit the same observations.
+
+For the strongest mechanism, answer:
+
+**Would two mathematically equivalent implementations produce different values of the proposed consistency quantity while producing identical decisions?**
+
+If yes, either:
+
+- Develop an invariant quantity.
+- Define the correct equivalence class.
+- Or explicitly restrict the claim to a selected checkpoint parameterization.
+
+Do not say that measuring a quantity from weights makes it functionally identifiable.
+
+A causal interpretation may be valid in a specified implementation without being unique across implementations. State the distinction.
+
+## 10. Compare against genuine alternatives
+
+A successful agreement-sensitive output circuit might simply be:
+
+- Ordinary nonlinear feature interaction.
+- An XOR/parity circuit.
+- A generic MLP decision boundary.
+- Path-specific causal mediation.
+- Attention-based content routing.
+- A known causal abstraction.
+- A standard interaction effect.
+
+These are not strawmen. They may completely explain the result.
+
+For each proposed COR-related interpretation, construct the strongest non-COR explanation of the same behavior.
+
+Ask what the consistency framework contributes beyond that explanation.
+
+Does it provide:
+
+- A more restricted theorem?
+- A reusable prediction across a family of interventions?
+- An independently identified structural condition?
+- A simpler or more invariant explanation?
+- A computational mechanism that ordinary attribution fails to identify?
+- A new distinction between causally different systems?
+
+If the answer is none, state that the example does not support a distinctive theory.
+
+Do not demand novelty by definition.
+
+Do not declare novelty merely because the same circuit can be expressed using a consistency score.
+
+The objective is a valid causal theory, not preservation of the COR name.
+
+## 11. Address the ten original fatal problems explicitly
+
+The final report must contain a ten-row matrix for:
+
+F1 — Missing causal bridge.
+
+F2 — Lower consistency discrepancy can worsen the candidate margin.
+
+F3 — Candidate consistency ranking need not match logit preference.
+
+F4 — No distinctive prospective prediction.
+
+F5 — Nonidentifiability of states and maps.
+
+F6 — Margin reward embedded in a purported consistency-repair objective.
+
+F7 — Outcome-dependent parameter tuning.
+
+F25 — Equal consistency with opposite decisions.
+
+F29 — No advantage over established alternatives.
+
+F30 — Excessive unfrozen design choices.
+
+For **each** failure, provide:
+
+- The exact original problem.
+- Its strongest known counterexample.
+- Any new mechanism relevant to it.
+- The precise mathematical claim that survives.
+- The assumptions needed.
+- Whether those assumptions were independently identified.
+- What was proved.
+- What remains unproved.
+- Whether the result changes the original status.
+
+Do not mark a problem resolved because you discussed it.
+
+Do not mark a candidate-ranking problem solved by a response-magnitude bound.
+
+Do not mark identifiability solved because you chose a fixed coordinate system.
+
+Do not mark a prediction prospective if its parameters were chosen using the evaluated outcomes.
+
+## 12. Expand beyond a hand-engineered four-case example
+
+The engineered GELU agreement circuit is a positive control, not the final result.
+
+For every promising mechanism, study at least:
+
+1. The exact designed example.
+2. A continuous or higher-dimensional evidence family.
+3. Parameter perturbations.
+4. A nondegenerate variant without artificially fixed routing where relevant.
+5. An explicit failure construction.
+6. A Transformer-block realization.
+7. A candidate-decision intervention analysis.
+8. A comparison to the strongest simpler explanation.
+
+For dynamic attention, test nonzero Q/K and moving attention patterns.
+
+For deep reconciliation, test an actual multi-block causal dependency.
+
+For representation identification, test function-preserving alternative parameterizations.
+
+If a mechanism exists only under very special weights, that is a valid existence theorem but weak evidence of a general mechanism.
+
+Do not extrapolate from random synthetic parameters to pretrained models.
+
+At the same time, do not reject a valid restricted theorem simply because it is not universal.
+
+The challenge is to identify its precise assumptions and significance.
+
+## 13. Distinguish mathematical possibility from actual trained-model discovery
+
+The following are different achievements:
+
+**Existence:** A Transformer-like block can implement a decision rule sensitive to independently specified source agreement.
+
+**Structural theorem:** A defined family of such blocks satisfies a candidate-decision implication.
+
+**Identification:** The defining computational structure can be recognized independently from model weights, representations, and allowed observations.
+
+**Scientific distinctiveness:** The consistency-based account adds something beyond established mechanisms.
+
+**Empirical validation:** A trained Transformer actually exhibits the identified mechanism under prospective intervention.
+
+This task may establish the first four. It is not authorized to claim the fifth without suitable evidence.
+
+You may examine existing repository code and historical results to assess feasibility, but do not launch new pretrained-model experiments or access sealed confirmation data.
+
+If the mathematical bridge survives, prepare a prospective identification and falsification specification for later review.
+
+Do not start Phase 2.
+
+## 14. Organize the autonomous research intelligently
+
+Use the available research and coding tools, including separate agents where genuinely supported.
+
+The execution order is:
+
+**First:** Read the source record and reproduce the independent positive control.
+
+**Second:** Develop the three mechanism families in parallel where possible: nonlinear MLP, dynamic Q/K composition, and multi-layer reconciliation.
+
+**Third:** Identify and prove the strongest actual decision-related causal claim from each family.
+
+**Fourth:** Attack those claims with alternative models, reparameterizations, and noncircularity tests.
+
+**Fifth:** Compare with established theory and identify any distinctive result.
+
+**Sixth:** Synthesize the findings against the ten fatal problems.
+
+Do not spend the time producing another long introductory survey.
+
+Save checkpoints and runnable code as work progresses.
+
+If the research environment supports genuinely independent subagents, assign separate agents to mechanism construction, mathematical counterexamples, identifiability, and novelty criticism.
+
+Make the strongest positive and negative analyses confront each other.
+
+If all agents share context, disclose that. Do not claim independent peer review.
+
+## 15. Required deliverables
+
+Create a new directory, without modifying historical audits:
+
+`docs/research_audits/cor_phase15/step1_causal_bridge_deep_investigation/`
+
+The important outputs are:
+
+**`MAIN_CAUSAL_BRIDGE_ARGUMENT.md`**
+
+The central scientific argument. It must describe the strongest surviving candidate and its exact causal chain, or explain precisely where every serious candidate's chain fails.
+
+**`MLP_AGREEMENT_MECHANISM.md`**
+
+Complete positive-control construction, continuous extension, proofs, interventions, negative examples, and interpretation.
+
+**`QK_COMPOSITION_MECHANISM.md`**
+
+Dynamic-attention construction and analysis, including exact candidate-decision responses.
+
+**`MULTILAYER_RECONCILIATION.md`**
+
+Two-block or deeper mechanism analysis, with explicit computation and ablation evidence.
+
+**`IDENTIFIABILITY_AND_REPARAMETERIZATION.md`**
+
+Gauge counterexamples, corrected invariance statements, and the actual identification status of proposed variables.
+
+**`THEOREMS_AND_COUNTEREXAMPLES.md`**
+
+Precise statements, assumptions, proofs, counterexamples, and unresolved obligations.
+
+**`TEN_FAILURE_ADJUDICATION.md`**
+
+The governing ten-row matrix, with supporting evidence rather than superficial status labels.
+
+**`BASELINES_AND_NOVELTY.md`**
+
+Actual comparison to existing causal and nonlinear-computation explanations.
+
+**`FINAL_SCIENTIFIC_DECISION.md`**
+
+The strongest defensible positive and negative claims, scientific stage status, and the next justified decision.
+
+Include runnable implementation files, tests, source references, execution logs, and a verified manifest.
+
+Do not inflate the number of files merely to appear thorough.
+
+Do not create empty placeholders.
+
+The proofs and working mechanisms matter more than the report length.
+
+## 16. Verification and falsification standards
+
+Every important example must have:
+
+- Exact equations or weights.
+- An actual executable implementation.
+- Clearly defined interventions.
+- Recomputed downstream states.
+- Candidate-specific output measurements.
+- Independent numerical checks.
+- A mathematical explanation of the mechanism.
+- At least one relevant negative control.
+- An explicit statement of what the example does not establish.
+
+Numerical tests do not prove universal theorems.
+
+A theorem about one parameterized construction is not a theorem about all Transformers.
+
+A tested association is not automatically a causal explanation.
+
+A function-preserving reparameterization that changes your explanatory quantity is an identifiability problem, not a minor cosmetic issue.
+
+When a theorem fails, fix its scope or withdraw it.
+
+Do not adjust the hypothesis after observing the same evaluation outcomes and then present the adjusted version as a preregistered prediction.
+
+Check the final export from a clean extraction. Run the real tests and verify the manifest. Do not invent logs or reviewer independence.
+
+## 17. Exact conditions for the final verdict
+
+You may report:
+
+**`STEP1_CAUSAL_BRIDGE_IDENTIFIED`**
+
+Only if you establish a computation-grounded, independently identified, noncircular consistency relationship with a proved candidate-decision consequence and a defensible distinction from existing methods.
+
+This remains mathematical identification, not trained-model validation.
+
+**`STEP1_RESTRICTED_IMPLEMENTED_MECHANISM_PROVED`**
+
+If explicit Transformer-like circuits implement relation-sensitive decision rules, but independent identification or a distinctive theory remains unresolved.
+
+**`STEP1_CONDITIONAL_CAUSAL_BRIDGE_SURVIVES`**
+
+If a meaningful theorem survives, but its key assumptions have not been identified in actual Transformer computation.
+
+**`STEP1_ONLY_KNOWN_NONLINEAR_MECHANISMS_SURVIVE`**
+
+If the candidate mechanisms work but are fully explained by ordinary nonlinear interactions, gating, attention composition, or established causal abstraction.
+
+**`STEP1_EXAMINED_MECHANISMS_FAIL`**
+
+If the investigated candidates fail their stated requirements, with scoped counterexamples and clearly documented assumptions.
+
+**`STEP1_INVESTIGATION_INCOMPLETE`**
+
+If the three major mechanism families, mathematical obligations, or identifiability checks remain materially unexamined.
+
+Do not treat a negative result as a failure of research.
+
+But do not claim complete investigation when a central computational class was skipped.
+
+Do not call the original \(O/D\) theory validated because a different consistency-sensitive circuit was constructed.
+
+## 18. Final questions you must answer
+
+Your report must answer these in ordinary scientific language, supported by proofs and experiments:
+
+1. Can a Transformer explicitly compute a relation between candidate-relevant evidence sources and use it to select a candidate?
+2. Can the mechanism be expressed as an independently defined consistency relation rather than a post-hoc score?
+3. What computational operator implements that relation?
+4. What changes in the candidate margin when the relation changes?
+5. Which parts of that change are caused by source strength rather than the relationship?
+6. Does the effect survive controls and ablations?
+7. Does it occur in a nonlinear MLP, moving Q/K attention, or a deep rereading circuit?
+8. Can you derive a restricted theorem rather than only construct a favorable example?
+9. What assumptions determine the direction of the decision response?
+10. Are those assumptions independently identifiable?
+11. Can they be satisfied without encoding the desired logit change?
+12. Does the result distinguish candidates or merely predict a generic output change?
+13. Can the same consistency value coexist with opposite candidate decisions?
+14. What additional information resolves that ambiguity?
+15. Is the proposed relation invariant under relevant function-preserving transformations?
+16. If not, what exactly is identifiable?
+17. Does the resulting mechanism require the original \(O/D\) score?
+18. Is the mechanism simply a standard nonlinear interaction, conjunction, attention router, or causal abstraction?
+19. What distinctive explanatory or predictive content remains?
+20. Which of the ten original fatal problems are actually resolved?
+21. Which remain unresolved, and why?
+22. What would falsify the strongest surviving candidate in a frozen trained Transformer?
+23. Is there enough mathematical justification to propose a later empirical identification study?
+24. What result would justify closing Phase 1.5 Step 1?
+25. What result would justify abandoning the original consistency-to-decision hypothesis?
+
+Answer those questions directly. Do not fill them with generic statements.
+
+## 19. Final instruction
+
+The previous research has repeatedly demonstrated a pattern:
+
+A difficult causal-decision problem is replaced with an easier mathematical problem. The easier problem is solved. A large report is produced. The original causal bridge remains unresolved.
+
+**Do not repeat that pattern.**
+
+You now have a concrete positive control in which a Transformer MLP computes evidence agreement and changes candidate preference. You have two additional important mechanism classes to examine: moving attention and multi-layer rereading.
+
+The central task is to determine whether these computations support a meaningful, independently identified, noncircular consistency-to-decision theory.
+
+You are not required to prove COR correct.
+
+You are not permitted to assume it correct.
+
+You are not permitted to dismiss the question after analyzing only softmax averages or fixed-attention toy systems.
+
+You are not permitted to replace candidate decisions with generic robustness bounds.
+
+**Investigate the actual mechanisms. Construct them. Intervene on them. Prove their behavior. Attack the assumptions. Test identifiability. Compare with the strongest ordinary explanations.**
+
+If a restricted mechanism survives, explain precisely what survives and what remains unestablished.
+
+If the mechanisms fail to provide a distinctive consistency theory, demonstrate that failure with the actual mathematical and causal evidence.
+
+If your strongest result is merely an engineered agreement-sensitive circuit, say so.
+
+If you find a genuinely independently identifiable causal bridge, show exactly why the result is more than an engineered nonlinear feature interaction.
+
+**The final deliverable is an evidence-backed scientific decision on Phase 1.5 Step 1, not another collection of adjacent mathematical results.**
+
+Do the research thoroughly before writing the verdict.

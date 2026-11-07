@@ -1,0 +1,1644 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL CAUSAL-BRIDGE RECONSTRUCTION AND INDEPENDENT SCIENTIFIC ADJUDICATION
+
+## Full GitHub-connected cloud research mandate
+
+**PROJECT:** Causal Obstruction–Response Theory of Transformer Decisions (COR)
+
+**CURRENT STAGE:** PHASE 1.5 — STEP 1
+
+**PRIMARY QUESTION:** Can computational consistency have a noncircular, identifiable, decision-relevant causal role in a Transformer?
+
+**TARGETED FATALITIES:** #1–7, #25, #29–30 from the original Phase 1 mathematical audit.
+
+**MODE:** Autonomous, repository-grounded, extended mathematical research with adversarial verification.
+
+**RESEARCH PRIORITY:** Maximum mathematical depth, scientific identification, and resistance to circularity.
+
+**THIS IS NOT AN INCREMENTAL EXTENSION OF STEP 1E.**
+
+**THIS IS NOT A JOINT-PATH ROBUSTNESS PROJECT.**
+
+**THIS IS NOT A REQUEST TO OPTIMIZE AN OBSTRUCTION SCORE.**
+
+**THIS IS NOT PERMISSION TO BEGIN STEP 2 OR PHASE 2.**
+
+---
+
+# SECTION 0 — YOUR RESPONSIBILITY
+
+You are taking over a serious foundational research problem.
+
+This project has undergone approximately six months of mathematical and empirical work, followed by multiple increasingly rigorous theoretical audits.
+
+The previous investigations include:
+
+- The original COR Phase 1 mathematical audit.
+- Phase 1.5 Step 1A causal-bridge feasibility.
+- Step 1B broad mechanism discovery.
+- Step 1C Transformer computational analysis.
+- Step 1C-R correction and full-block analysis.
+- Overnight six-workstream reconstruction.
+- Step 1D structural finite-response bounds.
+- Step 1E joint reachability and relational certificates.
+- Independent adversarial audits of those packages.
+
+These investigations produced valid mathematics, counterexamples, and important necessary conditions.
+
+However, **they have not established the original causal bridge**.
+
+A recurring methodological failure has occurred:
+
+The research begins with the problem of explaining Transformer decisions through consistency.
+
+When that problem becomes difficult, the investigation shifts toward an easier mathematical question:
+
+- An algebraic identity.
+- A generic impossibility theorem.
+- A Jacobian.
+- A robustness bound.
+- A derivative decomposition.
+- An independent-path upper bound.
+- A joint-path support-function inequality.
+- An engineered synthetic example.
+
+Those results may be correct.
+
+But correctness alone does not make them answers to our scientific question.
+
+**Your primary responsibility is to prevent that substitution.**
+
+You are to investigate whether consistency has a noncircular causal connection to decisions.
+
+If you cannot establish such a connection, identify precisely why the proposed mechanisms fail and which assumptions remain unresolved.
+
+Do not replace the question with one that is easier to prove.
+
+Do not treat a useful side result as evidence that the primary question has been answered.
+
+Do not issue a broad negative verdict from a handful of constructed examples.
+
+Do not invent a positive mechanism simply to keep COR alive.
+
+---
+
+# SECTION 1 — THE NONNEGOTIABLE RESEARCH QUESTION
+
+Consider a frozen Transformer:
+
+\[
+F_\theta(x).
+\]
+
+Let candidate c have a defined model-decision outcome, such as a logit margin:
+
+\[
+m_c(x)=L_c(x)-L_{\mathrm{comp}}(x).
+\]
+
+For an actual internal intervention I, define:
+
+\[
+R_c(x,I)
+=
+m_c(F_\theta(x;I))-m_c(F_\theta(x)).
+\]
+
+Suppose the researcher proposes a candidate-specific consistency-related quantity:
+
+\[
+C_c(x).
+\]
+
+The central question is:
+
+**Can a computationally grounded and independently identified consistency relationship imply a nontrivial, falsifiable restriction on the model's candidate-specific decision or causal decision response?**
+
+The relationship may be a scalar, vector, operator, structural constraint, or another well-defined object.
+
+But it must have genuine computational meaning.
+
+A successful answer must establish a logically connected chain:
+
+**Actual model computation**
+
+→ **independently meaningful consistency relation**
+
+→ **identified causal or predictive role**
+
+→ **mathematically justified decision consequence**
+
+→ **distinctive falsifiable prediction**.
+
+Every arrow requires justification.
+
+If the chain breaks, identify exactly where.
+
+Do not patch a missing arrow by assuming the conclusion.
+
+---
+
+# SECTION 2 — WHAT WOULD ACTUALLY COUNT AS A CAUSAL BRIDGE?
+
+There are at least three scientifically different possibilities.
+
+## 2.1 Explicit implemented mechanism
+
+The Transformer may contain a computational operation that responds to a relationship between internal variables.
+
+Examples to investigate:
+
+- A downstream component that responds to opposing candidate evidence.
+- A gating operation whose behavior depends on a relation between two pathways.
+- A correction process that suppresses certain conflicting contributions.
+- A reconciliation operation that combines different candidate representations.
+- A mechanism that changes the influence of one pathway conditional on another.
+
+These are hypotheses, not established facts.
+
+For this route, the research must identify:
+
+1. The actual computational variables.
+2. The operation implementing the relation.
+3. The structural equations.
+4. The intervention that changes its inputs.
+5. The downstream causal pathway.
+6. The resulting candidate-decision consequence.
+
+A researcher-defined discrepancy score is not evidence that the model computes or responds to that score.
+
+If the mechanism does not exist in the analyzed computation, do not claim that it does.
+
+## 2.2 Computation-grounded causal predictor
+
+A consistency-related statistic might predict intervention responses even if the model does not explicitly compute the statistic.
+
+This is a weaker but potentially legitimate scientific claim.
+
+For this route, establish:
+
+- How the predictor is identified.
+- What information it uses.
+- Which intervention family it covers.
+- What decision consequence it predicts.
+- Why the prediction follows from model structure.
+- Whether simpler predictors already imply the same result.
+
+Do not describe the statistic as a physical causal mediator without evidence.
+
+## 2.3 Necessary-condition or impossibility theory
+
+It may turn out that consistency alone cannot determine a decision response without additional information.
+
+A serious theoretical result could identify what information is necessary.
+
+For example, an exact sign predictor based on a statistic must distinguish interventions with different response signs on its allowed domain.
+
+But a necessary-condition theorem is not automatically a surviving causal mechanism.
+
+It tells us what a mechanism would require.
+
+It does not show that the Transformer contains one.
+
+**Keep these three outcomes separate throughout the investigation.**
+
+---
+
+# SECTION 3 — THE TEN EXACT ORIGINAL FAILURES
+
+Your work must address each of these individually and jointly.
+
+## FAILURE #1 — NO CAUSAL BRIDGE
+
+The original theory constructed consistency scores without deriving their connection to the Transformer's candidate-decision computation.
+
+**Required research:**
+
+Identify whether a consistency-related property can enter a mathematically valid causal or predictive relationship with candidate decisions.
+
+Produce the exact proposed bridge.
+
+Identify the computational facts that justify it.
+
+Show where the causal information enters.
+
+If the proposed bridge depends on a strong assumption, state that assumption explicitly and determine whether it can be independently identified.
+
+Do not accept:
+
+"Models prefer consistent candidates."
+
+That is a restatement of the missing hypothesis.
+
+Do not accept:
+
+"Improving consistency should improve output."
+
+That is not a derivation.
+
+Do not accept:
+
+"Both consistency and logits change under intervention."
+
+That does not identify causation.
+
+## FAILURE #2 — LOWER D CAN WORSEN THE DECISION
+
+The universal implication:
+
+\[
+\Delta D_c<0\Rightarrow \Delta m_c>0
+\]
+
+is false.
+
+**Required research:**
+
+Determine whether any independently meaningful restricted condition establishes a directional response.
+
+Identify what information determines the sign.
+
+Investigate whether direction depends on:
+
+- Candidate identity.
+- Downstream readout.
+- Context.
+- The direction of the discrepancy.
+- An actual gating or reconciliation mechanism.
+- A specified candidate-relevant subspace.
+- A signed causal operator rather than a squared norm.
+
+Do not choose restrictions because they produce a favorable output.
+
+They must be justified independently.
+
+If no directional theorem survives, state that explicitly.
+
+## FAILURE #3 — CONSISTENCY RANKINGS DO NOT DETERMINE CANDIDATE PREFERENCE
+
+The original framework does not establish:
+
+\[
+D_c<D_{c'}\Rightarrow L_c>L_{c'}.
+\]
+
+**Required research:**
+
+Investigate whether any candidate-comparative consistency relation can constrain preference.
+
+A candidate-specific theory cannot avoid candidate comparison forever by discussing only response magnitude.
+
+Specify how candidate representations are aligned.
+
+Specify the common decision context.
+
+Specify which candidate-relative quantities are comparable.
+
+Identify whether metric and representation choices can reverse rankings.
+
+Investigate whether candidate ranking can be derived from actual computation without embedding the logits in the score.
+
+If ranking cannot be established, determine whether another decision-specific prediction survives.
+
+Do not silently change the outcome to generic robustness.
+
+## FAILURE #4 — NO DISTINCTIVE PROSPECTIVE PREDICTION
+
+The original theory did not produce a defensible prediction distinct from ordinary gradients, attribution, activation geometry, or causal abstraction.
+
+**Required research:**
+
+For every proposed mechanism, specify:
+
+- Primary prediction.
+- Frozen predictor inputs.
+- Intervention family.
+- Mathematical guarantee or explicit empirical conjecture.
+- Falsification criterion.
+- Strongest competing method.
+- Information and computation budgets.
+
+A new name or notation is not novelty.
+
+A standard derivative decomposition is not automatically a new theory.
+
+A generic Lipschitz bound is not automatically a distinctive prediction.
+
+If a candidate only restates an established method, classify it accordingly.
+
+## FAILURE #5 — NONIDENTIFIABILITY
+
+Original candidate states and compatibility maps were too arbitrary.
+
+A zero projection can trivialize discrepancy.
+
+A flexible transport map can manufacture agreement.
+
+Different coordinate systems and metrics can produce incompatible explanations.
+
+**Required research:**
+
+Determine what independently identifies a meaningful consistency relationship.
+
+Investigate identification from:
+
+- Frozen architecture.
+- Frozen model weights.
+- Natural activations.
+- Independent intervention families.
+- Independently established causal abstractions.
+- Task semantics fixed before outcome evaluation.
+- Restricted computational operators.
+
+Specify which choices are unique, identifiable only up to equivalence, or underdetermined.
+
+Do not conceal arbitrariness behind optimization.
+
+## FAILURE #6 — THE REPAIR OBJECTIVE EMBEDS THE DESIRED OUTPUT
+
+An objective such as:
+
+\[
+J(\delta)=D(s+\delta)-\beta m_c(s+\delta)
+\]
+
+may improve the candidate's output simply because it directly optimizes the margin.
+
+That is not evidence that reducing D caused the improvement.
+
+**Required research:**
+
+Separate the effect of the consistency term from the effect of direct output optimization.
+
+Investigate whether any claimed mechanism survives without using the outcome in its definition.
+
+If gradients or margins are included, identify exactly what they contribute and which explanatory claims remain possible.
+
+Do not infer obstruction causality from success of a mixed objective.
+
+## FAILURE #7 — OUTCOME-DEPENDENT TUNING
+
+The original framework allowed excessive flexibility in representation, transport, graph, metric, coefficients, and intervention selection.
+
+**Required research:**
+
+Construct an explicit specification-freezing procedure.
+
+Distinguish:
+
+- Information used to discover hypotheses.
+- Information used to define the predictor.
+- Information used to fit nuisance parameters.
+- Information used to test the final prediction.
+
+Identify conceptual circularity separately from statistical leakage.
+
+A held-out dataset does not rescue an assumption that already states the conclusion.
+
+## FAILURE #25 — SAME CONSISTENCY, DIFFERENT DECISIONS
+
+Two states can have equal D and different logits, even opposite decisions.
+
+**Required research:**
+
+Investigate the equivalence classes induced by candidate consistency measurements.
+
+What information does C preserve?
+
+What does it discard?
+
+Under which conditions is the decision response constant, sign-constant, or bounded on a fiber of C?
+
+If two interventions share the same C but produce opposite responses, a sign predictor based solely on C cannot be universally correct on that domain.
+
+Do not assume that this prohibits conditional or probabilistic prediction.
+
+Determine exactly what additional independently available information would distinguish the cases.
+
+## FAILURE #29 — NO DISTINCTIVE ADVANTAGE OVER ESTABLISHED METHODS
+
+The research has repeatedly produced mathematics already explained by existing sensitivity or causal-analysis tools.
+
+**Required research:**
+
+For every candidate, compare it against equally informed:
+
+- Gradients.
+- Candidate margins.
+- Attribution.
+- Path-specific effects.
+- Hessian interactions.
+- Causal abstraction.
+- Direct computational analysis.
+- Established robustness and verification methods.
+
+Explain what, if anything, remains distinctive.
+
+Do not compare a finite guarantee to an invalid first-order-only benchmark.
+
+Do not compare methods under different information budgets without disclosure.
+
+## FAILURE #30 — TOO MANY UNFROZEN CHOICES
+
+The original theory contained enough analytical flexibility to generate apparently meaningful scores under many constructions.
+
+**Required research:**
+
+Produce a complete choice ledger for each surviving candidate.
+
+Record:
+
+- Candidate definitions.
+- Representation dimensions.
+- Projector construction.
+- Graph construction.
+- Transport operators.
+- Metrics.
+- Normalization.
+- Intervention class.
+- Outcome.
+- Coefficients.
+- Model class.
+- Data used for selection.
+- Allowed revisions.
+- Frozen prediction.
+
+Every choice must have an independently stated justification.
+
+Do not allow post-hoc changes to count as confirmation of the original hypothesis.
+
+---
+
+# SECTION 4 — RESOLVE THE EXACT-COMPUTATION PARADOX
+
+This is one of the deepest unresolved issues.
+
+Suppose a compatibility equation accurately represents the model's true computation:
+
+\[
+h_v=f_v(h_{\mathrm{parents}(v)}).
+\]
+
+A correctly recomputed forward pass satisfies it.
+
+Correct and incorrect decisions may both arise from valid computations.
+
+Therefore exact structural compatibility does not automatically determine decision correctness.
+
+Now suppose we use a projected approximation:
+
+\[
+P_vh_v\approx \rho(P_uh_u).
+\]
+
+The discrepancy may represent lost information or approximation error.
+
+It does not automatically represent decision conflict.
+
+**The investigation must determine what notion of consistency could escape this dilemma without becoming circular.**
+
+Explore, but do not assume the validity of:
+
+### A. Consistency between computationally represented claims
+
+Do different pathways encode competing candidate-related content?
+
+How would those claims be independently identified?
+
+Does the downstream computation actually compare them?
+
+### B. Consistency under a causal abstraction
+
+Do local representations satisfy relationships that preserve specified intervention effects?
+
+Is the discrepancy an abstraction-faithfulness error rather than a decision obstruction?
+
+### C. Consistency of counterfactual commitments
+
+Does the model behave coherently under a defined family of related interventions?
+
+Can that coherence predict candidate decisions without being defined using those decisions?
+
+### D. Consistency of a computational reconciliation mechanism
+
+Is there a real operation that transforms conflicting input signals into a selected candidate response?
+
+Can the operation be identified independently?
+
+### E. Consistency among partial sufficient representations
+
+Do independently constrained internal representations jointly preserve a decision-relevant variable?
+
+Is the proposed consistency relation necessary for that preservation?
+
+For every version, answer:
+
+**What exactly is consistent with what?**
+
+**Who defines that relation?**
+
+**Does the model use it?**
+
+**What happens when the relation fails?**
+
+**Why should that failure affect a candidate decision?**
+
+**Can the relation hold for a wrong decision?**
+
+**Can it fail for a correct decision?**
+
+If the answer to the last two questions is yes, identify what additional assumptions are needed.
+
+Do not hide this issue in a graph-theory appendix.
+
+---
+
+# SECTION 5 — RECONSTRUCT THE STRONGEST PLAUSIBLE SCIENTIFIC HYPOTHESES
+
+Do not begin with O and D.
+
+Begin with actual computational mechanisms.
+
+Develop three independent, serious research programs.
+
+## HYPOTHESIS FAMILY H1 — EXPLICIT RECONCILIATION OR CONFLICT-SENSITIVE COMPUTATION
+
+Question:
+
+Does a downstream operation respond to a relation between candidate-relevant signals in a way that constrains the selected decision?
+
+Tasks:
+
+1. Define a minimal structural causal model in which the mechanism genuinely exists.
+2. Specify the internal variables and relationship.
+3. Define what intervention changes the relationship.
+4. Derive its candidate-decision consequence.
+5. Identify assumptions required for directionality.
+6. Show examples where the mechanism fails.
+7. Determine whether a Transformer component could implement the operation.
+8. Investigate whether this is merely ordinary nonlinear gating.
+9. Determine what would distinguish a reconciliation mechanism from a generic output function.
+10. Identify what evidence would be required to recognize it in a frozen Transformer.
+
+Do not assume attention implements reconciliation.
+
+Do not assume MLPs implement error correction.
+
+If the mechanism only exists in a purposely engineered synthetic model, record it as an existence proof rather than evidence about trained models.
+
+## HYPOTHESIS FAMILY H2 — CAUSAL-SUFFICIENCY CONSISTENCY
+
+Question:
+
+Can several partial representations satisfy a relation that guarantees or constrains preservation of candidate-relevant causal information?
+
+Tasks:
+
+1. Define causal sufficiency for a specific outcome and intervention family.
+2. Formalize the relationship between jointly sufficient and individually insufficient representations.
+3. Determine whether consistency adds information beyond their joint values.
+4. Derive exact or approximate response factorization conditions.
+5. Construct same-statistic/opposite-response counterexamples.
+6. Determine whether an independently selected consistency measurement excludes those examples.
+7. Compare directly with existing causal-abstraction theory.
+8. Identify whether a genuinely distinct candidate-decision result survives.
+9. Investigate identifiability under representation changes.
+10. Specify whether the theory predicts response, response stability, or task correctness.
+
+Do not call ordinary approximate abstraction a new COR mechanism unless there is additional content.
+
+## HYPOTHESIS FAMILY H3 — CANDIDATE-SPECIFIC EVIDENCE COORDINATION
+
+Question:
+
+Can the model's aggregation of independent candidate-related pathways imply a measurable relation between evidence coherence and candidate preference?
+
+Tasks:
+
+1. Define candidate evidence without using final logits as its construction target.
+2. Analyze redundancy, opposition, suppression, and context dependence.
+3. Determine whether any relation predicts candidate preference rather than merely path magnitude.
+4. Distinguish signed evidence from nonnegative discrepancy.
+5. Analyze cases where coherent evidence supports a wrong answer.
+6. Analyze cases where inconsistent evidence still produces a correct answer.
+7. Identify whether model architecture imposes a meaningful aggregation rule.
+8. Check whether that rule already reduces to path attribution.
+9. Determine whether the proposed relationship is invariant to admissible representation choices.
+10. Produce a precise conditional prediction or explain why none follows.
+
+Do not assume that "agreement" is good or "disagreement" is bad.
+
+---
+
+# SECTION 6 — DO NOT STOP WITH HANDPICKED TOY SYSTEMS
+
+Small counterexamples are excellent for defeating universal claims.
+
+But the scientific relevance of restricted hypotheses requires more.
+
+Use a principled hierarchy.
+
+**Level 1:** Minimal structural causal systems.
+
+Purpose: isolate logical requirements.
+
+**Level 2:** Multidimensional linear and nonlinear computations.
+
+Purpose: test information loss, directionality, and identifiability.
+
+**Level 3:** Multi-parent residual computational graphs.
+
+Purpose: determine whether pathway relationships are actual computation or imposed interpretations.
+
+**Level 4:** Explicit attention–MLP blocks.
+
+Purpose: evaluate architectural realizability.
+
+**Level 5:** Multi-head and multi-token systems.
+
+Purpose: study contextual interaction and candidate information aggregation.
+
+**Level 6:** Multi-block compositions.
+
+Purpose: determine whether mechanisms require distributed computation across layers.
+
+**Level 7:** Existing frozen-model source analysis.
+
+Purpose: inspect already available real model architecture and historical evidence without launching new pretrained-model experiments.
+
+Do not mechanically test every combination.
+
+Instead, choose model classes to distinguish hypotheses.
+
+The result should be a coverage map explaining what each class proves and what remains unexamined.
+
+---
+
+# SECTION 7 — A REAL CAUSAL IDENTIFICATION STANDARD
+
+For any proposed consistency mechanism, specify its causal interpretation.
+
+Is consistency:
+
+1. An actual variable computed by the network?
+2. A proxy for an internal operation?
+3. A property of a representation?
+4. A predictor of intervention response?
+5. A constraint on a family of computations?
+6. A researcher-defined post hoc statistic?
+
+These roles differ.
+
+If C is a deterministic function of hidden states, simply writing:
+
+\[
+\operatorname{do}(C=c)
+\]
+
+does not define a unique intervention on the Transformer.
+
+Multiple state changes can produce the same C while affecting other causally relevant information differently.
+
+You must define the actual structural intervention.
+
+A claim that "consistency causes a decision improvement" requires a justified intervention semantics or an identified mechanism through which that property matters.
+
+Where that cannot be justified, restrict the claim to causal-response prediction.
+
+Do not confuse an intervention that changes C with an intervention on C itself.
+
+---
+
+# SECTION 8 — THE DIRECTIONALITY REQUIREMENT
+
+The old consistency quantities use nonnegative norms.
+
+Decision response is signed.
+
+That creates a fundamental information problem.
+
+Investigate whether directional information can come from an independently defined structure.
+
+Possible sources include:
+
+- Signed candidate-related computational components.
+- An identified comparison operator.
+- A candidate-conditional gating mechanism.
+- An independently defined output-relevant subspace.
+- An explicit structural relationship between pathways and candidate preference.
+
+Do not automatically use output gradients to provide the missing sign.
+
+If you do use them, state that the directionality comes from downstream sensitivity.
+
+Determine whether consistency contributes something else.
+
+A successful directional theorem must identify its causal information source.
+
+A theorem whose assumptions already imply the desired sign without substantive intermediate reasoning is not an explanatory bridge.
+
+---
+
+# SECTION 9 — CANDIDATE RANKING AND DECISION SELECTION
+
+This section is mandatory.
+
+The research must not avoid candidate preference.
+
+Let candidates c and c' compete under the same frozen model and context.
+
+Investigate whether any consistency-related relation can constrain:
+
+\[
+L_c-L_{c'}.
+\]
+
+Do not assume that candidate-specific scores are comparable.
+
+Check:
+
+- Shared measurement scales.
+- Candidate-label dependence.
+- Distinct projector ranks.
+- Transport-map complexity.
+- Metric selection.
+- Candidate-specific normalization.
+- Differences in available information.
+
+A theory may predict only a local intervention response rather than the full ranking.
+
+That is allowed as a restricted result.
+
+But it must be explicitly classified as weaker than the original decision-selection ambition.
+
+Do not call a response-bound theorem a completed candidate-selection theory.
+
+---
+
+# SECTION 10 — FALSIFIABILITY AND DISTINCTIVENESS
+
+Every surviving hypothesis must produce a specific scientific consequence.
+
+For example:
+
+Given structural assumptions A and independently identified relation C, an intervention from family I produces a specified candidate-margin relation P.
+
+The prediction must be:
+
+- Fixed before evaluation.
+- Noncircular.
+- Mathematically justified or explicitly conjectural.
+- Distinct from relevant alternatives.
+- Falsifiable.
+
+Do not accept vague statements.
+
+"More coherent models should be more reliable" is not sufficient.
+
+"Conflicting signals should interact" is not sufficient.
+
+"Distributed representations influence decisions" is not sufficient.
+
+"Path coupling can tighten an upper bound" is not automatically a COR decision prediction.
+
+Specify the actual decision-related outcome and its measurable consequence.
+
+---
+
+# SECTION 11 — FAIR BASELINE COMPARISON
+
+Compare any surviving mechanism to the strongest applicable alternatives.
+
+At minimum:
+
+- Candidate margin.
+- Ordinary activation geometry.
+- Linear projection information.
+- Output gradient.
+- Path attribution.
+- Causal mediation.
+- Causal abstraction.
+- Standard nonlinear sensitivity.
+- Established robustness mathematics.
+
+Match information access.
+
+Match intervention domain.
+
+Match outcome type.
+
+Match access to frozen weights.
+
+Do not compare a full finite-response guarantee against an invalid first-order-only baseline.
+
+Do not compare a predictor trained on historical outcomes against a baseline restricted to frozen weights.
+
+If the candidate uses the full downstream response, it does not independently predict that response.
+
+Determine what is genuinely added by the consistency relationship.
+
+---
+
+# SECTION 12 — MATHEMATICAL NOVELTY IS NOT ASSUMED
+
+A useful theory can combine established mathematics with a new computational observation.
+
+That may be worthwhile.
+
+But it must be classified correctly.
+
+For every theorem, answer:
+
+- Is the mathematics known?
+- Is the computational identification new?
+- Is the causal interpretation new?
+- Is the prediction new?
+- Is the result a corollary of existing causal-abstraction theory?
+- Does it only rename the Jacobian?
+- Does it only restate an operator identity?
+- Does it only improve a robustness bound?
+
+If it is established mathematics, identify the prior result.
+
+If novelty is uncertain, say so.
+
+Do not manufacture a research contribution through terminology.
+
+---
+
+# SECTION 13 — THE INVESTIGATION MUST INCLUDE STRONG NEGATIVE ARGUMENTS
+
+For each serious candidate:
+
+1. Construct an explicit positive model.
+2. Construct a nearby negative model.
+3. Determine the assumption separating them.
+4. Ask whether the assumption is identifiable.
+5. Ask whether it is scientifically plausible.
+6. Ask whether it restates the desired outcome.
+7. Determine whether the result generalizes to a specified class.
+8. Determine whether a frozen Transformer could satisfy it.
+9. Identify the strongest known alternative explanation.
+10. Assign a narrow mathematical status.
+
+A restricted positive example is not enough.
+
+A universal negative example is not enough.
+
+The scientific content lies partly in the boundary between them.
+
+---
+
+# SECTION 14 — SOURCE RECONSTRUCTION AND GITHUB WORKFLOW
+
+You have access to a connected repository or prepared Codex cloud environment.
+
+Begin by:
+
+1. Record the exact repository identity and commit SHA.
+2. Inspect the project structure.
+3. Locate the original COR theory and audits.
+4. Locate the previous Phase 1.5 reports.
+5. Locate actual proof and verification code.
+6. Identify what is authoritative, what is superseded, and what remains unresolved.
+7. Record missing sources explicitly.
+8. Create a separate research branch or isolated worktree.
+9. Preserve historical audit directories unchanged.
+10. Commit meaningful checkpoints to the authorized research branch if the environment permits.
+
+Do not rely on the previously pasted chat summaries as the sole source of truth when the repository contains the underlying materials.
+
+Do not claim a paper or test exists unless you locate it.
+
+Do not claim a test ran unless you execute it.
+
+Do not claim a theorem was independently reviewed without evidence.
+
+If the GitHub connection is read-only, do not claim to have pushed changes.
+
+Produce files in the accessible workspace and report the actual delivery limitation.
+
+---
+
+# SECTION 15 — RESEARCH LITERATURE
+
+Conduct a serious primary-source investigation.
+
+Prioritize:
+
+- Causal abstraction.
+- Interchange interventions.
+- Distributed alignment.
+- Causal scrubbing.
+- Representation sufficiency.
+- Mechanistic circuit analysis.
+- Path-specific effects.
+- Activation patching.
+- Redundancy and compensation.
+- Nonlinear evidence integration.
+- Representation identifiability.
+- Robustness and response prediction.
+- Information bottlenecks.
+- Function-preserving transformations.
+
+Examine the precise assumptions and theorems of relevant work.
+
+Do not merely assemble a bibliography.
+
+Construct a claim-to-prior-work comparison.
+
+If a new candidate is equivalent to an established theory, establish the equivalence or state the limits of the comparison.
+
+Do not invent citations.
+
+Do not rely solely on abstracts when a specific theorem matters.
+
+---
+
+# SECTION 16 — PRIOR EMPIRICAL RESULTS ARE NOT THEORY VALIDATION
+
+The empirical Othello work remains separate.
+
+Relevant established results include:
+
+- Probe-invisible information affecting downstream behavior.
+- Target-conditioned nullspace intervention specificity.
+- Donor-free target transfer.
+- Significant stage-only contributions.
+- Failed symmetric target-switching criteria.
+- Failed visible/nullspace factorial interaction.
+- Negative original repair validation.
+
+Historical factual-conflict and IOI obstruction results also did not validate the proposed obstruction mechanism.
+
+Do not select a new theory to fit only the favorable outcomes.
+
+Do not infer that the Othello probe-nullspace results validate a consistency mechanism.
+
+You may use the existing evidence to challenge an overly broad claim.
+
+You must not use historical evaluation outcomes to fit the proposed mechanism and then call the result prospectively predictive.
+
+No new pretrained-model experiments are authorized by this mandate.
+
+---
+
+# SECTION 17 — PRIORITY MANAGEMENT
+
+This is a deep research assignment, not a checklist-completion exercise.
+
+The first priority is the central causal bridge.
+
+The second is independently identifying the relation.
+
+The third is deriving its candidate-decision consequence.
+
+The fourth is attacking the assumptions.
+
+The fifth is comparing the surviving prediction with existing methods.
+
+Only after those tasks should you polish manuscripts and package artifacts.
+
+Do not spend most of the execution window writing background sections.
+
+Do not generate dozens of files to create an appearance of completeness.
+
+If a theorem requires substantial work, prioritize the proof.
+
+If a candidate collapses, record the result and move to the next serious candidate.
+
+If all candidates collapse, produce a precise negative synthesis rather than inventing another score.
+
+---
+
+# SECTION 18 — MULTI-AGENT ADVERSARIAL RESEARCH
+
+If isolated agents or separate contexts are available, use them.
+
+Assign genuinely distinct responsibilities:
+
+**Researcher A — Strongest theoretical case for consistency**
+
+Find the most defensible restricted causal bridge without assuming COR is correct.
+
+**Researcher B — Impossibility and counterexamples**
+
+Try to disprove every bridge, including candidates that appear mathematically promising.
+
+**Researcher C — Causal identification**
+
+Attack the meaning of consistency, intervention semantics, and independence from outcomes.
+
+**Researcher D — Transformer architecture**
+
+Determine which mechanisms can actually arise from attention, MLPs, residual computation, and candidate readout.
+
+**Researcher E — Representation identification**
+
+Attack arbitrary projections, metrics, map fitting, and candidate definitions.
+
+**Researcher F — Scientific novelty**
+
+Reduce every proposal to established methods where possible.
+
+**Researcher G — Cross-examination**
+
+Require the strongest positive and negative claims to confront each other mathematically.
+
+**Researcher H — Final adjudication**
+
+Review the evidence and determine whether any noncircular bridge survives.
+
+If true independent subagents are unavailable, perform separate critical passes and disclose the limitation.
+
+Do not claim independent peer review based only on several files written in the same context.
+
+---
+
+# SECTION 19 — STRICT CLAIM REGISTER
+
+Every major claim requires:
+
+- Claim ID.
+- Scientific target.
+- Formal model class.
+- Intervention domain.
+- Candidate-outcome definition.
+- Structural assumptions.
+- Independent identification procedure.
+- Exact theorem or conjecture.
+- Proof.
+- Counterexamples.
+- Existing-method comparison.
+- Computational applicability.
+- Empirical status.
+- Novelty status.
+- Reviewer objections.
+- Final adjudication.
+
+Use explicit statuses:
+
+`PROVED`
+
+`PROVED_UNDER_RESTRICTED_ASSUMPTIONS`
+
+`DISPROVED`
+
+`COUNTEREXAMPLE_FOUND`
+
+`CONJECTURE`
+
+`IDENTIFICATION_UNRESOLVED`
+
+`CAUSAL_MECHANISM_UNESTABLISHED`
+
+`DISTINCTIVENESS_UNESTABLISHED`
+
+`REDUNDANT_WITH_KNOWN_THEORY`
+
+`EMPIRICALLY_UNTESTED`
+
+`INCOMPLETE`
+
+Do not mark a candidate proved based on a favorable numerical example.
+
+Do not mark an entire scientific direction disproved based on one counterexample to a universal version.
+
+---
+
+# SECTION 20 — THE TEN-FAILURE ACCEPTANCE MATRIX
+
+This is the main deliverable.
+
+Create a matrix with one row for each original failure:
+
+`F1`
+
+`F2`
+
+`F3`
+
+`F4`
+
+`F5`
+
+`F6`
+
+`F7`
+
+`F25`
+
+`F29`
+
+`F30`
+
+For each row, record:
+
+1. Original failure statement.
+2. Relevant original proof or counterexample.
+3. Strongest proposed resolution.
+4. Exact assumptions.
+5. Whether assumptions are independent.
+6. Whether assumptions are identified in actual computation.
+7. Mathematical evidence.
+8. Counterexample attacks.
+9. Baseline comparison.
+10. What remains unresolved.
+11. Final status.
+
+Allowed final statuses:
+
+`RESOLVED_CONDITIONALLY`
+
+`RESOLVED_UNDER_IDENTIFIED_ASSUMPTIONS`
+
+`PROVED_IMPOSSIBLE_IN_SPECIFIED_CLASS`
+
+`UNRESOLVED`
+
+`REJECTED_CANDIDATE`
+
+`NOT_ADEQUATELY_INVESTIGATED`
+
+Do not use `RESOLVED` merely because the topic was discussed.
+
+Do not declare Step 1 complete simply because all ten rows have text.
+
+A legitimate resolution requires a proof and appropriate scientific identification.
+
+---
+
+# SECTION 21 — REQUIRED INTEGRATED THEORETICAL DELIVERABLE
+
+Produce one central document:
+
+`CAUSAL_BRIDGE_MAIN_ARGUMENT.md`
+
+It must contain a connected scientific argument.
+
+Its structure must be:
+
+**1. Scientific question**
+
+What exactly is meant by a consistency–decision connection?
+
+**2. Computational interpretation**
+
+What internal quantities and operations correspond to consistency?
+
+**3. Identification**
+
+How are those quantities fixed independently?
+
+**4. Formal assumptions**
+
+What properties are required?
+
+**5. Mathematical result**
+
+What decision-related consequence follows?
+
+**6. Proof**
+
+Why does it follow?
+
+**7. Strongest counterexamples**
+
+What fails when the assumptions are removed?
+
+**8. Distinctiveness**
+
+What do gradients, attribution, causal abstraction, or other baselines already explain?
+
+**9. Scope**
+
+What model and intervention classes are actually covered?
+
+**10. Scientific verdict**
+
+Is the bridge a theorem, candidate, conjecture, known result, or failed hypothesis?
+
+If no bridge survives, the document must explain the precise failed arrows across the most serious candidates.
+
+Do not substitute six disconnected reports for this document.
+
+---
+
+# SECTION 22 — REQUIRED CANDIDATE DOSSIERS
+
+Prepare up to three substantive candidate dossiers.
+
+For each:
+
+- Name the actual computational phenomenon.
+- Define its decision target.
+- Provide a complete model.
+- Identify the candidate-specific consistency relationship.
+- Specify the causal intervention.
+- State the proposed theorem.
+- Provide a proof or precise unresolved obligation.
+- Construct the strongest counterexample.
+- Identify the assumed causal information.
+- Test whether the assumption is circular.
+- Compare against established theory.
+- Explain applicability to Transformer computation.
+- Provide a falsifiable prediction if justified.
+- State what remains open.
+
+Do not produce a positive dossier merely to satisfy a quota.
+
+If zero candidates survive, present the failed candidates transparently.
+
+---
+
+# SECTION 23 — STOPPING RULES
+
+We must avoid a new six-month cycle of narrow mathematical diversions.
+
+Use the following stopping principles.
+
+### Rule A — No substitution of outcomes
+
+If the decision-direction problem fails, do not automatically switch to robustness and call Step 1 solved.
+
+You may investigate robustness as an auxiliary phenomenon.
+
+But its relationship to the original question must be explicit.
+
+### Rule B — No endless equation repair
+
+If a consistency score has no independent causal interpretation, stop polishing its metric.
+
+### Rule C — No infinite candidate proliferation
+
+Investigate the strongest candidates deeply.
+
+Do not invent a new hypothesis every time a counterexample appears.
+
+### Rule D — No circular rescue
+
+Do not introduce assumptions that already encode the output response.
+
+### Rule E — Preserve negative results
+
+If a serious candidate fails, retain the counterexample.
+
+### Rule F — Limited conclusions
+
+A negative verdict must state the exact investigated classes.
+
+### Rule G — Source-grounded progress
+
+Every major claim must trace to an actual mathematical or computational result.
+
+### Rule H — No automatic stage advancement
+
+Even a restricted mathematical bridge requires separate scientific adjudication before later work.
+
+---
+
+# SECTION 24 — AUTONOMOUS EXECUTION AND CHECKPOINTING
+
+Use the available cloud execution time for deep research.
+
+You may continue when the user is away.
+
+Do not require confirmation for routine authorized reading, mathematical analysis, or synthetic verification.
+
+Do not claim a specific duration of completed work unless execution logs support it.
+
+Maintain:
+
+`WORK_STATE.md`
+
+`RESEARCH_JOURNAL.md`
+
+`THEOREM_REGISTER.csv`
+
+`CANDIDATE_REGISTRY.csv`
+
+`OPEN_OBLIGATIONS.md`
+
+Record major checkpoints.
+
+If the context is compacted or execution is interrupted, preserve enough information to resume correctly.
+
+If execution stops before completion, deliver the actual partial evidence rather than manufacturing a final result.
+
+Do not waste a substantial portion of the available research time formatting reports before the main mathematical work is complete.
+
+---
+
+# SECTION 25 — REQUIRED REPOSITORY ARTIFACTS
+
+Create a new isolated workspace:
+
+`docs/research_audits/cor_phase15/step1_foundational_bridge_adjudication/`
+
+Do not overwrite previous audits.
+
+Required core artifacts:
+
+`README.md`
+
+`SOURCE_REGISTER.md`
+
+`RESEARCH_JOURNAL.md`
+
+`WORK_STATE.md`
+
+`ORIGINAL_FAILURES.md`
+
+`EXACT_COMPUTATION_PARADOX.md`
+
+`CAUSAL_IDENTIFICATION_ANALYSIS.md`
+
+`CAUSAL_BRIDGE_MAIN_ARGUMENT.md`
+
+`CANDIDATE_H1_RECONCILIATION.md`
+
+`CANDIDATE_H2_CAUSAL_SUFFICIENCY.md`
+
+`CANDIDATE_H3_EVIDENCE_COORDINATION.md`
+
+`DIRECTIONALITY_AND_CANDIDATE_RANKING.md`
+
+`OUTCOME_LEAKAGE_AND_FREEZING.md`
+
+`EXISTING_THEORY_COMPARISON.md`
+
+`COUNTEREXAMPLE_REGISTER.md`
+
+`THEOREM_REGISTER.md`
+
+`TEN_FAILURE_GATE_MATRIX.md`
+
+`ADVERSARIAL_CROSS_EXAMINATION.md`
+
+`UNRESOLVED_SCIENTIFIC_QUESTIONS.md`
+
+`FINAL_STEP1_VERDICT.md`
+
+`NEXT_RESEARCH_DECISION.md`
+
+Also include actual proof and verification material under:
+
+`proofs/`
+
+`tests/`
+
+`counterexamples/`
+
+`reviews/`
+
+`logs/`
+
+Do not generate empty placeholders.
+
+Do not inflate reports.
+
+The central evidence must be mathematical arguments and scientific identification, not file count.
+
+---
+
+# SECTION 26 — CLEAN VERIFICATION REQUIREMENTS
+
+Before final delivery:
+
+1. Check all mathematical proofs for explicit assumptions.
+2. Execute all synthetic verification tests.
+3. Verify significant numerical examples independently where possible.
+4. Cross-check proof claims against theorem-register statements.
+5. Confirm source paths.
+6. Confirm all cited repository evidence actually exists.
+7. Confirm no sealed evaluation material was used.
+8. Confirm historical experimental files were not modified.
+9. Build a release manifest.
+10. Verify the exported package from a clean extraction.
+
+If working in Codex Cloud, commit the research outputs to an isolated branch where authorized.
+
+Do not merge into the main research branch automatically.
+
+Do not claim a pull request was created unless one exists.
+
+Do not claim that code passed tests unless the corresponding logs show it.
+
+---
+
+# SECTION 27 — FINAL VERDICTS
+
+Choose a primary verdict from the following.
+
+`STEP1_NONCIRCULAR_CAUSAL_BRIDGE_SURVIVES`
+
+A restricted consistency-related structure is independently identified, has a valid causal derivation, and produces a distinctive candidate-decision prediction.
+
+This does not mean pretrained Transformer validation.
+
+`STEP1_CONDITIONAL_BRIDGE_IDENTIFICATION_OPEN`
+
+A mathematically valid conditional bridge exists, but its key assumptions have not been independently identified in actual Transformer computation.
+
+`STEP1_CAUSAL_PREDICTOR_ONLY`
+
+A meaningful consistency-related predictor survives, but the evidence does not establish a causal mechanism.
+
+`STEP1_NECESSARY_CONDITIONS_ONLY`
+
+The research establishes serious necessary conditions and impossibility boundaries but no surviving causal bridge.
+
+`STEP1_ORIGINAL_CONSISTENCY_HYPOTHESIS_UNSUPPORTED`
+
+The serious candidates fail, are circular, are underidentified, or reduce to established methods.
+
+Scope this conclusion to the investigated hypotheses.
+
+`STEP1_INCOMPLETE_FOUNDATIONAL_INVESTIGATION`
+
+Mandatory source analysis, proofs, or identification work is unfinished.
+
+Do not choose a favorable verdict because a synthetic example succeeds.
+
+Do not choose a negative verdict merely because a universal theorem fails.
+
+---
+
+# SECTION 28 — ADDITIONAL DECISION: THE ORIGINAL COR FORMULATION
+
+Separately adjudicate:
+
+**A.** Do the original O/D equations remain mathematically valid descriptive quantities?
+
+**B.** Do they have a demonstrated causal interpretation?
+
+**C.** Can they become relevant under independently justified restrictions?
+
+**D.** Are they necessary for a surviving successor theory?
+
+**E.** Does the term "obstruction" remain mathematically justified?
+
+**F.** Is there any scientific reason to retain the original graph or sheaf-like formulation?
+
+**G.** Would the strongest surviving mechanism remain meaningful if the COR name and equations were removed?
+
+Do not confuse the survival of a scientific ambition with validation of the original equations.
+
+---
+
+# SECTION 29 — PHASE 1.5 STAGE CONTROL
+
+The task remains Phase 1.5 Step 1.
+
+No new pretrained-model experiments are authorized.
+
+No new Othello editing campaign is authorized.
+
+No Phase 2 experiments.
+
+No historical score fitting.
+
+No alteration of sealed confirmation data.
+
+No retroactive changes to negative results.
+
+No automatic transition to Step 2.
+
+The official status remains:
+
+`COR_PHASE1_CONDITIONAL_THEORY_REPAIR_REQUIRED`
+
+`OBSTRUCTION_READY = NO`
+
+`PHASE_2 = NO GO`
+
+The final research report may recommend a next step.
+
+It cannot silently authorize one.
+
+---
+
+# SECTION 30 — FINAL QUESTIONS THE AGENT MUST ANSWER
+
+Answer every question with substantive reasoning.
+
+1. What precisely is the consistency property?
+2. Does it correspond to actual computation?
+3. Does the model explicitly respond to it?
+4. If not, can it still independently predict a causal response?
+5. Why would that prediction follow?
+6. What determines response direction?
+7. Can the same consistency occur with opposite decisions?
+8. Under which conditions is that ambiguity eliminated?
+9. Can those conditions be independently verified?
+10. Can a wrong decision be computationally consistent?
+11. Can a correct decision be inconsistent under the proposed relation?
+12. Does exact structural compatibility become vacuous?
+13. Does approximate compatibility measure surrogate error?
+14. How is surrogate error separated from genuine decision conflict?
+15. Are the candidate states causally sufficient?
+16. Are they identifiable?
+17. Can arbitrary maps manufacture agreement?
+18. Can arbitrary metrics reverse conclusions?
+19. How is candidate identity defined?
+20. Can candidate-specific consistency rank competing logits?
+21. What role does downstream readout play?
+22. Are decision labels or logits hidden in the predictor?
+23. Is any repair objective circular?
+24. Are parameters fixed independently of evaluation outcomes?
+25. What theorem connects the structural relation to a decision response?
+26. Which assumptions carry the actual causal information?
+27. Are those assumptions independently meaningful?
+28. Does the theorem survive the strongest counterexample?
+29. Does the result reduce to ordinary attribution?
+30. Does it reduce to causal abstraction?
+31. Does it reduce to standard sensitivity theory?
+32. What distinctive scientific prediction remains?
+33. What would falsify it?
+34. What observations would be necessary to identify the mechanism in a frozen Transformer?
+35. Which original COR failures are formally resolved?
+36. Which remain unresolved?
+37. Which are impossible to resolve under the original unrestricted assumptions?
+38. Which research directions have become scientifically unproductive?
+39. Which serious candidate, if any, deserves additional investigation?
+40. Should the original O/D-based decision mechanism be abandoned?
+41. Does the broader distributed-computation hypothesis remain meaningful?
+42. What exactly would justify ending Step 1?
+43. What exactly would justify further theoretical reconstruction?
+44. What would justify designing a separately authorized prospective empirical test?
+45. What is the strongest positive conclusion?
+46. What is the strongest negative conclusion?
+47. What remains unknown?
+48. What has this investigation actually accomplished that previous Step 1A–1E work did not?
+
+Do not answer with labels alone.
+
+Provide mathematical evidence and a scientific argument.
+
+---
+
+# SECTION 31 — FINAL NONNEGOTIABLE DIRECTIVE
+
+The user does not need another round of mathematical activity that fails to address the original problem.
+
+The user needs a scientific determination of whether consistency can have a noncircular causal connection to Transformer decisions.
+
+That requires more than a consistency norm.
+
+More than a Jacobian.
+
+More than a finite-response bound.
+
+More than an engineered cancellation example.
+
+More than joint pathway reachability.
+
+More than a known causal-abstraction theorem.
+
+It requires a meaningful connection between a computationally identified relationship and a candidate-specific decision consequence.
+
+If that connection exists under restricted assumptions, identify and prove it.
+
+If those assumptions cannot be independently identified, expose the limitation.
+
+If every serious candidate depends on assumptions that encode the desired decision, reject those claims.
+
+If the strongest available explanation is ordinary downstream sensitivity, state that.
+
+If a genuinely distinctive conditional mechanism survives, specify exactly what makes it different.
+
+If the original O/D theory is no longer useful, do not protect it.
+
+**DO NOT CHANGE THE RESEARCH QUESTION WHEN THE PROOF BECOMES DIFFICULT.**
+
+**DO NOT REPLACE A CAUSAL DECISION THEORY WITH AN UNRELATED ROBUSTNESS CERTIFICATE.**
+
+**DO NOT CLAIM THAT MORE MATHEMATICS AUTOMATICALLY MEANS MORE SCIENTIFIC PROGRESS.**
+
+**DO NOT CLAIM AN EXHAUSTIVE NEGATIVE RESULT FROM A FINITE SEARCH.**
+
+**DO NOT USE AN OUTCOME-DEPENDENT ASSUMPTION TO PROVE AN OUTCOME PREDICTION.**
+
+**DO NOT MAKE THE SAME MISTAKE FOR ANOTHER SIX MONTHS.**
+
+**THE ACCEPTANCE CRITERION IS THE TEN-FAILURE MATRIX AND THE CONNECTED CAUSAL-BRIDGE ARGUMENT.**
+
+Everything else is supporting evidence.
+
+You are permitted to conclude that the hypothesis fails.
+
+You are not permitted to avoid investigating it.
+
+You are permitted to conclude that a restricted theory survives.
+
+You are not permitted to manufacture a favorable assumption.
+
+You are permitted to produce conditional mathematics.
+
+You are not permitted to call that mathematics mechanistic validation without identification.
+
+**WE REMAIN IN PHASE 1.5, STEP 1.**
+
+**THE MISSION IS TO RESOLVE, AS FAR AS THE AVAILABLE MATHEMATICS AND REPOSITORY EVIDENCE ALLOW, WHETHER COMPUTATIONAL CONSISTENCY CAN PLAY A NONCIRCULAR, IDENTIFIABLE, DISTINCTIVE ROLE IN TRANSFORMER DECISIONS.**
+
+**DELIVER A CONNECTED SCIENTIFIC ARGUMENT, NOT ANOTHER COLLECTION OF ADJACENT RESULTS.**

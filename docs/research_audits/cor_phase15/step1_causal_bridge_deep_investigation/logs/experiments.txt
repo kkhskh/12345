@@ -85,4 +85,16 @@ positive control final_ln=False
   sum-only: matched on post-LN S^ -> (S^, D^, m) = [(1.477093863, 0.0, 1.270372), (1.477093863, 1.4771, 1.270372), (1.477093863, 2.9542, 1.270372)]
   A2 unequal output weights on a 60x60 grid incl. small values: 60 sign errors; smallest-|b| examples [(np.float64(-1.5), np.float64(0.05)), (np.float64(-1.45), np.float64(0.05)), (np.float64(-1.4), np.float64(0.05)), (np.float64(-1.35), np.float64(0.05))]
 
+=== SUPPLEMENTARY (not preregistered) ===
+  extra random units (width, output scale) -> grid error rate: {(4, 0.05): 0.0, (4, 0.2): 0.0, (4, 1.0): 0.271, (16, 0.05): 0.188, (16, 0.2): 0.5, (16, 1.0): 0.5, (64, 0.05): 0.056, (64, 0.2): 0.292, (64, 1.0): 0.417}
+  B encoded at angle 90 deg to A: grid error rate 0.000
+  B encoded at angle 60 deg to A: grid error rate 0.083
+  B encoded at angle 30 deg to A: grid error rate 0.194
+  B's write 3x larger than A's: grid error rate 0.000 (Corollary A1.3 predicts 0)
+  noise sd 0.5 on read token along unread e4: grid error rate 0.000
+  noise sd 0.5 on read token along read e1-e2: grid error rate 0.167
+  Mechanism C with gamma=+1.5: m(agree)=+4.1874 m(disagree)=+0.2434 at matched S
+  Mechanism C with gamma=-1.5: m(agree)=+0.2463 m(disagree)=+3.1848 at matched S
+  random 4-unit GELU readers of (x,y), N=400: binary sign pattern = +-agreement 10/400; agreement sign law on the whole grid 0/400; output varies across the raw matched-sum triple 400/400
+
 SUMMARY: 31/33 preregistered predictions passed

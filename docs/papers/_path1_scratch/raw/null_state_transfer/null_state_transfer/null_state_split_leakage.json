@@ -1,0 +1,18 @@
+{
+  "ok": 1,
+  "n_train": 2000,
+  "n_select": 2000,
+  "n_recip": 48,
+  "n_target": 48,
+  "n_wrong": 35,
+  "n_prior": 201,
+  "leaks": {
+    "train_vs_eval": [],
+    "select_vs_eval": [],
+    "recip_vs_target": [],
+    "eval_vs_prior": [],
+    "eval_vs_holdout": [],
+    "wrong_vs_holdout": [],
+    "wrong_vs_prior": []
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "audit": "COR_PHASE1_ADVERSARIAL_MATHEMATICAL_AND_IDENTIFIABILITY_AUDIT",
+  "git_revision": "f95d134fee8bfd870561e21bc57ada18c46248be",
+  "git_short": "f95d134",
+  "branch": "08r2-implementation-repair",
+  "no_new_transformer_experiments": true,
+  "no_confirmation_access": true,
+  "obstruction_ready_letter_unchanged": "NO",
+  "official_0A_letter_unchanged": "C / PARTIAL",
+  "section_5_3_unchanged": "PARTIAL",
+  "top_level_verdict": "COR_PHASE1_CONDITIONAL_THEORY_REPAIR_REQUIRED",
+  "phase2": "NO GO",
+  "distinctive_prospective_prediction": "NO",
+  "numerical_tolerance": 1e-10,
+  "synthetic_tests": "tests/test_cor_phase1_math.py",
+  "synthetic_test_result": "19 passed",
+  "gates": {
+    "A_well_definedness": "PASS",
+    "B_nontriviality": "FAIL",
+    "C_representation": "FAIL",
+    "D_causal_bridge": "FAIL",
+    "E_identifiability": "FAIL",
+    "F_falsifiability": "CONDITIONAL",
+    "G_distinctiveness": "FAIL",
+    "H_empirical_readiness": "FAIL"
+  },
+  "missing_evidence": [
+    "Proofs of Update Propositions 2 and 3",
+    "Exact IOI Spearman pair 0.936 vs 0.141 not found in tracked markdown",
+    "D_c never computed on Transformer activations",
+    "Othello obstruction energy never computed"
+  ],
+  "counterexample_file": "docs/research_audits/cor_phase1/10_counterexample_catalog.md",
+  "source_hashes": {
+    "docs/notes/Causal_Obstruction_Response_theory.pdf": "bbfda33735fa7e9df964885e792d3eb0b9de0fa499818a2cd6ff4a7264cc366b",
+    "docs/notes/Causal_Obstruction_Response_theory_Update.pdf": "f919532a001655a32f3c587f607b1b182e18792b3288825aea13c59c86707dc1",
+    "docs/math_map_v0.md": "f4ca2f55f354e99582fd4bc810d7560d335de14560276e743c352bbb473853db",
+    "docs/theory_mvp_theorem_set.md": "aa13a83c1b3928c0fb2ba7483a2665b607e5b2f251454597dbd342ed35dd9ba8",
+    "src/model_maps.py": "8e7e85eceec70d2a14e24ada264cd550063db6a87aca5de48d8e8cdce49565c4",
+    "src/obstruction.py": "19766f4be0be2caf5702fa03d720cc85160160e33f48606b245432a04084a4cf",
+    "src/othello_r2.py": "7cfdddc90ec2a68f3ec45f193555aed704cf7f39b3bc605123664e625fef2b37",
+    "run_08_theory_numerical_checks.py": "6a36e0db28ca4198ac632591307b272db4424adf2153881c19d99518d7d61b00",
+    "src/cor_phase1_math.py": "6bf3bc802772bd9e1ba5d302b809b1d063eadfd424b6200539ed99eeead5578f",
+    "tests/test_cor_phase1_math.py": "0b78301e285680f45d27d90faf8f930197f8ddce6647a17e2b39ee1ad173ee0a"
+  },
+  "assumptions_for_proven_algebra": [
+    "finite-dimensional real vector spaces",
+    "linear compatibility maps",
+    "M positive definite for D uniqueness and M^{-1}",
+    "W positive definite for O=0 iff ds=0"
+  ]
+}

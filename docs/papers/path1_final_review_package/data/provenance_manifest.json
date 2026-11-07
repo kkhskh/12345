@@ -1,0 +1,859 @@
+{
+  "generated_utc": "2026-11-05T21:13:01.517746+00:00",
+  "policy": "Originals opened read-only. smoke/ members excluded. No checkpoint, probe weights, or sealed confirmation data are included.",
+  "archives": {
+    "fiber": {
+      "original_path": "/Users/shkh/Downloads/08r2_fiber_results.zip",
+      "archive_sha256": "bac5b0c2f84c7d32113174f8c44e02d5574e57ac09ad5b1d77acc845c4e6f85c",
+      "archive_bytes": 463178,
+      "members": [
+        {
+          "member": "08r2_fiber_probe_contrast_parity.csv",
+          "package_path": "data/raw/fiber/08r2_fiber_probe_contrast_parity.csv",
+          "bytes": 555,
+          "sha256": "a4a0f617afc6e363112b918da09038ddb7139942905f8d477bf3a25c1ae2abb9",
+          "crc32_archive": "3178a045"
+        },
+        {
+          "member": "08r2_fiber_svd_report.json",
+          "package_path": "data/raw/fiber/08r2_fiber_svd_report.json",
+          "bytes": 3697,
+          "sha256": "97d298156df03883fbccd37b3ae452f045baf49874fa804782c81e8fe8ce2fb7",
+          "crc32_archive": "c12bc1b3"
+        },
+        {
+          "member": "08r2_fiber_matched_pairs.csv",
+          "package_path": "data/raw/fiber/08r2_fiber_matched_pairs.csv",
+          "bytes": 17492,
+          "sha256": "b7bd6db78a598e941c3e2f714f7452e62af086cc7ac5d8d98b98ea0d4c4edf3e",
+          "crc32_archive": "737989a1"
+        },
+        {
+          "member": "08r2_fiber_factorial_interventions.csv",
+          "package_path": "data/raw/fiber/08r2_fiber_factorial_interventions.csv",
+          "bytes": 58070,
+          "sha256": "e69f6f393d3c7cf418870d2f04c778285f08b79d018e8d52efe1f625e518100d",
+          "crc32_archive": "116494d1"
+        },
+        {
+          "member": "08r2_fiber_natural_anchor.csv",
+          "package_path": "data/raw/fiber/08r2_fiber_natural_anchor.csv",
+          "bytes": 420240,
+          "sha256": "49612ce37232e9d3d65e8a2b4e37ab9f6ec75d547db76d55322b610988b8671b",
+          "crc32_archive": "6450873c"
+        },
+        {
+          "member": "08r2_fiber_controls.csv",
+          "package_path": "data/raw/fiber/08r2_fiber_controls.csv",
+          "bytes": 69462,
+          "sha256": "889402c86b5c00acb5f87b2d6fe8c534a5d793b53afb66cf918d9593ec1f5aee",
+          "crc32_archive": "601f5208"
+        },
+        {
+          "member": "08r2_fiber_bootstrap.csv",
+          "package_path": "data/raw/fiber/08r2_fiber_bootstrap.csv",
+          "bytes": 1165,
+          "sha256": "213c76c0dca110d1e0035e692206a2e316cc5cb45c5675670042d3608a3b409b",
+          "crc32_archive": "a666d9d3"
+        },
+        {
+          "member": "08r2_fiber_full_logits.npz",
+          "package_path": "data/raw/fiber/08r2_fiber_full_logits.npz",
+          "bytes": 71262,
+          "sha256": "870ca08c6422dcd8b0cc39d6b2d89c855b814730ae944c3c7c77cea4c1bea209",
+          "crc32_archive": "ee8a04e4"
+        },
+        {
+          "member": "08r2_fiber_probe_probabilities.npz",
+          "package_path": "data/raw/fiber/08r2_fiber_probe_probabilities.npz",
+          "bytes": 214056,
+          "sha256": "bbe6dc72d019eaa6f4e16faa2a8c753f704563765d272d1f84b3c93485b5bf0e",
+          "crc32_archive": "45623829"
+        },
+        {
+          "member": "08r2_fiber_scientific_report.md",
+          "package_path": "data/raw/fiber/08r2_fiber_scientific_report.md",
+          "bytes": 4776,
+          "sha256": "2b2fc15f611a6a9cc387235761cdd4c886f7339eeb4db9f57209a8710041893f",
+          "crc32_archive": "9a6152e1"
+        },
+        {
+          "member": "08r2_fiber_dependency_manifest.json",
+          "package_path": "data/raw/fiber/08r2_fiber_dependency_manifest.json",
+          "bytes": 1732,
+          "sha256": "056e5d24a75fdf44ef7e459edaa9810ba57d342ed5e54675b584b1e903fc1110",
+          "crc32_archive": "a11ecd69"
+        },
+        {
+          "member": "08r2_fiber_completion_status.json",
+          "package_path": "data/raw/fiber/08r2_fiber_completion_status.json",
+          "bytes": 652,
+          "sha256": "b0e9fcb31e4ab2a8567c13aaa17d2df4ae951c010a2c7225d7ae70aaba5d7e47",
+          "crc32_archive": "a6152cc5"
+        },
+        {
+          "member": "08r2_fiber_specificity_pair_verification.csv",
+          "package_path": "data/raw/fiber/08r2_fiber_specificity_pair_verification.csv",
+          "bytes": 9878,
+          "sha256": "412578f2c45c96579cdd62620c6f4f6bed52aae84433d988ea49572ba53d2dcc",
+          "crc32_archive": "600f7832"
+        },
+        {
+          "member": "08r2_fiber_specificity_anchor_extract.csv",
+          "package_path": "data/raw/fiber/08r2_fiber_specificity_anchor_extract.csv",
+          "bytes": 166824,
+          "sha256": "deee013f9530d59e8c7b4a6e38aefa117ff156cf55fb6ceaf10432e5f9f3a638",
+          "crc32_archive": "1243f620"
+        },
+        {
+          "member": "08r2_fiber_specificity_summary.json",
+          "package_path": "data/raw/fiber/08r2_fiber_specificity_summary.json",
+          "bytes": 21089,
+          "sha256": "843fa66d8aebab7af28e09d3dc3802f3c8f004bd0d75b4488717d4405cb8becc",
+          "crc32_archive": "b40b9bb8"
+        },
+        {
+          "member": "08r2_fiber_specificity_scientific_report.md",
+          "package_path": "data/raw/fiber/08r2_fiber_specificity_scientific_report.md",
+          "bytes": 12347,
+          "sha256": "91be9b1a03aa9c64088436450a79855258bae2fcb6bf00d1e9df3702ae94aec8",
+          "crc32_archive": "793726ed"
+        }
+      ]
+    },
+    "spec": {
+      "original_path": "/Users/shkh/Downloads/fiber_spec.zip",
+      "archive_sha256": "bdce1cda2794ce9f2ad917f3eebeed65950a7f99a1740b09c36b83a0353c5490",
+      "archive_bytes": 2465452,
+      "members": [
+        {
+          "member": "fiber_spec_preregistration.md",
+          "package_path": "data/raw/spec/fiber_spec_preregistration.md",
+          "bytes": 3924,
+          "sha256": "ddd03244a11280f131d922d379fc78e48c3a69056eb1f1e3a70c6171849e10f0",
+          "crc32_archive": "956524ef"
+        },
+        {
+          "member": "fiber_spec_preregistration.json",
+          "package_path": "data/raw/spec/fiber_spec_preregistration.json",
+          "bytes": 432,
+          "sha256": "d8c741c818d960624605074c7974e8ba93eb710dc3ae67742acd463727f6ea54",
+          "crc32_archive": "b37835fe"
+        },
+        {
+          "member": "fiber_spec_pair_census.csv",
+          "package_path": "data/raw/spec/fiber_spec_pair_census.csv",
+          "bytes": 3947,
+          "sha256": "336c30a2e4624babd53b0eba9a0b1e9436edf4e0bbd12a99e33770d3c6f86a90",
+          "crc32_archive": "e606ad1c"
+        },
+        {
+          "member": "fiber_spec_pair_manifest.json",
+          "package_path": "data/raw/spec/fiber_spec_pair_manifest.json",
+          "bytes": 68396,
+          "sha256": "44f677db214cc883f8e6463ff6437d879875b3a8d32415c4ac74acde31a77639",
+          "crc32_archive": "8612ffdb"
+        },
+        {
+          "member": "fiber_spec_probe_parity.csv",
+          "package_path": "data/raw/spec/fiber_spec_probe_parity.csv",
+          "bytes": 555,
+          "sha256": "57e8590ecb0490eb2db61a523fde0fbf8893cbcfb72468aed4e61b88cffdaecf",
+          "crc32_archive": "db1cb724"
+        },
+        {
+          "member": "fiber_spec_interventions.csv",
+          "package_path": "data/raw/spec/fiber_spec_interventions.csv",
+          "bytes": 196302,
+          "sha256": "07f4467a4fd2ff6340e9ba249bf3fc76d142ce0a6244b6970f8a056032465ba8",
+          "crc32_archive": "e8675838"
+        },
+        {
+          "member": "fiber_spec_bootstrap.csv",
+          "package_path": "data/raw/spec/fiber_spec_bootstrap.csv",
+          "bytes": 670,
+          "sha256": "9dab7334261933f5f7aa8a41c5c4975b0130722becdda681d3c6647ffd9b8dc1",
+          "crc32_archive": "e7c5bd27"
+        },
+        {
+          "member": "fiber_spec_target_legal_sets.json",
+          "package_path": "data/raw/spec/fiber_spec_target_legal_sets.json",
+          "bytes": 80078,
+          "sha256": "1ba3722b40672bd99f4dbbbeeaa292fa4ab6eab12efde22f7ef72022e2348cd0",
+          "crc32_archive": "1a184c7e"
+        },
+        {
+          "member": "fiber_spec_attempt_accounting.json",
+          "package_path": "data/raw/spec/fiber_spec_attempt_accounting.json",
+          "bytes": 93,
+          "sha256": "0fe2243b06cd823bbf02c431ae952b30d2d9255b25ddb9336ba499648b7e33bb",
+          "crc32_archive": "18d9bdf0"
+        },
+        {
+          "member": "fiber_spec_full_logits.npz",
+          "package_path": "data/raw/spec/fiber_spec_full_logits.npz",
+          "bytes": 303398,
+          "sha256": "08f52565fb60bd3b116b5e4d3c137eaf82d053196348c793c4725cc7c5030ec4",
+          "crc32_archive": "47ced760"
+        },
+        {
+          "member": "fiber_spec_full_probe_probabilities.npz",
+          "package_path": "data/raw/spec/fiber_spec_full_probe_probabilities.npz",
+          "bytes": 904455,
+          "sha256": "44380e18f79275e7a72bcc16a201582cc77bdd291f56ae557c225a9ed54b8831",
+          "crc32_archive": "e45b402d"
+        },
+        {
+          "member": "fiber_spec_nullspace_vectors.npz",
+          "package_path": "data/raw/spec/fiber_spec_nullspace_vectors.npz",
+          "bytes": 1411102,
+          "sha256": "885db998602cffb4bf5719c9ac2665fd2e9914186589018fdec62fb18e36105c",
+          "crc32_archive": "86138bde"
+        },
+        {
+          "member": "fiber_spec_dependency_manifest.json",
+          "package_path": "data/raw/spec/fiber_spec_dependency_manifest.json",
+          "bytes": 1506,
+          "sha256": "0f5e730022652f0c6fa6df54db50802cac0ba93d38173582b78f199f8adaa74c",
+          "crc32_archive": "b11a4d8d"
+        },
+        {
+          "member": "fiber_spec_scientific_report.md",
+          "package_path": "data/raw/spec/fiber_spec_scientific_report.md",
+          "bytes": 2991,
+          "sha256": "08423cb587c774a53708ebc08c9daf28ab1798021e36841513fb011c747c3dc3",
+          "crc32_archive": "6fbb4163"
+        },
+        {
+          "member": "fiber_spec_completion_status.json",
+          "package_path": "data/raw/spec/fiber_spec_completion_status.json",
+          "bytes": 3523,
+          "sha256": "c9c032e2af5db978fadb0d7710138668f544e8d230f8d8be0afb14b76fbba735",
+          "crc32_archive": "4c0bef7f"
+        }
+      ]
+    },
+    "fixed_js": {
+      "original_path": "/Users/shkh/Downloads/fiber_cost_fixed_js.zip",
+      "archive_sha256": "eff8b93bc528d47f3ad8f3b7028a9d8e565cbf9cd7d293303d716be9ccd7c1ad",
+      "archive_bytes": 1038591,
+      "members": [
+        {
+          "member": "fixed_js_preregistration.md",
+          "package_path": "data/raw/fixed_js/fixed_js_preregistration.md",
+          "bytes": 2264,
+          "sha256": "f65370cadeaf43c072b748549c409212ff45035ecedc731f77185883e7599723",
+          "crc32_archive": "6ffec5ba"
+        },
+        {
+          "member": "fixed_js_preregistration.json",
+          "package_path": "data/raw/fixed_js/fixed_js_preregistration.json",
+          "bytes": 599,
+          "sha256": "d461274878fd457fa89be8ff34e97604dec8ff68c32a3a84397216f2b20c7670",
+          "crc32_archive": "a8c2d0f0"
+        },
+        {
+          "member": "fixed_js_pair_manifest.json",
+          "package_path": "data/raw/fixed_js/fixed_js_pair_manifest.json",
+          "bytes": 67823,
+          "sha256": "f9ea8376d7d55425248844410e4cbd8ac46853d6e5b257a4980ce5cbdccea808",
+          "crc32_archive": "9475fbca"
+        },
+        {
+          "member": "fixed_js_preflight.csv",
+          "package_path": "data/raw/fixed_js/fixed_js_preflight.csv",
+          "bytes": 30833,
+          "sha256": "f3b039c771cac0dbb6a1eb0b918f4b01f5d7319f119a0ce8d060da8bf5cea717",
+          "crc32_archive": "547a9079"
+        },
+        {
+          "member": "fixed_js_completion_status.json",
+          "package_path": "data/raw/fixed_js/fixed_js_completion_status.json",
+          "bytes": 5348,
+          "sha256": "6ce60b668547e7a2e3ec69eb088b8c5b8fdf1ccb9dd828e50fb6c19213ee9771",
+          "crc32_archive": "fa4c1b8f"
+        },
+        {
+          "member": "fixed_js_probe_parity.csv",
+          "package_path": "data/raw/fixed_js/fixed_js_probe_parity.csv",
+          "bytes": 555,
+          "sha256": "57e8590ecb0490eb2db61a523fde0fbf8893cbcfb72468aed4e61b88cffdaecf",
+          "crc32_archive": "db1cb724"
+        },
+        {
+          "member": "fixed_js_calibrations.csv",
+          "package_path": "data/raw/fixed_js/fixed_js_calibrations.csv",
+          "bytes": 77018,
+          "sha256": "7be84ffae22a43be7fa220fc92b9d0f33a4264021c961a284d2c2617dd2ce94c",
+          "crc32_archive": "c8785b73"
+        },
+        {
+          "member": "fixed_js_interventions.csv",
+          "package_path": "data/raw/fixed_js/fixed_js_interventions.csv",
+          "bytes": 97455,
+          "sha256": "ae966e9ca67eb7df099635aee0f38e08c1b2c21a644d1a85bd22311045c25fd6",
+          "crc32_archive": "65fbf3d3"
+        },
+        {
+          "member": "fixed_js_dose_search.csv",
+          "package_path": "data/raw/fixed_js/fixed_js_dose_search.csv",
+          "bytes": 767338,
+          "sha256": "f74bee459b4fd268c44c4fe2e5ba999765c942638b81936f73a972ad3de77b21",
+          "crc32_archive": "c00dc997"
+        },
+        {
+          "member": "fixed_js_bootstrap.csv",
+          "package_path": "data/raw/fixed_js/fixed_js_bootstrap.csv",
+          "bytes": 1177,
+          "sha256": "62f33ec98bc397137063536dff073f8ec14999d4d7621797229e7bce892ecf06",
+          "crc32_archive": "a7657db2"
+        },
+        {
+          "member": "fixed_js_attempt_accounting.json",
+          "package_path": "data/raw/fixed_js/fixed_js_attempt_accounting.json",
+          "bytes": 138,
+          "sha256": "2cc04ecc0c85e5fe111dbb69996eb5727988b3adcd0fbbd1cf01c4a584eca4e0",
+          "crc32_archive": "e9edfc03"
+        },
+        {
+          "member": "fixed_js_full_logits.npz",
+          "package_path": "data/raw/fixed_js/fixed_js_full_logits.npz",
+          "bytes": 221239,
+          "sha256": "82b3e366dfe311853cdabd5ac8dd127e75383b4d83e3a75fc092c70b99f733ad",
+          "crc32_archive": "ab39c371"
+        },
+        {
+          "member": "fixed_js_probe_probabilities.npz",
+          "package_path": "data/raw/fixed_js/fixed_js_probe_probabilities.npz",
+          "bytes": 660789,
+          "sha256": "d7b2152df133a638f9f3bc5d848cd352cc03c2f5f41e3fd686c234a9dc669caf",
+          "crc32_archive": "84ba522b"
+        },
+        {
+          "member": "fixed_js_dependency_manifest.json",
+          "package_path": "data/raw/fixed_js/fixed_js_dependency_manifest.json",
+          "bytes": 894,
+          "sha256": "2e0ff2af1bfe3ce087b3da3ffe7f292b6ed8b2d6ed70b019e68d64b635424bf7",
+          "crc32_archive": "2ad1cc73"
+        },
+        {
+          "member": "fixed_js_scientific_report.md",
+          "package_path": "data/raw/fixed_js/fixed_js_scientific_report.md",
+          "bytes": 2918,
+          "sha256": "dea0bcfd79a888e1e21b6dd925722132665d6a8caada6389fd180d6b570246b1",
+          "crc32_archive": "2cab44b6"
+        }
+      ]
+    },
+    "nst": {
+      "original_path": "/Users/shkh/Downloads/null_state_transfer.zip",
+      "archive_sha256": "3fbd67b250eae30b2c27d84d086b83745af7eab7cba42e347236c8463a27c42b",
+      "archive_bytes": 4736415,
+      "members": [
+        {
+          "member": "null_state_transfer/null_state_preregistration.md",
+          "package_path": "data/raw/nst/null_state_preregistration.md",
+          "bytes": 2493,
+          "sha256": "ac84235e56c8f3a6103ef1f357df289ec901ded4213457e4d3197854b16f7a84",
+          "crc32_archive": "82dca8a7"
+        },
+        {
+          "member": "null_state_transfer/null_state_protocol.json",
+          "package_path": "data/raw/nst/null_state_protocol.json",
+          "bytes": 5653,
+          "sha256": "25a5e83b77621d4583f68ea651efbdeddb98cf60604558c126ac3da864a97896",
+          "crc32_archive": "ece953ee"
+        },
+        {
+          "member": "null_state_transfer/null_state_protocol_hash.json",
+          "package_path": "data/raw/nst/null_state_protocol_hash.json",
+          "bytes": 179,
+          "sha256": "df4c8fb09ca7f8e439c9b510fe8db4fd9e02252e8f36080f10cb554f67ead20e",
+          "crc32_archive": "544d685a"
+        },
+        {
+          "member": "null_state_transfer/null_state_stage0_y_rescore.csv",
+          "package_path": "data/raw/nst/null_state_stage0_y_rescore.csv",
+          "bytes": 60546,
+          "sha256": "64f225d9ac98011590ea88d921e98d4ba948e7aff8a5e4d4bb7fa01faae7e2fb",
+          "crc32_archive": "dc373f96"
+        },
+        {
+          "member": "null_state_transfer/null_state_stage0_legal_sets.json",
+          "package_path": "data/raw/nst/null_state_stage0_legal_sets.json",
+          "bytes": 205375,
+          "sha256": "13277c834e7e50db4428a388ee2dbb19f9fc2159e90e02aeec86349b76caab36",
+          "crc32_archive": "28983696"
+        },
+        {
+          "member": "null_state_transfer/null_state_stage0_status.json",
+          "package_path": "data/raw/nst/null_state_stage0_status.json",
+          "bytes": 613,
+          "sha256": "33ebf2a35a1a439871555da22788ecae43948ab0a215a8993d4cf007cc0d8957",
+          "crc32_archive": "1909bdf8"
+        },
+        {
+          "member": "null_state_transfer/null_state_completion_status.json",
+          "package_path": "data/raw/nst/null_state_completion_status.json",
+          "bytes": 8664,
+          "sha256": "507103b982a247cf717c49f7aa78c8ef74c03e01333728a37f36a3cdc61c44ea",
+          "crc32_archive": "e1992965"
+        },
+        {
+          "member": "null_state_transfer/null_state_census.json",
+          "package_path": "data/raw/nst/null_state_census.json",
+          "bytes": 647,
+          "sha256": "cabc5c792e4a05b864e649526adee85884b159158f79c100138cdbe1057e2a23",
+          "crc32_archive": "14dabf79"
+        },
+        {
+          "member": "null_state_transfer/null_state_split_games.json",
+          "package_path": "data/raw/nst/null_state_split_games.json",
+          "bytes": 5981,
+          "sha256": "a72dd475321a32b741dea9536b4d49c2fc335c9e33271b47e1d6ad698b535d66",
+          "crc32_archive": "deca9f54"
+        },
+        {
+          "member": "null_state_transfer/null_state_split_leakage.json",
+          "package_path": "data/raw/nst/null_state_split_leakage.json",
+          "bytes": 324,
+          "sha256": "74ba025444e24d79c741516c9a86d977888996f087fa6419ca421ba9df331015",
+          "crc32_archive": "3b0b71a6"
+        },
+        {
+          "member": "null_state_transfer/null_state_pair_manifest.json",
+          "package_path": "data/raw/nst/null_state_pair_manifest.json",
+          "bytes": 41187,
+          "sha256": "6ca8aae8a85f9ee60855492d0f7e37e4e1991341907c7196b396bb4b4146e943",
+          "crc32_archive": "5976fc67"
+        },
+        {
+          "member": "null_state_transfer/null_state_pca_ridge.npz",
+          "package_path": "data/raw/nst/null_state_pca_ridge.npz",
+          "bytes": 2373915,
+          "sha256": "546f1b3a6360e8c9eb8270c50d25c17a6138052cb74c6bd8effda2bc9620028e",
+          "crc32_archive": "a3f788f3"
+        },
+        {
+          "member": "null_state_transfer/null_state_cv_table.csv",
+          "package_path": "data/raw/nst/null_state_cv_table.csv",
+          "bytes": 505,
+          "sha256": "b8ebb8029ac7d9df59ac9bea69b05e4428e785d08d41ed081b8e3b37260a0c6a",
+          "crc32_archive": "31246f4f"
+        },
+        {
+          "member": "null_state_transfer/null_state_feature_names.json",
+          "package_path": "data/raw/nst/null_state_feature_names.json",
+          "bytes": 4886,
+          "sha256": "e7202fd8da08db1a5f257514d07f6c8311df1003c1cb6f225d6a91794887b29b",
+          "crc32_archive": "df8531f5"
+        },
+        {
+          "member": "null_state_transfer/null_state_train_game_ids.json",
+          "package_path": "data/raw/nst/null_state_train_game_ids.json",
+          "bytes": 38058,
+          "sha256": "2eefc99bc884bff33083cec91d170c056d2123723e594f7db1cd47613e00bf1b",
+          "crc32_archive": "30f70b1f"
+        },
+        {
+          "member": "null_state_transfer/null_state_train_diagnostics.json",
+          "package_path": "data/raw/nst/null_state_train_diagnostics.json",
+          "bytes": 473,
+          "sha256": "fedc7aa17cca424e43deba8be3c4bec7fd15110f03ace07461a639f0b32092db",
+          "crc32_archive": "c8453d10"
+        },
+        {
+          "member": "null_state_transfer/null_state_heldout_residual.json",
+          "package_path": "data/raw/nst/null_state_heldout_residual.json",
+          "bytes": 65,
+          "sha256": "48d5dd15a9a78efca04abd5c02db4d7b4153fb8dd62e427314b85a93cb956b45",
+          "crc32_archive": "ef899485"
+        },
+        {
+          "member": "null_state_transfer/null_state_stage_means.json",
+          "package_path": "data/raw/nst/null_state_stage_means.json",
+          "bytes": 338759,
+          "sha256": "2cff35b069d44d6d373abfcaf88f955e453a2600e5b8de67e35ee706a3cfe659",
+          "crc32_archive": "fc05b3b6"
+        },
+        {
+          "member": "null_state_transfer/null_state_donor_separation.json",
+          "package_path": "data/raw/nst/null_state_donor_separation.json",
+          "bytes": 258,
+          "sha256": "0660c8be2b47ec60e7e8ee89e0dc7e4e8e338d1d6b1c45b6c23daf720297826f",
+          "crc32_archive": "a0a56b46"
+        },
+        {
+          "member": "null_state_transfer/null_state_learned_directions.npz",
+          "package_path": "data/raw/nst/null_state_learned_directions.npz",
+          "bytes": 200529,
+          "sha256": "4b19e6a9e0cb49d0eccda03437bd44597598091d5e3db72088cd54c3b2fd82c2",
+          "crc32_archive": "a6c7ad33"
+        },
+        {
+          "member": "null_state_transfer/null_state_learned_directions.json",
+          "package_path": "data/raw/nst/null_state_learned_directions.json",
+          "bytes": 73,
+          "sha256": "49a34579d513ff76605e425c3d253ad9c8fa216d60afefa47f3db6a15aeeb560",
+          "crc32_archive": "f3a80bad"
+        },
+        {
+          "member": "null_state_transfer/null_state_target_legal_sets.json",
+          "package_path": "data/raw/nst/null_state_target_legal_sets.json",
+          "bytes": 295308,
+          "sha256": "9c6a22e87ea5f29e6bec10ec9393b1466f6123364232f7c0912a51264668fd1a",
+          "crc32_archive": "9c4e3013"
+        },
+        {
+          "member": "null_state_transfer/null_state_calibrations.csv",
+          "package_path": "data/raw/nst/null_state_calibrations.csv",
+          "bytes": 34585,
+          "sha256": "aa0f795f05e8ad3e36ca0fb8c175a9750f739cf5a93a9ac7a5a4f3ca868476fe",
+          "crc32_archive": "bb987848"
+        },
+        {
+          "member": "null_state_transfer/null_state_interventions.csv",
+          "package_path": "data/raw/nst/null_state_interventions.csv",
+          "bytes": 70759,
+          "sha256": "77eb82196550b9d900a0d73f690e6416c298e0c9f5eeab15c13917998f11cadb",
+          "crc32_archive": "bb6d4fca"
+        },
+        {
+          "member": "null_state_transfer/null_state_dose_search.csv",
+          "package_path": "data/raw/nst/null_state_dose_search.csv",
+          "bytes": 451382,
+          "sha256": "19726410b38d5967b7f5bf050755fe2811255f29de0bd1604228045436413392",
+          "crc32_archive": "86d50dca"
+        },
+        {
+          "member": "null_state_transfer/null_state_full_logits.npz",
+          "package_path": "data/raw/nst/null_state_full_logits.npz",
+          "bytes": 193859,
+          "sha256": "c69beeba9c5e55b4733c4272ed702d0e5b551e72a50c31576d6f277b26417e44",
+          "crc32_archive": "d757b8b7"
+        },
+        {
+          "member": "null_state_transfer/null_state_probe_probabilities.npz",
+          "package_path": "data/raw/nst/null_state_probe_probabilities.npz",
+          "bytes": 585971,
+          "sha256": "a39a33ea73b57f51b965181c837fd27117ecb877769c49a68587a72700072a98",
+          "crc32_archive": "3dbc116d"
+        },
+        {
+          "member": "null_state_transfer/null_state_intervention_directions.npz",
+          "package_path": "data/raw/nst/null_state_intervention_directions.npz",
+          "bytes": 1209269,
+          "sha256": "9c54aaf66e51fb2c74c2c0f534a26e0e79039051d6a397f1cdfd242b02861b36",
+          "crc32_archive": "313d917b"
+        },
+        {
+          "member": "null_state_transfer/null_state_bootstrap.csv",
+          "package_path": "data/raw/nst/null_state_bootstrap.csv",
+          "bytes": 2079,
+          "sha256": "04c0ae84bb045751b767e4f52fef0b46f67ad44b26d97519ae050e2124943acd",
+          "crc32_archive": "c063ec37"
+        },
+        {
+          "member": "null_state_transfer/null_state_attempt_accounting.json",
+          "package_path": "data/raw/nst/null_state_attempt_accounting.json",
+          "bytes": 150,
+          "sha256": "86a802a947280e9d3cb5cf38bdf76a5d67acae3b13edf55c584d268e6fefcebe",
+          "crc32_archive": "2d24be28"
+        },
+        {
+          "member": "null_state_transfer/null_state_dependency_manifest.json",
+          "package_path": "data/raw/nst/null_state_dependency_manifest.json",
+          "bytes": 386,
+          "sha256": "169c7d5e12fb5acccde10946aaa37990b491852d788010dc68dcd5075a4af9f0",
+          "crc32_archive": "6349b49e"
+        },
+        {
+          "member": "null_state_transfer/null_state_scientific_report.md",
+          "package_path": "data/raw/nst/null_state_scientific_report.md",
+          "bytes": 6826,
+          "sha256": "02008c1c53ce21fd830a8459ad63d376827eaa97bae31748e36744488a4ba997",
+          "crc32_archive": "7fb3bbcb"
+        }
+      ]
+    }
+  },
+  "secondary_archives": {
+    "fixed_js_verified_csv": {
+      "original_path": "/Users/shkh/Downloads/fixed_js_verified_data.zip",
+      "archive_sha256": "ca4edf415b04dbe2ff668bc05dfa724499d64978275b0ea8bafe79b2a10fc691",
+      "members": [
+        {
+          "member": "fixed_js_verified_data.csv",
+          "bytes": 54220,
+          "sha256": "1c897eb5d2580e621cec0ddd41439ea9b3ee49d4fedab3427a3935a5699fab8d"
+        }
+      ],
+      "use": "Earlier exported verification table. Superseded by recomputation from data/raw/fixed_js; not shipped."
+    }
+  },
+  "protocols": [
+    {
+      "repo_path": "docs/experiments/08r2_fiber_spec_preregistration.md",
+      "package_path": "data/protocols/08r2_fiber_spec_preregistration.md",
+      "sha256": "ddd03244a11280f131d922d379fc78e48c3a69056eb1f1e3a70c6171849e10f0",
+      "git_blob": "4a000bc8eca5f1e46a5d40531137a721ac6aee76",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_fiber_cost_preregistration.md",
+      "package_path": "data/protocols/08r2_fiber_cost_preregistration.md",
+      "sha256": "04dede7a0448197b012451b659c2ed4f59950e1d6d39adcd531befe8b9ab4598",
+      "git_blob": "b804f006961183075497b72a2accbe9e661fc34e",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_fiber_cost_fixed_js_preregistration.md",
+      "package_path": "data/protocols/08r2_fiber_cost_fixed_js_preregistration.md",
+      "sha256": "f65370cadeaf43c072b748549c409212ff45035ecedc731f77185883e7599723",
+      "git_blob": "5c9fede475d4f4058307d0c3d2c7af8e4fdfd1c0",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_null_state_transfer_preregistration.md",
+      "package_path": "data/protocols/08r2_null_state_transfer_preregistration.md",
+      "sha256": "ac84235e56c8f3a6103ef1f357df289ec901ded4213457e4d3197854b16f7a84",
+      "git_blob": "84df9e204f39f186ac059f08cb7e1bca48390eeb",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_state_semantics_preregistration.md",
+      "package_path": "data/protocols/08r2_state_semantics_preregistration.md",
+      "sha256": "e478972c836e85f65ab9d1299e239a27cb206347322a0d8ec781da8f5f77f479",
+      "git_blob": "fc68d1eba6414364f42bfc3e7e47b9477304dfee",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_state_semantics_mean_level_correction.md",
+      "package_path": "data/protocols/08r2_state_semantics_mean_level_correction.md",
+      "sha256": "adc30ae8d6730aac310ee11e028118d9c90f6a922edaeb970592f699dc587ce2",
+      "git_blob": "7cb8d3b33dc7a851ccc6749f7415aaaebc9af7ab",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_symmetric_target_preregistration.md",
+      "package_path": "data/protocols/08r2_symmetric_target_preregistration.md",
+      "sha256": "157db787fd0a11c56b7bde72a81e59f54c134a6e495da24cd6c19186c9044c9f",
+      "git_blob": "c55db64cc3d3240be8eb4a148433d377c2d1b214",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_symmetric_target_census_audit.md",
+      "package_path": "data/protocols/08r2_symmetric_target_census_audit.md",
+      "sha256": "7c1e2f9cc3b0d47190b558365de37eea4ca8d46fffca610e4887b8ea9cb537e2",
+      "git_blob": "b78f74cbf463b20ddeb8e48fb03d56f7a5d19388",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_symmetric_target_fresh_preregistration.md",
+      "package_path": "data/protocols/08r2_symmetric_target_fresh_preregistration.md",
+      "sha256": "2961d4997f7959f167479d79037fa10c8aa97c389d21ed6454312656079c6d34",
+      "git_blob": "bc57b0511c75593eebce355ce0561ccf63064e9b",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "docs/experiments/08r2_visible_null_factorial_preregistration.md",
+      "package_path": "data/protocols/08r2_visible_null_factorial_preregistration.md",
+      "sha256": "17236d6a92e33c1ada99539d3526a8f6636f5598c8c4bf9eb83287726b359022",
+      "git_blob": "b4a3367683f48fda0e172c533f427e9e1dd7f8e3",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "configs/toy_othello_08r2_fiber.json",
+      "package_path": "data/protocols/toy_othello_08r2_fiber.json",
+      "sha256": "ebb54e3ba97765ae643ad439b771ce434b2906c61e8cb8bb26ca195956f7dfbe",
+      "git_blob": "1cf16f0ea5bd46a87ff729b4406a8ea910bab66f",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "configs/toy_othello_08r2_fiber_spec.json",
+      "package_path": "data/protocols/toy_othello_08r2_fiber_spec.json",
+      "sha256": "d0bcd93d1e74f7273d98a0b96891925940ca8fa122044beeaef962f629c0893e",
+      "git_blob": "4ad2ae2da5898081cb8b0403d5cedd0e4d89b5b3",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "configs/toy_othello_08r2_fiber_cost_fixed_js.json",
+      "package_path": "data/protocols/toy_othello_08r2_fiber_cost_fixed_js.json",
+      "sha256": "59639d4efc9c0b81e0caf1cd7d0f546c4342c91520cc4051f524a764df9690d5",
+      "git_blob": "557a5d20290330354b61af1e710458961f5d3964",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "configs/toy_othello_08r2_null_state_transfer.json",
+      "package_path": "data/protocols/toy_othello_08r2_null_state_transfer.json",
+      "sha256": "0606dafd5d3850e111a72a5db94653ac0524680145e8180eb199b85e14aa728b",
+      "git_blob": "388176bd1371005ad6e97e222f200dcc4695cc93",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "configs/toy_othello_08r2_state_semantics.json",
+      "package_path": "data/protocols/toy_othello_08r2_state_semantics.json",
+      "sha256": "a8b9c2d9a7279cfe1bc43ac90244d38c8a9edaa189cc7560f812865e9cd98589",
+      "git_blob": "71d4c2d75210ec4b05f50d4f2b655d39ae4ef180",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "configs/toy_othello_08r2_symmetric_target_fresh.json",
+      "package_path": "data/protocols/toy_othello_08r2_symmetric_target_fresh.json",
+      "sha256": "1b4b130f548278cd5289226503b74f1fb0763ce4c257c20cf3dbe03ec6c8b2ee",
+      "git_blob": "70814071aa45a0c76cd408f9881154632f5cea16",
+      "git_tracked": true
+    },
+    {
+      "repo_path": "configs/toy_othello_08r2_visible_null_factorial.json",
+      "package_path": "data/protocols/toy_othello_08r2_visible_null_factorial.json",
+      "sha256": "967715821d77e2af7919a61986e372cc3462af1c7a5f82e25f50b4a0b765d5d3",
+      "git_blob": "06034a6186d7d64ffe1ae6b7f3188992279be57a",
+      "git_tracked": true
+    }
+  ],
+  "console_excerpts": [
+    {
+      "package_path": "data/archival/console_excerpts/sem_full_run.txt",
+      "sha256": "e53e3e339840f063852dd00d7941e83141cf8fe27947baf02ef7323fac1ad006",
+      "description": "STATE-SEMANTICS full 48-pair run (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1549
+    },
+    {
+      "package_path": "data/archival/console_excerpts/sem_stage_share_subgroups.txt",
+      "sha256": "3e6ec9f5fd37efdb7715db0e662681936ebad650cb23470066ec09faf11a0c91",
+      "description": "Stage-share subgroup correction (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1583
+    },
+    {
+      "package_path": "data/archival/console_excerpts/symmetric_target_census.txt",
+      "sha256": "6d308465423d82ff6a462e8de158eb9f37f1f95c35e7cfcc2d867c24b14033c3",
+      "description": "Leftover-validation symmetric-target census (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1583
+    },
+    {
+      "package_path": "data/archival/console_excerpts/symmetric_target_census_audit.txt",
+      "sha256": "f835b76d28a2618ca107bb5eb020db97fcb6cbea515dfdbb3ec37afadc021d85",
+      "description": "Census audit (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1614
+    },
+    {
+      "package_path": "data/archival/console_excerpts/fresh_cohort.txt",
+      "sha256": "96450991145c533ef0a523d2d8d3fb2ac79362572e101c03e064c28780415b2c",
+      "description": "FRESH cohort generation and triplet census (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1633
+    },
+    {
+      "package_path": "data/archival/console_excerpts/fresh_full_run.txt",
+      "sha256": "92e904847df5b34dc49ce8f75de8ae85680752dea623789f67f801de4bc29c15",
+      "description": "FRESH 32-triplet run (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1637
+    },
+    {
+      "package_path": "data/archival/console_excerpts/fresh_anchor_audit.txt",
+      "sha256": "40c14d12aa41a81bef8f6295591eb2a7bad13c4d11c716f4d5b51a2308c8e5e5",
+      "description": "FRESH anchor-interaction audit (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1656
+    },
+    {
+      "package_path": "data/archival/console_excerpts/vnf_stage1.txt",
+      "sha256": "daa0ed37d9b69bf6823bbba0a0ae79e2a833e8a639c56e2532682c7b85e1848f",
+      "description": "VNF stage 1 summary before an unrelated serialization crash (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1684
+    },
+    {
+      "package_path": "data/archival/console_excerpts/vnf_cohort.txt",
+      "sha256": "04198ef4104ff45c69e70ffacc6014c0aaa3d69ba65205fd0459b1f67b2b0bb6",
+      "description": "VNF cohort (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1695
+    },
+    {
+      "package_path": "data/archival/console_excerpts/vnf_rowspace_map.txt",
+      "sha256": "d1d1b9cbaa4c8b1b58d0411ea43ef5227e33db8c95fcedd6937fe4e523c10a1b",
+      "description": "VNF rowspace ridge fit (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1700
+    },
+    {
+      "package_path": "data/archival/console_excerpts/vnf_full_run.txt",
+      "sha256": "9319b0d60c674cf398696c3921c4a598f005dcf9d20e28c54b8fda8f083d8718",
+      "description": "VNF 32-triplet run (Colab console)",
+      "source": "verbatim Colab console output pasted by the experimenter into the research session transcript",
+      "transcript_file": "bd8c0847-77fb-4709-ab0b-7352d0c6dd37.jsonl",
+      "transcript_line_index": 1703
+    }
+  ],
+  "not_found": [
+    {
+      "item": "STATE-SEMANTICS (SEM)",
+      "expected": "results/08r2/state_semantics/*",
+      "searched": [
+        "~/Downloads (all *.zip listed and checked by name)",
+        "~/Desktop",
+        "~/Documents",
+        "~/Library/CloudStorage/Dropbox",
+        "repository artifacts/",
+        "system-wide find on -xdev for state_semantic*, anchor_interaction*, symmetric_target*, visible_null*"
+      ],
+      "result": "No result arrays found. Only runner scripts exist locally. No Google Drive mount is present on this machine."
+    },
+    {
+      "item": "SYMMETRIC-TARGET-FRESH (FRESH)",
+      "expected": "results/08r2/symmetric_target_fresh/*",
+      "searched": [
+        "~/Downloads (all *.zip listed and checked by name)",
+        "~/Desktop",
+        "~/Documents",
+        "~/Library/CloudStorage/Dropbox",
+        "repository artifacts/",
+        "system-wide find on -xdev for state_semantic*, anchor_interaction*, symmetric_target*, visible_null*"
+      ],
+      "result": "No result arrays found. Only runner scripts exist locally. No Google Drive mount is present on this machine."
+    },
+    {
+      "item": "VISIBLE-NULL-FACTORIAL (VNF)",
+      "expected": "results/08r2/visible_null_factorial/*",
+      "searched": [
+        "~/Downloads (all *.zip listed and checked by name)",
+        "~/Desktop",
+        "~/Documents",
+        "~/Library/CloudStorage/Dropbox",
+        "repository artifacts/",
+        "system-wide find on -xdev for state_semantic*, anchor_interaction*, symmetric_target*, visible_null*"
+      ],
+      "result": "No result arrays found. Only runner scripts exist locally. No Google Drive mount is present on this machine."
+    },
+    {
+      "item": "08R2 validation pair tables",
+      "expected": "results/08r2/validation/*",
+      "searched": [
+        "~/Downloads (all *.zip listed and checked by name)",
+        "~/Desktop",
+        "~/Documents",
+        "~/Library/CloudStorage/Dropbox",
+        "repository artifacts/",
+        "system-wide find on -xdev for state_semantic*, anchor_interaction*, symmetric_target*, visible_null*"
+      ],
+      "result": "No result arrays found. Only runner scripts exist locally. No Google Drive mount is present on this machine."
+    }
+  ]
+}

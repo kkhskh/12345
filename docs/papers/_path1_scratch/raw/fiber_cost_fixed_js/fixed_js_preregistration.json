@@ -1,0 +1,39 @@
+{
+  "n_a": 32,
+  "n_b": 16,
+  "pair_seed": 2182,
+  "expected_pair_manifest_sha256": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3",
+  "random_seeds": [
+    3182,
+    3282,
+    3382
+  ],
+  "n_wrong": 3,
+  "n_random": 3,
+  "editor_budget": 16.0,
+  "fixed_js_primary": 0.01,
+  "fixed_js_secondary": [
+    0.005,
+    0.02
+  ],
+  "fixed_js_tol": 0.0002,
+  "scale_grid": [
+    0.003125,
+    0.00625,
+    0.0125,
+    0.025,
+    0.05,
+    0.1,
+    0.2,
+    0.4,
+    0.8,
+    1.0,
+    1.5,
+    2.0,
+    4.0,
+    8.0
+  ],
+  "n_bisect": 16,
+  "behavior_floor": 0.02,
+  "coverage_min": 44
+}

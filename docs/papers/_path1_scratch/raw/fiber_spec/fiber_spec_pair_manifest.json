@@ -1,0 +1,2729 @@
+{
+  "n": 48,
+  "n_a": 32,
+  "n_b": 16,
+  "feasible": true,
+  "n_recipient_games": 48,
+  "n_target_games": 48,
+  "recip_target_overlap": [],
+  "pair_manifest_sha256": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3",
+  "expected_sha256": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3",
+  "hash_ok": 1,
+  "seed": 2182,
+  "exclude_fiber_games": 1,
+  "pairs": [
+    {
+      "recip": 926,
+      "donor": 852,
+      "r2_type": "A_legal_diff",
+      "hamming": 23,
+      "recip_game": "val_00154",
+      "target_game": "val_00142",
+      "player": 1,
+      "occupied_recip": 18,
+      "occupied_donor": 18,
+      "n_legal_recip": 5,
+      "n_legal_donor": 9,
+      "n_became_legal": 8,
+      "n_became_illegal": 4,
+      "prefix_len_recip": 14,
+      "prefix_len_donor": 14,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1191,
+      "donor": 1216,
+      "r2_type": "A_legal_diff",
+      "hamming": 44,
+      "recip_game": "val_00198",
+      "target_game": "val_00202",
+      "player": 1,
+      "occupied_recip": 48,
+      "occupied_donor": 48,
+      "n_legal_recip": 10,
+      "n_legal_donor": 7,
+      "n_became_legal": 6,
+      "n_became_illegal": 9,
+      "prefix_len_recip": 44,
+      "prefix_len_donor": 44,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1226,
+      "donor": 1371,
+      "r2_type": "A_legal_diff",
+      "hamming": 40,
+      "recip_game": "val_00204",
+      "target_game": "val_00228",
+      "player": 1,
+      "occupied_recip": 34,
+      "occupied_donor": 34,
+      "n_legal_recip": 7,
+      "n_legal_donor": 11,
+      "n_became_legal": 10,
+      "n_became_illegal": 6,
+      "prefix_len_recip": 30,
+      "prefix_len_donor": 30,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 538,
+      "donor": 1930,
+      "r2_type": "A_legal_diff",
+      "hamming": 37,
+      "recip_game": "val_00089",
+      "target_game": "val_00321",
+      "player": 1,
+      "occupied_recip": 32,
+      "occupied_donor": 34,
+      "n_legal_recip": 14,
+      "n_legal_donor": 14,
+      "n_became_legal": 9,
+      "n_became_illegal": 9,
+      "prefix_len_recip": 28,
+      "prefix_len_donor": 30,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1849,
+      "donor": 1343,
+      "r2_type": "A_legal_diff",
+      "hamming": 39,
+      "recip_game": "val_00308",
+      "target_game": "val_00223",
+      "player": 1,
+      "occupied_recip": 56,
+      "occupied_donor": 58,
+      "n_legal_recip": 6,
+      "n_legal_donor": 3,
+      "n_became_legal": 3,
+      "n_became_illegal": 6,
+      "prefix_len_recip": 52,
+      "prefix_len_donor": 54,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 258,
+      "donor": 1786,
+      "r2_type": "A_legal_diff",
+      "hamming": 31,
+      "recip_game": "val_00043",
+      "target_game": "val_00297",
+      "player": -1,
+      "occupied_recip": 47,
+      "occupied_donor": 45,
+      "n_legal_recip": 6,
+      "n_legal_donor": 10,
+      "n_became_legal": 9,
+      "n_became_illegal": 5,
+      "prefix_len_recip": 43,
+      "prefix_len_donor": 41,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1180,
+      "donor": 1011,
+      "r2_type": "A_legal_diff",
+      "hamming": 31,
+      "recip_game": "val_00196",
+      "target_game": "val_00168",
+      "player": -1,
+      "occupied_recip": 27,
+      "occupied_donor": 25,
+      "n_legal_recip": 9,
+      "n_legal_donor": 13,
+      "n_became_legal": 10,
+      "n_became_illegal": 6,
+      "prefix_len_recip": 23,
+      "prefix_len_donor": 21,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 117,
+      "donor": 2278,
+      "r2_type": "A_legal_diff",
+      "hamming": 41,
+      "recip_game": "val_00019",
+      "target_game": "val_00379",
+      "player": -1,
+      "occupied_recip": 35,
+      "occupied_donor": 33,
+      "n_legal_recip": 12,
+      "n_legal_donor": 9,
+      "n_became_legal": 7,
+      "n_became_illegal": 10,
+      "prefix_len_recip": 31,
+      "prefix_len_donor": 29,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 724,
+      "donor": 584,
+      "r2_type": "A_legal_diff",
+      "hamming": 29,
+      "recip_game": "val_00120",
+      "target_game": "val_00097",
+      "player": -1,
+      "occupied_recip": 55,
+      "occupied_donor": 55,
+      "n_legal_recip": 3,
+      "n_legal_donor": 3,
+      "n_became_legal": 3,
+      "n_became_illegal": 3,
+      "prefix_len_recip": 51,
+      "prefix_len_donor": 51,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1932,
+      "donor": 2353,
+      "r2_type": "A_legal_diff",
+      "hamming": 19,
+      "recip_game": "val_00322",
+      "target_game": "val_00392",
+      "player": -1,
+      "occupied_recip": 25,
+      "occupied_donor": 25,
+      "n_legal_recip": 12,
+      "n_legal_donor": 11,
+      "n_became_legal": 6,
+      "n_became_illegal": 7,
+      "prefix_len_recip": 21,
+      "prefix_len_donor": 21,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 905,
+      "donor": 1693,
+      "r2_type": "A_legal_diff",
+      "hamming": 12,
+      "recip_game": "val_00150",
+      "target_game": "val_00282",
+      "player": 1,
+      "occupied_recip": 14,
+      "occupied_donor": 12,
+      "n_legal_recip": 9,
+      "n_legal_donor": 4,
+      "n_became_legal": 3,
+      "n_became_illegal": 8,
+      "prefix_len_recip": 10,
+      "prefix_len_donor": 8,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1992,
+      "donor": 2178,
+      "r2_type": "A_legal_diff",
+      "hamming": 14,
+      "recip_game": "val_00332",
+      "target_game": "val_00363",
+      "player": 1,
+      "occupied_recip": 10,
+      "occupied_donor": 10,
+      "n_legal_recip": 7,
+      "n_legal_donor": 6,
+      "n_became_legal": 6,
+      "n_became_illegal": 7,
+      "prefix_len_recip": 6,
+      "prefix_len_donor": 6,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1961,
+      "donor": 2270,
+      "r2_type": "A_legal_diff",
+      "hamming": 30,
+      "recip_game": "val_00326",
+      "target_game": "val_00378",
+      "player": 1,
+      "occupied_recip": 32,
+      "occupied_donor": 32,
+      "n_legal_recip": 14,
+      "n_legal_donor": 13,
+      "n_became_legal": 8,
+      "n_became_illegal": 9,
+      "prefix_len_recip": 28,
+      "prefix_len_donor": 28,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 2138,
+      "donor": 1196,
+      "r2_type": "A_legal_diff",
+      "hamming": 35,
+      "recip_game": "val_00356",
+      "target_game": "val_00199",
+      "player": 1,
+      "occupied_recip": 42,
+      "occupied_donor": 42,
+      "n_legal_recip": 12,
+      "n_legal_donor": 7,
+      "n_became_legal": 4,
+      "n_became_illegal": 9,
+      "prefix_len_recip": 38,
+      "prefix_len_donor": 38,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1806,
+      "donor": 1291,
+      "r2_type": "A_legal_diff",
+      "hamming": 29,
+      "recip_game": "val_00301",
+      "target_game": "val_00215",
+      "player": -1,
+      "occupied_recip": 29,
+      "occupied_donor": 29,
+      "n_legal_recip": 14,
+      "n_legal_donor": 14,
+      "n_became_legal": 9,
+      "n_became_illegal": 9,
+      "prefix_len_recip": 25,
+      "prefix_len_donor": 25,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 697,
+      "donor": 2105,
+      "r2_type": "A_legal_diff",
+      "hamming": 42,
+      "recip_game": "val_00116",
+      "target_game": "val_00350",
+      "player": 1,
+      "occupied_recip": 48,
+      "occupied_donor": 48,
+      "n_legal_recip": 13,
+      "n_legal_donor": 8,
+      "n_became_legal": 5,
+      "n_became_illegal": 10,
+      "prefix_len_recip": 44,
+      "prefix_len_donor": 44,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 2162,
+      "donor": 1143,
+      "r2_type": "A_legal_diff",
+      "hamming": 16,
+      "recip_game": "val_00360",
+      "target_game": "val_00190",
+      "player": 1,
+      "occupied_recip": 16,
+      "occupied_donor": 16,
+      "n_legal_recip": 6,
+      "n_legal_donor": 7,
+      "n_became_legal": 6,
+      "n_became_illegal": 5,
+      "prefix_len_recip": 12,
+      "prefix_len_donor": 12,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 485,
+      "donor": 1547,
+      "r2_type": "A_legal_diff",
+      "hamming": 34,
+      "recip_game": "val_00080",
+      "target_game": "val_00257",
+      "player": -1,
+      "occupied_recip": 35,
+      "occupied_donor": 33,
+      "n_legal_recip": 17,
+      "n_legal_donor": 14,
+      "n_became_legal": 9,
+      "n_became_illegal": 12,
+      "prefix_len_recip": 31,
+      "prefix_len_donor": 29,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 2335,
+      "donor": 1987,
+      "r2_type": "A_legal_diff",
+      "hamming": 24,
+      "recip_game": "val_00389",
+      "target_game": "val_00331",
+      "player": 1,
+      "occupied_recip": 24,
+      "occupied_donor": 24,
+      "n_legal_recip": 12,
+      "n_legal_donor": 13,
+      "n_became_legal": 11,
+      "n_became_illegal": 10,
+      "prefix_len_recip": 20,
+      "prefix_len_donor": 20,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 388,
+      "donor": 2081,
+      "r2_type": "A_legal_diff",
+      "hamming": 19,
+      "recip_game": "val_00064",
+      "target_game": "val_00346",
+      "player": -1,
+      "occupied_recip": 17,
+      "occupied_donor": 19,
+      "n_legal_recip": 14,
+      "n_legal_donor": 11,
+      "n_became_legal": 9,
+      "n_became_illegal": 12,
+      "prefix_len_recip": 13,
+      "prefix_len_donor": 15,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1984,
+      "donor": 228,
+      "r2_type": "A_legal_diff",
+      "hamming": 23,
+      "recip_game": "val_00330",
+      "target_game": "val_00038",
+      "player": 1,
+      "occupied_recip": 22,
+      "occupied_donor": 20,
+      "n_legal_recip": 10,
+      "n_legal_donor": 7,
+      "n_became_legal": 5,
+      "n_became_illegal": 8,
+      "prefix_len_recip": 18,
+      "prefix_len_donor": 16,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 713,
+      "donor": 2089,
+      "r2_type": "A_legal_diff",
+      "hamming": 37,
+      "recip_game": "val_00118",
+      "target_game": "val_00348",
+      "player": -1,
+      "occupied_recip": 49,
+      "occupied_donor": 49,
+      "n_legal_recip": 9,
+      "n_legal_donor": 8,
+      "n_became_legal": 7,
+      "n_became_illegal": 8,
+      "prefix_len_recip": 45,
+      "prefix_len_donor": 45,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 2085,
+      "donor": 1129,
+      "r2_type": "A_legal_diff",
+      "hamming": 37,
+      "recip_game": "val_00347",
+      "target_game": "val_00188",
+      "player": 1,
+      "occupied_recip": 40,
+      "occupied_donor": 42,
+      "n_legal_recip": 9,
+      "n_legal_donor": 13,
+      "n_became_legal": 10,
+      "n_became_illegal": 6,
+      "prefix_len_recip": 36,
+      "prefix_len_donor": 38,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1908,
+      "donor": 1102,
+      "r2_type": "A_legal_diff",
+      "hamming": 16,
+      "recip_game": "val_00318",
+      "target_game": "val_00183",
+      "player": -1,
+      "occupied_recip": 17,
+      "occupied_donor": 19,
+      "n_legal_recip": 6,
+      "n_legal_donor": 7,
+      "n_became_legal": 6,
+      "n_became_illegal": 5,
+      "prefix_len_recip": 13,
+      "prefix_len_donor": 15,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1780,
+      "donor": 1610,
+      "r2_type": "A_legal_diff",
+      "hamming": 40,
+      "recip_game": "val_00296",
+      "target_game": "val_00268",
+      "player": 1,
+      "occupied_recip": 48,
+      "occupied_donor": 48,
+      "n_legal_recip": 10,
+      "n_legal_donor": 12,
+      "n_became_legal": 9,
+      "n_became_illegal": 7,
+      "prefix_len_recip": 44,
+      "prefix_len_donor": 44,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1506,
+      "donor": 1820,
+      "r2_type": "A_legal_diff",
+      "hamming": 12,
+      "recip_game": "val_00251",
+      "target_game": "val_00303",
+      "player": 1,
+      "occupied_recip": 12,
+      "occupied_donor": 14,
+      "n_legal_recip": 6,
+      "n_legal_donor": 10,
+      "n_became_legal": 7,
+      "n_became_illegal": 3,
+      "prefix_len_recip": 8,
+      "prefix_len_donor": 10,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 646,
+      "donor": 846,
+      "r2_type": "A_legal_diff",
+      "hamming": 32,
+      "recip_game": "val_00107",
+      "target_game": "val_00141",
+      "player": -1,
+      "occupied_recip": 57,
+      "occupied_donor": 57,
+      "n_legal_recip": 6,
+      "n_legal_donor": 3,
+      "n_became_legal": 2,
+      "n_became_illegal": 5,
+      "prefix_len_recip": 53,
+      "prefix_len_donor": 53,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1745,
+      "donor": 750,
+      "r2_type": "A_legal_diff",
+      "hamming": 32,
+      "recip_game": "val_00290",
+      "target_game": "val_00125",
+      "player": -1,
+      "occupied_recip": 49,
+      "occupied_donor": 51,
+      "n_legal_recip": 12,
+      "n_legal_donor": 10,
+      "n_became_legal": 6,
+      "n_became_illegal": 8,
+      "prefix_len_recip": 45,
+      "prefix_len_donor": 47,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1395,
+      "donor": 433,
+      "r2_type": "A_legal_diff",
+      "hamming": 26,
+      "recip_game": "val_00232",
+      "target_game": "val_00072",
+      "player": 1,
+      "occupied_recip": 22,
+      "occupied_donor": 22,
+      "n_legal_recip": 15,
+      "n_legal_donor": 16,
+      "n_became_legal": 11,
+      "n_became_illegal": 10,
+      "prefix_len_recip": 18,
+      "prefix_len_donor": 18,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 275,
+      "donor": 466,
+      "r2_type": "A_legal_diff",
+      "hamming": 38,
+      "recip_game": "val_00045",
+      "target_game": "val_00077",
+      "player": 1,
+      "occupied_recip": 34,
+      "occupied_donor": 32,
+      "n_legal_recip": 11,
+      "n_legal_donor": 11,
+      "n_became_legal": 11,
+      "n_became_illegal": 11,
+      "prefix_len_recip": 30,
+      "prefix_len_donor": 28,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 109,
+      "donor": 1951,
+      "r2_type": "A_legal_diff",
+      "hamming": 10,
+      "recip_game": "val_00018",
+      "target_game": "val_00325",
+      "player": 1,
+      "occupied_recip": 10,
+      "occupied_donor": 10,
+      "n_legal_recip": 7,
+      "n_legal_donor": 4,
+      "n_became_legal": 4,
+      "n_became_illegal": 7,
+      "prefix_len_recip": 6,
+      "prefix_len_donor": 6,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1656,
+      "donor": 1045,
+      "r2_type": "A_legal_diff",
+      "hamming": 23,
+      "recip_game": "val_00276",
+      "target_game": "val_00174",
+      "player": 1,
+      "occupied_recip": 18,
+      "occupied_donor": 18,
+      "n_legal_recip": 14,
+      "n_legal_donor": 8,
+      "n_became_legal": 5,
+      "n_became_illegal": 11,
+      "prefix_len_recip": 14,
+      "prefix_len_donor": 14,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1503,
+      "donor": 1882,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 7,
+      "recip_game": "val_00250",
+      "target_game": "val_00313",
+      "player": -1,
+      "occupied_recip": 9,
+      "occupied_donor": 9,
+      "n_legal_recip": 6,
+      "n_legal_donor": 7,
+      "n_became_legal": 4,
+      "n_became_illegal": 3,
+      "prefix_len_recip": 5,
+      "prefix_len_donor": 5,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1593,
+      "donor": 2301,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00265",
+      "target_game": "val_00383",
+      "player": -1,
+      "occupied_recip": 9,
+      "occupied_donor": 9,
+      "n_legal_recip": 5,
+      "n_legal_donor": 6,
+      "n_became_legal": 5,
+      "n_became_illegal": 4,
+      "prefix_len_recip": 5,
+      "prefix_len_donor": 5,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 2236,
+      "donor": 1775,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00372",
+      "target_game": "val_00295",
+      "player": -1,
+      "occupied_recip": 9,
+      "occupied_donor": 11,
+      "n_legal_recip": 2,
+      "n_legal_donor": 6,
+      "n_became_legal": 6,
+      "n_became_illegal": 2,
+      "prefix_len_recip": 5,
+      "prefix_len_donor": 7,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1271,
+      "donor": 898,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 4,
+      "recip_game": "val_00211",
+      "target_game": "val_00149",
+      "player": 1,
+      "occupied_recip": 10,
+      "occupied_donor": 10,
+      "n_legal_recip": 9,
+      "n_legal_donor": 9,
+      "n_became_legal": 3,
+      "n_became_illegal": 3,
+      "prefix_len_recip": 6,
+      "prefix_len_donor": 6,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 2036,
+      "donor": 650,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 7,
+      "recip_game": "val_00339",
+      "target_game": "val_00108",
+      "player": 1,
+      "occupied_recip": 10,
+      "occupied_donor": 10,
+      "n_legal_recip": 4,
+      "n_legal_donor": 9,
+      "n_became_legal": 6,
+      "n_became_illegal": 1,
+      "prefix_len_recip": 6,
+      "prefix_len_donor": 6,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1366,
+      "donor": 953,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 6,
+      "recip_game": "val_00227",
+      "target_game": "val_00158",
+      "player": 1,
+      "occupied_recip": 10,
+      "occupied_donor": 10,
+      "n_legal_recip": 6,
+      "n_legal_donor": 10,
+      "n_became_legal": 6,
+      "n_became_illegal": 2,
+      "prefix_len_recip": 6,
+      "prefix_len_donor": 6,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1979,
+      "donor": 1345,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00329",
+      "target_game": "val_00224",
+      "player": -1,
+      "occupied_recip": 9,
+      "occupied_donor": 9,
+      "n_legal_recip": 6,
+      "n_legal_donor": 4,
+      "n_became_legal": 2,
+      "n_became_illegal": 4,
+      "prefix_len_recip": 5,
+      "prefix_len_donor": 5,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1901,
+      "donor": 714,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00316",
+      "target_game": "val_00119",
+      "player": 1,
+      "occupied_recip": 10,
+      "occupied_donor": 10,
+      "n_legal_recip": 4,
+      "n_legal_donor": 9,
+      "n_became_legal": 7,
+      "n_became_illegal": 2,
+      "prefix_len_recip": 6,
+      "prefix_len_donor": 6,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 59,
+      "donor": 793,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00009",
+      "target_game": "val_00132",
+      "player": 1,
+      "occupied_recip": 12,
+      "occupied_donor": 12,
+      "n_legal_recip": 8,
+      "n_legal_donor": 9,
+      "n_became_legal": 5,
+      "n_became_illegal": 4,
+      "prefix_len_recip": 8,
+      "prefix_len_donor": 8,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 944,
+      "donor": 2054,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00157",
+      "target_game": "val_00342",
+      "player": 1,
+      "occupied_recip": 14,
+      "occupied_donor": 14,
+      "n_legal_recip": 10,
+      "n_legal_donor": 11,
+      "n_became_legal": 4,
+      "n_became_illegal": 3,
+      "prefix_len_recip": 10,
+      "prefix_len_donor": 10,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1580,
+      "donor": 1654,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00263",
+      "target_game": "val_00275",
+      "player": -1,
+      "occupied_recip": 9,
+      "occupied_donor": 9,
+      "n_legal_recip": 7,
+      "n_legal_donor": 5,
+      "n_became_legal": 3,
+      "n_became_illegal": 5,
+      "prefix_len_recip": 5,
+      "prefix_len_donor": 5,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 5,
+      "donor": 694,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 7,
+      "recip_game": "val_00000",
+      "target_game": "val_00115",
+      "player": 1,
+      "occupied_recip": 10,
+      "occupied_donor": 10,
+      "n_legal_recip": 7,
+      "n_legal_donor": 9,
+      "n_became_legal": 5,
+      "n_became_illegal": 3,
+      "prefix_len_recip": 6,
+      "prefix_len_donor": 6,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1607,
+      "donor": 320,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 6,
+      "recip_game": "val_00267",
+      "target_game": "val_00053",
+      "player": 1,
+      "occupied_recip": 10,
+      "occupied_donor": 10,
+      "n_legal_recip": 5,
+      "n_legal_donor": 6,
+      "n_became_legal": 2,
+      "n_became_illegal": 1,
+      "prefix_len_recip": 6,
+      "prefix_len_donor": 6,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1585,
+      "donor": 1967,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00264",
+      "target_game": "val_00327",
+      "player": -1,
+      "occupied_recip": 9,
+      "occupied_donor": 9,
+      "n_legal_recip": 5,
+      "n_legal_donor": 8,
+      "n_became_legal": 7,
+      "n_became_illegal": 4,
+      "prefix_len_recip": 5,
+      "prefix_len_donor": 5,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 402,
+      "donor": 2111,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 7,
+      "recip_game": "val_00067",
+      "target_game": "val_00351",
+      "player": 1,
+      "occupied_recip": 14,
+      "occupied_donor": 12,
+      "n_legal_recip": 10,
+      "n_legal_donor": 8,
+      "n_became_legal": 5,
+      "n_became_illegal": 7,
+      "prefix_len_recip": 10,
+      "prefix_len_donor": 8,
+      "same_player": 1,
+      "used_confirmation": 0
+    },
+    {
+      "recip": 1749,
+      "donor": 2332,
+      "r2_type": "B_similar_board_legal_change",
+      "hamming": 8,
+      "recip_game": "val_00291",
+      "target_game": "val_00388",
+      "player": -1,
+      "occupied_recip": 11,
+      "occupied_donor": 11,
+      "n_legal_recip": 3,
+      "n_legal_donor": 5,
+      "n_became_legal": 4,
+      "n_became_illegal": 2,
+      "prefix_len_recip": 7,
+      "prefix_len_donor": 7,
+      "same_player": 1,
+      "used_confirmation": 0
+    }
+  ],
+  "wrong_donors": [
+    {
+      "n_candidates": 170,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1174,
+          "game_id": "val_00195",
+          "occupied": 18,
+          "n_legal": 9,
+          "prefix_len": 14,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1330,
+          "game_id": "val_00221",
+          "occupied": 18,
+          "n_legal": 9,
+          "prefix_len": 14,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1322,
+          "game_id": "val_00220",
+          "occupied": 18,
+          "n_legal": 9,
+          "prefix_len": 14,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 180,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 147,
+          "game_id": "val_00024",
+          "occupied": 48,
+          "n_legal": 7,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1808,
+          "game_id": "val_00301",
+          "occupied": 48,
+          "n_legal": 7,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1025,
+          "game_id": "val_00170",
+          "occupied": 48,
+          "n_legal": 7,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 166,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1653,
+          "game_id": "val_00275",
+          "occupied": 34,
+          "n_legal": 11,
+          "prefix_len": 30,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 275,
+          "game_id": "val_00045",
+          "occupied": 34,
+          "n_legal": 11,
+          "prefix_len": 30,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 800,
+          "game_id": "val_00133",
+          "occupied": 34,
+          "n_legal": 11,
+          "prefix_len": 30,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 152,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1046,
+          "game_id": "val_00174",
+          "occupied": 34,
+          "n_legal": 14,
+          "prefix_len": 30,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 288,
+          "game_id": "val_00048",
+          "occupied": 34,
+          "n_legal": 14,
+          "prefix_len": 30,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 53,
+          "game_id": "val_00008",
+          "occupied": 34,
+          "n_legal": 14,
+          "prefix_len": 30,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 102,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1733,
+          "game_id": "val_00288",
+          "occupied": 58,
+          "n_legal": 3,
+          "prefix_len": 54,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1440,
+          "game_id": "val_00240",
+          "occupied": 58,
+          "n_legal": 3,
+          "prefix_len": 54,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 942,
+          "game_id": "val_00157",
+          "occupied": 58,
+          "n_legal": 3,
+          "prefix_len": 54,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 169,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1936,
+          "game_id": "val_00322",
+          "occupied": 45,
+          "n_legal": 10,
+          "prefix_len": 41,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1121,
+          "game_id": "val_00186",
+          "occupied": 45,
+          "n_legal": 10,
+          "prefix_len": 41,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1568,
+          "game_id": "val_00261",
+          "occupied": 45,
+          "n_legal": 10,
+          "prefix_len": 41,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 166,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 2101,
+          "game_id": "val_00350",
+          "occupied": 25,
+          "n_legal": 13,
+          "prefix_len": 21,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1530,
+          "game_id": "val_00255",
+          "occupied": 25,
+          "n_legal": 13,
+          "prefix_len": 21,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 572,
+          "game_id": "val_00095",
+          "occupied": 25,
+          "n_legal": 13,
+          "prefix_len": 21,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 142,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 183,
+          "game_id": "val_00030",
+          "occupied": 33,
+          "n_legal": 9,
+          "prefix_len": 29,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1280,
+          "game_id": "val_00213",
+          "occupied": 33,
+          "n_legal": 9,
+          "prefix_len": 29,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1910,
+          "game_id": "val_00318",
+          "occupied": 33,
+          "n_legal": 9,
+          "prefix_len": 29,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 120,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1537,
+          "game_id": "val_00256",
+          "occupied": 55,
+          "n_legal": 3,
+          "prefix_len": 51,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 238,
+          "game_id": "val_00039",
+          "occupied": 55,
+          "n_legal": 3,
+          "prefix_len": 51,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 764,
+          "game_id": "val_00127",
+          "occupied": 55,
+          "n_legal": 4,
+          "prefix_len": 51,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 173,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1674,
+          "game_id": "val_00279",
+          "occupied": 25,
+          "n_legal": 11,
+          "prefix_len": 21,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 832,
+          "game_id": "val_00138",
+          "occupied": 25,
+          "n_legal": 11,
+          "prefix_len": 21,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1412,
+          "game_id": "val_00235",
+          "occupied": 25,
+          "n_legal": 11,
+          "prefix_len": 21,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 104,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 435,
+          "game_id": "val_00072",
+          "occupied": 12,
+          "n_legal": 4,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1675,
+          "game_id": "val_00279",
+          "occupied": 12,
+          "n_legal": 4,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 639,
+          "game_id": "val_00106",
+          "occupied": 12,
+          "n_legal": 5,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 136,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 320,
+          "game_id": "val_00053",
+          "occupied": 10,
+          "n_legal": 6,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1742,
+          "game_id": "val_00290",
+          "occupied": 10,
+          "n_legal": 6,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 212,
+          "game_id": "val_00035",
+          "occupied": 10,
+          "n_legal": 6,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 176,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1132,
+          "game_id": "val_00188",
+          "occupied": 32,
+          "n_legal": 13,
+          "prefix_len": 28,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1540,
+          "game_id": "val_00256",
+          "occupied": 32,
+          "n_legal": 13,
+          "prefix_len": 28,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1279,
+          "game_id": "val_00213",
+          "occupied": 32,
+          "n_legal": 13,
+          "prefix_len": 28,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 108,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 2145,
+          "game_id": "val_00357",
+          "occupied": 42,
+          "n_legal": 7,
+          "prefix_len": 38,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1758,
+          "game_id": "val_00293",
+          "occupied": 42,
+          "n_legal": 7,
+          "prefix_len": 38,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1480,
+          "game_id": "val_00246",
+          "occupied": 42,
+          "n_legal": 7,
+          "prefix_len": 38,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 164,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 2044,
+          "game_id": "val_00340",
+          "occupied": 29,
+          "n_legal": 14,
+          "prefix_len": 25,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1458,
+          "game_id": "val_00243",
+          "occupied": 29,
+          "n_legal": 14,
+          "prefix_len": 25,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 469,
+          "game_id": "val_00078",
+          "occupied": 29,
+          "n_legal": 14,
+          "prefix_len": 25,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 191,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1606,
+          "game_id": "val_00267",
+          "occupied": 48,
+          "n_legal": 8,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 15,
+          "game_id": "val_00002",
+          "occupied": 48,
+          "n_legal": 8,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 500,
+          "game_id": "val_00083",
+          "occupied": 48,
+          "n_legal": 8,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 171,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 772,
+          "game_id": "val_00128",
+          "occupied": 16,
+          "n_legal": 7,
+          "prefix_len": 12,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1981,
+          "game_id": "val_00330",
+          "occupied": 16,
+          "n_legal": 7,
+          "prefix_len": 12,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1828,
+          "game_id": "val_00304",
+          "occupied": 16,
+          "n_legal": 7,
+          "prefix_len": 12,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 156,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1618,
+          "game_id": "val_00269",
+          "occupied": 33,
+          "n_legal": 14,
+          "prefix_len": 29,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 877,
+          "game_id": "val_00146",
+          "occupied": 33,
+          "n_legal": 14,
+          "prefix_len": 29,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1797,
+          "game_id": "val_00299",
+          "occupied": 33,
+          "n_legal": 14,
+          "prefix_len": 29,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 148,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 498,
+          "game_id": "val_00083",
+          "occupied": 24,
+          "n_legal": 13,
+          "prefix_len": 20,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1757,
+          "game_id": "val_00292",
+          "occupied": 24,
+          "n_legal": 13,
+          "prefix_len": 20,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1358,
+          "game_id": "val_00226",
+          "occupied": 24,
+          "n_legal": 13,
+          "prefix_len": 20,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 159,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 2370,
+          "game_id": "val_00395",
+          "occupied": 19,
+          "n_legal": 11,
+          "prefix_len": 15,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1106,
+          "game_id": "val_00184",
+          "occupied": 19,
+          "n_legal": 11,
+          "prefix_len": 15,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 350,
+          "game_id": "val_00058",
+          "occupied": 19,
+          "n_legal": 11,
+          "prefix_len": 15,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 125,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1103,
+          "game_id": "val_00183",
+          "occupied": 20,
+          "n_legal": 8,
+          "prefix_len": 16,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1609,
+          "game_id": "val_00268",
+          "occupied": 20,
+          "n_legal": 8,
+          "prefix_len": 16,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1486,
+          "game_id": "val_00247",
+          "occupied": 20,
+          "n_legal": 8,
+          "prefix_len": 16,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 173,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 729,
+          "game_id": "val_00121",
+          "occupied": 49,
+          "n_legal": 8,
+          "prefix_len": 45,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1990,
+          "game_id": "val_00331",
+          "occupied": 49,
+          "n_legal": 8,
+          "prefix_len": 45,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1651,
+          "game_id": "val_00275",
+          "occupied": 49,
+          "n_legal": 8,
+          "prefix_len": 45,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 148,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 521,
+          "game_id": "val_00086",
+          "occupied": 42,
+          "n_legal": 13,
+          "prefix_len": 38,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 2264,
+          "game_id": "val_00377",
+          "occupied": 42,
+          "n_legal": 13,
+          "prefix_len": 38,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1973,
+          "game_id": "val_00328",
+          "occupied": 42,
+          "n_legal": 13,
+          "prefix_len": 38,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 145,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1802,
+          "game_id": "val_00300",
+          "occupied": 19,
+          "n_legal": 7,
+          "prefix_len": 15,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1854,
+          "game_id": "val_00309",
+          "occupied": 19,
+          "n_legal": 7,
+          "prefix_len": 15,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 595,
+          "game_id": "val_00099",
+          "occupied": 19,
+          "n_legal": 7,
+          "prefix_len": 15,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 160,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1265,
+          "game_id": "val_00210",
+          "occupied": 48,
+          "n_legal": 12,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 757,
+          "game_id": "val_00126",
+          "occupied": 48,
+          "n_legal": 12,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 77,
+          "game_id": "val_00012",
+          "occupied": 48,
+          "n_legal": 12,
+          "prefix_len": 44,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 195,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 944,
+          "game_id": "val_00157",
+          "occupied": 14,
+          "n_legal": 10,
+          "prefix_len": 10,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 507,
+          "game_id": "val_00084",
+          "occupied": 14,
+          "n_legal": 10,
+          "prefix_len": 10,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1634,
+          "game_id": "val_00272",
+          "occupied": 14,
+          "n_legal": 10,
+          "prefix_len": 10,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 100,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 543,
+          "game_id": "val_00090",
+          "occupied": 57,
+          "n_legal": 3,
+          "prefix_len": 53,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 766,
+          "game_id": "val_00127",
+          "occupied": 57,
+          "n_legal": 3,
+          "prefix_len": 53,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 718,
+          "game_id": "val_00119",
+          "occupied": 57,
+          "n_legal": 3,
+          "prefix_len": 53,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 160,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1276,
+          "game_id": "val_00212",
+          "occupied": 51,
+          "n_legal": 10,
+          "prefix_len": 47,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1556,
+          "game_id": "val_00259",
+          "occupied": 51,
+          "n_legal": 10,
+          "prefix_len": 47,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1584,
+          "game_id": "val_00264",
+          "occupied": 51,
+          "n_legal": 10,
+          "prefix_len": 47,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 83,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1222,
+          "game_id": "val_00203",
+          "occupied": 22,
+          "n_legal": 15,
+          "prefix_len": 18,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1702,
+          "game_id": "val_00283",
+          "occupied": 22,
+          "n_legal": 17,
+          "prefix_len": 18,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1933,
+          "game_id": "val_00322",
+          "occupied": 22,
+          "n_legal": 15,
+          "prefix_len": 18,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 173,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 386,
+          "game_id": "val_00064",
+          "occupied": 32,
+          "n_legal": 11,
+          "prefix_len": 28,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 909,
+          "game_id": "val_00151",
+          "occupied": 32,
+          "n_legal": 11,
+          "prefix_len": 28,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1557,
+          "game_id": "val_00259",
+          "occupied": 32,
+          "n_legal": 11,
+          "prefix_len": 28,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 89,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1901,
+          "game_id": "val_00316",
+          "occupied": 10,
+          "n_legal": 4,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 2036,
+          "game_id": "val_00339",
+          "occupied": 10,
+          "n_legal": 4,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 927,
+          "game_id": "val_00154",
+          "occupied": 10,
+          "n_legal": 4,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 162,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1500,
+          "game_id": "val_00250",
+          "occupied": 18,
+          "n_legal": 8,
+          "prefix_len": 14,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 2142,
+          "game_id": "val_00357",
+          "occupied": 18,
+          "n_legal": 8,
+          "prefix_len": 14,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 2032,
+          "game_id": "val_00338",
+          "occupied": 18,
+          "n_legal": 8,
+          "prefix_len": 14,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 102,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1278,
+          "game_id": "val_00213",
+          "occupied": 9,
+          "n_legal": 7,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1580,
+          "game_id": "val_00263",
+          "occupied": 9,
+          "n_legal": 7,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 192,
+          "game_id": "val_00032",
+          "occupied": 9,
+          "n_legal": 6,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 101,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 175,
+          "game_id": "val_00029",
+          "occupied": 9,
+          "n_legal": 6,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 107,
+          "game_id": "val_00017",
+          "occupied": 9,
+          "n_legal": 6,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 2127,
+          "game_id": "val_00354",
+          "occupied": 9,
+          "n_legal": 6,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 134,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 2292,
+          "game_id": "val_00382",
+          "occupied": 11,
+          "n_legal": 6,
+          "prefix_len": 7,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 355,
+          "game_id": "val_00059",
+          "occupied": 11,
+          "n_legal": 6,
+          "prefix_len": 7,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 45,
+          "game_id": "val_00007",
+          "occupied": 11,
+          "n_legal": 6,
+          "prefix_len": 7,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 137,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 650,
+          "game_id": "val_00108",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1232,
+          "game_id": "val_00205",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 395,
+          "game_id": "val_00065",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 138,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1386,
+          "game_id": "val_00231",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1271,
+          "game_id": "val_00211",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1499,
+          "game_id": "val_00249",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 132,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1425,
+          "game_id": "val_00237",
+          "occupied": 10,
+          "n_legal": 10,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1090,
+          "game_id": "val_00181",
+          "occupied": 10,
+          "n_legal": 10,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1499,
+          "game_id": "val_00249",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 83,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1089,
+          "game_id": "val_00181",
+          "occupied": 9,
+          "n_legal": 4,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1811,
+          "game_id": "val_00301",
+          "occupied": 9,
+          "n_legal": 4,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1508,
+          "game_id": "val_00251",
+          "occupied": 9,
+          "n_legal": 5,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 1,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 138,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 650,
+          "game_id": "val_00108",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1499,
+          "game_id": "val_00249",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 659,
+          "game_id": "val_00109",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 169,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 700,
+          "game_id": "val_00116",
+          "occupied": 12,
+          "n_legal": 9,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 2282,
+          "game_id": "val_00380",
+          "occupied": 12,
+          "n_legal": 9,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 301,
+          "game_id": "val_00050",
+          "occupied": 12,
+          "n_legal": 9,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 175,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 672,
+          "game_id": "val_00112",
+          "occupied": 14,
+          "n_legal": 11,
+          "prefix_len": 10,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1552,
+          "game_id": "val_00258",
+          "occupied": 14,
+          "n_legal": 11,
+          "prefix_len": 10,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 409,
+          "game_id": "val_00068",
+          "occupied": 14,
+          "n_legal": 11,
+          "prefix_len": 10,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 93,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1585,
+          "game_id": "val_00264",
+          "occupied": 9,
+          "n_legal": 5,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1063,
+          "game_id": "val_00177",
+          "occupied": 9,
+          "n_legal": 5,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 616,
+          "game_id": "val_00102",
+          "occupied": 9,
+          "n_legal": 5,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 137,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 1232,
+          "game_id": "val_00205",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1386,
+          "game_id": "val_00231",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 659,
+          "game_id": "val_00109",
+          "occupied": 10,
+          "n_legal": 9,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 136,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 2178,
+          "game_id": "val_00363",
+          "occupied": 10,
+          "n_legal": 6,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1171,
+          "game_id": "val_00195",
+          "occupied": 10,
+          "n_legal": 6,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1647,
+          "game_id": "val_00274",
+          "occupied": 10,
+          "n_legal": 6,
+          "prefix_len": 6,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 102,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 244,
+          "game_id": "val_00040",
+          "occupied": 9,
+          "n_legal": 8,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1462,
+          "game_id": "val_00243",
+          "occupied": 9,
+          "n_legal": 8,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 528,
+          "game_id": "val_00088",
+          "occupied": 9,
+          "n_legal": 8,
+          "prefix_len": 5,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 173,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 785,
+          "game_id": "val_00130",
+          "occupied": 12,
+          "n_legal": 8,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 230,
+          "game_id": "val_00038",
+          "occupied": 12,
+          "n_legal": 8,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 2067,
+          "game_id": "val_00344",
+          "occupied": 12,
+          "n_legal": 8,
+          "prefix_len": 8,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    },
+    {
+      "n_candidates": 122,
+      "n_selected": 3,
+      "ok": 1,
+      "donors": [
+        {
+          "index": 680,
+          "game_id": "val_00113",
+          "occupied": 11,
+          "n_legal": 5,
+          "prefix_len": 7,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1005,
+          "game_id": "val_00167",
+          "occupied": 11,
+          "n_legal": 5,
+          "prefix_len": 7,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        },
+        {
+          "index": 1512,
+          "game_id": "val_00252",
+          "occupied": 11,
+          "n_legal": 5,
+          "prefix_len": 7,
+          "occ_diff_vs_correct": 0,
+          "legal_size_diff_vs_correct": 0,
+          "prefix_diff_vs_correct": 0
+        }
+      ]
+    }
+  ],
+  "census": {
+    "n_candidate_A": 191842,
+    "n_candidate_B": 1228,
+    "n_unique_recip_A": 368,
+    "n_unique_target_A": 368,
+    "n_unique_recip_B": 148,
+    "n_unique_target_B": 148,
+    "rejections": {
+      "holdout": 0,
+      "fiber_excluded": 192,
+      "same_game": 228,
+      "player_or_legal": 0,
+      "hamming_1_or_0": 0,
+      "empty_became_or_left": 126,
+      "cross_bucket": 0
+    },
+    "selected_n_a": 32,
+    "selected_n_b": 16,
+    "feasible_32_16": 1,
+    "n_wrong_ok": 48,
+    "n_wrong_fail": 0,
+    "pair_manifest_sha256": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3"
+  }
+}

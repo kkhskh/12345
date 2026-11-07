@@ -1,0 +1,8 @@
+08R2-VISIBLE-NULL-FACTORIAL
+  verdict=TARGET_SPECIFIC_VISIBLE_NULL_INTERACTION_NOT_SUPPORTED valid=32/32
+  gate={'reconstruction_ok': 1, 'split_ok': 1, 'integrity_ok': 1, 'projection_ok': 1, 'l2_ok': 1, 'coverage_ok': 1, 'interaction_ok': 0, 'control_reproduces': 0}
+  I_T={'n': 32, 'point': 0.0008076023895302598, 'median': 7.385898072698183e-06, 'boot_mean': 0.0008008116466099327, 'ci95_low': -0.000940300476329714, 'ci95_high': 0.0030170128325769344, 'win_frac': 0.53125, 'n_boot': 5000}
+  I_W={'n': 32, 'point': 0.0009723259609861756, 'median': 0.0001791849664982692, 'boot_mean': 0.0009603149428004333, 'ci95_low': -8.623079802076993e-05, 'ci95_high': 0.0022080467274865232, 'win_frac': 0.59375, 'n_boot': 5000}
+  SYMMETRIC_TARGET_SWITCHING_NOT_SUPPORTED preserved
+08R2-VISIBLE-NULL-FACTORIAL STAGE 6
+  ok=1 match=128 mismatch=0 saved512=128

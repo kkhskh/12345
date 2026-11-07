@@ -1,0 +1,11 @@
+quantity,value,evidence
+FULL − Editor A,0.053713,Recomputed (NST arrays)
+FULL − Editor A (SEM console),0.053713,Archival
+FULL − STAGE_ONLY via LEGAL_ONLY,0.023613,Archival sum
+FULL − STAGE_ONLY via BOARD_ONLY,0.023613,Archival sum
+STAGE_ONLY − Editor A,0.030099,Derived
+Stage share,0.560375,Derived
+"Stage share, category A",0.584749,Archival
+"Stage share, category B",0.526107,Archival
+"Stage share, exact board",0.567648,Archival
+"Stage share, nonexact board",0.549929,Archival

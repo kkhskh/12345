@@ -1,0 +1,19 @@
+id,claim,classification,assumptions,proof_status,counterexample,level_A,level_B,source
+NFL,"Same (P,rho,M,W,s) is compatible with any linear readout value and either response sign",MATHEMATICAL THEOREM,"Finite dimensional cochain; readout unrestricted",proved in 02,CE-01,pass,pass negative,phase15
+Z,"Exact commutation implies ds=0 on natural traces and on one-site interventions followed by recomputation",MATHEMATICAL THEOREM,"P_v f = rho P_u as maps; child recomputed by f",proved in 03,CE-05; CE-19,pass,pass negative,phase15
+APP,"Minimized natural residual is zero iff the child stalk is a linear function of the parent stalk on the sample",MATHEMATICAL THEOREM,"Linear rho; least squares on natural pairs",proved in 03,CE-06,pass,pass negative,phase15
+LIP,"|L(s)-L(Pi s)| <= K sqrt(D(s))",MATHEMATICAL THEOREM,"L Lipschitz with constant K in the M metric; M positive definite",proved in 05 Family B,CE-15 shows the bound has no sign,pass,fail as a bridge,phase15
+IDLE,"If L=q(Pi s) then the move s to Pi s has Delta L = 0 and D can vary at fixed L",MATHEMATICAL THEOREM,"Pi is the M-orthogonal projection onto ker d",proved in 05 Family C,factorization test,pass,fail as a positive bridge,phase15
+SIGN,"D(g+r)=D(g-r) while a linear readout can flip",MATHEMATICAL THEOREM,"r M-orthogonal to ker d; L linear",proved in 09,squared-distance test,pass,pass negative,phase15
+DESCENT,"Directional derivative of L along -grad D equals -grad L · grad D",MATHEMATICAL THEOREM,"D and L differentiable",proved in 09,CE-17,pass,fail distinctiveness,phase15
+P2,"Printed pointwise-Jacobian stability formula",COUNTEREXAMPLE,"J at the base point; radius r; tau O nonnegative",withdrawn; L(t)=1-2t^2 flips inside the printed budget,test_pointwise_jacobian_does_not_bound_a_finite_step,fail,fail,Update PDF Proposition 2
+P2b,"If the finite increment is bounded by S and |L|>S then the sign is stable; tau O is slack",CONDITIONAL THEOREM,"A genuine increment bound, not the pointwise Jacobian",proved by the triangle inequality in 05 Family F,none against the corrected statement,pass,fail as a COR mechanism,phase15 correction
+MVP1,"lambda_min+ D <= O <= lambda_max D",MATHEMATICAL THEOREM,"W positive definite; M positive definite; finite dimension",proved in theory_mvp_theorem_set.md,none,pass,not a decision theorem,original COR / MVP
+MVP-COH,"[ds]=0 in H^1 for a globally defined 0-cochain",MATHEMATICAL THEOREM,"s defined on all vertices",proved in theory_mvp_theorem_set.md,none,pass,not a decision theorem,original COR / MVP
+REPAIR,"Minimizer of O - beta m + quadratic cost is -A^{-1}(grad O - beta grad m) when A positive definite",MATHEMATICAL THEOREM,"Local quadratic O; local linear m; A positive definite",proved in theory_mvp_theorem_set.md,CE-16 if read as a cause,pass,fail; beta m is the causal term,Update Proposition 1
+ENERGY,"If L=-alpha D+B with B fixed and alpha>0 then decreasing D increases L",CONDITIONAL THEOREM,"The displayed formula for L",proved by substitution in 05 Family D,CE-16,pass,fail; assumption is the claim,phase15 proposal rejected
+A-BRIDGE,"Commutation implies the stalk is used by the decision",UNSUPPORTED CLAIM,"none beyond commutation",refuted,CE-13,fail,fail,family A
+C-AS-CAUSE,"Factorization through ker d makes lower D improve L",UNSUPPORTED CLAIM,"L=q(Pi s)",refuted by Theorem IDLE,factorization test,fail,fail,family C
+D-IMPL,"The forward pass implements descent on D",UNSUPPORTED CLAIM,"none in the sources",not proved,CE-16,not evaluable,fail,family D
+H-CIRC,"An interaction computed from F(do(a,b)) predicts F(do(a,b))",UNSUPPORTED CLAIM,"I contains the target term",circular,file 05 Family H,fail,fail,family H
+PDF-P3,"Multiple compatibility structures may induce similar predictions",STRUCTURAL ASSUMPTION,"the word may",statement only; no proof in repo,CE-07; CE-10 illustrate it,not a uniqueness theorem,fail as identification,Update Proposition 3

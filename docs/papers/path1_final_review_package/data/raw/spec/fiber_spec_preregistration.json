@@ -1,0 +1,21 @@
+{
+  "n_boot": 2000,
+  "n_a": 32,
+  "n_b": 16,
+  "boot_seed": 82,
+  "pair_seed": 2182,
+  "wrong_seed": 2282,
+  "random_seeds": [
+    3182,
+    3282,
+    3382
+  ],
+  "n_wrong": 3,
+  "n_random": 3,
+  "expected_pair_manifest_sha256": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3",
+  "editor_budget": 16.0,
+  "primary_rank_tol": 1e-08,
+  "l2_rtol": 1e-06,
+  "probe_proba_atol_f32": 1e-05,
+  "behavior_floor": 0.05
+}

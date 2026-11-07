@@ -1,0 +1,13 @@
+command: extract path1_final_review_package.zip into an empty directory, then run the four commands below
+cwd: /tmp/path1_extract_KWvw/path1_final_review_package
+python: /Users/shkh/opt/anaconda3/bin/python 3.9.13
+env: MPLBACKEND=Agg; PYTHONPATH unset
+src package: not importable (ModuleNotFoundError)
+
+scripts/verify_paper_claims.py                         exit 0    878 passed, 0 failed
+scripts/reproduce_figures.py                           exit 0    wrote 5 figures
+python -m pytest tests/test_paper_reproducibility.py -q exit 0   19 passed, 1 warning in 31.36s
+verification/independent_harness.py                    exit 0    46 of 46 comparisons agree
+
+stdout for each command is in the matching clean_extraction_*.txt file.
+The log files were copied back into the package after this run, then the ZIP was rebuilt.

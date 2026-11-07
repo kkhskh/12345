@@ -1,0 +1,17 @@
+{
+  "ok": 1,
+  "n_rescored": 336,
+  "n_match": 336,
+  "n_mismatch": 0,
+  "n_legal_mismatch": 0,
+  "n_missing_logits": 0,
+  "n_skipped_missing_saved_y": 48,
+  "n_pairs_last_prefix_would_be_wrong": 47,
+  "pair_manifest_sha256": "2789accfc4b0908168509f7a998f9e95ddb8a4f36f7a661aa1b9d5e4a11143d3",
+  "max_abs_Y": 0.0,
+  "softmax_backend": "softmax_np",
+  "secondary_js_runs_present": 0,
+  "secondary_js_runs_note": "JS=0.005 and JS=0.02 were not in the uploaded primary archive",
+  "fixed_js_dir": "/content/drive/MyDrive/ml_research_artifacts/toy_othello/results/08r2/fiber_cost_fixed_js",
+  "y_recon_atol": 1e-06
+}

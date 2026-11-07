@@ -1,0 +1,494 @@
+sid,section,sentence,numbers,ledger_rows,all_numbers_covered,flags
+s001,Abstract,"Linear probes recover Othello-GPT's board with high accuracy, and editing along probe directions changes the model's legal-move predictions.",,,1,causal scope
+s002,Abstract,Neither fact shows that a frozen probe captures every residual-stream distinction the network uses.,,,1,causal
+s003,Abstract,"We study one 8-layer Othello-GPT, one frozen 64-square linear board probe, and residual edits at `blocks.6.hook_resid_mid` that lie in the kernel of the probe's class-logit contrasts.",8 64,gen06 set02,1,scope
+s004,Abstract,"Each edit starts from the Editor A reference activation, which is the natural recipient activation after a full-space board editor, with its manifold penalty off, has been applied.",,,1,
+s005,Abstract,Kernel steps of similar length barely move the output at a natural donor activation.,,,1,causal
+s006,Abstract,The edit leaves the probe's 64×3 probability tensor at that reference unchanged to within \(2.2\times10^{-14}\).,64 3 2.2\times10^{-14},gen01 gen02 gen08,1,
+s007,Abstract,"On 48 recipient–target pairs, kernel directions taken from the intended target's natural activation raised a legal-mass response score more than wrong-target and random kernel directions.",48,abs01,1,
+s008,Abstract,This held at matched residual L2 and again when every direction was scaled to the same output Jensen–Shannon divergence (0.01) from the Editor A reference.,0.01,abs02,1,
+s009,Abstract,"At matched divergence the advantage over wrong targets was small (\(+0.0266\), 95% interval \([0.0179, 0.0357]\)).",0.0266 95% 0.0179 0.0357,fjs14 fjs15 fjs16 gen05,1,
+s010,Abstract,"A 64-component ridge map from symbolic board features, trained only on training games, produced an advantage on 48 new pairs without using the target's activation at evaluation (\(+0.0201\) versus wrong targets).",64 48 0.0201,abs03 gen03 nst05,1,priority
+s011,Abstract,Mean scores nevertheless stayed negative: the learned edit left more probability on moves that should have become illegal than on moves that should have become legal in 47 of 48 pairs.,47 48,abs04 abs05 nst23 nst24,1,causal negative
+s012,Abstract,About 56% of the map's mean gain over Editor A was already obtained by a map that sees only player and occupancy.,56%,abs06,1,
+s013,Abstract,"On a fresh cohort, both target-switching contrasts were positive on average, but both were positive together in only 13 of 32 triplets, below a preregistered 60% gate.",13 32 60%,gen09 gen10 gen11,1,negative
+s014,Abstract,Those two cohorts are the only fresh samples.,,,1,
+s015,Abstract,The positive results reuse validation pairs.,,,1,
+s016,Abstract,A factorial test of visible–kernel interaction gave estimates near zero.,,,1,
+s017,Abstract,"The evidence supports a narrow conclusion: this frozen probe does not exhaust the residual information that affects legal-move outputs, part of the remainder is predictable from symbolic state, and the recovered map is not a transferable board state.",,,1,causal negative
+s018,Abstract,"The matched-L2, matched-divergence, and donor-free results are recomputed from saved arrays in the accompanying package.",,,1,
+s019,Abstract,"The ablation, switching, and factorial results are archival values whose arrays were not available for recomputation.",,,1,negative
+s020,Introduction,A linear probe that reads the board from Othello-GPT is easy to treat as a description of what the model knows.,,,1,scope
+s021,Introduction,"Li et al. (2023) trained a GPT-style network on legal Othello move sequences, showed that nonlinear probes recover the board, and showed that editing the probed representation changes which moves the network treats as legal.",2023,REFERENCE_YEAR,1,causal
+s022,Introduction,"Nanda, Lee, and Wattenberg (2023) then showed that a player-relative linear probe is enough to read the board, and that adding probe directions is enough to steer play.",2023,REFERENCE_YEAR,1,
+s023,Introduction,Those results give a causal role to a decoded board.,,,1,causal
+s024,Introduction,They do not show that one frozen probe is a complete causal summary of the residual stream.,,,1,causal negative
+s025,Introduction,Probing and intervention answer different questions.,,,1,
+s026,Introduction,A probe asks whether a feature is linearly readable.,,,1,
+s027,Introduction,An intervention asks whether a specified change to an activation changes the frozen network's output.,,,1,causal
+s028,Introduction,Elazar et al. (2021) made the gap explicit by removing linearly readable information and measuring behavior; high probe accuracy did not imply that the probed feature was what the model used.,2021,REFERENCE_YEAR,1,causal negative
+s029,Introduction,"The complementary experiment adds information that the probe cannot see, holds the probe's readout fixed, and asks whether behavior still moves.",,,1,causal
+s030,Introduction,"We run that experiment on the Nanda redistribution of Othello-GPT, an 8-layer Transformer with residual width 512.",8 512,gen06 set01,1,scope
+s031,Introduction,We freeze a 64-square multinomial linear probe at the last real token of `blocks.6.hook_resid_mid`.,64,set02,1,
+s032,Introduction,The probe's independent class-logit contrasts define a rowspace and a complementary nullspace.,,,1,
+s033,Introduction,"Adding a nullspace vector to an activation leaves every square's probe probabilities at that activation unchanged, up to floating-point error.",,,1,
+s034,Introduction,We call such an edit probe-preserving relative to this probe.,,,1,scope
+s035,Introduction,"The phrase does not mean that no decoder could read the change, and it does not mean that the model has a second hidden board.",,,1,causal negative
+s036,Introduction,"Every edit in this paper is applied to a specific reference activation, and the choice matters.",,,1,
+s037,Introduction,For a recipient position we write \(h_R\) for its natural activation.,,,1,
+s038,Introduction,"Editor A, a full-space residual editor from earlier work on this model, moves \(h_R\) toward the intended target board as read by the probe; we call its output \(h_E\) the Editor A reference activation.",,,1,causal scope
+s039,Introduction,Its manifold penalty was off.,,,1,
+s040,Introduction,A natural activation from a position that actually has the target board is \(h_D\).,,,1,
+s041,Introduction,"The final patched activation is \(h_E + t\,\delta\) with \(\delta\) in the probe nullspace.",,,1,
+s042,Introduction,"Probe preservation and the output-divergence calibration are both measured against \(h_E\), not against \(h_R\).",,,1,negative
+s043,Introduction,The experiments therefore ask a specific question.,,,1,
+s044,Introduction,Start from an activation whose probe readout has already been pushed toward the target board.,,,1,
+s045,Introduction,"Can directions that this probe cannot see shift legal-move probability further toward the target, and do they do so more for the intended target than for other boards?",,,1,causal scope
+s046,Introduction,The output measure is a difference of probability masses.,,,1,
+s047,Introduction,"For a recipient position with legal set \(L_r\) and an intended target with legal set \(L_t\), \(G\) is the model's probability on moves that became legal, \(Q\) is its probability on moves that became illegal, and \(Y=G-Q\).",,,1,causal
+s048,Introduction,A higher \(Y\) means probability moved toward the target's legal set and away from the recipient's.,,,1,causal
+s049,Introduction,"It is not move accuracy, and a higher \(Y\) is not a claim that the model now plays the target board.",,,1,causal negative
+s050,Introduction,We ask three questions.,,,1,
+s051,Introduction,"First, do nullspace directions taken from the target's natural activation change \(Y\) more than wrong-target and random nullspace directions?",,,1,causal priority
+s052,Introduction,"We answer under two different strength controls, matched residual L2 and matched output Jensen–Shannon (JS) divergence.",,,1,
+s053,Introduction,"Second, can a map that sees only symbolic features of the target produce a comparable nullspace direction without the target's activation at evaluation?",,,1,
+s054,Introduction,"Those features are player-relative occupancy, the legal-move mask, the player to move, and the game stage.",,,1,causal
+s055,Introduction,"Third, how far does that map go?",,,1,
+s056,Introduction,We report how much of its gain is already present in a stage-only map.,,,1,
+s057,Introduction,"We also report two tests that a transferable board state would be expected to pass and that this map failed: reliable switching between two targets on the same recipient, and an interaction between independently set visible and nullspace components.",,,1,negative
+s058,Introduction,The contribution is empirical and narrow.,,,1,
+s059,Introduction,We do not propose a theory of Transformer decisions.,,,1,negative
+s060,Introduction,"We do not claim that every board probe would miss this information, or that the 64-component map recovered the model's decision state.",64,gen03,1,negative
+s061,Introduction,The experiments support three statements about this probe and this model.,,,1,scope
+s062,Introduction,Directions that the probe cannot distinguish still carry some target-aligned influence on legal-move predictions.,,,1,causal
+s063,Introduction,Part of that influence can be predicted from symbolic state without a target activation at evaluation.,,,1,causal
+s064,Introduction,The resulting edit is far from complete state transfer.,,,1,
+s065,Related work,"Probing treats a decoder's success as evidence that a representation contains a variable, and the methodological literature has long warned that readout is not use.",,,1,causal negative
+s066,Related work,Hewitt and Liang (2019) introduced control tasks that a probe can solve without tracking linguistic structure.,2019,REFERENCE_YEAR,1,
+s067,Related work,Belinkov (2022) surveyed the gap between encoding and causal role.,2022,REFERENCE_YEAR,1,causal
+s068,Related work,"Elazar et al. (2021) used iterative nullspace projection (Ravfogel et al., 2020) to remove a property and then asked whether behavior changed.",2021 2020,REFERENCE_YEAR,1,causal
+s069,Related work,Belrose et al. (2023) gave a closed-form linear erasure method with a guarantee against all linear classifiers.,2023,REFERENCE_YEAR,1,
+s070,Related work,"Ravfogel, Prasad, Linzen, and Goldberg (2021) used the same rowspace–nullspace split to build counterfactuals: their AlterRep method changes the rowspace component of a probe-identified feature, keeps the nullspace component, and measures the change in word predictions.",2021,REFERENCE_YEAR,1,causal
+s071,Related work,Those papers remove or alter what a probe reads.,,,1,
+s072,Related work,Our edits do the reverse: they keep what the probe reads and change the rest.,,,1,causal
+s073,Related work,The papers above do not ask whether the orthogonal complement of a particular frozen probe still carries target-specific causal influence.,,,1,causal negative
+s074,Related work,Othello-GPT is the setting in which world-model claims have been examined most carefully.,,,1,scope
+s075,Related work,"Li et al. (2023) argued that a network trained only on move tokens maintains an internal board, using nonlinear probes and interventional edits.",2023,REFERENCE_YEAR,1,causal
+s076,Related work,Nanda et al. (2023) showed that a player-relative linear basis makes the board linearly readable and steerable by vector addition.,2023,REFERENCE_YEAR,1,
+s077,Related work,"Hazineh, Zhang, and Chiu (2023) intervened along linear board representations layer by layer and found causal use concentrated in the middle layers.",2023,REFERENCE_YEAR,1,causal
+s078,Related work,Those interventions move the model along the probe.,,,1,causal
+s079,Related work,Moving along the probe cannot tell us whether the probe is a sufficient statistic for legal-move behavior; that question requires moving within its kernel.,,,1,causal
+s080,Related work,Two later Othello studies make the readout-versus-use distinction in other designs.,,,1,causal
+s081,Related work,Jacopin (2026) reproduced the linear player-relative board in a masked-diffusion language model trained on the same data.,2026,REFERENCE_YEAR,1,
+s082,Related work,"The representation transferred but was weaker, and a Li/Nanda-style board intervention had only a small, inconsistent effect relative to an autoregressive control.",,,1,causal
+s083,Related work,That study asks whether a readable world model is used under a different training objective.,,,1,causal
+s084,Related work,It does not freeze a probe and edit in that probe's kernel.,,,1,negative
+s085,Related work,"Lin, JackS, Karvonen, and Can (2024), in a research note that has not been peer reviewed, report that Othello-GPT appears to compute legality through many localized heuristics, including neurons that respond to game stage.",2024,REFERENCE_YEAR,1,hedge scope negative
+s086,Related work,"That account is compatible with our finding that a stage-only map carries much of the mean gain, but it is not a nullspace test of a frozen probe.",,,1,negative
+s087,Related work,"Activation steering in language models adds residual directions derived from contrastive prompts or trained readers (Turner et al., 2023; Zou et al., 2023; Rimsky et al., 2024), usually with a strength coefficient.",2023 2023 2024,REFERENCE_YEAR,1,
+s088,Related work,"We instead match the output divergence of several directions, including wrong-target directions, so that a direction cannot look better merely by disrupting the next-move distribution more.",,,1,causal
+s089,Related work,"That is a matching condition, not a new steering algorithm.",,,1,priority negative
+s090,Related work,"Makelov, Lange, Geiger, and Nanda (2024) show that a subspace intervention can activate pathways that are dormant on natural inputs, which is the relevant caution for edits at \(h_E\).",2024,REFERENCE_YEAR,1,
+s091,Related work,"Causal abstraction and distributed alignment search (Geiger et al., 2024, 2025) ask whether a high-level causal variable aligns with a distributed subspace under interchange interventions.",2024 2025,REFERENCE_YEAR,1,causal
+s092,Related work,We do not fit such an alignment and make no faithfulness claim.,,,1,negative
+s093,Related work,Our estimand is the change in \(Y\) under an explicitly constructed residual edit.,,,1,causal
+s094,Related work,"It is a causal effect of that intervention, not evidence that we found the variable the network uses.",,,1,causal negative
+s095,Related work,"The closest prior statement is that linear board features in Othello-GPT are readable and steerable, while probes in general are not causal summaries.",,,1,causal scope negative
+s096,Related work,"The design here differs from AlterRep in direction: AlterRep changes the rowspace and keeps the nullspace, and these experiments keep the probe readout and change the nullspace, with wrong-target and random controls and with the completeness tests reported whether they pass or fail.",,,1,causal negative
+s097,Related work,That description is not a claim that no earlier paper did something similar.,,,1,negative
+s098,"Model, site, and probe","The model is the TransformerLens conversion of Nanda's 8-layer Othello-GPT (\(d_{\mathrm{model}}=512\), 8 heads, vocabulary 61, context 59) trained on synthetic legal self-play following Li et al. (2023).",8 512 8 61 59 2023,REFERENCE_YEAR gen06 set03 set04 set05 set06,1,scope
+s099,"Model, site, and probe","Token 0 is pass and tokens 1–60 index the 60 playable squares in row-major order, skipping the four center squares.",0 1 60 60,set07,1,
+s100,"Model, site, and probe",The model is never fine-tuned.,,,1,
+s101,"Model, site, and probe","The intervention site is the residual stream at `blocks.6.hook_resid_mid`, last real token.",,,1,
+s102,"Model, site, and probe",That site was fixed before the studies reported here; we did not search over layers.,,,1,negative
+s103,"Model, site, and probe","The probe is a frozen set of 64 square-wise multinomial logistic regressions in the player-relative basis {empty, mine, theirs}, trained on training-split activations.",64,set08,1,
+s104,"Model, site, and probe",For each square we form independent class-logit contrasts against a reference class and stack them into a contrast matrix \(W\in\mathbb{R}^{124\times 512}\).,124 512,set09 set10,1,
+s105,"Model, site, and probe","From the saved singular values, 124 exceed \(10^{-8}\) times the largest, so the rowspace has dimension 124 and the nullspace has dimension 388.",124 10^{-8} 124 388,set11 set12 set13 set14,1,
+s106,"Model, site, and probe","The saved nullspace projector \(P_N\) has trace 388, is idempotent to \(10^{-15}\), and has eigenvalues within \(10^{-14}\) of 0 or 1.",388 10^{-15} 10^{-14} 0 1,set15 set16 set17 set18 set19,1,
+s107,"Model, site, and probe",The projector was built so that \(W P_N=0\).,0,set40,1,
+s108,"Model, site, and probe","The matrix \(W\) is not in this package, so that product is not recomputed here.",,,1,negative
+s109,"Model, site, and probe",What is checked is that the saved probe probabilities do not move.,,,1,causal negative
+s110,"Model, site, and probe","Adding \(P_N\delta\) to an activation leaves every probe logit at that activation unchanged, and hence every probe probability.",,,1,
+s111,"Model, site, and probe",Figure 1 shows the geometry.,,,1,
+s112,"Model, site, and probe","The diagram describes the matched-L2, matched-divergence, and donor-free edits.",,,1,
+s113,"Model, site, and probe",The switching study applies its edit at \(h_R\) instead.,,,1,
+s114,"Model, site, and probe",![Figure 1.,,,1,
+s115,"Model, site, and probe","Activations and the probe geometry for the matched-L2, matched-divergence, and donor-free studies.",,,1,
+s116,"Model, site, and probe",The natural recipient activation \(h_R\) is first moved by Editor A to the Editor A reference activation \(h_E\).,,,1,causal priority
+s117,"Model, site, and probe","Each of those edits adds a nullspace direction \(t\,\delta\) to \(h_E\).",,,1,
+s118,"Model, site, and probe",The switching study instead adds its edit to \(h_R\).,,,1,
+s119,"Model, site, and probe","The frozen probe reads only the rowspace of its contrast matrix, so its readout at \(h_E+t\,\delta\) equals its readout at \(h_E\).",,,1,
+s120,"Model, site, and probe","Both rowspace and nullspace components feed the later layers of the frozen model, which produce the next-move distribution.",,,1,causal
+s121,"Model, site, and probe",The diagram does not claim that rowspace features are causally unused.](../figures/fig1_probe_geometry.png),,,1,causal negative
+s122,Activations and interventions,All studies use the same three activations for a recipient–target pair.,,,1,causal
+s123,Activations and interventions,The natural recipient activation \(h_R\) is the model's activation at the recipient position.,,,1,
+s124,Activations and interventions,The Editor A reference activation \(h_E\) is the output of Editor A applied to \(h_R\) with the target's player-relative board as its objective.,,,1,
+s125,Activations and interventions,"Editor A is a full-space residual editor with L2 budget 16, 40 gradient steps, learning rate 0.4, and norm penalty 0.01; its own preregistered validation was negative.",16 40 0.4 0.01,set20,1,negative
+s126,Activations and interventions,The natural donor activation \(h_D\) is the model's activation at the target position itself.,,,1,
+s127,Activations and interventions,The correct-target nullspace direction is \(\delta_{\mathrm{correct}}=P_N(h_D-h_E)\).,,,1,
+s128,Activations and interventions,"A wrong-target direction is \(P_N(h_W-h_E)\) for a wrong-target donor \(h_W\) with the same player and similar occupancy, legal-set size, and prefix length.",,,1,
+s129,Activations and interventions,A random direction is \(P_N\) applied to a seeded Gaussian vector.,,,1,
+s130,Activations and interventions,"The final patched activation is \(h_E+t\,\delta\).",,,1,
+s131,Activations and interventions,"The probe's readout at \(h_E+t\,\delta\) equals its readout at \(h_E\).",,,1,
+s132,Activations and interventions,"It does not equal the readout at \(h_R\): in the matched-divergence study the probe tensors at \(h_E+t\,\delta\) and \(h_R\) differ by at least 0.93 in some entry for every intervention, because Editor A has already changed the decoded board.",0.93,set21,1,causal negative
+s133,Activations and interventions,Two strength controls are used.,,,1,causal
+s134,Activations and interventions,"In the matched-L2 study (SPEC), wrong and random directions are rescaled to the L2 norm of \(\delta_{\mathrm{correct}}\) and applied with \(t=1\).",1,set22,1,
+s135,Activations and interventions,"In the matched-divergence study, each direction is scaled independently so that \(\mathrm{JS}(F(h_E),F(h_E+t\,\delta))=0.01\pm0.0002\), where \(F\) maps an activation at the site to the model's next-move distribution.",0.01,set23,1,causal
+s136,Activations and interventions,The search uses a frozen geometric grid from 0.003125 to 8 followed by 16 bisection steps and does not look at \(Y\).,0.003125 8 16,set25,1,causal negative
+s137,Activations and interventions,The reference for this calibration is the Editor A reference activation.,,,1,
+s138,Activations and interventions,"Measured from the natural recipient \(h_R\), the same patched activations have mean JS 0.043.",0.043,set26,1,
+s139,Activations and interventions,The donor-free map (NST) is fitted on training-game activations only.,,,1,
+s140,Activations and interventions,"Nullspace residuals \(z=P_N h\) are modeled as \(\mu+V a\) with \(k=64\) principal components, and a ridge regression (\(\alpha=10\)) predicts the coefficients \(a\) from a 258-dimensional symbolic vector \(b\).",64 10 258,set27 set28 set29,1,
+s141,Activations and interventions,"The vector holds 64×3 player-relative occupancy one-hots, a 64-entry legal-move mask, a player indicator, and occupancy divided by 64.",64 3 64 64,gen01 gen02 set30 set31,1,causal
+s142,Activations and interventions,Grouped cross-validation on training games chose \(k\) and \(\alpha\) by residual \(R^2\) before any held-out response was seen.,,,1,
+s143,Activations and interventions,"The selected \(k\) is the largest value on that grid, and the cross-validated \(R^2\) was still higher there than at the next smaller value.",,,1,
+s144,Activations and interventions,"At evaluation the learned direction is \(\delta_{\mathrm{learned}}=P_N\hat z(b_t)-P_N h_E\), which uses the target's symbolic features and the Editor A reference activation but not \(h_D\).",,,1,causal negative
+s145,Activations and interventions,"The comparison directions are a wrong-target map direction \(P_N\hat z(b_w)-P_N h_E\), a stage-mean direction, a random direction, and the oracle \(P_N(h_D-h_E)\).",,,1,
+s146,Activations and interventions,The oracle was computed only after the learned directions were frozen.,,,1,
+s147,Activations and interventions,Every direction is calibrated to JS 0.01 from \(h_E\) as above.,0.01,gen04,1,
+s148,Response score,"For recipient legal set \(L_r\) and intended-target legal set \(L_t\),",,,1,
+s149,Response score,where \(p\) is the model's softmax over the 61-token vocabulary and \(s\) ranges over move tokens.,61,set32,1,causal
+s150,Response score,Legal sets come from an Othello simulator.,,,1,
+s151,Response score,Every contrast compares two interventions on the same pair and scores both on the intended target's legal-set difference.,,,1,
+s152,Response score,"A wrong-target intervention is therefore scored on the intended target's sets, not on the wrong board's own sets.",,,1,negative
+s153,Response score,"JS divergence uses natural logarithms after adding \(10^{-12}\) to each probability and renormalizing; as in the original code, each Kullback–Leibler term applies the same smoothing to its two arguments again, which changes JS by less than \(10^{-9}\).",10^{-12} 10^{-9},set33 set41,1,causal
+s154,Response score,Total variation (TV) distance is half the L1 distance between two next-move distributions.,,,1,causal
+s155,Pairs and triplets,"Pairs require the same player to move, nonempty became-legal and became-illegal sets, matched occupancy, and disjoint recipient and target games.",,,1,causal
+s156,Pairs and triplets,Category A pairs have board Hamming distance greater than 8 and category B pairs have distance from 2 to 8.,8 2 8,set34 set35,1,
+s157,Pairs and triplets,"The short names below are FIBER for the kernel diagnostic, SPEC for the matched-L2 study, NST for the donor-free map, SEM for the feature ablation, FRESH for target switching, and VNF for the factorial test.",,,1,negative
+s158,Pairs and triplets,SEM is not a standard error.,,,1,negative
+s159,Pairs and triplets,SPEC froze 32 A and 16 B pairs from unused validation games (pair-manifest SHA-256 `2789accf…1143d3`).,32 16 256,gen07 set36 set37,1,
+s160,Pairs and triplets,"The matched-divergence study reuses exactly those 48 pairs, so it is a follow-up on the same sample, not a new one.",48,set38,1,priority negative
+s161,Pairs and triplets,NST froze 48 different validation pairs (hash `39abdc79…5092e6`) after excluding every game used by earlier studies.,48,set39,1,causal
+s162,Pairs and triplets,A symmetric-target design on the remaining validation games was infeasible because no category-B triplets existed.,,,1,negative
+s163,Pairs and triplets,The switching study (FRESH) and the factorial study (VNF) therefore each generated a new 400-game simulator cohort (seeds 9182 and 10182) and selected 16 A and 16 B triplets with 96 distinct game roles.,400 9182 10182 16 16 96,set40,1,priority
+s164,Pairs and triplets,The sealed confirmation split was never opened.,,,1,
+s165,Statistics,The statistical unit is the pair or triplet.,,,1,
+s166,Statistics,"The matched-divergence study contains 336 calibrated interventions, seven per pair, but the three wrong-target and three random responses are averaged within each pair before any interval is computed, so its sample size is 48.",336 48,set41 set42,1,
+s167,Statistics,"Intervals are 95% percentile bootstrap intervals clustered on recipient game, with 2000 replicates from seed 82 for SPEC, the matched-divergence study, and NST.",95% 2000 82,gen05 set43 set44,1,
+s168,Statistics,"FRESH, VNF, and the feature-ablation study used 5000 replicates.",5000,set45,1,causal
+s169,Statistics,"In SPEC and NST each recipient game appears in exactly one pair, so clustering on recipient game amounts to resampling pairs.",,,1,hedge
+s170,Statistics,Target games are not clustered.,,,1,negative
+s171,Statistics,"In SPEC, 31 of the 48 pairs share a wrong-donor game with another pair, and the largest linked group has 7 pairs.",31 48 7,dep01 dep02 dep03,1,
+s172,Statistics,The bootstrap does not model that dependence.,,,1,negative
+s173,Statistics,"The SPEC, NST, FRESH, and VNF floors were written into preregistrations before those studies' outcomes.",,,1,
+s174,Statistics,"The fixed-divergence floor of 0.02 was not: the first frozen matched-divergence protocol matched the wrong and random directions to the correct direction's own divergence from \(h_E\) and required a mean contrast of at least 0.05, and the fixed-0.01 protocol was committed after that run had been recorded as inconclusive.",0.02 0.05 0.01,apA14 proto_cost proto_fix proto_js02,1,priority negative
+s175,Statistics,Subgroup intervals are descriptive.,,,1,
+s176,Statistics,No multiplicity adjustment is applied.,,,1,negative
+s177,Statistics,"We report means, intervals, and win counts on the \(Y\) scale and do not call an effect large because its interval excludes zero.",,,1,causal strength negative
+s178,Evidence levels,Each number in this paper has one of three evidence levels.,,,1,
+s179,Evidence levels,"Recomputed values were derived again for this paper from saved arrays: logits, probe probabilities, directions, the fitted map, and legal sets.",,,1,
+s180,Evidence levels,Every recomputed bootstrap interval matches the original run to within \(3\times10^{-8}\).,3\times10^{-8},set46,1,
+s181,Evidence levels,"That is agreement at the original seeds, not a bound on Monte Carlo error.",,,1,negative
+s182,Evidence levels,A different seed can move the fourth digit of a 2000-replicate interval.,2000,set43b,1,causal
+s183,Evidence levels,"Recorded values, such as the map's reconstruction \(R^2\), are read from files written by the original runs and cannot be recomputed without the model checkpoint.",,,1,
+s184,Evidence levels,Archival values come from verbatim console output of the original runs because the underlying arrays were not found.,,,1,negative
+s185,Evidence levels,"These are the feature-ablation, switching, and factorial results.",,,1,
+s186,Evidence levels,Table 1 lists the evidence level of each headline result.,,,1,
+s187,Evidence levels,Table: Table 1.,,,1,
+s188,Evidence levels,Headline contrasts and their evidence level.,,,1,
+s189,Evidence levels,Means are on the Y scale.,,,1,
+s190,Evidence levels,Intervals are 95% percentile bootstrap intervals clustered on recipient game.,95%,gen05,1,
+s191,Evidence levels,Recomputed values were derived again from saved arrays; archival values are verbatim console output from the original runs.,,,1,
+s192,Nullspace edits move the output while the probe readout stays fixed,The first diagnostic (FIBER) asked whether the probe's nullspace is nonempty and whether edits inside it can change next-move probabilities.,,,1,causal priority
+s193,Nullspace edits move the output while the probe readout stays fixed,The nullspace has dimension 388 of 512.,388 512,fib01 fib02,1,
+s194,Nullspace edits move the output while the probe readout stays fixed,That number describes this contrast matrix; it does not mean that 388 dimensions are free of board information under every decoder.,388,fib03,1,negative
+s195,Nullspace edits move the output while the probe readout stays fixed,"On 32 matched validation pairs, adding \(P_N(h_D-h_E)\) to the Editor A reference activation left the probe tensor unchanged to within \(7.7\times10^{-15}\).",32 7.7\times10^{-15},fib04 fib05,1,
+s196,Nullspace edits move the output while the probe readout stays fixed,"It nevertheless moved the next-move distribution by mean JS 0.380, and by at least 0.185 on every pair.",0.380 0.185,fib06 fib07,1,causal
+s197,Nullspace edits move the output while the probe readout stays fixed,"All 32 pairs therefore met the diagnostic's criterion of an unchanged probe readout with a non-negligible output change, and the study's letter is `PROBE_LOGIT_INSUFFICIENCY_SUPPORTED`.",32,fib08,1,causal
+s198,Nullspace edits move the output while the probe readout stays fixed,"The 24 category-A pairs in this diagnostic share only two target games, and one target game is used in 25 of the 32 pairs.",24 25 32,fib09 fib25 fib26,1,causal
+s199,Nullspace edits move the output while the probe readout stays fixed,The same archive records what happens when the kernel step is added to a natural activation rather than to \(h_E\).,,,1,
+s200,Nullspace edits move the output while the probe readout stays fixed,These rows are scored around the natural donor activation.,,,1,
+s201,Nullspace edits move the output while the probe readout stays fixed,"A donor-kernel step of L2 1 changed \(Y\) by a mean absolute 0.000316, and a same-length random kernel step by 0.000173.",1 0.000316 0.000173,na01 na02 na05,1,causal
+s202,Nullspace edits move the output while the probe readout stays fixed,At L2 4 the donor-kernel mean absolute change was 0.00151 and the mean JS from the donor activation was \(4.76\times10^{-5}\).,4 0.00151 4.76\times10^{-5},na03 na04 na06,1,causal
+s203,Nullspace edits move the output while the probe readout stays fixed,"At \(h_E\), a correct-kernel step of mean L2 5.298 reaches JS 0.01.",5.298 0.01,fjs06 gen04,1,
+s204,Nullspace edits move the output while the probe readout stays fixed,Kernel steps of this size therefore move the output far more at the Editor A reference than at the natural donor.,,,1,causal
+s205,Nullspace edits move the output while the probe readout stays fixed,"The logits for these anchor rows are not in the archive, so the means are averages of the saved per-row scores.",,,1,negative
+s206,Nullspace edits move the output while the probe readout stays fixed,This is not a test at the natural recipient \(h_R\).,,,1,negative
+s207,Nullspace edits move the output while the probe readout stays fixed,"SPEC, the matched-divergence study, and NST still have no kernel edit that starts from \(h_R\).",,,1,negative
+s208,Nullspace edits move the output while the probe readout stays fixed,"On the FIBER pairs themselves, the saved factorial cells separate the probe-visible and kernel parts of \(h_D-h_E\), both added to \(h_E\).",,,1,
+s209,Nullspace edits move the output while the probe readout stays fixed,"Mean \(Y\) was \(-0.689\) at \(h_E\), \(+0.251\) after the probe-visible part, \(+0.404\) after the kernel part, and \(+0.758\) after both.",-0.689 0.251 0.404 0.758,fb01 fb02 fb03 fb04,1,
+s210,Nullspace edits move the output while the probe readout stays fixed,"The interaction, both components together minus the probe-visible cell minus the kernel cell plus the Editor A cell, was \(-0.586\): the two parts both raise \(Y\), and together they do less than the sum of the separate changes.",-0.586,fb05,1,causal
+s211,Nullspace edits move the output while the probe readout stays fixed,These means come from the saved per-cell scores.,,,1,
+s212,Nullspace edits move the output while the probe readout stays fixed,"They are not the VNF interaction, and they do not change VNF's letter.",,,1,causal negative
+s213,Nullspace edits move the output while the probe readout stays fixed,FIBER shows that the kernel is causally active at \(h_E\).,,,1,causal
+s214,Nullspace edits move the output while the probe readout stays fixed,"It does not show that the kernel carries target information rather than generic disruption, which is what the following studies test.",,,1,negative
+s215,Correct-target nullspace directions beat L2-matched controls,"SPEC applied, on 48 unused validation pairs, the correct-target nullspace direction, three wrong-target directions, and three random directions, all rescaled to the same L2 norm (mean 18.33) and added to \(h_E\).",48 18.33,spc01 spc02,1,
+s216,Correct-target nullspace directions beat L2-matched controls,The probe tensor stayed within \(2.2\times10^{-14}\) of its value at \(h_E\).,2.2\times10^{-14},gen08,1,
+s217,Correct-target nullspace directions beat L2-matched controls,"On the same pairs, the probe-visible part of \(h_D-h_E\) had mean \(Y\) \(+0.363\) and the full donor activation \(+0.725\), against \(+0.144\) for the kernel part.",0.363 0.725 0.144,spc12 spc40 spc41 spc42,1,
+s218,Correct-target nullspace directions beat L2-matched controls,The kernel component is not the larger of the two.,,,1,negative
+s219,Correct-target nullspace directions beat L2-matched controls,"The mean correct-minus-wrong contrast was \(+0.3916\) (interval \([0.3175, 0.4758]\), 46 of 48 pairs positive).",0.3916 0.3175 0.4758 46 48,spc03 spc04 spc05 spc06 spc07,1,
+s220,Correct-target nullspace directions beat L2-matched controls,"The correct-minus-random contrast was \(+0.7086\) (\([0.6021, 0.8170]\), 48 of 48).",0.7086 0.6021 0.8170 48 48,spc08 spc09 spc10 spc11,1,
+s221,Correct-target nullspace directions beat L2-matched controls,"Mean \(Y\) was \(+0.144\) under the correct direction, \(-0.248\) under wrong directions, and \(-0.565\) under random directions.",0.144 -0.248 -0.565,spc12 spc13 spc14,1,
+s222,Correct-target nullspace directions beat L2-matched controls,The Editor A reference scored \(-0.639\) and the natural recipient \(-0.707\).,-0.639 -0.707,spc15 spc16,1,
+s223,Correct-target nullspace directions beat L2-matched controls,The letter is `TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED`.,,,1,
+s224,Correct-target nullspace directions beat L2-matched controls,Equal L2 did not equalize how much the edits moved the output.,,,1,causal negative
+s225,Correct-target nullspace directions beat L2-matched controls,"Measured from the Editor A reference, mean JS was 0.279 for correct directions, 0.223 for wrong directions, and 0.038 for random directions.",0.279 0.223 0.038,spc17 spc18 spc19,1,
+s226,Correct-target nullspace directions beat L2-matched controls,"A random nullspace vector of the same length barely moved the output, so the correct-minus-random contrast partly compares an edit that changes behavior with one that hardly does.",,,1,causal
+s227,Correct-target nullspace directions beat L2-matched controls,The matched-divergence study addresses that problem.,,,1,
+s228,Target identity still matters when output divergence is matched,The matched-divergence study scales each of the seven SPEC directions independently so that its output JS from the Editor A reference activation is 0.01.,0.01,fjs01,1,
+s229,Target identity still matters when output divergence is matched,"The first committed protocol for this question matched wrong and random directions to the correct direction's own divergence from \(h_E\), and it required a mean contrast of at least 0.05.",0.05,apA14 proto_cost,1,priority
+s230,Target identity still matters when output divergence is matched,That run was inconclusive because the matching was incomplete.,,,1,
+s231,Target identity still matters when output divergence is matched,"Its letter remains `TARGET_SPECIFIC_AT_EQUAL_JS_INCONCLUSIVE`, and we do not use its numbers.",,,1,causal negative
+s232,Target identity still matters when output divergence is matched,"The fixed-0.01 protocol, including its floor of 0.02, was written after that outcome and on the same 48 pairs.",0.01 0.02 48,proto_fix proto_js02 proto_n,1,
+s233,Target identity still matters when output divergence is matched,The result below is that follow-up.,,,1,negative
+s234,Target identity still matters when output divergence is matched,It meets the later floor.,,,1,
+s235,Target identity still matters when output divergence is matched,"It does not replace the inconclusive letter, and it is not a test of the earlier floor, which applied at a different divergence.",,,1,negative
+s236,Target identity still matters when output divergence is matched,Secondary targets of 0.005 and 0.02 are named in the fixed-0.01 protocol and were not run.,0.005 0.02 0.01,proto_fix sec01 sec02,1,negative
+s237,Target identity still matters when output divergence is matched,"The follow-up calibrated all 336 directions on the same 48 pairs, and every pair completed.",336 48,fjs02 fjs03 proto_n,1,
+s238,Target identity still matters when output divergence is matched,The largest deviation from the JS target was \(1.23\times10^{-6}\).,1.23\times10^{-6},fjs04,1,
+s239,Target identity still matters when output divergence is matched,The largest change in any probe-probability entry relative to the Editor A reference was \(1.19\times10^{-14}\).,1.19\times10^{-14},fjs05,1,causal
+s240,Target identity still matters when output divergence is matched,"Matching divergence forced very different activation steps: mean L2 was 5.298 for correct directions, 6.368 for wrong directions, and 12.265 for random directions.",5.298 6.368 12.265,fjs06 fjs07 fjs08,1,
+s241,Target identity still matters when output divergence is matched,"Figure 2 shows, pair by pair, that the probe readout stayed at roundoff while the output distribution moved by a similar amount in every category.",,,1,causal
+s242,Target identity still matters when output divergence is matched,"Mean TV distance from the Editor A reference was 0.077 for correct, 0.080 for wrong, and 0.080 for random directions.",0.077 0.080 0.080,fjs09 fjs10,1,
+s243,Target identity still matters when output divergence is matched,![Figure 2.,,,1,
+s244,Target identity still matters when output divergence is matched,"Probe readout and output change in the matched-divergence study, relative to the Editor A reference activation.",,,1,causal
+s245,Target identity still matters when output divergence is matched,Each point is one of 48 recipient–target pairs.,48,fjs11,1,
+s246,Target identity still matters when output divergence is matched,"For wrong and random directions, the value for a pair aggregates its three directions: the maximum in panel A and the mean in panel B.",,,1,
+s247,Target identity still matters when output divergence is matched,"(A) Largest absolute change in any of the 64×3 probe probabilities between the patched activation \(h_E+t\,\delta\) and the Editor A reference activation \(h_E\), on a logarithmic axis.",64 3,gen01 gen02,1,causal
+s248,Target identity still matters when output divergence is matched,All values are below \(1.2\times10^{-14}\).,1.2\times10^{-14},fjs12,1,negative
+s249,Target identity still matters when output divergence is matched,"(B) Total variation distance between the next-move distributions at \(h_E+t\,\delta\) and at \(h_E\).",,,1,causal
+s250,Target identity still matters when output divergence is matched,Every direction was scaled so that its Jensen–Shannon divergence from the Editor A reference is 0.01.,0.01,fjs13,1,
+s251,Target identity still matters when output divergence is matched,Horizontal bars are the geometric mean over pairs in panel A and the arithmetic mean in panel B.](../figures/fig2_probe_and_output_by_category.png),,,1,
+s252,Target identity still matters when output divergence is matched,"Under this calibration, the mean correct-minus-wrong contrast was \(+0.0266\) (interval \([0.0179, 0.0357]\), 40 of 48 pairs positive), and the correct-minus-random contrast was \(+0.0230\) (\([0.0103, 0.0360]\), 30 of 48).",0.0266 0.0179 0.0357 40 48 0.0230 0.0103 0.0360 30 48,fjs14 fjs15 fjs16 fjs17 fjs18 fjs19 fjs20 fjs21 fjs22 fjs23,1,
+s253,Target identity still matters when output divergence is matched,"Relative to wrong directions, the correct direction raised became-legal mass (\(\Delta G=+0.0133\)) and lowered became-illegal mass (\(\Delta Q=-0.0133\)).",0.0133 -0.0133,fjs24 fjs25,1,
+s254,Target identity still matters when output divergence is matched,"Mean \(Y\) was \(-0.592\) for correct, \(-0.619\) for wrong, and \(-0.615\) for random directions.",-0.592 -0.619 -0.615,fjs26 fjs27 fjs28,1,
+s255,Target identity still matters when output divergence is matched,The letter is `FIXED_JS_TARGET_SPECIFICITY_SUPPORTED`.,,,1,
+s256,Target identity still matters when output divergence is matched,Figure 3 shows the pair-level contrasts and subgroups.,,,1,
+s257,Target identity still matters when output divergence is matched,![Figure 3.,,,1,
+s258,Target identity still matters when output divergence is matched,Paired response contrasts in the matched-divergence study.,,,1,
+s259,Target identity still matters when output divergence is matched,"(A) Correct-minus-wrong and correct-minus-random differences in \(Y\) for each of the 48 pairs, with the mean and its clustered 95% bootstrap interval.",48 95%,fjs29 gen05,1,
+s260,Target identity still matters when output divergence is matched,The wrong and random responses of a pair are averaged over its three directions before the difference is taken.,,,1,
+s261,Target identity still matters when output divergence is matched,"(B) The same means and intervals for category A (32 pairs), category B (16 pairs), and pairs on which Editor A did or did not decode the exact target board (22 and 26 pairs).",32 16 22 26,fjs30 fjs31 fjs32 fjs33,1,negative
+s262,Target identity still matters when output divergence is matched,Every direction was calibrated to JS 0.01 from the Editor A reference activation.](../figures/fig3_fixed_js_contrasts.png),0.01,gen04,1,
+s263,Target identity still matters when output divergence is matched,Three qualifications apply.,,,1,
+s264,Target identity still matters when output divergence is matched,"First, this study reuses the SPEC pairs and is not independent confirmation.",,,1,priority negative
+s265,Target identity still matters when output divergence is matched,"Second, the effect is a shift of 0.02–0.03 in probability mass, not recovery of the target's move distribution.",0.02 0.03,fjs34 fjs35,1,causal negative
+s266,Target identity still matters when output divergence is matched,"Third, the advantage over random directions is not uniform across subgroups.",,,1,negative
+s267,Target identity still matters when output divergence is matched,"Its interval lies above zero in category B (\(+0.0477\), \([0.0238, 0.0722]\)) and in pairs where Editor A decoded the exact target board (\(+0.0395\), \([0.0199, 0.0584]\)).",0.0477 0.0238 0.0722 0.0395 0.0199 0.0584,fjs36 fjs37 fjs38 fjs39 fjs40 fjs41,1,
+s268,Target identity still matters when output divergence is matched,"Its interval includes zero in category A (\(+0.0106\), \([-0.0033, 0.0246]\)) and in pairs where Editor A did not decode the exact board (\(+0.0090\), \([-0.0077, 0.0264]\)).",0.0106 -0.0033 0.0246 0.0090 -0.0077 0.0264,fjs42 fjs43 fjs44 fjs45 fjs46 fjs47,1,negative
+s269,Target identity still matters when output divergence is matched,The advantage over wrong targets has an interval above zero in all four subgroups.,,,1,
+s270,Target identity still matters when output divergence is matched,The exact-board split was not in the matched-divergence preregistration.,,,1,negative
+s271,Target identity still matters when output divergence is matched,"Every category-B pair is also an exact-decode pair, in this study and in NST, so those two slices are not separate evidence.",,,1,negative
+s272,Target identity still matters when output divergence is matched,The split also tracks earlier positions in NST.,,,1,
+s273,Target identity still matters when output divergence is matched,It is descriptive.,,,1,
+s274,Target identity still matters when output divergence is matched,"The pair-level correct-minus-wrong contrasts here and in SPEC correlate 0.155, so reusing the pairs did not copy the SPEC result forward.",0.155,cor01,1,negative
+s275,A train-only map transfers part of the effect without a target activation,Donor directions show that some kernel direction associated with the target's natural activation is useful.,,,1,
+s276,A train-only map transfers part of the effect without a target activation,They do not show that such a direction can be built from the target board alone.,,,1,negative
+s277,A train-only map transfers part of the effect without a target activation,"NST fits the ridge map described above on training activations, freezes it, and evaluates it on 48 new validation pairs.",48,gen12,1,priority
+s278,A train-only map transfers part of the effect without a target activation,At evaluation the learned direction is computed from the target's symbolic features and the Editor A reference activation.,,,1,
+s279,A train-only map transfers part of the effect without a target activation,We checked that construction directly from the saved arrays.,,,1,
+s280,A train-only map transfers part of the effect without a target activation,"The difference between the learned and wrong-target directions equals \(P_N(\hat z(b_t)-\hat z(b_w))\) computed from the saved map and the two boards' features, with relative error \(3.5\times10^{-15}\).",3.5\times10^{-15},nst01,1,
+s281,A train-only map transfers part of the effect without a target activation,"The difference between the learned and stage-mean directions equals \(P_N\hat z(b_t)\) minus the saved stage mean, with relative error \(3.7\times10^{-15}\).",3.7\times10^{-15},nst02,1,
+s282,A train-only map transfers part of the effect without a target activation,The recorded residual \(R^2\) of the map was 0.342 on training games and 0.305 on held-out validation games; reconstruction is not the causal gate.,0.342 0.305,nst03 nst04,1,causal negative
+s283,A train-only map transfers part of the effect without a target activation,"At matched divergence, the learned direction exceeded the wrong-target map direction by \(+0.0201\) (interval \([0.0108, 0.0298]\), 39 of 48 pairs).",0.0201 0.0108 0.0298 39 48,nst05 nst06 nst07 nst08 nst09,1,
+s284,A train-only map transfers part of the effect without a target activation,"It exceeded the random direction by \(+0.0314\) (\([0.0185, 0.0453]\), 35 of 48), the stage-mean direction by \(+0.0220\) (\([0.0158, 0.0293]\), 42 of 48), and the Editor A reference itself by \(+0.0537\) (\([0.0452, 0.0618]\), 47 of 48).",0.0314 0.0185 0.0453 35 48 0.0220 0.0158 0.0293 42 48 0.0537 0.0452 0.0618 47 48,nst10 nst11 nst12 nst13 nst14 nst15 nst16 nst17 nst18 nst19 nst20 nst21 nst22 nst23 nst24,1,
+s285,A train-only map transfers part of the effect without a target activation,"A random kernel direction at the same divergence already exceeds the Editor A reference by \(+0.0223\), on 34 of 48 pairs, so part of the learned-minus-Editor-A contrast is generic disruption.",0.0223 34 48,nst60 nst61 nst62,1,
+s286,A train-only map transfers part of the effect without a target activation,"Relative to Editor A, the learned edit raised became-legal mass by 0.0195 and lowered became-illegal mass by 0.0342.",0.0195 0.0342,nst25 nst26,1,
+s287,A train-only map transfers part of the effect without a target activation,The absolute score stayed negative.,,,1,negative
+s288,A train-only map transfers part of the effect without a target activation,"Mean \(Y\) was \(-0.582\) for the learned edit, \(-0.636\) at the Editor A reference, and \(-0.701\) at the natural recipient, and \(Y\) was positive for the learned edit in only 1 of 48 pairs.",-0.582 -0.636 -0.701 1 48,nst27 nst28 nst29 nst31 nst32,1,
+s289,A train-only map transfers part of the effect without a target activation,The letter is `DONOR_FREE_NULL_STATE_TRANSFER_SUPPORTED`.,,,1,
+s290,A train-only map transfers part of the effect without a target activation,"""Donor-free"" describes evaluation only; the map was trained on natural nullspace residuals.",,,1,
+s291,A train-only map transfers part of the effect without a target activation,The learned and oracle directions behaved similarly on average (mean \(Y\) \(-0.582\) and \(-0.583\)) but were not the same vectors.,-0.582 -0.583,nst27 nst30,1,negative
+s292,A train-only map transfers part of the effect without a target activation,Their mean cosine similarity was 0.792.,0.792,nst33,1,
+s293,A train-only map transfers part of the effect without a target activation,"The learned direction was closer to the stage-mean direction (mean cosine 0.850) than to the oracle, and its mean cosine with the wrong-target map direction was 0.757.",0.850 0.757,nst34 nst35,1,
+s294,A train-only map transfers part of the effect without a target activation,"Across pairs, the learned and oracle scores were highly correlated (Pearson \(r=0.998\)).",0.998,nst36,1,
+s295,A train-only map transfers part of the effect without a target activation,That correlation is not evidence of a shared mechanism.,,,1,negative
+s296,A train-only map transfers part of the effect without a target activation,"The learned score was almost as correlated with the wrong-target score (\(r=0.991\)) and with the Editor A reference score (\(r=0.994\)), so the correlation mostly reflects pair-to-pair differences in baseline \(Y\).",0.991 0.994,nst37 nst38,1,
+s297,A train-only map transfers part of the effect without a target activation,"After subtracting the Editor A score, the learned score still correlates 0.846 with the oracle score and 0.452 with the wrong-target score.",0.846 0.452,cor02 cor03,1,
+s298,A train-only map transfers part of the effect without a target activation,A gradient baseline reached the JS tolerance on only 7 of 48 pairs and is not compared.,7 48,nst39 nst40,1,negative
+s299,A train-only map transfers part of the effect without a target activation,Figure 4 summarizes these results.,,,1,
+s300,A train-only map transfers part of the effect without a target activation,![Figure 4.,,,1,
+s301,A train-only map transfers part of the effect without a target activation,Donor-free transfer on 48 new validation pairs.,48,gen12,1,priority
+s302,A train-only map transfers part of the effect without a target activation,"(A) Mean difference in \(Y\) between the learned map direction and each comparison direction, with clustered 95% bootstrap intervals, for all pairs and for pairs on which Editor A did or did not decode the exact target board (24 each).",95% 24,gen05 nst41,1,negative
+s303,A train-only map transfers part of the effect without a target activation,All directions were calibrated to JS 0.01 from the Editor A reference activation.,0.01,gen04,1,
+s304,A train-only map transfers part of the effect without a target activation,The dashed line marks the preregistered 0.01 floor for the learned-minus-wrong contrast.,0.01,nst42,1,
+s305,A train-only map transfers part of the effect without a target activation,"(B) Per-pair cosine similarity between the learned direction and the oracle, stage-mean, and wrong-target directions.",,,1,
+s306,A train-only map transfers part of the effect without a target activation,The learned direction is closer to the stage-mean direction than to the oracle.](../figures/fig4_nst_transfer.png),,,1,
+s307,A train-only map transfers part of the effect without a target activation,The transfer was weaker where Editor A failed to decode the exact target board.,,,1,negative
+s308,A train-only map transfers part of the effect without a target activation,"On those 24 pairs, the advantage over wrong targets was \(+0.0113\) (\([-0.0013, 0.0232]\)) and over random directions \(+0.0155\) (\([-0.0015, 0.0336]\)), both with intervals that include zero.",24 0.0113 -0.0013 0.0232 0.0155 -0.0015 0.0336,nst43 nst44 nst45 nst46 nst47 nst48 nst49,1,negative
+s309,A train-only map transfers part of the effect without a target activation,On the 24 exact-board pairs the corresponding values were \(+0.0288\) and \(+0.0474\).,24 0.0288 0.0474,nst50 nst51 nst52,1,
+s310,A train-only map transfers part of the effect without a target activation,"We treat this split as a limitation of transfer, not as a separate finding.",,,1,negative
+s311,A train-only map transfers part of the effect without a target activation,"The 48 pairs are unused relative to SPEC but are still validation games, not confirmation.",48,nst53,1,negative
+s312,Stage and legal-mask features explain much of the learned advantage,The feature-ablation study (SEM) reused the NST pairs and the frozen principal-component basis.,,,1,
+s313,Stage and legal-mask features explain much of the learned advantage,"It refitted the ridge map with feature subsets: LEGAL_ONLY drops the occupancy one-hots, BOARD_ONLY drops the legal mask, and STAGE_ONLY keeps only the player and occupancy.",,,1,
+s314,Stage and legal-mask features explain much of the learned advantage,"Because it reuses NST outcomes, it is exploratory.",,,1,
+s315,Stage and legal-mask features explain much of the learned advantage,Its full-feature arm is the NST learned map.,,,1,
+s316,Stage and legal-mask features explain much of the learned advantage,"The console value of SEM's FULL-minus-Editor A contrast, 0.053713, agrees with our recomputation from the NST arrays to \(7\times10^{-9}\).",0.053713 7\times10^{-9},sem01 sem02,1,
+s317,Stage and legal-mask features explain much of the learned advantage,The archival values were as follows.,,,1,
+s318,Stage and legal-mask features explain much of the learned advantage,"FULL minus LEGAL_ONLY was \(+0.0041\) (\([0.0019, 0.0066]\)) and FULL minus BOARD_ONLY was \(+0.0056\) (\([0.0021, 0.0090]\)); both are below the preregistered \(+0.01\) floor for an incremental feature advantage.",0.0041 0.0019 0.0066 0.0056 0.0021 0.0090 0.01,sem03 sem04 sem05 sem06 sem07 sem08 sem09,1,negative
+s319,Stage and legal-mask features explain much of the learned advantage,BOARD_ONLY minus STAGE_ONLY was \(+0.0180\) and LEGAL_ONLY minus STAGE_ONLY was \(+0.0195\).,0.0180 0.0195,sem10 sem11,1,
+s320,Stage and legal-mask features explain much of the learned advantage,The letter is `LEGAL_MASK_SUFFICES_IN_TESTED_FAMILY`.,,,1,
+s321,Stage and legal-mask features explain much of the learned advantage,On these pairs the console's forward switching contrast is the learned-minus-wrong contrast already reported.,,,1,
+s322,Stage and legal-mask features explain much of the learned advantage,"Its reverse contrast is \(A_W=+0.0058\) (interval \([-0.0003, 0.0124]\)).",0.0058 -0.0003 0.0124,sem30 sem31 sem32,1,
+s323,Stage and legal-mask features explain much of the learned advantage,That interval includes zero.,,,1,negative
+s324,Stage and legal-mask features explain much of the learned advantage,The letter does not mean that the legal mask is uniquely necessary.,,,1,negative
+s325,Stage and legal-mask features explain much of the learned advantage,"In Othello, occupancy determines legality, so a board one-hot and a legal mask are largely redundant.",,,1,
+s326,Stage and legal-mask features explain much of the learned advantage,The same values give a mean-level identity.,,,1,
+s327,Stage and legal-mask features explain much of the learned advantage,FULL minus STAGE_ONLY is \(0.0041+0.0195=0.0236\) through the legal-only arm and \(0.0056+0.0180=0.0236\) through the board-only arm.,0.0041 0.0195 0.0236 0.0056 0.0180 0.0236,sem12 sem13 sem14 sem15 sem16 sem17,1,
+s328,Stage and legal-mask features explain much of the learned advantage,"Combined with the recomputed FULL-minus-Editor A value of 0.0537, STAGE_ONLY minus Editor A is 0.0301.",0.0537 0.0301,sem18 sem19,1,
+s329,Stage and legal-mask features explain much of the learned advantage,STAGE_ONLY therefore accounts for 56.04% of FULL's mean improvement over Editor A.,56.04%,sem20,1,
+s330,Stage and legal-mask features explain much of the learned advantage,That ratio uses Editor A as the baseline.,,,1,causal
+s331,Stage and legal-mask features explain much of the learned advantage,"A random kernel direction already accounts for \(+0.0223\) of the learned map's \(+0.0537\) gain over Editor A, and the stage-only gain over Editor A is 0.0301, so most of the stage-only gain is shared with an unstructured kernel edit.",0.0223 0.0537 0.0301,nst20 nst60 sem33,1,
+s332,Stage and legal-mask features explain much of the learned advantage,The learned-minus-random contrast of \(+0.0314\) is the comparison that removes that disruption.,0.0314,nst10,1,
+s333,Stage and legal-mask features explain much of the learned advantage,"The archival subgroup shares were 58.5% in category A, 52.6% in category B, 56.8% on exact-board pairs, and 55.0% on nonexact pairs.",58.5% 52.6% 56.8% 55.0%,sem21 sem22 sem23 sem24,1,
+s334,Stage and legal-mask features explain much of the learned advantage,"This is a ratio of means under a shared calibration, not a decomposition into independent mechanisms.",,,1,negative
+s335,Stage and legal-mask features explain much of the learned advantage,"STAGE_ONLY is conditioned on the intended target's player and occupancy, so it is not a target-blind prior.",,,1,negative
+s336,Stage and legal-mask features explain much of the learned advantage,"Its low reconstruction \(R^2\) describes how well it reconstructs nullspace residuals, not its share of the mean response, and does not justify discounting its behavioral contribution.",,,1,negative
+s337,Stage and legal-mask features explain much of the learned advantage,"Taken together with the NST results, the donor-free edit is better described as a target-conditioned nudge than as a 64-component code for the board.",64,gen03,1,
+s338,Stage and legal-mask features explain much of the learned advantage,"Much of its average gain over Editor A is shared with a random kernel direction, so it is not by itself evidence of a stage-specific correction, and its additional content over legal-only or board-only maps is below the study's own floor.",,,1,negative
+s339,Reliable target switching and a visible–nullspace interaction were not supported,"If the learned nullspace edit carried a transferable target state, requesting board \(T\) rather than board \(W\) on the same recipient should move \(Y\) toward whichever target was requested, often enough to pass a joint gate.",,,1,causal
+s340,Reliable target switching and a visible–nullspace interaction were not supported,"For a triplet \((R,T,W)\) let \(A_T\) be the change in \(Y\) scored on \(T\)'s legal sets when the edit requests \(T\) rather than \(W\).",,,1,causal
+s341,Reliable target switching and a visible–nullspace interaction were not supported,Let \(A_W\) be the corresponding change scored on \(W\)'s sets when the edit requests \(W\) rather than \(T\).,,,1,causal
+s342,Reliable target switching and a visible–nullspace interaction were not supported,"The remaining validation games contained 2 category-B pairs but no category-B triplets, so the study was first recorded as `SYMMETRIC_TARGET_CENSUS_INFEASIBLE`.",2,frs01,1,priority negative
+s343,Reliable target switching and a visible–nullspace interaction were not supported,A new cohort generated from seed 9182 supplied 16 A and 16 B triplets.,9182 16 16,frs02 frs03,1,priority
+s344,Reliable target switching and a visible–nullspace interaction were not supported,All values in this section are archival.,,,1,
+s345,Reliable target switching and a visible–nullspace interaction were not supported,"With the edit applied to the natural recipient activation and calibrated to JS 0.01, \(A_T\) was \(+0.0285\) (\([0.0165, 0.0406]\), positive in 81% of triplets).",0.01 0.0285 0.0165 0.0406 81%,frs04 frs05 frs06 frs07 gen04,1,
+s346,Reliable target switching and a visible–nullspace interaction were not supported,"\(A_W\) was \(+0.0186\) (\([0.0072, 0.0301]\), positive in 56%).",0.0186 0.0072 0.0301 56%,frs08 frs09 frs10 frs11,1,
+s347,Reliable target switching and a visible–nullspace interaction were not supported,"Both were positive together in 13 of 32 triplets (40.6%), below the preregistered 60% gate.",13 32 40.6% 60%,frs12 gen09 gen10 gen11,1,negative
+s348,Reliable target switching and a visible–nullspace interaction were not supported,Every triplet completed.,,,1,
+s349,Reliable target switching and a visible–nullspace interaction were not supported,The letter is `SYMMETRIC_TARGET_SWITCHING_NOT_SUPPORTED`.,,,1,
+s350,Reliable target switching and a visible–nullspace interaction were not supported,"The same console record marks a second gate, anchor dependence, as failed.",,,1,negative
+s351,Reliable target switching and a visible–nullspace interaction were not supported,"The Editor-A-anchored switching values are not in the excerpt, so they are not reported here.",,,1,negative
+s352,Reliable target switching and a visible–nullspace interaction were not supported,"Positive average discrimination and reliable simultaneous switching are different claims; the gate tests the second, and it failed.",,,1,negative
+s353,Reliable target switching and a visible–nullspace interaction were not supported,"Editor A's own visible contrasts on the same triplets were small and positive (\(D_T=+0.0158\), \(D_W=+0.0151\)), with lower interval bounds of 0.0002 and 0.0018.",0.0158 0.0151 0.0002 0.0018,frs13 frs14 frs15 frs16,1,
+s354,Reliable target switching and a visible–nullspace interaction were not supported,They depend on how well Editor A decoded each board and are not a test of compatibility between targets.,,,1,negative
+s355,Reliable target switching and a visible–nullspace interaction were not supported,The factorial study asked a cleaner interaction question on another new cohort (seed 10182).,10182,vnf01,1,priority
+s356,Reliable target switching and a visible–nullspace interaction were not supported,"An independently fitted rowspace ridge map and the frozen nullspace map were combined with fixed coefficients (\(\rho=\nu=3.5\)), so that all four target-by-component cells had the same total L2 and no divergence calibration was involved.",3.5,vnf02,1,negative
+s357,Reliable target switching and a visible–nullspace interaction were not supported,The interaction estimands were \(I_T=d_T(T)-d_T(W)\) and \(I_W=d_W(W)-d_W(T)\).,,,1,
+s358,Reliable target switching and a visible–nullspace interaction were not supported,"The archival estimates were \(I_T=+0.0008\) (\([-0.0009, 0.0030]\), positive in 17 of 32 triplets) and \(I_W=+0.0010\) (\([-0.0001, 0.0022]\), 19 of 32).",0.0008 -0.0009 0.0030 17 32 0.0010 -0.0001 0.0022 19 32,vnf03 vnf04 vnf05 vnf06 vnf07 vnf08 vnf09 vnf10 vnf11 vnf12,1,
+s359,Reliable target switching and a visible–nullspace interaction were not supported,"Both fall below the preregistered \(+0.005\) floor, and both intervals include zero.",0.005,vnf13,1,negative
+s360,Reliable target switching and a visible–nullspace interaction were not supported,The letter is `TARGET_SPECIFIC_VISIBLE_NULL_INTERACTION_NOT_SUPPORTED`.,,,1,
+s361,Reliable target switching and a visible–nullspace interaction were not supported,The rowspace map was not empty: its held-out reconstruction \(R^2\) for \(P_R h\) was 0.9405.,0.9405,vnf14,1,negative
+s362,Reliable target switching and a visible–nullspace interaction were not supported,Reconstructing the probe-visible state accurately did not produce the hypothesized interaction in \(Y\).,,,1,negative
+s363,Reliable target switching and a visible–nullspace interaction were not supported,Figure 5 summarizes both studies.,,,1,
+s364,Reliable target switching and a visible–nullspace interaction were not supported,![Figure 5.,,,1,
+s365,Reliable target switching and a visible–nullspace interaction were not supported,Completeness tests that failed (archival values from the original console output).,,,1,negative
+s366,Reliable target switching and a visible–nullspace interaction were not supported,"(A) Target-switching contrasts \(A_T\) and \(A_W\) on 32 fresh triplets, with 95% bootstrap intervals and the preregistered 0.005 floor (dashed).",32 95% 0.005,gen05 vnf15 vnf16,1,
+s367,Reliable target switching and a visible–nullspace interaction were not supported,"The box in panel A gives how many triplets had both contrasts positive, only one positive, or neither.",,,1,
+s368,Reliable target switching and a visible–nullspace interaction were not supported,"Both-positive switching occurred in 13 of 32 triplets, below the 60% gate.",13 32 60%,gen09 gen10 gen11,1,negative
+s369,Reliable target switching and a visible–nullspace interaction were not supported,"(B) Visible–nullspace interaction estimates \(I_T\) and \(I_W\) on a second fresh cohort of 32 triplets, with intervals and the 0.005 floor.](../figures/fig5_completeness_tests.png)",32 0.005,vnf16 vnf17,1,
+s370,Reliable target switching and a visible–nullspace interaction were not supported,These failures belong in the main argument.,,,1,negative
+s371,Reliable target switching and a visible–nullspace interaction were not supported,They are why we do not claim to have recovered a transferable decision state.,,,1,negative
+s372,The original board-edit validation remains negative,"Before the kernel studies, the 08R2 validation asked whether Editor A repairs legal-move behavior on frozen validation pairs.",,,1,causal
+s373,The original board-edit validation remains negative,"Its letter is `08R2_VALIDATION_COMPLETE — NEGATIVE`, and its pair-level tables are not part of this package.",,,1,negative
+s374,The original board-edit validation remains negative,The result still bounds the claims here.,,,1,
+s375,The original board-edit validation remains negative,Optimizing a residual toward a decoded board with that editor did not produce the behavioral repair the protocol required.,,,1,negative
+s376,The original board-edit validation remains negative,Nullspace edits are a different intervention family and should not be read as having solved that failure.,,,1,negative
+s377,The original board-edit validation remains negative,"They produce small, target-aligned contrasts in \(Y\) under matched controls, while absolute scores remain negative and switching fails its joint gate.",,,1,negative
+s378,Discussion,"For this frozen linear board probe, at the Editor A reference activation, the residual stream is not a single occupancy code plus unused orthogonal content.",,,1,negative
+s379,Discussion,That sentence is about \(h_E\).,,,1,
+s380,Discussion,"At the natural donor activation, kernel steps of similar length barely moved the output.",,,1,causal
+s381,Discussion,"Starting from an activation whose probe readout has already been moved toward a target board, directions that leave the probe's 64×3 probabilities unchanged still change legal-move probability.",64 3,gen01 gen02,1,causal
+s382,Discussion,"They change it more for the intended target than for wrong targets, whether residual L2 or output divergence is matched.",,,1,causal
+s383,Discussion,"That is a statement about one probe, one site, and one model.",,,1,scope
+s384,Discussion,"It agrees with the warning of Elazar et al. that readout is not a causal summary, and it agrees with Li et al. and Nanda et al. that board features are causally relevant, because those features are this probe's rowspace.",,,1,causal scope negative
+s385,Discussion,The kernel results say that the rowspace of this probe is not the whole causal story.,,,1,causal scope negative
+s386,Discussion,The donor-free result adds something that patching from \(h_D\) cannot.,,,1,
+s387,Discussion,A linear map from simulator features into the kernel predicts a direction that keeps a target-aligned advantage over wrong-target and random controls.,,,1,
+s388,Discussion,The map's inputs include the true legal mask and the true occupancy.,,,1,
+s389,Discussion,So the result does not mean that the network taught us the rules.,,,1,negative
+s390,Discussion,"It means that, given the rules and the board, a map trained only on training games builds a probe-preserving edit that is on average better than the same map's edit for a wrong board.",,,1,
+s391,Discussion,"Stage-only features already deliver more than half of the gain over Editor A, and much of that half is shared with a random kernel direction, so the sentence overstates the amount of board-specific geometry in the map.",,,1,
+s392,Discussion,Several tests that a sufficient decision state would pass were failed.,,,1,negative
+s393,Discussion,Absolute \(Y\) stays negative.,,,1,negative
+s394,Discussion,Joint switching fails its 60% gate.,60%,gen11,1,negative
+s395,Discussion,The visible–nullspace interaction is indistinguishable from zero at the preregistered floor.,,,1,
+s396,Discussion,"We have not shown that \(h_E+t\,\delta\) lies on the natural activation manifold, only that this probe cannot distinguish it from \(h_E\), and Editor A itself may produce unnatural activations.",,,1,hedge scope negative
+s397,Discussion,"Matching divergence does not equalize L2, so every matching is relative to one scalar.",,,1,negative
+s398,Discussion,The matched-divergence study reuses the SPEC pairs.,,,1,
+s399,Discussion,"In the FRESH cohort of 400 games, 24 board-and-player states also occur in earlier splits.",400 24,dis01 dis02,1,
+s400,Discussion,Whether any of those states appear among the 32 selected triplets cannot be checked without the triplet arrays.,32,dis03,1,hedge
+s401,Discussion,Game identifiers in the selected set are disjoint from earlier studies by construction.,,,1,
+s402,Discussion,"Nothing here is evidence about large language models, factual recall, or safety properties of deployed systems.",,,1,strength
+s403,Discussion,"Othello is deterministic and fully observed, and every score uses simulator legal sets.",,,1,causal
+s404,Limitations,"The study uses one architecture, one checkpoint, one residual site, and one frozen probe.",,,1,causal
+s405,Limitations,Synthetic legal self-play is neither human Othello nor natural language.,,,1,
+s406,Limitations,"Target labels and legal masks come from a simulator, so methods that receive those masks are not inferring legality.",,,1,negative
+s407,Limitations,Probe invariance is defined relative to this probe's probability tensor at the Editor A reference activation.,,,1,scope
+s408,Limitations,"Another probe, a nonlinear decoder, or a readout at a later layer might detect the edit.",,,1,hedge
+s409,Limitations,"Because every edit in SPEC, the matched-divergence study, and NST starts from \(h_E\) rather than \(h_R\), the effects are conditional on Editor A's change to the decoded board.",,,1,causal
+s410,Limitations,Those three studies were not rerun from \(h_R\).,,,1,negative
+s411,Limitations,"The FIBER diagnostic did perturb the natural donor activation, and kernel steps there barely moved the output, as reported above.",,,1,causal
+s412,Limitations,Nothing here measures kernel effects at the natural recipient.,,,1,causal
+s413,Limitations,Nullspace addition can leave the natural activation manifold.,,,1,
+s414,Limitations,We report no density model or cycle-consistency check that would rule that out.,,,1,negative
+s415,Limitations,"After divergence matching, effects on \(Y\) are a few hundredths of probability mass, and mean learned \(Y\) is about \(-0.58\).",-0.58,dis04,1,causal
+s416,Limitations,"Intervals that exclude zero describe a small, consistent contrast, not a large behavioral repair.",,,1,strength negative
+s417,Limitations,Calibration choices change the scientific object.,,,1,causal
+s418,Limitations,SPEC's correct-minus-random contrast is partly a comparison against weak random disruption.,,,1,
+s419,Limitations,Divergence matching shrinks the contrast and enlarges random L2.,,,1,
+s420,Limitations,The factorial study matches L2 and finds no interaction.,,,1,negative
+s421,Limitations,"These are different interventions, not contradictory measurements of one quantity.",,,1,negative
+s422,Limitations,Evaluation samples are reused.,,,1,
+s423,Limitations,"SPEC and the matched-divergence study share 48 pairs, and NST and SEM share another 48.",48 48,dis05,1,
+s424,Limitations,"Only FRESH and VNF use later independent cohorts, and those are the studies whose completeness tests failed.",,,1,causal negative
+s425,Limitations,"Sealed confirmation data were not used, and no independent external replication has been performed.",,,1,causal negative
+s426,Limitations,"The ablation, switching, and factorial results rest on console output from the original runs.",,,1,
+s427,Limitations,"Their pair- and triplet-level arrays were not found, so their means and intervals could not be recomputed for this paper.",,,1,negative
+s428,Limitations,"We report them with that label rather than omit them, because two of them are the negative results that bound our claims.",,,1,negative
+s429,Limitations,"Wrong-target selection uses simulator features, not model responses, as intended.",,,1,causal negative
+s430,Limitations,"Pairs require nonempty legal-set differences, so they are not a uniform sample of positions.",,,1,negative
+s431,Limitations,No pairs were excluded after seeing \(Y\).,,,1,negative
+s432,Conclusion,"On Othello-GPT, a frozen linear board probe can be held fixed, in the strong sense of its full probability tensor at the Editor A reference activation, while residual edits in the kernel of its contrasts still change legal-move predictions.",,,1,causal strength scope
+s433,Conclusion,"Some of those changes are target-aligned against wrong-target and random controls, including when output divergence is matched.",,,1,causal
+s434,Conclusion,A map trained only on training games produces part of the effect without a target activation at evaluation.,,,1,causal
+s435,Conclusion,The same evidence shows that the map is not a transferable board state.,,,1,negative
+s436,Conclusion,"Absolute response scores stay negative, more than half of the gain over Editor A is stage-conditioned, joint switching fails its gate, and a visible–nullspace interaction is not supported.",,,1,negative
+s437,Conclusion,"The justified conclusion is the limited one, and it is limited to edits at the Editor A reference: this probe is not a sufficient causal description of the residual information that affects legal-move outputs there.",,,1,causal scope negative
+s438,Conclusion,"At a natural donor activation, kernel steps of similar length barely moved the output.",,,1,causal
+s439,Conclusion,The results do not show that the model has a second world model.,,,1,negative
+s440,Reproducibility and data availability,"The accompanying package contains the saved logits, probe probabilities, intervention directions, fitted map, legal sets, and pair manifests for the FIBER, SPEC, matched-divergence, and NST studies.",,,1,
+s441,Reproducibility and data availability,"It also contains scripts that recompute every value labeled recomputed, regenerate all tables and figures, and check every number in this manuscript against its source.",,,1,
+s442,Reproducibility and data availability,"The model checkpoint and probe weights are not redistributed, so replaying interventions requires obtaining them separately.",,,1,negative
+s443,Reproducibility and data availability,"Results from the feature-ablation, switching, and factorial studies are included as verbatim console excerpts with hashes, and their arrays remain to be located.",,,1,
+s444,Reproducibility and data availability,Protocols and configuration files for every study are included.,,,1,
+s445,Reproducibility and data availability,"This work used AI assistance for engineering, auditing, and drafting.",,,1,causal
+s446,Reproducibility and data availability,An AI system is not an author.,,,1,negative
+s447,Reproducibility and data availability,"Authors, affiliations, and a disclosure statement will be written by the people responsible for the project.",,,1,
+s448,Reproducibility and data availability,"Official result letters, unchanged: `08R2_VALIDATION_COMPLETE — NEGATIVE`; `TARGET_SPECIFIC_NULL_EFFECT_SUPPORTED`; `TARGET_SPECIFIC_AT_EQUAL_JS_INCONCLUSIVE`; `FIXED_JS_TARGET_SPECIFICITY_SUPPORTED`; `DONOR_FREE_NULL_STATE_TRANSFER_SUPPORTED`; `LEGAL_MASK_SUFFICES_IN_TESTED_FAMILY`; `SYMMETRIC_TARGET_CENSUS_INFEASIBLE`; `SYMMETRIC_TARGET_SWITCHING_NOT_SUPPORTED`; `TARGET_SPECIFIC_VISIBLE_NULL_INTERACTION_NOT_SUPPORTED`; `0A = C / PARTIAL`; `SECTION_5_3 = PARTIAL`; `OBSTRUCTION_READY = NO`.",,,1,negative
+s449,Reproducibility and data availability,Definitions and protocol details,,,1,
+s450,Reproducibility and data availability,"**Token mapping.** Square \(s\in\{0,\dots,63\}\) in row-major order maps to token \(s+1-c(s)\), where \(c(s)\) is the number of center squares (27, 28, 35, 36) below \(s\).",0 63 1 27 28 35 36,apA01 apA02 apA03,1,negative
+s451,Reproducibility and data availability,This mapping reproduces every saved legal-token list in the NST archive.,,,1,
+s452,Reproducibility and data availability,"**Editor A.** Editor A minimizes a board-decoding loss for the target's player-relative labels under the frozen probe, starting from \(h_R\), with an L2 budget of 16, 40 steps, learning rate 0.4, and norm penalty 0.01.",16 40 0.4 0.01,apA04,1,
+s453,Reproducibility and data availability,Its output is the Editor A reference activation \(h_E\).,,,1,
+s454,Reproducibility and data availability,Editor A decoded the exact target board on 22 of the 48 SPEC pairs and on 24 of the 48 NST pairs.,22 48 24 48,apA05,1,
+s455,Reproducibility and data availability,"Its logits are bitwise identical in the SPEC and matched-divergence archives, so both studies share the same reference.",,,1,
+s456,Reproducibility and data availability,"**Wrong-target and random directions.** Each SPEC pair has three wrong-target donors with the same player and with occupancy, legal-set size, and prefix length matched within a slack of 4, selected by frozen seeds before any \(Y\) was computed.",4,apA06,1,
+s457,Reproducibility and data availability,Random directions are \(P_N g\) for seeded Gaussian \(g\).,,,1,
+s458,Reproducibility and data availability,"In SPEC, all six controls are rescaled to the correct direction's L2 norm, to relative error \(8\times10^{-16}\).",8\times10^{-16},apA07,1,
+s459,Reproducibility and data availability,"In the matched-divergence study, each is scaled independently to JS 0.01 from \(h_E\).",0.01,gen04,1,
+s460,Reproducibility and data availability,"**Divergence search.** The frozen grid is 0.003125, 0.00625, 0.0125, 0.025, 0.05, 0.1, 0.2, 0.4, 0.8, 1.0, 1.5, 2.0, 4.0, 8.0.",0.003125 0.00625 0.0125 0.025 0.05 0.1 0.2 0.4 0.8 1.0 1.5 2.0 4.0 8.0,apA08,1,
+s461,Reproducibility and data availability,The first grid point with JS at least 0.01 is bisected 16 times against its predecessor.,0.01 16,apA09 apA10,1,priority
+s462,Reproducibility and data availability,A direction that cannot reach 0.01 fails and remains in the attempt record.,0.01,apA11,1,negative
+s463,Reproducibility and data availability,"No direction failed in the matched-divergence or NST studies, except the gradient baseline, which calibrated on 7 of 48 pairs.",7 48,apA12 apA13,1,negative
+s464,Reproducibility and data availability,"**Preregistered gates.** SPEC required a mean correct-minus-wrong contrast of at least 0.05 with interval above zero, \(\Delta G>0\) and \(\Delta Q<0\) relative to wrong directions, and a correct-minus-random contrast with interval above zero.",0.05 0 0,apA14 apA34 apA35 proto_cost,1,
+s465,Reproducibility and data availability,"The matched-divergence study required 44 of 48 complete pairs, a mean correct-minus-wrong contrast of at least 0.02, both intervals above zero, \(\Delta G>0\), and \(\Delta Q<0\).",44 48 0.02 0 0,apA15 apA16 apA17 apA34 apA35,1,
+s466,Reproducibility and data availability,"NST required a learned-minus-wrong contrast of at least 0.01, intervals above zero against wrong, random, stage-mean, and Editor A, and the intended \(\Delta G\) and \(\Delta Q\) signs relative to Editor A.",0.01,apA18,1,
+s467,Reproducibility and data availability,SEM required an incremental advantage of at least 0.01 with interval above zero.,0.01,apA19,1,
+s468,Reproducibility and data availability,"FRESH required at least 29 of 32 complete triplets, \(A_T\) and \(A_W\) of at least 0.005 with intervals above zero, a positive mean of \(C=A_T+A_W\), and both contrasts positive on at least 60% of triplets.",29 32 0.005 60%,apA20 apA21,1,
+s469,Reproducibility and data availability,"The archival mean of \(C\) was \(+0.0471\) (\([0.0316, 0.0629]\)); the protocol states that a positive \(C\) alone is not bidirectional switching.",0.0471 0.0316 0.0629,apA22 apA23 apA24,1,negative
+s470,Reproducibility and data availability,"VNF required at least 29 of 32 complete triplets, \(I_T\) and \(I_W\) of at least 0.005 with intervals above zero, and random and label-shuffled controls that do not reproduce that pattern.",29 32 0.005,apA25,1,negative
+s471,Reproducibility and data availability,"Because the interaction floor was not met, the control condition does not affect the outcome.",,,1,negative
+s472,Reproducibility and data availability,"**Bootstrap.** Clusters are recipient games, taken in order of first appearance, resampled with replacement using NumPy's default generator.",,,1,priority
+s473,Reproducibility and data availability,"The statistic is the mean of cluster means, and intervals are the 2.5th and 97.5th percentiles.",2 97,apA26,1,
+s474,Reproducibility and data availability,"Seeds are 82 plus a metric offset; NST subgroups add 10, 20, 30, or 40.",82 10 20 30 40,apA27,1,
+s475,Reproducibility and data availability,FRESH and VNF used seeds 9482 and 10482 with 5000 replicates.,9482 10482 5000,apA28,1,causal
+s476,Appendix B. Additional recomputed results,Table: Table 2.,,,1,
+s477,Appendix B. Additional recomputed results,"The 336 matched-divergence interventions by direction category, recomputed from saved arrays.",336,apB01,1,
+s478,Appendix B. Additional recomputed results,TV distance and probe change are measured relative to the Editor A reference activation.,,,1,causal
+s479,Appendix B. Additional recomputed results,TV is averaged over interventions; the probe change is the largest absolute change in any of the 64×3 probe probabilities over all interventions in the category.,64 3,gen01 gen02,1,causal
+s480,Appendix B. Additional recomputed results,Table 2 summarizes the 336 matched-divergence interventions by category.,336,apB01,1,
+s481,Appendix B. Additional recomputed results,"Every saved \(Y\) value matched our recomputation to \(1.3\times10^{-7}\), every saved JS value to \(4.4\times10^{-9}\), and every saved L2 to relative error \(4.4\times10^{-16}\).",1.3\times10^{-7} 4.4\times10^{-9} 4.4\times10^{-16},apB02 apB03 apB04,1,
+s482,Appendix B. Additional recomputed results,The differences come from float32 storage of probabilities in the original runs.,,,1,
+s483,Appendix B. Additional recomputed results,"For NST, the subgroup contrasts by category were as follows.",,,1,
+s484,Appendix B. Additional recomputed results,"In category A the learned-minus-wrong contrast was \(+0.0181\) (\([0.0074, 0.0294]\)); in category B it was \(+0.0239\) (\([0.0075, 0.0416]\)).",0.0181 0.0074 0.0294 0.0239 0.0075 0.0416,apB05 apB06 apB07 apB08 apB09 apB10,1,
+s485,Appendix B. Additional recomputed results,"Against random directions the values were \(+0.0188\) (\([0.0041, 0.0338]\)) in A and \(+0.0566\) (\([0.0331, 0.0798]\)) in B.",0.0188 0.0041 0.0338 0.0566 0.0331 0.0798,apB11 apB12 apB13 apB14 apB15 apB16,1,
+s486,Appendix B. Additional recomputed results,The natural recipient activation \(h_R\) and the learned patched activation differ by mean JS 0.045.,0.045,apB17,1,
+s487,Appendix B. Additional recomputed results,The Editor A reference and \(h_R\) differ by mean JS 0.030.,0.030,apB18,1,
+s488,Appendix C. Provenance,The saved arrays come from four result archives produced by the original Colab runs.,,,1,
+s489,Appendix C. Provenance,Their SHA-256 hashes and the hash of every member file are listed in the package's provenance manifest.,256,gen07,1,
+s490,Appendix C. Provenance,Protocol and configuration files were copied from the project repository with their git blob identifiers.,,,1,
+s491,Appendix C. Provenance,"The archival values come from eleven verbatim console excerpts, each hashed.",,,1,
+s492,Appendix C. Provenance,"A search of the local file system, including all downloaded archives, cloud-synchronized folders, and the repository artifact tree, found no result arrays for the feature-ablation, switching, or factorial studies.",,,1,negative
+s493,Appendix C. Provenance,No Google Drive mount was available on the machine used to prepare this package.,,,1,causal negative

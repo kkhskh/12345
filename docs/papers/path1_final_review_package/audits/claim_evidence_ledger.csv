@@ -1,0 +1,343 @@
+claim_id,context,token,evidence,expr,mode,note
+gen01,64×3,64,RECOMPUTED,PROBESHAPE()[0],eq,"probe squares, from saved probe tensors"
+gen02,64×3,3,RECOMPUTED,PROBESHAPE()[1],eq,probe classes per square
+gen03,64-component,64,RECOMPUTED,R('nst/summary/map_k'),eq,NST PCA components
+gen04,JS 0.01,0.01,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Primary target: `0.01`') and R('fixed_js/summary/max_abs_js_minus_target')<=2e-4 and R('nst/summary/max_abs_js_minus_target')<=2e-4",true,JS calibration target
+gen05,95%,95%,CONTEXT,"SRC('np.quantile(means, 0.025)') and SRC('np.quantile(means, 0.975)')",true,nominal interval level
+gen06,8-layer,8,CONTEXT,,context,model architecture; checkpoint not redistributed
+gen07,SHA-256,256,CONTEXT,,context,hash function name
+gen08,within \(2.2\times10^{-14}\),2.2\times10^{-14},RECOMPUTED,"max(R('spec/probe_max_abs_vs_editor_A'), R('fixed_js/summary/probe_max_abs_vs_editor_A'), R('nst/summary/probe_max_abs_vs_editor_A'), R('fiber/pairs/probe_max_abs_max'))",round,max probe change vs Editor A reference over all recomputed studies
+gen09,13 of 32 triplets,13,ARCHIVAL,A('fresh.cells_both'),eq,
+gen10,13 of 32 triplets,32,ARCHIVAL,A('fresh.cells_both')+A('fresh.cells_t_only')+A('fresh.cells_w_only')+A('fresh.cells_neither'),eq,
+gen11,60% gate,60%,PROTOCOL,"PROTO('08r2_symmetric_target_fresh_preregistration.md', 'both arms positive on ≥ 60% of complete triplets')",true,
+gen12,48 new validation pairs,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+abs01,On 48 recipient–target pairs,48,RECOMPUTED,R('fixed_js/summary/n_pairs'),eq,
+abs02,Jensen–Shannon divergence (0.01),0.01,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Primary target: `0.01`')",true,
+abs03,on 48 new pairs,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+abs04,in 47 of 48 pairs,47,RECOMPUTED,R('nst/summary/n_pairs')-R('nst/summary/n_Y_learned_positive'),eq,"pairs with learned Y<0, i.e. Q>G"
+abs05,in 47 of 48 pairs,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+abs06,About 56%,56%,DERIVED,100*R('stage_share/share'),round,recomputed FULL-EditorA with archival SEM differences
+set01,residual width 512,512,RECOMPUTED,R('fiber/geometry/d_model'),eq,
+set02,64-square,64,RECOMPUTED,PROBESHAPE()[0],eq,
+set03,\(d_{\mathrm{model}}=512\),512,RECOMPUTED,R('fiber/geometry/d_model'),eq,
+set04,8 heads,8,CONTEXT,,context,model architecture
+set05,vocabulary 61,61,RECOMPUTED,LOGITDIM(),eq,width of saved logits
+set06,context 59,59,CONTEXT,,context,model architecture
+set07,Token 0 is pass and tokens 1–60 index the 60 playable squares,*,RECOMPUTED,TOKENMAP_OK(),true,square_to_token is a bijection onto 1..60
+set08,frozen set of 64 square-wise,64,RECOMPUTED,PROBESHAPE()[0],eq,
+set09,\mathbb{R}^{124\times 512},124,RECOMPUTED,R('fiber/geometry/contrast_rows'),eq,
+set10,\mathbb{R}^{124\times 512},512,RECOMPUTED,R('fiber/geometry/d_model'),eq,
+set11,124 exceed \(10^{-8}\) times the largest,124,RECOMPUTED,R('fiber/geometry/rank_from_singular_values'),eq,
+set12,124 exceed \(10^{-8}\) times the largest,10^{-8},PROTOCOL,CONST('RANK_TOL'),round,also primary_rank_tol in configs
+set13,rowspace has dimension 124 and the nullspace has dimension 388,124,RECOMPUTED,R('fiber/geometry/rank_from_singular_values'),eq,
+set14,rowspace has dimension 124 and the nullspace has dimension 388,388,RECOMPUTED,R('fiber/geometry/nullspace_dim'),eq,
+set15,has trace 388,388,RECOMPUTED,R('fiber/geometry/P_N_trace'),round,
+set16,idempotent to \(10^{-15}\),10^{-15},RECOMPUTED,R('fiber/geometry/P_N_idempotence_err'),atmost,
+set17,within \(10^{-14}\) of 0 or 1,10^{-14},RECOMPUTED,R('fiber/geometry/P_N_eig_dist_from_0_or_1'),atmost,
+set18,within \(10^{-14}\) of 0 or 1,0,CONTEXT,,context,projector eigenvalues
+set19,within \(10^{-14}\) of 0 or 1,1,CONTEXT,,context,projector eigenvalues
+set20,"L2 budget 16, 40 gradient steps, learning rate 0.4, and norm penalty 0.01",*,PROTOCOL,"PROTO('toy_othello_08r2_fiber_spec.json', '""editor_budget"": 16.0') and PROTO('toy_othello_08r2_fiber_spec.json', '""edit_steps"": 40') and PROTO('toy_othello_08r2_fiber_spec.json', '""edit_lr"": 0.4') and PROTO('toy_othello_08r2_fiber_spec.json', '""lambda_norm"": 0.01')",true,
+set21,differ by at least 0.93,0.93,RECOMPUTED,R('fixed_js/summary/probe_max_abs_vs_natural_recipient_min'),atleast,probe tensor at patched activation vs natural recipient
+set22,applied with \(t=1\),1,CONTEXT,,context,SPEC design
+set23,=0.01\pm0.0002,0.01,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Primary target: `0.01`')",true,
+set24,=0.01\pm0.0002,0.0002,PROTOCOL,"PROTO('toy_othello_08r2_fiber_cost_fixed_js.json', '""fixed_js_tol"": 0.0002') and R('fixed_js/summary/max_abs_js_minus_target')<=0.0002",true,
+set25,grid from 0.003125 to 8 followed by 16 bisection steps,*,PROTOCOL,"PROTO('toy_othello_08r2_fiber_cost_fixed_js.json', '""scale_grid"": [0.003125,') and PROTO('toy_othello_08r2_fiber_cost_fixed_js.json', '4.0, 8.0]') and PROTO('toy_othello_08r2_fiber_cost_fixed_js.json', '""n_bisect"": 16')",true,
+set26,mean JS 0.043,0.043,RECOMPUTED,R('fixed_js/summary/mean_js_vs_natural_recipient'),round,JS of patched activation from natural recipient
+set27,\(k=64\) principal components,64,RECORDED,R('nst/summary/map_k'),eq,
+set28,(\(\alpha=10\)),10,RECORDED,R('nst/summary/map_alpha'),eq,
+set29,258-dimensional,258,RECORDED,FEATDIM(),eq,length of saved feature-name list
+set30,a 64-entry legal-move mask,64,RECORDED,FEATDIM()==3*64+64+2,true,192 one-hot + 64 legal + player + occupancy
+set31,occupancy divided by 64,64,CONTEXT,,context,feature definition
+set32,61-token vocabulary,61,RECOMPUTED,LOGITDIM(),eq,
+set33,adding \(10^{-12}\),10^{-12},RECOMPUTED,CONST('JS_EPS'),round,epsilon used by the recomputation
+set34,greater than 8 and category B pairs have distance from 2 to 8,8,PROTOCOL,"PROTO('toy_othello_08r2_fiber_spec.json', '""b_hamming_max"": 8') and PROTO('toy_othello_08r2_fiber_spec.json', '""a_hamming_min"": 9')",true,
+set35,greater than 8 and category B pairs have distance from 2 to 8,2,PROTOCOL,"PROTO('toy_othello_08r2_fiber_spec.json', '""b_hamming_min"": 2')",true,
+set36,SPEC froze 32 A and 16 B pairs,32,RECOMPUTED,R('spec/slices/A/n'),eq,
+set37,SPEC froze 32 A and 16 B pairs,16,RECOMPUTED,R('spec/slices/B/n'),eq,
+set38,reuses exactly those 48 pairs,48,RECOMPUTED,R('fixed_js/summary/n_pairs'),eq,
+set39,NST froze 48 different validation pairs,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+set40,new 400-game simulator cohort (seeds 9182 and 10182) and selected 16 A and 16 B triplets with 96 distinct game roles,*,PROTOCOL,"PROTO('toy_othello_08r2_symmetric_target_fresh.json', '""n_games"": 400') and PROTO('toy_othello_08r2_symmetric_target_fresh.json', '""cohort_seed"": 9182') and PROTO('toy_othello_08r2_visible_null_factorial.json', '""cohort_seed"": 10182') and PROTO('08r2_symmetric_target_fresh_preregistration.md', '16 A + 16 B') and PROTO('08r2_visible_null_factorial_preregistration.md', '16 A + 16 B') and A('fresh.seed')==9182 and A('vnf.seed')==10182 and A('fresh.roles')==96",true,
+set41,contains 336 calibrated interventions,336,RECOMPUTED,R('fixed_js/summary/n_interventions'),eq,
+set42,so its sample size is 48,48,RECOMPUTED,R('fixed_js/summary/n_pairs'),eq,
+set43,with 2000 replicates from seed 82,2000,RECOMPUTED,R('spec/slices/pooled/delta_specific/n_boot')==R('fixed_js/slices/pooled/delta_specific/n_boot')==R('nst/slices/pooled/wrong/n_boot')==2000,true,
+set44,with 2000 replicates from seed 82,82,RECOMPUTED,R('spec/slices/pooled/delta_specific/seed')==R('fixed_js/slices/pooled/delta_specific/seed')==R('nst/slices/pooled/wrong/seed')==82,true,
+set45,used 5000 replicates,5000,ARCHIVAL,"AN('fresh.A_T','n_boot')==AN('vnf.I_T','n_boot')==AN('sem.full_minus_legal','n_boot')==5000",true,
+set46,to within \(3\times10^{-8}\),3\times10^{-8},RECOMPUTED,MAXBOOTDIFF(),atmost,max |recomputed CI - original-run CI|
+fib01,dimension 388 of 512,388,RECOMPUTED,R('fiber/geometry/nullspace_dim'),eq,
+fib02,dimension 388 of 512,512,RECOMPUTED,R('fiber/geometry/d_model'),eq,
+fib03,388 dimensions are free,388,RECOMPUTED,R('fiber/geometry/nullspace_dim'),eq,
+fib04,On 32 matched validation pairs,32,RECOMPUTED,R('fiber/pairs/n_pairs'),eq,
+fib05,\(7.7\times10^{-15}\),7.7\times10^{-15},RECOMPUTED,R('fiber/pairs/probe_max_abs_max'),round,
+fib06,"mean JS 0.380, and by at least 0.185",0.380,RECOMPUTED,R('fiber/pairs/mean_js_H00_H01'),round,
+fib07,"mean JS 0.380, and by at least 0.185",0.185,RECOMPUTED,R('fiber/pairs/min_js_H00_H01'),atleast,
+fib08,All 32 pairs therefore met,32,RECOMPUTED,R('fiber/pairs/n_probe_invariant_and_js_ge_0.001'),eq,
+fib09,The 24 category-A pairs,24,RECOMPUTED,R('fiber/pairs/n_A'),eq,
+spc01,on 48 unused validation pairs,48,RECOMPUTED,R('spec/slices/pooled/n'),eq,
+spc02,(mean 18.33),18.33,RECOMPUTED,R('spec/mean_l2/correct'),round,
+spc03,\(+0.3916\),0.3916,RECOMPUTED,"CI('spec','pooled','delta_specific','point')",round,
+spc04,"[0.3175, 0.4758]",0.3175,RECOMPUTED,"CI('spec','pooled','delta_specific','lo')",round,
+spc05,"[0.3175, 0.4758]",0.4758,RECOMPUTED,"CI('spec','pooled','delta_specific','hi')",round,
+spc06,46 of 48 pairs positive,46,RECOMPUTED,"CI('spec','pooled','delta_specific','wins')",eq,
+spc07,46 of 48 pairs positive,48,RECOMPUTED,"CI('spec','pooled','delta_specific','n')",eq,
+spc08,\(+0.7086\),0.7086,RECOMPUTED,"CI('spec','pooled','delta_random','point')",round,
+spc09,"[0.6021, 0.8170]",0.6021,RECOMPUTED,"CI('spec','pooled','delta_random','lo')",round,
+spc10,"[0.6021, 0.8170]",0.8170,RECOMPUTED,"CI('spec','pooled','delta_random','hi')",round,
+spc11,48 of 48),48,RECOMPUTED,"CI('spec','pooled','delta_random','wins')==CI('spec','pooled','delta_random','n')==48",true,
+spc12,\(+0.144\),0.144,RECOMPUTED,R('spec/mean_Y/correct_null'),round,"mean Y, correct_null"
+spc13,\(-0.248\),-0.248,RECOMPUTED,R('spec/mean_Y/wrong_null'),round,"mean Y, wrong_null"
+spc14,\(-0.565\),-0.565,RECOMPUTED,R('spec/mean_Y/random_null'),round,"mean Y, random_null"
+spc15,\(-0.639\),-0.639,RECOMPUTED,R('spec/mean_Y/editor_A'),round,"mean Y, editor_A"
+spc16,\(-0.707\),-0.707,RECOMPUTED,R('spec/mean_Y/baseline'),round,"mean Y, baseline"
+spc17,0.279 for correct directions,0.279,RECOMPUTED,R('spec/mean_js_vs_editor_A/correct_null'),round,mean JS from Editor A reference
+spc18,0.223 for wrong directions,0.223,RECOMPUTED,R('spec/mean_js_vs_editor_A/wrong_null'),round,mean JS from Editor A reference
+spc19,0.038 for random directions,0.038,RECOMPUTED,R('spec/mean_js_vs_editor_A/random_null'),round,mean JS from Editor A reference
+fjs01,reference activation is 0.01. The first,0.01,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Primary target: `0.01`')",true,
+fjs02,calibrated all 336 directions on the same 48 pairs,336,RECOMPUTED,R('fixed_js/summary/n_interventions'),eq,
+fjs03,calibrated all 336 directions on the same 48 pairs,48,RECOMPUTED,R('fixed_js/summary/n_pairs'),eq,
+fjs04,\(1.23\times10^{-6}\),1.23\times10^{-6},RECOMPUTED,R('fixed_js/summary/max_abs_js_minus_target'),round,
+fjs05,\(1.19\times10^{-14}\),1.19\times10^{-14},RECOMPUTED,R('fixed_js/summary/probe_max_abs_vs_editor_A'),round,
+fjs06,5.298,5.298,RECOMPUTED,R('fixed_js/summary/mean_l2/correct'),round,"mean L2, correct"
+fjs07,6.368,6.368,RECOMPUTED,R('fixed_js/summary/mean_l2/wrong'),round,"mean L2, wrong"
+fjs08,12.265,12.265,RECOMPUTED,R('fixed_js/summary/mean_l2/random'),round,"mean L2, random"
+fjs09,"was 0.077 for correct, 0.080 for wrong, and 0.080 for random",0.077,RECOMPUTED,R('fixed_js/summary/mean_tv_vs_editor_A/correct'),round,
+fjs10,"was 0.077 for correct, 0.080 for wrong, and 0.080 for random",0.080,RECOMPUTED,"round(R('fixed_js/summary/mean_tv_vs_editor_A/wrong'),3)==round(R('fixed_js/summary/mean_tv_vs_editor_A/random'),3)==0.080",true,
+fjs11,Each point is one of 48 recipient–target pairs,48,RECOMPUTED,R('fixed_js/summary/n_pairs'),eq,
+fjs12,below \(1.2\times10^{-14}\),1.2\times10^{-14},RECOMPUTED,R('fixed_js/summary/probe_max_abs_vs_editor_A'),atmost,
+fjs13,from the Editor A reference is 0.01,0.01,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Primary target: `0.01`')",true,
+fjs14,\(+0.0266\),0.0266,RECOMPUTED,"CI('fixed_js','pooled','delta_specific','point')",round,
+fjs15,"[0.0179, 0.0357]",0.0179,RECOMPUTED,"CI('fixed_js','pooled','delta_specific','lo')",round,
+fjs16,"[0.0179, 0.0357]",0.0357,RECOMPUTED,"CI('fixed_js','pooled','delta_specific','hi')",round,
+fjs17,40 of 48 pairs positive,40,RECOMPUTED,"CI('fixed_js','pooled','delta_specific','wins')",eq,
+fjs18,40 of 48 pairs positive,48,RECOMPUTED,"CI('fixed_js','pooled','delta_specific','n')",eq,
+fjs19,\(+0.0230\),0.0230,RECOMPUTED,"CI('fixed_js','pooled','delta_random','point')",round,
+fjs20,"[0.0103, 0.0360]",0.0103,RECOMPUTED,"CI('fixed_js','pooled','delta_random','lo')",round,
+fjs21,"[0.0103, 0.0360]",0.0360,RECOMPUTED,"CI('fixed_js','pooled','delta_random','hi')",round,
+fjs22,30 of 48),30,RECOMPUTED,"CI('fixed_js','pooled','delta_random','wins')",eq,
+fjs23,30 of 48),48,RECOMPUTED,"CI('fixed_js','pooled','delta_random','n')",eq,
+fjs24,\(\Delta G=+0.0133\),0.0133,RECOMPUTED,R('fixed_js/summary/mean_dG_wrong'),round,
+fjs25,\(\Delta Q=-0.0133\),-0.0133,RECOMPUTED,R('fixed_js/summary/mean_dQ_wrong'),round,
+fjs26,\(-0.592\),-0.592,RECOMPUTED,R('fixed_js/summary/mean_Y/correct'),round,
+fjs27,\(-0.619\),-0.619,RECOMPUTED,R('fixed_js/summary/mean_Y/wrong'),round,
+fjs28,\(-0.615\),-0.615,RECOMPUTED,R('fixed_js/summary/mean_Y/random'),round,
+fjs29,for each of the 48 pairs,48,RECOMPUTED,R('fixed_js/summary/n_pairs'),eq,
+fjs30,"category A (32 pairs), category B (16 pairs)",32,RECOMPUTED,R('fixed_js/summary/n_A'),eq,
+fjs31,"category A (32 pairs), category B (16 pairs)",16,RECOMPUTED,R('fixed_js/summary/n_B'),eq,
+fjs32,(22 and 26 pairs),22,RECOMPUTED,R('fixed_js/summary/n_exact_editor'),eq,
+fjs33,(22 and 26 pairs),26,RECOMPUTED,R('fixed_js/summary/n_pairs')-R('fixed_js/summary/n_exact_editor'),eq,
+fjs34,a shift of 0.02–0.03,0.02,RECOMPUTED,"min(CI('fixed_js','pooled','delta_specific','point'), CI('fixed_js','pooled','delta_random','point'))",atleast,
+fjs35,a shift of 0.02–0.03,0.03,RECOMPUTED,"max(CI('fixed_js','pooled','delta_specific','point'), CI('fixed_js','pooled','delta_random','point'))",atmost,
+fjs36,\(+0.0477\),0.0477,RECOMPUTED,"CI('fixed_js','B','delta_random','point')",round,"correct-random, B"
+fjs37,"[0.0238, 0.0722]",0.0238,RECOMPUTED,"CI('fixed_js','B','delta_random','lo')",round,
+fjs38,"[0.0238, 0.0722]",0.0722,RECOMPUTED,"CI('fixed_js','B','delta_random','hi')",round,
+fjs39,\(+0.0395\),0.0395,RECOMPUTED,"CI('fixed_js','exact_editor','delta_random','point')",round,"correct-random, exact_editor"
+fjs40,"[0.0199, 0.0584]",0.0199,RECOMPUTED,"CI('fixed_js','exact_editor','delta_random','lo')",round,
+fjs41,"[0.0199, 0.0584]",0.0584,RECOMPUTED,"CI('fixed_js','exact_editor','delta_random','hi')",round,
+fjs42,\(+0.0106\),0.0106,RECOMPUTED,"CI('fixed_js','A','delta_random','point')",round,"correct-random, A"
+fjs43,"[-0.0033, 0.0246]",-0.0033,RECOMPUTED,"CI('fixed_js','A','delta_random','lo')",round,
+fjs44,"[-0.0033, 0.0246]",0.0246,RECOMPUTED,"CI('fixed_js','A','delta_random','hi')",round,
+fjs45,\(+0.0090\),0.0090,RECOMPUTED,"CI('fixed_js','nonexact_editor','delta_random','point')",round,"correct-random, nonexact_editor"
+fjs46,"[-0.0077, 0.0264]",-0.0077,RECOMPUTED,"CI('fixed_js','nonexact_editor','delta_random','lo')",round,
+fjs47,"[-0.0077, 0.0264]",0.0264,RECOMPUTED,"CI('fixed_js','nonexact_editor','delta_random','hi')",round,
+fjs48,The advantage over wrong targets has an interval above zero in all four subgroups.,,RECOMPUTED,"all(CI('fixed_js', s, 'delta_specific', 'lo') > 0 for s in ('A', 'B', 'exact_editor', 'nonexact_editor'))",true,qualitative claim
+nst01,\(3.5\times10^{-15}\),3.5\times10^{-15},RECOMPUTED,R('nst/summary/learned_minus_wrong_vs_map_rel_err'),round,
+nst02,\(3.7\times10^{-15}\),3.7\times10^{-15},RECOMPUTED,R('nst/summary/learned_minus_mean_state_vs_map_rel_err'),round,
+nst03,was 0.342 on training games and 0.305 on held-out,0.342,RECORDED,R('nst/summary/recorded_train_r2'),round,from null_state_train_diagnostics.json
+nst04,was 0.342 on training games and 0.305 on held-out,0.305,RECORDED,R('nst/summary/recorded_heldout_r2'),round,from null_state_train_diagnostics.json
+nst05,\(+0.0201\),0.0201,RECOMPUTED,"CI('nst','pooled','wrong','point')",round,learned minus wrong
+nst06,"[0.0108, 0.0298]",0.0108,RECOMPUTED,"CI('nst','pooled','wrong','lo')",round,
+nst07,"[0.0108, 0.0298]",0.0298,RECOMPUTED,"CI('nst','pooled','wrong','hi')",round,
+nst08,39 of 48,39,RECOMPUTED,"CI('nst','pooled','wrong','wins')",eq,
+nst09,39 of 48,48,RECOMPUTED,"CI('nst','pooled','wrong','n')",eq,
+nst10,\(+0.0314\),0.0314,RECOMPUTED,"CI('nst','pooled','random','point')",round,learned minus random
+nst11,"[0.0185, 0.0453]",0.0185,RECOMPUTED,"CI('nst','pooled','random','lo')",round,
+nst12,"[0.0185, 0.0453]",0.0453,RECOMPUTED,"CI('nst','pooled','random','hi')",round,
+nst13,35 of 48,35,RECOMPUTED,"CI('nst','pooled','random','wins')",eq,
+nst14,35 of 48,48,RECOMPUTED,"CI('nst','pooled','random','n')",eq,
+nst15,\(+0.0220\),0.0220,RECOMPUTED,"CI('nst','pooled','mean','point')",round,learned minus mean
+nst16,"[0.0158, 0.0293]",0.0158,RECOMPUTED,"CI('nst','pooled','mean','lo')",round,
+nst17,"[0.0158, 0.0293]",0.0293,RECOMPUTED,"CI('nst','pooled','mean','hi')",round,
+nst18,42 of 48,42,RECOMPUTED,"CI('nst','pooled','mean','wins')",eq,
+nst19,42 of 48,48,RECOMPUTED,"CI('nst','pooled','mean','n')",eq,
+nst20,\(+0.0537\),0.0537,RECOMPUTED,"CI('nst','pooled','editor','point')",round,learned minus editor
+nst21,"[0.0452, 0.0618]",0.0452,RECOMPUTED,"CI('nst','pooled','editor','lo')",round,
+nst22,"[0.0452, 0.0618]",0.0618,RECOMPUTED,"CI('nst','pooled','editor','hi')",round,
+nst23,47 of 48,47,RECOMPUTED,"CI('nst','pooled','editor','wins')",eq,
+nst24,47 of 48,48,RECOMPUTED,"CI('nst','pooled','editor','n')",eq,
+nst25,mass by 0.0195 and lowered became-illegal mass by 0.0342,0.0195,RECOMPUTED,R('nst/summary/mean_dG_vs_editor_A'),round,
+nst26,mass by 0.0195 and lowered became-illegal mass by 0.0342,0.0342,RECOMPUTED,-R('nst/summary/mean_dQ_vs_editor_A'),round,
+nst27,\(-0.582\),-0.582,RECOMPUTED,R('nst/summary/mean_Y/learned'),round,"NST mean Y, learned"
+nst28,\(-0.636\),-0.636,RECOMPUTED,R('nst/summary/mean_Y/editor_A'),round,"NST mean Y, editor_A"
+nst29,\(-0.701\),-0.701,RECOMPUTED,R('nst/summary/mean_Y/unedited'),round,"NST mean Y, unedited"
+nst30,\(-0.583\),-0.583,RECOMPUTED,R('nst/summary/mean_Y/oracle'),round,"NST mean Y, oracle"
+nst31,in only 1 of 48 pairs,1,RECOMPUTED,R('nst/summary/n_Y_learned_positive'),eq,
+nst32,in only 1 of 48 pairs,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+nst33,similarity was 0.792,0.792,RECOMPUTED,R('nst/summary/mean_cos_learned_oracle'),round,
+nst34,(mean cosine 0.850),0.850,RECOMPUTED,R('nst/summary/mean_cos_learned_mean_state'),round,
+nst35,direction was 0.757,0.757,RECOMPUTED,R('nst/summary/mean_cos_learned_wrong'),round,
+nst36,\(r=0.998\),0.998,RECOMPUTED,R('nst/summary/pearson_Y_learned_oracle'),round,
+nst37,\(r=0.991\),0.991,RECOMPUTED,R('nst/summary/pearson_Y_learned_wrong'),round,
+nst38,\(r=0.994\),0.994,RECOMPUTED,R('nst/summary/pearson_Y_learned_editor_A'),round,
+nst39,on only 7 of 48 pairs,7,RECOMPUTED,R('nst/summary/gradient_reached_tolerance'),eq,
+nst40,on only 7 of 48 pairs,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+nst41,(24 each),24,RECOMPUTED,R('nst/summary/n_exact_editor')==R('nst/summary/n_pairs')-R('nst/summary/n_exact_editor')==24,true,
+nst42,preregistered 0.01 floor,0.01,PROTOCOL,"PROTO('08r2_null_state_transfer_preregistration.md', 'Mean \\(Y_{\\mathrm{learned}}-Y_{\\mathrm{wrong}}\\ge 0.01\\)')",true,
+nst43,On those 24 pairs,24,RECOMPUTED,R('nst/summary/n_pairs')-R('nst/summary/n_exact_editor'),eq,
+nst44,\(+0.0113\),0.0113,RECOMPUTED,"CI('nst','nonexact','wrong','point')",round,"nonexact, learned minus wrong"
+nst45,"[-0.0013, 0.0232]",-0.0013,RECOMPUTED,"CI('nst','nonexact','wrong','lo')",round,
+nst46,"[-0.0013, 0.0232]",0.0232,RECOMPUTED,"CI('nst','nonexact','wrong','hi')",round,
+nst47,\(+0.0155\),0.0155,RECOMPUTED,"CI('nst','nonexact','random','point')",round,"nonexact, learned minus random"
+nst48,"[-0.0015, 0.0336]",-0.0015,RECOMPUTED,"CI('nst','nonexact','random','lo')",round,
+nst49,"[-0.0015, 0.0336]",0.0336,RECOMPUTED,"CI('nst','nonexact','random','hi')",round,
+nst50,On the 24 exact-board pairs,24,RECOMPUTED,R('nst/summary/n_exact_editor'),eq,
+nst51,\(+0.0288\),0.0288,RECOMPUTED,"CI('nst','exact','wrong','point')",round,
+nst52,\(+0.0474\),0.0474,RECOMPUTED,"CI('nst','exact','random','point')",round,
+nst53,The 48 pairs are unused,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+sem01,"0.053713, agrees",0.053713,ARCHIVAL,A('sem.full_minus_editor'),round,
+sem02,to \(7\times10^{-9}\),7\times10^{-9},DERIVED,"abs(A('sem.full_minus_editor') - CI('nst','pooled','editor','point'))",round,archival console value vs recomputation
+sem03,\(+0.0041\),0.0041,ARCHIVAL,A('sem.full_minus_legal'),round,
+sem04,"[0.0019, 0.0066]",0.0019,ARCHIVAL,AL('sem.full_minus_legal'),round,
+sem05,"[0.0019, 0.0066]",0.0066,ARCHIVAL,AH('sem.full_minus_legal'),round,
+sem06,\(+0.0056\),0.0056,ARCHIVAL,A('sem.full_minus_board'),round,
+sem07,"[0.0021, 0.0090]",0.0021,ARCHIVAL,AL('sem.full_minus_board'),round,
+sem08,"[0.0021, 0.0090]",0.0090,ARCHIVAL,AH('sem.full_minus_board'),round,
+sem09,preregistered \(+0.01\) floor,0.01,PROTOCOL,"PROTO('08r2_state_semantics_preregistration.md', 'Incremental advantage \\(+0.01\\)')",true,
+sem10,\(+0.0180\),0.0180,ARCHIVAL,A('sem.board_minus_stage'),round,
+sem11,STAGE_ONLY was \(+0.0195\),0.0195,ARCHIVAL,A('sem.legal_minus_stage'),round,
+sem12,\(0.0041+0.0195=0.0236\),0.0041,ARCHIVAL,A('sem.full_minus_legal'),round,
+sem13,\(0.0041+0.0195=0.0236\),0.0195,ARCHIVAL,A('sem.legal_minus_stage'),round,
+sem14,\(0.0041+0.0195=0.0236\),0.0236,DERIVED,R('stage_share/full_minus_stage_via_legal'),round,
+sem15,\(0.0056+0.0180=0.0236\),0.0056,ARCHIVAL,A('sem.full_minus_board'),round,
+sem16,\(0.0056+0.0180=0.0236\),0.0180,ARCHIVAL,A('sem.board_minus_stage'),round,
+sem17,\(0.0056+0.0180=0.0236\),0.0236,DERIVED,R('stage_share/full_minus_stage_via_board'),round,
+sem18,FULL-minus-Editor A value of 0.0537,0.0537,RECOMPUTED,R('stage_share/full_minus_editor_recomputed'),round,
+sem19,STAGE_ONLY minus Editor A is 0.0301,0.0301,DERIVED,R('stage_share/stage_minus_editor'),round,
+sem20,56.04%,56.04%,DERIVED,100*R('stage_share/share'),round,
+sem21,58.5%,58.5%,ARCHIVAL,100*A('sem.share_A'),round,
+sem22,52.6%,52.6%,ARCHIVAL,100*A('sem.share_B'),round,
+sem23,56.8%,56.8%,ARCHIVAL,100*A('sem.share_exact'),round,
+sem24,55.0%,55.0%,ARCHIVAL,100*A('sem.share_nonexact'),round,
+frs01,contained 2 category-B pairs but no category-B triplets,2,ARCHIVAL,A('sym.leftover_B_pairs')==2 and A('sym.leftover_B_triplets')==0,true,
+frs02,seed 9182 supplied 16 A and 16 B triplets,9182,ARCHIVAL,A('fresh.seed'),eq,
+frs03,seed 9182 supplied 16 A and 16 B triplets,16,PROTOCOL,"PROTO('08r2_symmetric_target_fresh_preregistration.md', '16 A + 16 B')",true,
+frs04,\(+0.0285\),0.0285,ARCHIVAL,A('fresh.A_T'),round,
+frs05,"[0.0165, 0.0406]",0.0165,ARCHIVAL,AL('fresh.A_T'),round,
+frs06,"[0.0165, 0.0406]",0.0406,ARCHIVAL,AH('fresh.A_T'),round,
+frs07,positive in 81% of triplets,81%,ARCHIVAL,100*A('fresh.A_T_win'),round,
+frs08,\(+0.0186\),0.0186,ARCHIVAL,A('fresh.A_W'),round,
+frs09,"[0.0072, 0.0301]",0.0072,ARCHIVAL,AL('fresh.A_W'),round,
+frs10,"[0.0072, 0.0301]",0.0301,ARCHIVAL,AH('fresh.A_W'),round,
+frs11,positive in 56%),56%,ARCHIVAL,100*A('fresh.A_W_win'),round,
+frs12,(40.6%),40.6%,ARCHIVAL,100*A('fresh.both_positive_frac'),round,
+frs13,\(D_T=+0.0158\),0.0158,ARCHIVAL,A('fresh.D_T'),round,
+frs14,\(D_W=+0.0151\),0.0151,ARCHIVAL,A('fresh.D_W'),round,
+frs15,lower interval bounds of 0.0002 and 0.0018,0.0002,ARCHIVAL,AL('fresh.D_T'),round,
+frs16,lower interval bounds of 0.0002 and 0.0018,0.0018,ARCHIVAL,AL('fresh.D_W'),round,
+vnf01,(seed 10182),10182,ARCHIVAL,A('vnf.seed'),eq,
+vnf02,\(\rho=\nu=3.5\),3.5,PROTOCOL,"PROTO('08r2_visible_null_factorial_preregistration.md', '`rho = nu = 3.5`')",true,
+vnf03,\(I_T=+0.0008\),0.0008,ARCHIVAL,A('vnf.I_T'),round,
+vnf04,"[-0.0009, 0.0030]",-0.0009,ARCHIVAL,AL('vnf.I_T'),round,
+vnf05,"[-0.0009, 0.0030]",0.0030,ARCHIVAL,AH('vnf.I_T'),round,
+vnf06,positive in 17 of 32 triplets,17,ARCHIVAL,32*A('vnf.I_T_win'),eq,
+vnf07,positive in 17 of 32 triplets,32,PROTOCOL,"PROTO('08r2_visible_null_factorial_preregistration.md', '16 A + 16 B')",true,
+vnf08,\(I_W=+0.0010\),0.0010,ARCHIVAL,A('vnf.I_W'),round,
+vnf09,"[-0.0001, 0.0022]",-0.0001,ARCHIVAL,AL('vnf.I_W'),round,
+vnf10,"[-0.0001, 0.0022]",0.0022,ARCHIVAL,AH('vnf.I_W'),round,
+vnf11,19 of 32),19,ARCHIVAL,32*A('vnf.I_W_win'),eq,
+vnf12,19 of 32),32,PROTOCOL,"PROTO('08r2_visible_null_factorial_preregistration.md', '16 A + 16 B')",true,
+vnf13,preregistered \(+0.005\) floor,0.005,PROTOCOL,"PROTO('08r2_visible_null_factorial_preregistration.md', 'Mean `I_T` and `I_W` ≥ 0.005')",true,
+vnf14,was 0.9405,0.9405,ARCHIVAL,A('vnf.rowspace_holdout_r2'),round,
+vnf15,on 32 fresh triplets,32,PROTOCOL,"PROTO('08r2_symmetric_target_fresh_preregistration.md', '16 A + 16 B')",true,
+vnf16,0.005 floor,0.005,PROTOCOL,"PROTO('08r2_symmetric_target_fresh_preregistration.md', 'Mean \\(A_T\\ge 0.005\\)') and PROTO('08r2_visible_null_factorial_preregistration.md', 'Mean `I_T` and `I_W` ≥ 0.005')",true,
+vnf17,second fresh cohort of 32 triplets,32,PROTOCOL,"PROTO('08r2_visible_null_factorial_preregistration.md', '16 A + 16 B')",true,
+dis01,"FRESH cohort of 400 games, 24 board-and-player states",400,PROTOCOL,"PROTO('toy_othello_08r2_symmetric_target_fresh.json', '""n_games"": 400')",true,
+dis02,"FRESH cohort of 400 games, 24 board-and-player states",24,ARCHIVAL,A('fresh.cohort_state_overlap'),eq,
+dis03,among the 32 selected triplets,32,PROTOCOL,"PROTO('08r2_symmetric_target_fresh_preregistration.md', '16 A + 16 B')",true,
+dis04,is about \(-0.58\),-0.58,RECOMPUTED,R('nst/summary/mean_Y/learned'),round,
+dis05,"share 48 pairs, and NST and SEM share another 48",48,RECOMPUTED,R('fixed_js/summary/n_pairs')==R('nst/summary/n_pairs')==48,true,
+apA01,"\(s\in\{0,\dots,63\}\)",*,RECOMPUTED,TOKENMAP_OK(),true,
+apA02,token \(s+1-c(s)\),1,RECOMPUTED,TOKENMAP_OK(),true,
+apA03,"center squares (27, 28, 35, 36)",*,RECOMPUTED,"tuple(CONST('CENTER_SQUARES'))==(27, 28, 35, 36)",true,
+apA04,"L2 budget of 16, 40 steps, learning rate 0.4, and norm penalty 0.01",*,PROTOCOL,"PROTO('08r2_fiber_spec_preregistration.md', 'budget-16 reconstruction: 40 steps, lr 0.4, \\(\\lambda=0.01\\)')",true,
+apA05,on 22 of the 48 SPEC pairs and on 24 of the 48 NST pairs,*,RECOMPUTED,R('fixed_js/summary/n_exact_editor')==22 and R('nst/summary/n_exact_editor')==24 and R('fixed_js/summary/n_pairs')==R('nst/summary/n_pairs')==48,true,
+apA06,within a slack of 4,4,PROTOCOL,"PROTO('toy_othello_08r2_fiber_spec.json', '""occ_slack"": 4') and PROTO('toy_othello_08r2_fiber_spec.json', '""legal_size_slack"": 4') and PROTO('toy_othello_08r2_fiber_spec.json', '""prefix_slack"": 4')",true,
+apA07,relative error \(8\times10^{-16}\),8\times10^{-16},RECOMPUTED,R('spec/max_rel_l2_mismatch_wrong_random_vs_correct'),round,
+apA08,"0.003125, 0.00625, 0.0125, 0.025, 0.05, 0.1, 0.2, 0.4, 0.8, 1.0, 1.5, 2.0, 4.0, 8.0",*,PROTOCOL,"PROTO('toy_othello_08r2_fiber_cost_fixed_js.json', '""scale_grid"": [0.003125, 0.00625, 0.0125, 0.025, 0.05, 0.1, 0.2, 0.4, 0.8, 1.0, 1.5, 2.0, 4.0, 8.0]')",true,
+apA09,with JS at least 0.01 is bisected 16 times,0.01,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Primary target: `0.01`')",true,
+apA10,with JS at least 0.01 is bisected 16 times,16,PROTOCOL,"PROTO('toy_othello_08r2_fiber_cost_fixed_js.json', '""n_bisect"": 16')",true,
+apA11,cannot reach 0.01 fails,0.01,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Primary target: `0.01`')",true,
+apA12,calibrated on 7 of 48 pairs,7,RECOMPUTED,R('nst/summary/gradient_reached_tolerance'),eq,
+apA13,calibrated on 7 of 48 pairs,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+apA14,contrast of at least 0.05,0.05,PROTOCOL,"PROTO('08r2_fiber_spec_preregistration.md', 'Mean \\(\\Delta_{\\mathrm{specific}}\\ge 0.05\\)')",true,
+apA15,"required 44 of 48 complete pairs, a mean correct-minus-wrong contrast of at least 0.02",44,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Require 44/48 complete pairs')",true,
+apA16,"required 44 of 48 complete pairs, a mean correct-minus-wrong contrast of at least 0.02",48,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Require 44/48 complete pairs')",true,
+apA17,"required 44 of 48 complete pairs, a mean correct-minus-wrong contrast of at least 0.02",0.02,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Mean \\(\\Delta_{\\mathrm{wrong}}\\ge 0.02\\)')",true,
+apA18,learned-minus-wrong contrast of at least 0.01,0.01,PROTOCOL,"PROTO('08r2_null_state_transfer_preregistration.md', 'Mean \\(Y_{\\mathrm{learned}}-Y_{\\mathrm{wrong}}\\ge 0.01\\)')",true,
+apA19,incremental advantage of at least 0.01,0.01,PROTOCOL,"PROTO('08r2_state_semantics_preregistration.md', 'Incremental advantage \\(+0.01\\)')",true,
+apA20,"FRESH required at least 29 of 32 complete triplets, \(A_T\) and \(A_W\) of at least 0.005",*,PROTOCOL,"PROTO('08r2_symmetric_target_fresh_preregistration.md', 'Coverage ≥ 29/32. Mean \\(A_T\\ge 0.005\\) and \\(A_W\\ge 0.005\\)')",true,
+apA21,on at least 60% of triplets,60%,PROTOCOL,"PROTO('08r2_symmetric_target_fresh_preregistration.md', 'both arms positive on ≥ 60% of complete triplets')",true,
+apA22,\(+0.0471\),0.0471,ARCHIVAL,A('fresh.C'),round,
+apA23,"[0.0316, 0.0629]",0.0316,ARCHIVAL,AL('fresh.C'),round,
+apA24,"[0.0316, 0.0629]",0.0629,ARCHIVAL,AH('fresh.C'),round,
+apA25,"VNF required at least 29 of 32 complete triplets, \(I_T\) and \(I_W\) of at least 0.005",*,PROTOCOL,"PROTO('08r2_visible_null_factorial_preregistration.md', 'Coverage ≥ 29/32. Integrity. Mean `I_T` and `I_W` ≥ 0.005')",true,
+apA26,the 2.5th and 97.5th percentiles,*,RECOMPUTED,"SRC('np.quantile(means, 0.025)') and SRC('np.quantile(means, 0.975)')",true,
+apA27,"Seeds are 82 plus a metric offset; NST subgroups add 10, 20, 30, or 40",*,RECOMPUTED,"all(R('nst/slices/' + s + '/wrong/seed') == 82 + o for s, o in (('pooled', 0), ('A', 10), ('B', 20), ('exact', 30), ('nonexact', 40)))",true,
+apA28,seeds 9482 and 10482 with 5000 replicates,*,PROTOCOL,"PROTO('toy_othello_08r2_symmetric_target_fresh.json', '""boot_seed"": 9482') and PROTO('toy_othello_08r2_visible_null_factorial.json', '""boot_seed"": 10482') and AN('fresh.A_T','n_boot')==AN('vnf.I_T','n_boot')==5000",true,
+apB01,336 matched-divergence interventions,336,RECOMPUTED,R('fixed_js/summary/n_interventions'),eq,
+apB02,\(1.3\times10^{-7}\),1.3\times10^{-7},RECOMPUTED,R('fixed_js/summary/max_abs_Y_vs_archive'),round,
+apB03,\(4.4\times10^{-9}\),4.4\times10^{-9},RECOMPUTED,R('fixed_js/summary/max_abs_js_vs_archive'),round,
+apB04,\(4.4\times10^{-16}\),4.4\times10^{-16},RECOMPUTED,R('fixed_js/summary/max_rel_l2_vs_archive'),round,
+apB05,\(+0.0181\),0.0181,RECOMPUTED,"CI('nst','A','wrong','point')",round,"NST A, learned minus wrong"
+apB06,"[0.0074, 0.0294]",0.0074,RECOMPUTED,"CI('nst','A','wrong','lo')",round,
+apB07,"[0.0074, 0.0294]",0.0294,RECOMPUTED,"CI('nst','A','wrong','hi')",round,
+apB08,\(+0.0239\),0.0239,RECOMPUTED,"CI('nst','B','wrong','point')",round,"NST B, learned minus wrong"
+apB09,"[0.0075, 0.0416]",0.0075,RECOMPUTED,"CI('nst','B','wrong','lo')",round,
+apB10,"[0.0075, 0.0416]",0.0416,RECOMPUTED,"CI('nst','B','wrong','hi')",round,
+apB11,\(+0.0188\),0.0188,RECOMPUTED,"CI('nst','A','random','point')",round,"NST A, learned minus random"
+apB12,"[0.0041, 0.0338]",0.0041,RECOMPUTED,"CI('nst','A','random','lo')",round,
+apB13,"[0.0041, 0.0338]",0.0338,RECOMPUTED,"CI('nst','A','random','hi')",round,
+apB14,\(+0.0566\),0.0566,RECOMPUTED,"CI('nst','B','random','point')",round,"NST B, learned minus random"
+apB15,"[0.0331, 0.0798]",0.0331,RECOMPUTED,"CI('nst','B','random','lo')",round,
+apB16,"[0.0331, 0.0798]",0.0798,RECOMPUTED,"CI('nst','B','random','hi')",round,
+apB17,differ by mean JS 0.045,0.045,RECOMPUTED,R('nst/summary/mean_js_learned_vs_natural_recipient'),round,
+apB18,differ by mean JS 0.030,0.030,RECOMPUTED,R('nst/summary/mean_js_editor_A_vs_natural_recipient'),round,
+set40,\(W P_N=0\),0,CONTEXT,,context,defining property of the nullspace projector; P_N trace and idempotence are checked in set13-set15
+apA34,G>0,0,PROTOCOL,"PROTO('08r2_fiber_spec_preregistration.md', 'Mean \\(G_{\\mathrm{correct}}-\\overline{G_{\\mathrm{wrong}}}>0\\)') and PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Mean \\(\\Delta G>0\\)') and PROTO('08r2_null_state_transfer_preregistration.md', '\\(\\Delta G>0\\)')",true,sign gate on became-legal mass
+apA35,Q<0,0,PROTOCOL,"PROTO('08r2_fiber_spec_preregistration.md', 'mean \\(Q_{\\mathrm{correct}}-\\overline{Q_{\\mathrm{wrong}}}<0\\)') and PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'mean \\(\\Delta Q<0\\)') and PROTO('08r2_null_state_transfer_preregistration.md', '\\(\\Delta Q<0\\)')",true,sign gate on became-illegal mass
+set41,by less than \(10^{-9}\),10^{-9},RECOMPUTED,JSSMOOTHDIFF(),atmost,"double vs single smoothing, all saved fixed-JS cells"
+set41,by less than \(10^{-9}\),10^{-9},RECOMPUTED,JSSMOOTHDIFF(),atmost,"double vs single smoothing, all saved fixed-JS cells"
+na01,mean absolute 0.000316,0.000316,RECOMPUTED,R('fiber/natural_anchor/donor_abs_dY_l2_1'),round,"donor-kernel |dY| at L2 1, saved rows"
+na02,random kernel step by 0.000173,0.000173,RECOMPUTED,R('fiber/natural_anchor/random_abs_dY_l2_1'),round,random-kernel |dY| at L2 1
+na03,change was 0.00151,0.00151,RECOMPUTED,R('fiber/natural_anchor/donor_abs_dY_l2_4'),round,donor-kernel |dY| at L2 4
+na04,4.76\times10^{-5},4.76\times10^{-5},RECOMPUTED,R('fiber/natural_anchor/donor_js_l2_4'),round,donor-kernel JS at L2 4
+na05,step of L2 1,1,CONTEXT,True,context,"dose label, not a result"
+na06,At L2 4,4,CONTEXT,True,context,"dose label, not a result"
+fb01,\(-0.689\),-0.689,RECOMPUTED,R('fiber/factorial/mean_Y/H00'),round,FIBER H00 is h_E
+fb02,\(+0.251\),0.251,RECOMPUTED,R('fiber/factorial/mean_Y/H10'),round,probe-visible part
+fb03,\(+0.404\),0.404,RECOMPUTED,R('fiber/factorial/mean_Y/H01'),round,kernel part on FIBER pairs
+fb04,\(+0.758\),0.758,RECOMPUTED,R('fiber/factorial/mean_Y/H11'),round,both parts
+fb05,was \(-0.586\),-0.586,RECOMPUTED,R('fiber/factorial/mean_I'),round,visible by kernel interaction
+spc40,mean \(Y\) \(+0.363\),0.363,RECOMPUTED,R('spec/mean_Y/correct_rowspace'),round,probe-visible donor part
+spc41,activation \(+0.725\),0.725,RECOMPUTED,R('spec/mean_Y/full_donor'),round,full donor activation
+spc42,\(+0.144\) for the kernel part,0.144,RECOMPUTED,R('spec/mean_Y/correct_null'),round,"same kernel mean, new sentence"
+nst60,\(+0.0223\),0.0223,RECOMPUTED,R('nst/summary/random_minus_editor'),round,random minus Editor A
+nst61,34 of 48,34,RECOMPUTED,R('nst/summary/random_minus_editor_wins'),eq,pairs where random exceeds Editor A
+nst62,34 of 48,48,RECOMPUTED,R('nst/summary/n_pairs'),eq,
+sem30,A_W=+0.0058,0.0058,ARCHIVAL,A('sem.A_W'),round,reverse switching on NST pairs
+sem31,"[-0.0003, 0.0124]",-0.0003,ARCHIVAL,AL('sem.A_W'),round,
+sem32,"[-0.0003, 0.0124]",0.0124,ARCHIVAL,AH('sem.A_W'),round,
+sem33,gain over Editor A is 0.0301,0.0301,DERIVED,R('stage_share/stage_minus_editor'),round,repeated stage-only gain
+proto_cost,at least 0.05,0.05,PROTOCOL,"PROTO('08r2_fiber_cost_preregistration.md', 'Mean \\(\\Delta_{\\mathrm{JS}}\\ge 0.05\\)')",true,first matched-divergence floor
+proto_js02,floor of 0.02,0.02,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Mean \\(\\Delta_{\\mathrm{wrong}}\\ge 0.02\\)')",true,
+proto_fix,fixed-0.01,0.01,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Primary target: `0.01`')",true,
+proto_n,on the same 48 pairs,48,RECOMPUTED,R('spec/slices/pooled/delta_specific/n'),eq,the follow-up uses the SPEC pairs
+dep01,31 of the 48,31,RECOMPUTED,R('spec/wrong_donor_linked_pairs'),eq,SPEC pairs that share a wrong-donor game
+dep02,31 of the 48,48,RECOMPUTED,R('spec/slices/pooled/delta_specific/n'),eq,
+dep03,group has 7 pairs,7,RECOMPUTED,R('spec/wrong_donor_largest_component'),eq,
+fib25,25 of the 32,25,RECOMPUTED,R('fiber/pairs/max_pairs_one_target'),eq,most-reused FIBER target
+fib26,25 of the 32,32,RECOMPUTED,R('fiber/pairs/n_pairs'),eq,
+cor01,correlate 0.155,0.155,RECOMPUTED,R('fixed_js/summary/pearson_delta_specific_vs_spec'),round,SPEC vs matched-JS pair contrasts
+cor02,correlates 0.846,0.846,RECOMPUTED,R('nst/summary/pearson_residual_learned_oracle'),round,after subtracting Editor A
+cor03,and 0.452,0.452,RECOMPUTED,R('nst/summary/pearson_residual_learned_wrong'),round,after subtracting Editor A
+sec01,targets of 0.005 and 0.02,0.005,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Secondary targets `0.005` and `0.02`')",true,"named, not run"
+sec02,targets of 0.005 and 0.02,0.02,PROTOCOL,"PROTO('08r2_fiber_cost_fixed_js_preregistration.md', 'Secondary targets `0.005` and `0.02`')",true,
+set43b,a 2000-replicate,2000,RECOMPUTED,R('spec/slices/pooled/delta_specific/n_boot')==2000,true,same-seed caveat; replicate count

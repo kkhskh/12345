@@ -1,0 +1,4 @@
+08R2-SYMMETRIC-TARGET-FRESH
+  verdict=SYMMETRIC_TARGET_SWITCHING_NOT_SUPPORTED valid_full=32/32
+  gate={'reconstruction_ok': 1, 'split_ok': 1, 'integrity_ok': 1, 'invariance_ok': 1, 'js_match_ok': 1, 'coverage_ok': 1, 'natural_symmetric_ok': 0, 'anchor_dependence_ok': 0}
+  FULL_N={'n': 32, 'A_T': {'n': 32, 'point': 0.0284998707684192, 'median': 0.020575202792940672, 'boot_mean': 0.028372617018711067, 'ci95_low': 0.016515968492432753, 'ci95_high': 0.040615703803947904, 'win_frac': 0.8125, 'n_boot': 5000}, 'A_W': {'n': 32, 'point': 0.01856145964513889, 'median': 0.008939830565765305, 'boot_mean': 0.018484849214800463, 'ci95_low': 0.007179035431873415, 'ci95_high': 0.03009126998474713, 'win_frac': 0.5625, 'n_boot': 5000}, 'C': {'n': 32, 'point': 0.04706133041355809, 'median': 0.032429022507784566, 'boot_mean': 0.04685746623351153, 'ci95_low': 0.031606687081763174, 'ci95_high': 0.06291074652473115, 'win_frac': 0.875, 'n_boot': 5000}, 'both_positive_frac': 0.40625}

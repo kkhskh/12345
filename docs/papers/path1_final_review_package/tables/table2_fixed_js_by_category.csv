@@ -1,0 +1,4 @@
+Category,Mean Y,Mean L2,Mean TV from Editor A,Max probe change
+correct,−0.5925,5.298,0.0771,4.3e−15
+wrong,−0.6190,6.368,0.0799,1.2e−14
+random,−0.6154,12.265,0.0799,1.0e−14

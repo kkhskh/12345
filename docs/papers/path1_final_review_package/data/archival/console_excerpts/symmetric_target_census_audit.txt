@@ -1,0 +1,8 @@
+08R2-SYMMETRIC-TARGET CENSUS AUDIT
+  excluded=332 leftover=408 occ_bad=0 legal_bad=0
+  leftover B_pairs=2 B_triplets=0 B_pack=0
+  before_nst B_pairs=262 B_triplets=193
+  production A=280490 B=0 selected=16+0
+  cause=B_pairs_exist_but_triplet_constraints_eliminate_them implementation_error=0
+  fresh B_triplets=14569 B_pack=48 A_pack=None feasible16=1
+  retained=SYMMETRIC_TARGET_CENSUS_INFEASIBLE

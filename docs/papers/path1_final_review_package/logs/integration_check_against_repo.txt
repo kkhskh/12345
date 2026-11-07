@@ -1,0 +1,26 @@
+command:   /Users/shkh/opt/anaconda3/bin/python scripts/integration_check_against_repo.py --repo /Users/shkh/ml_research
+cwd:       /Users/shkh/ml_research/docs/papers/path1_final_review_package
+started:   2026-11-06T15:09:23.717105+00:00
+python:    /Users/shkh/opt/anaconda3/bin/python (3.9.13)
+packages:  {'numpy': '1.26.4', 'scipy': '1.13.1', 'matplotlib': '3.8.4', 'pytest': '8.4.2'}
+env:       {'PYTHONPATH': None, 'PYTHONNOUSERSITE': None, 'PYTHONSAFEPATH': None, 'MPLBACKEND': None, 'PATH': '/Users/shkh/.opam/mirage-dev/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Applications/Cursor.app/Contents/Resources/app/node_modules/@vscode/ripgrep/bin:/Users/shkh/.opam/mirage-dev/bin:/opt/homebrew/opt/llvm/bin:/Users/shkh/opt/anaconda3/bin:/Users/shkh/opt/anaconda3/condabin:/Users/shkh/.cargo/bin', 'CONDA_DEFAULT_ENV': 'base', 'VIRTUAL_ENV': None}
+exit code: 0
+elapsed:   7.41 s
+created:   []
+changed:   []
+deleted:   []
+
+--- stdout ---
+max |package - repository| Y        0.000e+00
+max |package - repository| G        0.000e+00
+max |package - repository| Q        0.000e+00
+max |package - repository| JS       0.000e+00
+max |package - repository| softmax  0.000e+00
+fixed_js delta_specific: repository cluster_bootstrap vs package, max diff 0.000e+00
+fixed_js delta_random: repository cluster_bootstrap vs package, max diff 0.000e+00
+nst wrong: repository cluster_bootstrap vs package, max diff 0.000e+00
+nst editor: repository cluster_bootstrap vs package, max diff 0.000e+00
+
+compared 1255 saved cells; all agree
+
+--- stderr ---

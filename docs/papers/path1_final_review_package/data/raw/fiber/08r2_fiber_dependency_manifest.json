@@ -1,0 +1,41 @@
+{
+  "git_hash": "3ea7182d5b761e59f167a2e7c6fa3c7fa6bd7ac1",
+  "site": "blocks.6.hook_resid_mid",
+  "checkpoint_path": "/content/drive/MyDrive/ml_research_artifacts/toy_othello/checkpoints/synthetic_model.pth",
+  "checkpoint_sha256": "aef97afb1e7ec9dbef1d9007174458830a5c428d62f1e2338128879b179bd5c4",
+  "probe_path": "/content/drive/MyDrive/ml_research_artifacts/toy_othello/checkpoints/08c_selected_probe.pkl",
+  "probe_sha256": "d587d61d7cba059ecc16059679120c96c7b660ad9fdf00aa18bab1806f3a2a31",
+  "holdout_sha256": "19d9757509256139900dec0647a331c28e549f17b87d7bc8d707ebccad989d24",
+  "pair_check": {
+    "saved_hash": "403a93fb9b382b5ecc9f2a0ce9b7c7511d577645df15baa63769744c0f4db9b9",
+    "recomputed_hash": "403a93fb9b382b5ecc9f2a0ce9b7c7511d577645df15baa63769744c0f4db9b9",
+    "ok": 1,
+    "n_saved": 32,
+    "n_recomputed": 32
+  },
+  "pair_flags": {
+    "n_primary": 32,
+    "n_a": 24,
+    "n_b": 8,
+    "n_d_in_primary_filter": 0,
+    "pair_manifest_sha256_saved": "57bec0048ad2c606628cb63f11f160f58adaf201cd47a4ea8c13960c9a68c714",
+    "used_confirmation": 0
+  },
+  "validation_dir": "/content/drive/MyDrive/ml_research_artifacts/toy_othello/results/08r2/validation",
+  "results_dir": "/content/drive/MyDrive/ml_research_artifacts/toy_othello/results/08r2/fiber",
+  "confirmation_sealed": true,
+  "used_confirmation": 0,
+  "preprocessing": {
+    "unexpected_preprocessing": [],
+    "ok": true,
+    "note": "08c pack is hook/target/method/models; no fitted scaler."
+  },
+  "n_contrasts": 124,
+  "n_binary": 4,
+  "n_multiclass": 60,
+  "n_constant": 0,
+  "official_0A_letter": "C / PARTIAL",
+  "section_5_3_status": "PARTIAL",
+  "obstruction_ready": "NO",
+  "validation_status": "08R2_VALIDATION_COMPLETE \u2014 NEGATIVE"
+}

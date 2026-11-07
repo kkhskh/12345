@@ -1,0 +1,1208 @@
+{
+ "package": "Causal Information Outside a Frozen Board Probe in Othello-GPT: private review package",
+ "layers": {
+  "A": "raw data",
+  "B": "analysis",
+  "C": "tables and figures",
+  "D": "verification",
+  "E": "manuscript build"
+ },
+ "excluded": "logs/ (each log records its own hashes), __pycache__, .DS_Store, this file",
+ "not_included": [
+  "model checkpoint",
+  "probe weights",
+  "sealed confirmation protocol and data"
+ ],
+ "files": [
+  {
+   "path": "FINAL_SCIENTIFIC_VERDICT.md",
+   "bytes": 4271,
+   "sha256": "3e2384ebecdf0ebc57c8d389cf247896fa9b536a8232c71b087c6e5e35f1e5a3",
+   "layer": "documentation",
+   "role": "package documentation"
+  },
+  {
+   "path": "README.md",
+   "bytes": 5254,
+   "sha256": "329a64158c36171bdf8deee618222f958284984ba7b7df1f5938d8aee6080c4d",
+   "layer": "documentation",
+   "role": "package documentation"
+  },
+  {
+   "path": "REPRODUCIBILITY.md",
+   "bytes": 6921,
+   "sha256": "8a355e80f26b16851b3a2eb1cdab3f837c547bdc5624b6d9f36835c8b2f6a379",
+   "layer": "documentation",
+   "role": "package documentation"
+  },
+  {
+   "path": "analysis/fiber_pairs.csv",
+   "bytes": 3878,
+   "sha256": "2fb236a89008617c38e445f1bd8e5613572c80efeb28b638560513cb6d8db4ca",
+   "layer": "B",
+   "role": "recomputed analysis outputs"
+  },
+  {
+   "path": "analysis/fixed_js_interventions.csv",
+   "bytes": 106746,
+   "sha256": "7e7e0f11621aa367326d149c6911ac242f20765b054d045def8ab89f6a44e52d",
+   "layer": "B",
+   "role": "recomputed analysis outputs"
+  },
+  {
+   "path": "analysis/fixed_js_pairs.csv",
+   "bytes": 17878,
+   "sha256": "c64c9f3e44274c592b222dd15451ba68018d4761473136a798cf08053422f27b",
+   "layer": "B",
+   "role": "recomputed analysis outputs"
+  },
+  {
+   "path": "analysis/nst_pairs.csv",
+   "bytes": 20849,
+   "sha256": "f396e81a4beb8cbe95ddbdf6250ee7f9dc4ad011e825649f8043eb2d0f2678da",
+   "layer": "B",
+   "role": "recomputed analysis outputs"
+  },
+  {
+   "path": "analysis/results.json",
+   "bytes": 39321,
+   "sha256": "635e8cbb687ed1f7f53000d16b27671423688182e97e64ba2a4801c9ec0cf2ee",
+   "layer": "B",
+   "role": "recomputed analysis outputs"
+  },
+  {
+   "path": "analysis/spec_pairs.csv",
+   "bytes": 3744,
+   "sha256": "2ff9f6fb5dbd065a4e30b871d46e16957aeff5288b10d232a8d2b7732ace3dbe",
+   "layer": "B",
+   "role": "recomputed analysis outputs"
+  },
+  {
+   "path": "audits/claim_evidence_ledger.csv",
+   "bytes": 37142,
+   "sha256": "3a4fa4333cf30958e8278da82443aefcc6279f4f9f77c67610959122b5fcb9ea",
+   "layer": "D",
+   "role": "claim-evidence ledger read by the verifier"
+  },
+  {
+   "path": "audits/leakage_and_reuse_audit.md",
+   "bytes": 4716,
+   "sha256": "304bcbfbb3a28ba190279715c0fff2053063eefb426ed99161780cf240ea0b02",
+   "layer": "review",
+   "role": "audit reports"
+  },
+  {
+   "path": "audits/negative_result_register.md",
+   "bytes": 4625,
+   "sha256": "f347552125a5c2ec1541bd52a2015a2a6f01955b6694a139955cb58de8e19a7c",
+   "layer": "review",
+   "role": "audit reports"
+  },
+  {
+   "path": "audits/novelty_review.md",
+   "bytes": 5683,
+   "sha256": "575ad976c1f678130f9117fbe69760970ab2c0d417576f36a38e22a3aeccecec",
+   "layer": "review",
+   "role": "audit reports"
+  },
+  {
+   "path": "audits/provenance_inventory.md",
+   "bytes": 18201,
+   "sha256": "e8663d8c69bb2b50eaa8908e3a6ebe4abc1aa2fe0873489e5bc8f8d9c81e3984",
+   "layer": "review",
+   "role": "audit reports"
+  },
+  {
+   "path": "audits/recomputation_report.md",
+   "bytes": 9608,
+   "sha256": "2e35d4dc84c5ef7e1e4bb45d3e8d9f7a1525eb952fec8d85d23ad9e0137135b8",
+   "layer": "review",
+   "role": "audit reports"
+  },
+  {
+   "path": "audits/sentence_audit.csv",
+   "bytes": 86261,
+   "sha256": "ad5d53996e474da7eec02fd8225f5a7679701f14bbac9b81100d9e3df70ec7ed",
+   "layer": "review",
+   "role": "audit reports"
+  },
+  {
+   "path": "audits/stale_document_reconciliation.md",
+   "bytes": 10130,
+   "sha256": "20bd56bd672207877c8cefa19dc5b184b24d181ffd5ee84b414dcc4a73094900",
+   "layer": "review",
+   "role": "audit reports"
+  },
+  {
+   "path": "data/README.md",
+   "bytes": 3617,
+   "sha256": "69a9cc520f570e883fb2d6be6d23afa38cb9db32d07d408cff43266ca836e79e",
+   "layer": "A",
+   "role": "data documentation and provenance manifest"
+  },
+  {
+   "path": "data/archival/archival_values.json",
+   "bytes": 11370,
+   "sha256": "578f1a0e2a0f014d0616b5e541bf3ac5b735b3da210345b6280d649f79bdeb8f",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/fresh_anchor_audit.txt",
+   "bytes": 417,
+   "sha256": "40c14d12aa41a81bef8f6295591eb2a7bad13c4d11c716f4d5b51a2308c8e5e5",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/fresh_cohort.txt",
+   "bytes": 465,
+   "sha256": "96450991145c533ef0a523d2d8d3fb2ac79362572e101c03e064c28780415b2c",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/fresh_full_run.txt",
+   "bytes": 975,
+   "sha256": "92e904847df5b34dc49ce8f75de8ae85680752dea623789f67f801de4bc29c15",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/sem_full_run.txt",
+   "bytes": 2388,
+   "sha256": "e53e3e339840f063852dd00d7941e83141cf8fe27947baf02ef7323fac1ad006",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/sem_stage_share_subgroups.txt",
+   "bytes": 253,
+   "sha256": "3e6ec9f5fd37efdb7715db0e662681936ebad650cb23470066ec09faf11a0c91",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/symmetric_target_census.txt",
+   "bytes": 259,
+   "sha256": "6d308465423d82ff6a462e8de158eb9f37f1f95c35e7cfcc2d867c24b14033c3",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/symmetric_target_census_audit.txt",
+   "bytes": 398,
+   "sha256": "f835b76d28a2618ca107bb5eb020db97fcb6cbea515dfdbb3ec37afadc021d85",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/vnf_cohort.txt",
+   "bytes": 201,
+   "sha256": "04198ef4104ff45c69e70ffacc6014c0aaa3d69ba65205fd0459b1f67b2b0bb6",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/vnf_full_run.txt",
+   "bytes": 848,
+   "sha256": "9319b0d60c674cf398696c3921c4a598f005dcf9d20e28c54b8fda8f083d8718",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/vnf_rowspace_map.txt",
+   "bytes": 192,
+   "sha256": "d1d1b9cbaa4c8b1b58d0411ea43ef5227e33db8c95fcedd6937fe4e523c10a1b",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/archival/console_excerpts/vnf_stage1.txt",
+   "bytes": 888,
+   "sha256": "daa0ed37d9b69bf6823bbba0a0ae79e2a833e8a639c56e2532682c7b85e1848f",
+   "layer": "A",
+   "role": "verbatim console excerpts and the archival value register"
+  },
+  {
+   "path": "data/protocols/08r2_fiber_cost_fixed_js_preregistration.md",
+   "bytes": 2264,
+   "sha256": "f65370cadeaf43c072b748549c409212ff45035ecedc731f77185883e7599723",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_fiber_cost_preregistration.md",
+   "bytes": 3435,
+   "sha256": "04dede7a0448197b012451b659c2ed4f59950e1d6d39adcd531befe8b9ab4598",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_fiber_spec_preregistration.md",
+   "bytes": 3924,
+   "sha256": "ddd03244a11280f131d922d379fc78e48c3a69056eb1f1e3a70c6171849e10f0",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_null_state_transfer_preregistration.md",
+   "bytes": 2493,
+   "sha256": "ac84235e56c8f3a6103ef1f357df289ec901ded4213457e4d3197854b16f7a84",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_state_semantics_mean_level_correction.md",
+   "bytes": 1819,
+   "sha256": "adc30ae8d6730aac310ee11e028118d9c90f6a922edaeb970592f699dc587ce2",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_state_semantics_preregistration.md",
+   "bytes": 1848,
+   "sha256": "e478972c836e85f65ab9d1299e239a27cb206347322a0d8ec781da8f5f77f479",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_symmetric_target_census_audit.md",
+   "bytes": 487,
+   "sha256": "7c1e2f9cc3b0d47190b558365de37eea4ca8d46fffca610e4887b8ea9cb537e2",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_symmetric_target_fresh_preregistration.md",
+   "bytes": 1812,
+   "sha256": "2961d4997f7959f167479d79037fa10c8aa97c389d21ed6454312656079c6d34",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_symmetric_target_preregistration.md",
+   "bytes": 1439,
+   "sha256": "157db787fd0a11c56b7bde72a81e59f54c134a6e495da24cd6c19186c9044c9f",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/08r2_visible_null_factorial_preregistration.md",
+   "bytes": 1406,
+   "sha256": "17236d6a92e33c1ada99539d3526a8f6636f5598c8c4bf9eb83287726b359022",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/toy_othello_08r2_fiber.json",
+   "bytes": 1444,
+   "sha256": "ebb54e3ba97765ae643ad439b771ce434b2906c61e8cb8bb26ca195956f7dfbe",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/toy_othello_08r2_fiber_cost_fixed_js.json",
+   "bytes": 1530,
+   "sha256": "59639d4efc9c0b81e0caf1cd7d0f546c4342c91520cc4051f524a764df9690d5",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/toy_othello_08r2_fiber_spec.json",
+   "bytes": 1609,
+   "sha256": "d0bcd93d1e74f7273d98a0b96891925940ca8fa122044beeaef962f629c0893e",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/toy_othello_08r2_null_state_transfer.json",
+   "bytes": 1455,
+   "sha256": "0606dafd5d3850e111a72a5db94653ac0524680145e8180eb199b85e14aa728b",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/toy_othello_08r2_state_semantics.json",
+   "bytes": 1486,
+   "sha256": "a8b9c2d9a7279cfe1bc43ac90244d38c8a9edaa189cc7560f812865e9cd98589",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/toy_othello_08r2_symmetric_target_fresh.json",
+   "bytes": 1899,
+   "sha256": "1b4b130f548278cd5289226503b74f1fb0763ce4c257c20cf3dbe03ec6c8b2ee",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/protocols/toy_othello_08r2_visible_null_factorial.json",
+   "bytes": 1349,
+   "sha256": "967715821d77e2af7919a61986e372cc3462af1c7a5f82e25f50b4a0b765d5d3",
+   "layer": "A",
+   "role": "preregistrations and run configurations copied from the project repository"
+  },
+  {
+   "path": "data/provenance_manifest.json",
+   "bytes": 39085,
+   "sha256": "9fb808c85f7a8a58e88a8a071fd3e2d7fe82967dd73e5ba38c8acdb2f90a0697",
+   "layer": "A",
+   "role": "data documentation and provenance manifest"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_bootstrap.csv",
+   "bytes": 1165,
+   "sha256": "213c76c0dca110d1e0035e692206a2e316cc5cb45c5675670042d3608a3b409b",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_completion_status.json",
+   "bytes": 652,
+   "sha256": "b0e9fcb31e4ab2a8567c13aaa17d2df4ae951c010a2c7225d7ae70aaba5d7e47",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_controls.csv",
+   "bytes": 69462,
+   "sha256": "889402c86b5c00acb5f87b2d6fe8c534a5d793b53afb66cf918d9593ec1f5aee",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_dependency_manifest.json",
+   "bytes": 1732,
+   "sha256": "056e5d24a75fdf44ef7e459edaa9810ba57d342ed5e54675b584b1e903fc1110",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_factorial_interventions.csv",
+   "bytes": 58070,
+   "sha256": "e69f6f393d3c7cf418870d2f04c778285f08b79d018e8d52efe1f625e518100d",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_full_logits.npz",
+   "bytes": 71262,
+   "sha256": "870ca08c6422dcd8b0cc39d6b2d89c855b814730ae944c3c7c77cea4c1bea209",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_matched_pairs.csv",
+   "bytes": 17492,
+   "sha256": "b7bd6db78a598e941c3e2f714f7452e62af086cc7ac5d8d98b98ea0d4c4edf3e",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_natural_anchor.csv",
+   "bytes": 420240,
+   "sha256": "49612ce37232e9d3d65e8a2b4e37ab9f6ec75d547db76d55322b610988b8671b",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_probe_contrast_parity.csv",
+   "bytes": 555,
+   "sha256": "a4a0f617afc6e363112b918da09038ddb7139942905f8d477bf3a25c1ae2abb9",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_probe_probabilities.npz",
+   "bytes": 214056,
+   "sha256": "bbe6dc72d019eaa6f4e16faa2a8c753f704563765d272d1f84b3c93485b5bf0e",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_scientific_report.md",
+   "bytes": 4776,
+   "sha256": "2b2fc15f611a6a9cc387235761cdd4c886f7339eeb4db9f57209a8710041893f",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_specificity_anchor_extract.csv",
+   "bytes": 166824,
+   "sha256": "deee013f9530d59e8c7b4a6e38aefa117ff156cf55fb6ceaf10432e5f9f3a638",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_specificity_pair_verification.csv",
+   "bytes": 9878,
+   "sha256": "412578f2c45c96579cdd62620c6f4f6bed52aae84433d988ea49572ba53d2dcc",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_specificity_scientific_report.md",
+   "bytes": 12347,
+   "sha256": "91be9b1a03aa9c64088436450a79855258bae2fcb6bf00d1e9df3702ae94aec8",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_specificity_summary.json",
+   "bytes": 21089,
+   "sha256": "843fa66d8aebab7af28e09d3dc3802f3c8f004bd0d75b4488717d4405cb8becc",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fiber/08r2_fiber_svd_report.json",
+   "bytes": 3697,
+   "sha256": "97d298156df03883fbccd37b3ae452f045baf49874fa804782c81e8fe8ce2fb7",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_attempt_accounting.json",
+   "bytes": 138,
+   "sha256": "2cc04ecc0c85e5fe111dbb69996eb5727988b3adcd0fbbd1cf01c4a584eca4e0",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_bootstrap.csv",
+   "bytes": 1177,
+   "sha256": "62f33ec98bc397137063536dff073f8ec14999d4d7621797229e7bce892ecf06",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_calibrations.csv",
+   "bytes": 77018,
+   "sha256": "7be84ffae22a43be7fa220fc92b9d0f33a4264021c961a284d2c2617dd2ce94c",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_completion_status.json",
+   "bytes": 5348,
+   "sha256": "6ce60b668547e7a2e3ec69eb088b8c5b8fdf1ccb9dd828e50fb6c19213ee9771",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_dependency_manifest.json",
+   "bytes": 894,
+   "sha256": "2e0ff2af1bfe3ce087b3da3ffe7f292b6ed8b2d6ed70b019e68d64b635424bf7",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_dose_search.csv",
+   "bytes": 767338,
+   "sha256": "f74bee459b4fd268c44c4fe2e5ba999765c942638b81936f73a972ad3de77b21",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_full_logits.npz",
+   "bytes": 221239,
+   "sha256": "82b3e366dfe311853cdabd5ac8dd127e75383b4d83e3a75fc092c70b99f733ad",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_interventions.csv",
+   "bytes": 97455,
+   "sha256": "ae966e9ca67eb7df099635aee0f38e08c1b2c21a644d1a85bd22311045c25fd6",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_pair_manifest.json",
+   "bytes": 67823,
+   "sha256": "f9ea8376d7d55425248844410e4cbd8ac46853d6e5b257a4980ce5cbdccea808",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_preflight.csv",
+   "bytes": 30833,
+   "sha256": "f3b039c771cac0dbb6a1eb0b918f4b01f5d7319f119a0ce8d060da8bf5cea717",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_preregistration.json",
+   "bytes": 599,
+   "sha256": "d461274878fd457fa89be8ff34e97604dec8ff68c32a3a84397216f2b20c7670",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_preregistration.md",
+   "bytes": 2264,
+   "sha256": "f65370cadeaf43c072b748549c409212ff45035ecedc731f77185883e7599723",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_probe_parity.csv",
+   "bytes": 555,
+   "sha256": "57e8590ecb0490eb2db61a523fde0fbf8893cbcfb72468aed4e61b88cffdaecf",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_probe_probabilities.npz",
+   "bytes": 660789,
+   "sha256": "d7b2152df133a638f9f3bc5d848cd352cc03c2f5f41e3fd686c234a9dc669caf",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/fixed_js/fixed_js_scientific_report.md",
+   "bytes": 2918,
+   "sha256": "dea0bcfd79a888e1e21b6dd925722132665d6a8caada6389fd180d6b570246b1",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_attempt_accounting.json",
+   "bytes": 150,
+   "sha256": "86a802a947280e9d3cb5cf38bdf76a5d67acae3b13edf55c584d268e6fefcebe",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_bootstrap.csv",
+   "bytes": 2079,
+   "sha256": "04c0ae84bb045751b767e4f52fef0b46f67ad44b26d97519ae050e2124943acd",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_calibrations.csv",
+   "bytes": 34585,
+   "sha256": "aa0f795f05e8ad3e36ca0fb8c175a9750f739cf5a93a9ac7a5a4f3ca868476fe",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_census.json",
+   "bytes": 647,
+   "sha256": "cabc5c792e4a05b864e649526adee85884b159158f79c100138cdbe1057e2a23",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_completion_status.json",
+   "bytes": 8664,
+   "sha256": "507103b982a247cf717c49f7aa78c8ef74c03e01333728a37f36a3cdc61c44ea",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_cv_table.csv",
+   "bytes": 505,
+   "sha256": "b8ebb8029ac7d9df59ac9bea69b05e4428e785d08d41ed081b8e3b37260a0c6a",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_dependency_manifest.json",
+   "bytes": 386,
+   "sha256": "169c7d5e12fb5acccde10946aaa37990b491852d788010dc68dcd5075a4af9f0",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_donor_separation.json",
+   "bytes": 258,
+   "sha256": "0660c8be2b47ec60e7e8ee89e0dc7e4e8e338d1d6b1c45b6c23daf720297826f",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_dose_search.csv",
+   "bytes": 451382,
+   "sha256": "19726410b38d5967b7f5bf050755fe2811255f29de0bd1604228045436413392",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_feature_names.json",
+   "bytes": 4886,
+   "sha256": "e7202fd8da08db1a5f257514d07f6c8311df1003c1cb6f225d6a91794887b29b",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_full_logits.npz",
+   "bytes": 193859,
+   "sha256": "c69beeba9c5e55b4733c4272ed702d0e5b551e72a50c31576d6f277b26417e44",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_heldout_residual.json",
+   "bytes": 65,
+   "sha256": "48d5dd15a9a78efca04abd5c02db4d7b4153fb8dd62e427314b85a93cb956b45",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_intervention_directions.npz",
+   "bytes": 1209269,
+   "sha256": "9c54aaf66e51fb2c74c2c0f534a26e0e79039051d6a397f1cdfd242b02861b36",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_interventions.csv",
+   "bytes": 70759,
+   "sha256": "77eb82196550b9d900a0d73f690e6416c298e0c9f5eeab15c13917998f11cadb",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_learned_directions.json",
+   "bytes": 73,
+   "sha256": "49a34579d513ff76605e425c3d253ad9c8fa216d60afefa47f3db6a15aeeb560",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_learned_directions.npz",
+   "bytes": 200529,
+   "sha256": "4b19e6a9e0cb49d0eccda03437bd44597598091d5e3db72088cd54c3b2fd82c2",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_pair_manifest.json",
+   "bytes": 41187,
+   "sha256": "6ca8aae8a85f9ee60855492d0f7e37e4e1991341907c7196b396bb4b4146e943",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_pca_ridge.npz",
+   "bytes": 2373915,
+   "sha256": "546f1b3a6360e8c9eb8270c50d25c17a6138052cb74c6bd8effda2bc9620028e",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_preregistration.md",
+   "bytes": 2493,
+   "sha256": "ac84235e56c8f3a6103ef1f357df289ec901ded4213457e4d3197854b16f7a84",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_probe_probabilities.npz",
+   "bytes": 585971,
+   "sha256": "a39a33ea73b57f51b965181c837fd27117ecb877769c49a68587a72700072a98",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_protocol.json",
+   "bytes": 5653,
+   "sha256": "25a5e83b77621d4583f68ea651efbdeddb98cf60604558c126ac3da864a97896",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_protocol_hash.json",
+   "bytes": 179,
+   "sha256": "df4c8fb09ca7f8e439c9b510fe8db4fd9e02252e8f36080f10cb554f67ead20e",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_scientific_report.md",
+   "bytes": 6826,
+   "sha256": "02008c1c53ce21fd830a8459ad63d376827eaa97bae31748e36744488a4ba997",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_split_games.json",
+   "bytes": 5981,
+   "sha256": "a72dd475321a32b741dea9536b4d49c2fc335c9e33271b47e1d6ad698b535d66",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_split_leakage.json",
+   "bytes": 324,
+   "sha256": "74ba025444e24d79c741516c9a86d977888996f087fa6419ca421ba9df331015",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_stage0_legal_sets.json",
+   "bytes": 205375,
+   "sha256": "13277c834e7e50db4428a388ee2dbb19f9fc2159e90e02aeec86349b76caab36",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_stage0_status.json",
+   "bytes": 613,
+   "sha256": "33ebf2a35a1a439871555da22788ecae43948ab0a215a8993d4cf007cc0d8957",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_stage0_y_rescore.csv",
+   "bytes": 60546,
+   "sha256": "64f225d9ac98011590ea88d921e98d4ba948e7aff8a5e4d4bb7fa01faae7e2fb",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_stage_means.json",
+   "bytes": 338759,
+   "sha256": "2cff35b069d44d6d373abfcaf88f955e453a2600e5b8de67e35ee706a3cfe659",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_target_legal_sets.json",
+   "bytes": 295308,
+   "sha256": "9c6a22e87ea5f29e6bec10ec9393b1466f6123364232f7c0912a51264668fd1a",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_train_diagnostics.json",
+   "bytes": 473,
+   "sha256": "fedc7aa17cca424e43deba8be3c4bec7fd15110f03ace07461a639f0b32092db",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/nst/null_state_train_game_ids.json",
+   "bytes": 38058,
+   "sha256": "2eefc99bc884bff33083cec91d170c056d2123723e594f7db1cd47613e00bf1b",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_attempt_accounting.json",
+   "bytes": 93,
+   "sha256": "0fe2243b06cd823bbf02c431ae952b30d2d9255b25ddb9336ba499648b7e33bb",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_bootstrap.csv",
+   "bytes": 670,
+   "sha256": "9dab7334261933f5f7aa8a41c5c4975b0130722becdda681d3c6647ffd9b8dc1",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_completion_status.json",
+   "bytes": 3523,
+   "sha256": "c9c032e2af5db978fadb0d7710138668f544e8d230f8d8be0afb14b76fbba735",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_dependency_manifest.json",
+   "bytes": 1506,
+   "sha256": "0f5e730022652f0c6fa6df54db50802cac0ba93d38173582b78f199f8adaa74c",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_full_logits.npz",
+   "bytes": 303398,
+   "sha256": "08f52565fb60bd3b116b5e4d3c137eaf82d053196348c793c4725cc7c5030ec4",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_full_probe_probabilities.npz",
+   "bytes": 904455,
+   "sha256": "44380e18f79275e7a72bcc16a201582cc77bdd291f56ae557c225a9ed54b8831",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_interventions.csv",
+   "bytes": 196302,
+   "sha256": "07f4467a4fd2ff6340e9ba249bf3fc76d142ce0a6244b6970f8a056032465ba8",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_nullspace_vectors.npz",
+   "bytes": 1411102,
+   "sha256": "885db998602cffb4bf5719c9ac2665fd2e9914186589018fdec62fb18e36105c",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_pair_census.csv",
+   "bytes": 3947,
+   "sha256": "336c30a2e4624babd53b0eba9a0b1e9436edf4e0bbd12a99e33770d3c6f86a90",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_pair_manifest.json",
+   "bytes": 68396,
+   "sha256": "44f677db214cc883f8e6463ff6437d879875b3a8d32415c4ac74acde31a77639",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_preregistration.json",
+   "bytes": 432,
+   "sha256": "d8c741c818d960624605074c7974e8ba93eb710dc3ae67742acd463727f6ea54",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_preregistration.md",
+   "bytes": 3924,
+   "sha256": "ddd03244a11280f131d922d379fc78e48c3a69056eb1f1e3a70c6171849e10f0",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_probe_parity.csv",
+   "bytes": 555,
+   "sha256": "57e8590ecb0490eb2db61a523fde0fbf8893cbcfb72468aed4e61b88cffdaecf",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_scientific_report.md",
+   "bytes": 2991,
+   "sha256": "08423cb587c774a53708ebc08c9daf28ab1798021e36841513fb011c747c3dc3",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "data/raw/spec/fiber_spec_target_legal_sets.json",
+   "bytes": 80078,
+   "sha256": "1ba3722b40672bd99f4dbbbeeaa292fa4ab6eab12efde22f7ef72022e2348cd0",
+   "layer": "A",
+   "role": "saved result arrays and tables copied byte-for-byte from the original run archives"
+  },
+  {
+   "path": "figures/fig1_probe_geometry.pdf",
+   "bytes": 22910,
+   "sha256": "9033e95d856611707abed27d77ac5a82e639abf5cf85a9d1f1711f507907b73e",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig1_probe_geometry.png",
+   "bytes": 118067,
+   "sha256": "d5cc7baacfca0d5adfa8952a499cdee444f1cdbd7ec0ec36d83532855c2e8711",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig2_probe_and_output_by_category.pdf",
+   "bytes": 26956,
+   "sha256": "3e9ba6a092dfc00d2d6c4ed52c781ddb288edaf7f10505f39ef6d9030e234384",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig2_probe_and_output_by_category.png",
+   "bytes": 127824,
+   "sha256": "5c3b4a7f5ec9c9dda8f23691b89879f4d02e6a2bf2d6e84ba780cee6dfed6b5c",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig3_fixed_js_contrasts.pdf",
+   "bytes": 18752,
+   "sha256": "5e8634a5b54b0dc6e9da9083078859a0655d7d2012c7a6e06b367d24f707b1ca",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig3_fixed_js_contrasts.png",
+   "bytes": 100265,
+   "sha256": "320089fa637fd46363a0ab425c9644d78e498c648419147d0b30789b223fddf7",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig4_nst_transfer.pdf",
+   "bytes": 20423,
+   "sha256": "cb11aa65be313cd099c5c6903b0d8728c24fe6ded86c6557793ab9d4990c34f7",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig4_nst_transfer.png",
+   "bytes": 114159,
+   "sha256": "16b6fc5559a09bfb548f8d77cd61f0e66b69e0f6d21fa111957b1eb9c6956385",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig5_completeness_tests.pdf",
+   "bytes": 19351,
+   "sha256": "d91a660594c927e8948192c61c0ae04a8a1d0ddd49d7b3ecda7cc8fe4c59fd08",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/fig5_completeness_tests.png",
+   "bytes": 67755,
+   "sha256": "b03eb53b70c2c9b6b68c6cb43fccd8821cd626fb87d1c9fe02d815f921c36f59",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "figures/figure_provenance.json",
+   "bytes": 3256,
+   "sha256": "995f611bf3645f423555d460acfcc0b3b72dbb8a6e26beb362a3d739fdfdf721",
+   "layer": "C",
+   "role": "generated figures and figure provenance"
+  },
+  {
+   "path": "manuscript/appendices/README.md",
+   "bytes": 424,
+   "sha256": "abfc66153e42e915166cd8708ed9b1d5acdfffbfd2f9cc4bdf469e60203f6c96",
+   "layer": "E",
+   "role": "manuscript source, generated TeX and PDF, bibliography"
+  },
+  {
+   "path": "manuscript/build_record.json",
+   "bytes": 1007,
+   "sha256": "c358d103d9c579ea4e9c7a83a7923dbabfb55d61314161eb80d03adc4e2e2f3d",
+   "layer": "E",
+   "role": "manuscript source, generated TeX and PDF, bibliography"
+  },
+  {
+   "path": "manuscript/paper_master.md",
+   "bytes": 61754,
+   "sha256": "2c0708297f77adb7194206ecf690f4ed2656d361b040d76e208f8451c2416b08",
+   "layer": "E",
+   "role": "manuscript source, generated TeX and PDF, bibliography"
+  },
+  {
+   "path": "manuscript/paper_master.pdf",
+   "bytes": 236671,
+   "sha256": "45fb83c4a00aaad6e814a3dfb0b072c21e7dd217718fab3d6806871128ed379f",
+   "layer": "E",
+   "role": "manuscript source, generated TeX and PDF, bibliography"
+  },
+  {
+   "path": "manuscript/paper_master.tex",
+   "bytes": 65778,
+   "sha256": "8caa3a65de1fd757d679fbc9ac8954286b8eac084b65adfb28b42ad5bcd53b98",
+   "layer": "E",
+   "role": "manuscript source, generated TeX and PDF, bibliography"
+  },
+  {
+   "path": "manuscript/references.bib",
+   "bytes": 7568,
+   "sha256": "757aa6d28798c75cbf9881b01ba536335345ab50e662fe40745c6525eaab2bc0",
+   "layer": "E",
+   "role": "manuscript source, generated TeX and PDF, bibliography"
+  },
+  {
+   "path": "reviews/response_to_review_A.md",
+   "bytes": 7229,
+   "sha256": "6ebb0cd54d2143c6ac47a3d13c3b2294c7d2525538a0b44b22d7b4ad7f13444f",
+   "layer": "review",
+   "role": "adversarial reviews and responses"
+  },
+  {
+   "path": "reviews/response_to_review_B.md",
+   "bytes": 2649,
+   "sha256": "8f839f6247bff3c2e07eae6440b78027e1aeedc9840a1e9d4ccc36be9665a71f",
+   "layer": "review",
+   "role": "adversarial reviews and responses"
+  },
+  {
+   "path": "reviews/response_to_review_C.md",
+   "bytes": 2365,
+   "sha256": "22c34a24036657f2182e591717becabf2090b6bc4db8931ec8f727396e455d44",
+   "layer": "review",
+   "role": "adversarial reviews and responses"
+  },
+  {
+   "path": "reviews/review_A_mechanistic_interpretability.md",
+   "bytes": 37660,
+   "sha256": "7ae74134aee1242d13d9ec1cb5855374131160cc3f2501511a02671bfa73b6e1",
+   "layer": "review",
+   "role": "adversarial reviews and responses"
+  },
+  {
+   "path": "reviews/review_B_statistics_causal.md",
+   "bytes": 28504,
+   "sha256": "cb46a87a70b15dd1d3f153d46aad37fa4c4f3fc91ad07797f78711e097aed54e",
+   "layer": "review",
+   "role": "adversarial reviews and responses"
+  },
+  {
+   "path": "reviews/review_C_empirical_ml.md",
+   "bytes": 34209,
+   "sha256": "f5d1500b016a64aebb1a8dc09c3133c36e3fc078d798589a87ea6666e238530f",
+   "layer": "review",
+   "role": "adversarial reviews and responses"
+  },
+  {
+   "path": "scripts/build_pdf.py",
+   "bytes": 11532,
+   "sha256": "732eebafee97c8524c5d910d6d5dda38b985af128134cf4066f9cb283051921a",
+   "layer": "E",
+   "role": "manuscript builder"
+  },
+  {
+   "path": "scripts/build_release_manifest.py",
+   "bytes": 5774,
+   "sha256": "8e9a15e7b603a24d790e54e92a092fe3163f26f615eb9e5de1602fae9adfee4a",
+   "layer": "tooling",
+   "role": "logging, release and development tooling"
+  },
+  {
+   "path": "scripts/cross_artifact_check.py",
+   "bytes": 8992,
+   "sha256": "ea7e0827ba8411df096d80019d40563da2ec6ea17cf2b6c809883da45b711b27",
+   "layer": "D",
+   "role": "cross-artifact consistency check"
+  },
+  {
+   "path": "scripts/dev_build_provenance.py",
+   "bytes": 9764,
+   "sha256": "a3709ecb44ec1bf02aae2c78cd247ecb62fab51a1e1d877e5c20270a3c6d11ae",
+   "layer": "tooling",
+   "role": "logging, release and development tooling"
+  },
+  {
+   "path": "scripts/integration_check_against_repo.py",
+   "bytes": 4629,
+   "sha256": "f0a36eae7a123992fa8642b3540afa18fde965841fed43001c87693b3f043a50",
+   "layer": "tooling",
+   "role": "logging, release and development tooling"
+  },
+  {
+   "path": "scripts/p1lib.py",
+   "bytes": 36019,
+   "sha256": "cf3ea694516870f2c51704df3edd6ce3568f842cf73cedd28498a079e73d9877",
+   "layer": "B",
+   "role": "analysis library"
+  },
+  {
+   "path": "scripts/recompute_analysis.py",
+   "bytes": 2239,
+   "sha256": "f9b55a08f3c6ce36c97512679d9b928b3e5ca94788a25af5368537c9d701cc08",
+   "layer": "B",
+   "role": "recomputation entry point"
+  },
+  {
+   "path": "scripts/reproduce_figures.py",
+   "bytes": 14340,
+   "sha256": "aa0ce155a67a064c80abc6a78c58ac93d599ea6c77f2efeac39ac339fbbfef17",
+   "layer": "C",
+   "role": "figure generator"
+  },
+  {
+   "path": "scripts/reproduce_tables.py",
+   "bytes": 10495,
+   "sha256": "a6f69314edcb64d2428151e55a107391daf10e9c22188fcba2e319032691758f",
+   "layer": "C",
+   "role": "table generator"
+  },
+  {
+   "path": "scripts/run_all.py",
+   "bytes": 2154,
+   "sha256": "45ccccb0c8479ba04aa571f61fef960e35f06e883e7e2f1c8ef20a244ac6dd54",
+   "layer": "tooling",
+   "role": "logging, release and development tooling"
+  },
+  {
+   "path": "scripts/run_logged.py",
+   "bytes": 3873,
+   "sha256": "a0c9ee9ff28c64177dc15f9ac8940b0335494b5e7127a23a9d0f651663b08870",
+   "layer": "tooling",
+   "role": "logging, release and development tooling"
+  },
+  {
+   "path": "scripts/sentence_audit.py",
+   "bytes": 5040,
+   "sha256": "764ba42b01c846b722366c7d9ec3b3fbceb7b4b1b11c3af86ac36d625ac1443d",
+   "layer": "tooling",
+   "role": "logging, release and development tooling"
+  },
+  {
+   "path": "scripts/verify_paper_claims.py",
+   "bytes": 24505,
+   "sha256": "63767291a188466762d23ad8812a73bedf157b673156751b10119737da172ee4",
+   "layer": "D",
+   "role": "claim verifier"
+  },
+  {
+   "path": "tables/table1_study_overview.csv",
+   "bytes": 802,
+   "sha256": "5d4f5f3b6272c9432bc3714711a0ac93854b5829d0e25a296eacc6fa51bad003",
+   "layer": "C",
+   "role": "generated tables"
+  },
+  {
+   "path": "tables/table2_fixed_js_by_category.csv",
+   "bytes": 184,
+   "sha256": "66d26a3c8613b755c37dca047ce77c4e40b781997817e5091c85658fa57dcbbd",
+   "layer": "C",
+   "role": "generated tables"
+  },
+  {
+   "path": "tables/table3_recomputed_contrasts.csv",
+   "bytes": 3495,
+   "sha256": "80360c55c0639af709cb169abb1c6a56ea8003abc6093ddb30c740b8bfc9bb49",
+   "layer": "C",
+   "role": "generated tables"
+  },
+  {
+   "path": "tables/table4_archival_values.csv",
+   "bytes": 4862,
+   "sha256": "4aedaedb81b8111275c02864597a27b76dad3294422f22c0961e3087ad9faeb8",
+   "layer": "C",
+   "role": "generated tables"
+  },
+  {
+   "path": "tables/table5_stage_share.csv",
+   "bytes": 490,
+   "sha256": "49aaddcf77a2f52c1614e50b83485bc2d4a90d631190db4afc184a181afa5cad",
+   "layer": "C",
+   "role": "generated tables"
+  },
+  {
+   "path": "tables/table6_integrity_checks.csv",
+   "bytes": 843,
+   "sha256": "c968ef9b42e170d132d2857759a56de55841045684b4c3303d09b9e10bc75f76",
+   "layer": "C",
+   "role": "generated tables"
+  },
+  {
+   "path": "tests/test_paper_reproducibility.py",
+   "bytes": 8419,
+   "sha256": "5d9016049a45e4038b4af14b0badf7f23535fae974fdf896229b22b01f48c56a",
+   "layer": "D",
+   "role": "package tests"
+  },
+  {
+   "path": "verification/independent_harness.py",
+   "bytes": 8522,
+   "sha256": "5cd6df9f5bdbeab428be75f938c43ffd55beea133e8d65a3476fa67dcedcbfe9",
+   "layer": "D",
+   "role": "independent re-derivation sharing no code with the analysis library"
+  }
+ ]
+}

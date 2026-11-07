@@ -1,0 +1,367 @@
+{
+  "evidence_level": "ARCHIVAL_CONSOLE",
+  "meaning": "Values copied from verbatim Colab console output (data/archival/console_excerpts). The pair- or triplet-level arrays behind them were not found on this machine, so they cannot be recomputed here. Each value is checked against the excerpt text by scripts/verify_paper_claims.py.",
+  "values": [
+    {
+      "id": "sem.A_W",
+      "study": "SEM",
+      "quantity": "reverse switching contrast A_W on the NST pairs, Editor A anchor",
+      "value": 0.005799583933168003,
+      "ci95": [
+        -0.0003093532607958192,
+        0.012373616130695137
+      ],
+      "n_boot": 5000,
+      "excerpt": "sem_full_run.txt",
+      "excerpt_contains": "'A_W': {'n': 48, 'point': 0.005799583933168003"
+    },
+    {
+      "id": "sem.full_minus_legal",
+      "study": "SEM",
+      "quantity": "FULL minus LEGAL_ONLY (d_board_inc), mean Y over 48 pairs",
+      "value": 0.004104134766249008,
+      "ci95": [
+        0.001851377910273122,
+        0.0066065369232195074
+      ],
+      "n_boot": 5000,
+      "excerpt": "sem_full_run.txt",
+      "excerpt_contains": "'d_board_inc': {'n': 48, 'point': 0.004104134766249008"
+    },
+    {
+      "id": "sem.full_minus_board",
+      "study": "SEM",
+      "quantity": "FULL minus BOARD_ONLY (d_legal_inc)",
+      "value": 0.005563672412523128,
+      "ci95": [
+        0.002098374570631201,
+        0.008964994019775631
+      ],
+      "n_boot": 5000,
+      "excerpt": "sem_full_run.txt",
+      "excerpt_contains": "'d_legal_inc': {'n': 48, 'point': 0.005563672412523128"
+    },
+    {
+      "id": "sem.board_minus_stage",
+      "study": "SEM",
+      "quantity": "BOARD_ONLY minus STAGE_ONLY",
+      "value": 0.01804976557236297,
+      "ci95": [
+        0.011112938104802812,
+        0.02568608371596117
+      ],
+      "n_boot": 5000,
+      "excerpt": "sem_full_run.txt",
+      "excerpt_contains": "'d_board_vs_stage': {'n': 48, 'point': 0.01804976557236297"
+    },
+    {
+      "id": "sem.legal_minus_stage",
+      "study": "SEM",
+      "quantity": "LEGAL_ONLY minus STAGE_ONLY",
+      "value": 0.019509303218637086,
+      "ci95": [
+        0.01172010969777076,
+        0.027773905929288537
+      ],
+      "n_boot": 5000,
+      "excerpt": "sem_full_run.txt",
+      "excerpt_contains": "'d_legal_vs_stage': {'n': 48, 'point': 0.019509303218637086"
+    },
+    {
+      "id": "sem.full_minus_editor",
+      "study": "SEM",
+      "quantity": "FULL minus Editor A (console value; FULL is the NST learned map on the NST pairs)",
+      "value": 0.05371273508264925,
+      "ci95": [
+        0.04520171599322736,
+        0.062051482015050397
+      ],
+      "n_boot": 5000,
+      "excerpt": "sem_full_run.txt",
+      "excerpt_contains": "'d_full_editor': {'n': 48, 'point': 0.05371273508264925"
+    },
+    {
+      "id": "sem.full_minus_wrong",
+      "study": "SEM",
+      "quantity": "FULL minus wrong target (console value)",
+      "value": 0.020057007168831593,
+      "ci95": null,
+      "n_boot": 5000,
+      "excerpt": "sem_full_run.txt",
+      "excerpt_contains": "'A_T': {'n': 48, 'point': 0.020057007168831593"
+    },
+    {
+      "id": "sem.share_A",
+      "study": "SEM",
+      "quantity": "Stage share, category A (n=32)",
+      "value": 0.5847493447241059,
+      "excerpt": "sem_stage_share_subgroups.txt",
+      "excerpt_contains": "A n=32 share=0.5847493447241059"
+    },
+    {
+      "id": "sem.share_B",
+      "study": "SEM",
+      "quantity": "Stage share, category B (n=16)",
+      "value": 0.5261071905854282,
+      "excerpt": "sem_stage_share_subgroups.txt",
+      "excerpt_contains": "B n=16 share=0.5261071905854282"
+    },
+    {
+      "id": "sem.share_exact",
+      "study": "SEM",
+      "quantity": "Stage share, Editor A exact board (n=24)",
+      "value": 0.5676478731821903,
+      "excerpt": "sem_stage_share_subgroups.txt",
+      "excerpt_contains": "exact n=24 share=0.5676478731821903"
+    },
+    {
+      "id": "sem.share_nonexact",
+      "study": "SEM",
+      "quantity": "Stage share, Editor A nonexact board (n=24)",
+      "value": 0.5499292399942715,
+      "excerpt": "sem_stage_share_subgroups.txt",
+      "excerpt_contains": "nonexact n=24 share=0.5499292399942715"
+    },
+    {
+      "id": "sym.leftover_B_triplets",
+      "study": "SYM",
+      "quantity": "Category-B triplets in leftover unused validation",
+      "value": 0,
+      "excerpt": "symmetric_target_census_audit.txt",
+      "excerpt_contains": "leftover B_pairs=2 B_triplets=0 B_pack=0"
+    },
+    {
+      "id": "sym.leftover_B_pairs",
+      "study": "SYM",
+      "quantity": "Category-B pairs in leftover unused validation",
+      "value": 2,
+      "excerpt": "symmetric_target_census_audit.txt",
+      "excerpt_contains": "leftover B_pairs=2"
+    },
+    {
+      "id": "fresh.seed",
+      "study": "FRESH",
+      "quantity": "Cohort generation seed",
+      "value": 9182,
+      "excerpt": "fresh_cohort.txt",
+      "excerpt_contains": "seed=9182 kept_games=400"
+    },
+    {
+      "id": "fresh.cohort_state_overlap",
+      "study": "FRESH",
+      "quantity": "Cohort prefixes whose board+player state also occurs in earlier splits",
+      "value": 24,
+      "excerpt": "fresh_cohort.txt",
+      "excerpt_contains": "identical_state_overlap=24"
+    },
+    {
+      "id": "fresh.roles",
+      "study": "FRESH",
+      "quantity": "Distinct game roles in the 32 triplets",
+      "value": 96,
+      "excerpt": "fresh_cohort.txt",
+      "excerpt_contains": "selected=16A+16B union=96"
+    },
+    {
+      "id": "fresh.A_T",
+      "study": "FRESH",
+      "quantity": "A_T natural-anchor FULL at JS=0.01",
+      "value": 0.0284998707684192,
+      "ci95": [
+        0.016515968492432753,
+        0.040615703803947904
+      ],
+      "n_boot": 5000,
+      "excerpt": "fresh_full_run.txt",
+      "excerpt_contains": "'A_T': {'n': 32, 'point': 0.0284998707684192"
+    },
+    {
+      "id": "fresh.A_W",
+      "study": "FRESH",
+      "quantity": "A_W natural-anchor FULL at JS=0.01",
+      "value": 0.01856145964513889,
+      "ci95": [
+        0.007179035431873415,
+        0.03009126998474713
+      ],
+      "n_boot": 5000,
+      "excerpt": "fresh_full_run.txt",
+      "excerpt_contains": "'A_W': {'n': 32, 'point': 0.01856145964513889"
+    },
+    {
+      "id": "fresh.C",
+      "study": "FRESH",
+      "quantity": "C = A_T + A_W natural-anchor FULL at JS=0.01",
+      "value": 0.04706133041355809,
+      "ci95": [
+        0.031606687081763174,
+        0.06291074652473115
+      ],
+      "n_boot": 5000,
+      "excerpt": "fresh_full_run.txt",
+      "excerpt_contains": "'C': {'n': 32, 'point': 0.04706133041355809"
+    },
+    {
+      "id": "fresh.A_T_win",
+      "study": "FRESH",
+      "quantity": "A_T win fraction",
+      "value": 0.8125,
+      "excerpt": "fresh_full_run.txt",
+      "excerpt_contains": "0.040615703803947904, 'win_frac': 0.8125"
+    },
+    {
+      "id": "fresh.A_W_win",
+      "study": "FRESH",
+      "quantity": "A_W win fraction",
+      "value": 0.5625,
+      "excerpt": "fresh_full_run.txt",
+      "excerpt_contains": "0.03009126998474713, 'win_frac': 0.5625"
+    },
+    {
+      "id": "fresh.both_positive_frac",
+      "study": "FRESH",
+      "quantity": "Fraction of triplets with A_T>0 and A_W>0",
+      "value": 0.40625,
+      "excerpt": "fresh_full_run.txt",
+      "excerpt_contains": "'both_positive_frac': 0.40625"
+    },
+    {
+      "id": "fresh.cells_both",
+      "study": "FRESH",
+      "quantity": "Triplets with both contrasts positive",
+      "value": 13,
+      "excerpt": "fresh_anchor_audit.txt",
+      "excerpt_contains": "natural_cells={'t_only': 13, 'both': 13, 'w_only': 5, 'neither': 1}"
+    },
+    {
+      "id": "fresh.cells_t_only",
+      "study": "FRESH",
+      "quantity": "Triplets with only A_T positive",
+      "value": 13,
+      "excerpt": "fresh_anchor_audit.txt",
+      "excerpt_contains": "natural_cells={'t_only': 13,"
+    },
+    {
+      "id": "fresh.cells_w_only",
+      "study": "FRESH",
+      "quantity": "Triplets with only A_W positive",
+      "value": 5,
+      "excerpt": "fresh_anchor_audit.txt",
+      "excerpt_contains": "'w_only': 5,"
+    },
+    {
+      "id": "fresh.cells_neither",
+      "study": "FRESH",
+      "quantity": "Triplets with neither contrast positive",
+      "value": 1,
+      "excerpt": "fresh_anchor_audit.txt",
+      "excerpt_contains": "'neither': 1}"
+    },
+    {
+      "id": "fresh.cells_t_only",
+      "study": "FRESH",
+      "quantity": "Triplets with only A_T positive",
+      "value": 13,
+      "excerpt": "fresh_anchor_audit.txt",
+      "excerpt_contains": "natural_cells={'t_only': 13,"
+    },
+    {
+      "id": "fresh.cells_w_only",
+      "study": "FRESH",
+      "quantity": "Triplets with only A_W positive",
+      "value": 5,
+      "excerpt": "fresh_anchor_audit.txt",
+      "excerpt_contains": "'w_only': 5,"
+    },
+    {
+      "id": "fresh.cells_neither",
+      "study": "FRESH",
+      "quantity": "Triplets with neither contrast positive",
+      "value": 1,
+      "excerpt": "fresh_anchor_audit.txt",
+      "excerpt_contains": "'neither': 1}"
+    },
+    {
+      "id": "fresh.D_T",
+      "study": "FRESH",
+      "quantity": "Editor A visible contrast D_T",
+      "value": 0.015775249852042705,
+      "ci95": [
+        0.00020525966124369544,
+        0.029894823806567248
+      ],
+      "excerpt": "vnf_stage1.txt",
+      "excerpt_contains": "D_T point=0.015775249852042705 ci=[0.00020525966124369544,0.029894823806567248]"
+    },
+    {
+      "id": "fresh.D_W",
+      "study": "FRESH",
+      "quantity": "Editor A visible contrast D_W",
+      "value": 0.015114756996519096,
+      "ci95": [
+        0.00179520136936166,
+        0.029871224457666937
+      ],
+      "excerpt": "vnf_stage1.txt",
+      "excerpt_contains": "D_W point=0.015114756996519096 ci=[0.00179520136936166,0.029871224457666937]"
+    },
+    {
+      "id": "vnf.seed",
+      "study": "VNF",
+      "quantity": "Cohort generation seed",
+      "value": 10182,
+      "excerpt": "vnf_cohort.txt",
+      "excerpt_contains": "seed=10182 kept=400"
+    },
+    {
+      "id": "vnf.rowspace_holdout_r2",
+      "study": "VNF",
+      "quantity": "Rowspace ridge holdout R^2 for P_R h",
+      "value": 0.9405,
+      "excerpt": "vnf_rowspace_map.txt",
+      "excerpt_contains": "holdout_r2=0.9405"
+    },
+    {
+      "id": "vnf.I_T",
+      "study": "VNF",
+      "quantity": "Interaction I_T",
+      "value": 0.0008076023895302598,
+      "ci95": [
+        -0.000940300476329714,
+        0.0030170128325769344
+      ],
+      "n_boot": 5000,
+      "excerpt": "vnf_full_run.txt",
+      "excerpt_contains": "I_T={'n': 32, 'point': 0.0008076023895302598"
+    },
+    {
+      "id": "vnf.I_W",
+      "study": "VNF",
+      "quantity": "Interaction I_W",
+      "value": 0.0009723259609861756,
+      "ci95": [
+        -8.623079802076993e-05,
+        0.0022080467274865232
+      ],
+      "n_boot": 5000,
+      "excerpt": "vnf_full_run.txt",
+      "excerpt_contains": "I_W={'n': 32, 'point': 0.0009723259609861756"
+    },
+    {
+      "id": "vnf.I_T_win",
+      "study": "VNF",
+      "quantity": "I_T win fraction",
+      "value": 0.53125,
+      "excerpt": "vnf_full_run.txt",
+      "excerpt_contains": "0.0030170128325769344, 'win_frac': 0.53125"
+    },
+    {
+      "id": "vnf.I_W_win",
+      "study": "VNF",
+      "quantity": "I_W win fraction",
+      "value": 0.59375,
+      "excerpt": "vnf_full_run.txt",
+      "excerpt_contains": "0.0022080467274865232, 'win_frac': 0.59375"
+    }
+  ]
+}

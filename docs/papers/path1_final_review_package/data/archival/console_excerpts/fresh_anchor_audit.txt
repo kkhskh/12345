@@ -1,0 +1,7 @@
+08R2-ANCHOR-INTERACTION-AUDIT
+  integrity_ok=1 hash_ok=1 y_match=768 y_bad=0
+  published={'n': 32, 'A_T': 0.0284998707684192, 'A_W': 0.01856145964513889, 'C': 0.04706133041355809, 'both_positive_frac': 0.40625}
+  natural_cells={'t_only': 13, 'both': 13, 'w_only': 5, 'neither': 1}
+  D_T=0.015775249852042705 D_W=0.015114756996519096
+  corr_P_C=0.07447349998539671
+  SYMMETRIC_TARGET_SWITCHING_NOT_SUPPORTED preserved

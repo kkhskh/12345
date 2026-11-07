@@ -1,0 +1,7 @@
+quantity,value,note
+NST mean Y_learned,-0.5821099868511178,negative absolute score
+NST mean Y_EditorA,-0.6358227219337671,negative absolute score
+FULL - EditorA,0.053713,GIT_TRACKED_CORRECTION_NOTE
+STAGE_ONLY - EditorA,0.030099,mean-level identity
+stage share of FULL-EditorA,0.5604,"ratio of means, not a causal decomposition"
+FRESH both-positive fraction,0.40625,13/32; gate 0.60

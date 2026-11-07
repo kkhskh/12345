@@ -1,0 +1,17 @@
+{
+  "signature": [
+    "h_e",
+    "b_t",
+    "model"
+  ],
+  "allowed": [
+    "h_e",
+    "b_t",
+    "model"
+  ],
+  "has_donor_argument": 0,
+  "uses_donor_activation": 0,
+  "ok": 1,
+  "n_learned_frozen_before_oracle": 48,
+  "oracle_computed_after_freeze": 1
+}

@@ -1,0 +1,120 @@
+{
+ "REL-XNOR/TF1/s4/train/resid_mid0@R": {
+  "p=+0/none": 0.21130797266960144,
+  "p=+0/pattern0": 4.1411202266784797e-13
+ },
+ "REL-XNOR/TF2/s2/train/resid_mid1@R": {
+  "p=+0/none": 0.9628885388374329,
+  "p=+0/pattern0": 0.24163879454135895,
+  "p=+0/pattern1": 0.8628796339035034,
+  "p=+0/all_patterns": 0.0782657116651535
+ },
+ "REL-XNOR/TF2/s2/train/resid_post0@ALL": {
+  "p=+0/none": 0.05846618115901947,
+  "p=+0/pattern0": 0.002649501198902726,
+  "p=+0/pattern1": 0.05846618115901947,
+  "p=+0/all_patterns": 0.002649501198902726
+ },
+ "REL-XNOR/TF2/s4/train/resid_mid1@R": {
+  "p=+0/none": 0.9520084857940674,
+  "p=+0/pattern0": 0.015177898108959198,
+  "p=+0/pattern1": 0.8226200938224792,
+  "p=+0/all_patterns": 0.05260006710886955
+ },
+ "REL-XNOR/TF2/s4/train/resid_post0@ALL": {
+  "p=+0/none": 0.06708460301160812,
+  "p=+0/pattern0": 0.004512203857302666,
+  "p=+0/pattern1": 0.06708460301160812,
+  "p=+0/all_patterns": 0.004512203857302666
+ },
+ "REL-MIS/TF1/s2/train/resid_mid0@R": {
+  "p=+0/none": 0.3143722712993622,
+  "p=+0/pattern0": 2.6831908209504728e-14
+ },
+ "REL-MIS/TF1/s3/train/resid_mid0@R": {
+  "p=+0/none": 0.3013078570365906,
+  "p=+0/pattern0": 1.7463742447597005e-14
+ },
+ "REL-MIS/TF1/s4/train/resid_mid0@R": {
+  "p=+0/none": 0.3223203420639038,
+  "p=+0/pattern0": 1.8444798029963565e-14
+ },
+ "REL-MIS/TF2/s2/train/resid_mid1@R": {
+  "p=+0/none": 0.25452014803886414,
+  "p=+0/pattern0": 0.01638893038034439,
+  "p=+0/pattern1": 0.20598436892032623,
+  "p=+0/all_patterns": 0.0070658898912370205
+ },
+ "REL-MIS/TF2/s2/train/resid_post0@ALL": {
+  "p=+0/none": 0.051433175802230835,
+  "p=+0/pattern0": 0.002155712805688381,
+  "p=+0/pattern1": 0.051433175802230835,
+  "p=+0/all_patterns": 0.002155712805688381
+ },
+ "REL-MIS/TF2/s3/train/resid_mid1@R": {
+  "p=+0/none": 0.03421821445226669,
+  "p=+0/pattern0": 0.04814406484365463,
+  "p=+0/pattern1": 0.009076456539332867,
+  "p=+0/all_patterns": 0.08749335259199142
+ },
+ "REL-MIS/TF2/s4/train/resid_mid1@R": {
+  "p=+0/none": 0.048639994114637375,
+  "p=+0/pattern0": 0.04563729092478752,
+  "p=+0/pattern1": 0.0017679095035418868,
+  "p=+0/all_patterns": 0.0017717345617711544
+ },
+ "REL-XNOR/TF2/s7/train/resid_mid1@R": {
+  "p=+0/none": 0.9958762526512146,
+  "p=+0/pattern0": 0.8798621892929077,
+  "p=+0/pattern1": 0.9956584572792053,
+  "p=+0/all_patterns": 0.07536870241165161
+ },
+ "REL-XNOR/TF2/s7/train/resid_post0@ALL": {
+  "p=+0/none": 0.10497242212295532,
+  "p=+0/pattern0": 0.0006588797550648451,
+  "p=+0/pattern1": 0.10497242212295532,
+  "p=+0/all_patterns": 0.0006588797550648451
+ },
+ "REL-XNOR/TF2/s8/train/resid_mid1@R": {
+  "p=+0/none": 0.5074968338012695,
+  "p=+0/pattern0": 0.030520247295498848,
+  "p=+0/pattern1": 0.29590854048728943,
+  "p=+0/all_patterns": 0.004526668693870306
+ },
+ "REL-XNOR/TF2/s9/train/resid_mid1@R": {
+  "p=+0/none": 0.9893535375595093,
+  "p=+0/pattern0": 0.16386796534061432,
+  "p=+0/pattern1": 0.9098123908042908,
+  "p=+0/all_patterns": 0.043355852365493774
+ },
+ "REL-MIS/TF1/s7/train/resid_mid0@R": {
+  "p=+0/none": 0.26969072222709656,
+  "p=+0/pattern0": 1.339554823402006e-14
+ },
+ "REL-MIS/TF1/s8/train/resid_mid0@R": {
+  "p=+0/none": 0.29830625653266907,
+  "p=+0/pattern0": 1.4594892677223525e-14
+ },
+ "REL-MIS/TF1/s9/train/resid_mid0@R": {
+  "p=+0/none": 0.2310875952243805,
+  "p=+0/pattern0": 1.636925560106594e-14
+ },
+ "REL-MIS/TF2/s7/train/resid_mid1@R": {
+  "p=+0/none": 0.030520949512720108,
+  "p=+0/pattern0": 0.03587573394179344,
+  "p=+0/pattern1": 2.512862693038187e-06,
+  "p=+0/all_patterns": 2.3407297703670338e-05
+ },
+ "REL-MIS/TF2/s8/train/resid_mid1@R": {
+  "p=+0/none": 0.029926469549536705,
+  "p=+0/pattern0": 0.03971628099679947,
+  "p=+0/pattern1": 2.9838371119694784e-05,
+  "p=+0/all_patterns": 7.881795318098739e-05
+ },
+ "REL-MIS/TF2/s9/train/resid_mid1@R": {
+  "p=+0/none": 0.024103524163365364,
+  "p=+0/pattern0": 0.02774009481072426,
+  "p=+0/pattern1": 5.7161523727700114e-05,
+  "p=+0/all_patterns": 0.00020367276738397777
+ }
+}

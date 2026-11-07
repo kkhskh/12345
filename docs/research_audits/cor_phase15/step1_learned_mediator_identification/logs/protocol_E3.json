@@ -1,0 +1,652 @@
+{
+ "AGG-NL/TF1/s0/train": {
+  "resid_mid0@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.0,
+   "acc_ev": 0.9993333333333333,
+   "contrast_energy_ratio": 0.20248092710971832,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 0,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.7284111976623535,
+    0.2700158655643463,
+    0.0013768288772553205,
+    0.00018844059377443045,
+    6.880038199597038e-06,
+    7.717552534813876e-07,
+    1.0877395650865651e-09,
+    7.100071225396576e-11,
+    4.497245623997928e-15,
+    3.0872955440638646e-15
+   ]
+  }
+ },
+ "AGG-NL/TF1/s1/train": {
+  "resid_mid0@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.004,
+   "acc_ev": 0.998,
+   "contrast_energy_ratio": 0.05630198121070862,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.608,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.608,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 2,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.6434900760650635,
+    0.35649600625038147,
+    1.1571863979042973e-05,
+    1.5340322079282487e-06,
+    7.29372857222188e-07,
+    6.941080954447898e-08,
+    8.102240656171489e-09,
+    7.277450170262156e-11,
+    1.4200303225778057e-14,
+    1.1961266497401406e-14
+   ]
+  }
+ },
+ "AGG-NL/TF1/s2/train": {
+  "resid_mid0@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.999,
+   "contrast_energy_ratio": 0.23947255313396454,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.618,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.619,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.705196738243103,
+    0.29479384422302246,
+    8.670612260175403e-06,
+    5.317419322636852e-07,
+    1.6225513377321477e-07,
+    6.837453270236438e-08,
+    7.408028183941706e-12,
+    2.816441936102725e-15,
+    2.275459780383296e-15,
+    2.1236867228283758e-15
+   ]
+  }
+ },
+ "AGG-NL/TF1/s3/train": {
+  "resid_mid0@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.0,
+   "acc_ev": 0.999,
+   "contrast_energy_ratio": 0.14585180580615997,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.612,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.612,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 0,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.6654630303382874,
+    0.3344278335571289,
+    6.222840602276847e-05,
+    3.502560866763815e-05,
+    1.161384534498211e-05,
+    1.6945983816185617e-07,
+    7.394408640948313e-08,
+    4.380461271491498e-11,
+    7.049748917362661e-15,
+    5.9606606353209204e-15
+   ]
+  }
+ },
+ "AGG-NL/TF1/s4/train": {
+  "resid_mid0@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.006,
+   "acc_ev": 0.9993333333333333,
+   "contrast_energy_ratio": 0.08598529547452927,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.617,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.616,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 3,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.6947962641716003,
+    0.30507057905197144,
+    0.00013319295248948038,
+    3.0437445099062987e-12,
+    1.9471766863829454e-13,
+    6.8362296990517445e-15,
+    5.429218611686416e-15,
+    4.444456836659146e-15,
+    4.151104339553038e-15,
+    3.701663152025749e-15
+   ]
+  }
+ },
+ "AGG-NL/TF2/s0/train": {
+  "resid_mid1@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 1.0,
+   "contrast_energy_ratio": 0.11578454077243805,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.617,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.613,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.8335665464401245,
+    0.08916565030813217,
+    0.04759957268834114,
+    0.02434338815510273,
+    0.0035515702329576015,
+    0.0008139937417581677,
+    0.0004162575933150947,
+    0.00027034958475269377,
+    0.00012453930685296655,
+    6.767470040358603e-05
+   ]
+  },
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 1.0,
+   "contrast_energy_ratio": 0.9369148015975952,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.617,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.613,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.7582741379737854,
+    0.1608368307352066,
+    0.04491657391190529,
+    0.0203475970774889,
+    0.007640942931175232,
+    0.0036044660955667496,
+    0.002167175756767392,
+    0.0010868794051930308,
+    0.0004484461678657681,
+    0.00033818359952419996
+   ]
+  }
+ },
+ "AGG-NL/TF2/s1/train": {
+  "resid_mid1@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.9996666666666667,
+   "contrast_energy_ratio": 0.16199901700019836,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.8232232928276062,
+    0.11499334126710892,
+    0.04881483316421509,
+    0.00828529242426157,
+    0.002272580051794648,
+    0.0017837465275079012,
+    0.0003662101808004081,
+    0.00017360215133521706,
+    5.963562216493301e-05,
+    1.3256646525405813e-05
+   ]
+  },
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.9996666666666667,
+   "contrast_energy_ratio": 1.3787174224853516,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 3,
+   "sv_energy": [
+    0.7337144613265991,
+    0.1525871604681015,
+    0.06610561162233353,
+    0.02588498778641224,
+    0.0113724609836936,
+    0.005280348472297192,
+    0.002209001686424017,
+    0.0013279052218422294,
+    0.0007883911021053791,
+    0.0004394971183501184
+   ]
+  }
+ },
+ "AGG-NL/TF2/s2/train": {
+  "resid_mid1@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.0,
+   "acc_ev": 0.9996666666666667,
+   "contrast_energy_ratio": 0.16932302713394165,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.616,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 0,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 3,
+   "sv_energy": [
+    0.7758986949920654,
+    0.12324899435043335,
+    0.0725163146853447,
+    0.015156997367739677,
+    0.00904279574751854,
+    0.0023715568240731955,
+    0.0007681947317905724,
+    0.0005603759200312197,
+    0.0003036848793271929,
+    6.311300967354327e-05
+   ]
+  },
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.0,
+   "acc_ev": 0.9996666666666667,
+   "contrast_energy_ratio": 1.2350188493728638,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.616,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 0,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 3,
+   "sv_energy": [
+    0.4645270109176636,
+    0.3116491734981537,
+    0.15805122256278992,
+    0.0539153553545475,
+    0.004848402924835682,
+    0.002910847309976816,
+    0.0017507155425846577,
+    0.001156913349404931,
+    0.0005140321445651352,
+    0.00023102715204004198
+   ]
+  }
+ },
+ "AGG-NL/TF2/s3/train": {
+  "resid_mid1@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.9993333333333333,
+   "contrast_energy_ratio": 0.05875864252448082,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.613,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.612,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 3,
+   "sv_energy": [
+    0.7345000505447388,
+    0.12225224077701569,
+    0.08765263110399246,
+    0.03579927235841751,
+    0.0164791289716959,
+    0.0014740657061338425,
+    0.0011375262401998043,
+    0.000329990143654868,
+    0.00017567031318321824,
+    8.320872439071536e-05
+   ]
+  },
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.9993333333333333,
+   "contrast_energy_ratio": 1.0719417333602905,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.613,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.612,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.7330004572868347,
+    0.1716773957014084,
+    0.042732901871204376,
+    0.02928156778216362,
+    0.017341164872050285,
+    0.002677649026736617,
+    0.0014583307784050703,
+    0.0010507457191124558,
+    0.0002590512449387461,
+    0.0001866762322606519
+   ]
+  }
+ },
+ "AGG-NL/TF2/s4/train": {
+  "resid_mid1@R": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.0,
+   "acc_ev": 0.9996666666666667,
+   "contrast_energy_ratio": 0.018442202359437943,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.616,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 0,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 3,
+   "sv_energy": [
+    0.7456133961677551,
+    0.13726362586021423,
+    0.060548603534698486,
+    0.05309557542204857,
+    0.00166991981677711,
+    0.0010322395246475935,
+    0.0003356283705215901,
+    0.0002106387837557122,
+    0.0001031015781336464,
+    6.88158834236674e-05
+   ]
+  },
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.0,
+   "acc_ev": 0.9996666666666667,
+   "contrast_energy_ratio": 0.7560835480690002,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.616,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 0,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 2,
+   "sv_energy": [
+    0.5623158812522888,
+    0.38396987318992615,
+    0.04075682908296585,
+    0.007319192867726088,
+    0.002714573871344328,
+    0.0018339842790737748,
+    0.0003799507685471326,
+    0.0002675883297342807,
+    0.00019510950369294733,
+    0.00014532680506817997
+   ]
+  }
+ },
+ "AGG-NL/TF2AO/s0/train": {
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.9986666666666667,
+   "contrast_energy_ratio": 0.9280791282653809,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.614,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.614,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 1,
+   "sv_energy": [
+    0.9150574803352356,
+    0.0635080561041832,
+    0.017967771738767624,
+    0.002114068018272519,
+    0.00121801788918674,
+    0.00011712753621395677,
+    1.4441936400544364e-05,
+    2.8876079340989236e-06,
+    8.923559136064796e-08,
+    4.025759992032363e-08
+   ]
+  }
+ },
+ "AGG-NL/TF2AO/s1/train": {
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.999,
+   "contrast_energy_ratio": 0.8829053640365601,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.614,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.613,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 1,
+   "sv_energy": [
+    0.9211569428443909,
+    0.07279223203659058,
+    0.004508285783231258,
+    0.0010033908765763044,
+    0.00042738401680253446,
+    9.208750998368487e-05,
+    1.6559935829718597e-05,
+    2.7667833819577936e-06,
+    3.3438655577811005e-07,
+    1.4517205215724971e-08
+   ]
+  }
+ },
+ "AGG-NL/TF2AO/s2/train": {
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.9993333333333333,
+   "contrast_energy_ratio": 0.8207789659500122,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 1,
+   "sv_energy": [
+    0.9640887975692749,
+    0.018102116882801056,
+    0.012082160450518131,
+    0.0037432704120874405,
+    0.0014054970815777779,
+    0.000470351311378181,
+    0.00010140089580090716,
+    5.597192739514867e-06,
+    4.577639174385695e-07,
+    2.4380568675042014e-07
+   ]
+  }
+ },
+ "AGG-NL/TF2AO/s3/train": {
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.999,
+   "contrast_energy_ratio": 0.8132867217063904,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.614,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.615,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 1,
+   "sv_energy": [
+    0.9395384192466736,
+    0.0571092814207077,
+    0.0023634086828678846,
+    0.0006597391911782324,
+    0.0002637653087731451,
+    4.848826938541606e-05,
+    1.5550047464785166e-05,
+    1.2335655128481449e-06,
+    1.3427352030248585e-07,
+    1.0389111793074335e-07
+   ]
+  }
+ },
+ "AGG-NL/TF2AO/s4/train": {
+  "resid_post0@ALL": {
+   "n_pairs_target_differs": 0,
+   "matched_pair_decision_diff_rate": 0.002,
+   "acc_ev": 0.999,
+   "contrast_energy_ratio": 0.9707667827606201,
+   "input_level": {
+    "flip_a_hold_b": {
+     "model_change": 0.612,
+     "target_change": 0.615
+    },
+    "flip_b_hold_a": {
+     "model_change": 0.613,
+     "target_change": 0.615
+    }
+   },
+   "n_pairs_model_differs": 1,
+   "note": "model decisions (almost) never differ on matched pairs: no relation-sensitive behaviour to mediate; contrast energy reported",
+   "k": 1,
+   "sv_energy": [
+    0.9232158064842224,
+    0.05366462469100952,
+    0.016565736383199692,
+    0.005608062259852886,
+    0.0007849261746741831,
+    0.000152484470163472,
+    7.559769983345177e-06,
+    6.757917958566395e-07,
+    7.711943084132145e-08,
+    3.3102030005949246e-09
+   ]
+  }
+ }
+}

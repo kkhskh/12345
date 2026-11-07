@@ -1,0 +1,338 @@
+{
+ "X1": {
+  "REL-XNOR/TF1/s2/train": {
+   "verdict": "NO_CUT",
+   "k": 2,
+   "iia_full_site": 0.536,
+   "iia": {
+    "S_rel": 0.536,
+    "S_pca": 0.536,
+    "S_grad": 0.536,
+    "S_das": 0.768,
+    "S_alt": 0.0,
+    "S_rand_mean": 0.0,
+    "S_rand_max": 0.0
+   },
+   "necessity": {
+    "flip_before": 1.0,
+    "flip_after": 1.0,
+    "acc_before": 1.0,
+    "acc_after": 0.464
+   },
+   "sufficiency": 1.0,
+   "additive_R2": 0.5603612065315247,
+   "surrogates": {
+    "exact": {
+     "acc": 0.9863333333333333,
+     "pair_flip": 0.986
+    },
+    "additive": {
+     "acc": 0.741,
+     "pair_flip": 0.53
+    },
+    "linear": {
+     "acc": 0.7026666666666667,
+     "pair_flip": 0.83
+    },
+    "aggregate": {
+     "acc": 0.8516666666666667,
+     "pair_flip": 0.59
+    }
+   }
+  },
+  "REL-XNOR/TF1/s3/train": {
+   "verdict": "NO_CUT",
+   "k": 2,
+   "iia_full_site": 0.465,
+   "iia": {
+    "S_rel": 0.464,
+    "S_pca": 0.464,
+    "S_grad": 0.321,
+    "S_das": 1.0,
+    "S_alt": 0.0,
+    "S_rand_mean": 0.0,
+    "S_rand_max": 0.0
+   },
+   "necessity": {
+    "flip_before": 1.0,
+    "flip_after": 1.0,
+    "acc_before": 1.0,
+    "acc_after": 0.536
+   },
+   "sufficiency": 1.0,
+   "additive_R2": 0.626460075378418,
+   "surrogates": {
+    "exact": {
+     "acc": 0.9793333333333333,
+     "pair_flip": 0.97
+    },
+    "additive": {
+     "acc": 0.948,
+     "pair_flip": 0.908
+    },
+    "linear": {
+     "acc": 0.69,
+     "pair_flip": 0.876
+    },
+    "aggregate": {
+     "acc": 0.8533333333333334,
+     "pair_flip": 0.688
+    }
+   }
+  },
+  "REL-XNOR/TF1/s7/train": {
+   "verdict": "NO_CUT",
+   "k": 2,
+   "iia_full_site": 0.759,
+   "iia": {
+    "S_rel": 0.755,
+    "S_pca": 0.755,
+    "S_grad": 0.0,
+    "S_das": 1.0,
+    "S_alt": 0.0,
+    "S_rand_mean": 0.0,
+    "S_rand_max": 0.0
+   },
+   "necessity": {
+    "flip_before": 1.0,
+    "flip_after": 1.0,
+    "acc_before": 1.0,
+    "acc_after": 1.0
+   },
+   "sufficiency": 1.0,
+   "additive_R2": 0.6230816841125488,
+   "surrogates": {
+    "exact": {
+     "acc": 0.992,
+     "pair_flip": 0.988
+    },
+    "additive": {
+     "acc": 0.9926666666666667,
+     "pair_flip": 0.996
+    },
+    "linear": {
+     "acc": 0.951,
+     "pair_flip": 0.914
+    },
+    "aggregate": {
+     "acc": 0.896,
+     "pair_flip": 0.586
+    }
+   }
+  },
+  "REL-XNOR/TF1/s8/train": {
+   "verdict": "NO_CUT",
+   "k": 2,
+   "iia_full_site": 0.806,
+   "iia": {
+    "S_rel": 0.644,
+    "S_pca": 0.499,
+    "S_grad": 0.822,
+    "S_das": 0.968,
+    "S_alt": 0.0,
+    "S_rand_mean": 0.014900000000000002,
+    "S_rand_max": 0.163
+   },
+   "necessity": {
+    "flip_before": 1.0,
+    "flip_after": 0.876,
+    "acc_before": 1.0,
+    "acc_after": 0.56
+   },
+   "sufficiency": 0.99,
+   "additive_R2": 0.5276668071746826,
+   "surrogates": {
+    "exact": {
+     "acc": 0.999,
+     "pair_flip": 1.0
+    },
+    "additive": {
+     "acc": 0.505,
+     "pair_flip": 0.586
+    },
+    "linear": {
+     "acc": 0.49266666666666664,
+     "pair_flip": 0.66
+    },
+    "aggregate": {
+     "acc": 0.8216666666666667,
+     "pair_flip": 0.698
+    }
+   }
+  },
+  "REL-XNOR/TF1/s9/train": {
+   "verdict": "MEDIATOR_NOT_IDENTIFIED",
+   "k": 2,
+   "iia_full_site": 1.0,
+   "iia": {
+    "S_rel": 1.0,
+    "S_pca": 1.0,
+    "S_grad": 0.464,
+    "S_das": 1.0,
+    "S_alt": 0.0,
+    "S_rand_mean": 0.0,
+    "S_rand_max": 0.0
+   },
+   "necessity": {
+    "flip_before": 1.0,
+    "flip_after": 0.536,
+    "acc_before": 1.0,
+    "acc_after": 0.768
+   },
+   "sufficiency": 1.0,
+   "additive_R2": 0.47366267442703247,
+   "surrogates": {
+    "exact": {
+     "acc": 1.0,
+     "pair_flip": 1.0
+    },
+    "additive": {
+     "acc": 0.8486666666666667,
+     "pair_flip": 0.796
+    },
+    "linear": {
+     "acc": 0.848,
+     "pair_flip": 0.608
+    },
+    "aggregate": {
+     "acc": 0.7963333333333333,
+     "pair_flip": 0.232
+    }
+   }
+  }
+ },
+ "X2": {
+  "REL-XNOR/TF1/s4/train/resid_mid0@R": {
+   "sign(ab)": 0.9917622697150321,
+   "ab": 0.5755240334924094,
+   "sign(ab)sign(a+b)": 0.00017039827656240014,
+   "target_y": 0.9604972479928386
+  },
+  "REL-XNOR/TF2/s2/train/resid_mid1@R": {
+   "sign(ab)": 0.9987354847803614,
+   "ab": 0.5547667822071443,
+   "sign(ab)sign(a+b)": 0.00010009676644773258,
+   "target_y": 0.9673466289068111
+  },
+  "REL-XNOR/TF2/s2/train/resid_post0@ALL": {
+   "sign(ab)": 0.9413928468082555,
+   "ab": 0.5321731811673487,
+   "sign(ab)sign(a+b)": 0.000549469738813757,
+   "target_y": 0.9121104496231084
+  },
+  "REL-XNOR/TF2/s4/train/resid_mid1@R": {
+   "sign(ab)": 0.9990085355129463,
+   "ab": 0.5758517520758367,
+   "sign(ab)sign(a+b)": 9.270756190171703e-06,
+   "target_y": 0.9675991285464174
+  },
+  "REL-XNOR/TF2/s4/train/resid_post0@ALL": {
+   "sign(ab)": 0.9307422718352332,
+   "ab": 0.5368764152651706,
+   "sign(ab)sign(a+b)": 0.000716367476668478,
+   "target_y": 0.9015536909019533
+  },
+  "REL-MIS/TF1/s2/train/resid_mid0@R": {
+   "sign(ab)": 0.0008100859441810826,
+   "ab": 0.0006853847153007742,
+   "sign(ab)sign(a+b)": 0.305062785299301,
+   "target_y": 0.3276124848557074
+  },
+  "REL-MIS/TF1/s3/train/resid_mid0@R": {
+   "sign(ab)": 1.3026032042784408e-05,
+   "ab": 1.729434430053356e-05,
+   "sign(ab)sign(a+b)": 0.29381296689425795,
+   "target_y": 0.31708708556692156
+  },
+  "REL-MIS/TF1/s4/train/resid_mid0@R": {
+   "sign(ab)": 2.947843269485162e-08,
+   "ab": 4.504731232479742e-08,
+   "sign(ab)sign(a+b)": 0.3034916156967592,
+   "target_y": 0.32524168684890997
+  },
+  "REL-MIS/TF2/s2/train/resid_mid1@R": {
+   "sign(ab)": 0.0005775287412179697,
+   "ab": 4.594772723165441e-05,
+   "sign(ab)sign(a+b)": 0.2977627499645038,
+   "target_y": 0.32746522255336497
+  },
+  "REL-MIS/TF2/s2/train/resid_post0@ALL": {
+   "sign(ab)": 0.006572880236879741,
+   "ab": 0.00549541478165394,
+   "sign(ab)sign(a+b)": 0.2816489922282567,
+   "target_y": 0.30286736807288805
+  },
+  "REL-MIS/TF2/s3/train/resid_mid1@R": {
+   "sign(ab)": 0.4598729441428455,
+   "ab": 0.3854024651710274,
+   "sign(ab)sign(a+b)": 0.035983027401282786,
+   "target_y": 0.0755540736104715
+  },
+  "REL-MIS/TF2/s4/train/resid_mid1@R": {
+   "sign(ab)": 1.4417474525685314e-05,
+   "ab": 0.0007934769640403072,
+   "sign(ab)sign(a+b)": 0.10326221212296927,
+   "target_y": 0.1525764683935278
+  },
+  "REL-XNOR/TF2/s7/train/resid_mid1@R": {
+   "sign(ab)": 0.9995403604905403,
+   "ab": 0.5899909548900993,
+   "sign(ab)sign(a+b)": 9.023992533963021e-05,
+   "target_y": 0.9679292988500253
+  },
+  "REL-XNOR/TF2/s7/train/resid_post0@ALL": {
+   "sign(ab)": 0.9958372913292592,
+   "ab": 0.5637546568719636,
+   "sign(ab)sign(a+b)": 0.0002249798203571851,
+   "target_y": 0.9642092500112353
+  },
+  "REL-XNOR/TF2/s8/train/resid_mid1@R": {
+   "sign(ab)": 0.9972712574526214,
+   "ab": 0.5591514164049873,
+   "sign(ab)sign(a+b)": 0.00012793519284093335,
+   "target_y": 0.966089231306585
+  },
+  "REL-XNOR/TF2/s9/train/resid_mid1@R": {
+   "sign(ab)": 0.9998671212794452,
+   "ab": 0.5761343696433141,
+   "sign(ab)sign(a+b)": 0.00012177050755313168,
+   "target_y": 0.9683038715511547
+  },
+  "REL-MIS/TF1/s7/train/resid_mid0@R": {
+   "sign(ab)": 1.1259803935903534e-05,
+   "ab": 1.0208396762578786e-05,
+   "sign(ab)sign(a+b)": 0.27070077928849157,
+   "target_y": 0.2967455155967472
+  },
+  "REL-MIS/TF1/s8/train/resid_mid0@R": {
+   "sign(ab)": 4.389430402151895e-06,
+   "ab": 7.730304484310224e-06,
+   "sign(ab)sign(a+b)": 0.28881959310262395,
+   "target_y": 0.31244932967974837
+  },
+  "REL-MIS/TF1/s9/train/resid_mid0@R": {
+   "sign(ab)": 2.4136491033943663e-05,
+   "ab": 1.7555132359681203e-05,
+   "sign(ab)sign(a+b)": 0.2442707192310526,
+   "target_y": 0.2739963043700596
+  },
+  "REL-MIS/TF2/s7/train/resid_mid1@R": {
+   "sign(ab)": 0.0002053218805976309,
+   "ab": 0.00014838617360335427,
+   "sign(ab)sign(a+b)": 0.050260399148826296,
+   "target_y": 0.09419191069503252
+  },
+  "REL-MIS/TF2/s8/train/resid_mid1@R": {
+   "sign(ab)": 0.019071543661442925,
+   "ab": 0.0032980892461523803,
+   "sign(ab)sign(a+b)": 0.04354183593477756,
+   "target_y": 0.09012926099355212
+  },
+  "REL-MIS/TF2/s9/train/resid_mid1@R": {
+   "sign(ab)": 0.017729557623558878,
+   "ab": 0.0021053823488070833,
+   "sign(ab)sign(a+b)": 0.040255320388913884,
+   "target_y": 0.09405184164324898
+  }
+ }
+}

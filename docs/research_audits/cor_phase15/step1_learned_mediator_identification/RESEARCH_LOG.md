@@ -8,3 +8,5 @@
   found S_rel (matched-pair contrast subspace) and the content-surrogate test; changed IIA to model-relative
   counterfactuals and the interaction criterion to a like-for-like surrogate comparison BEFORE freezing.
 - Protocol frozen: see commit below. New models (AGG-NL s0-4; seeds 7-9) were trained before the freeze but not analysed.
+- PROTOCOL FROZEN at commit ff180da (pushed). No evaluation set analysed before this commit.
+- Evaluations E1-E4, locus, exploratory X1/X2, AGG-NL reversals, independent reimplementation (agrees) done; docs written; pre-review commit next.

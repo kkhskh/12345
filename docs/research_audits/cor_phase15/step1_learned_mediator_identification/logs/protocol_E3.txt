@@ -1,0 +1,21 @@
+AGG-NL/TF1/s0/train resid_mid0@R: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.0 acc=0.9993333333333333
+AGG-NL/TF1/s1/train resid_mid0@R: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.004 acc=0.998
+AGG-NL/TF1/s2/train resid_mid0@R: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.999
+AGG-NL/TF1/s3/train resid_mid0@R: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.0 acc=0.999
+AGG-NL/TF1/s4/train resid_mid0@R: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.006 acc=0.9993333333333333
+AGG-NL/TF2/s0/train resid_mid1@R: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=1.0
+AGG-NL/TF2/s0/train resid_post0@ALL: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=1.0
+AGG-NL/TF2/s1/train resid_mid1@R: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.9996666666666667
+AGG-NL/TF2/s1/train resid_post0@ALL: verdict=- k=3 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.9996666666666667
+AGG-NL/TF2/s2/train resid_mid1@R: verdict=- k=3 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.0 acc=0.9996666666666667
+AGG-NL/TF2/s2/train resid_post0@ALL: verdict=- k=3 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.0 acc=0.9996666666666667
+AGG-NL/TF2/s3/train resid_mid1@R: verdict=- k=3 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.9993333333333333
+AGG-NL/TF2/s3/train resid_post0@ALL: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.9993333333333333
+AGG-NL/TF2/s4/train resid_mid1@R: verdict=- k=3 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.0 acc=0.9996666666666667
+AGG-NL/TF2/s4/train resid_post0@ALL: verdict=- k=2 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.0 acc=0.9996666666666667
+AGG-NL/TF2AO/s0/train resid_post0@ALL: verdict=- k=1 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.9986666666666667
+AGG-NL/TF2AO/s1/train resid_post0@ALL: verdict=- k=1 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.999
+AGG-NL/TF2AO/s2/train resid_post0@ALL: verdict=- k=1 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.9993333333333333
+AGG-NL/TF2AO/s3/train resid_post0@ALL: verdict=- k=1 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.999
+AGG-NL/TF2AO/s4/train resid_post0@ALL: verdict=- k=1 full=None IIA={} nec=None suff=None addR2=None surr=None pairdiff=0.002 acc=0.999
+wall 8s

@@ -24,7 +24,7 @@ from __future__ import annotations
 import numpy as np
 
 HIST = {"AGG-LIN": "T2", "REL-XNOR": "T1", "REL-GATE": "T3", "REL-MIS": "T4", "K3-BAYES": "T5a", "K3-GATE": "T5b"}
-BINARY = ["AGG-LIN", "AGG-NL", "REL-XNOR", "REL-GATE", "REL-MIS"]
+BINARY = ["AGG-LIN", "AGG-NL", "REL-XNOR", "REL-GATE", "REL-MIS", "REL-XOR3"]
 KTASKS = ["K3-BAYES", "K3-GATE"]
 
 
@@ -41,6 +41,8 @@ def target(task, a, b, p):
         y = np.where(a * b > 0, s(a), p)
     elif task == "REL-MIS":
         y = np.where(a * b > 0, -s(a), s(a + b))
+    elif task == "REL-XOR3":   # added after review R_causal F1: agreement is an intermediate that differs from the target
+        y = s(a * b) * p
     else:
         raise ValueError(task)
     y = np.where(y == 0, 1.0, y).astype(float)
@@ -48,7 +50,7 @@ def target(task, a, b, p):
 
 
 def needs_prior(task):
-    return task in ("REL-GATE", "K3-GATE")
+    return task in ("REL-GATE", "K3-GATE", "REL-XOR3")
 
 
 def sample(task, n, rng, dist="train"):

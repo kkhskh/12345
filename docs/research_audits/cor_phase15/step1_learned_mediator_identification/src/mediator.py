@@ -29,7 +29,7 @@ from sklearn.linear_model import LogisticRegression
 import model as M
 
 CODE = {"AGG-LIN": "T2", "AGG-NL": "T6", "REL-XNOR": "T1", "REL-GATE": "T3", "REL-MIS": "T4",
-        "K3-BAYES": "T5a", "K3-GATE": "T5b"}
+        "K3-BAYES": "T5a", "K3-GATE": "T5b", "REL-XOR3": "T7"}
 
 
 def to_inp(task, d):
@@ -280,7 +280,7 @@ class GridCoords:
     def __init__(self, site, U, n=61, lim=3.0):
         self.g = np.linspace(-lim, lim, n)
         Aa, Bb = np.meshgrid(self.g, self.g, indexing="ij")
-        self.pvals = [-1.0, 1.0] if site.task in ("REL-GATE",) else [0.0]
+        self.pvals = [-1.0, 1.0] if site.task in ("REL-GATE", "REL-XOR3") else [0.0]
         self.C = {}
         for p in self.pvals:
             d = dict(a=Aa.ravel(), b=Bb.ravel(), p=np.full(Aa.size, p))

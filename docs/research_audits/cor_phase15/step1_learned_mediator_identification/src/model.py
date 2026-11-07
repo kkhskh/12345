@@ -26,7 +26,7 @@ jax.config.update("jax_enable_x64", False)
 ARCH = {"TF1": dict(L=1, mlp=True), "TF2": dict(L=2, mlp=True), "TF2AO": dict(L=2, mlp=False)}
 D_MODEL, HEADS, DH, MLPW = 16, 2, 8, 32
 STEPS, BATCH, LR = 3000, 512, 3e-3
-TASKS = ["T1", "T2", "T3", "T4", "T5a", "T5b", "T6"]   # T6 = AGG-NL (new); appended so historical seeds are unchanged
+TASKS = ["T1", "T2", "T3", "T4", "T5a", "T5b", "T6", "T7"]   # T6 = AGG-NL (new); appended so historical seeds are unchanged
 
 
 def n_classes(task):
@@ -34,7 +34,7 @@ def n_classes(task):
 
 
 def n_tokens(task):
-    return 4 if task in ("T3", "T5b") else 3
+    return 4 if task in ("T3", "T5b", "T7") else 3
 
 
 def init(task, arch, seed):
@@ -72,7 +72,7 @@ def embed(p, task, inp):
         A = inp["a"][:, None] @ p["Wval"] + p["Eid"][0]
         B = inp["b"][:, None] @ p["Wval"] + p["Eid"][1]
     toks = [A, B]
-    if task == "T3":
+    if task in ("T3", "T7"):
         toks.append(inp["p"][:, None] @ p["Wp"] + p["Eid"][2])
     if task == "T5b":
         toks.append(jax.nn.one_hot(inp["p"], 3) @ p["Wp"] + p["Eid"][2])
@@ -139,6 +139,9 @@ def sample(task, n, rng):
     if task == "T6":
         import generators
         return _B(generators.sample("AGG-NL", n, rng))
+    if task == "T7":
+        import generators
+        return _B(generators.sample("REL-XOR3", n, rng))
     return sample_k(task, n, rng) if task.startswith("T5") else sample_binary(task, n, rng)
 
 

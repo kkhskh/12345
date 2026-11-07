@@ -1,0 +1,20 @@
+id,statement,status,budget,falsification,disposition
+H-shift,"For every edit E and one-token constant C, R(H,E+C)=R(H,E)+kappa(C)",REDUNDANT_WITH_KNOWN_RESULT,architecture and w and read index,a constant whose recomputed interaction is nonzero,lemma from step 1C-R; rechecked; not a successor
+H-F,"eps>0 and at most one zero gain imply LN(h+delta)=LN(h) iff delta is constant",PROVED,gains eps h delta,two zero gains; the algebraic pair,retained as a level-set fact
+H-U,"No finite function of budget B0 upper-bounds |R| for every branch weight, once delta is non-constant",PROVED,B0,a uniform finite bound valid on the scale family,boundary; blocks a weight-free centered certificate
+H-L,"Any Lipschitz constant of m is at least ||grad m||",PROVED,differentiability,a valid Lambda strictly below ||g||,closes the Lipschitz route
+H-Lambda,"The explicit weight-norm majorant bounds |R| and is much larger than ||g||",PROVED,weights gains eps,a finite move with |Delta m| > Lambda ||Delta H||,valid and non-competitive; seed 0 ratio about 8.16e5
+H-K,"Kernel membership of the finite LN increments implies R equals the skip dot",CONDITIONAL,B1,kernel products zero and R different from the skip dot,true on the manufactured point; empty of non-constant edits when QKV is injective; rejected as successor
+H-J,"Jacobian kernel membership does not imply the finite skip identity",COUNTEREXAMPLE_FOUND,B1 plus one derivative of LN,the finite gap staying at roundoff for a non-constant step,gap 0.00741 at step 0.8 and increasing
+H-OD-rank,"D decreasing raises L, or D_c < D_c' ranks margins",DISPROVED,none,zero cochain; two readouts,preserved
+H-O-eq-D,"O equals D for every positive W",DISPROVED,Euclidean W,identity edge O=1 D=1/2,preserved
+H-both,"c1=1 and c2=-0.5 make both deletions necessary",DISPROVED,positive sum,deleting c2 leaves 1,preserved
+H-interaction,"Every nonlinear map has a nonzero four-term interaction",DISPROVED,separable squares,u^2+v^2,preserved
+H-value,"Value-only sign equals the total derivative sign",COUNTEREXAMPLE_FOUND,clamped pattern,seed 16 opposite signs,preserved
+H-remainder,"Dm=0 implies R=0",COUNTEREXAMPLE_FOUND,finite step,seed 0 step 0.2,preserved
+H-fiber,"Dropping coordinate 3 preserves sign(R) on the seed-16 pair",COUNTEREXAMPLE_FOUND,that deletion,opposite recomputed signs,preserved
+H-finalLN,"Raw constant-shift response equals a final-LN readout response",DISPROVED,one extra LN,raw a 1^T w versus 0,boundary on transfer
+H-cohomology,"The class of ds constrains R",CAUSAL_INTERPRETATION_UNSUPPORTED,global cochain,the class is the zero functional,removed
+H-exotic,"Some non-constant centered edit at a Gaussian weight has exact branch increment zero off the factor kernel",CONJECTURE,B2 to search; not a predictor,a proof of absence or an explicit zero,open cell; search minima positive; not a candidate
+H-germ,"There is a unique intrinsic decision germ given by P",IDENTIFICATION_UNRESOLVED,definition of P,P=0 and invertible P,no unique germ declared
+H-successor,"Some examined relation is a restricted COR successor",DISPROVED,B0 and generic B1,a survivor meeting the workstream 5 list,none

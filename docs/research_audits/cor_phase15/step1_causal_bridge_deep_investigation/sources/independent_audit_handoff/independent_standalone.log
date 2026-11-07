@@ -1,0 +1,15 @@
+TWO DISTINCT EVIDENCE TOKENS / FIXED UNIFORM ATTENTION / FOUR GELU HIDDEN UNITS
+a=-1 b=-1 agreement=1, final_margin=+3.2142216080, MLP_write=+1.9091953882
+a=-1 b=+1 agreement=0, final_margin=-3.2142216080, MLP_write=-1.9091953882
+a=+1 b=-1 agreement=0, final_margin=-3.2142216080, MLP_write=-1.9091953882
+a=+1 b=+1 agreement=1, final_margin=+3.2142216080, MLP_write=+1.9091953882
+The sign of the candidate margin equals agreement, with attention fixed and no pre-MLP readout margin.
+
+FUNCTION-PRESERVING HEAD REPARAMETERIZATION
+per-head consensus scalar 1 before/after: 4.518808203590434 9.876573941715256
+per-head consensus scalar 2 before/after: -2.689070753325099 -8.04683649144992
+max total residual change: 8.881784197001252e-16
+max individual centered write change: 1.496775881654885
+This is a true function-preserving symmetry across all inputs when heads share Q,K,V.
+
+SAME-CUT SCREENING BYPASS COUNTEREXAMPLE: S=1 unchanged; Y=3 -> 6

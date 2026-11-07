@@ -1,0 +1,13 @@
+=== NONLINEAR MLP AGREEMENT CIRCUIT, fixed weights, fixed readout ===
+a=-1 b=-1 agreement=1 margin=+3.2142216080 margin_without_MLP=-1.906e-17 attention_max=0.000e+00 MLPnorm=1.909195
+a=-1 b=+1 agreement=0 margin=-3.2142216080 margin_without_MLP=+7.150e-17 attention_max=0.000e+00 MLPnorm=1.909195
+a=+1 b=-1 agreement=0 margin=-3.2142216080 margin_without_MLP=-7.150e-17 attention_max=0.000e+00 MLPnorm=1.909195
+a=+1 b=+1 agreement=1 margin=+3.2142216080 margin_without_MLP=+1.906e-17 attention_max=0.000e+00 MLPnorm=1.909195
+=== EQUIVALENT MULTIHEAD PARAMETERIZATION, CHANGED HEAD CONSENSUS ===
+head 0: |delta consensus|=14.96300367, |delta values|=31.06134896
+head 1: |delta consensus|=14.96300367, |delta values|=31.06134896
+max |delta logits| 1.7763568394002505e-15
+max |delta total head writes| 8.881784197001252e-16
+max |delta individual head writes| 2.857617991738196
+=== SAME-CUT SCREENING WITH ALLOWED UPSTREAM BYPASS ===
+original S=1.00, Y=3.00; edited S=1.00, Y=6.00

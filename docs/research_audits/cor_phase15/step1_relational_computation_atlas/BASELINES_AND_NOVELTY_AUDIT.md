@@ -12,7 +12,13 @@
 - McGrath et al. (2023), "Hydra effect": self-repair under ablation.
 - Zaheer et al. (2017), DeepSets (permutation-invariant pooling). Cited from memory, not re-verified in this step.
 
-**Not searched.** The literature on correlated-observer inference. Any statement about it here is marked as unverified.
+**Added after review R3** (reviewer-verified, or flagged as from memory):
+- Gunn et al. 2016, "Too good to be true", Proc. R. Soc. A: the paradox of unanimity. A small probability of systematic failure makes unanimity *lower* confidence.
+- Pochampally, Das Sarma, Dong, Meliou & Srivastava, SIGMOD 2014: fusing data with correlations.
+- Makelov, Lange & Nanda, ICLR 2024: off-manifold subspace-patching illusions.
+- Müller et al. 2022: Transformers can do Bayesian inference (PFNs).
+- McCoy et al. 2020: underspecification and divergent generalisation of equally good models.
+- From memory, not re-verified: Net2Net (Chen, Goodfellow & Shlens 2016), Yosinski et al. 2014 (layer transfer), Clemen & Winkler 1985 (dependent experts).
 
 ## 1. Contribution classification
 
@@ -22,17 +28,17 @@
 | Agreement can signal copying rather than truth (T4 non-monotonicity) | **known** (Dong 2009 copy detection) | — | — | — | — |
 | Theorem S (count sufficiency in the extended family) | elementary latent-class algebra; likely folklore | — | — | restated with the necessity counterexample | — |
 | Theorem U (quasi-concavity of role posteriors in the agreement count; monotone extremes) | elementary (log-linear likelihood ratios ⇒ convex reciprocal) | — | — | **not found in the checked literature**; elementary. Value: makes the response's sign structure explicit | — |
-| Phase boundary (p_c, ρ) for the reversal at full agreement | Bayes computation | — | — | **specific to this family**; computed exactly | — |
+| Phase boundary (p_c, ρ) for the reversal at full agreement | Bayes computation; **qualitatively the paradox of unanimity** (Gunn et al. 2016) | — | — | a quantitative instance for this family; computed exactly | — |
 | Theorem D (margin-change identity) and sign rule D1 | elementary Bayes (a likelihood-ratio expectation) | — | — | restatement with a decision-level reading; no novelty claim | — |
 | I2 (honest-copy vs colluder exchangeability) | standard non-identifiability argument (label symmetry) | — | — | **specific statement**; elementary | — |
-| I5 (head split changes head-count criteria) | the split is folklore; Hydra and backup heads show criteria depend on ablation choices | — | — | **constructive and exact against a preregistered criterion**; methodological, not mathematical, novelty | — |
+| I5 (head split changes head-count criteria) | the split is Net2Net-style function-preserving widening; Hydra and backup heads show criteria depend on ablation choices | — | — | used exactly against a preregistered criterion. The construction is not new | — (the *near*-preserving prediction PP5 **failed**) |
 | Tag-and-route (reliability tag on keys, then gated readout attention) | — | **new empirical observation** for this task; content-based attention gating is standard | — | — | (replicated, latent-reliability v2) |
-| Decision-level sign rule holds across five implementations (PP1) | Bayes plus "models ≈ Bayes" | **new empirical cross-implementation check** | — | — | **yes**: frozen before testing, passed 10/10 |
-| Off-support divergence between equally Bayes-optimal implementations, on the p_c = 0 shift: DeepSets follow the global plug-in; Transformers vary along a post hoc continuous index (PP2 and post hoc) | — | **new observation**; the global/local axis is post hoc | — | — | PP2 (H1-strong) **falsified** as frozen |
+| Decision-level sign rule holds across five implementations (PP1) | **implied by KL-closeness to Bayes** (PFN result; review R3-1) | a calibration check across implementations | — | — | frozen before testing, passed 10/10. Not distinctive |
+| Off-support divergence between equally Bayes-optimal implementations, on the p_c = 0 shift (PP2 and post hoc) | **known underspecification** (McCoy et al. 2020) | the architecture-linked *direction* (DeepSets global) is a post hoc observation | — | — | PP2 (H1-strong) **falsified** as frozen |
 | Seed-10 redundancy: additive margin contributions with super-additive accuracy necessity (thresholded readout) | related to backup heads and Hydra, but different (heads co-active, no downstream compensation) | **new small observation** | all-subset enumeration over heads instead of top-k. Shapley is *not* invariant under head splits (review R2-c) | — | — |
 | Readout attention pattern as the most invariant relation-carrying object | — | **observation** (6/7 seeds) | — | — | — |
 | On-support matched-aggregate intervention (`pairswap`) | — | — | **small methodological fix**: uses generator knowledge to stay on support | — | — |
-| Curriculum controls (PP3) | — | in progress, see `GENERALIZATION_AND_EMERGENCE.md` | — | — | PP3 frozen |
+| Curriculum controls (PP3) | Yosinski-style transfer protocol | task-specific outcome: the T1 last layer is unnecessary, the early layers necessary | — | — | PP3 frozen, partial (review R3-7) |
 
 ## 2. Distinctiveness, stated plainly
 
@@ -51,13 +57,11 @@ None of these is distinctive of a "consistency theory".
 **What uses established interpretability tools:** all of the identification (interchange, path patching, DAS-like subspaces, Shapley over heads).
 
 **What remains new, in the sense of this audit:**
-1. **A cross-implementation, prospectively confirmed decision-level characterisation (E2)**, with an exact sign rule whose inputs are computable without the network. This is the strongest candidate for "an implementation-independent causal characterisation" (H3).
-   - It is *not* new mathematics: it is "the model ≈ Bayes, and Bayes obeys Theorem D".
-   - Its scientific value is that it was **tested across heterogeneous circuits and survived**, including at the non-monotone boundary.
-2. **A demonstrated failure of behavioural equivalence to determine extrapolation (E3).** Several on-distribution Bayes-optimal learners diverge off the support, in an organised way.
-   - This counts against H1 as a *complete* account of the learned computations.
-   - It is the only result here that H1 does not predict.
-3. **Function-invariance limits of head-level criteria (I5)**, demonstrated against a preregistered criterion.
+**Revised after review R3: the remaining distinctive content is small.**
+
+1. **The decision law (E2) is not distinctive.** It is a consequence of KL-closeness to Bayes, which is the expected outcome (PFN result). Its value is as a calibration check that holds at the non-monotone boundary in every implementation.
+2. **The extrapolation divergence (E3) is known underspecification.** Its architecture-linked direction is the only regularity that Bayes does not predict. It is post hoc (OP-1).
+3. **Head-criterion non-invariance (I5)** is a Net2Net-style construction used against a preregistered criterion. It is a methodological caution, not a theorem of new content.
 
 **What would be needed to establish something distinctive beyond this:**
 - (a) A predictor of off-support behaviour from internal structure, tested on held-out seeds (OP-1).

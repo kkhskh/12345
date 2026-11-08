@@ -167,9 +167,29 @@ Source: `logs/pp2_shift.json`. The table counts the models (out of 10) that side
 
 **Status.** The global/local axis is a **post hoc, continuous index** (side-rates 0.30–0.87; review R1-g), not two classes. The on-distribution range is 0.67–0.80, corrected from 0.69–0.80. It has not been confirmed on held-out seeds (open problem OP-1).
 
-### PP3: see `GENERALIZATION_AND_EMERGENCE.md` (arms reported as they complete)
+### PP3: PARTIAL (one seed per arm; review R3-7)
 
-### PP4: the unknown-group stage-1 model FAILED to learn (E-fail)
+| arm | starting point | T4 accuracy (threshold 0.6595) | outcome |
+|---|---|---|---|
+| (i) | T0 | 0.575 | fail |
+| (ii) | T5 | 0.576 | fail |
+| (iii) | T1, last layer reset | 0.742 | **succeed** |
+| (iv) | T1, layers 0–1 reset | 0.552 | fail |
+| (vi) | scratch | 0.550 | fail |
+| (v) | T2 | see `GENERALIZATION_AND_EMERGENCE.md` §1a | |
+
+**Fit with the frozen hypotheses.**
+- **Matches the frozen HC-relation column** in all completed arms.
+- **Falsified:** HC-generic and HC-classifier.
+- **HC-routing as frozen:** falsified, though by a weak arm, since (iv) effectively re-runs the barrier.
+
+**Not separated.** HC-relation is not separated from "within-question pair parsing" or "cross-question scaffold". Those were not frozen alternatives; R3 raised them afterwards.
+
+### PP4: the unknown-group models FAILED to learn the cross-question task (E-fail); re-baselined after review R3-11
+
+**Correct reference** (`logs/pp4_own_unknown.json`): own-question Bayes with *unknown* pairing is 0.634 (T1) and 0.559 (T4). The models reach 0.640 and 0.553, which is the own-question level. Stage 2 (T4 via curriculum from the stage-1 model) also failed. The earlier text said 'below own-question'; that used the known-pairing baseline and is corrected here.
+
+(Original text, with the wrong baseline, follows.)
 
 | measure | value |
 |---|---|

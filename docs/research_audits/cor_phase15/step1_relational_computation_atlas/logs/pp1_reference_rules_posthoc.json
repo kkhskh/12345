@@ -1,0 +1,27 @@
+{
+ "local_plugin": {
+  "ondist_acc": 0.7326666666666667,
+  "sign_all": 0.8387890255439925,
+  "sign_boundary": 0.8530728530728531
+ },
+ "T1_plugin": {
+  "ondist_acc": 0.357,
+  "sign_all": 0.7728792179123305,
+  "sign_boundary": 0.16605616605616605
+ },
+ "bayes_plus_logit_noise_0.3": {
+  "ondist_acc": 0.745,
+  "sign_all": 1.0,
+  "sign_boundary": 1.0
+ },
+ "bayes_plus_logit_noise_1.0": {
+  "ondist_acc": 0.7066666666666667,
+  "sign_all": 0.9798170923998738,
+  "sign_boundary": 0.9926739926739927
+ },
+ "bayes_plus_logit_noise_2.0": {
+  "ondist_acc": 0.6206666666666667,
+  "sign_all": 0.8774519079154841,
+  "sign_boundary": 0.9556369556369556
+ }
+}

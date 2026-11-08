@@ -9,7 +9,12 @@ out = os.path.join(os.path.dirname(__file__), "..", "checkpoints"); os.makedirs(
 lf = open(os.path.join(out, job + ".log"), "w"); log = lambda s: (lf.write(s + "\n"), lf.flush())
 spec = {"pp3_T0": ("T0_M_K3_s0", ()), "pp3_T5": ("T5_M_K3_s0", ()), "pp3_T1_resetlast": ("T1_M_K3_s0", (2,)),
         "pp3_T1_reset01": ("T1_M_K3_s0", (0, 1)), "pp3_T2": ("T2_M_K3_s0", ()), "pp3_scratch": (None, ())}
-if job in spec:
+post = {"pp3ph_T1_resetlast_freeze01": ("T1_M_K3_s0", (2,), (0, 1), True), "pp3ph_T1_reset1": ("T1_M_K3_s0", (1,), (), False)}
+if job in post:   # POST HOC follow-ups requested by review R3 #7
+    src, re, fr, fe = post[job]
+    p, h, dt = TE.train("T4", 0, 3000, p0=C.load(os.path.join(LR, src + ".npz")), reinit_layers=re, freeze_layers=fr, freeze_embed=fe, log=log)
+    ev = TE.evaluate(p, "T4", 20000, 6_300_000); ev.pop("X"); ev.pop("Y")
+elif job in spec:
     src, re = spec[job]
     p0 = C.load(os.path.join(LR, src + ".npz")) if src else None
     p, h, dt = TE.train("T4", 0, 3000, p0=p0, reinit_layers=re, log=log)

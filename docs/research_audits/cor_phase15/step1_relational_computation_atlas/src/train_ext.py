@@ -14,7 +14,7 @@ def permute(X, rng):
     return np.take_along_axis(X, perms[:, None, :], -1)
 
 
-def train(task, seed, steps, p0=None, reinit_layers=(), perm=False, lr=1e-3, batch=256, log=None, size="M"):
+def train(task, seed, steps, p0=None, reinit_layers=(), perm=False, lr=1e-3, batch=256, log=None, size="M", freeze_layers=(), freeze_embed=False):
     env = B.Env(task, K=3, Q=6)
     fresh = N.init(size, env, seed + 7777)
     if p0 is None:
@@ -31,7 +31,16 @@ def train(task, seed, steps, p0=None, reinit_layers=(), perm=False, lr=1e-3, bat
     @jax.jit
     def step(p, st, X, T):
         l, g = jax.value_and_grad(N.loss_fn)(p, X, T, task)
+        for fl in freeze_layers:                              # post hoc PP3 follow-ups: frozen transferred layers
+            g["layers"][fl] = jax.tree_util.tree_map(jnp.zeros_like, g["layers"][fl])
+        if freeze_embed:
+            for k_ in ["Eval", "Esrc", "Eq", "Eread", "Eep"]: g[k_] = jnp.zeros_like(g[k_])
         up, st = opt.update(g, st, p)
+        if freeze_layers or freeze_embed:                      # AdamW weight decay must not move frozen weights either
+            for fl in freeze_layers:
+                up["layers"][fl] = jax.tree_util.tree_map(jnp.zeros_like, up["layers"][fl])
+            if freeze_embed:
+                for k_ in ["Eval", "Esrc", "Eq", "Eread", "Eep"]: up[k_] = jnp.zeros_like(up[k_])
         return optax.apply_updates(p, up), st, l
     rng = np.random.default_rng(1_000_003 * (seed + 1) + 7919 * ["T0", "T1", "T2", "T3", "T4", "T5"].index(task) + 31 * 3 + (17 if perm else 0))
     t0 = time.time(); hist = []

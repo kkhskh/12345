@@ -1,0 +1,10 @@
+{
+ "T1": {
+  "own_question_bayes_unknown_pairing": 0.6336111111111111,
+  "majority_vote": 0.6322222222222222
+ },
+ "T4": {
+  "own_question_bayes_unknown_pairing": 0.5586111111111111,
+  "majority_vote": 0.5582777777777778
+ }
+}

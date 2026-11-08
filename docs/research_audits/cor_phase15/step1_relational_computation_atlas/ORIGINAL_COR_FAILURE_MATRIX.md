@@ -62,10 +62,10 @@ The original O/D framework is **not useful for the discovered mechanism**. Its o
 
 | id | failure | evidence this step | status change |
 |---|---|---|---|
-| F1 | missing noncircular causal bridge | the decision-level bridge (E2) is confirmed prospectively across five implementations [C, PP1]. The relation (agreement counts) is defined without logits. The sign rule's inputs are computed from the generator. The bridge runs through Bayes semantics, not through O/D | **advanced (restricted)**: a noncircular, implementation-independent relation → decision law exists *for this family and its training support* |
+| F1 | missing noncircular causal bridge | the decision-level bridge (E2) is confirmed prospectively across five implementations [C, PP1]. It is a consequence of KL-closeness to Bayes (R3-1). The relation (agreement counts) is defined without logits. Internally, the relation reaches decisions through routing (6/7 seeds) or rereading, causally tested (patches partly off-manifold) | **advanced (restricted)**: a noncircular relation → decision bridge exists *for this family and its training support*. It runs through Bayes semantics, not through O/D |
 | F2 | lower discrepancy can worsen a candidate | theorem-level: Theorem U and the phase diagram give the exact region where more agreement lowers reliability [T]. Learned models follow it at the boundary [C, PP1] | **characterised**: not merely "can"; when and how much |
 | F3 | consistency ranking ≠ preference | D2 [T] | unchanged in substance; sharpened |
-| F4 | no distinctive prospective prediction | PP1 passed, but it is a Bayes prediction. PP2 failed as frozen; the failure is informative but not a success | **partial**: a prospective prediction survived; it is not distinctive of COR |
+| F4 | no distinctive prospective prediction | PP1 passed, but it is implied by near-Bayes probabilities (R3-1). PP2 and PP5 failed as frozen. PP3 is partial | **unchanged in substance**: no distinctive prediction |
 | F5 | representation and map non-identifiability | I5 (exact head split vs a preregistered criterion), I6 (Q/K placement), E3–E5 ladder [T/C] | **confirmed, with precise scope**: the response law and the routing pattern are invariant; representations and head sets are not |
 | F6 | output optimisation hidden in repairs | all subspaces from input contrasts; head sets by all-subset enumeration | procedural progress |
 | F7 | outcome-dependent tuning | PP1–PP5 frozen before running; PP2 and PP5 failures kept; post hoc analyses labelled | procedural progress |

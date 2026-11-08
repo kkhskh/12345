@@ -1,0 +1,2 @@
+scripts/analysis_queue.sh: line 7:  8668 Killed                  python3 scripts/analyze_model.py $ck $t conf ${o}_conf.json ${o}_dev.json > ${o}_conf.out 2>&1
+scripts/analysis_queue.sh: line 7:  9641 Killed                  python3 scripts/analyze_model.py $ck $t dev ${o}_dev.json > ${o}_dev.out 2>&1

@@ -72,11 +72,15 @@ def feats(X, act, post):
         c.append((act[:, 6 * q:6 * q + 6] @ U)[..., 0].reshape(-1))
         oth = [k for k in range(Q) if k != q]
         oh = np.eye(K)[X[:, oth]].reshape(len(X), -1); ownoh = np.eye(K)[X[:, q]].reshape(len(X), -1)
-        onehot_all.append(np.repeat(np.concatenate([oh, ownoh], 1), 6, 0))
+        # token-specific: raw report features interacted with the token's source identity (fix after review R_math_causal #5)
+        base_ = np.repeat(np.concatenate([oh, ownoh], 1), 6, 0); sid = np.tile(np.eye(6), (len(X), 1))
+        onehot_all.append((base_[:, :, None] * sid[:, None, :]).reshape(len(base_), -1))
         cnt = A.count_feats(env, X, q)                                    # N,3
         g_of = np.array([0, 0, 1, 1, 2, 2])
         counts_own.append(np.eye(Q)[cnt[:, g_of].reshape(-1).astype(int)])          # one-hot of the token's own-group count
-        counts_all.append(np.repeat(np.concatenate([np.eye(Q)[cnt[:, g].astype(int)] for g in range(3)], 1), 6, 0) * 1.0)
+        base_ = np.repeat(np.concatenate([np.eye(Q)[cnt[:, g].astype(int)] for g in range(3)], 1), 6, 0) * 1.0
+        gid = np.tile(np.eye(3)[g_of], (len(X), 1))
+        counts_all.append((base_[:, :, None] * gid[:, None, :]).reshape(len(base_), -1))
         if env.R_values[0] is not None:
             pr = np.stack([sum(post["pi_minus"][:, q, i] for i, R in enumerate(env.R_values) if R[0] == g) for g in range(3)], -1)
             roles.append(np.log(np.clip(pr[:, g_of], 1e-6, 1)).reshape(-1) - np.log(np.clip(1 - pr[:, g_of], 1e-6, 1)).reshape(-1))

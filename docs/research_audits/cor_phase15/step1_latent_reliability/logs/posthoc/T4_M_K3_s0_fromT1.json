@@ -1,0 +1,105 @@
+{
+ "ckpt": "checkpoints/posthoc_curriculum/T4_M_K3_s0_fromT1.npz",
+ "task": "T4",
+ "s_tag": "resid_pre2",
+ "note": "POST HOC, exploratory",
+ "route_heads": [
+  0,
+  1
+ ],
+ "head_group_mass_r2": [
+  0.9600139829696124,
+  0.8632742142112405,
+  0.08460665442085287,
+  0.18261979310934295
+ ],
+ "bypass_tag_patch_with_frozen_pattern": {
+  "none_frozen": {
+   "iia": 0.8484460108939442,
+   "n_inf": 3121,
+   "kl_recovered": 0.987097442150116,
+   "kl_recovered_mean": 0.8633977174758911,
+   "change_rate": 0.33044444444444443
+  },
+  "route_heads_frozen": {
+   "iia": 0.13232938160845883,
+   "n_inf": 3121,
+   "kl_recovered": 0.10585778951644897,
+   "kl_recovered_mean": 0.09779610484838486,
+   "change_rate": 0.09044444444444444
+  },
+  "all_heads_frozen": {
+   "iia": 0.1256007689842999,
+   "n_inf": 3121,
+   "kl_recovered": 0.08403533697128296,
+   "kl_recovered_mean": 0.07394951581954956,
+   "change_rate": 0.08755555555555555
+  }
+ },
+ "tag_content_R2": {
+  "linear_onehot_all_reports": -0.014731016741381886,
+  "own_group_count_onehot": 0.9513086611128891,
+  "all_group_counts_onehot": 0.967376098125334,
+  "bayes_rel_logit": 0.4406379258801566
+ },
+ "tag_mean_by_own_group_count": {
+  "0": 12.481317520141602,
+  "1": 10.285962104797363,
+  "2": 7.646970748901367,
+  "3": 4.126181602478027,
+  "4": -1.7409372329711914,
+  "5": -17.21867561340332
+ },
+ "tag_mean_bayes_rel_logit_by_count": {
+  "0": -4.421250178691857,
+  "1": -2.8799940711872423,
+  "2": -1.0724407064709636,
+  "3": 1.0449387626417126,
+  "4": 2.889218146163293,
+  "5": -10.62020697762207
+ },
+ "corr_tag_bayes_rel_logit": 0.6638127009287148,
+ "corr_tag_own_count": -0.9211528224656101,
+ "routing_equations": {
+  "head0_logattn_vs_tag": {
+   "beta": 0.04211113229393959,
+   "r2": 0.09228129725901923
+  },
+  "head1_logattn_vs_tag": {
+   "beta": 0.04273415729403496,
+   "r2": 0.08066496855722677
+  },
+  "readout_logit_vs_routed_vote": {
+   "c": 4.430622577667236,
+   "r2": 0.9552162371716107
+  },
+  "bayes_logpost_vs_routed_vote_r2": 0.95574634868836,
+  "model_logit_vs_bayes_logpost_r2": 0.9952985098028221
+ },
+ "held_out_alpha": {
+  "alpha0.7": {
+   "acc": 0.6489444444444444,
+   "bayes": 0.6471111111111111,
+   "own": 0.5266388888888889,
+   "D2_cond": {
+    "iia": 0.8620094868477792,
+    "n_inf": 2319,
+    "kl_recovered": 0.9878318309783936,
+    "kl_recovered_mean": 0.9055600166320801,
+    "change_rate": 0.3120833333333333
+   }
+  },
+  "alpha0.9": {
+   "acc": 0.7894444444444444,
+   "bayes": 0.7900833333333334,
+   "own": 0.6196944444444444,
+   "D2_cond": {
+    "iia": 0.7807401512136888,
+    "n_inf": 2513,
+    "kl_recovered": 0.9837841987609863,
+    "kl_recovered_mean": 0.7809125185012817,
+    "change_rate": 0.3111111111111111
+   }
+  }
+ }
+}

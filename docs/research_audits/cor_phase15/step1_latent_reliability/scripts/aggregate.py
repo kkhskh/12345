@@ -34,6 +34,7 @@ def frozen(r):
     gm = max([max(v) for k, v in att.items() if k.endswith("per_head")] or [float("nan")])
     c["TypeB"] = route and ge(gm, 0.5)
     c["TypeA"] = all(c[f"P{i}"] for i in range(8))
+    c["P6_gated"] = c["P6"] and c["P2"]          # review fix: reuse is only meaningful when the base effect exists
     sw = t["site_location_sweep_cond"]
     last = r["sites"][-1]
     c["Distributed_literal"] = (not c["TypeA"]) and (not c["P2"]) and any(ge(v["iia"], 0.9) for k, v in sw.items() if "|full" in k and "episode" not in k)
@@ -63,6 +64,7 @@ def tagc(r, fz_typeB):
         c["K5" + suf] = ge(df.get(nm), 0.5) and le(df.get("random_mean"), 0.2)
         c["K6" + suf] = ge(t[reuse]["cond_q345"]["iia"], 0.7 * x["cond"]["iia"])
         c["R1" + suf] = ge(r.get(rs), 0.5)
+    c["K6'_gated"] = c["K6'"] and c["K2'"]
     c["TagRoute"] = all(c[k] for k in ["K1", "K2", "K3", "K4", "K5", "K6", "K7", "R1"]) and fz_typeB
     c["TagRoute_D2"] = all(c[k] for k in ["K1", "K2'", "K3'", "K4'", "K5'", "K6'", "K7", "R1'"]) and fz_typeB
     c["TagOnly_D2"] = all(c[k] for k in ["K1", "K2'", "K3'", "K4'", "K5'", "K6'", "K7"]) and not c["TagRoute_D2"]
@@ -97,8 +99,8 @@ groups = {}
 for r in rows.values(): groups.setdefault((r["task"], r["size"]), []).append(r)
 V = {}
 for (t, s), recs in sorted(groups.items()):
-    V[f"{t}/{s}"] = {k: verdict(recs, k) for k in ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7", "TypeA", "TypeB", "Distributed_literal", "Distributed_nonfinal"]}
-    V[f"{t}/{s}"].update({k: verdict(recs, k, "tag") for k in ["K1", "K2", "K2'", "K3'", "K4'", "K5'", "K6'", "K7", "R1", "R1'", "TagRoute", "TagRoute_D2", "TagOnly_D2"]})
+    V[f"{t}/{s}"] = {k: verdict(recs, k) for k in ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7", "TypeA", "TypeB", "Distributed_literal", "Distributed_nonfinal", "P6_gated"]}
+    V[f"{t}/{s}"].update({k: verdict(recs, k, "tag") for k in ["K1", "K2", "K2'", "K3'", "K4'", "K5'", "K6'", "K6'_gated", "K7", "R1", "R1'", "TagRoute", "TagRoute_D2", "TagOnly_D2"]})
 
 
 def holds(g, k): return bool(V.get(g, {}).get(k) and V[g][k]["holds"])

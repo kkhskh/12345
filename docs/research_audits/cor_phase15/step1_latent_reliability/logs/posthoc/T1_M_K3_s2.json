@@ -37,9 +37,9 @@
   }
  },
  "tag_content_R2": {
-  "linear_onehot_all_reports": -0.000433026597256303,
+  "linear_onehot_all_reports": 0.09979955345539948,
   "own_group_count_onehot": 0.4340141972727486,
-  "all_group_counts_onehot": 0.15033484053817026,
+  "all_group_counts_onehot": 0.8953097924225186,
   "bayes_rel_logit": 0.4641514091357837
  },
  "tag_mean_by_own_group_count": {

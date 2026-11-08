@@ -14,3 +14,9 @@
      - one that excludes the final site (`Distributed_nonfinal`).
    - The frozen primary-answer rule mentions "distributed evidence". It is applied literally, as frozen, and the flaw is flagged wherever the answer depends on it.
 4. nets.py/train_run.py: optional auxiliary R supervision flag (arch suffix _auxR), default off; used only for the post hoc T4 run in checkpoints/posthoc_auxR. ckpt.load_base added to read baseline checkpoints (object arrays).
+5. posthoc.py content surrogates (linear in raw reports; all-group counts) were token-invariant, guaranteeing R^2 ~ 0 (review R_math_causal #5). Fixed by interacting with source / group identity; post hoc reruns use the fixed version.
+6. Review fixes after confirmation results (reported **alongside**, never replacing, the frozen/registered verdicts):
+   - `P6_gated` and `K6'_gated`: the reuse criteria literally pass when the base effect is absent (0.7 × ~0 threshold). Gated versions require P2 / K2′ respectively.
+7. Post hoc experiments added after the reviews (all labelled POST HOC):
+   - T1→T4 curriculum: fine-tune each T1 M seed on T4 for 3000 steps (`scripts/train_curriculum.py`).
+   - Per-group-histogram MLP baseline `mlp_grouphist`, which the mandate's §10 "group-specific aggregation" asks for and which was missing.

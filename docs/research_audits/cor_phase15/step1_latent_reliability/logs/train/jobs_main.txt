@@ -42,5 +42,3 @@ T4 S 1 6000 checkpoints/main 3 tf
 T4 S 2 6000 checkpoints/main 3 tf
 T0 M 0 6000 checkpoints/main 3 tf
 T5 M 0 6000 checkpoints/main 3 tf
-T1 L 0 6000 checkpoints/main 3 tf
-T4 L 0 6000 checkpoints/main 3 tf

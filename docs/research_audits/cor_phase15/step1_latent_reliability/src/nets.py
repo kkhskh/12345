@@ -105,6 +105,8 @@ def init_base(arch, size, env, seed):
         return dict(net=_mlp_init(ks, [Q * 6 * K, w, w, w, Q * (K + 1) + nR]))
     if arch == "mlp_hist":      # per-question global vote histograms only
         return dict(net=_mlp_init(ks, [Q * K, w, w, w, Q * (K + 1) + nR]))
+    if arch == "mlp_grouphist":  # per-question, per-group vote histograms (no within-group source order)
+        return dict(net=_mlp_init(ks, [Q * 3 * K, w, w, w, Q * (K + 1) + nR]))
     if arch == "deepsets":      # per-question encoder, mean-pooled episode summary, per-question readout
         e = max(w // 4, 16)
         return dict(phi=_mlp_init(ks, [6 * K, w, w, e]), rho=_mlp_init(ks, [2 * e + 6 * K, w, w, K + 1]),
@@ -115,8 +117,9 @@ def init_base(arch, size, env, seed):
 def forward_base(arch, p, X, K, hook=None):
     N, Q, _ = X.shape
     oh = jax.nn.one_hot(X, K)                                   # N,Q,6,K
-    if arch in ("mlp_full", "mlp_hist"):
-        inp = oh.reshape(N, -1) if arch == "mlp_full" else oh.sum(2).reshape(N, -1)
+    if arch in ("mlp_full", "mlp_hist", "mlp_grouphist"):
+        inp = (oh.reshape(N, -1) if arch == "mlp_full" else oh.sum(2).reshape(N, -1) if arch == "mlp_hist"
+               else oh.reshape(N, Q, 3, 2, K).sum(3).reshape(N, -1))
         o = _mlp(p["net"], inp, hook, "h")
         a = o[:, :Q * K].reshape(N, Q, K); c = jax.nn.sigmoid(o[:, Q * K:Q * K + Q]); r = o[:, Q * K + Q:]
         return dict(answer=a, conf=c, rel=r)
@@ -154,9 +157,11 @@ def loss_fn(p, X, T, task, fwd=None, aux_r=False):
     return l
 
 
-def train(task, size, seed, steps, batch=256, lr=1e-3, K=3, Q=6, log=None, arch="tf", aux_r=False):
+def train(task, size, seed, steps, batch=256, lr=1e-3, K=3, Q=6, log=None, arch="tf", aux_r=False, p0=None):
     env = B.Env(task, K=K, Q=Q)
     p = init(size, env, seed) if arch == "tf" else init_base(arch, size, env, seed)
+    if p0 is not None:          # post hoc curriculum: start from given parameters (shapes must match)
+        p = jax.tree_util.tree_map(jnp.asarray, p0)
     fwd = make_forward(arch, K)
     opt = optax.adamw(optax.warmup_cosine_decay_schedule(0.0, lr, min(200, steps // 10), steps), weight_decay=1e-4)
     st = opt.init(p)

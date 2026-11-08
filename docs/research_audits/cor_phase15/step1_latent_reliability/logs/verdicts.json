@@ -15,6 +15,7 @@
     "P7": false,
     "TypeB": true,
     "TypeA": false,
+    "P6_gated": false,
     "Distributed_literal": true,
     "Distributed_nonfinal": true
    },
@@ -58,6 +59,7 @@
     "K5'": true,
     "K6'": true,
     "R1'": true,
+    "K6'_gated": true,
     "TagRoute": false,
     "TagRoute_D2": true,
     "TagOnly_D2": false
@@ -98,6 +100,7 @@
     "P7": false,
     "TypeB": true,
     "TypeA": false,
+    "P6_gated": false,
     "Distributed_literal": true,
     "Distributed_nonfinal": true
    },
@@ -141,6 +144,7 @@
     "K5'": true,
     "K6'": true,
     "R1'": true,
+    "K6'_gated": true,
     "TagRoute": false,
     "TagRoute_D2": false,
     "TagOnly_D2": false
@@ -181,6 +185,7 @@
     "P7": true,
     "TypeB": true,
     "TypeA": false,
+    "P6_gated": false,
     "Distributed_literal": true,
     "Distributed_nonfinal": true
    },
@@ -224,6 +229,7 @@
     "K5'": false,
     "K6'": true,
     "R1'": false,
+    "K6'_gated": false,
     "TagRoute": false,
     "TagRoute_D2": false,
     "TagOnly_D2": false
@@ -264,6 +270,7 @@
     "P7": false,
     "TypeB": false,
     "TypeA": false,
+    "P6_gated": false,
     "Distributed_literal": true,
     "Distributed_nonfinal": false
    },
@@ -307,6 +314,7 @@
     "K5'": false,
     "K6'": true,
     "R1'": false,
+    "K6'_gated": false,
     "TagRoute": false,
     "TagRoute_D2": false,
     "TagOnly_D2": false
@@ -347,6 +355,7 @@
     "P7": false,
     "TypeB": false,
     "TypeA": false,
+    "P6_gated": false,
     "Distributed_literal": true,
     "Distributed_nonfinal": false
    },
@@ -390,6 +399,7 @@
     "K5'": false,
     "K6'": true,
     "R1'": false,
+    "K6'_gated": false,
     "TagRoute": false,
     "TagRoute_D2": false,
     "TagOnly_D2": false
@@ -430,6 +440,7 @@
     "P7": false,
     "TypeB": false,
     "TypeA": false,
+    "P6_gated": false,
     "Distributed_literal": true,
     "Distributed_nonfinal": false
    },
@@ -473,6 +484,7 @@
     "K5'": false,
     "K6'": true,
     "R1'": false,
+    "K6'_gated": false,
     "TagRoute": false,
     "TagRoute_D2": false,
     "TagOnly_D2": false
@@ -561,6 +573,11 @@
     "n": 3,
     "holds": true
    },
+   "P6_gated": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
    "K1": {
     "passed": 3,
     "n": 3,
@@ -593,6 +610,11 @@
    },
    "K6'": {
     "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K6'_gated": {
+    "passed": 2,
     "n": 3,
     "holds": true
    },
@@ -688,6 +710,11 @@
     "n": 3,
     "holds": false
    },
+   "P6_gated": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
    "K1": {
     "passed": 0,
     "n": 3,
@@ -722,6 +749,11 @@
     "passed": 3,
     "n": 3,
     "holds": true
+   },
+   "K6'_gated": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
    },
    "K7": {
     "passed": 0,

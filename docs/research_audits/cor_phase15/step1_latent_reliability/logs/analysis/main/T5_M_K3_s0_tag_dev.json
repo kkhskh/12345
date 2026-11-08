@@ -1,0 +1,165 @@
+{
+ "ckpt": "checkpoints/main/T5_M_K3_s0.npz",
+ "task": "T5",
+ "split": "dev",
+ "tag_probes": {
+  "resid_pre1|loo|trained": -0.0004799925392009463,
+  "resid_pre1|loo|init": -0.00015783685167347627,
+  "resid_pre2|loo|trained": -0.000821531453399249,
+  "resid_pre2|loo|init": -0.0003562031654360531
+ },
+ "s_tag": "resid_pre1",
+ "k_tag": 1,
+ "overlap_tag_D2": 0.27205223822847147,
+ "content_D2_tag": {
+  "tag_target": -5.996371551719726e-05,
+  "own_value_onehot": 0.02875834900236729,
+  "own_pair_agreement": -5.34006507406648e-05,
+  "other_question_histograms": 0.01004728876237293
+ },
+ "routing_shift_fraction_under_tag_patch": 0.008788401260972023,
+ "routing_shift_fraction_under_tag_D2_patch": 0.06294228136539459,
+ "pattern_patch_target_pairs": {
+  "iia": 0.024832479306267245,
+  "n_inf": 10148,
+  "kl_recovered": 0.006399184465408325,
+  "kl_recovered_mean": 0.0029719213489443064,
+  "change_rate": 0.08935185185185185
+ },
+ "tests": {
+  "tag": {
+   "cond": {
+    "iia": 0.02364864864864865,
+    "n_inf": 592,
+    "kl_recovered": 0.004638969898223877,
+    "kl_recovered_mean": 0.009904841892421246,
+    "change_rate": 0.003148148148148148
+   },
+   "perm": {
+    "iia": 0.04964539007092199,
+    "n_inf": 282,
+    "kl_recovered": NaN,
+    "kl_recovered_mean": NaN,
+    "change_rate": 0.0023148148148148147
+   },
+   "splice": {
+    "iia": 0.037037037037037035,
+    "n_inf": 567,
+    "kl_recovered": 0.024845600128173828,
+    "kl_recovered_mean": 0.02139810100197792,
+    "change_rate": 0.004814814814814815
+   },
+   "target": {
+    "iia": 0.004631454473787939,
+    "n_inf": 10148,
+    "kl_recovered": 0.00023037195205688477,
+    "kl_recovered_mean": 0.0003082896291743964,
+    "change_rate": 0.0125
+   }
+  },
+  "tag_D2": {
+   "cond": {
+    "iia": 0.125,
+    "n_inf": 592,
+    "kl_recovered": 0.14603108167648315,
+    "kl_recovered_mean": 0.16323888301849365,
+    "change_rate": 0.017314814814814814
+   },
+   "perm": {
+    "iia": 0.12411347517730496,
+    "n_inf": 282,
+    "kl_recovered": NaN,
+    "kl_recovered_mean": NaN,
+    "change_rate": 0.004814814814814815
+   },
+   "splice": {
+    "iia": 0.12698412698412698,
+    "n_inf": 567,
+    "kl_recovered": 0.07102224230766296,
+    "kl_recovered_mean": 0.15455834567546844,
+    "change_rate": 0.015370370370370371
+   },
+   "target": {
+    "iia": 0.013894363421363815,
+    "n_inf": 10148,
+    "kl_recovered": 0.0070077478885650635,
+    "kl_recovered_mean": 0.010179937817156315,
+    "change_rate": 0.039907407407407405
+   }
+  },
+  "full_src_q": {
+   "cond": {
+    "iia": 0.36317567567567566,
+    "n_inf": 592,
+    "kl_recovered": 0.6573892831802368,
+    "kl_recovered_mean": 0.5332663059234619,
+    "change_rate": 0.038425925925925926
+   },
+   "perm": {
+    "iia": 0.46808510638297873,
+    "n_inf": 282,
+    "kl_recovered": NaN,
+    "kl_recovered_mean": NaN,
+    "change_rate": 0.020092592592592592
+   },
+   "splice": {
+    "iia": 0.36507936507936506,
+    "n_inf": 567,
+    "kl_recovered": 0.609392523765564,
+    "kl_recovered_mean": 0.5376784801483154,
+    "change_rate": 0.0362037037037037
+   },
+   "target": {
+    "iia": 0.9492510839574301,
+    "n_inf": 10148,
+    "kl_recovered": 0.9989082217216492,
+    "kl_recovered_mean": 0.9983175992965698,
+    "change_rate": 0.9264814814814815
+   }
+  },
+  "tag_fit_q012": {
+   "cond_q345": {
+    "iia": 0.022653721682847898,
+    "n_inf": 309,
+    "kl_recovered": -0.036539435386657715,
+    "kl_recovered_mean": -0.036539435386657715,
+    "change_rate": 0.0038888888888888888
+   }
+  },
+  "tag_D2_fit_q012": {
+   "cond_q345": {
+    "iia": 0.15857605177993528,
+    "n_inf": 309,
+    "kl_recovered": 0.2909926176071167,
+    "kl_recovered_mean": 0.2909926176071167,
+    "change_rate": 0.019814814814814816
+   }
+  },
+  "random": {
+   "cond": {
+    "iia": 0.04983108108108108,
+    "kl_recovered": -0.006404668092727661,
+    "change_rate": 0.005925925925925926
+   },
+   "target": {
+    "iia": 0.02299714229404809,
+    "kl_recovered": 0.020520225167274475,
+    "change_rate": 0.07006944444444445
+   }
+  },
+  "necessity": {
+   "acc_clean": 0.6491666666666667,
+   "own_question_bayes": 0.6475925925925926,
+   "gap": 0.001574074074074061,
+   "tag": 0.6493518518518518,
+   "tag_D2": 0.6500925925925926,
+   "random_mean": 0.6475462962962963,
+   "drop_frac": {
+    "tag": NaN,
+    "tag_D2": NaN,
+    "random_mean": NaN
+   }
+  }
+ },
+ "seconds": 120.33131051063538
+}

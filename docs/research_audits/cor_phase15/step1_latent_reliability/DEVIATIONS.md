@@ -21,3 +21,4 @@
    - T1→T4 curriculum: fine-tune each T1 M seed on T4 for 3000 steps (`scripts/train_curriculum.py`).
    - Per-group-histogram MLP baseline `mlp_grouphist`, which the mandate's §10 "group-specific aggregation" asks for and which was missing.
 8. Clean-extraction verification passes (scripts/verify_extraction.sh): VERDICTS and verdicts.json reproduced, E1 example reproduced, 38 checkpoints loadable.
+9. Replication (REPLICATION_PROTOCOL_T4.md): no post-freeze code changes to replicate_t4.py after the first new-seed run. Post hoc diagnostics (posthoc_layers/attn_targets/freeze.py) were run only after all four confirmatory evaluations.

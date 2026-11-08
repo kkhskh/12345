@@ -1,0 +1,3 @@
+/home/claude/12345/docs/research_audits/cor_phase15/step1_latent_reliability/scripts/analyze_model.py:159: RuntimeWarning: Mean of empty slice
+  tests["random"] = {kind: {m: float(np.nanmean([r[kind][m] for r in rand])) for m in ["iia", "kl_recovered", "change_rate"]}
+done logs/analysis/main/T5_M_K3_s0_dev.json 269 s; s* resid_post2

@@ -1,6 +1,6 @@
 # COR Phase 1.5 Step 1: latent reliability, shared relational computation and causal mechanism discovery
 
-**Start here:** `MAIN_ANSWER.md`.
+**Start here:** `MAIN_ANSWER.md`. For the preregistered replication of the T4 mechanism, see `REPLICATION_PROTOCOL_T4.md` and `REPLICATION_RESULTS.md`.
 
 Then read, in this order:
 

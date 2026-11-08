@@ -1,5 +1,89 @@
 {
  "rows": {
+  "T0_M_K3_s0": {
+   "task": "T0",
+   "size": "M",
+   "seed": "s0",
+   "frozen": {
+    "P0": false,
+    "P1": false,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": false,
+    "P7": false,
+    "TypeB": false,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": false
+   },
+   "frozen_nums": {
+    "acc": 0.7986000000000001,
+    "bayes": 0.799225,
+    "own": 0.799225,
+    "s_star": "resid_post2",
+    "probe_r2": -0.001815706420090324,
+    "probe_r2_init": -0.0022600394520779776,
+    "D1_cond_iia": 0.11335578002244669,
+    "D1_cond_kl": 0.15232175588607788,
+    "D1_perm_iia": 0.11818181818181818,
+    "D1_target_change": 0.04138888888888889,
+    "D1_dropfrac": NaN,
+    "D2_cond_iia": 0.25252525252525254,
+    "D2_target_change": 0.1524074074074074,
+    "random_cond_iia": 0.23849607182940516,
+    "content": {
+     "counts": -0.00027886349808259325,
+     "hist": 0.007135934633810015,
+     "own_question_onehot": 0.6812623923859892
+    },
+    "max_group_mass_r2": NaN,
+    "best_pattern_patch": NaN,
+    "best_nonfinal_full": 0.6397306397306397
+   },
+   "tag": {
+    "K1": false,
+    "K7": false,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": false,
+    "K5'": false,
+    "K6'": true,
+    "R1'": false,
+    "K6'_gated": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre1",
+    "probe": 0.3393543556841563,
+    "tag_cond": 0.023373983739837397,
+    "tagD2_cond": 0.09146341463414634,
+    "tagD2_kl": -0.006612956523895264,
+    "tagD2_perm": 0.07492354740061162,
+    "tagD2_target_change": 0.10407407407407407,
+    "tagD2_drop": NaN,
+    "tagD2_reuse": 0.14583333333333334,
+    "routeD2": 0.02390432171523571,
+    "full_src_cond": 0.30589430894308944,
+    "content": {
+     "tag_target": 0.07822808612799559,
+     "own_value_onehot": 0.38505945341609105,
+     "own_pair_agreement": 0.022543085966878595,
+     "other_question_histograms": 0.03164296687657431
+    },
+    "overlap": 0.022717864913218706
+   }
+  },
   "T1_M_K3_s0": {
    "task": "T1",
    "size": "M",
@@ -425,6 +509,176 @@
     "overlap": 0.3849592627065649
    }
   },
+  "T2_M_K3_s2": {
+   "task": "T2",
+   "size": "M",
+   "seed": "s2",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": true,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.7387916666666666,
+    "bayes": 0.7399166666666667,
+    "own": 0.65025,
+    "s_star": "resid_post2",
+    "probe_r2": 0.8654257702082447,
+    "probe_r2_init": -0.0030549751182917806,
+    "D1_cond_iia": 0.026757046022119157,
+    "D1_cond_kl": -0.0016818046569824219,
+    "D1_perm_iia": 0.03016157989228007,
+    "D1_target_change": 0.0037962962962962963,
+    "D1_dropfrac": 0.002159827213822799,
+    "D2_cond_iia": 0.46557260078487334,
+    "D2_target_change": 0.6635185185185185,
+    "random_cond_iia": 0.05748305387085266,
+    "content": {
+     "pi_minus": -0.00073370626237379,
+     "counts": -0.0007956196506633262,
+     "hist": -0.00030336566349142835,
+     "own_question_onehot": 0.32372596245612373
+    },
+    "max_group_mass_r2": 0.9852612404876279,
+    "best_pattern_patch": 0.8615768819122369,
+    "best_nonfinal_full": 0.9457723867285052
+   },
+   "tag": {
+    "K1": true,
+    "K7": true,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": false,
+    "R1": false,
+    "K2'": true,
+    "K3'": true,
+    "K4'": true,
+    "K5'": true,
+    "K6'": true,
+    "R1'": true,
+    "K6'_gated": true,
+    "TagRoute": false,
+    "TagRoute_D2": true,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.635788494202795,
+    "tag_cond": 0.0782422293676313,
+    "tagD2_cond": 0.7988567345480528,
+    "tagD2_kl": 0.9611884951591492,
+    "tagD2_perm": 0.7679715302491104,
+    "tagD2_target_change": 0.047407407407407405,
+    "tagD2_drop": 1.5892661555312169,
+    "tagD2_reuse": 0.7800289435600579,
+    "routeD2": 0.8807080984115601,
+    "full_src_cond": 0.8681672025723473,
+    "content": {
+     "tag_target": 0.4270336533152371,
+     "own_value_onehot": 0.00412837090443241,
+     "own_pair_agreement": 0.09199221053827078,
+     "other_question_histograms": -0.0005828387891511078
+    },
+    "overlap": 0.23971201044962748
+   }
+  },
+  "T3_M_K3_s0": {
+   "task": "T3",
+   "size": "M",
+   "seed": "s0",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": true,
+    "TypeB": false,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": false
+   },
+   "frozen_nums": {
+    "acc": 0.7388916666666666,
+    "bayes": 0.7399166666666667,
+    "own": 0.65025,
+    "s_star": "resid_post2",
+    "probe_r2": 0.9426433949625521,
+    "probe_r2_init": -0.0030549751182917806,
+    "D1_cond_iia": 0.024755501222493887,
+    "D1_cond_kl": -0.01212465763092041,
+    "D1_perm_iia": 0.02708592777085928,
+    "D1_target_change": 0.002685185185185185,
+    "D1_dropfrac": -0.002036659877800318,
+    "D2_cond_iia": 0.04462102689486552,
+    "D2_target_change": 0.012037037037037037,
+    "random_cond_iia": 0.07843062347188264,
+    "content": {
+     "pi_minus": 0.8360962676667262,
+     "counts": 0.8362668545155296,
+     "hist": -0.0024403740927401163,
+     "own_question_onehot": 0.06910758922159044
+    },
+    "max_group_mass_r2": 0.17161302724473915,
+    "best_pattern_patch": 0.7551955990220048,
+    "best_nonfinal_full": 0.06051344743276284
+   },
+   "tag": {
+    "K1": false,
+    "K7": false,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": true,
+    "K5'": false,
+    "K6'": true,
+    "R1'": false,
+    "K6'_gated": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.0417325534294225,
+    "tag_cond": 0.0017615971814445098,
+    "tagD2_cond": 0.011450381679389313,
+    "tagD2_kl": 0.00013083219528198242,
+    "tagD2_perm": 0.009328919650917845,
+    "tagD2_target_change": 0.03981481481481482,
+    "tagD2_drop": 0.25680087051142503,
+    "tagD2_reuse": 0.00841852074564041,
+    "routeD2": 0.17968662083148956,
+    "full_src_cond": 0.022900763358778626,
+    "content": {
+     "tag_target": 0.025951316440824823,
+     "own_value_onehot": 1.1773833571426806e-05,
+     "own_pair_agreement": 0.6018802725138338,
+     "other_question_histograms": 0.0019828857286574575
+    },
+    "overlap": 0.052137025058103734
+   }
+  },
   "T4_M_K3_s0": {
    "task": "T4",
    "size": "M",
@@ -678,6 +932,90 @@
      "other_question_histograms": 0.025749966617675035
     },
     "overlap": 0.060824961961225
+   }
+  },
+  "T5_M_K3_s0": {
+   "task": "T5",
+   "size": "M",
+   "seed": "s0",
+   "frozen": {
+    "P0": true,
+    "P1": false,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": false,
+    "P7": false,
+    "TypeB": false,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": false
+   },
+   "frozen_nums": {
+    "acc": 0.6465583333333333,
+    "bayes": 0.6464416666666667,
+    "own": 0.6464416666666667,
+    "s_star": "resid_post2",
+    "probe_r2": 0.018344016615047143,
+    "probe_r2_init": 0.003277863072668974,
+    "D1_cond_iia": 0.026016260162601626,
+    "D1_cond_kl": -0.006785273551940918,
+    "D1_perm_iia": 0.01749271137026239,
+    "D1_target_change": 0.003425925925925926,
+    "D1_dropfrac": NaN,
+    "D2_cond_iia": 0.07317073170731707,
+    "D2_target_change": 0.00787037037037037,
+    "random_cond_iia": 0.1741869918699187,
+    "content": {
+     "counts": 4.385104849791155e-05,
+     "hist": 0.045220300193455576,
+     "own_question_onehot": 0.07548554576346667
+    },
+    "max_group_mass_r2": NaN,
+    "best_pattern_patch": NaN,
+    "best_nonfinal_full": 0.4195121951219512
+   },
+   "tag": {
+    "K1": false,
+    "K7": false,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": true,
+    "K5'": false,
+    "K6'": true,
+    "R1'": false,
+    "K6'_gated": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre1",
+    "probe": -0.00023882704049138503,
+    "tag_cond": 0.01779935275080906,
+    "tagD2_cond": 0.11003236245954692,
+    "tagD2_kl": 0.18953609466552734,
+    "tagD2_perm": 0.08881578947368421,
+    "tagD2_target_change": 0.0437037037037037,
+    "tagD2_drop": NaN,
+    "tagD2_reuse": 0.14516129032258066,
+    "routeD2": 0.06804505735635757,
+    "full_src_cond": 0.32524271844660196,
+    "content": {
+     "tag_target": -4.645512359235937e-06,
+     "own_value_onehot": 0.02373798590929288,
+     "own_pair_agreement": -2.4304371554872972e-05,
+     "other_question_histograms": 0.01305403270476102
+    },
+    "overlap": 0.010287411065555474
    }
   },
   "T4_M_K3_s0_fromT1": {
@@ -937,6 +1275,143 @@
   }
  },
  "verdicts": {
+  "T0/M": {
+   "P0": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P1": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P3": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P4": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "P5": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P6": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P7": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TypeA": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TypeB": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "Distributed_literal": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "Distributed_nonfinal": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P6_gated": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K1": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K2'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K3'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K4'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K5'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K6'": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "K6'_gated": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K7": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "R1": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "R1'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagRoute": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagRoute_D2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagOnly_D2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   }
+  },
   "T1/M": {
    "P0": {
     "passed": 3,
@@ -1076,138 +1551,275 @@
   },
   "T2/M": {
    "P0": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "P1": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "P2": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "P3": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "P4": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "P5": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "P6": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "P7": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "TypeA": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "TypeB": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "Distributed_literal": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "Distributed_nonfinal": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "P6_gated": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "K1": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "K2": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "K2'": {
-    "passed": 1,
-    "n": 2,
-    "holds": false
+    "passed": 2,
+    "n": 3,
+    "holds": true
    },
    "K3'": {
-    "passed": 1,
-    "n": 2,
-    "holds": false
+    "passed": 2,
+    "n": 3,
+    "holds": true
    },
    "K4'": {
-    "passed": 1,
-    "n": 2,
-    "holds": false
+    "passed": 2,
+    "n": 3,
+    "holds": true
    },
    "K5'": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "K6'": {
-    "passed": 2,
-    "n": 2,
+    "passed": 3,
+    "n": 3,
     "holds": true
    },
    "K6'_gated": {
-    "passed": 1,
-    "n": 2,
-    "holds": false
+    "passed": 2,
+    "n": 3,
+    "holds": true
    },
    "K7": {
-    "passed": 1,
-    "n": 2,
-    "holds": false
+    "passed": 2,
+    "n": 3,
+    "holds": true
    },
    "R1": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "R1'": {
-    "passed": 1,
-    "n": 2,
-    "holds": false
+    "passed": 2,
+    "n": 3,
+    "holds": true
    },
    "TagRoute": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
     "holds": false
    },
    "TagRoute_D2": {
-    "passed": 0,
-    "n": 2,
+    "passed": 1,
+    "n": 3,
     "holds": false
    },
    "TagOnly_D2": {
     "passed": 0,
-    "n": 2,
+    "n": 3,
+    "holds": false
+   }
+  },
+  "T3/M": {
+   "P0": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "P1": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "P2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P3": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P4": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "P5": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P6": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "P7": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "TypeA": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TypeB": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "Distributed_literal": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "Distributed_nonfinal": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P6_gated": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K1": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K2'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K3'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K4'": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "K5'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K6'": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "K6'_gated": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K7": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "R1": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "R1'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagRoute": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagRoute_D2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagOnly_D2": {
+    "passed": 0,
+    "n": 1,
     "holds": false
    }
   },
@@ -1482,6 +2094,143 @@
    "TagOnly_D2": {
     "passed": 0,
     "n": 3,
+    "holds": false
+   }
+  },
+  "T5/M": {
+   "P0": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "P1": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P3": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P4": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "P5": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P6": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P7": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TypeA": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TypeB": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "Distributed_literal": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "Distributed_nonfinal": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "P6_gated": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K1": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K2'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K3'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K4'": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "K5'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K6'": {
+    "passed": 1,
+    "n": 1,
+    "holds": true
+   },
+   "K6'_gated": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "K7": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "R1": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "R1'": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagRoute": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagRoute_D2": {
+    "passed": 0,
+    "n": 1,
+    "holds": false
+   },
+   "TagOnly_D2": {
+    "passed": 0,
+    "n": 1,
     "holds": false
    }
   }

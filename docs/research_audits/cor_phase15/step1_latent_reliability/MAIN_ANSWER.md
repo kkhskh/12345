@@ -1,5 +1,22 @@
 # Main answer: latent reliability (Phase 1.5 Step 1)
 
+> **Update (independent replication; see `REPLICATION_RESULTS.md`).** The T1→T4 curriculum mechanism was first found post hoc (seeds 0–2, §2 below). It was then **preregistered** (`REPLICATION_PROTOCOL_T4.md`) and **replicated on new seeds 10–13** under the frozen per-claim rule:
+>
+> | claim | new seeds passing |
+> |---|---|
+> | learnability under curriculum | 4/4 |
+> | reliability-gated routing | 3/4 |
+> | causal reliability variable (aggregate- and relation-matched controls) | 3/4 |
+> | effect removed by freezing the routing heads, not by freezing control heads | 3/4 |
+> | non-monotone (colluder-penalising) use of agreement | 3/4 |
+>
+> - Only 2/4 seeds pass every criterion jointly.
+> - Seed 12 solves T4 at Bayes level through a different implementation.
+> - The distributed key/query form was not observed in any new seed.
+> - All original preregistered failures below are unchanged: frozen primary PARTIAL, secondary NO (scoped), T4 from scratch 0/3.
+>
+> **Controls** (one seed each): T0 and T5 models, where coherence has no Bayes value, show no cross-question dependence and no tag. T3 (R supervised) reaches Bayes through a different, last-layer cross-question read.
+
 > **Did a learned Transformer develop a reusable, independently identified, consistency-related computation that causally contributes to candidate decisions?**
 
 **Short answer.** It holds at the level of computation. It does not hold as an explicit readout variable. It holds for T1 from scratch, and for T4 only after a T1 curriculum (post hoc).

@@ -65,7 +65,7 @@
 | 13 | −1.16 … 1.92, −1.05 | 2.97 [2.92, 3.02] |
 | 10 | −0.09 … 2.30, −2.18 | 4.48 [4.37, 4.59] |
 
-- The exact Bayes log-odds show the same shape: about −0.2 rising to 7.4, then −6.7 at c = 5 (code-check numbers).
+- The exact Bayes leave-one-out log-odds show the same shape on the evaluation stream: −0.08, 1.44, 3.33, 5.50, 7.51, then −6.82 at c = 5.
 - **Explanatory power.** Bayes reliability log-odds explain the attention better than any monotone function of the count:
 
 | seed | R² Bayes log-odds | R² best monotone count function | R² flexible count lookup (upper bound, reported only) |
@@ -115,3 +115,23 @@ Each link is causally tested on new seeds:
 - it stops working when the reliability heads' attention is frozen.
 
 The fourth seed solves the task differently. So the account is a replicated *typical* mechanism, not a necessary one.
+
+## 6. Affordable controls (main grid; frozen analyses, confirmation split; one seed each)
+
+These were finished after the replication, as the protocol allowed. L-size training was not started.
+
+- **T0 (reliability known; cross-question coherence has no Bayes value).**
+  - Accuracy 0.7986, against Bayes = own-question 0.7992.
+  - The decision barely depends on the other questions: only 8% of cond pairs change the argmax at all, essentially near-ties.
+  - No reliability tag forms. D2 tag cond IIA 0.09, KL −0.01. Tag content: R² 0.08 for Bayes reliability against 0.39 for own values.
+- **T5 (all sources exchangeable; the histogram is sufficient).**
+  - Accuracy 0.6466, against Bayes 0.6464.
+  - Only 6% of cond pairs change the argmax.
+  - No tag (content R² 0.00).
+  - **Reading T0 and T5 together:** the coherence computation appears only where it has Bayes value. It is driven by usefulness, not by an architectural bias.
+- **T3 (R directly supervised; positive control).**
+  - Accuracy 0.7389, against Bayes 0.7399.
+  - The R head is decoded at the final episode token (R² 0.998).
+  - It does **not** use the tag-and-route implementation: route-head group-mass R² ≤ 0.17 and tag IIA 0.01.
+  - Cross-question evidence reaches readout q only *inside* the last layer: question-q tokens at its input carry IIA 0.06, while the last-layer readout pattern patch gives 0.76. This resembles replication seed 12.
+  - **Conclusion:** supervising R changes *how* the task is solved. It is not evidence for or against the unsupervised mechanism (n = 1; T3 seed 1 was dropped for compute).

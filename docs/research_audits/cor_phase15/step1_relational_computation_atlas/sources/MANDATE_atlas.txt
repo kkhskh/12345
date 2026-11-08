@@ -1,0 +1,1213 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL RESEARCH ATLAS: RELATIONAL COMPUTATION, CAUSAL DECISIONS, IDENTIFIABILITY, AND GENERALITY
+
+## Autonomous, mathematically rigorous continuation of the existing COR research
+
+You are continuing the COR research repository from the latest `cor-phase15-step1-latent-reliability` branch and its v2 replication package.
+
+**This is not a paper-writing assignment.**
+
+**This is not an assignment to defend latent reliability as the final COR theory.**
+
+**This is not another assignment to reproduce one successful attention circuit.**
+
+The investigation is still in the foundational part of Phase 1.5 Step 1. The research is far from sufficiently mapped.
+
+Your responsibility is to expand the scientific understanding of the phenomenon in multiple directions and to connect those findings into the strongest defensible mathematical account.
+
+We need to understand the **space of possible source-relationship-sensitive Transformer decision mechanisms**, not merely identify one successful instance.
+
+Research must proceed through actual derivations, proofs, implemented computational models, learned-model experiments, causal interventions, counterexamples, independent checks, and comparisons to existing theory.
+
+Do not mistake the quantity of experiments or research files for scientific progress.
+
+---
+
+# 0. THE SCIENTIFIC PROBLEM REMAINS OPEN
+
+The original COR ambition was to connect internal computational relationships among representations to candidate-specific Transformer decisions.
+
+The old obstruction score \(O/D\) never established that bridge. Its original fatal problems remain governing constraints.
+
+Recent research has made meaningful progress:
+
+- Explicit agreement-sensitive Transformer-like circuits were constructed.
+- Nonlinear MLP, Q/K routing, and multi-layer rereading mechanisms were identified in engineered systems.
+- Small trained Transformers were investigated.
+- Earlier mediator searches were found to confuse answer representations, source representations, and genuine relational computation.
+- A latent-reliability environment gave source relationships an independently defined probabilistic role.
+- Learned Transformers were found to use reliability-related information in candidate decisions.
+- Under a T1→T4 curriculum, models learned to handle misleading agreement caused by collusion.
+- Preregistered replication supported multiple causal components of the mechanism.
+- Different successful seeds implemented the same task through different internal pathways.
+
+These are established research directions, not an established unified theory.
+
+**Do not turn them into an assumed final thesis.**
+
+In particular, the following hypotheses must remain distinguishable:
+
+H1. The observed result is ordinary Bayesian reliability inference implemented by attention.
+
+H2. It belongs to a broader class of relation-conditioned candidate-decision computations.
+
+H3. Such mechanisms admit a meaningful implementation-independent causal characterization.
+
+H4. A subset of such mechanisms can be identified independently from frozen model computation.
+
+H5. A consistency-oriented mathematical description provides useful predictions beyond standard Bayesian and mechanistic accounts.
+
+H6. The original COR \(O/D\) framework captures some of this structure under additional independently justified assumptions.
+
+H7. The observed mechanism is an isolated task-specific phenomenon with limited generalization.
+
+Do not presume any hypothesis true.
+
+Investigate which survive and where.
+
+---
+
+# 1. RECONSTRUCT THE COMPLETE SCIENTIFIC EVIDENCE
+
+Before beginning new work, read the actual repository.
+
+Include the original COR mathematical definitions and Phase 1 failure audit, Phase 1.5 Step 1A–1E, the foundational causal-bridge investigations, the learned mediator studies, the latent-reliability v1 package, and the latest preregistered v2 replication.
+
+Read especially:
+
+- `MAIN_ANSWER.md`
+- `REPLICATION_RESULTS.md`
+- `REPLICATION_PROTOCOL_T4.md`
+- `THEOREM.md`
+- `MATH_VALIDATION.md`
+- `ADJUDICATION.md`
+- `DEVIATIONS.md`
+- `PROTOCOL.md`
+- The actual model and generator implementations.
+- Saved checkpoint configurations.
+- Raw intervention records.
+- Historical and new negative results.
+
+Read `INDEPENDENT_LATENT_RELIABILITY_V2_AUDIT.md` if accessible. It is an external review, not an authoritative scientific premise.
+
+If unavailable, continue using the recorded findings below.
+
+### The precise current empirical baseline
+
+T4 curriculum learning succeeds in 4/4 new seeds.
+
+Each principal causal criterion succeeds individually in 3/4 seeds.
+
+Only 2/4 seeds satisfy every principal criterion simultaneously.
+
+Seed 10 has an extra routing head that defeats the preregistered top-two-head test.
+
+Seed 12 reaches Bayes-level decisions through direct last-layer cross-question reading rather than the same earlier tag.
+
+The alternative distributed key/query implementation remains an earlier post-hoc observation, not confirmed in the new seeds.
+
+T4 from-scratch training remains unsuccessful in the tested models and budgets.
+
+The group-histogram MLP also benefits from curriculum.
+
+T4's nonlinear reliability relationship is consistent with ordinary Bayesian latent-variable inference.
+
+Some matched-histogram permutations fall outside the task generator's support; they cannot be interpreted as ordinary in-distribution causal counterfactuals.
+
+**These distinctions must remain intact.**
+
+Do not retrospectively convert failed preregistered criteria into successes.
+
+Do not discard successful models because they use unexpected mechanisms.
+
+Create a new isolated continuation branch and preserve all historical results.
+
+---
+
+# 2. BUILD AN ATLAS, NOT A COLLECTION OF CASE STUDIES
+
+The central research product is a mathematically organized map of the phenomenon.
+
+For every candidate mechanism or computational class, identify:
+
+- The source information available.
+- The independently defined relationship among sources.
+- The computational operations capable of using that relationship.
+- Where relevant information is represented.
+- Whether the relationship is represented explicitly or computed implicitly.
+- Which candidate-specific decisions it can influence.
+- Which causal interventions reveal its use.
+- What it cannot explain.
+- Which alternatives produce the same behavior.
+- Which parameters and assumptions determine the direction of response.
+- The conditions under which the effect disappears or reverses.
+- How the mechanism is related to others in the atlas.
+
+A simple label such as "agreement circuit" or "reliability head" is insufficient.
+
+Classify mechanisms by actual computational dependency.
+
+A useful preliminary classification is:
+
+**Class A — Explicit relational mediator.** An intermediate variable encodes a relationship and is read downstream.
+
+**Class B — Distributed relational computation.** Relational information is spread across multiple representations or pathways.
+
+**Class C — On-demand relation computation.** A later component rereads source states and computes the needed relationship during the decision.
+
+**Class D — Implicit relational operation.** The relationship influences Q/K compatibility, nonlinear normalization, gating, or another operation without a separately stored representation.
+
+**Class E — Functionally equivalent non-relational description.** An alternative computation produces the same decisions without the proposed explicit consistency abstraction.
+
+These are provisional categories. Revise them if computation-grounded evidence requires it.
+
+A classification is scientifically useful only if it distinguishes something causally, mathematically, or predictively meaningful.
+
+Do not create categories merely to organize a report.
+
+---
+
+# 3. RESEARCH DIRECTION A — ALTERNATIVE IMPLEMENTATIONS AND COMPUTATIONAL EQUIVALENCE
+
+The most immediate theoretical problem comes from the successful seeds.
+
+Different Transformer mechanisms appear to perform essentially the same source-reliability-dependent decision function.
+
+We need to understand their relationship.
+
+### A1. Reconstruct the implementations
+
+Analyze at least:
+
+1. The localized source-token tag followed by later routing.
+2. The split key/query implementation from the earlier seeds.
+3. Seed 10's redundant three-head routing.
+4. Seed 12's direct cross-question rereading.
+5. DeepSets' explicit pooled computation.
+6. The group-histogram MLP as a competing realization.
+7. Appropriate engineered causal controls from prior work.
+
+For each implementation, reconstruct the actual causal computational graph.
+
+Do not assume that attention weights alone describe the computation.
+
+Include values, output matrices, residual paths, normalization, nonlinear operations, and downstream readout.
+
+### A2. Determine what the implementations have in common
+
+Possible commonalities include:
+
+- Dependence on cross-question relational evidence.
+- An intermediate sufficient statistic.
+- A reliability-conditioned evidence-weighting operation.
+- A change in candidate margins conditional on source reliability.
+- A particular information bottleneck.
+- A causal factorization shared across different representations.
+
+Investigate these possibilities.
+
+Do not define the commonality so broadly that every arbitrary classifier qualifies.
+
+A statement such as "the model computes a function of the input" is useless.
+
+### A3. Derive an equivalence notion
+
+Distinguish:
+
+- Same input/output function.
+- Same behavior on the tested distribution.
+- Same abstract intermediate variables.
+- Same causal response under selected interventions.
+- Same computational factorization.
+- Same internal mechanism up to a valid reparameterization.
+
+These are different equivalence relations.
+
+Attempt to construct a mathematically useful equivalence class for the observed mechanisms.
+
+Determine what is preserved under the equivalence and what can differ.
+
+Try to build a formal causal abstraction that includes both an explicit tag-and-route implementation and a direct-rereading implementation.
+
+If no common causal abstraction survives meaningful interventions, construct a counterexample and explain the obstacle.
+
+### A4. Redundancy and competing pathways
+
+Analyze models where several attention heads carry overlapping reliability information.
+
+Determine whether:
+
+- Individual heads are necessary.
+- Sets of heads are jointly necessary.
+- Their contributions compensate for each other.
+- An ablation creates a distribution shift.
+- Earlier layers can reconstruct information lost by a patch.
+- Different pathways implement the same functional role.
+
+Use seed 10 as an actual test case.
+
+Develop intervention methods that are not restricted to an arbitrary fixed count of top heads.
+
+Report how the conclusion depends on the selected intervention set.
+
+**Target result:** a defensible account of the computational properties shared across heterogeneous successful implementations, or an explicit demonstration that the similarities are insufficient to define a common causal class.
+
+---
+
+# 4. RESEARCH DIRECTION B — WHAT COUNTS AS A SOURCE RELATIONSHIP?
+
+The word "consistency" currently covers several different mathematical objects.
+
+We must separate them.
+
+Investigate at least these relationship families:
+
+**Statistical agreement:** multiple sources provide matching observations.
+
+**Candidate-relative agreement:** sources independently support the same candidate.
+
+**Reliability evidence:** source relationships change the inferred credibility of their generating processes.
+
+**Constraint compatibility:** several statements or intermediate states jointly satisfy a specified constraint.
+
+**Semantic compatibility:** different evidence representations support mutually compatible interpretations.
+
+**Causal compatibility:** source representations agree with a specified causal model or intervention response.
+
+**Redundancy and dependence:** sources appear to agree because they share a common origin, copied information, or correlated errors.
+
+**Contradiction and conflict:** relationships signal information that must be reconciled rather than aggregated.
+
+For each relation:
+
+1. Define it independently of the evaluated model's candidate logits.
+2. Identify which source semantics are required.
+3. Determine what information it retains or discards.
+4. Derive when it is relevant to a decision.
+5. Construct cases where it is irrelevant.
+6. Construct cases where its apparent interpretation reverses.
+7. Determine whether an actual Transformer computation can respond to it.
+8. Determine how the relation differs from a conventional nonlinear feature.
+
+Do not assume all these relations should be combined into one scalar.
+
+Do not assume they require the same computational mechanism.
+
+**Critically:** Latent reliability is one candidate application. Explore whether there are other genuine decision-relevant relational mechanisms that do not reduce to estimating a hidden source's reliability.
+
+Use carefully controlled synthetic settings for those comparisons.
+
+Do not broaden by inventing arbitrary new scores.
+
+Broaden by defining scientifically meaningful relationships and investigating their actual computational consequences.
+
+---
+
+# 5. RESEARCH DIRECTION C — THE MATHEMATICAL BOUNDARIES OF THE OBSERVED MECHANISM
+
+Develop a serious theory of the latent-reliability mechanism's operating domain.
+
+The present model has fixed source groupings, three candidates, six questions, limited architecture variation, a specific colluder design, and a particular curriculum.
+
+These conditions should not be mistaken for general conditions.
+
+### C1. Bayesian boundaries
+
+Derive the exact reliability posterior and its dependence on:
+
+- Agreement counts.
+- Number of sources.
+- Number of candidate classes.
+- Prior reliability probabilities.
+- Source error rates.
+- Colluder prevalence.
+- Group size.
+- Number of questions.
+- Correlated errors.
+- Alternative source dependency models.
+
+Determine analytically when agreement increases reliability and when it decreases reliability.
+
+For collusion, derive the decision boundary separating regimes where further agreement is evidence for trustworthiness from regimes where it is evidence for copying or coordination.
+
+Test whether the reported T4 non-monotonicity is:
+
+- Specific to the original generator.
+- Stable across a parameter region.
+- Altered by priors.
+- Eliminated by different collusion mechanisms.
+- Present under partial rather than perfect collusion.
+
+Do not derive a sweeping theorem from one posterior curve.
+
+### C2. Decision consequences
+
+For candidate c and competitor c′, define:
+
+\[
+m_{c,c'}(x)=L_c(x)-L_{c'}(x).
+\]
+
+Derive conditions under which changing source relationships changes:
+
+- The inferred reliability.
+- The evidence weighting.
+- The candidate margin.
+- The preference ordering.
+- The selected candidate.
+- Decision confidence or stability.
+
+Do not conflate changes in reliability with changes in candidate correctness.
+
+Do not assume agreement has a universally positive sign.
+
+The correct response may be positive, negative, zero, or non-monotonic.
+
+The result should be a collection of conditional theorems and counterexamples with clearly defined domains.
+
+### C3. Necessary versus sufficient conditions
+
+For every proposed theorem, determine whether the assumptions are:
+
+- Necessary.
+- Sufficient.
+- Both.
+- Merely convenient for proof.
+- Directly inspectable in the frozen computation.
+- Equivalent to restating the target outcome.
+
+Investigate competing residual and attention paths.
+
+Prove appropriate bypass and sufficient-bottleneck results.
+
+Construct same-relation/different-decision counterexamples.
+
+Investigate whether a relation statistic plus independently specified candidate evidence is sufficient to predict a margin or decision response.
+
+Do not promote a branch-level sign result into a total-logit sign result without controlling competing pathways.
+
+**Target result:** meaningful mathematical boundaries, not another single favorable sign theorem.
+
+---
+
+# 6. RESEARCH DIRECTION D — UNKNOWN SOURCE GROUPS AND NONIDENTIFIABLE STRUCTURE
+
+The existing latent-reliability task gives the model predefined source pairs.
+
+That is a major simplification.
+
+Investigate what happens when source groups are:
+
+- Unknown.
+- Randomly permuted.
+- Partially observable.
+- Changed between episodes.
+- Overlapping.
+- Hierarchical.
+- Unequal in size.
+- Formed by latent copying relationships.
+- Different between training and evaluation.
+
+Determine whether the task remains statistically identifiable.
+
+Prove identification or impossibility results when possible.
+
+For example, if two latent source-group assignments induce exactly the same observable input distribution, no estimator can uniquely distinguish them without additional assumptions.
+
+Do not call that a neural-network failure.
+
+When identification is possible, determine what information enables it.
+
+Then investigate whether learned Transformers can infer group structure, whether they use explicit clustering-like representations, or whether they perform on-demand relational routing.
+
+Separate:
+
+- Statistical identifiability of the latent source model.
+- Neural learnability.
+- Representation identifiability.
+- Causal identification of the internal mechanism.
+
+This distinction is essential to any general theory.
+
+---
+
+# 7. RESEARCH DIRECTION E — CORRELATED ERRORS, COLLUSION, AND ADVERSARIAL EVIDENCE
+
+The observed T4 result is valuable because it falsifies the simplistic rule that more agreement always means greater credibility.
+
+We should now explore the surrounding landscape.
+
+Investigate source relationships under:
+
+- Independent noise.
+- Shared accidental errors.
+- Common-source copying.
+- Fixed collusion.
+- Probabilistic collusion.
+- Partial collusion.
+- Adaptive collusion.
+- Adversarial reports.
+- Source-specific biases.
+- Reliability drift across questions.
+- Reliability drift within an episode.
+- Mixtures of honest, unreliable, copied, and adversarial sources.
+
+For each environment:
+
+1. Derive the optimal inference rule or the strongest tractable reference.
+2. Determine what relationships are informative.
+3. Determine whether simple agreement is insufficient.
+4. Identify alternative sufficient statistics.
+5. Determine what computation a successful model must perform at the behavioral level.
+6. Investigate what computation trained models actually perform.
+7. Construct misleading cases for the proposed mechanism.
+8. Test whether the learned representation transfers across changes in the generating process.
+
+Do not use "adversarial" as an invitation to produce arbitrary extreme inputs.
+
+Use explicitly specified distributions and controlled perturbations, with a separation between naturally reachable inputs and off-support stress tests.
+
+**Target result:** a map of which source relationships carry decision-relevant information under which error-generating processes.
+
+---
+
+# 8. RESEARCH DIRECTION F — REPRESENTATION INVARIANCE AND MECHANISM IDENTIFICATION
+
+The original COR project has a serious identifiability problem.
+
+A chosen representation, projection, or per-head quantity need not be a unique feature of the computed function.
+
+This is still unresolved.
+
+Develop identification theory at multiple levels.
+
+### F1. Function-preserving transformations
+
+Investigate valid transformations involving:
+
+- Query/key changes of basis.
+- Value/output changes of basis.
+- Head redistribution where computationally permitted.
+- Redundant units and pathways.
+- Unit permutations.
+- Residual-stream basis changes with correct treatment of normalization.
+- Alternative encodings of reliability information.
+- Distributed key/query implementations.
+- Distinct models with equivalent external behavior.
+
+Identify which proposed explanatory quantities remain invariant.
+
+Do not assume every apparent parameter transformation is function-preserving in a pre-norm Transformer.
+
+Prove or test the transformations appropriately.
+
+### F2. Distributed representations
+
+Do not make the scientific theory depend on a single reliability neuron or a selected one-dimensional tag.
+
+Develop methods that can identify:
+
+- Subspace representations.
+- Redundant representations.
+- Distributed feature codes.
+- Features represented jointly in queries and keys.
+- Operation-level relational computations.
+- Temporally localized but not persistently stored variables.
+
+Investigate whether an explanatory object can be defined at the level of the operation or causal equivalence class rather than a coordinate.
+
+### F3. Independent identification
+
+Preserve the distinction between:
+
+- Decodability.
+- Association.
+- Intervention sensitivity.
+- Causal mediation.
+- Mechanistic necessity.
+- Unique identification.
+
+A probe with high R² is not proof of causal use.
+
+A patch that changes output is not automatically proof of unique mediation.
+
+The proposed relation must be identified without selecting it because it maximizes the evaluated logit response.
+
+If a mechanism can only be identified relative to a specific checkpoint and representation convention, state that precisely.
+
+**Target result:** either a robust identification method or a rigorous characterization of what cannot be uniquely identified.
+
+---
+
+# 9. RESEARCH DIRECTION G — CAUSAL INTERVENTIONS AND REACHABILITY
+
+Do not rely solely on activation patching.
+
+Construct an intervention taxonomy that distinguishes:
+
+- Natural source perturbations.
+- Conditionally sampled on-manifold counterfactuals.
+- Matched source-relationship changes.
+- Matched source-strength changes.
+- Mechanism-dissection interventions.
+- Activation interchange.
+- Path patching.
+- Head ablation.
+- Distributed-subspace replacement.
+- Off-manifold interventions.
+
+Determine what each experiment can establish.
+
+For the existing T4 work, specifically resolve:
+
+- What conditional swaps establish.
+- What the histogram permutations establish.
+- Which permutations are outside the generator's support.
+- Whether patching a reliability subspace creates internally reachable states.
+- Whether patching effects can be explained by mismatched-source artifacts.
+- Whether routing-head freezing measures natural necessity or only mediation of the artificial patch.
+- Whether redundant heads restore the same computation.
+- Whether downstream paths bypass the apparent mediator.
+
+Build controls that test natural necessity and sufficiency separately.
+
+Where possible, compare mediation effects against interventions on genuine data-generating variables.
+
+If an exact matched comparison cannot exist because of the model's computational bottleneck, prove that fact rather than inventing an impossible intervention.
+
+**Target result:** a trustworthy causal map that distinguishes what the model does naturally from what an internal surgery can force it to do.
+
+---
+
+# 10. RESEARCH DIRECTION H — ARCHITECTURE, TRAINING, AND EMERGENCE
+
+The T4 from-scratch versus curriculum difference is not a minor implementation detail.
+
+It is part of the phenomenon to explain.
+
+Investigate:
+
+- Initialisation.
+- Optimizer choice.
+- Training schedule.
+- Curriculum ordering.
+- Source difficulty.
+- Intermediate supervision.
+- Model width.
+- Model depth.
+- Attention head count.
+- Residual architecture.
+- Normalization.
+- Multi-task objectives.
+- Shared-representation pressure.
+- Number of source groups.
+- Number of questions per episode.
+
+The goal is not to train every possible combination.
+
+Use mathematically motivated experimental design to identify the relevant boundaries efficiently.
+
+### H1. Curriculum mechanism
+
+Determine why T1→T4 facilitates learning.
+
+Candidate explanations include:
+
+- T1 teaches a reusable source relationship.
+- T1 creates a useful attention-routing scaffold.
+- T1 organizes representations into an accessible optimization basin.
+- T1 merely provides better initialization unrelated to the particular source relationship.
+- The curriculum mainly helps learn the within-question classifier.
+
+Design controls that distinguish these.
+
+Include alternative pretraining tasks matched for training steps and accuracy.
+
+Test whether disabling the learned T1 routing before T4 fine-tuning removes the benefit.
+
+Test whether unrelated pretraining produces a comparable improvement.
+
+Avoid post-hoc storytelling about loss landscapes without direct evidence.
+
+### H2. Mechanism selection
+
+Why do some successful seeds create an earlier tag while others reread sources in the last layer?
+
+Investigate whether mechanism choice correlates with:
+
+- Initialization.
+- Head specialization.
+- Gradient flow.
+- Attention locality.
+- Early training trajectories.
+- Redundancy.
+- Capacity.
+- Optimization history.
+
+Use new held-out seeds for prospective tests.
+
+Do not predict mechanism frequencies from four samples as though they were a population-level law.
+
+### H3. Computational tradeoffs
+
+Determine whether explicit intermediate representations are advantageous under:
+
+- Repeated questions.
+- Increased context length.
+- Multiple downstream outputs.
+- Constrained attention.
+- Limited layer depth.
+- Capacity restrictions.
+- Changing candidate sets.
+
+Derive or measure meaningful computational tradeoffs.
+
+A reusable mediator might have an efficiency advantage even if it is not mathematically necessary.
+
+But that advantage must be demonstrated, not assumed.
+
+**Target result:** an emergence and mechanism-selection map, including optimization failures and alternative computational solutions.
+
+---
+
+# 11. RESEARCH DIRECTION I — GO BEYOND THE ORIGINAL RELIABILITY TASK
+
+Do not let the entire Step 1 investigation become a study of one Bayesian source-reliability benchmark.
+
+The broader COR question concerns how computational relations among representations can influence decisions.
+
+Develop a small number of **carefully selected, mathematically different source-relation environments**.
+
+Possible directions include:
+
+- Evidence satisfying or violating shared structural constraints.
+- Multiple partial observations with compatibility conditions.
+- Contradictory versus redundant information.
+- Multi-hop source reconciliation.
+- Source dependencies that are not well described by a single reliability label.
+- Candidate-specific consistency across several evidence paths.
+
+For each environment:
+
+1. Define the data-generating structure independently.
+2. Determine which relational properties matter to the optimal decision.
+3. Identify strong non-relational baselines.
+4. Determine whether a relational computation is necessary, merely efficient, or unnecessary.
+5. Train suitable compact models where mathematically justified.
+6. Identify actual decision-related computations.
+7. Test whether any abstract characterization transfers from the reliability setting.
+8. Preserve counterexamples to generalization.
+
+Do not manufacture positive examples by defining the answer to be the desired consistency score.
+
+Do not manufacture negative examples by removing all possible use for relational information.
+
+The aim is to discover whether latent reliability represents a special case of a broader mathematical phenomenon or remains largely task-specific.
+
+---
+
+# 12. RESEARCH DIRECTION J — FORMAL CAUSAL-DECISION THEORY
+
+This is one of the most important workstreams.
+
+Try to develop a theorem family that connects independently defined source relationships to candidate decisions through identified computational structure.
+
+A candidate abstract setting may involve:
+
+- Evidence variables \(X_1,\dots,X_n\).
+- A defined relationship \(C(X_1,\dots,X_n)\).
+- Possibly a latent generating state \(R\).
+- A frozen Transformer computation \(F_\theta\).
+- An internal relational computation or causal pathway \(G_\theta\).
+- Candidate margins \(m_{c,c'}\).
+- An intervention family \(\mathcal I\).
+
+These symbols are placeholders, not an assumed theory.
+
+Find the weakest meaningful assumptions that support a genuine decision-related conclusion.
+
+### J1. Representation and sufficiency
+
+Under which conditions does a relational summary preserve all information necessary for a class of decisions?
+
+What additional information is required to distinguish individual candidates?
+
+Can two inputs have the same relational summary but opposite candidate preferences?
+
+If yes, characterize the missing information.
+
+### J2. Causal computation
+
+Under which conditions does an identified relational operation mediate a candidate-margin response?
+
+What changes when the representation is distributed?
+
+What changes when there are bypass paths?
+
+What changes when the same function is implemented by direct rereading?
+
+### J3. Direction and failure boundaries
+
+When does increasing agreement increase candidate support?
+
+When does it decrease support?
+
+When is there no predictable effect?
+
+Which assumptions determine the sign?
+
+Can those assumptions be verified independently of the evaluated decision change?
+
+### J4. Implementation-independent predictions
+
+Can a theorem predict a decision response across several different computational implementations?
+
+If yes, determine what structural properties must be common.
+
+If no, build a counterexample establishing why the proposed abstraction is insufficient.
+
+### J5. Impossibility results
+
+Seek meaningful restricted impossibility results.
+
+Examples could concern:
+
+- Inference from insufficient statistics.
+- Nonidentifiability of latent groups.
+- Absence of distinct relation information after a bottleneck.
+- Inability to uniquely localize redundant causal pathways from observational evidence.
+- Universal sign predictions under unconstrained readout weights.
+- Function-level attribution without a representation convention.
+
+Do not call a narrow counterexample a universal impossibility theorem.
+
+**Target result:** a coherent collection of positive and negative theorems characterizing the class and its boundaries.
+
+---
+
+# 13. REEXAMINE ORIGINAL COR WITHOUT PRESUMING IT CAN BE RESCUED
+
+The original framework involved candidate-specific germs, transport/compatibility maps, discrepancies, and the obstruction quantities \(O_c\) and \(D_c\).
+
+The known limitations remain:
+
+- Candidate rankings need not correspond to discrepancy rankings.
+- Decreasing discrepancy need not improve the candidate margin.
+- The quantities depend on representations, maps, and metrics.
+- Exact computational equations can hold for wrong decisions.
+- Approximate surrogate residuals can measure modeling error rather than a decision conflict.
+- The original discrepancy construction does not automatically establish a nonzero cohomology class.
+- Directional claims require noncircular computational assumptions.
+
+Investigate whether any genuinely learned relational mechanism gives the old framework a mathematically justified interpretation.
+
+Do not merely rename Bayesian disagreement as a coboundary.
+
+Do not choose a projection or map because it correlates with the output.
+
+Possible results include:
+
+- A rigorous restricted relationship between an independently defined discrepancy and a learned mechanism.
+- A proof that a particular O/D construction loses necessary candidate-directed information.
+- An identification theorem requiring additional source semantics.
+- A counterexample showing that the same obstruction value corresponds to different reliability-conditioned decisions.
+- A determination that the older framework is not useful for the discovered mechanism.
+
+All are legitimate scientific results.
+
+The original ten failure issues—F1–F7, F25, F29, F30—must remain visible.
+
+Do not quietly replace COR with a different theory and present that as having solved the original problem.
+
+Equally, do not force promising new mechanisms into the old formalism if the mathematics does not support that move.
+
+---
+
+# 14. ESTABLISHED THEORY, BASELINES, AND DISTINCTIVENESS
+
+The scientific challenge is not merely finding that a Transformer can approximate Bayesian reliability inference.
+
+That is expected to be possible.
+
+We need to establish what the proposed computational characterization contributes beyond existing accounts.
+
+Review and compare with relevant work in:
+
+- Bayesian evidence aggregation.
+- Dawid–Skene-type reliability models.
+- Truth discovery and source dependency modeling.
+- Correlated-observer inference.
+- Latent-variable graphical models.
+- Statistical sufficiency.
+- Causal abstraction.
+- Mechanistic interpretability.
+- Activation and path patching.
+- Distributed representation identification.
+- Attention routing.
+- Nonlinear feature interactions.
+- Equivariant and permutation-invariant architectures.
+
+Find actual relevant papers and verify their claims.
+
+Do not invent novelty.
+
+Distinguish:
+
+**Known mathematics implemented in a learned Transformer.**
+
+**A new empirical observation about how a particular Transformer implements that mathematics.**
+
+**A new causal identification method.**
+
+**A new theorem about a computational class.**
+
+**A new prospective prediction that established alternatives do not already make.**
+
+These are different kinds of contribution.
+
+We do not yet know which, if any, the broader COR program will ultimately contain.
+
+A genuine generality result or impossibility theorem may be valuable even without creating a new named mathematical object.
+
+A semantic relabeling of an existing Bayesian computation is not enough.
+
+The goal is to find out what is actually distinctive.
+
+---
+
+# 15. MAKE PREDICTIONS THAT CAN FAIL
+
+The research should increasingly move from retrospective explanation toward predictions about unexamined settings.
+
+For example:
+
+- Under what changes to the collusion prior should the non-monotonic reliability response disappear?
+- When should a tag-and-route implementation be replaced by direct rereading?
+- When should multi-head redundancy become necessary?
+- When should a source-relation summary be sufficient, insufficient, or nonidentifiable?
+- Which interventions should preserve decisions across implementation-equivalent circuits?
+- Under what conditions should an agreement-sensitive operation become irrelevant?
+- When should curriculum pretraining provide no advantage?
+- When should the source-group structure become impossible to recover?
+- What observations would distinguish a relation-conditioned explanation from a flexible aggregate-only computation?
+
+Derive these predictions from an explicit model or theorem.
+
+Freeze the test design before confirmation experiments.
+
+Do not claim a prediction is prospective if the model, threshold, or comparison was adjusted using the same evaluation outcomes.
+
+Preserve failed predictions.
+
+A failed prediction should feed back into the mechanism map as evidence about the boundary, not be hidden in an appendix.
+
+---
+
+# 16. EXPERIMENTAL STRATEGY: MAXIMIZE SCIENTIFIC COVERAGE, NOT THE NUMBER OF RUNS
+
+This is a broad foundational program, but brute-force grids are not the objective.
+
+Choose experiments based on which uncertainty they resolve.
+
+For every proposed experiment, record:
+
+- The competing hypotheses.
+- What outcomes each hypothesis predicts.
+- What mathematical or mechanistic claim the experiment tests.
+- Why existing results cannot answer it.
+- The strongest baseline.
+- The intervention validity assumptions.
+- The measurement procedure.
+- The conditions under which the result would change our scientific understanding.
+
+Prefer experiments that discriminate several hypotheses at once.
+
+Use exact enumeration when the model is sufficiently small.
+
+Use analytical derivations rather than training when a question can be settled mathematically.
+
+Use saved checkpoints when suitable.
+
+Train new models when the question genuinely requires learning rather than engineering.
+
+Use an explicit compute budget and record all deviations.
+
+Do not spend the entire budget reproducing the same T4 circuit across additional seeds.
+
+Do not perform a shallow single experiment for each workstream and call the map completed.
+
+Where a result is especially important, investigate it deeply enough to expose its boundary conditions and strongest counterexamples.
+
+**Breadth must be accompanied by depth.**
+
+---
+
+# 17. ADVERSARIAL SCIENTIFIC REVIEW
+
+Conduct serious adversarial review of the substantive results.
+
+Use genuinely separate subagents where the environment supports them.
+
+The review should include at least these distinct roles:
+
+**Formal mathematics:** attacks quantifiers, theorem assumptions, invariance, sufficiency, and impossibility claims.
+
+**Causal identification:** attacks intervention validity, mediation claims, bypasses, matched-state comparisons, and off-manifold artifacts.
+
+**Transformer computation:** verifies the actual Q/K/V, residual, MLP, normalization, and readout pathways.
+
+**Representation theory:** attacks gauge dependence, distributed coding, and unique localization claims.
+
+**Statistical inference:** checks Bayesian derivations, latent identifiability, uncertainty, and distribution-shift conclusions.
+
+**Learning dynamics:** attacks emergence, curriculum, initialization, and sample-complexity explanations.
+
+**Novelty and baselines:** challenges every claim against established theory and stronger alternative explanations.
+
+**Counterexample construction:** deliberately searches outside reported parameter grids and favorable examples.
+
+**Positive-theory defense:** checks whether valid restricted causal theorems are being dismissed simply because they are conditional or use known mathematical ingredients.
+
+A negative review finding should be investigated, not merely acknowledged.
+
+If a new major result is added after review, subject that result to fresh review.
+
+Do not assert independent review where agents share all reasoning or where the reviewer has not examined the final implementation.
+
+---
+
+# 18. KEEP THE RESEARCH CONNECTED
+
+The largest danger is producing ten workstreams that never speak to each other.
+
+Every major finding must be integrated into the common scientific picture.
+
+Examples:
+
+- If an unknown-source-group model succeeds, determine which computational mechanisms implement group identification and how that changes the original reliability-routing story.
+- If two architectures use different intermediates, determine whether they share a meaningful causal abstraction.
+- If a representation changes under a function-preserving transformation, determine whether the mechanism can be described invariantly at a higher level.
+- If a collusion regime reverses the relationship between agreement and reliability, determine which theorem assumptions changed.
+- If a trained model uses direct rereading rather than an explicit mediator, determine whether the same mathematical decision prediction still applies.
+- If a flexible ordinary nonlinear baseline explains an effect, determine exactly what is left of the consistency explanation.
+- If a relation statistic proves insufficient, identify what additional information is needed and whether it is computationally accessible.
+
+The integrated result should be a structured network of propositions, counterexamples, mechanism families, and dependencies.
+
+Do not just stack findings chronologically.
+
+---
+
+# 19. REQUIRED RESEARCH PRODUCTS
+
+Create an isolated research directory, such as:
+
+`docs/research_audits/cor_phase15/step1_relational_computation_atlas/`
+
+Keep existing results unchanged.
+
+### Principal document: `FOUNDATIONAL_RESEARCH_ATLAS.md`
+
+This is the most important deliverable.
+
+It should map:
+
+- The observed phenomenon classes.
+- Their computational implementations.
+- Formal definitions.
+- Causal dependency structures.
+- Mathematical assumptions.
+- Theorem families.
+- Counterexamples.
+- Experimental evidence.
+- Failure boundaries.
+- Relationships between classes.
+- Open identification problems.
+- What is established and what remains hypothetical.
+
+It must be sufficiently precise to guide future research without presuming a final thesis.
+
+### `COMPUTATIONAL_EQUIVALENCE_AND_INVARIANCE.md`
+
+The relationship between tag-and-route, distributed key/query, redundant heads, direct rereading, pooling, and alternative implementations.
+
+Include formal equivalence notions and counterexamples.
+
+### `SOURCE_RELATIONS_AND_GENERATIVE_MODELS.md`
+
+The mathematical landscape of agreement, reliability, correlated errors, constraints, copying, collusion, and other investigated relations.
+
+Include exact Bayesian or structural calculations where available.
+
+### `THEOREMS_BOUNDARIES_AND_IMPOSSIBILITIES.md`
+
+Precise theorem statements, assumptions, proofs, counterexamples, and the limits of each result.
+
+### `CAUSAL_IDENTIFICATION_AND_INTERVENTIONS.md`
+
+Actual causal pathways, intervention validity, reachability, natural necessity, patch mediation, redundant pathways, and distributed identification.
+
+### `GENERALIZATION_AND_EMERGENCE.md`
+
+Architecture, optimization, scale, source groups, candidate count, error regimes, curriculum, and mechanism-selection results.
+
+### `BASELINES_AND_NOVELTY_AUDIT.md`
+
+Verified comparisons with existing theory and explanations.
+
+### `PROSPECTIVE_PREDICTIONS_AND_FALSIFIERS.md`
+
+Predictions derived from the mathematical map, including failed confirmation tests.
+
+### `ORIGINAL_COR_FAILURE_MATRIX.md`
+
+Explicit evidence against or toward F1–F7, F25, F29, F30.
+
+### `OPEN_FOUNDATIONAL_PROBLEMS.md`
+
+Precise research questions that remain, ordered by mathematical importance and scientific leverage.
+
+Also supply executable code, trained-model checkpoints where needed, raw logs, independent checks, and a reproducible clean extraction.
+
+Do not create files as substitutes for research.
+
+The mathematical atlas and verified evidence are the actual product.
+
+---
+
+# 20. SCIENTIFIC ACCEPTANCE STANDARD
+
+Do not score success by:
+
+- Number of documents written.
+- Number of models trained.
+- Number of passing unit tests.
+- Number of reviewers.
+- Number of successful circuits.
+- Number of positive mediation results.
+
+Those are supporting measures.
+
+The research is substantively successful if it produces several of the following:
+
+1. A meaningful computational class spanning more than one implementation.
+2. A theorem establishing a candidate-decision consequence across that class.
+3. A proof of a relevant implementation or identification impossibility.
+4. A well-characterized boundary where source relationships help, hurt, or become irrelevant.
+5. A causal identification method that works for distributed as well as localized representations.
+6. A verified account of alternative learned implementations.
+7. A mathematical explanation of when a relationship statistic is sufficient and when it loses critical information.
+8. A mechanistic account of why different training regimes produce different computational solutions.
+9. A prospective prediction that survives on a genuinely unexamined setting.
+10. A strong counterexample that eliminates a tempting but false generalization.
+11. An actual distinction between a consistency-based explanation and existing Bayesian/nonlinear accounts.
+12. A clearer mathematical statement of which parts of the original COR ambition are possible, conditional, unsupported, or unidentifiable.
+
+These are goals, not assumptions.
+
+If a particular direction turns out to be unproductive, demonstrate why and redirect effort based on the evidence.
+
+Do not falsely report complete exploration of a domain that was barely examined.
+
+---
+
+# 21. FINAL SYNTHESIS: NO PREMATURE PAPER THESIS
+
+At the end, answer the following.
+
+**Computational structure**
+
+- What distinct classes of relation-sensitive decision computations have been identified?
+- Which observed successful circuits belong to the same class?
+- Which do not?
+- What differentiates their causal pathways?
+- Is there a useful invariant across different implementations?
+
+**Mathematical characterization**
+
+- What can be proved about their decision consequences?
+- Which assumptions determine the direction and magnitude of response?
+- Which assumptions are necessary?
+- What are the strongest counterexamples?
+- What is mathematically impossible under specified restrictions?
+
+**Generality**
+
+- Under which source-generating processes does the phenomenon arise?
+- What changes under collusion, copying, correlated errors, and unknown groups?
+- How do candidate count, source count, and context length affect it?
+- When does the model compute an explicit intermediate versus a distributed or implicit relation?
+
+**Causality and identification**
+
+- Which internal relations are causally used?
+- Which are merely decodable?
+- Which conclusions survive valid reparameterizations?
+- What can be identified independently of candidate outcomes?
+- What cannot be identified uniquely?
+
+**Learning**
+
+- Why does curriculum matter?
+- Why do some seeds construct an earlier tag while others reread the evidence?
+- Which aspects depend on optimization versus architectural capability?
+- What mechanism-selection predictions can be tested prospectively?
+
+**Scientific distinctiveness**
+
+- Which results follow directly from Bayesian inference?
+- Which follow from standard nonlinear computation?
+- Which involve established causal abstraction or interpretability tools?
+- What new theorem, prediction, or method—if any—remains?
+- What additional evidence would be necessary to establish something distinctive?
+
+**Original COR**
+
+- Does any independently identified computational relationship connect to the original discrepancy formalism?
+- If not, which precise mathematical obstacles remain?
+- Which original fatal problems have actually been addressed?
+- What broader foundational questions remain open?
+
+Do not force these answers into a single thesis statement.
+
+The output should be an evidence-backed mathematical research map that makes future theoretical progress possible.
+
+---
+
+# 22. FINAL EXECUTION DIRECTIVE
+
+We have learned that a trained Transformer can use cross-source relationships to influence candidate decisions through reliability-sensitive computation.
+
+We have also learned that successful models need not implement the same localized circuit.
+
+That is the beginning of a broader investigation.
+
+**Do not reduce this research to T4.**
+
+**Do not reduce consistency to agreement counts.**
+
+**Do not reduce causality to activation patching.**
+
+**Do not reduce identifiability to finding a probe direction.**
+
+**Do not reduce Transformer computation to attention-weight correlations.**
+
+**Do not reduce the mathematics to one Bayesian generative model.**
+
+**Do not call a known mathematical mechanism novel merely because it appears in a Transformer.**
+
+**Do not abandon legitimate restricted mechanisms simply because they are not universal.**
+
+**Do not promote the current evidence into a paper thesis.**
+
+Investigate the computational landscape: alternative implementations, structural equivalence, representation invariance, unknown source organization, different reliability regimes, correlated and adversarial evidence, decision boundaries, distributed mediation, optimization dependence, and mathematical generalization.
+
+Find positive results. Find negative results. Find impossibility boundaries. Build counterexamples. Test strong baselines. Develop theorems. Compare implementations. Make predictions that could fail.
+
+Most importantly, connect the results into a coherent mathematical structure rather than an expanding collection of isolated experiments.
+
+We are still within the foundational research stage.
+
+**Your task is to expand and rigorously characterize the scientific territory—not to declare that the territory has already been understood.**
+
+Execute this research as deeply as your available tools and resources permit. Preserve the complete evidence and clearly identify any parts of the map that remain unexamined.

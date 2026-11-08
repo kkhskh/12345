@@ -8,7 +8,7 @@ import bayes as B, nets as N, ckpt as C, analysis as A
 
 ck, task, split, outp = sys.argv[1:5]
 BASE = {"dev": 999_000, "conf": 777_000}[split] + 70_000
-p = C.load(ck); env = B.Env(task, K=3, Q=6); Q, K = env.Q, env.K
+p = C.load_base(ck); env = B.Env(task, K=3, Q=6); Q, K = env.Q, env.K
 nR = len(env.R_values); k = nR - 1
 fwd = N.make_forward("deepsets", K)
 

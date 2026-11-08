@@ -38,3 +38,10 @@ def save(path, p):
 def load(path):
     with np.load(path) as z:
         return unflatten({k: z[k] for k in z.files})
+
+
+def load_base(path):
+    """Baseline checkpoints (MLP / DeepSets) were saved with list-of-dict params, stored by np.savez as object arrays.
+    These files were written by this package's own train_run.py; loading them needs allow_pickle."""
+    with np.load(path, allow_pickle=True) as z:
+        return {k: [dict(l) for l in z[k].tolist()] for k in z.files}

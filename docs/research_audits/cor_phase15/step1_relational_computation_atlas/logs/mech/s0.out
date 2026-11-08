@@ -1,0 +1,25 @@
+/home/claude/12345/docs/research_audits/cor_phase15/step1_relational_computation_atlas/scripts/../src/gen_family.py:89: RuntimeWarning: invalid value encountered in divide
+  py = (pim[..., None] * J).sum(2); py = py / py.sum(-1, keepdims=True)
+/home/claude/12345/docs/research_audits/cor_phase15/step1_relational_computation_atlas/scripts/../src/gen_family.py:90: RuntimeWarning: invalid value encountered in divide
+  own = (pr[None, None, :, None] * J).sum(2); own = own / own.sum(-1, keepdims=True)
+T4_M_K3_s0_fromT1.npz fwd_eq 8.940696716308594e-07 acc 0.7513 own 0.582
+  invariances {'cond': {'model_change_rate': 0.345, 'bayes_change_rate': 0.297, 'bayes_undefined_frac': 0.0}, 'perm': {'model_change_rate': 0.42, 'bayes_change_rate': 0.473, 'bayes_undefined_frac': 0.982}, 'countpres': {'model_change_rate': 0.041, 'bayes_change_rate': 0.005, 'bayes_undefined_frac': 0.0}}
+  heads none {'path_iia': 0.0, 'path_kl': 0.0, 'nec_out_acc': 0.751, 'nec_pat_acc': 0.751, 'med_iia': 0.848}
+  heads 0 {'path_iia': 0.681, 'path_kl': 0.86, 'nec_out_acc': 0.49, 'nec_pat_acc': 0.64, 'med_iia': 0.368}
+  heads 1 {'path_iia': 0.287, 'path_kl': 0.588, 'nec_out_acc': 0.694, 'nec_pat_acc': 0.73, 'med_iia': 0.72}
+  heads 2 {'path_iia': 0.019, 'path_kl': 0.001, 'nec_out_acc': 0.75, 'nec_pat_acc': 0.75, 'med_iia': 0.847}
+  heads 3 {'path_iia': 0.036, 'path_kl': 0.009, 'nec_out_acc': 0.75, 'nec_pat_acc': 0.749, 'med_iia': 0.84}
+  heads 0,1 {'path_iia': 0.936, 'path_kl': 0.999, 'nec_out_acc': 0.355, 'nec_pat_acc': 0.533, 'med_iia': 0.125}
+  heads 0,2 {'path_iia': 0.682, 'path_kl': 0.861, 'nec_out_acc': 0.49, 'nec_pat_acc': 0.639, 'med_iia': 0.368}
+  heads 0,3 {'path_iia': 0.694, 'path_kl': 0.865, 'nec_out_acc': 0.493, 'nec_pat_acc': 0.635, 'med_iia': 0.348}
+  heads 1,2 {'path_iia': 0.289, 'path_kl': 0.59, 'nec_out_acc': 0.694, 'nec_pat_acc': 0.73, 'med_iia': 0.72}
+  heads 1,3 {'path_iia': 0.304, 'path_kl': 0.602, 'nec_out_acc': 0.695, 'nec_pat_acc': 0.724, 'med_iia': 0.705}
+  heads 2,3 {'path_iia': 0.042, 'path_kl': 0.012, 'nec_out_acc': 0.751, 'nec_pat_acc': 0.749, 'med_iia': 0.84}
+  heads 0,1,2 {'path_iia': 0.931, 'path_kl': 0.999, 'nec_out_acc': 0.353, 'nec_pat_acc': 0.533, 'med_iia': 0.126}
+  heads 0,1,3 {'path_iia': 0.945, 'path_kl': 0.999, 'nec_out_acc': 0.356, 'nec_pat_acc': 0.53, 'med_iia': 0.121}
+  heads 0,2,3 {'path_iia': 0.694, 'path_kl': 0.865, 'nec_out_acc': 0.493, 'nec_pat_acc': 0.635, 'med_iia': 0.348}
+  heads 1,2,3 {'path_iia': 0.308, 'path_kl': 0.6, 'nec_out_acc': 0.695, 'nec_pat_acc': 0.724, 'med_iia': 0.705}
+  heads 0,1,2,3 {'path_iia': 0.941, 'path_kl': 1.0, 'nec_out_acc': 0.356, 'nec_pat_acc': 0.529, 'med_iia': 0.122}
+  shapley path [0.654, 0.263, 0.004, 0.02] nec_out [0.299, 0.097, 0.0, -0.001] nec_pat [0.154, 0.064, 0.001, 0.004]
+  attn_out alignment {'2': 0.88, '5': 0.934, '10': 0.942, 'full': 0.941}
+  reach {'natural_p99': 10.710948365091408, 'frac_beyond_p99': {'cond_patch': 0.006333333333333333, 'mismatch_patch': 0.008166666666666666, 'random_equal_norm': 0.7718333333333334}, 'median': {'natural': 7.755839552583593, 'cond_patch': 7.7171957165814, 'mismatch_patch': 7.811912980437195, 'random_equal_norm': 28.01965317935827}}

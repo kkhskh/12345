@@ -1,0 +1,20 @@
+{
+ "ckpt": "../step1_latent_reliability/checkpoints/main/T4_M_K3_s0_deepsets.npz",
+ "input_invariances": {
+  "cond": {
+   "model_change_rate": 0.3935,
+   "bayes_change_rate": 0.29683333333333334,
+   "bayes_undefined_frac": 0.0
+  },
+  "perm": {
+   "model_change_rate": 0.4245,
+   "bayes_change_rate": 0.4727272727272727,
+   "bayes_undefined_frac": 0.9816666666666667
+  },
+  "countpres": {
+   "model_change_rate": 0.05483333333333333,
+   "bayes_change_rate": 0.0055,
+   "bayes_undefined_frac": 0.0
+  }
+ }
+}

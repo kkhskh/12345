@@ -1,0 +1,275 @@
+{
+ "rho0.9": {
+  "acc_true_bayes": 0.7062222222222222,
+  "acc_plugin4": 0.7042222222222222,
+  "plugin4_defined": 1.0,
+  "acc_plugin1": 0.4111666666666667,
+  "n_disagree_true_vs_plugin4": 1150,
+  "n_disagree_true_vs_plugin1": 18295,
+  "tf_curr_s0": {
+   "acc": 0.7020833333333333,
+   "side_with_plugin": 0.48695652173913045,
+   "side_with_true": 0.5113043478260869,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s1": {
+   "acc": 0.6764722222222223,
+   "side_with_plugin": 0.5113043478260869,
+   "side_with_true": 0.47304347826086957,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s2": {
+   "acc": 0.6894722222222223,
+   "side_with_plugin": 0.5234782608695652,
+   "side_with_true": 0.4643478260869565,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s10": {
+   "acc": 0.6685,
+   "side_with_plugin": 0.40956521739130436,
+   "side_with_true": 0.5695652173913044,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s11": {
+   "acc": 0.6928333333333333,
+   "side_with_plugin": 0.5095652173913043,
+   "side_with_true": 0.4747826086956522,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s12": {
+   "acc": 0.6973055555555555,
+   "side_with_plugin": 0.5043478260869565,
+   "side_with_true": 0.4747826086956522,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s13": {
+   "acc": 0.7053055555555555,
+   "side_with_plugin": 0.5339130434782609,
+   "side_with_true": 0.46260869565217394,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s0": {
+   "acc": 0.6984166666666667,
+   "side_with_plugin": 0.5243478260869565,
+   "side_with_true": 0.47043478260869565,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s1": {
+   "acc": 0.6998888888888889,
+   "side_with_plugin": 0.66,
+   "side_with_true": 0.3347826086956522,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s2": {
+   "acc": 0.6988611111111112,
+   "side_with_plugin": 0.611304347826087,
+   "side_with_true": 0.38,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s0": {
+   "acc": 0.41144444444444445,
+   "side_with_plugin": 0.9838207160426345,
+   "side_with_true": 0.0095654550423613,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s1": {
+   "acc": 0.41008333333333336,
+   "side_with_plugin": 0.985241869363214,
+   "side_with_true": 0.008472260180377153,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s2": {
+   "acc": 0.41094444444444445,
+   "side_with_plugin": 0.9877015578026783,
+   "side_with_true": 0.006887127630500136,
+   "acc_where_plugin_undefined": null
+  }
+ },
+ "rho0.7": {
+  "acc_true_bayes": 0.6389722222222223,
+  "acc_plugin4": 0.6294722222222222,
+  "plugin4_defined": 1.0,
+  "acc_plugin1": 0.5173611111111112,
+  "n_disagree_true_vs_plugin4": 3604,
+  "n_disagree_true_vs_plugin1": 13260,
+  "tf_curr_s0": {
+   "acc": 0.6307777777777778,
+   "side_with_plugin": 0.38706992230854603,
+   "side_with_true": 0.5585460599334073,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s1": {
+   "acc": 0.6081388888888889,
+   "side_with_plugin": 0.3362930077691454,
+   "side_with_true": 0.6129300776914539,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s2": {
+   "acc": 0.62025,
+   "side_with_plugin": 0.41897891231964485,
+   "side_with_true": 0.5299667036625971,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s10": {
+   "acc": 0.6,
+   "side_with_plugin": 0.25110987791342954,
+   "side_with_true": 0.7136514983351832,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s11": {
+   "acc": 0.6239444444444444,
+   "side_with_plugin": 0.2985571587125416,
+   "side_with_true": 0.6620421753607103,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s12": {
+   "acc": 0.6172777777777778,
+   "side_with_plugin": 0.5296892341842397,
+   "side_with_true": 0.36736958934517205,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s13": {
+   "acc": 0.6288055555555555,
+   "side_with_plugin": 0.48196448390677027,
+   "side_with_true": 0.4836293007769145,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s0": {
+   "acc": 0.6190277777777777,
+   "side_with_plugin": 0.5566037735849056,
+   "side_with_true": 0.3179800221975583,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s1": {
+   "acc": 0.6128888888888889,
+   "side_with_plugin": 0.7064372918978913,
+   "side_with_true": 0.17702552719200887,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s2": {
+   "acc": 0.6146111111111111,
+   "side_with_plugin": 0.7175360710321864,
+   "side_with_true": 0.18007769145394006,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s0": {
+   "acc": 0.5148611111111111,
+   "side_with_plugin": 0.9588235294117647,
+   "side_with_true": 0.016666666666666666,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s1": {
+   "acc": 0.5154166666666666,
+   "side_with_plugin": 0.9650829562594269,
+   "side_with_true": 0.013197586726998492,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s2": {
+   "acc": 0.5156666666666667,
+   "side_with_plugin": 0.9663650075414781,
+   "side_with_true": 0.014856711915535444,
+   "acc_where_plugin_undefined": null
+  }
+ },
+ "pc0_T1data": {
+  "acc_true_bayes": 0.7460277777777777,
+  "acc_plugin4": 0.4512777777777778,
+  "plugin4_defined": 1.0,
+  "acc_plugin1": 0.7460277777777777,
+  "n_disagree_true_vs_plugin4": 15107,
+  "n_disagree_true_vs_plugin1": 0,
+  "tf_curr_s0": {
+   "acc": 0.59275,
+   "side_with_plugin": 0.4406566492354538,
+   "side_with_true": 0.5243264711723042,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s1": {
+   "acc": 0.6669444444444445,
+   "side_with_plugin": 0.21612497517707024,
+   "side_with_true": 0.7442245316740583,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s2": {
+   "acc": 0.5663611111111111,
+   "side_with_plugin": 0.5104256305024161,
+   "side_with_true": 0.43112464420467334,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s10": {
+   "acc": 0.6784444444444444,
+   "side_with_plugin": 0.19097107301251076,
+   "side_with_true": 0.7763950486529424,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s11": {
+   "acc": 0.6323333333333333,
+   "side_with_plugin": 0.34176209704110677,
+   "side_with_true": 0.6284503872377044,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s12": {
+   "acc": 0.50025,
+   "side_with_plugin": 0.6432779506189183,
+   "side_with_true": 0.271132587542199,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_curr_s13": {
+   "acc": 0.5798611111111112,
+   "side_with_plugin": 0.5067187396571126,
+   "side_with_true": 0.46918646984841467,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s0": {
+   "acc": 0.4325833333333333,
+   "side_with_plugin": 0.7455484212616668,
+   "side_with_true": 0.1456940491163037,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s1": {
+   "acc": 0.38625,
+   "side_with_plugin": 0.8942874164294697,
+   "side_with_true": 0.042960217117892364,
+   "acc_where_plugin_undefined": null
+  },
+  "deepsets_T4_s2": {
+   "acc": 0.4046388888888889,
+   "side_with_plugin": 0.8467597802343284,
+   "side_with_true": 0.09346660488515258,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s0": {
+   "acc": 0.7446111111111111,
+   "side_with_plugin": null,
+   "side_with_true": null,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s1": {
+   "acc": 0.7451388888888889,
+   "side_with_plugin": null,
+   "side_with_true": null,
+   "acc_where_plugin_undefined": null
+  },
+  "tf_T1_s2": {
+   "acc": 0.7466388888888889,
+   "side_with_plugin": null,
+   "side_with_true": null,
+   "acc_where_plugin_undefined": null
+  }
+ },
+ "PP2_summary": {
+  "rho0.9": {
+   "models_siding_with_plugin": 0,
+   "n": 10
+  },
+  "rho0.7": {
+   "models_siding_with_plugin": 2,
+   "n": 10
+  },
+  "pc0_T1data": {
+   "models_siding_with_plugin": 3,
+   "n": 10
+  }
+ },
+ "PP2_H1strong_falsified": true
+}

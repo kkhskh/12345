@@ -1,0 +1,32 @@
+{
+ "construction_equals_ablation_max_abs": 2.384185791015625e-07,
+ "vs_original": {
+  "max_abs_prob": 0.06660713255405426,
+  "argmax_agree": 0.9308333333333333,
+  "mean_kl": 0.0015218241605907679
+ },
+ "acc_original": 0.7405833333333334,
+ "acc_constructed": 0.7405,
+ "original_R3": true,
+ "constructed_R3": false,
+ "constructed_route_heads": [
+  2,
+  1
+ ],
+ "constructed_control_heads": [
+  0,
+  3
+ ],
+ "constructed_route_frozen_iia": 0.5756880733944955,
+ "original_route_frozen_iia": 0.2148715144887917,
+ "constructed_criteria": {
+  "R0": true,
+  "R1": true,
+  "R2": true,
+  "R3": false,
+  "R4": true,
+  "R5": true,
+  "localisation": "key-localised"
+ },
+ "PP5_pass": false
+}

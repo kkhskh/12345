@@ -1,0 +1,57 @@
+{
+ "ckpt": "../step1_latent_reliability/checkpoints/replication/T4_M_K3_s12_fromT1.npz",
+ "cond|attn_out_full": {
+  "iia": 0.8683319220999153,
+  "kl": 0.9930732250213623,
+  "change_rate": 0.3918333333333333,
+  "n_inf": 2362
+ },
+ "cond|attn_out_5d": {
+  "iia": 0.8475867908552075,
+  "kl": 0.9906219840049744,
+  "change_rate": 0.38516666666666666,
+  "n_inf": 2362
+ },
+ "cond|pattern_row": {
+  "iia": 0.6367485182049111,
+  "kl": 0.7757606506347656,
+  "change_rate": 0.3308333333333333,
+  "n_inf": 2362
+ },
+ "countpres|attn_out_full": {
+  "iia": 0.7190332326283988,
+  "kl": 0.9239570498466492,
+  "change_rate": 0.06066666666666667,
+  "n_inf": 331
+ },
+ "countpres|attn_out_5d": {
+  "iia": 0.6555891238670695,
+  "kl": 0.9042150974273682,
+  "change_rate": 0.057666666666666665,
+  "n_inf": 331
+ },
+ "countpres|pattern_row": {
+  "iia": 0.4954682779456193,
+  "kl": 0.6835634708404541,
+  "change_rate": 0.043,
+  "n_inf": 331
+ },
+ "target|attn_out_full": {
+  "iia": 0.34221824686940966,
+  "kl": 0.4830969274044037,
+  "change_rate": 0.46316666666666667,
+  "n_inf": 5590
+ },
+ "target|attn_out_5d": {
+  "iia": 0.3325581395348837,
+  "kl": 0.4450744688510895,
+  "change_rate": 0.4573333333333333,
+  "n_inf": 5590
+ },
+ "target|pattern_row": {
+  "iia": 0.04865831842576029,
+  "kl": 0.041106462478637695,
+  "change_rate": 0.1495,
+  "n_inf": 5590
+ }
+}

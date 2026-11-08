@@ -26,6 +26,7 @@ class Fam:
     rho: float = 1.0
     pc: float = 1.0
     perm: bool = False           # hide the pairing by a random per-episode source permutation
+    kappa: float = 0.0           # reliable pair shares one report (copy) w.p. kappa: correlated honest errors
 
     @property
     def configs(self):
@@ -45,7 +46,8 @@ def pair_lik(f: Fam, xa, xb, role):
     """P(xa, xb | y, role) for every y: returns (..., K)."""
     K = f.K; e = (1 - f.alpha) / (K - 1); ys = np.arange(K)
     if role == "rel":
-        pa = np.where(xa[..., None] == ys, f.alpha, e); pb = np.where(xb[..., None] == ys, f.alpha, e); return pa * pb
+        pa = np.where(xa[..., None] == ys, f.alpha, e); pb = np.where(xb[..., None] == ys, f.alpha, e)
+        return (1 - f.kappa) * pa * pb + f.kappa * (xa == xb)[..., None] * pa
     if role == "noise":
         return np.full(xa.shape + (K,), 1.0 / K ** 2)
     if role == "coll":
@@ -134,6 +136,8 @@ def sample(f: Fam, n, rng, cfg_idx=None):
                 for s in (a, b):
                     ok = rng.random((m, Q)) < f.alpha; wrong = (Y[sel] + rng.integers(1, K, (m, Q))) % K
                     X[sel, :, s] = np.where(ok, Y[sel], wrong)
+                if f.kappa > 0:
+                    cp = rng.random((m, Q)) < f.kappa; X[sel, :, b] = np.where(cp, X[sel, :, a], X[sel, :, b])
             elif r == "noise":
                 X[sel, :, a] = rng.integers(0, K, (m, Q)); X[sel, :, b] = rng.integers(0, K, (m, Q))
             else:
@@ -149,4 +153,5 @@ def sample(f: Fam, n, rng, cfg_idx=None):
 def agree_probs(f: Fam):
     """Per-question within-pair agreement probability for each role."""
     e = (1 - f.alpha) / (f.K - 1)
-    return dict(rel=f.alpha ** 2 + (f.K - 1) * e ** 2, noise=1.0 / f.K, coll=f.rho + (1 - f.rho) / f.K)
+    a0 = f.alpha ** 2 + (f.K - 1) * e ** 2
+    return dict(rel=f.kappa + (1 - f.kappa) * a0, noise=1.0 / f.K, coll=f.rho + (1 - f.rho) / f.K)

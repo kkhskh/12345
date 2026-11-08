@@ -1,0 +1,7 @@
+T0: majority_all6 0.6359 | most_coherent_group_vote 0.7387 | most_coherent_excluding_perfect 0.7009 | coherence_weighted_vote 0.7287 | bayes_full 0.7995 | bayes_own_question 0.7995
+T1: M7_max_err_episode_posterior_reuse 1.887e-15 | majority_all6 0.6366 | most_coherent_group_vote 0.7361 | most_coherent_excluding_perfect 0.6986 | coherence_weighted_vote 0.7288 | bayes_full 0.743 | bayes_own_question 0.6522
+T4: M7_max_err_episode_posterior_reuse 9.992e-16 | majority_all6 0.5513 | most_coherent_group_vote 0.3592 | most_coherent_excluding_perfect 0.7188 | coherence_weighted_vote 0.411 | bayes_full 0.7405 | bayes_own_question 0.5752
+T5: majority_all6 0.6467 | most_coherent_group_vote 0.6162 | most_coherent_excluding_perfect 0.6171 | coherence_weighted_vote 0.6383 | bayes_full 0.6466 | bayes_own_question 0.6466
+M9: P(pair agrees | reliable) = 0.6600; | noise = 0.3333; | colluding = 1
+    LR(agree) = 1.9800; LR(disagree) = 0.5100
+    T4, group1 count 6, group2 count 2: P(group 0 reliable) vs group-0 count: 0:0.062, 1:0.205, 2:0.500, 3:0.795, 4:0.938, 5:0.983, 6:0.498

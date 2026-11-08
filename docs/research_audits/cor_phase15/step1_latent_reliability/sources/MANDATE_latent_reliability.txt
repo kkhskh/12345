@@ -1,0 +1,399 @@
+# COR Phase 1.5 Step 1 — Latent Reliability, Shared Relational Computation, and Causal Mechanism Discovery
+
+Continue from branch `cor-phase15-step1-learned-mediator`, head `b3307b6`.
+
+This is a new substantive research investigation, not another general survey and not a repetition of previous agreement-gate constructions.
+
+**Primary research question:**
+
+When an independently specified relationship among multiple information sources is genuinely useful across several tasks, will a Transformer learn a reusable internal computation of that relationship, and can that computation be independently identified and shown to causally influence candidate decisions?
+
+The previous investigation was valuable, but its negative conclusion was limited by small single-task models, simple source distributions, target–agreement confounding, and mediator searches at selected computational sites.
+
+We must investigate those limitations directly.
+
+Do not assume that increasing model size or adding supervision will automatically produce a consistency mediator.
+
+Do not claim the absence of a mechanism merely because no individual residual subspace satisfies one localization protocol.
+
+We remain in Phase 1.5 Step 1. No pretrained-model experiments, Phase 2 runs, sealed data access, or historical-result modifications are authorized.
+
+## 1. Begin with mathematical task validation, not model training
+
+Before training anything, prove that each proposed task creates the information requirement you claim.
+
+Start with two contrasting probabilistic environments.
+
+### Environment E0 — Independent evidence, negative control
+
+Let Y be a binary candidate and let each source report a noisy sign with known independent reliability \(q_i\).
+
+Derive the exact Bayesian posterior.
+
+Verify that the log posterior odds can be represented by additive source contributions.
+
+Use this as a control where a dedicated agreement computation is unnecessary for optimal decision-making.
+
+A trained model solving E0 without a separate consistency mediator is not a negative result about consistency-sensitive computation generally.
+
+### Environment E1 — Hidden, shared source reliability
+
+Construct a latent-variable generative model.
+
+Let:
+
+- \(Y\in\{1,\ldots,K\}\) be the candidate answer.
+- \(R\) be an unobserved reliability state.
+- Multiple sources belong to predefined groups.
+- Conditional on R, different source groups have different accuracy or correlated error structures.
+- R is not supplied directly as an input feature.
+- Multiple questions in one episode can share R.
+
+Use K = 3 initially, with extensions to K = 5.
+
+Derive:
+
+\[
+P(Y,R\mid X)
+\]
+
+and the resulting optimal candidate posterior.
+
+Show, with exact likelihood calculations, that there are source configurations with identical chosen aggregate statistics but different Bayesian candidate posteriors.
+
+As an initial verification example, use four sources split into two groups, with the reliable group having accuracy 0.88 and the uninformative group reporting uniformly.
+
+Compare:
+
+- A = (0,0), B = (1,1).
+- A = (0,1), B = (0,1).
+
+Both have the same global candidate histogram.
+
+Under prior \((0.025,0.025,0.95)\), the correct posterior changes from approximately:
+
+\[
+(0.42523,0.42523,0.14954)
+\]
+
+to:
+
+\[
+(0.21782,0.21782,0.56436).
+\]
+
+Reproduce this analytically and independently in code.
+
+Then build the richer six-source version.
+
+**Important:** This demonstrates that global vote counts are insufficient. It does not prove that a separate agreement variable is mathematically necessary or that a Transformer will learn one.
+
+State the distinction.
+
+## 2. Create a multi-question environment with shared reliability
+
+One of the previous experiments' biggest weaknesses was the absence of a reason to reuse a relational computation.
+
+Construct episodes containing several candidate-selection questions.
+
+A hidden reliability state R persists across questions in the same episode.
+
+Individual question targets vary.
+
+Each question receives its own source reports.
+
+The optimal solution can use information from other questions to infer which sources are reliable.
+
+Derive the exact Bayesian solution, or a numerically exact reference solution for a tractable discrete generator.
+
+Show which information must be shared across questions.
+
+Determine whether the posterior over R provides a reusable task-relevant summary.
+
+Distinguish:
+
+- Posterior reliability inference.
+- Pairwise agreement.
+- Group-level coherence.
+- Candidate-specific evidence.
+- Final answer representation.
+- Confidence.
+
+Do not assume these are the same object.
+
+If the optimal computation can be represented by an alternative sufficient statistic, identify that alternative.
+
+## 3. Train several task families, not one agreement-label task
+
+Use the same generative source structure across the following conditions.
+
+**T0 — Independent-source control.** Known reliability and conditionally independent reports. The Bayes-optimal decision does not require a separate agreement intermediate.
+
+**T1 — Hidden-reliability candidate selection.** The model predicts the correct candidate for multiple questions sharing R. There is no explicit supervision on agreement or R.
+
+**T2 — Multi-output shared computation.** The model predicts candidate distributions for several questions and confidence/calibration outputs. The targets differ from the latent reliability state. Investigate whether a shared reliability representation emerges.
+
+**T3 — Agreement or reliability directly supervised.** A positive control with an explicit auxiliary reliability head. Report this separately: a reliability representation learned through direct supervision is not evidence of spontaneous emergence.
+
+**T4 — Misleading agreement.** Construct a condition where agreement can arise from correlated errors and is therefore not automatically trustworthy. The optimal model must interpret the source relationship according to its reliability structure.
+
+**T5 — Aggregate-sufficient control.** Retain comparable model sizes and task complexity, but make an explicitly defined aggregate sufficient for the Bayesian decision.
+
+All task definitions must be mathematically checked before training.
+
+For every task, state the sufficient statistics and which simpler models can solve it.
+
+## 4. Freeze the research protocol before evaluation
+
+Commit:
+
+- The generators.
+- Exact latent-variable distributions.
+- Bayes-reference calculations.
+- Architecture families.
+- Training seeds.
+- Evaluation seeds.
+- Intervention families.
+- Candidate mediator definitions.
+- Baselines.
+- Primary outcomes.
+- Negative controls.
+- Evaluation thresholds.
+- Failure conditions.
+
+Use development seeds for method development and distinct untouched seeds for confirmation.
+
+Keep the existing checkpoints and their results as historical exploratory evidence.
+
+Do not describe new hypotheses derived from previous results as though they were independently preregistered before the entire research program.
+
+## 5. Use meaningfully larger but still manageable Transformer models
+
+Investigate at least:
+
+- A small architecture comparable to the historical 16-dimensional models.
+- A 64-dimensional multi-layer model.
+- A 128-dimensional multi-layer model where computationally feasible.
+
+Use two to four layers and enough heads to permit information routing and reuse.
+
+Train across multiple seeds per primary condition.
+
+Include parameter-matched MLP or DeepSets-style models and a simple aggregation baseline.
+
+Record actual training time and computational resource use.
+
+Do not assume larger models are inherently better at developing interpretable intermediates.
+
+If training fails, separate optimization failure from absence of a mechanism.
+
+Do not keep increasing capacity until a desired internal feature appears.
+
+## 6. Investigate two different types of mechanism
+
+This distinction is essential.
+
+### Type A — Explicit intermediate representation
+
+The model develops a representation corresponding to source reliability, agreement, or another independently defined relational variable.
+
+That representation is reused by downstream candidate-decision computations.
+
+### Type B — Relational computation without a separate stored mediator
+
+Attention scores, normalization, nonlinear gating, or distributed operations respond to the relation between sources, but no clean intermediate variable exists at the selected residual cuts.
+
+Both can be scientifically meaningful.
+
+Do not define success exclusively as finding a localized scalar agreement neuron or subspace.
+
+Do not define failure as absence of an explicit mediator if you have not investigated distributed or operation-level mechanisms.
+
+For each type, identify the actual computational dependency.
+
+## 7. Independent identification must precede causal evaluation
+
+Use source-generator variables and latent-reliability semantics to define candidate representations.
+
+Do not select representations based on the final tested margin improvement.
+
+Investigate:
+
+- Reliability-posterior decoding.
+- Group-level agreement features.
+- Distributed relational subspaces.
+- Attention-operator dependencies.
+- Layerwise representation changes.
+- Multi-head shared information.
+- Source-specific versus shared latent information.
+- Alternative representations that are functionally equivalent.
+
+A decoder's ability to recover R is not proof that the model uses R.
+
+A learned representation of the answer is not a separate reliability mediator.
+
+Use held-out data and task labels appropriately, but record any use of output supervision in selecting a candidate feature.
+
+## 8. The central causal tests
+
+For each surviving candidate mechanism, perform:
+
+**Cross-question transfer.** Identify a candidate reliability representation from one question or set of questions. Test whether it influences another question that shares the latent R.
+
+**Matched aggregate intervention.** Compare source configurations that preserve predefined vote totals or other baseline sufficient statistics while changing group relationships.
+
+**Target-preserving relation intervention.** Change the inferred reliability relationship while preserving the correct answer where possible.
+
+**Relation-preserving target intervention.** Change the correct candidate while keeping the reliability relationship fixed.
+
+**Mechanism ablation.** Remove or replace the suspected computational mediator and measure the effect on candidate decisions, confidence, and unrelated outputs.
+
+**Mechanism restoration.** Where feasible, restore the mediator from an appropriate source episode and test whether the relevant effect returns.
+
+**Cross-head reuse.** Determine whether the same intermediate influences multiple task outputs, rather than simply coinciding with one output direction.
+
+**Bypass and redundancy controls.** Check whether alternative pathways preserve the computation after ablation.
+
+**Equivalent-computation controls.** Investigate whether the mechanism is identified at the functional, subspace, or merely checkpoint-specific level.
+
+Distinguish naturally reachable interventions from surgical off-manifold patches.
+
+Do not interpret arbitrary patch success as proof of unique mediation.
+
+## 9. The most important scientific separation
+
+A full source input X already determines every deterministic relation C(X).
+
+Thus, finding that C predicts the answer while X also predicts the answer does not establish that C provides additional information conditional on the complete input.
+
+The relevant scientific questions are whether:
+
+1. The model actually computes or uses a relational property.
+2. That property provides a useful intermediate abstraction or computational compression.
+3. It is reused across tasks.
+4. It supplies a causal explanation of the model's downstream decisions.
+5. The explanation predicts intervention outcomes beyond a specified simpler mechanism under a fair comparison.
+
+Do not claim that a deterministic agreement variable contains information unavailable from the complete source inputs.
+
+Instead identify the computational and causal value of an intermediate representation.
+
+## 10. Require a decisive set of baselines
+
+Compare the discovered mechanism against:
+
+- Exact Bayesian inference for the specified generator.
+- Known-reliability additive evidence aggregation.
+- Global vote-histogram aggregation.
+- Group-specific aggregation.
+- Flexible nonlinear models of the complete source vector.
+- Matched-capacity non-Transformer models.
+- Direct target-representation probes.
+- Ordinary attention and MLP interaction explanations.
+- Standard causal mediation and causal abstraction.
+
+Do not claim novelty just because the global vote histogram is insufficient. A richer non-relational baseline may preserve the necessary source-group information.
+
+Determine what, if anything, is uniquely explained or predicted by the proposed consistency interpretation.
+
+## 11. Mathematical theorem obligation
+
+For the strongest learned mechanism, attempt a theorem of the following form.
+
+Under a specified latent-reliability generative model, independently defined source semantics, and explicitly identified frozen computational structure, a particular source relationship constrains a candidate-decision response under a defined family of interventions.
+
+The theorem must state:
+
+- The model class.
+- The computational sites.
+- What source relationship is being measured.
+- Whether it is explicitly represented or implicitly computed.
+- What intervention changes.
+- What candidate margin or preference is predicted.
+- What downstream assumptions are necessary.
+- How bypasses and alternative pathways are handled.
+- Whether the relation is independently identifiable.
+- Why the conclusion is not simply assumed.
+- How the result compares with known theory.
+
+A theorem about Bayesian optimal behavior is not automatically a theorem about the learned Transformer implementing that behavior.
+
+A theorem about an engineered circuit is not automatically evidence of a learned mechanism.
+
+A successful mediator patch is not automatically evidence of a novel consistency theory.
+
+Keep these levels distinct.
+
+## 12. Attack the strongest positive result
+
+Require mathematical, causal, architecture, and counterexample reviews of the actual final mechanism.
+
+Search specifically for:
+
+- A decoder that identifies the target rather than reliability.
+- A representation containing all per-source content without computing a relation.
+- A nonlinear aggregate function that explains the same behavior.
+- Redundant pathways.
+- Off-manifold patch artifacts.
+- A source-group statistic masquerading as a unique consistency score.
+- Failure under held-out tasks or source distributions.
+- Dependence on an arbitrary projection or representation convention.
+- A functionally equivalent network without the claimed localized mediator.
+
+Do not infer that the mechanism is absent merely because a particular projector fails.
+
+Do not infer that the mechanism exists merely because a projector transfers decisions.
+
+## 13. Deliver a substantive, reproducible investigation
+
+Produce a standalone research package with:
+
+1. Exact generators and Bayes calculations.
+2. Precommitted hypotheses and protocols.
+3. All trained checkpoints needed to reproduce the results.
+4. Training and evaluation logs.
+5. Model accuracy and calibration comparisons.
+6. Representation-identification analyses.
+7. Actual causal interventions.
+8. Cross-task mediation and reuse tests.
+9. Aggregate-matched and target-decoupled controls.
+10. Distributed and operation-level mechanism analyses.
+11. Mathematical theorems and counterexamples.
+12. Existing-theory comparisons.
+13. Independent review and dispositions.
+14. An explicit update to COR failures F1–F7, F25, F29, and F30.
+15. A clean-extraction verification.
+
+The central document must answer:
+
+**Did a learned Transformer develop a reusable, independently identified, consistency-related computation that causally contributes to candidate decisions?**
+
+If yes, explain the computation, its identification, causal evidence, operating conditions, and whether the consistency interpretation adds something beyond known mechanisms.
+
+If no, identify which model families, tasks, sites, representations, and tests were examined. Explain whether the result reflects lack of learnability, lack of reuse pressure, representation nonidentifiability, an inadequate localization procedure, or genuine evidence against the candidate mechanism.
+
+Do not generalize a scoped negative result into a universal statement about Transformers.
+
+## 14. Execution instructions
+
+Do the mathematical design checks before training.
+
+Use the exact Bayesian model to establish what information is required.
+
+Then freeze the experiment plan.
+
+Execute the authorized synthetic investigations autonomously.
+
+Do not request confirmation after each stage unless a genuine authorization or resource dependency arises.
+
+Preserve negative results and failed predictions.
+
+Do not use test outcomes to redefine the primary mechanism criterion.
+
+Do not spend the main research window on report formatting.
+
+Remain in Phase 1.5 Step 1.
+
+Do not launch pretrained-model experiments or Phase 2.
+
+**The objective is not to make agreement emerge. It is to determine when and whether a learned Transformer constructs, reuses, and causally relies on a relation between independently defined information sources—and whether that supports a scientifically meaningful consistency-to-decision theory.**

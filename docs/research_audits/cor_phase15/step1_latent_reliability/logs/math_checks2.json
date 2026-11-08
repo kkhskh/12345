@@ -1,0 +1,72 @@
+{
+ "T0": {
+  "majority_all6": 0.635925,
+  "most_coherent_group_vote": 0.7387166666666667,
+  "most_coherent_excluding_perfect": 0.7009,
+  "coherence_weighted_vote": 0.7286833333333333,
+  "bayes_full": 0.7995333333333333,
+  "bayes_own_question": 0.7995333333333333
+ },
+ "T1": {
+  "M7_max_err_episode_posterior_reuse": 1.887379141862766e-15,
+  "majority_all6": 0.6365583333333333,
+  "most_coherent_group_vote": 0.7360916666666667,
+  "most_coherent_excluding_perfect": 0.6986333333333333,
+  "coherence_weighted_vote": 0.7287583333333333,
+  "bayes_full": 0.743,
+  "bayes_own_question": 0.65215
+ },
+ "T4": {
+  "M7_max_err_episode_posterior_reuse": 9.992007221626409e-16,
+  "majority_all6": 0.5513083333333333,
+  "most_coherent_group_vote": 0.3592416666666667,
+  "most_coherent_excluding_perfect": 0.7188333333333333,
+  "coherence_weighted_vote": 0.41101666666666664,
+  "bayes_full": 0.7405,
+  "bayes_own_question": 0.5751833333333334
+ },
+ "T5": {
+  "majority_all6": 0.6467,
+  "most_coherent_group_vote": 0.6162,
+  "most_coherent_excluding_perfect": 0.6171166666666666,
+  "coherence_weighted_vote": 0.6383,
+  "bayes_full": 0.6466416666666667,
+  "bayes_own_question": 0.6466416666666667
+ },
+ "M9": {
+  "p_agree_rel": 0.6600000000000001,
+  "p_agree_noise": 0.3333333333333333,
+  "LR_agree": 1.9800000000000004,
+  "LR_dis": 0.5099999999999997
+ },
+ "M9_T4_curve": [
+  [
+   0,
+   0.06221743810548968
+  ],
+  [
+   1,
+   0.20481927710843367
+  ],
+  [
+   2,
+   0.5
+  ],
+  [
+   3,
+   0.7951807228915667
+  ],
+  [
+   4,
+   0.9377825618945104
+  ],
+  [
+   5,
+   0.9831981915741308
+  ],
+  [
+   6,
+   0.49780879752015095
+  ]
+ ]
+}

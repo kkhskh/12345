@@ -1,0 +1,5 @@
+T4 s0 step 300 loss 0.8680
+T4 s0 step 600 loss 0.8560
+T4 s0 step 900 loss 0.8171
+T4 s0 step 1200 loss 0.8266
+T4 s0 step 1500 loss 0.8214

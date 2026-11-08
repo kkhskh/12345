@@ -1,0 +1,22 @@
+{
+ "ckpt": "../step1_latent_reliability/checkpoints/replication/T4_M_K3_s13_fromT1.npz",
+ "bayes_undefined_frac": 0.0,
+ "model_change_rate": 0.2743333333333333,
+ "bayes_change_rate": 0.22733333333333333,
+ "model_bayes_change_agreement": 0.9261111111111111,
+ "joint_tag": {
+  "iia": 0.76832725799919,
+  "kl": 0.992519736289978,
+  "n_inf": 2469
+ },
+ "key_only": {
+  "iia": 0.7586067233697853,
+  "kl": 0.9920971989631653,
+  "n_inf": 2469
+ },
+ "pattern_row": {
+  "iia": 0.732685297691373,
+  "kl": 0.9875590205192566,
+  "n_inf": 2469
+ }
+}

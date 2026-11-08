@@ -1,0 +1,18 @@
+{
+ "ckpt": "../step1_latent_reliability/checkpoints/replication/T4_M_K3_s11_fromT1.npz",
+ "acc_clean": 0.7410833333333333,
+ "own": 0.5758333333333333,
+ "bayes": 0.743,
+ "mean_ablation": 0.652,
+ "conditional_mean_ablation": 0.6324166666666666,
+ "resample_ablation": 0.5503333333333333,
+ "random_subspace_mean_ablation": 0.7418333333333333,
+ "random_subspace_conditional_mean": 0.7415,
+ "drop_frac": {
+  "mean_ablation": 0.539082198688855,
+  "conditional_mean_ablation": 0.6575895108421584,
+  "resample_ablation": 1.1543116490166412,
+  "random_subspace_mean_ablation": -0.004538577912254332,
+  "random_subspace_conditional_mean": -0.0025214321734749277
+ }
+}

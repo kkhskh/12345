@@ -1,0 +1,16 @@
+{
+ "ckpt": "../step1_latent_reliability/checkpoints/replication/T4_M_K3_s13_fromT1.npz",
+ "reachability_per_position_frac_beyond_p99": {
+  "natural_heldout": 0.013499999999999998,
+  "cond_patch": 0.5023333333333334,
+  "mismatch_patch": 0.6695000000000001,
+  "random_equal_norm": 0.8973333333333332
+ },
+ "necessity_all_lastlayer_heads": {
+  "acc_clean": 0.7475,
+  "own_question_bayes": 0.578,
+  "acc_partner_resample": 0.539,
+  "acc_independent_resample": 0.363,
+  "relation_share_drop": 0.20850000000000002
+ }
+}

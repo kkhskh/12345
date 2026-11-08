@@ -7,7 +7,7 @@ import numpy as np, jax, jax.numpy as jnp
 import gen_family as G, nets as N, ckpt as C
 
 f4, f1 = G.Fam(pc=1.0, rho=1.0), G.Fam(pc=0.0)
-NB = 500
+NB = int(os.environ.get("PP1_NB", "500"))
 d = G.sample(f4, NB, np.random.default_rng(6_100_000)); X0 = d["X"]; Q = 6; K = 3
 # build all edits
 base_idx, qs, ks, gs, Xe = [], [], [], [], []
@@ -73,6 +73,17 @@ for name, (kind, path) in models.items():
              boundary_sign_vs_T1plugin=float((np.sign(dmm[selb]) == np.sign(dm1[selb])).mean()),
              corr_dm_vs_T4bayes=float(np.corrcoef(dmm[sel], dm4[sel])[0, 1]),
              offsupport_edits_model_margin_change_mean_abs=float(np.abs(dmm[~defined]).mean()) if (~defined).any() else None)
+    # review R1 additions (reported, not criteria): unfiltered agreement, and episode-cluster bootstrap CI for the boundary rate
+    alld = defined & (dm4 != 0); allb = alld & boundary
+    r["unfiltered_sign_vs_T4bayes"] = float((np.sign(dmm[alld]) == np.sign(dm4[alld])).mean())
+    r["unfiltered_boundary_sign_vs_T4bayes"] = float((np.sign(dmm[allb]) == np.sign(dm4[allb])).mean())
+    r["unfiltered_boundary_sign_vs_T1plugin"] = float((np.sign(dmm[allb]) == np.sign(dm1[allb])).mean())
+    hit = (np.sign(dmm) == np.sign(dm4)).astype(float); rb_ = np.random.default_rng(9); bs = []
+    ep = bi[selb]; hv = hit[selb]; ue = np.unique(ep)
+    per = {e: hv[ep == e] for e in ue}
+    for _ in range(300):
+        smp = rb_.choice(ue, len(ue)); v = np.concatenate([per[e] for e in smp]); bs.append(v.mean())
+    r["boundary_sign_vs_T4bayes_cluster_ci95"] = [float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))]
     r["PP1_pass"] = bool(r["sign_vs_T4bayes"] >= 0.9 and r["boundary_sign_vs_T4bayes"] >= 0.8 and r["boundary_sign_vs_T1plugin"] <= 0.5)
     res[name] = r; print(name, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.items()}, flush=True)
 json.dump(res, open(sys.argv[1], "w"), indent=1)

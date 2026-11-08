@@ -1,0 +1,162 @@
+{
+ "n_base": 1500,
+ "n_edits": 135000,
+ "n_bayes_undefined": 41430,
+ "n_boundary": 12394,
+ "n_scored": 47005,
+ "n_scored_boundary": 6747,
+ "T1plugin_vs_T4bayes_sign_agreement": {
+  "all": 0.775555791937028,
+  "boundary": 0.15888543056173113
+ },
+ "tf_curr_s0": {
+  "sign_vs_T4bayes": 0.9985746197213062,
+  "boundary_sign_vs_T4bayes": 0.9900696605898918,
+  "boundary_sign_vs_T1plugin": 0.14895509115162295,
+  "corr_dm_vs_T4bayes": 0.9929037672154252,
+  "offsupport_edits_model_margin_change_mean_abs": 0.7577846050262451,
+  "unfiltered_sign_vs_T4bayes": 0.9522103198551599,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.7901890189018902,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.19891989198919893,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9846494158827385,
+   0.9949897669328154
+  ],
+  "PP1_pass": true
+ },
+ "tf_curr_s1": {
+  "sign_vs_T4bayes": 0.9960642484842038,
+  "boundary_sign_vs_T4bayes": 0.9728768341485104,
+  "boundary_sign_vs_T1plugin": 0.1329479768786127,
+  "corr_dm_vs_T4bayes": 0.9906452770074623,
+  "offsupport_edits_model_margin_change_mean_abs": 1.0656213760375977,
+  "unfiltered_sign_vs_T4bayes": 0.952222892778113,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.8067506750675068,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.22871287128712872,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9599731468088137,
+   0.9836267815215202
+  ],
+  "PP1_pass": true
+ },
+ "tf_curr_s2": {
+  "sign_vs_T4bayes": 0.9957876821614722,
+  "boundary_sign_vs_T4bayes": 0.9706536238328146,
+  "boundary_sign_vs_T1plugin": 0.13576404327849415,
+  "corr_dm_vs_T4bayes": 0.9900686020131768,
+  "offsupport_edits_model_margin_change_mean_abs": 0.93651282787323,
+  "unfiltered_sign_vs_T4bayes": 0.9493562663447999,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.8096309630963097,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.21953195319531954,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.959789664649066,
+   0.9796323975281008
+  ],
+  "PP1_pass": true
+ },
+ "tf_curr_s10": {
+  "sign_vs_T4bayes": 0.9998085310073397,
+  "boundary_sign_vs_T4bayes": 0.9986660738105825,
+  "boundary_sign_vs_T1plugin": 0.15755150437231363,
+  "corr_dm_vs_T4bayes": 0.9963948924826765,
+  "offsupport_edits_model_margin_change_mean_abs": 1.3576210737228394,
+  "unfiltered_sign_vs_T4bayes": 0.9679264735465701,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.9243024302430243,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.3455445544554455,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9957738525925417,
+   1.0
+  ],
+  "PP1_pass": true
+ },
+ "tf_curr_s11": {
+  "sign_vs_T4bayes": 0.9966599297947026,
+  "boundary_sign_vs_T4bayes": 0.976878612716763,
+  "boundary_sign_vs_T1plugin": 0.13694975544686527,
+  "corr_dm_vs_T4bayes": 0.9929726680090974,
+  "offsupport_edits_model_margin_change_mean_abs": 0.9551742672920227,
+  "unfiltered_sign_vs_T4bayes": 0.949670589418628,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.7926192619261926,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.20531053105310532,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9649510147053032,
+   0.986949531101872
+  ],
+  "PP1_pass": true
+ },
+ "tf_curr_s12": {
+  "sign_vs_T4bayes": 0.9998085310073397,
+  "boundary_sign_vs_T4bayes": 0.9986660738105825,
+  "boundary_sign_vs_T1plugin": 0.15755150437231363,
+  "corr_dm_vs_T4bayes": 0.9926186788802295,
+  "offsupport_edits_model_margin_change_mean_abs": 0.8875933289527893,
+  "unfiltered_sign_vs_T4bayes": 0.9515942466304567,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.8842484248424842,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.31656165616561655,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9977265470055369,
+   0.9994547297538671
+  ],
+  "PP1_pass": true
+ },
+ "tf_curr_s13": {
+  "sign_vs_T4bayes": 0.9988086373790023,
+  "boundary_sign_vs_T4bayes": 0.9928857269897733,
+  "boundary_sign_vs_T1plugin": 0.15206758559359715,
+  "corr_dm_vs_T4bayes": 0.993652509235911,
+  "offsupport_edits_model_margin_change_mean_abs": 0.7148222327232361,
+  "unfiltered_sign_vs_T4bayes": 0.9472565882116274,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.8045904590459045,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.20954095409540954,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9878523059816053,
+   0.9970846646440363
+  ],
+  "PP1_pass": true
+ },
+ "deepsets_s0": {
+  "sign_vs_T4bayes": 0.9986597170513775,
+  "boundary_sign_vs_T4bayes": 0.9970357195790722,
+  "boundary_sign_vs_T1plugin": 0.15592115014080332,
+  "corr_dm_vs_T4bayes": 0.9924891333529996,
+  "offsupport_edits_model_margin_change_mean_abs": 0.704439640045166,
+  "unfiltered_sign_vs_T4bayes": 0.9371982498491249,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.9319531953195319,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.3758775877587759,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9956492364300968,
+   0.9983300426362368
+  ],
+  "PP1_pass": true
+ },
+ "deepsets_s1": {
+  "sign_vs_T4bayes": 0.9989362833741091,
+  "boundary_sign_vs_T4bayes": 0.9943678672002372,
+  "boundary_sign_vs_T1plugin": 0.15325329776196828,
+  "corr_dm_vs_T4bayes": 0.9929607482242291,
+  "offsupport_edits_model_margin_change_mean_abs": 0.5306589007377625,
+  "unfiltered_sign_vs_T4bayes": 0.9376131563065782,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.9344734473447345,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.39243924392439244,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9918858997059368,
+   0.9968618319363385
+  ],
+  "PP1_pass": true
+ },
+ "deepsets_s2": {
+  "sign_vs_T4bayes": 0.9993192213594299,
+  "boundary_sign_vs_T4bayes": 0.9959982214317474,
+  "boundary_sign_vs_T1plugin": 0.1548836519934786,
+  "corr_dm_vs_T4bayes": 0.9931066518808229,
+  "offsupport_edits_model_margin_change_mean_abs": 0.5882573127746582,
+  "unfiltered_sign_vs_T4bayes": 0.9270267551800443,
+  "unfiltered_boundary_sign_vs_T4bayes": 0.9309630963096309,
+  "unfiltered_boundary_sign_vs_T1plugin": 0.3803780378037804,
+  "boundary_sign_vs_T4bayes_cluster_ci95": [
+   0.9942234400748426,
+   0.9977045392834354
+  ],
+  "PP1_pass": true
+ }
+}

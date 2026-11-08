@@ -1,0 +1,7 @@
+{
+ "ckpt": "../step1_latent_reliability/checkpoints/main/T4_M_K3_s0_deepsets.npz",
+ "bayes_undefined_frac": 0.0,
+ "model_change_rate": 0.34855555555555556,
+ "bayes_change_rate": 0.22733333333333333,
+ "model_bayes_change_agreement": 0.8492222222222222
+}

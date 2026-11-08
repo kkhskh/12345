@@ -1,0 +1,11 @@
+   T1 M s2 step 600 loss 0.7977
+   T1 M s2 step 1200 loss 0.7811
+   T1 M s2 step 1800 loss 0.7650
+   T1 M s2 step 2400 loss 0.7686
+   T1 M s2 step 3000 loss 0.6546
+   T1 M s2 step 3600 loss 0.6036
+   T1 M s2 step 4200 loss 0.6323
+   T1 M s2 step 4800 loss 0.5883
+   T1 M s2 step 5400 loss 0.6014
+   T1 M s2 step 6000 loss 0.6475
+{"acc": 0.7407750000000001, "nll": 0.6060898900032043, "ece": 0.015695141603549324, "conf_mae": 0.29252839948099496, "bayes_acc": 0.7469666666666667, "own_question_bayes_acc": 0.655, "bayes_nll": 0.5744979302827511}

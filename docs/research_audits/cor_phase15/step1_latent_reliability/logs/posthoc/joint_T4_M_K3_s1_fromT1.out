@@ -1,0 +1,1 @@
+T4 T4_M_K3_s1_fromT1.npz {'query_readout_D2': (0.12, 0.02), 'query_readout_D2_target_change': 0.025, 'key_tag_D2': (0.79, 0.97), 'key_tag_D2_target_change': 0.065, 'joint': (0.87, 0.99), 'joint_target_change': 0.066, 'joint_full_q_tokens': (0.98, 1.0), 'joint_full_q_tokens_target_change': 0.955}

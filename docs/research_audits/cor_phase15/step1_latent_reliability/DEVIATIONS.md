@@ -20,3 +20,4 @@
 7. Post hoc experiments added after the reviews (all labelled POST HOC):
    - T1→T4 curriculum: fine-tune each T1 M seed on T4 for 3000 steps (`scripts/train_curriculum.py`).
    - Per-group-histogram MLP baseline `mlp_grouphist`, which the mandate's §10 "group-specific aggregation" asks for and which was missing.
+8. Clean-extraction verification passes (scripts/verify_extraction.sh): VERDICTS and verdicts.json reproduced, E1 example reproduced, 38 checkpoints loadable.

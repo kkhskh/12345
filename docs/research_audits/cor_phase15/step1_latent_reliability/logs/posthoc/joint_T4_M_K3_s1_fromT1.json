@@ -1,0 +1,38 @@
+{
+ "ckpt": "checkpoints/posthoc_curriculum/T4_M_K3_s1_fromT1.npz",
+ "task": "T4",
+ "site": "resid_pre2",
+ "note": "POST HOC",
+ "query_readout_D2": {
+  "iia": 0.12148922273024167,
+  "n_inf": 3062,
+  "kl_recovered": 0.022086679935455322,
+  "kl_recovered_mean": -0.06772810965776443,
+  "change_rate": 0.09488888888888888
+ },
+ "query_readout_D2_target_change": 0.025444444444444443,
+ "key_tag_D2": {
+  "iia": 0.790986283474853,
+  "n_inf": 3062,
+  "kl_recovered": 0.9664576649665833,
+  "kl_recovered_mean": 0.6286415457725525,
+  "change_rate": 0.3273333333333333
+ },
+ "key_tag_D2_target_change": 0.06466666666666666,
+ "joint": {
+  "iia": 0.8693664271717831,
+  "n_inf": 3062,
+  "kl_recovered": 0.9920621514320374,
+  "kl_recovered_mean": 0.923180103302002,
+  "change_rate": 0.32322222222222224
+ },
+ "joint_target_change": 0.06633333333333333,
+ "joint_full_q_tokens": {
+  "iia": 0.980078380143697,
+  "n_inf": 3062,
+  "kl_recovered": 0.9998846650123596,
+  "kl_recovered_mean": 0.9895860552787781,
+  "change_rate": 0.3423333333333333
+ },
+ "joint_full_q_tokens_target_change": 0.9553333333333334
+}

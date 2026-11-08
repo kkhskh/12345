@@ -1,0 +1,11 @@
+   T4 M s1 step 300 loss 0.5333
+   T4 M s1 step 600 loss 0.5652
+   T4 M s1 step 900 loss 0.5817
+   T4 M s1 step 1200 loss 0.5402
+   T4 M s1 step 1500 loss 0.5639
+   T4 M s1 step 1800 loss 0.5174
+   T4 M s1 step 2100 loss 0.5428
+   T4 M s1 step 2400 loss 0.5132
+   T4 M s1 step 2700 loss 0.5717
+   T4 M s1 step 3000 loss 0.5289
+{"acc": 0.743575, "nll": 0.5418726205825806, "ece": 0.009466581199069814, "conf_mae": 0.3140086347226038, "bayes_acc": 0.7436916666666666, "own_question_bayes_acc": 0.5768833333333333, "bayes_nll": 0.5404963496106877}

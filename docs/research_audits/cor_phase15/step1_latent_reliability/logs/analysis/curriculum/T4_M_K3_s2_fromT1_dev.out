@@ -1,0 +1,5 @@
+/home/claude/12345/docs/research_audits/cor_phase15/step1_latent_reliability/scripts/../src/bayes.py:117: RuntimeWarning: invalid value encountered in divide
+  post_y = np.einsum("nqr,nqrk->nqk", pim, J); post_y /= post_y.sum(-1, keepdims=True)
+/home/claude/12345/docs/research_audits/cor_phase15/step1_latent_reliability/scripts/../src/bayes.py:118: RuntimeWarning: invalid value encountered in divide
+  own = J.sum(2) / nR; own /= own.sum(-1, keepdims=True)
+done logs/analysis/curriculum/T4_M_K3_s2_fromT1_dev.json 630 s; s* resid_post2

@@ -1,0 +1,11 @@
+   T0 M s0 step 600 loss 0.3952
+   T0 M s0 step 1200 loss 0.4538
+   T0 M s0 step 1800 loss 0.4078
+   T0 M s0 step 2400 loss 0.4249
+   T0 M s0 step 3000 loss 0.4020
+   T0 M s0 step 3600 loss 0.4026
+   T0 M s0 step 4200 loss 0.4063
+   T0 M s0 step 4800 loss 0.3969
+   T0 M s0 step 5400 loss 0.3900
+   T0 M s0 step 6000 loss 0.3567
+{"acc": 0.7999583333333333, "nll": 0.4028704762458801, "ece": 0.011465713545183335, "conf_mae": 0.35936422761626796, "bayes_acc": 0.8027083333333334, "own_question_bayes_acc": 0.8027083333333334, "bayes_nll": 0.40115500585895536}

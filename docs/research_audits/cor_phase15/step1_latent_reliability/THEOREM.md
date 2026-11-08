@@ -27,6 +27,8 @@ None of the three is evidence for the others. Level 1 says nothing about what a 
 **Corollary T4 (non-monotone).**
 - **Statement.** P(R = (g,h) | X) contains the factor 1[n_h = Q]. A group that agrees on every question is as likely to be the colluder as the reliable group. P(g reliable) is therefore non-monotone in n_g; for example 0.98 at n_g = 5 and 0.50 at n_g = 6, with the other counts (6, 2).
 
+**Scope (MC3).** Fixed known groups; errors uniform over the wrong candidates; uniform priors on Y and R; noise uniform. **Correction (MC2).** The T4 non-monotonicity is *conditional on the other counts*: e.g. with counts (n_0, 6, 2), P(G0 reliable) = 0.06 → 0.98 for n_0 = 0 → 5 and 0.50 at n_0 = 6. It is false that a perfectly agreeing group is always as likely to be the colluder (with counts (6,2,2), G0 must be the colluder).
+
 These are statements about the *task*. They show that a consistency statistic, within-group agreement, is the Bayes-sufficient summary. They do not show that any network computes it.
 
 ## Level 2: an engineered tag-and-route computation (constructive; stated, with the derivation)
@@ -44,25 +46,26 @@ These are statements about the *task*. They show that a consistency statistic, w
    - Its attention weight on group g is then w_g ∝ exp(β a n_g) · (within-group terms).
 3. **Prediction (derivation).**
    - The answer logit is ℓ_y = c_v Σ_s w_s 1[x_{q,s} = y] + (terms independent of X_{−q}).
-   - If βa = λ, the routing weights equal the Bayes group posterior (Corollary T1).
-   - ℓ is then a P(R | X)-weighted vote. That is the Bayes mixture (Theorem M), with each group's evidence P(y | X_q, g) replaced by its vote.
+   - If βa = λ **and the tag uses episode-level counts**, the routing weights equal the Bayes group posterior (Corollary T1). With leave-one-out counts this is only approximate (reviewer: 93.6% vs 97.2% argmax agreement with Bayes; MC4).
+   - ℓ is then a P(R | X)-weighted *logit-linear vote*. It is **not** the Bayes probability mixture (Theorem M); it agrees with Bayes at the argmax level except near ties (5.4% exact vote ties), and it does not by itself explain calibration (MC5).
    - For a reliable pair that agrees, the vote and the evidence have the same argmax. When the pair disagrees, both are split. So the routed vote has the same argmax as Bayes except near ties.
 
 **Intervention prediction.**
 - An intervention that sets the tags of question q's source tokens to their values under an episode E′ (which shares X_q) changes the routing weights to w_g(E′).
 - It therefore changes the candidate margin ℓ_y − ℓ_{y′} by c_v Σ_s [w_s(E′) − w_s(E)] (1[x_s = y] − 1[x_s = y′]).
-- It changes nothing if X_{−q} is changed in a way that preserves the counts. In particular it changes nothing under the `target` intervention, which preserves every count.
+- It changes nothing if X_{−q} is changed in a way that preserves the counts (reviewer test: model argmax changes 3.2–4.0% vs 26–27% for cond; MC7). The package's `target` pairs change X_q only and are a value-content control, not this test.
 
 **Downstream assumptions needed.**
 - (i) No other path from X_{−q} to ℓ at r_q, or bypass paths that are negligible.
 - (ii) The last-layer value path carries the reported value, not the tag.
 - (iii) The key depends on the tag linearly.
+- (iv) Pre-LN: the tag passes LayerNorm before the key projection, so "linear" holds only approximately; other heads' and the MLP's contributions to the readout are ignored (MC8).
 
 **Bypass handling.** Assumption (i) is falsifiable. Freeze the route heads' attention pattern while patching the tag: the effect should vanish.
 
 ## Level 3: learned models (empirical; with measured tolerances)
 
-Numbers are for M-size T1, confirmation split (and the post hoc stream for the equation checks). See `VERDICTS.md` and `logs/posthoc/` for every seed.
+Numbers in the table are for **T1/M seed 0** (confirmation split; post hoc stream for the equation checks). **Per seed (MC9, B1):** seeds 0 and 1 match the table closely (seed 1: tag cond IIA 0.83, target change 0.104 — fails K4′ by 0.004); **seed 2 does not localise the variable on the keys**: key-only IIA 0.33, readout-query-only 0.47, joint 0.78 (KL 0.97). The cross-seed claim is the routing (Type B, 3/3), not the tag location. The tag is a group-indexed contrast of all groups' counts, with a seed-dependent encoding (B2). Measured βa (log-attention per count, unit-free; MC6): roughly 0.35–1.29 across seeds and heads, all below λ = 1.357 — the learned routing is less sharp than Bayes; accuracy is insensitive to this.
 
 | Level 2 element | measured in the learned model (T1/M seed 0) |
 |---|---|
@@ -85,9 +88,9 @@ The frozen "explicit mediator at the readout token" hypothesis (Type A) is **fal
 
 **What is not shown.**
 
-1. That the model's βa equals λ. The measured slopes are in arbitrary tag units, so this is not tested.
-2. That the mechanism is unique. The protocol cannot exclude a functionally equivalent network without it; see `REVIEWS/` for the counterexample review.
-3. Anything for T4. See `MAIN_ANSWER.md`: the M models did not learn T4 within the frozen budget.
+1. That the model's βa equals λ. It does not (estimates 0.35–1.29 < 1.357).
+2. That the mechanism is unique. The protocol cannot exclude a functionally equivalent network without it; see `reviews/R_arch_counterexample.md` (B1: seed 2 is a functionally equivalent network without the key-side localisation).
+3. Anything spontaneous for T4: the M models did not learn T4 from scratch. **Post hoc**, T4 models fine-tuned from T1 implement the non-monotone version (a 2-D tag whose second coordinate rises with the count 0→4 and drops at 5; route-head log-attention R² 0.75 from the tag vs 0.01 from the count); see `MAIN_ANSWER.md`.
 
 ## Comparison with known theory
 

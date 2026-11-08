@@ -255,6 +255,176 @@
     "overlap": 0.22022558564648903
    }
   },
+  "T2_M_K3_s0": {
+   "task": "T2",
+   "size": "M",
+   "seed": "s0",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": true,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.7395999999999999,
+    "bayes": 0.7399166666666667,
+    "own": 0.65025,
+    "s_star": "resid_post2",
+    "probe_r2": 0.8808101645554287,
+    "probe_r2_init": -0.0030549751182917806,
+    "D1_cond_iia": 0.01852524518706865,
+    "D1_cond_kl": -0.0022073984146118164,
+    "D1_perm_iia": 0.015384615384615385,
+    "D1_target_change": 0.0032407407407407406,
+    "D1_dropfrac": 0.02141327623126245,
+    "D2_cond_iia": 0.4780239738467127,
+    "D2_target_change": 0.5033333333333333,
+    "random_cond_iia": 0.07482746095168907,
+    "content": {
+     "pi_minus": -0.00014524000706583884,
+     "counts": -0.00028313209561492414,
+     "hist": -0.00047293404361603564,
+     "own_question_onehot": 0.30383854393063525
+    },
+    "max_group_mass_r2": 0.9796816940317715,
+    "best_pattern_patch": 0.8554304395205231,
+    "best_nonfinal_full": 0.9560479476934254
+   },
+   "tag": {
+    "K1": true,
+    "K7": false,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": false,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": true,
+    "K5'": true,
+    "K6'": true,
+    "R1'": false,
+    "K6'_gated": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.6674019741130437,
+    "tag_cond": 0.0611587982832618,
+    "tagD2_cond": 0.43168812589413447,
+    "tagD2_kl": 0.6834383606910706,
+    "tagD2_perm": 0.361384335154827,
+    "tagD2_target_change": 0.02851851851851852,
+    "tagD2_drop": 0.5332594235033266,
+    "tagD2_reuse": 0.447178002894356,
+    "routeD2": 0.3377247154712677,
+    "full_src_cond": 0.652002861230329,
+    "content": {
+     "tag_target": 0.009720730557326807,
+     "own_value_onehot": 0.00013523877710064358,
+     "own_pair_agreement": 0.0025081351854076006,
+     "other_question_histograms": -5.2250873395776054e-05
+    },
+    "overlap": 0.05481049864701856
+   }
+  },
+  "T2_M_K3_s1": {
+   "task": "T2",
+   "size": "M",
+   "seed": "s1",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": true,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.7379333333333334,
+    "bayes": 0.7399166666666667,
+    "own": 0.65025,
+    "s_star": "resid_post2",
+    "probe_r2": 0.6878432268305348,
+    "probe_r2_init": -0.0030549751182917806,
+    "D1_cond_iia": 0.012627986348122866,
+    "D1_cond_kl": -0.0005375146865844727,
+    "D1_perm_iia": 0.009705372616984401,
+    "D1_target_change": 0.004814814814814815,
+    "D1_dropfrac": 0.0010570824524318765,
+    "D2_cond_iia": 0.47952218430034127,
+    "D2_target_change": 0.4696296296296296,
+    "random_cond_iia": 0.05742320819112628,
+    "content": {
+     "pi_minus": -0.0001581399844416964,
+     "counts": -0.0002940034760381405,
+     "hist": -0.000682788895887132,
+     "own_question_onehot": 0.31313023766878456
+    },
+    "max_group_mass_r2": 0.9517295986335794,
+    "best_pattern_patch": 0.8535836177474403,
+    "best_nonfinal_full": 0.9382252559726962
+   },
+   "tag": {
+    "K1": true,
+    "K7": true,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": true,
+    "K3'": true,
+    "K4'": false,
+    "K5'": true,
+    "K6'": true,
+    "R1'": true,
+    "K6'_gated": true,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.6012122062543341,
+    "tag_cond": 0.1521378853165396,
+    "tagD2_cond": 0.8296320848525025,
+    "tagD2_kl": 0.9772828817367554,
+    "tagD2_perm": 0.7916247906197655,
+    "tagD2_target_change": 0.1025925925925926,
+    "tagD2_drop": 1.8259423503325956,
+    "tagD2_reuse": 0.8210526315789474,
+    "routeD2": 0.9489200711250305,
+    "full_src_cond": 0.8717268810076235,
+    "content": {
+     "tag_target": 0.5272878905435563,
+     "own_value_onehot": 0.0013215574871432434,
+     "own_pair_agreement": 0.1257109782349214,
+     "other_question_histograms": 0.01914322007519098
+    },
+    "overlap": 0.3849592627065649
+   }
+  },
   "T4_M_K3_s0": {
    "task": "T4",
    "size": "M",
@@ -509,6 +679,261 @@
     },
     "overlap": 0.060824961961225
    }
+  },
+  "T4_M_K3_s0_fromT1": {
+   "task": "T4",
+   "size": "M-curriculum[POST HOC]",
+   "seed": "s0",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": true,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.7409749999999999,
+    "bayes": 0.7400166666666667,
+    "own": 0.5730583333333333,
+    "s_star": "resid_post2",
+    "probe_r2": 0.8133235229801434,
+    "probe_r2_init": -0.00016125917949216806,
+    "D1_cond_iia": 0.012048192771084338,
+    "D1_cond_kl": -4.8041343688964844e-05,
+    "D1_perm_iia": 0.011361054305839582,
+    "D1_target_change": 0.006111111111111111,
+    "D1_dropfrac": -0.004519774011299236,
+    "D2_cond_iia": 0.9325301204819277,
+    "D2_target_change": 0.9009259259259259,
+    "random_cond_iia": 0.11181392235609103,
+    "content": {
+     "pi_minus": 0.004400666902461325,
+     "counts": 0.014660233113192422,
+     "hist": -0.0007593297932209087,
+     "own_question_onehot": 0.3505535943873995
+    },
+    "max_group_mass_r2": 0.9568509669175985,
+    "best_pattern_patch": 0.8315930388219545,
+    "best_nonfinal_full": 0.9475234270414993
+   },
+   "tag": {
+    "K1": true,
+    "K7": true,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": true,
+    "K3'": true,
+    "K4'": true,
+    "K5'": true,
+    "K6'": true,
+    "R1'": true,
+    "K6'_gated": true,
+    "TagRoute": false,
+    "TagRoute_D2": true,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.918794164814179,
+    "tag_cond": 0.09485744737543299,
+    "tagD2_cond": 0.8409272581934453,
+    "tagD2_kl": 0.9869750738143921,
+    "tagD2_perm": 0.825988187187642,
+    "tagD2_target_change": 0.04805555555555555,
+    "tagD2_drop": 1.2630681818181815,
+    "tagD2_reuse": 0.8473322768092975,
+    "routeD2": 0.9454221725463867,
+    "full_src_cond": 0.920863309352518,
+    "content": {
+     "tag_target": 0.9254216071341452,
+     "own_value_onehot": 0.0010563182610958677,
+     "own_pair_agreement": 0.35333564447593413,
+     "other_question_histograms": -6.519485718681217e-05
+    },
+    "overlap": 0.32120609430816005
+   }
+  },
+  "T4_M_K3_s1_fromT1": {
+   "task": "T4",
+   "size": "M-curriculum[POST HOC]",
+   "seed": "s1",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": true,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.74095,
+    "bayes": 0.7400166666666667,
+    "own": 0.5730583333333333,
+    "s_star": "resid_post2",
+    "probe_r2": 0.8188493473787781,
+    "probe_r2_init": -0.00016125917949216806,
+    "D1_cond_iia": 0.01992901992901993,
+    "D1_cond_kl": -0.00020432472229003906,
+    "D1_perm_iia": 0.03327417923691216,
+    "D1_target_change": 0.006388888888888889,
+    "D1_dropfrac": 0.010491441192711741,
+    "D2_cond_iia": 0.9514059514059514,
+    "D2_target_change": 0.895,
+    "random_cond_iia": 0.12216762216762216,
+    "content": {
+     "pi_minus": 0.014058652288718942,
+     "counts": 0.025782485264252863,
+     "hist": -0.0006272606390900215,
+     "own_question_onehot": 0.35830549471902895
+    },
+    "max_group_mass_r2": 0.9514640966923933,
+    "best_pattern_patch": 0.8891618891618892,
+    "best_nonfinal_full": 0.9765219765219765
+   },
+   "tag": {
+    "K1": true,
+    "K7": true,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": true,
+    "K3'": true,
+    "K4'": true,
+    "K5'": true,
+    "K6'": true,
+    "R1'": true,
+    "K6'_gated": true,
+    "TagRoute": false,
+    "TagRoute_D2": true,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.8713997413307981,
+    "tag_cond": 0.0860890953812517,
+    "tagD2_cond": 0.7920196775075157,
+    "tagD2_kl": 0.9650879502296448,
+    "tagD2_perm": 0.8321070234113712,
+    "tagD2_target_change": 0.07074074074074074,
+    "tagD2_drop": 1.2156973461321288,
+    "tagD2_reuse": 0.7769823788546255,
+    "routeD2": 0.8983913064002991,
+    "full_src_cond": 0.8423066411587865,
+    "content": {
+     "tag_target": 0.868022696742246,
+     "own_value_onehot": -2.9223057331773106e-06,
+     "own_pair_agreement": 0.40074869144949765,
+     "other_question_histograms": -4.103780758635267e-05
+    },
+    "overlap": 0.3836188632548617
+   }
+  },
+  "T4_M_K3_s2_fromT1": {
+   "task": "T4",
+   "size": "M-curriculum[POST HOC]",
+   "seed": "s2",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": true,
+    "TypeA": false,
+    "P6_gated": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.7406583333333333,
+    "bayes": 0.7400166666666667,
+    "own": 0.5730583333333333,
+    "s_star": "resid_post2",
+    "probe_r2": 0.9389366522598079,
+    "probe_r2_init": -0.00016125917949216806,
+    "D1_cond_iia": 0.025341130604288498,
+    "D1_cond_kl": 0.00010955333709716797,
+    "D1_perm_iia": 0.02930056710775047,
+    "D1_target_change": 0.004166666666666667,
+    "D1_dropfrac": 0.02407614781634934,
+    "D2_cond_iia": 0.9409635199108883,
+    "D2_target_change": 0.9069444444444444,
+    "random_cond_iia": 0.12165831244778613,
+    "content": {
+     "pi_minus": 0.11036639855694497,
+     "counts": 0.09499044912119181,
+     "hist": -0.0008791703520545369,
+     "own_question_onehot": 0.30081102201180576
+    },
+    "max_group_mass_r2": 0.9857438177028072,
+    "best_pattern_patch": 0.8835978835978836,
+    "best_nonfinal_full": 0.9495962127541074
+   },
+   "tag": {
+    "K1": true,
+    "K7": true,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": false,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": true,
+    "K5'": true,
+    "K6'": true,
+    "R1'": true,
+    "K6'_gated": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.8030755286393163,
+    "tag_cond": 0.03566413928671722,
+    "tagD2_cond": 0.427688851446223,
+    "tagD2_kl": 0.6229352355003357,
+    "tagD2_perm": 0.3863256036337557,
+    "tagD2_target_change": 0.024166666666666666,
+    "tagD2_drop": 0.6114942528735628,
+    "tagD2_reuse": 0.4267337807606264,
+    "routeD2": 0.6867623329162598,
+    "full_src_cond": 0.6281943274361135,
+    "content": {
+     "tag_target": 0.6180988674920898,
+     "own_value_onehot": 0.0008009868381104734,
+     "own_pair_agreement": 0.27728643256828955,
+     "other_question_histograms": -5.6675601635802764e-05
+    },
+    "overlap": 0.1410740787357541
+   }
   }
  },
  "verdicts": {
@@ -649,6 +1074,143 @@
     "holds": false
    }
   },
+  "T2/M": {
+   "P0": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "P1": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "P2": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "P3": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "P4": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "P5": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "P6": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "P7": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "TypeA": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "TypeB": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "Distributed_literal": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "Distributed_nonfinal": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "P6_gated": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "K1": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "K2": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "K2'": {
+    "passed": 1,
+    "n": 2,
+    "holds": false
+   },
+   "K3'": {
+    "passed": 1,
+    "n": 2,
+    "holds": false
+   },
+   "K4'": {
+    "passed": 1,
+    "n": 2,
+    "holds": false
+   },
+   "K5'": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "K6'": {
+    "passed": 2,
+    "n": 2,
+    "holds": true
+   },
+   "K6'_gated": {
+    "passed": 1,
+    "n": 2,
+    "holds": false
+   },
+   "K7": {
+    "passed": 1,
+    "n": 2,
+    "holds": false
+   },
+   "R1": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "R1'": {
+    "passed": 1,
+    "n": 2,
+    "holds": false
+   },
+   "TagRoute": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "TagRoute_D2": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   },
+   "TagOnly_D2": {
+    "passed": 0,
+    "n": 2,
+    "holds": false
+   }
+  },
   "T4/M": {
    "P0": {
     "passed": 0,
@@ -779,6 +1341,143 @@
     "passed": 0,
     "n": 3,
     "holds": false
+   },
+   "TagOnly_D2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   }
+  },
+  "T4/M-curriculum[POST HOC]": {
+   "P0": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P1": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P3": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P4": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P5": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P6": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P7": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TypeA": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TypeB": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "Distributed_literal": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "Distributed_nonfinal": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P6_gated": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K1": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K2'": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "K3'": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "K4'": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K5'": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K6'": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K6'_gated": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "K7": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "R1": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "R1'": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "TagRoute": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TagRoute_D2": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
    },
    "TagOnly_D2": {
     "passed": 0,

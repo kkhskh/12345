@@ -76,10 +76,11 @@ def tagc(r, fz_typeB):
 
 
 rows = {}
-for f in sorted(glob.glob(os.path.join(R, "logs/analysis/main/*_conf.json"))):
+for f in sorted(glob.glob(os.path.join(R, "logs/analysis/main/*_conf.json"))) + sorted(glob.glob(os.path.join(R, "logs/analysis/curriculum/*_conf.json"))):
     if f.endswith("_tag_conf.json"): continue
     b = os.path.basename(f)[:-len("_conf.json")]
     task, size, _, seed = b.split("_")[:4]
+    if "fromT1" in b: size = "M-curriculum[POST HOC]"
     fr = ld(f); tg = ld(f.replace("_conf.json", "_tag_conf.json"))
     if fr is None: continue
     c, n = frozen(fr)

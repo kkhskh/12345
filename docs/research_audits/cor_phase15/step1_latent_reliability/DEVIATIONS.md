@@ -13,3 +13,4 @@
      - the literal one (`Distributed_literal`);
      - one that excludes the final site (`Distributed_nonfinal`).
    - The frozen primary-answer rule mentions "distributed evidence". It is applied literally, as frozen, and the flaw is flagged wherever the answer depends on it.
+4. nets.py/train_run.py: optional auxiliary R supervision flag (arch suffix _auxR), default off; used only for the post hoc T4 run in checkpoints/posthoc_auxR. ckpt.load_base added to read baseline checkpoints (object arrays).

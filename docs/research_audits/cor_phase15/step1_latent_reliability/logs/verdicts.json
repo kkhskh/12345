@@ -1,0 +1,760 @@
+{
+ "rows": {
+  "T1_M_K3_s0": {
+   "task": "T1",
+   "size": "M",
+   "seed": "s0",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": false,
+    "P7": false,
+    "TypeB": true,
+    "TypeA": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.7397,
+    "bayes": 0.7399166666666667,
+    "own": 0.65025,
+    "s_star": "resid_post2",
+    "probe_r2": 0.8104501699298052,
+    "probe_r2_init": -0.0030549751182917806,
+    "D1_cond_iia": 0.00784873349982162,
+    "D1_cond_kl": -0.001084446907043457,
+    "D1_perm_iia": 0.006382978723404255,
+    "D1_target_change": 0.0010185185185185184,
+    "D1_dropfrac": 0.015274949083502994,
+    "D2_cond_iia": 0.9136639315019622,
+    "D2_target_change": 0.9434259259259259,
+    "random_cond_iia": 0.06533178737067427,
+    "content": {
+     "pi_minus": -2.8571912010333378e-05,
+     "counts": -0.00010488428287147578,
+     "hist": -0.0004935413386295551,
+     "own_question_onehot": 0.6286027696600173
+    },
+    "max_group_mass_r2": 0.9314599343948563,
+    "best_pattern_patch": 0.8483767392079914,
+    "best_nonfinal_full": 0.951123795932929
+   },
+   "tag": {
+    "K1": true,
+    "K7": true,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": false,
+    "R1": false,
+    "K2'": true,
+    "K3'": true,
+    "K4'": true,
+    "K5'": true,
+    "K6'": true,
+    "R1'": true,
+    "TagRoute": false,
+    "TagRoute_D2": true,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.8610445059554378,
+    "tag_cond": 0.17714484195901353,
+    "tagD2_cond": 0.8315387287252518,
+    "tagD2_kl": 0.9873162508010864,
+    "tagD2_perm": 0.840782122905028,
+    "tagD2_target_change": 0.07907407407407407,
+    "tagD2_drop": 1.7895878524945783,
+    "tagD2_reuse": 0.8289290681502086,
+    "routeD2": 0.928887665271759,
+    "full_src_cond": 0.8891976380687738,
+    "content": {
+     "tag_target": 0.7850139919084927,
+     "own_value_onehot": 0.0017533017930410066,
+     "own_pair_agreement": 0.12772586341181402,
+     "other_question_histograms": 0.00013219807209319256
+    },
+    "overlap": 0.4954615357293495
+   }
+  },
+  "T1_M_K3_s1": {
+   "task": "T1",
+   "size": "M",
+   "seed": "s1",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": true,
+    "TypeA": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.7407166666666667,
+    "bayes": 0.7399166666666667,
+    "own": 0.65025,
+    "s_star": "resid_post2",
+    "probe_r2": 0.6515937659606708,
+    "probe_r2_init": -0.0030549751182917806,
+    "D1_cond_iia": 0.008573388203017833,
+    "D1_cond_kl": -0.00016617774963378906,
+    "D1_perm_iia": 0.003107734806629834,
+    "D1_target_change": 0.002037037037037037,
+    "D1_dropfrac": 0.0031948881789142358,
+    "D2_cond_iia": 0.943758573388203,
+    "D2_target_change": 0.9412962962962963,
+    "random_cond_iia": 0.05482681755829904,
+    "content": {
+     "pi_minus": 2.999534563630224e-05,
+     "counts": -2.874023020904559e-06,
+     "hist": -0.0003454713237156515,
+     "own_question_onehot": 0.638545027642369
+    },
+    "max_group_mass_r2": 0.9041820481149824,
+    "best_pattern_patch": 0.8477366255144033,
+    "best_nonfinal_full": 0.936556927297668
+   },
+   "tag": {
+    "K1": true,
+    "K7": true,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": true,
+    "K3'": true,
+    "K4'": false,
+    "K5'": true,
+    "K6'": true,
+    "R1'": true,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.6970414073823712,
+    "tag_cond": 0.2215508559919436,
+    "tagD2_cond": 0.8301443437395098,
+    "tagD2_kl": 0.9881698489189148,
+    "tagD2_perm": 0.8042452830188679,
+    "tagD2_target_change": 0.10435185185185185,
+    "tagD2_drop": 2.086187845303869,
+    "tagD2_reuse": 0.8059904697072838,
+    "routeD2": 0.9423834085464478,
+    "full_src_cond": 0.9375629405840886,
+    "content": {
+     "tag_target": 0.6481125353791168,
+     "own_value_onehot": 0.005544767632160386,
+     "own_pair_agreement": 0.19315176676860668,
+     "other_question_histograms": 0.00036087571926290973
+    },
+    "overlap": 0.5127827096276061
+   }
+  },
+  "T1_M_K3_s2": {
+   "task": "T1",
+   "size": "M",
+   "seed": "s2",
+   "frozen": {
+    "P0": true,
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": true,
+    "TypeB": true,
+    "TypeA": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": true
+   },
+   "frozen_nums": {
+    "acc": 0.7396583333333334,
+    "bayes": 0.7399166666666667,
+    "own": 0.65025,
+    "s_star": "resid_pre2",
+    "probe_r2": 0.9472552860021125,
+    "probe_r2_init": -0.003257606811557734,
+    "D1_cond_iia": 0.10727837185236289,
+    "D1_cond_kl": 0.12980681657791138,
+    "D1_perm_iia": 0.10063113604488079,
+    "D1_target_change": 0.003425925925925926,
+    "D1_dropfrac": -0.013402061855670125,
+    "D2_cond_iia": 0.47430148327009314,
+    "D2_target_change": 0.01175925925925926,
+    "random_cond_iia": 0.039582614694722316,
+    "content": {
+     "pi_minus": 0.9038118249812865,
+     "counts": 0.9071210896190223,
+     "hist": -0.0030857826350341178,
+     "own_question_onehot": 5.6923332657832226e-05
+    },
+    "max_group_mass_r2": 0.9869696982703843,
+    "best_pattern_patch": 0.8444291134874095,
+    "best_nonfinal_full": 0.9489479130734736
+   },
+   "tag": {
+    "K1": true,
+    "K7": true,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": false,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": true,
+    "K5'": false,
+    "K6'": true,
+    "R1'": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.6663455548585258,
+    "tag_cond": 0.04895583704210887,
+    "tagD2_cond": 0.31051009928106815,
+    "tagD2_kl": 0.48467162251472473,
+    "tagD2_perm": 0.2650810065494657,
+    "tagD2_target_change": 0.04537037037037037,
+    "tagD2_drop": 0.311494252873563,
+    "tagD2_reuse": 0.28758620689655173,
+    "routeD2": 0.3418143093585968,
+    "full_src_cond": 0.48236905169462513,
+    "content": {
+     "tag_target": 0.45870179603593664,
+     "own_value_onehot": 0.006596325959837057,
+     "own_pair_agreement": 0.03552341677468707,
+     "other_question_histograms": -5.5605792880442095e-05
+    },
+    "overlap": 0.22022558564648903
+   }
+  },
+  "T4_M_K3_s0": {
+   "task": "T4",
+   "size": "M",
+   "seed": "s0",
+   "frozen": {
+    "P0": false,
+    "P1": false,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": false,
+    "P7": false,
+    "TypeB": false,
+    "TypeA": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": false
+   },
+   "frozen_nums": {
+    "acc": 0.5750833333333334,
+    "bayes": 0.7400166666666667,
+    "own": 0.5730583333333333,
+    "s_star": "resid_post2",
+    "probe_r2": 0.011009890543615009,
+    "probe_r2_init": -0.00016125917949216806,
+    "D1_cond_iia": 0.13088235294117648,
+    "D1_cond_kl": -5.0067901611328125e-06,
+    "D1_perm_iia": 0.05965909090909091,
+    "D1_target_change": 0.02148148148148148,
+    "D1_dropfrac": NaN,
+    "D2_cond_iia": 0.31323529411764706,
+    "D2_target_change": 0.4363888888888889,
+    "random_cond_iia": 0.2338235294117647,
+    "content": {
+     "pi_minus": -0.00014811627128863414,
+     "counts": -3.196319306608686e-05,
+     "hist": 0.006337645250610535,
+     "own_question_onehot": 0.7515409399871356
+    },
+    "max_group_mass_r2": 0.000840479060252976,
+    "best_pattern_patch": 0.4441176470588235,
+    "best_nonfinal_full": 0.5602941176470588
+   },
+   "tag": {
+    "K1": false,
+    "K7": false,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": false,
+    "K5'": false,
+    "K6'": true,
+    "R1'": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.029372875118642172,
+    "tag_cond": 0.02242152466367713,
+    "tagD2_cond": 0.17787742899850523,
+    "tagD2_kl": 0.13861727714538574,
+    "tagD2_perm": 0.13664596273291926,
+    "tagD2_target_change": 0.1897222222222222,
+    "tagD2_drop": NaN,
+    "tagD2_reuse": 0.23170731707317074,
+    "routeD2": 0.1507851928472519,
+    "full_src_cond": 0.38565022421524664,
+    "content": {
+     "tag_target": 2.6408034293989857e-05,
+     "own_value_onehot": 0.603580894021111,
+     "own_pair_agreement": 5.355342483914782e-07,
+     "other_question_histograms": 0.0058222520100270625
+    },
+    "overlap": 0.10573200846258088
+   }
+  },
+  "T4_M_K3_s1": {
+   "task": "T4",
+   "size": "M",
+   "seed": "s1",
+   "frozen": {
+    "P0": false,
+    "P1": false,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": false,
+    "TypeA": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": false
+   },
+   "frozen_nums": {
+    "acc": 0.574175,
+    "bayes": 0.7400166666666667,
+    "own": 0.5730583333333333,
+    "s_star": "resid_post2",
+    "probe_r2": 0.008453746776589388,
+    "probe_r2_init": -0.00016125917949216806,
+    "D1_cond_iia": 0.09953343701399689,
+    "D1_cond_kl": -0.00022733211517333984,
+    "D1_perm_iia": 0.054140127388535034,
+    "D1_target_change": 0.018518518518518517,
+    "D1_dropfrac": NaN,
+    "D2_cond_iia": 0.19284603421461896,
+    "D2_target_change": 0.07055555555555555,
+    "random_cond_iia": 0.2801321928460342,
+    "content": {
+     "pi_minus": -0.00011955304100386144,
+     "counts": -7.867032604758073e-05,
+     "hist": 0.0056648644452785835,
+     "own_question_onehot": 0.3430188669487151
+    },
+    "max_group_mass_r2": 0.008345812284490378,
+    "best_pattern_patch": 0.39191290824261277,
+    "best_nonfinal_full": 0.5474339035769828
+   },
+   "tag": {
+    "K1": false,
+    "K7": false,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": false,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": false,
+    "K5'": false,
+    "K6'": true,
+    "R1'": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.0413254998295407,
+    "tag_cond": 0.016453382084095063,
+    "tagD2_cond": 0.12797074954296161,
+    "tagD2_kl": 0.04111239314079285,
+    "tagD2_perm": 0.03759398496240601,
+    "tagD2_target_change": 0.13027777777777777,
+    "tagD2_drop": NaN,
+    "tagD2_reuse": 0.12666666666666668,
+    "routeD2": 0.19425442814826965,
+    "full_src_cond": 0.33089579524680074,
+    "content": {
+     "tag_target": 6.939080649204232e-05,
+     "own_value_onehot": 0.10194386196039784,
+     "own_pair_agreement": 0.0007884031566148808,
+     "other_question_histograms": 0.0035718537108985204
+    },
+    "overlap": 0.040074785779964046
+   }
+  },
+  "T4_M_K3_s2": {
+   "task": "T4",
+   "size": "M",
+   "seed": "s2",
+   "frozen": {
+    "P0": false,
+    "P1": false,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": true,
+    "P7": false,
+    "TypeB": false,
+    "TypeA": false,
+    "Distributed_literal": true,
+    "Distributed_nonfinal": false
+   },
+   "frozen_nums": {
+    "acc": 0.5745666666666667,
+    "bayes": 0.7400166666666667,
+    "own": 0.5730583333333333,
+    "s_star": "resid_post2",
+    "probe_r2": 0.007862607492365226,
+    "probe_r2_init": -0.00016125917949216806,
+    "D1_cond_iia": 0.07988980716253444,
+    "D1_cond_kl": 0.0005698800086975098,
+    "D1_perm_iia": 0.04177545691906005,
+    "D1_target_change": 0.017037037037037038,
+    "D1_dropfrac": NaN,
+    "D2_cond_iia": 0.23002754820936638,
+    "D2_target_change": 0.1912962962962963,
+    "random_cond_iia": 0.25068870523415976,
+    "content": {
+     "pi_minus": -0.0002615880280190108,
+     "counts": -0.00018218694303495653,
+     "hist": 0.0037052498875723705,
+     "own_question_onehot": 0.6771571865390948
+    },
+    "max_group_mass_r2": 0.0040085778306175246,
+    "best_pattern_patch": 0.4669421487603306,
+    "best_nonfinal_full": 0.5165289256198347
+   },
+   "tag": {
+    "K1": false,
+    "K7": false,
+    "K2": false,
+    "K3": false,
+    "K4": true,
+    "K5": false,
+    "K6": true,
+    "R1": false,
+    "K2'": false,
+    "K3'": false,
+    "K4'": false,
+    "K5'": false,
+    "K6'": true,
+    "R1'": false,
+    "TagRoute": false,
+    "TagRoute_D2": false,
+    "TagOnly_D2": false
+   },
+   "tag_nums": {
+    "s_tag": "resid_pre2",
+    "probe": 0.08561888694850406,
+    "tag_cond": 0.008391608391608392,
+    "tagD2_cond": 0.11748251748251748,
+    "tagD2_kl": 0.032472431659698486,
+    "tagD2_perm": 0.06091370558375635,
+    "tagD2_target_change": 0.10194444444444445,
+    "tagD2_drop": NaN,
+    "tagD2_reuse": 0.11444141689373297,
+    "routeD2": 0.15215669572353363,
+    "full_src_cond": 0.28251748251748254,
+    "content": {
+     "tag_target": -4.756258558669124e-05,
+     "own_value_onehot": 0.13116667643658653,
+     "own_pair_agreement": -3.808536424076969e-05,
+     "other_question_histograms": 0.025749966617675035
+    },
+    "overlap": 0.060824961961225
+   }
+  }
+ },
+ "verdicts": {
+  "T1/M": {
+   "P0": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P1": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P3": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P4": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P5": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P6": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "P7": {
+    "passed": 1,
+    "n": 3,
+    "holds": false
+   },
+   "TypeA": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TypeB": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "Distributed_literal": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "Distributed_nonfinal": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K1": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K2'": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "K3'": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "K4'": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "K5'": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "K6'": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K7": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "R1": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "R1'": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "TagRoute": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TagRoute_D2": {
+    "passed": 1,
+    "n": 3,
+    "holds": false
+   },
+   "TagOnly_D2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   }
+  },
+  "T4/M": {
+   "P0": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P1": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P3": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P4": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "P5": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "P6": {
+    "passed": 2,
+    "n": 3,
+    "holds": true
+   },
+   "P7": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TypeA": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TypeB": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "Distributed_literal": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "Distributed_nonfinal": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K1": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K2'": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K3'": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K4'": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K5'": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "K6'": {
+    "passed": 3,
+    "n": 3,
+    "holds": true
+   },
+   "K7": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "R1": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "R1'": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TagRoute": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TagRoute_D2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   },
+   "TagOnly_D2": {
+    "passed": 0,
+    "n": 3,
+    "holds": false
+   }
+  }
+ },
+ "primary_answer_frozen": "PARTIAL",
+ "secondary_answer_tag_route_D2": "NO (scoped)"
+}

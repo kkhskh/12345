@@ -143,18 +143,18 @@ def batch_targets(env, d):
                 R=jnp.asarray(d["ridx"]))
 
 
-def loss_fn(p, X, T, task, fwd=None):
+def loss_fn(p, X, T, task, fwd=None, aux_r=False):
     out = (fwd or forward)(p, X)
     lp = jax.nn.log_softmax(out["answer"], -1)
     l = -jnp.take_along_axis(lp, T["Y"][..., None], -1).mean()
     if task == "T2":
         l = l + 4.0 * ((out["conf"] - T["conf"]) ** 2).mean()
-    if task == "T3":
+    if task == "T3" or aux_r:
         l = l - jnp.take_along_axis(jax.nn.log_softmax(out["rel"], -1), T["R"][:, None], -1).mean()
     return l
 
 
-def train(task, size, seed, steps, batch=256, lr=1e-3, K=3, Q=6, log=None, arch="tf"):
+def train(task, size, seed, steps, batch=256, lr=1e-3, K=3, Q=6, log=None, arch="tf", aux_r=False):
     env = B.Env(task, K=K, Q=Q)
     p = init(size, env, seed) if arch == "tf" else init_base(arch, size, env, seed)
     fwd = make_forward(arch, K)
@@ -163,7 +163,7 @@ def train(task, size, seed, steps, batch=256, lr=1e-3, K=3, Q=6, log=None, arch=
 
     @jax.jit
     def step(p, st, X, T):
-        l, g = jax.value_and_grad(loss_fn)(p, X, T, task, fwd)
+        l, g = jax.value_and_grad(loss_fn)(p, X, T, task, fwd, aux_r)
         up, st = opt.update(g, st, p)
         return optax.apply_updates(p, up), st, l
     rng = np.random.default_rng(1_000_003 * (seed + 1) + 7919 * ["T0", "T1", "T2", "T3", "T4", "T5"].index(task) + 31 * K)

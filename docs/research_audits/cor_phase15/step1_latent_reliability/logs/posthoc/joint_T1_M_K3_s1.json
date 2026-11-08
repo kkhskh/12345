@@ -1,0 +1,38 @@
+{
+ "ckpt": "checkpoints/main/T1_M_K3_s1.npz",
+ "task": "T1",
+ "site": "resid_pre2",
+ "note": "POST HOC",
+ "query_readout_D2": {
+  "iia": 0.018961253091508656,
+  "n_inf": 2426,
+  "kl_recovered": 0.002427220344543457,
+  "kl_recovered_mean": -0.018185140565037727,
+  "change_rate": 0.014333333333333333
+ },
+ "query_readout_D2_target_change": 0.010444444444444444,
+ "key_tag_D2": {
+  "iia": 0.8314097279472382,
+  "n_inf": 2426,
+  "kl_recovered": 0.9873037338256836,
+  "kl_recovered_mean": 0.8913565278053284,
+  "change_rate": 0.2521111111111111
+ },
+ "key_tag_D2_target_change": 0.10766666666666666,
+ "joint": {
+  "iia": 0.8359439406430338,
+  "n_inf": 2426,
+  "kl_recovered": 0.989531397819519,
+  "kl_recovered_mean": 0.9199691414833069,
+  "change_rate": 0.25222222222222224
+ },
+ "joint_target_change": 0.10833333333333334,
+ "joint_full_q_tokens": {
+  "iia": 0.9455894476504534,
+  "n_inf": 2426,
+  "kl_recovered": 0.9989977478981018,
+  "kl_recovered_mean": 0.9477499723434448,
+  "change_rate": 0.2698888888888889
+ },
+ "joint_full_q_tokens_target_change": 0.9637777777777777
+}

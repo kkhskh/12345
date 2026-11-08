@@ -115,7 +115,7 @@ src = {}
 for kind in kinds:
     for q in range(Q):
         Xp = A.pairs(env, Xb, q, kind, np.random.default_rng(BASE + 100 * (kinds.index(kind) + 1) + q))
-        cp, op = A.acts(p, Xp, [s_star] + [f"pattern{l}" for l in range(len(p["layers"]))])
+        cp, op = A.acts(p, Xp, [s_star] + ([f"pattern{l}" for l in range(len(p["layers"]))] if kind == "cond" else []))
         src[(kind, q)] = (Xp, cp, A.probs(op), np.asarray(op["conf"]))
 ll_nat = A.log_lik(env, Xb)
 lo, hi = np.percentile(ll_nat, 1), np.percentile(ll_nat, 99)

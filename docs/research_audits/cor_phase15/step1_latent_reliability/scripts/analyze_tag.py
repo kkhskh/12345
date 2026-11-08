@@ -94,6 +94,7 @@ for q in range(Q):
     a1, _ = A.acts(p, Dfit["X"][:1000], [s_tag]); a2, _ = A.acts(p, Xp, [s_tag])
     diffs.append((a2[s_tag][:, 6 * q:6 * q + 6] - a1[s_tag][:, 6 * q:6 * q + 6]).reshape(-1, d))
 U_D2 = A.contrast_basis(np.concatenate(diffs), ktag)
+U_D2_012 = A.contrast_basis(np.concatenate(diffs[:3]), ktag)          # addendum 2: reuse variant of D2
 res["overlap_tag_D2"] = float(np.linalg.svd(U_tag.T @ U_D2)[1].mean())
 
 
@@ -115,6 +116,7 @@ tests = {}
 for name, P in [("tag", A.proj(U_tag)), ("tag_D2", A.proj(U_D2)), ("full_src_q", I)]:
     tests[name] = {kind: inter(P, kind) for kind in kinds}
 tests["tag_fit_q012"] = {"cond_q345": inter(A.proj(U_012), "cond", qs=[3, 4, 5])}
+tests["tag_D2_fit_q012"] = {"cond_q345": inter(A.proj(U_D2_012), "cond", qs=[3, 4, 5])}
 rr = [{kind: inter(A.proj(U), kind) for kind in ["cond", "target"]} for U in rb]
 tests["random"] = {kind: {m: float(np.nanmean([r[kind][m] for r in rr])) for m in ["iia", "kl_recovered", "change_rate"]} for kind in ["cond", "target"]}
 
@@ -163,18 +165,22 @@ def _patch_cap(p, X, site, cap, mask, P, srcx):
             rec[n] = a
         return a
     o = N.forward(p, X, hk); return rec[cap], o
-mov = []
-for q in range(Q):
-    Xp, cp, pp, _ = src[("cond", q)]
-    pats = []
-    for i in range(0, len(Xb), A.CH):
-        r_, _ = _patch_cap(p, jnp.asarray(Xb[i:i + A.CH]), s_tag, Lp, jnp.asarray(smask(q), jnp.float32),
-                           jnp.asarray(A.proj(U_tag), jnp.float32), jnp.asarray(cp[s_tag][i:i + A.CH]))
-        pats.append(np.asarray(r_))
-    gp = group_mass(np.concatenate(pats), q); gb = group_mass(cb[Lp], q); ge = group_mass(cp[Lp], q)
-    num = ((gp - gb) * (ge - gb)).sum(); den = ((ge - gb) ** 2).sum()
-    mov.append((num, den))
-res["routing_shift_fraction_under_tag_patch"] = float(sum(a for a, _ in mov) / max(sum(b for _, b in mov), 1e-12))
+def routing_shift(U):
+    mov = []
+    for q in range(Q):
+        Xp, cp, pp, _ = src[("cond", q)]
+        pats = []
+        for i in range(0, len(Xb), A.CH):
+            r_, _ = _patch_cap(p, jnp.asarray(Xb[i:i + A.CH]), s_tag, Lp, jnp.asarray(smask(q), jnp.float32),
+                               jnp.asarray(A.proj(U), jnp.float32), jnp.asarray(cp[s_tag][i:i + A.CH]))
+            pats.append(np.asarray(r_))
+        gp = group_mass(np.concatenate(pats), q); gb = group_mass(cb[Lp], q); ge = group_mass(cp[Lp], q)
+        mov.append((((gp - gb) * (ge - gb)).sum(), ((ge - gb) ** 2).sum()))
+    return float(sum(a for a, _ in mov) / max(sum(b for _, b in mov), 1e-12))
+
+
+res["routing_shift_fraction_under_tag_patch"] = routing_shift(U_tag)
+res["routing_shift_fraction_under_tag_D2_patch"] = routing_shift(U_D2)
 # pattern-patch specificity (target pairs): reliability unchanged, so routing should transfer little
 qm_all = []
 PE, PEp, PP = [], [], []
@@ -189,10 +195,12 @@ if task == "T2":
     dm, dp_ = [], []
     for q in range(Q):
         Xp, cp, pp, cfp = src[("cond", q)]
-        _, cpt = A.patch_full(p, Xb, s_tag, smask(q), A.proj(U_tag), cp[s_tag])
-        dm.append(cfp[:, q] - np.asarray(ob["conf"])[:, q]); dp_.append(cpt[:, q] - np.asarray(ob["conf"])[:, q])
-    dm, dp_ = np.concatenate(dm), np.concatenate(dp_)
-    tests["conf_head_tag"] = dict(corr=float(np.corrcoef(dm, dp_)[0, 1]), slope=float((dm * dp_).sum() / max((dm ** 2).sum(), 1e-12)))
+        for nm, U in [("tag", U_tag), ("tag_D2", U_D2)]:
+            _, cpt = A.patch_full(p, Xb, s_tag, smask(q), A.proj(U), cp[s_tag])
+            dm.append((nm, cfp[:, q] - np.asarray(ob["conf"])[:, q])); dp_.append((nm, cpt[:, q] - np.asarray(ob["conf"])[:, q]))
+    for nm in ["tag", "tag_D2"]:
+        a_ = np.concatenate([v for n_, v in dm if n_ == nm]); b_ = np.concatenate([v for n_, v in dp_ if n_ == nm])
+        tests[f"conf_head_{nm}"] = dict(corr=float(np.corrcoef(a_, b_)[0, 1]), slope=float((a_ * b_).sum() / max((a_ ** 2).sum(), 1e-12)))
 res["tests"] = tests; res["seconds"] = time.time() - t0
 json.dump(res, open(outp, "w"), indent=1, default=float)
 print("done", outp, round(res["seconds"]), "s; s_tag", s_tag)

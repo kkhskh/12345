@@ -1,0 +1,4 @@
+T1 S 100 6000 checkpoints/pilot
+T4 S 100 6000 checkpoints/pilot
+T1 M 100 6000 checkpoints/pilot
+T4 M 100 6000 checkpoints/pilot

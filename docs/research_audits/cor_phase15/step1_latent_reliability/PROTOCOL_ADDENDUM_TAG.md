@@ -59,3 +59,33 @@ The frozen Type B criterion of `PROTOCOL.md` §6 (last-layer pattern patch IIA �
 - **Tag-and-route mechanism:** K1–K7, R1 and the frozen Type B criterion all pass in ≥ 2/3 of the seeds.
 - **Tag only:** K1–K7 pass, but R1 or Type B fails.
 - **Route only:** Type B passes, but some K fails.
+
+---
+
+## Addendum 2: output-free tag direction as a co-primary tag candidate
+
+**When it was registered.** After the first run of `analyze_tag.py` on the **pilot** M/T1 model, dev split only. Before any confirmation data, and before any analysis of a seed 0–2 model.
+
+**What the pilot run showed.**
+
+- The ridge-probe direction U_tag is decodable (R² 0.75) but only weakly causal (cond IIA 0.12).
+- The output-free contrast direction U_D2 (k = 1) is strongly causal:
+  - cond IIA 0.76, kl_recovered 0.96;
+  - target change rate 0.05;
+  - resample ablation drops accuracy below the own-question level;
+  - its content is the tag target (R² 0.67), not the reported values (0.007) or the histograms (0.0003).
+- The two directions overlap only partially (|cos| ≈ 0.41).
+
+This is the decodable-vs-used dissociation again. The probe finds a direction *correlated* with reliability; the model *uses* a different one.
+
+**What is added.** A second, parallel set of tag criteria, **K2′–K6′ and R1′**. It is identical to K2–K6 and R1 but uses U_D2 in place of U_tag:
+
+- K6′ uses U_D2 fitted on question 0–2 pairs only (`tag_D2_fit_q012`), tested on questions 3–5.
+- K1 (identification) and K7 (content of U_D2) are unchanged and shared by both sets.
+
+**Verdicts.**
+
+- "**Tag-and-route (D2 variant)**": K1, K2′–K6′, K7, R1′ and the frozen Type B criterion pass in ≥ 2/3 of the seeds.
+- Both variant verdicts are reported. Neither replaces the other, and neither replaces the frozen `PROTOCOL.md` primary answer.
+
+**Why this is a legitimate use of the D2 direction.** U_D2 is defined from input-level contrast pairs (cond) without model outputs or Bayes targets. Its *relational content* is then checked against the independently specified Bayes quantity (K7), with aggregate and value surrogates as controls.

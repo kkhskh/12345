@@ -192,6 +192,7 @@ d5220460deddec691ede2f4a11f90a86ecf925e110ecd5849b4da82ead8611ca  ./logs/adapt/e
 a0353528b242765d7e785c5b4c37ed108a0c9715e7d7d3279f6079bf42c98a94  ./logs/adapt/state_probe_fromT1_s0.json
 02440c4dfdde894d46d5db3dd69becabbcc72a5e6b7e023e99fb20b2fdb391b6  ./logs/adapt/state_probe_s0.json
 603da131ca75e435799024184e4979c8f8ba9b126b3d68b43b4a2cacac7c0b9c  ./logs/adapt/theory.json
+3f2de4a4463a10dbcaa52c54200ee562635e0d3117f0f5cb062b520f6f60e5d9  ./logs/clean_extraction_check.txt
 0e07c14ce1afdd28e3239f5189b1ae2269e6fbce6e3fbf4e815e3922233cc0a0  ./logs/extrap/dev.json
 f79131f075b0244dc6a3d03b582e89127c830bf57a27246b8ff21d1833ea46fa  ./logs/extrap/frozen_fits.json
 1e3b0fc0cf1fec6cc2c5cd0503f6041bff759f4b4eef461e59acc854fe62a2c0  ./logs/extrap/heldout_outcome.json

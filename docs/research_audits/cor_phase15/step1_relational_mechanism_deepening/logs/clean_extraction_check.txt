@@ -1,0 +1,9 @@
+[1] manifest
+    manifest OK
+[2] exact-Bayes reproductions
+    OK   logs/od_check.json
+    OK   logs/trans/restricted_bayes.json
+    OK   logs/adapt/theory.json
+[3] learned-model reproduction (committed checkpoint)
+    OK   eval_adapt fromT1p1_s1 max|diff| = 0.00e+00
+done: outputs in /tmp/cor_clean_extract/docs/research_audits/cor_phase15/step1_relational_mechanism_deepening/verify

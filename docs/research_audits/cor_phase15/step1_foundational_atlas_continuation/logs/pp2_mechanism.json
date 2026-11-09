@@ -1,0 +1,73 @@
+{
+ "tf_s0": {
+  "commit": 0.9852989912033081,
+  "commit_unique_top": 0.9822372794151306,
+  "commit_tied_top": 0.9989988207817078,
+  "picks_top_agreement_group": 0.3976345840130506,
+  "local_index": 0.5900007428868583
+ },
+ "tf_s1": {
+  "commit": 0.8938246965408325,
+  "commit_unique_top": 0.8975588083267212,
+  "commit_tied_top": 0.8771167397499084,
+  "picks_top_agreement_group": 0.6105220228384992,
+  "local_index": 0.8347819627070797
+ },
+ "tf_s2": {
+  "commit": 0.8691501617431641,
+  "commit_unique_top": 0.8873353004455566,
+  "commit_tied_top": 0.7877817153930664,
+  "picks_top_agreement_group": 0.8266721044045677,
+  "local_index": 0.48651660352128373
+ },
+ "tf_s10": {
+  "commit": 0.964863121509552,
+  "commit_unique_top": 0.9646412134170532,
+  "commit_tied_top": 0.9658554792404175,
+  "picks_top_agreement_group": 0.40089722675367045,
+  "local_index": 0.8703662432211574
+ },
+ "tf_s11": {
+  "commit": 0.9565231204032898,
+  "commit_unique_top": 0.9484032988548279,
+  "commit_tied_top": 0.9928545355796814,
+  "picks_top_agreement_group": 0.48898858075040785,
+  "local_index": 0.7043310303840725
+ },
+ "tf_s12": {
+  "commit": 0.8627795577049255,
+  "commit_unique_top": 0.8724231719970703,
+  "commit_tied_top": 0.8196289539337158,
+  "picks_top_agreement_group": 0.7932300163132137,
+  "local_index": 0.30495505534507095
+ },
+ "tf_s13": {
+  "commit": 0.8561962246894836,
+  "commit_unique_top": 0.8697888255119324,
+  "commit_tied_top": 0.7953766584396362,
+  "picks_top_agreement_group": 0.7116639477977161,
+  "local_index": 0.5285639997028453
+ },
+ "ds_s0": {
+  "commit": 0.9392299652099609,
+  "commit_unique_top": 0.9978193640708923,
+  "commit_tied_top": 0.6770743727684021,
+  "picks_top_agreement_group": 1.0,
+  "local_index": 0.16395512963375677
+ },
+ "ds_s1": {
+  "commit": 0.9425765872001648,
+  "commit_unique_top": 0.9972766041755676,
+  "commit_tied_top": 0.6978241801261902,
+  "picks_top_agreement_group": 1.0,
+  "local_index": 0.0497734195082089
+ },
+ "ds_s2": {
+  "commit": 0.9397156834602356,
+  "commit_unique_top": 0.9973441362380981,
+  "commit_tied_top": 0.681860089302063,
+  "picks_top_agreement_group": 1.0,
+  "local_index": 0.10623282074140108
+ },
+ "spearman_commit_vs_local": 0.24848484848484845
+}

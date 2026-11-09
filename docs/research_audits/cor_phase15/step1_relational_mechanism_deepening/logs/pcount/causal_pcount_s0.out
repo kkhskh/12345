@@ -1,0 +1,106 @@
+{
+"readout|count_subspace": {
+"acc": 0.625,
+"drop_frac": 0.6499460625674217,
+"KL_own_to_model": 0.7097102697534252
+},
+"readout|random": {
+"acc": 0.70375,
+"drop_frac": 0.1402373247033444,
+"KL_own_to_model": 0.37624780386443657
+},
+"readout|variance_matched": {
+"acc": 0.5203333333333333,
+"drop_frac": 1.32740021574973,
+"KL_own_to_model": 0.3531885129254079
+},
+"source|count_subspace": {
+"acc": 0.43383333333333335,
+"drop_frac": 1.8872707659115417,
+"KL_own_to_model": 1.1202093548675454
+},
+"source|random": {
+"acc": 0.7078333333333333,
+"drop_frac": 0.11380798274002192,
+"KL_own_to_model": 0.3515975986346498
+},
+"source|variance_matched": {
+"acc": 0.4360833333333333,
+"drop_frac": 1.8727076591154255,
+"KL_own_to_model": 1.1678947376431321
+}
+}
+{
+"cond|readout|count_subspace": {
+"iia": 0.42570364238410596,
+"n_inf": 4832,
+"kl_rec": 0.3565901517868042,
+"change_rate": 0.26866666666666666
+},
+"cond|readout|full": {
+"iia": 0.7839403973509934,
+"n_inf": 4832,
+"kl_rec": 0.8511015176773071,
+"change_rate": 0.38225
+},
+"cond|readout|abstract_count_variable": {
+"iia": 0.6908112582781457,
+"n_inf": 4832,
+"kl_rec": 0.6578490138053894,
+"change_rate": 0.36325
+},
+"cond|source|count_subspace": {
+"iia": 0.1322433774834437,
+"n_inf": 4832,
+"kl_rec": -0.06783831119537354,
+"change_rate": 0.14325
+},
+"cond|source|full": {
+"iia": 0.15335264900662252,
+"n_inf": 4832,
+"kl_rec": 0.06988152861595154,
+"change_rate": 0.12758333333333333
+},
+"cond|source|abstract_count_variable": {
+"iia": 0.05691225165562914,
+"n_inf": 4832,
+"kl_rec": 0.013762354850769043,
+"change_rate": 0.04883333333333333
+},
+"relabel_other_questions|readout|count_subspace": {
+"iia": 0.0620815581253804,
+"n_inf": 1643,
+"kl_rec": 0.01569288969039917,
+"change_rate": 0.017
+},
+"relabel_other_questions|readout|full": {
+"iia": 0.24771758977480218,
+"n_inf": 1643,
+"kl_rec": 0.15488800406455994,
+"change_rate": 0.06266666666666666
+},
+"relabel_other_questions|readout|abstract_count_variable": {
+"iia": 0.0,
+"n_inf": 1643,
+"kl_rec": 0.0,
+"change_rate": 0.0
+},
+"relabel_other_questions|source|count_subspace": {
+"iia": 0.3146682897139379,
+"n_inf": 1643,
+"kl_rec": 0.08362463116645813,
+"change_rate": 0.0765
+},
+"relabel_other_questions|source|full": {
+"iia": 0.7090687766281193,
+"n_inf": 1643,
+"kl_rec": 0.7274336814880371,
+"change_rate": 0.12541666666666668
+},
+"relabel_other_questions|source|abstract_count_variable": {
+"iia": 0.0,
+"n_inf": 1643,
+"kl_rec": 0.0,
+"change_rate": 0.0
+}
+}

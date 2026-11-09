@@ -16,7 +16,7 @@ opt = optax.adamw(optax.warmup_cosine_decay_schedule(0.0, 1e-3, min(200, steps /
 def step(p, st, X, Tt):
     l, g = jax.value_and_grad(N.loss_fn)(p, X, Tt, task, N.forward, False); up, st = opt.update(g, st, p); return optax.apply_updates(p, up), st, l
 rng = np.random.default_rng(1_000_003 * (seed + 1) + 7919 * ["T0", "T1", "T2", "T3", "T4", "T5"].index(task) + 31 * K)
-snaps = [250, 500] + list(range(1000, 2001, 100))
+snaps = [250, 500, 1000, 1200, 1400, 1500, 1600, 1800, 2000]   # budget cut from every 100 steps (COMPUTE_LOG)
 for i in range(2000):
     d = B.sample_fast(env, 256, rng); p, st, l = step(p, st, jnp.asarray(d["X"]), N.batch_targets(env, d))
     if i + 1 in snaps: C.save(os.path.join(out, f"step{i + 1}.npz"), jax.tree_util.tree_map(np.asarray, p))

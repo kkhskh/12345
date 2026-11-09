@@ -1,0 +1,128 @@
+{
+ "arm": "plocal_s0",
+ "ckpt": "../step1_foundational_atlas_continuation/checkpoints/ft_plocal.npz",
+ "kdim": 4,
+ "acc_clean": 0.5696666666666667,
+ "acc_own_bayes": 0.5709166666666666,
+ "acc_bayes": 0.74225,
+ "KL_own_to_clean": 0.0034502124992034336,
+ "ablation": {
+  "readout|count_subspace": {
+   "acc": 0.5468333333333333,
+   "drop_frac": 22833333.33333337,
+   "KL_own_to_model": 0.05287253296609953
+  },
+  "readout|random": {
+   "acc": 0.5686666666666667,
+   "drop_frac": 1000000.0000000008,
+   "KL_own_to_model": 0.014542381098275575
+  },
+  "readout|variance_matched": {
+   "acc": 0.28791666666666665,
+   "drop_frac": 281750000.0,
+   "KL_own_to_model": 0.39498607080787346
+  },
+  "source|count_subspace": {
+   "acc": 0.5676666666666667,
+   "drop_frac": 2000000.0000000016,
+   "KL_own_to_model": 0.0193938091832983
+  },
+  "source|random": {
+   "acc": 0.5696666666666667,
+   "drop_frac": 0.0,
+   "KL_own_to_model": 0.004788064476513215
+  },
+  "source|variance_matched": {
+   "acc": 0.5649166666666666,
+   "drop_frac": 4750000.000000032,
+   "KL_own_to_model": 0.014593401771050788
+  }
+ },
+ "subspace_variance_share": {
+  "readout": {
+   "count": 0.11080522835254669,
+   "random": 0.06556684523820877,
+   "varmatched": 0.5997950434684753
+  },
+  "source": {
+   "count": 0.4891314208507538,
+   "random": 0.06365462392568588,
+   "varmatched": 0.3320602476596832
+  }
+ },
+ "interchange": {
+  "cond|readout|count_subspace": {
+   "iia": 0.35294117647058826,
+   "n_inf": 799,
+   "kl_rec": 0.24557793140411377,
+   "change_rate": 0.04541666666666667
+  },
+  "cond|readout|full": {
+   "iia": 0.5394242803504381,
+   "n_inf": 799,
+   "kl_rec": 0.62127685546875,
+   "change_rate": 0.058416666666666665
+  },
+  "cond|readout|abstract_count_variable": {
+   "iia": 0.20150187734668334,
+   "n_inf": 799,
+   "kl_rec": -0.14113295078277588,
+   "change_rate": 0.04275
+  },
+  "cond|source|count_subspace": {
+   "iia": 0.37296620775969963,
+   "n_inf": 799,
+   "kl_rec": 0.3542056083679199,
+   "change_rate": 0.04775
+  },
+  "cond|source|full": {
+   "iia": 0.44430538172715894,
+   "n_inf": 799,
+   "kl_rec": 0.42720282077789307,
+   "change_rate": 0.05441666666666667
+  },
+  "cond|source|abstract_count_variable": {
+   "iia": 0.057571964956195244,
+   "n_inf": 799,
+   "kl_rec": 0.002440512180328369,
+   "change_rate": 0.009583333333333333
+  },
+  "relabel_other_questions|readout|count_subspace": {
+   "iia": 0.3508021390374332,
+   "n_inf": 935,
+   "kl_rec": 0.24610143899917603,
+   "change_rate": 0.05558333333333333
+  },
+  "relabel_other_questions|readout|full": {
+   "iia": 0.5176470588235295,
+   "n_inf": 935,
+   "kl_rec": 0.5958093404769897,
+   "change_rate": 0.06916666666666667
+  },
+  "relabel_other_questions|readout|abstract_count_variable": {
+   "iia": 0.0,
+   "n_inf": 935,
+   "kl_rec": 0.0,
+   "change_rate": 0.0
+  },
+  "relabel_other_questions|source|count_subspace": {
+   "iia": 0.37433155080213903,
+   "n_inf": 935,
+   "kl_rec": 0.290540874004364,
+   "change_rate": 0.058666666666666666
+  },
+  "relabel_other_questions|source|full": {
+   "iia": 0.4320855614973262,
+   "n_inf": 935,
+   "kl_rec": 0.3424675464630127,
+   "change_rate": 0.063
+  },
+  "relabel_other_questions|source|abstract_count_variable": {
+   "iia": 0.0,
+   "n_inf": 935,
+   "kl_rec": 0.0,
+   "change_rate": 0.0
+  }
+ },
+ "relabel_model_change_rate": 0.07791666666666666
+}

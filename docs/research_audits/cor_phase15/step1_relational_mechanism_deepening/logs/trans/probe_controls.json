@@ -1,0 +1,35 @@
+{
+ "MAP_ceiling": {
+  "sigma": 0.6166666666666667,
+  "tau": 0.6256666666666667,
+  "composite": 0.394
+ },
+ "random_network": {
+  "sigma": {
+   "linear": 0.2705,
+   "mlp": 0.374
+  },
+  "tau": {
+   "linear": 0.276,
+   "mlp": 0.3815
+  },
+  "composite": {
+   "linear": 0.1595,
+   "mlp": 0.1775
+  }
+ },
+ "raw_input_onehot": {
+  "sigma": {
+   "linear": 0.173,
+   "mlp": 0.508
+  },
+  "tau": {
+   "linear": 0.174,
+   "mlp": 0.4875
+  },
+  "composite": {
+   "linear": 0.163,
+   "mlp": 0.169
+  }
+ }
+}

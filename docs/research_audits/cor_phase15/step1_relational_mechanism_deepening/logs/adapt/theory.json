@@ -1,0 +1,48 @@
+{
+ "acc": {
+  "bayes": 0.70645,
+  "static": 0.6896916666666667,
+  "bayes_changed": 0.6922788605697151,
+  "static_changed": 0.660432283858071,
+  "bayes_unchanged": 0.7348348348348348,
+  "static_unchanged": 0.7482982982982983
+ },
+ "count_insufficiency": {
+  "max_spread": 0.35009084306768706,
+  "median_spread": 0.04156594222716746,
+  "n_classes": 2536
+ },
+ "posterior_active_group_by_distance_q_minus_c": {
+  "-5": 0.5037092765550109,
+  "-4": 0.5161084538960886,
+  "-3": 0.49653478389869316,
+  "-2": 0.44692628694030223,
+  "-1": 0.3611354498369058,
+  "0": 0.36420286314176686,
+  "1": 0.4464743412169306,
+  "2": 0.4957144728422223,
+  "3": 0.5181194589302368,
+  "4": 0.5116548834329249
+ },
+ "triggered_copier": {
+  "a_rel": 0.6600000000000001,
+  "a_copier_triggered": 0.5373333333333332,
+  "rho_static_matched": 0.3059999999999998,
+  "true_trig": {
+   "P_triggered_mean": 0.6566619759073553,
+   "acc_mixture_bayes": 0.6932708333333333,
+   "acc_assume_trig": 0.6946666666666667,
+   "acc_assume_static": 0.6877916666666667
+  },
+  "true_stat": {
+   "P_triggered_mean": 0.34194004638493014,
+   "acc_mixture_bayes": 0.6772291666666667,
+   "acc_assume_trig": 0.671875,
+   "acc_assume_static": 0.6784583333333334
+  }
+ },
+ "camouflaged_copier": {
+  "rho": 0.4900000000000002,
+  "max_abs_diff_pair_law": 2.0816681711721685e-17
+ }
+}

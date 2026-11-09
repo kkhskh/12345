@@ -1,0 +1,2 @@
+start commit: 8e6f7e919952b59c6f95925684bc7eba4e13e8a0 (branch cor-phase15-step1-foundational-continuation, tip)
+dependencies (read-only imports): ../step1_latent_reliability/src (nets, bayes, ckpt, analysis), ../step1_relational_computation_atlas/src (gen_family, fwd, train_ext, local_bayes), ../step1_foundational_atlas_continuation/src (tasks_ext, train_tasks, pp2_sig, roles_engine)

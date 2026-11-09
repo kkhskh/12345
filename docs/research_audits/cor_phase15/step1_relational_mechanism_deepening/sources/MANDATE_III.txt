@@ -1,0 +1,1481 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION III
+## Relational Computation: Mechanism Discovery, Causal Identification, Composition, Generalization, and Mathematical Structure
+
+### Autonomous research mandate — continuation of the existing COR repository
+
+You are continuing the COR research program from:
+
+`cor-phase15-step1-foundational-continuation`
+
+The previous research package is:
+
+`step1_foundational_atlas_continuation/`
+
+This investigation is a substantial continuation of the mathematical and mechanistic research. It is not a new paper draft, a generic literature survey, or a repetition of previously successful experiments.
+
+**The central objective is to understand what kinds of relational computation Transformers learn, how those computations causally influence candidate decisions, which mathematical properties they share, where they fail, and what can be identified or predicted independently.**
+
+We are still in the foundational investigation.
+
+Do not propose closing Step 1.
+
+Do not move to Step 2 or Phase 2.
+
+Do not choose a final thesis for the project.
+
+Do not assume that latent reliability, agreement counting, conditional routing, or the original COR obstruction score is the correct universal formulation.
+
+The scientific task is to investigate the computational landscape deeply enough that the mathematics, causal mechanisms, boundaries, and counterexamples determine which theories remain plausible.
+
+You must perform actual research.
+
+---
+
+# 1. ESTABLISHED RECORD — READ BEFORE STARTING
+
+Read the complete relevant repository history, especially:
+
+- Original COR definitions and Phase 1 fatality audit.
+- Phase 1.5 Steps 1A–1E.
+- Foundational causal-bridge investigations.
+- Learned-mediator identification.
+- Latent-reliability v1 and v2.
+- Relational-computation atlas.
+- The latest foundational-atlas continuation.
+
+The latest package contains:
+
+- `MAIN_FOUNDATIONAL_RESULT.md`
+- `TRANSFERRED_FEATURE_IDENTIFICATION.md`
+- `BEYOND_LATENT_RELIABILITY.md`
+- `EXTRAPOLATION_AND_INTERNAL_STRUCTURE.md`
+- `COMPUTATIONAL_CLASSES_AND_EQUIVALENCE.md`
+- `REPRESENTATION_AND_CAUSAL_IDENTIFICATION.md`
+- `THEOREMS_COUNTEREXAMPLES_AND_LIMITS.md`
+- `RELATIONAL_GENERATIVE_LANDSCAPE.md`
+- `OPEN_FOUNDATIONAL_MAP.md`
+- `PROSPECTIVE_PREDICTIONS.md`
+- `BASELINES_AND_NOVELTY.md`
+- Reviewer reports and adjudications.
+- The actual source code, checkpoints, and logs.
+
+Read the original implementations rather than relying on the executive summaries.
+
+Preserve all historical results and failed prospective predictions.
+
+Work on a new research branch and in a new isolated directory.
+
+Record the starting commit and source dependencies.
+
+Do not repeat the historical research unless reproduction or an independent check is needed to support a new claim.
+
+---
+
+# 2. THE SIX MAIN OPEN SCIENTIFIC PROBLEMS
+
+The previous submission left six connected problems.
+
+## Problem A — The transferred computation is not causally identified
+
+P-count pretraining recovers approximately 88% of the observed T1→T4 curriculum advantage.
+
+But:
+
+- P-count explicitly supervises leave-question agreement counts.
+- The original frozen feature probe examined source-token representations.
+- The relevant counts were later decoded perfectly at readout tokens.
+- Feature location differs between P-count and T1.
+- Probe accuracy does not establish causal necessity.
+- Only one seed per pretraining arm was evaluated.
+- The early-learning timeline is confounded by the 1,000-step fine-tuning protocol.
+
+We know that relational pretraining is useful in the tested configuration.
+
+We do not yet understand exactly what transferable computation it creates.
+
+## Problem B — GATE's actual causal pathway is incompletely reconstructed
+
+GATE is a second learned relation-sensitive decision mechanism outside Bayesian latent reliability.
+
+The relation is a modular compatibility constraint between non-answer sources.
+
+The learned model reaches approximately 0.900 accuracy against Bayes 0.899.
+
+But the visually salient last-layer relation-dependent attention is causally dispensable.
+
+Removing every last-layer attention-head output leaves performance essentially unchanged.
+
+The actual pathway appears to involve:
+
+- Earlier relation-dependent evidence-token computation.
+- Integration into the readout residual.
+- Subsequent residual and MLP computation.
+- Candidate-specific output.
+
+This must be reconstructed more precisely.
+
+We must not mistake a correlated attention pattern for the mechanism.
+
+## Problem C — The prospective internal predictor of extrapolation failed
+
+The frozen P-A predictor had held-out error 0.126 against an architecture-only baseline of 0.091.
+
+It also ranked the held-out Transformers incorrectly.
+
+This is a real failed prediction.
+
+It is not evidence that internal structure can never predict extrapolation.
+
+But we must stop treating attractive internal signatures as explanatory unless they predict something beyond architectural and behavioral baselines.
+
+## Problem D — TRANS composition was not adequately investigated
+
+The TRANS setting involves episode-shared latent transformations σ and τ.
+
+The model showed partial one-hop learning:
+
+- AB: 0.933 versus Bayes 0.952.
+- BC: 0.629 versus Bayes 0.653.
+- C-only: 0.336 versus Bayes 0.487.
+
+It was stopped after 4,000 training steps while learning was still developing.
+
+The model did not meaningfully use C reports in the recorded checks.
+
+It remains unknown whether:
+
+- σ was fully learned.
+- τ was encoded.
+- The transformations were composed.
+- The network could learn composition with more training.
+- The observed failure is optimization, representation, or task-structure dependent.
+
+This entire mathematical and computational direction remains open.
+
+## Problem E — We do not have a nontrivial common causal class
+
+T4 and GATE both use source relationships to affect candidate decisions.
+
+But they use different computational pathways.
+
+T4 contains reliability-sensitive attention routing.
+
+GATE does not require its final-layer routing at all.
+
+TRANS may eventually provide a third mechanism involving composition rather than source weighting.
+
+We need to determine whether these mechanisms share an identifiable mathematical or causal structure, or whether they are genuinely distinct classes.
+
+Do not assume they unify.
+
+Do not reject unification merely because their internal components differ.
+
+## Problem F — Important generality investigations were never executed
+
+The latest report explicitly left unfinished:
+
+- Additional independent seeds for the pretraining experiments.
+- Longer fine-tuning checks needed to remove the learning-dynamics confound.
+- A test of whether TRANS represents τ.
+- Adaptive sources.
+- Learned models under changing or unknown source groups.
+- Partial copying and collusion regimes.
+- Broader architecture and candidate settings.
+
+These omissions must be incorporated into the research.
+
+They are not optional footnotes.
+
+---
+
+# 3. RESEARCH STRATEGY
+
+Organize the investigation around three connected levels.
+
+**Level I — Mathematical information requirements**
+
+What relationships among sources are relevant to the decision, and under what independently specified assumptions?
+
+**Level II — Computational implementation**
+
+How does a trained Transformer encode, transform, transmit, and use that information?
+
+**Level III — Causal and predictive theory**
+
+What decision-related consequences follow, what remains invariant across implementations, and what can be predicted in unseen settings?
+
+Every major experimental result should connect to at least one formal question at another level.
+
+Do not create a collection of disconnected task reports.
+
+Use proofs to select experiments and experimental counterexamples to refine proofs.
+
+---
+
+# 4. WORKSTREAM A — CAUSAL IDENTIFICATION OF THE P-COUNT TRANSFER
+
+This is a principal investigation.
+
+## A1. Reproduce the established transfer contrast
+
+The recorded frozen-feature T4 accuracies were approximately:
+
+| Pretraining | Accuracy |
+|---|---:|
+| Random | 0.554 |
+| P-local | 0.576 |
+| P-group | 0.669 |
+| P-count | 0.723 |
+| Full T1 | 0.742 |
+
+Recover the exact training configurations and evaluation procedures.
+
+Verify that all comparisons use compatible data distributions, training budgets, frozen layers, optimizer settings, and evaluation definitions.
+
+The result that P-count transfers approximately 88% of the T1 gain is exploratory evidence from one seed per arm, not a population-level claim.
+
+## A2. Repeat across independent seeds
+
+Run enough new seeds to estimate whether:
+
+- P-count consistently transfers.
+- P-group's intermediate performance is reliable.
+- P-local consistently fails.
+- The P-count versus full T1 difference is stable.
+- Feature locations vary across seeds.
+
+Prefer at least five independent seeds per central comparison if computationally feasible.
+
+Use paired seeds or matched initialization schedules where scientifically appropriate.
+
+Report uncertainty, individual outcomes, failures, and actual compute usage.
+
+Do not silently remove difficult seeds.
+
+Do not expand to huge models before resolving the central feature question.
+
+## A3. Locate the actual relational information
+
+Examine:
+
+- Source tokens.
+- Readout tokens.
+- Intermediate residual streams.
+- Attention queries and keys.
+- Attention values.
+- MLP activations.
+- Distributed subspaces.
+- Layerwise transformations.
+
+The previous P-count result found perfectly decodable agreement counts at readout tokens.
+
+Determine whether those counts are:
+
+1. Explicitly stored.
+2. Reconstructible from other source information.
+3. Computed on demand.
+4. Distributed across several representations.
+5. Merely correlated with a more general computational variable.
+
+Do not require a single linear probe to identify the mechanism.
+
+Do not select the feature because it predicts the evaluated candidate margin best.
+
+Use independently specified generator labels and frozen identification procedures.
+
+## A4. Test causal necessity and sufficiency
+
+Investigate whether selectively changing the count-related computation changes T4 transfer.
+
+Required controls include:
+
+- Relation-feature ablation.
+- Matched-dimensional control subspaces.
+- Variance-matched ablation.
+- Source-label-preserving intervention.
+- Count-changing intervention.
+- Count-preserving source changes.
+- Path-specific intervention.
+- Restoring the computation where meaningful.
+- Full downstream recomputation.
+
+Determine whether removing the count representation selectively removes the cross-question benefit or merely damages the model generally.
+
+Do not call mean-ablation natural necessity.
+
+Distinguish naturally reachable interventions from internal surgical interventions.
+
+## A5. Functional interchange between implementations
+
+P-count places linearly decodable count information at readout tokens.
+
+T1 often represents related information at source tokens.
+
+Investigate whether they implement functionally equivalent intermediate computations despite different representation locations.
+
+Do not require raw activation equality.
+
+Attempt causal interchange through:
+
+- Independently identified feature alignments.
+- A shared abstract count variable.
+- Matched input and intervention families.
+- Valid computational transport between sites, if identifiable.
+
+A successful decoding alignment is insufficient.
+
+The relevant test is whether the abstract variable supports equivalent downstream causal predictions.
+
+## A6. Resolve the learning-dynamics confound
+
+The earlier snapshots used a 1,000-step T4 fine-tune.
+
+That protocol measures how quickly a frozen representation becomes usable, not necessarily when the representation first exists.
+
+Correct the design.
+
+Use:
+
+- More frequent T1 snapshots, including approximately every 100 steps through the previously ambiguous 1,000–2,000-step window.
+- Fixed 2,000-step fine-tunes matching the principal transfer protocol.
+- Longer fine-tunes where necessary to estimate asymptotic usability.
+- Probe evaluations independent of fine-tuning speed.
+- Appropriate representation-content and causal tests.
+
+Separate:
+
+- Emergence of the information.
+- Accessibility of the information.
+- Emergence of causal use.
+- Ease of optimization.
+- Final downstream transfer.
+
+Do not declare an abrupt representational phase transition based on a short fine-tune plateau.
+
+## A7. Investigate whether counts are necessary or only convenient
+
+An optimal decision may depend on a sufficient statistic without requiring the network to store that statistic explicitly.
+
+Construct and investigate models that:
+
+- Compute counts explicitly.
+- Use pairwise relational features.
+- Accumulate partial counts.
+- Reread source observations directly.
+- Encode the reliability posterior instead of counts.
+- Use an alternative sufficient representation.
+
+Determine when explicit counting improves:
+
+- Sample efficiency.
+- Optimization.
+- Reuse across questions.
+- Context-length generalization.
+- Multi-task performance.
+- Robustness to source changes.
+
+**Required deliverable:** a causal and mathematical account of what P-count pretraining transfers, why it helps, where the computation resides, and which parts generalize beyond a single seed.
+
+---
+
+# 5. WORKSTREAM B — COMPLETE THE GATE MECHANISM
+
+The current GATE result is not yet a fully reconstructed circuit.
+
+The task defines a non-answer relation:
+
+x₀ + x₁ ≡ 0 (mod K).
+
+That relationship determines which answer-bearing evidence pair is informative.
+
+The model reaches Bayes-level accuracy.
+
+The original causal observations include:
+
+- Removing layer-0 attention outputs reduces accuracy to approximately 0.691.
+- Removing layer-1 attention outputs reduces it to approximately 0.881.
+- Removing all layer-2 attention outputs leaves accuracy approximately 0.900.
+- Patching evidence-token states at layer-1 input transfers a substantial gate-dependent effect.
+- Patching the full readout residual at layer-2 input transfers almost the entire effect.
+- Patching the layer-2 query alone does not.
+
+These observations locate a causal dependency but do not fully explain its computation.
+
+## B1. Reconstruct the forward mechanism
+
+Trace the actual computational pathway from:
+
+- Gate-source embeddings.
+- Gate-source compatibility.
+- Evidence-token transformations.
+- Layer-0 attention and output projections.
+- Layer-1 attention.
+- Intermediate MLP computation.
+- Readout residual.
+- Layer-2 MLP and skip connection.
+- Final candidate logits.
+
+Include the full Q/K/V/O, normalization, and residual computation.
+
+Do not focus on attention patterns alone.
+
+Identify what operation actually makes the candidate decision conditional on the gate relation.
+
+## B2. Separate information transmission from decision computation
+
+There may be distinct stages:
+
+1. Representing the modular relation.
+2. Transmitting relation information to evidence tokens.
+3. Combining that information with candidate-bearing evidence.
+4. Producing candidate margins.
+
+Determine whether the model stores a gating variable or computes a more direct candidate-specific representation.
+
+A feature that decodes the gate but never affects the decision is not a mediator.
+
+A readout residual encoding the final answer is not automatically a separate compatibility representation.
+
+## B3. Identify necessary and sufficient pathways
+
+Use:
+
+- Path patching.
+- Targeted attention-head interventions.
+- MLP interventions.
+- Readout-residual interventions.
+- Matched-state controls.
+- Negative-control sources.
+- Selective gate changes while answer evidence remains fixed.
+
+Compare interventions at the gate-source, evidence-token, and readout sites.
+
+Test whether a small computational subgraph is sufficient for the gate-dependent candidate response.
+
+Also investigate redundant or compensating pathways.
+
+Ablating a full layer may change output for unrelated reasons, so use finer interventions and matched controls.
+
+## B4. Generalize GATE
+
+Train additional seeds.
+
+Investigate:
+
+- Larger K.
+- Different modular constraints.
+- Nonlinear compatibility rules.
+- Different numbers of candidate-evidence pairs.
+- Multiple simultaneous gates.
+- Noisy gate observations.
+- Contradictory or partially informative gating sources.
+- Gate relations that change across questions.
+- Compositions of several compatibility conditions.
+
+For each variant, derive the correct reference decision first.
+
+Determine whether the learned computation remains similar or changes.
+
+Do not interpret another successful gate classifier as proof of a shared mechanism.
+
+## B5. Compare with reliability routing
+
+Determine whether GATE and T4 share:
+
+- An abstract intermediate variable.
+- A conditional evidence-selection operation.
+- A causally identified factorization.
+- A candidate-specific response rule.
+- Or only broad input/output dependence on source relationships.
+
+Construct counterexamples to overly broad definitions.
+
+**Required deliverable:** a reproducible, causally verified computational reconstruction of GATE, with multiple learned implementations and a precise comparison against T4.
+
+---
+
+# 6. WORKSTREAM C — FINISH THE TRANS COMPOSITION INVESTIGATION
+
+This is a major research priority, not a side experiment.
+
+The task uses latent transformations σ and τ shared across questions.
+
+Channel A reports Y.
+
+Channel B reports σ(Y).
+
+Channel C reports τσ(Y).
+
+Different questions expose different channel combinations.
+
+Certain decisions require inferring transformations from other questions and applying their composition.
+
+The earlier model learned partial one-hop structure but not the C-only decision.
+
+Training was truncated at 4,000 steps.
+
+That run is inconclusive about learnability.
+
+## C1. Verify the underlying statistical problem
+
+Reconstruct the generator.
+
+Verify:
+
+- What σ and τ represent.
+- Which observations identify each map.
+- Which questions provide the necessary information.
+- What the exact Bayes reference knows.
+- When the maps are statistically identifiable.
+- When the composition is identifiable even if the individual maps are not.
+- What happens under incomplete coverage of the transformation domain.
+
+Distinguish individual-map identification from identification of their composition.
+
+Derive information-theoretic or exact-enumeration limits for small alphabets.
+
+## C2. Complete the original learning experiment
+
+Run the originally intended longer schedule and further training where justified by the learning curves.
+
+Use multiple independent seeds.
+
+Save intermediate checkpoints.
+
+Evaluate separately:
+
+- AB questions.
+- BC questions.
+- C-only questions.
+- Source-specific cross-entropy.
+- Candidate decision margins.
+- Generalization to unseen map combinations.
+
+Do not stop a run during an obvious learning transition and interpret nonconvergence as failure of the computation.
+
+Do not train indefinitely until a positive result appears without recording the resulting exploration.
+
+Define practical convergence and stopping criteria.
+
+## C3. Determine whether σ and τ are represented
+
+Investigate:
+
+- Decodability of σ.
+- Decodability of τ.
+- Decodability of τσ.
+- Source-specific information.
+- Candidate-specific information.
+- Distributed and nonlinear encodings.
+- Map equivalence under relabeling.
+
+An unsuccessful coordinate-level probe does not establish absence of a represented transformation.
+
+Use independently identified map semantics, held-out probes, and suitable nonlinear or intervention-based controls.
+
+Determine whether information about τ reaches the locations required for C-only decisions.
+
+## C4. Test actual causal use
+
+Intervene on evidence that identifies σ while controlling τ where possible.
+
+Intervene on evidence that identifies τ while controlling σ.
+
+Test changes to the composed transformation.
+
+Use valid episodes and matched counterfactuals.
+
+Determine whether changing either component produces the predicted candidate response.
+
+Attempt pathway interventions identifying where composition occurs.
+
+Separate:
+
+- Representation of both maps.
+- Independent use of each map.
+- Actual composition.
+- A memorized answer association.
+- Direct lookup of the final mapping.
+
+## C5. Investigate curricula
+
+Compare:
+
+- No pretraining.
+- σ-only pretraining.
+- τ-only pretraining.
+- Separate-map pretraining.
+- Sequential composition curricula.
+- Explicit auxiliary map supervision.
+- Training with intermediate composition questions.
+- Matched-compute unrelated pretraining.
+
+Derive what each curriculum teaches before running it.
+
+Investigate whether composition emerges naturally or only under additional supervision.
+
+Determine which earlier representations transfer.
+
+## C6. Test compositional generalization
+
+Hold out combinations of transformations during training.
+
+Test new compositions formed from known individual maps.
+
+Study changes in map alphabet size and transformation family.
+
+Use at least one setting where memorizing full map pairs cannot explain success on held-out combinations.
+
+Compare with explicit composition algorithms and appropriately strong neural baselines.
+
+## C7. Develop the mathematical mechanism
+
+If composition succeeds, identify:
+
+- The computational representation of the maps.
+- The operator implementing composition.
+- The candidate-specific consequence.
+- The intervention family.
+- The relevant invariants.
+- The dependence on architecture and training.
+
+If it fails, identify whether the limitation is statistical, architectural, optimization-related, or methodological.
+
+Do not call a truncated or unsuccessful training run a mathematical impossibility.
+
+**Required deliverable:** a substantive theory and mechanism study of learned relational composition, including positive or negative results with correctly scoped conclusions.
+
+---
+
+# 7. WORKSTREAM D — EXPLAIN AND GENERALIZE THE FAILED EXTRAPOLATION PREDICTOR
+
+The prior prospective internal predictor failed.
+
+Preserve the verdict.
+
+Do not relabel it as success.
+
+The failed predictor should become a constraint on the next theory.
+
+## D1. Establish the mathematical identifiability problem
+
+Consider two models with the same behavior on a training support S.
+
+Determine what their behavior outside S can and cannot be inferred from that agreement.
+
+Construct explicit counterexamples.
+
+Investigate whether additional assumptions about model class, parameterization, smoothness, computation, or training procedure constrain extrapolation.
+
+Distinguish:
+
+- Behavioral agreement.
+- Functional equivalence on support.
+- Internal causal similarity.
+- Architectural similarity.
+- Agreement under natural interventions.
+- Agreement under off-support queries.
+
+Find out what extra information actually makes extrapolation predictable.
+
+## D2. Analyze the failure mechanism
+
+The earlier structural predictor had MAE 0.126 versus architecture baseline 0.091.
+
+Investigate why it ranked the held-out Transformers incorrectly.
+
+Potential explanations include:
+
+- Wrong representation site.
+- Insufficient structural information.
+- Distributed evidence pathways.
+- Confounding with architecture.
+- Lack of sensitivity to saturated versus graded agreement.
+- Off-support representations having different meanings.
+- Insufficient held-out sample size.
+
+Do not select one explanation without an intervention that discriminates it.
+
+## D3. Investigate graded versus saturated features causally
+
+The previous atlas observed associations between extrapolation direction and whether representations encode:
+
+- Graded agreement counts.
+- A saturated perfect-agreement detector.
+
+Those are candidate explanations, not established mechanisms.
+
+Develop probe-independent interventions testing whether changing the relevant computation changes extrapolation behavior.
+
+Possible designs include:
+
+- Replacing graded-count computation with a controlled saturated representation.
+- Introducing graded information into a model that otherwise uses a saturated detector.
+- Freezing unrelated representation content.
+- Testing whether the model's off-support decisions change in the predicted direction.
+
+Beware of creating off-manifold states.
+
+A patch-induced reversal does not by itself establish the mechanism's role in natural generalization.
+
+## D4. Develop a stronger prospective predictor
+
+Before evaluating new models, freeze a structural prediction procedure.
+
+The procedure must identify features using training-distribution computation only.
+
+Do not tune it on the new models' off-support outcomes.
+
+Use sufficient independent held-out models for statistical assessment.
+
+The previous four-model sample is inadequate for a broad population claim.
+
+Aim for approximately ten independent held-out seeds per primary architecture if resources permit, with clearly documented reductions otherwise.
+
+Compare with:
+
+- Architecture label.
+- Training accuracy.
+- Calibration.
+- Training-distribution likelihood.
+- Model size.
+- Simple input/output probes.
+- Strong behavioral diagnostics.
+- Random and null predictors.
+
+Keep the information available to each predictor explicit.
+
+## D5. Evaluate multiple meaningful shifts
+
+Do not rely only on one p_c = 0 shift.
+
+Investigate:
+
+- Prior shift within support.
+- Changes in source error rates.
+- Changes in collusion prevalence.
+- Partial copying.
+- Biased errors.
+- Changes in source groups.
+- Shifts to new relation families where meaningful.
+
+First calculate whether the competing hypotheses actually disagree.
+
+Distinguish extrapolation from calibration under an altered but overlapping distribution.
+
+**Required deliverable:** either a genuinely useful, independently confirmed structure-to-generalization prediction or a strong characterization of why the attempted predictors fail.
+
+A negative result is acceptable.
+
+Outcome-dependent predictor search is not.
+
+---
+
+# 8. WORKSTREAM E — FORMALIZE THE POSSIBLE COMMON MATHEMATICAL STRUCTURE
+
+This is the central synthesis problem.
+
+We now have three different experimental families:
+
+1. T4: latent reliability and agreement-sensitive evidence weighting.
+2. GATE: compatibility-conditioned relevance of candidate evidence.
+3. TRANS: composition of latent transformations, with the learned mechanism still unresolved.
+
+We should not force them into a single theory.
+
+But we must seriously investigate whether a useful shared structure exists.
+
+## E1. Define the candidate class carefully
+
+A tentative abstract pattern is:
+
+Independent source variables
+→ a relation among those sources
+→ a change in how candidate-bearing evidence is interpreted or transformed
+→ a candidate-specific response.
+
+This is only a hypothesis.
+
+It may be too broad.
+
+Define meaningful restrictions.
+
+For example:
+
+- The relation must be specified independently of the final candidate logits.
+- The relation's information must be independently identifiable from the source semantics.
+- A computational operation must actually depend on the relation.
+- A valid causal intervention must establish its use.
+- A candidate-margin consequence must be specified.
+- There must be at least one falsifiable distinction from an ordinary aggregate-only computation.
+
+If these restrictions are insufficient, strengthen or replace them based on explicit counterexamples.
+
+## E2. Compare computational factorizations
+
+For T4, determine whether the computation factors through reliability information.
+
+For GATE, determine whether it factors through compatibility-conditioned evidence selection.
+
+For TRANS, investigate whether it factors through identified transformations and their composition.
+
+The mathematical object may differ between tasks.
+
+Determine whether an abstraction can represent those differences without becoming trivial.
+
+Consider possible connections to:
+
+- Conditional evidence transformation.
+- Causal abstraction.
+- Sufficient-statistic computation.
+- Information routing.
+- Constraint-based inference.
+- Compositional operators.
+
+Do not invent terminology as a substitute for proving structure.
+
+## E3. Find implementation-independent properties
+
+Investigate whether different implementations preserve:
+
+- Input-level relational dependence.
+- Specific intervention-response relationships.
+- Candidate-margin constraints.
+- Information sufficiency.
+- Causal factorization.
+- Abstract mediator behavior.
+- Transformation composition rules.
+- Certain invariants under function-preserving reparameterization.
+
+A universal property must be tested across genuinely different implementation families.
+
+A property that follows only from identical Bayes outputs should not be presented as new mechanistic structure.
+
+## E4. Prove restricted positive theorems
+
+Attempt the strongest defensible theorem family.
+
+Each theorem must specify:
+
+- Model class.
+- Source semantics.
+- Relation definition.
+- Computational operation.
+- Intervention family.
+- Candidate-specific readout.
+- Competing causal paths.
+- Signed assumptions.
+- Exact conclusion.
+
+Do not prove merely that a nonlinear network can compute an arbitrary function.
+
+Do not embed the desired candidate-margin sign inside the assumptions.
+
+If only a restricted theorem survives, characterize its domain precisely.
+
+## E5. Construct adversarial counterexamples
+
+Attack the candidate abstraction using:
+
+- Direct candidate classification without an explicit mediator.
+- Distributed computation.
+- Redundant evidence pathways.
+- Alternative representations.
+- Same relation with opposite candidate decisions.
+- Same task behavior with different internal circuits.
+- Different relational semantics with the same raw agreement statistic.
+- Source contradictions that do not affect the selected candidate.
+- A relational statistic that loses indispensable evidence.
+- A computation that depends on the whole source state but not on the proposed relation.
+- Known Bayesian or nonlinear mechanisms satisfying the same apparent prediction.
+
+Determine what must be added to the theory to exclude these counterexamples without making it circular.
+
+## E6. Do not force TRANS into a class before it has been learned
+
+If the TRANS models do not develop a verified composition mechanism, retain TRANS as an open mathematical and empirical comparison.
+
+Do not claim that its intended algorithm is the computation the model actually learned.
+
+**Required deliverable:** a formal mathematical map connecting the three research families where justified and separating them where not.
+
+---
+
+# 9. WORKSTREAM F — ADAPTIVE AND CHANGING SOURCES
+
+The previous investigation did not implement adaptive sources.
+
+That omission matters.
+
+The latent-reliability task assumed a stable source-generating structure within each episode.
+
+Real evidence sources may change behavior over time or respond to other sources.
+
+Construct mathematically controlled adaptive-source environments.
+
+## F1. Dynamic reliability
+
+Let source reliability evolve across questions.
+
+Compare:
+
+- Fixed reliability.
+- Slowly drifting reliability.
+- Abrupt reliability changes.
+- Reliability conditioned on earlier outcomes.
+- Reliability conditioned on other sources' reports.
+- Source copying triggered by observed agreement or disagreement.
+
+Derive exact or tractable Bayesian filtering references.
+
+Do not assume static agreement counts remain sufficient.
+
+Determine the necessary state variables for optimal inference.
+
+## F2. Adaptive collusion and copying
+
+Investigate sources that:
+
+- Copy selectively.
+- Coordinate only under certain contexts.
+- Change behavior after disagreement.
+- Imitate honest-source statistics.
+- Share an upstream source.
+- Attempt to appear independent.
+
+Use explicit generative processes.
+
+Derive identifiability conditions.
+
+Where observationally equivalent source processes exist, prove the ambiguity.
+
+Do not assume neural training can resolve statistically impossible identification.
+
+## F3. Candidate decisions under dynamic evidence
+
+Determine how changing source relationships alters candidate-specific evidence weighting.
+
+Look for:
+
+- Hysteresis.
+- Delayed response.
+- Source-history dependence.
+- Reliability-state tracking.
+- Failure of static count summaries.
+- Adaptive evidence routing.
+- Different computational strategies across architectures.
+
+Investigate whether a learned Transformer represents a changing latent source state.
+
+Use causal interventions on histories rather than only isolated input values.
+
+## F4. Mechanistic comparison
+
+Compare adaptive-source computations with:
+
+- Static reliability routing.
+- GATE's compatibility computation.
+- TRANS's compositional computation.
+
+Determine whether dynamic relations demand a new computational class or can be explained by existing ones.
+
+**Required deliverable:** the first serious mathematical and learned-model investigation of adaptive relational evidence in this COR program, with explicit identification and decision boundaries.
+
+---
+
+# 10. WORKSTREAM G — UNKNOWN GROUPS, CORRELATED SOURCES, AND GENERALITY
+
+Do not limit the research map to tasks with predefined source pairs.
+
+Investigate:
+
+- Unknown source groups.
+- Groups of more than two sources.
+- Overlapping groups.
+- Changing group membership.
+- Correlated errors.
+- Partial copying.
+- Multiple colluding groups.
+- More than three candidate classes.
+- Longer multi-question episodes.
+
+Use the existing `roles_engine` and mathematical results where suitable.
+
+The previous research established some Bayes-level identifiability boundaries, but not the corresponding learned mechanisms.
+
+Prioritize statistically identifiable settings first.
+
+For each setting:
+
+1. Derive the task's available information.
+2. Determine relevant relational statistics.
+3. Identify strong simple baselines.
+4. Train where needed.
+5. Examine whether the model learns and uses the relationship.
+6. Locate actual causal dependencies.
+7. Compare with the current mechanism families.
+8. Record generalization and failure boundaries.
+
+Do not equate failure to train with a mathematical inability to compute the relation.
+
+Do not call a successful model's behavior a causal mechanism without localization and intervention evidence.
+
+Avoid an enormous undirected parameter sweep.
+
+Choose experiments that discriminate mathematical hypotheses.
+
+---
+
+# 11. ORIGINAL COR O/D MUST REMAIN A SEPARATE MATHEMATICAL QUESTION
+
+The original obstruction formalism remains unsupported as a general decision theory.
+
+Do not treat every new relation-sensitive circuit as evidence for O/D.
+
+The original problems remain:
+
+- Unjustified projection and map choices.
+- Outcome-dependent tuning.
+- Consistency changes with unfavorable candidate responses.
+- Same discrepancy with different decisions.
+- Candidate rankings unrelated to discrepancy rankings.
+- Exact computational consistency with wrong decisions.
+- Surrogate residuals measuring approximation error.
+- No established advantage over existing methods.
+- No general causal bridge.
+
+The latest report introduced a reviewer-proposed weighted-voting coincidence condition under which an unweighted discrepancy may preserve aspects of the Bayesian order.
+
+Part of that characterization remains unverified.
+
+Investigate it precisely.
+
+Determine:
+
+- Sufficient conditions.
+- Necessary conditions where provable.
+- Dependent-source counterexamples.
+- Noise and copying failures.
+- Candidate-relative weighting.
+- Whether any required weights are identified independently.
+- Whether the formalism contributes more than a renamed Bayesian calculation.
+
+Do not quietly replace the original O/D framework with reliability inference and claim the original theory succeeded.
+
+Keep F1–F7, F25, F29, and F30 as explicit ongoing scientific obligations.
+
+Do not frame the work around a decision to close Step 1.
+
+---
+
+# 12. EXPERIMENTAL DESIGN AND COMPUTE PRIORITIES
+
+This is a broad program, but we need real depth rather than superficial coverage.
+
+Use a dependency-ordered execution plan.
+
+### Priority 1 — Complete major missing computations
+
+Start with:
+
+- Longer and better-controlled TRANS training.
+- The τ representation and composition tests.
+- Causal reconstruction of GATE.
+- Independent-seed replication of P-count transfer.
+- Unconfounded transfer-dynamics evaluations.
+
+These are directly supported by existing experiments and currently unresolved.
+
+### Priority 2 — Identification and mathematical integration
+
+In parallel, investigate:
+
+- Cross-implementation equivalence.
+- Relational-variable identification.
+- The failed structural extrapolation predictor.
+- The causal meaning of P-count transfer.
+- Conditional candidate-decision theorems.
+
+### Priority 3 — Expand generative and learned settings
+
+Investigate:
+
+- Adaptive sources.
+- Unknown groups.
+- Correlated and copied evidence.
+- Larger source groups.
+- Different candidate sets.
+- Relevant architecture changes.
+
+### Priority 4 — Prospective tests of new theory
+
+Once the mathematical and mechanistic hypotheses have been formulated, freeze their strongest predictions.
+
+Test them on new data, configurations, and held-out models.
+
+Do not select the hypothesis after examining the same confirmation outcomes.
+
+### Priority 5 — Adversarial review and synthesis
+
+Review the completed results and revise claims where necessary.
+
+Do not use reviewer approval of an earlier version to support a later theorem.
+
+---
+
+# 13. DO NOT CONFUSE PREREGISTRATION WITH PROOF
+
+The previous program improved research discipline by freezing predictions before evaluation.
+
+Continue that practice.
+
+But:
+
+- A registered prediction can still be mathematically weak.
+- A registered test can still be confounded.
+- A passing test can still follow from an established baseline.
+- A failed test may reject only one particular identification procedure.
+- A successful intervention may still be off-manifold.
+- A feature can be decoded without being used.
+- A model can solve a task without implementing the hypothesized mechanism.
+- A theorem about an optimal Bayesian decision does not establish that a learned Transformer computes it.
+- A one-seed result does not identify an architecture-wide law.
+
+For each substantial claim, distinguish:
+
+**Mathematical proof.**
+
+**Exact numerical validation.**
+
+**Prospectively confirmed learned-model behavior.**
+
+**Interventionally supported mechanism.**
+
+**Exploratory observation.**
+
+**Unresolved hypothesis.**
+
+**Falsified hypothesis.**
+
+These categories should remain separate in the final research record.
+
+---
+
+# 14. STRONG BASELINES AND NOVELTY CONTROLS
+
+The program must not rediscover known Bayesian or nonlinear computations and call them new mathematical principles.
+
+Compare with:
+
+- Exact Bayesian inference.
+- Bayesian reliability and truth-discovery models.
+- Source-dependency and copying models.
+- Generalized evidence aggregation.
+- Conditional gating.
+- Standard nonlinear classifiers.
+- Causal abstraction.
+- Mechanistic path analysis.
+- Distributed representation methods.
+- Compositional function-learning benchmarks.
+- Existing results on curriculum and neural-network optimization.
+- Existing results on underspecification and out-of-distribution behavior.
+
+For the three main families, determine:
+
+- What is known mathematics.
+- What is a newly observed learned implementation.
+- What is a genuine causal-identification result.
+- What is a useful new theorem.
+- What is a methodological correction.
+- What is a new prospective prediction.
+- What remains unexplained by existing methods.
+
+Do not manufacture novelty.
+
+Equally, do not discard a scientifically useful restricted theorem merely because it builds on known mathematics.
+
+If the strongest result is an established operation implemented in a previously undocumented way, characterize that contribution accurately.
+
+---
+
+# 15. INDEPENDENT ADVERSARIAL RESEARCH AND REVIEW
+
+Use separate subagents where supported.
+
+Assign genuinely critical tasks:
+
+**Formal mathematics**
+
+Check theorem quantifiers, sufficiency, necessary conditions, and counterexamples.
+
+**Causal inference**
+
+Check the intervention definitions, patching artifacts, mediation, bypasses, and identification claims.
+
+**Transformer architecture**
+
+Recompute complete Q/K/V/O, LayerNorm, MLP, and residual pathways.
+
+**Statistical inference**
+
+Check exact Bayesian references, latent identifiability, adaptive-source models, and distribution shifts.
+
+**Representation and invariance**
+
+Attack feature localization, distributed codes, equivalent computational implementations, and gauge-dependent interpretations.
+
+**Learning dynamics**
+
+Check fine-tune confounds, seed dependence, optimization claims, and curricula.
+
+**Composition**
+
+Challenge map identification, two-hop generalization, and potential shortcut solutions.
+
+**Counterexample construction**
+
+Search for valid inputs and model configurations outside the favorable reported examples.
+
+**Scientific novelty**
+
+Compare with actual established literature and simpler explanations.
+
+**Positive-theory defense**
+
+Identify legitimate restricted mathematical results that the negative reviews might dismiss too broadly.
+
+The reviewers must examine the final results.
+
+If new major claims are added after review, those claims need new scrutiny.
+
+Preserve disagreement and correct errors rather than forcing consensus.
+
+---
+
+# 16. REQUIRED DELIVERABLES
+
+Create a new directory:
+
+`docs/research_audits/cor_phase15/step1_relational_mechanism_deepening/`
+
+Do not modify earlier research archives or historical verdicts.
+
+The main research package should contain:
+
+### `MAIN_RESEARCH_SYNTHESIS.md`
+
+A connected explanation of the substantive new mathematics, mechanisms, and results.
+
+Not a paper thesis.
+
+### `PCOUNT_CAUSAL_TRANSFER.md`
+
+Independent-seed replication, actual feature localization, causal necessity and sufficiency, alternative implementations, and longer fine-tune analysis.
+
+### `GATE_FULL_CAUSAL_CIRCUIT.md`
+
+Full circuit reconstruction, path interventions, negative controls, multiple seeds, and the precise relation-to-candidate mechanism.
+
+### `TRANS_COMPOSITION_RESEARCH.md`
+
+Statistical identifiability, longer training, σ/τ identification, composition interventions, curricula, and held-out compositional generalization.
+
+### `STRUCTURE_AND_EXTRAPOLATION.md`
+
+Explanation of the failed predictor, formal extrapolation limits, new structural hypotheses, and prospective held-out results.
+
+### `RELATIONAL_COMPUTATIONAL_CLASSES.md`
+
+A mathematically defensible comparison of T4, GATE, TRANS, and their implementation families.
+
+### `ADAPTIVE_SOURCE_THEORY.md`
+
+Exact generative definitions, Bayesian or structural reference results, learned-model experiments, and decision boundaries under adaptive sources.
+
+### `GENERALIZATION_LANDSCAPE.md`
+
+Unknown groups, correlated errors, source-count changes, candidate-count changes, and architecture variation.
+
+### `CAUSAL_IDENTIFICATION_AND_INVARIANCE.md`
+
+A coherent framework for identifying relational computations under distributed representations, redundant pathways, internal interventions, and valid reparameterizations.
+
+### `THEOREMS_AND_COUNTEREXAMPLES.md`
+
+Precise claims, proofs, counterexamples, scope restrictions, and unresolved proof obligations.
+
+### `PROSPECTIVE_PREDICTIONS.md`
+
+Frozen predictions, exact protocols, primary outcomes, negative controls, and all observed failures.
+
+### `BASELINES_AND_NOVELTY.md`
+
+Strong existing-method comparisons and a clear distinction between established theory and genuinely new findings.
+
+### `COR_FAILURE_PROGRESS.md`
+
+Actual evidence pertaining to F1–F7, F25, F29, and F30, without artificial status promotion.
+
+### `OPEN_FOUNDATIONAL_RESEARCH_MAP.md`
+
+What remains unexamined, which results depend on which assumptions, and which future proofs or experiments have the greatest scientific leverage.
+
+Include runnable code, trained checkpoints, data generators, full logs, reviewer reports, and a manifest.
+
+The package must support clean-extraction reproduction.
+
+Do not create empty documents as substitutes for actual research.
+
+---
+
+# 17. WHAT COUNTS AS A SUCCESSFUL INVESTIGATION
+
+This run should make substantial progress across multiple connected problems.
+
+Examples of meaningful advances include:
+
+- Demonstrating the causal role of the P-count representation, rather than merely decoding it.
+- Establishing what makes cross-question relational pretraining transferable.
+- Reconstructing GATE's actual computation through residual, attention, and MLP pathways.
+- Discovering and causally validating a learned TRANS composition mechanism.
+- Demonstrating that a Transformer can represent σ and τ without composing them.
+- Deriving restricted impossibility or identifiability results for transformation composition.
+- Establishing a nontrivial causal abstraction across more than one relation family.
+- Proving that a proposed unification fails, using an explicit computational counterexample.
+- Explaining why the earlier extrapolation predictor failed.
+- Developing a genuinely prospective structural prediction with strong baselines.
+- Establishing mathematical decision boundaries under adaptive or correlated sources.
+- Identifying a learned relational mechanism when source groups are unknown.
+- Deriving a conditional candidate-decision theorem with independently inspectable assumptions.
+- Showing precisely where the original O/D formalism loses essential source information.
+
+Do not require every result to be positive.
+
+Do not replace unanswered research questions with additional report length.
+
+Do not turn a successful example into a universal law.
+
+Do not treat a failure to train as proof of mathematical impossibility.
+
+Do not rely on the claim that a mechanism must exist simply because the task rewards it.
+
+The objective is explanatory and mathematical progress.
+
+---
+
+# 18. FINAL QUESTIONS YOU MUST ANSWER
+
+The final synthesis must answer the following, with actual evidence.
+
+## Learned representations
+
+1. What computation does P-count pretraining transfer?
+2. Is that computation causally necessary for the observed transfer?
+3. Is it sufficient under a defined intervention?
+4. Why does its representation move between readout and source tokens?
+5. Does its function survive across independent seeds?
+6. When does the relevant information become available during training?
+7. What distinguishes representation existence from the ability to use it quickly?
+
+## Mechanism reconstruction
+
+8. What actual computation implements GATE's modular compatibility relation?
+9. How does that relation affect candidate-bearing evidence?
+10. Which pathways carry the decision effect?
+11. Why is the salient last-layer attention dispensable?
+12. Does the learned mechanism replicate across seeds?
+13. Is GATE computationally equivalent to any aspect of T4?
+
+## Composition
+
+14. Can the TRANS task be learned under a completed training schedule?
+15. Does the model identify σ?
+16. Does it identify τ?
+17. Does it identify their composition?
+18. Which of these representations are causally used?
+19. Does the model generalize to held-out compositions?
+20. What role does curriculum play?
+21. What mathematical limitations arise from incomplete map observations?
+
+## General theory
+
+22. What nontrivial properties are shared by T4, GATE, and any successful TRANS mechanism?
+23. Which properties are genuinely different?
+24. Can a common causal abstraction survive meaningful interventions?
+25. What implementation changes leave the abstraction invariant?
+26. What counterexamples limit the proposed unification?
+27. What computational conditions imply candidate-margin consequences?
+28. When are such consequences directionally predictable?
+
+## Extrapolation and generalization
+
+29. Why did the previous internal extrapolation predictor fail?
+30. Which structural measurements, if any, predict unseen behavior?
+31. What generalization properties depend on architecture versus learned computation?
+32. What happens under adaptive reliability and changing source relationships?
+33. What happens with unknown source groups?
+34. How do correlated errors and copying alter the relevant sufficient statistics?
+35. Which phenomena generalize across tasks and which are task-specific?
+
+## Original COR and scientific distinctiveness
+
+36. Does any new computational structure justify a restricted consistency-to-decision theorem?
+37. Can the relevant relation be identified independently of candidate outcomes?
+38. Which results reduce to established Bayesian inference, gating, or causal abstraction?
+39. Does the research contribute any genuinely new prospective prediction, theorem, or identification method?
+40. Which original COR failures have gained substantive evidence?
+41. Which remain unresolved?
+42. What are the next highest-leverage mathematical research questions?
+
+Answer directly.
+
+Do not fill gaps with generic explanations.
+
+---
+
+# 19. FINAL EXECUTION DIRECTIVE
+
+The research has progressed from abstract consistency scores to implemented relation-sensitive computations, learned reliability mechanisms, conditional routing, causal counterexamples, and a second successful relational task.
+
+But those are still pieces of a larger mathematical landscape.
+
+The next investigation must make those pieces more precise and establish which, if any, fit together.
+
+**Do not merely rerun T4.**
+
+**Do not spend the entire investigation repairing the P-count probe.**
+
+**Do not stop at another GATE attention visualization.**
+
+**Do not treat unfinished TRANS training as an impossibility result.**
+
+**Do not produce another structural predictor selected from already observed extrapolation outcomes.**
+
+**Do not equate behavioral equivalence with computational equivalence.**
+
+**Do not assume all relational mechanisms are reliability-estimation mechanisms.**
+
+**Do not use known Bayesian inference as a substitute for proving what the Transformer actually computes.**
+
+**Do not force GATE, T4, and TRANS into one theory unless the mathematics justifies that unification.**
+
+Work deeply on the actual missing computations.
+
+Investigate transferable representations, causal mediation, relational composition, alternative implementations, adaptive-source processes, representation invariance, and candidate-specific decision consequences.
+
+Derive theorems and counterexamples.
+
+Make predictions that can fail.
+
+Preserve negative results.
+
+Run independent checks.
+
+Integrate the findings into a coherent research map.
+
+The ultimate mathematical form of COR remains open.
+
+**Your job is to expand our understanding of that landscape substantially, with enough mathematical precision and causal evidence that future results can be built on reliable foundations rather than attractive but unsupported interpretations.**
+
+Execute the research as fully as the environment and available resources permit, document any unfinished obligations, and preserve the complete reproducible evidence.

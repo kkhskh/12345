@@ -1,0 +1,34 @@
+{
+ "S4_K3": {
+  "confusion": {
+   "cond=False,nsr=False,argmin=False,band=False": 133,
+   "cond=True,nsr=True,argmin=True,band=True": 143,
+   "cond=True,nsr=True,argmin=True,band=False": 24
+  },
+  "counterexamples": []
+ },
+ "S5_K3": {
+  "confusion": {
+   "cond=False,nsr=False,argmin=False,band=False": 171,
+   "cond=True,nsr=True,argmin=True,band=False": 69,
+   "cond=True,nsr=True,argmin=True,band=True": 60
+  },
+  "counterexamples": []
+ },
+ "S6_K3": {
+  "confusion": {
+   "cond=False,nsr=False,argmin=False,band=False": 187,
+   "cond=True,nsr=True,argmin=True,band=False": 77,
+   "cond=True,nsr=True,argmin=True,band=True": 36
+  },
+  "counterexamples": []
+ },
+ "S5_K4": {
+  "confusion": {
+   "cond=False,nsr=False,argmin=False,band=False": 153,
+   "cond=True,nsr=True,argmin=True,band=False": 61,
+   "cond=True,nsr=True,argmin=True,band=True": 86
+  },
+  "counterexamples": []
+ }
+}

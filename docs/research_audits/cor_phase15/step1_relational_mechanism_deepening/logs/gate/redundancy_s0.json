@@ -1,0 +1,90 @@
+{
+ "ckpt": "../step1_foundational_atlas_continuation/checkpoints/gate_s0.npz",
+ "ablation": {
+  "attn1+attn2@readouts": {
+   "acc": 0.3839444444444444,
+   "agree_bayes_unique": 0.3929592809478415
+  },
+  "attn1+attn2+mlp2@readouts": {
+   "acc": 0.32805555555555554,
+   "agree_bayes_unique": 0.328884652049571
+  },
+  "attn1+mlp1+attn2+mlp2@readouts": {
+   "acc": 0.35033333333333333,
+   "agree_bayes_unique": 0.35591720005447364
+  },
+  "head1[0]+head2[0]@all": {
+   "acc": 0.9024444444444445,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[0]+head2[1]@all": {
+   "acc": 0.8997222222222222,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[0]+head2[2]@all": {
+   "acc": 0.9001666666666667,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[0]+head2[3]@all": {
+   "acc": 0.9005,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[1]+head2[0]@all": {
+   "acc": 0.9026111111111111,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[1]+head2[1]@all": {
+   "acc": 0.9002222222222223,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[1]+head2[2]@all": {
+   "acc": 0.9005555555555556,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[1]+head2[3]@all": {
+   "acc": 0.9,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[2]+head2[0]@all": {
+   "acc": 0.799,
+   "agree_bayes_unique": 0.8826773798175133
+  },
+  "head1[2]+head2[1]@all": {
+   "acc": 0.9016111111111111,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[2]+head2[2]@all": {
+   "acc": 0.9012777777777777,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[2]+head2[3]@all": {
+   "acc": 0.9012222222222223,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[3]+head2[0]@all": {
+   "acc": 0.9024444444444445,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[3]+head2[1]@all": {
+   "acc": 0.8987777777777778,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[3]+head2[2]@all": {
+   "acc": 0.9008333333333334,
+   "agree_bayes_unique": 1.0
+  },
+  "head1[3]+head2[3]@all": {
+   "acc": 0.8992222222222223,
+   "agree_bayes_unique": 1.0
+  }
+ },
+ "backup_flip_transfer": {
+  "ablate_attn1@R_only": 0.0,
+  "ablate_attn1@R+patch_attn2@R": 1.0,
+  "ablate_attn1@R+patch_head2[0]@R": 1.0,
+  "ablate_attn1@R+patch_head2[1]@R": 0.0,
+  "ablate_attn1@R+patch_head2[2]@R": 0.0,
+  "ablate_attn1@R+patch_head2[3]@R": 0.0,
+  "flipped_run_with_attn1@R_ablated_follows_flipped_bayes": 1.0
+ }
+}

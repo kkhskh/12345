@@ -1,0 +1,56 @@
+{
+ "fits": {
+  "is_tf": {
+   "intercept": 0.09566896961592745,
+   "slope": 0.4870349734624306
+  },
+  "GCD": {
+   "intercept": -0.5523212360080906,
+   "slope": 1.346187899855101
+  },
+  "GCD_withinTF": {
+   "intercept": 0.04383075278224184,
+   "slope": 0.6471105267391749
+  },
+  "SAT": {
+   "intercept": -0.331450020180075,
+   "slope": 0.7730490813337412
+  },
+  "SAT_withinTF": {
+   "intercept": -13.614872116208385,
+   "slope": 14.856776746017442
+  },
+  "LPI_deg": {
+   "intercept": -0.009586003550120655,
+   "slope": 1.0941091366061897
+  },
+  "LPI_deg_withinTF": {
+   "intercept": 0.06103357106299295,
+   "slope": 0.9805847613768922
+  },
+  "constant": {
+   "intercept": 0.40876288112749,
+   "slope": 0.0
+  },
+  "constant_TF": {
+   "intercept": 0.582703943078358,
+   "slope": 0.0
+  }
+ },
+ "dev_models": [
+  "tf_s0",
+  "tf_s1",
+  "tf_s2",
+  "tf_s10",
+  "tf_s11",
+  "tf_s12",
+  "tf_s13",
+  "ds_s0",
+  "ds_s1",
+  "ds_s2",
+  "tf_s14",
+  "tf_s15",
+  "ds_s3",
+  "ds_s4"
+ ]
+}

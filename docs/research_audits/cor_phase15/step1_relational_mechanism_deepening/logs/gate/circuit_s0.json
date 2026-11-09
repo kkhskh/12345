@@ -1,0 +1,183 @@
+{
+ "ckpt": "../step1_foundational_atlas_continuation/checkpoints/gate_s0.npz",
+ "equivalence_max_abs_diff": 1.6689300537109375e-06,
+ "acc": 0.8986666666666666,
+ "acc_bayes": 0.9022222222222223,
+ "n_scored": 3211,
+ "patch_flip_transfer": {
+  "resid_pre1@E": 0.8333852382435378,
+  "resid_pre2@R": 0.9722827779507941,
+  "resid_pre2@E": 0.03768296480847088,
+  "attn_out0@E": 0.8333852382435378,
+  "attn_out0@G": 0.0,
+  "mlp_out0@E": 0.6642790407972594,
+  "attn_out1@R": 0.97165991902834,
+  "mlp_out1@R": 0.0,
+  "attn_out1@E": 0.0,
+  "mlp_out1@E": 0.0,
+  "attn_out2@R": 0.0815945188414824,
+  "mlp_out2@R": 0.0,
+  "attn_out1@R+mlp_out1@R": 0.9701027717222049,
+  "attn_out0@E+mlp_out0@E": 0.8333852382435378,
+  "head_out0[0]@E": 0.0,
+  "head_out1[0]@R": 0.0,
+  "head_out1[0]@E": 0.0,
+  "head_out0[1]@E": 0.27717222049205853,
+  "head_out1[1]@R": 0.0,
+  "head_out1[1]@E": 0.0,
+  "head_out0[2]@E": 0.4743070694487699,
+  "head_out1[2]@R": 0.6586733104951729,
+  "head_out1[2]@E": 0.0,
+  "head_out0[3]@E": 0.0,
+  "head_out1[3]@R": 0.0,
+  "head_out1[3]@E": 0.0
+ },
+ "negative_controls_change_rate": {
+  "flip_other_question_changes_q_argmax": 0.0165,
+  "patch_resid_pre2@R_from_other_question_flip": 0.013777777777777778
+ },
+ "mean_ablation": {
+  "head_out0[0]@all": {
+   "acc": 0.9007777777777778,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out0[1]@all": {
+   "acc": 0.8688333333333333,
+   "agree_bayes_unique": 0.9610513414135912
+  },
+  "head_out0[2]@all": {
+   "acc": 0.8057777777777778,
+   "agree_bayes_unique": 0.885741522538472
+  },
+  "head_out0[3]@all": {
+   "acc": 0.8987222222222222,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out0@all": {
+   "acc": 0.7147777777777777,
+   "agree_bayes_unique": 0.779926460574697
+  },
+  "mlp_out0@all": {
+   "acc": 0.8604444444444445,
+   "agree_bayes_unique": 0.9509056244041945
+  },
+  "mlp_out0@readouts": {
+   "acc": 0.9011111111111111,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out0@sources": {
+   "acc": 0.8423888888888889,
+   "agree_bayes_unique": 0.9324526760179763
+  },
+  "attn_out0@readouts": {
+   "acc": 0.896,
+   "agree_bayes_unique": 0.9934631621952881
+  },
+  "attn_out0@sources": {
+   "acc": 0.722,
+   "agree_bayes_unique": 0.7866675745608062
+  },
+  "head_out1[0]@all": {
+   "acc": 0.9002777777777777,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out1[1]@all": {
+   "acc": 0.9008333333333334,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out1[2]@all": {
+   "acc": 0.9011666666666667,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out1[3]@all": {
+   "acc": 0.8995,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out1@all": {
+   "acc": 0.8998333333333334,
+   "agree_bayes_unique": 0.99727631758137
+  },
+  "mlp_out1@all": {
+   "acc": 0.9024444444444445,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out1@readouts": {
+   "acc": 0.9,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out1@sources": {
+   "acc": 0.9029444444444444,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out1@readouts": {
+   "acc": 0.9007777777777778,
+   "agree_bayes_unique": 0.9999319079395342
+  },
+  "attn_out1@sources": {
+   "acc": 0.8991666666666667,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out2[0]@all": {
+   "acc": 0.9025,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out2[1]@all": {
+   "acc": 0.8985555555555556,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out2[2]@all": {
+   "acc": 0.8996666666666666,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out2[3]@all": {
+   "acc": 0.8986666666666666,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out2@all": {
+   "acc": 0.9025,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out2@all": {
+   "acc": 0.9014444444444445,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out2@readouts": {
+   "acc": 0.9014444444444445,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out2@sources": {
+   "acc": 0.8986666666666666,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out2@readouts": {
+   "acc": 0.9025,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out2@sources": {
+   "acc": 0.8986666666666666,
+   "agree_bayes_unique": 1.0
+  }
+ },
+ "gate_state_decodable_answer_neutral": {
+  "resid_pre1@E": {
+   "n": 1634,
+   "acc": 0.7311608961303462,
+   "majority": 0.5091649694501018
+  },
+  "resid_pre2@E": {
+   "n": 1634,
+   "acc": 0.9979633401221996,
+   "majority": 0.5091649694501018
+  },
+  "resid_pre2@R": {
+   "n": 1634,
+   "acc": 0.9083503054989817,
+   "majority": 0.5091649694501018
+  },
+  "resid_pre1@R": {
+   "n": 1634,
+   "acc": 0.6374745417515275,
+   "majority": 0.5091649694501018
+  }
+ }
+}

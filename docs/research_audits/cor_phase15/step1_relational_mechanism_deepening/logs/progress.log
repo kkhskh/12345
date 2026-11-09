@@ -43,3 +43,25 @@
 14:54:54 dyn3 done
 15:07:15 heldout3 tf 45 (parent 12) done (parallel, reverse)
 15:30:15 heldout3 tf 40 (parent T1 s0) done
+15:42:48 heldout3 tf 44 (parent 11) done (parallel, reverse)
+16:06:36 heldout3 tf 41 (parent T1 s1) done
+16:19:05 heldout3 tf 43 (parent 10) done (parallel, reverse)
+16:19:05 heldout3 tf 42 (parent 2) done (parallel, reverse)
+16:19:05 heldout3 tf 41 (parent 1) done (parallel, reverse)
+16:19:05 heldout3 tf 40 (parent 0) done (parallel, reverse)
+16:34:19 heldout3 tf 42 (parent T1 s2) done
+16:34:19 heldout3 tf 43 (parent T1 s10) done
+16:34:19 heldout3 tf 44 (parent T1 s11) done
+16:34:19 heldout3 tf 45 (parent T1 s12) done
+16:34:19 heldout3 ds 6 done
+16:34:19 heldout3 ds 7 done
+16:34:19 heldout3 ds 8 done
+16:34:19 heldout3 ds 9 done
+16:34:19 heldout3 ds 10 done
+16:34:19 heldout3 ds 11 done
+16:34:19 heldout3 ds 12 done
+16:34:19 heldout3 ds 13 done
+16:34:19 heldout3 ds 14 done
+16:34:19 heldout3 ds 15 done
+16:34:19 LANE2 DONE
+16:45:00 dyn3 resume done

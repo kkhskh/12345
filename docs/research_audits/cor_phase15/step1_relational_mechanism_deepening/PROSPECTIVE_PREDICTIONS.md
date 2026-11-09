@@ -78,3 +78,44 @@ adapt_s0 (frozen Q3-E) fails.  Replication: the same recipe from a DIFFERENT T1 
 - **Q3-E′2.** Q3-E2 holds (≥ 0.6 agreement with exact Bayes in count classes decided by position).
 - **Q3-E′3.** History intervention (other questions' order permuted; counts unchanged): the model follows the new exact
   answer in ≥ 0.8 of questions whose unique exact argmax changes.
+
+---
+
+# OUTCOMES (appended after evaluation; frozen text above unchanged)
+
+## Q3-A — P-count replication (`checkpoints/ft_*`, `ref_*`; seed 0 values from the continuation)
+| arm | seeds | frozen-feature T4 accuracy |
+|---|---|---|
+| P-count | 0–4 | 0.723, 0.724, 0.708, 0.725, 0.704 (mean 0.717) |
+| T1 parents | 0, 1, 2, 10, 11 | 0.742, 0.740, 0.739, 0.739, 0.738 (mean 0.740) |
+| P-group | 0–2 | 0.669, 0.577, 0.571 |
+| P-local | 0, 1 | 0.576, 0.576 (seed 2 not run: budget cut logged before it ran) |
+| random | 0–2 | 0.554, 0.552, 0.553 |
+- **Q3-A1 PASSED** (5/5 ≥ 0.6595). **Q3-A2 PASSED on 2 seeds** (deviation: the frozen text names 3; the third was cut
+  before running — the claim is weaker than frozen). **Q3-A3 PASSED** (0.717 < 0.740; every T1 parent ≥ 0.70).
+  **Q3-A4 PASSED** (3/3 fail). P-group (no prediction): the seed-0 marginal success did not replicate (2/3 fail).
+
+## Q3-B — GATE seeds 1, 2 (GATE_FULL_CAUSAL_CIRCUIT §4)
+- **Q3-B1 PASSED** (0.903, 0.900). **Q3-B2 FAILED** (layer-2 readout attention ablation: 0.939, 0.663).
+  **Q3-B3 FAILED** (seed 1: L2-h1 + L2-h3 qualifies; seed 2: no qualifying pair — single necessary head).
+  **Q3-B4 FAILED** (seed 2: layer-0 attention at the evidence tokens transfers 0.00; the gate is computed in layer 1).
+
+## Q3-C — TRANS (TRANS_COMPOSITION_RESEARCH §2)
+- `trans_full_s0` (12k): C-only 0.336 → **not learned**. `trans_aux_s2` (8k, map supervision): C-only 0.332 → **not learned**.
+- `trans_holdout_s1` (8k): on training pairs C-only 0.562, masking τ evidence → 0.416, masking σ → 0.432 → **learned (on
+  training pairs)**; on held-out pairs C-only 0.246 → **does not generalise**.
+
+## Q3-D — structure-to-extrapolation, 6 held-out TF + 10 held-out DS (`logs/extrap/heldout_outcome.json`; hashes verified)
+- **Q3-D1 PASSED** (all 10 DS < 0.30, max 0.215; TF mean 0.620).
+- **Q3-D2 FAILED** (the *negative* structural prediction): SAT has within-TF Spearman **0.71** and MAE 0.123 < constant
+  0.166; GCD has Spearman **−0.83** (strong, opposite to its frozen fit's sign; MAE 0.178 > constant). On-support structure
+  therefore carried within-Transformer extrapolation information that the frozen prediction said it would not.
+- **Q3-D3 PASSED** (A2 within-TF Spearman 1.00, MAE 0.019).
+- Caveat: the 6 held-out Transformers share T1 parents with development models (new T4 trajectories only); n = 6.
+
+## Q3-E — adaptive sources, from scratch (`adapt_s0`)
+- **Q3-E1 FAILED** (changed 0.656 vs static 0.660). **Q3-E2 FAILED** (0.49).
+
+## Q3-E′ — adaptive sources, T1 curriculum replication (`adapt_fromT1p1_s1`)
+- **Q3-E′1 PASSED** (changed 0.691 vs static 0.660; unchanged 0.736 vs Bayes 0.735). **Q3-E′2 PASSED** (0.88).
+  **Q3-E′3 PASSED** (history intervention follows new exact answer 0.88).

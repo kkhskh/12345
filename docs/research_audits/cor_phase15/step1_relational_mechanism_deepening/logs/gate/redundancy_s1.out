@@ -1,0 +1,87 @@
+{
+"attn1+attn2@readouts": {
+"acc": 0.3788888888888889,
+"agree_bayes_unique": 0.3883290208361705
+},
+"attn1+attn2+mlp2@readouts": {
+"acc": 0.46244444444444444,
+"agree_bayes_unique": 0.4810704071905216
+},
+"attn1+mlp1+attn2+mlp2@readouts": {
+"acc": 0.4672222222222222,
+"agree_bayes_unique": 0.48951382268827454
+},
+"head1[0]+head2[0]@all": {
+"acc": 0.9023333333333333,
+"agree_bayes_unique": 1.0
+},
+"head1[0]+head2[1]@all": {
+"acc": 0.9004444444444445,
+"agree_bayes_unique": 1.0
+},
+"head1[0]+head2[2]@all": {
+"acc": 0.9021666666666667,
+"agree_bayes_unique": 1.0
+},
+"head1[0]+head2[3]@all": {
+"acc": 0.9018333333333334,
+"agree_bayes_unique": 1.0
+},
+"head1[1]+head2[0]@all": {
+"acc": 0.9019444444444444,
+"agree_bayes_unique": 1.0
+},
+"head1[1]+head2[1]@all": {
+"acc": 0.9004444444444445,
+"agree_bayes_unique": 1.0
+},
+"head1[1]+head2[2]@all": {
+"acc": 0.9016111111111111,
+"agree_bayes_unique": 1.0
+},
+"head1[1]+head2[3]@all": {
+"acc": 0.9016666666666666,
+"agree_bayes_unique": 1.0
+},
+"head1[2]+head2[0]@all": {
+"acc": 0.9008888888888889,
+"agree_bayes_unique": 1.0
+},
+"head1[2]+head2[1]@all": {
+"acc": 0.9012222222222223,
+"agree_bayes_unique": 1.0
+},
+"head1[2]+head2[2]@all": {
+"acc": 0.9007777777777778,
+"agree_bayes_unique": 1.0
+},
+"head1[2]+head2[3]@all": {
+"acc": 0.9016666666666666,
+"agree_bayes_unique": 1.0
+},
+"head1[3]+head2[0]@all": {
+"acc": 0.9026666666666666,
+"agree_bayes_unique": 1.0
+},
+"head1[3]+head2[1]@all": {
+"acc": 0.9004444444444445,
+"agree_bayes_unique": 1.0
+},
+"head1[3]+head2[2]@all": {
+"acc": 0.9019444444444444,
+"agree_bayes_unique": 1.0
+},
+"head1[3]+head2[3]@all": {
+"acc": 0.9011666666666667,
+"agree_bayes_unique": 1.0
+}
+}
+{
+"ablate_attn1@R_only": 0.0,
+"ablate_attn1@R+patch_attn2@R": 1.0,
+"ablate_attn1@R+patch_head2[0]@R": 0.0,
+"ablate_attn1@R+patch_head2[1]@R": 0.6745562130177515,
+"ablate_attn1@R+patch_head2[2]@R": 0.0,
+"ablate_attn1@R+patch_head2[3]@R": 0.3136094674556213,
+"flipped_run_with_attn1@R_ablated_follows_flipped_bayes": 1.0
+}

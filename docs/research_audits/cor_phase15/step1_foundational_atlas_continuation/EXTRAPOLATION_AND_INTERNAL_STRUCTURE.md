@@ -112,4 +112,28 @@ This hypothesis is post hoc and statistically weak within Transformers. It has a
 
 ## 5. Outcome
 
-*Pending.* The held-out models (TF 14, 15; DeepSets 3, 4) are still training. This section is filled in after `scripts/pa_evaluate.py` runs.
+**Provenance.** Held-out models TF s14, s15 and DeepSets s3, s4. Frozen code and fits, verified by hash. Log: `logs/pa_outcome.json`; full table in PROSPECTIVE_PREDICTIONS (P-A: OUTCOME).
+
+| model | observed local index | A1 (internal) prediction | A2 (behavioural) prediction | architecture prediction |
+|---|---|---|---|---|
+| TF s14 | 0.356 | 0.495 | 0.385 | 0.617 |
+| TF s15 | 0.569 | 0.385 | 0.510 | 0.617 |
+| DS s3 | 0.071 | 0.168 | 0.072 | 0.107 |
+| DS s4 | 0.087 | 0.173 | 0.105 | 0.107 |
+
+**Verdicts.**
+- **P-A1 FAILED.** The internal predictor's MAE is 0.126 against architecture's 0.091, and it orders the two held-out Transformers backwards.
+- **P-A2 passed** (MAE 0.026), but it is a near-proxy.
+- **P-A3 passed**: the support result replicates (inside T4 support the local index is 0.042–0.089).
+- **P-A4 passed**: DeepSets are global (0.071, 0.087).
+
+**Answer to the §1 hypotheses on present evidence.**
+- **H-arch** is supported for the DeepSets-vs-Transformer direction: 5/5 DeepSets are global, against Transformers at 0.31–0.87.
+- **H-struct** has no prospective support. The one internal predictor frozen failed.
+- **Within Transformers.** The spread is predicted by a behavioural off-support probe (A2: development and held-out MAE 0.04 and 0.03). It is not predicted by any measured internal quantity.
+- **H-none** is rejected for the behavioural level, but not for the internal level.
+
+**What the PP2 shift reveals about internal computation (mandate question 3).**
+- On the support it reveals nothing: all models follow the training Bayes answer there.
+- Off the support it reveals *which agreement statistic a representation carries*: graded counts versus a saturated full-agreement indicator (§3.3). This hypothesis has not been confirmed prospectively.
+

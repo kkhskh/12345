@@ -72,3 +72,45 @@ Reviewers ST-F12 and NV-A7 established the following, before any held-out model 
   - P-A1 is the only informative claim.
   - With n = 4, a P-A1 pass is weak evidence. A P-A1 fail is also weak evidence, contrary to the frozen text's "a failure is informative".
   - The outcome is reported with MAE differences against B1. Its verdicts are not changed.
+
+### P-A: OUTCOME
+
+**Provenance.**
+- Evaluated by `scripts/pa_evaluate.py` with the frozen `src/pp2_sig.py` (sha256 2b91afcd…, unchanged since the freeze commit `dc1dd3b`) and the frozen fits (sha256 498c0e60…).
+- Held-out models: TF s14 and s15 (T1 → T4 curriculum), DeepSets s3 and s4.
+- Log: `logs/pa_outcome.json`.
+
+**Observed local index.**
+
+| model | observed local index |
+|---|---|
+| TF s14 | 0.356 |
+| TF s15 | 0.569 |
+| DS s3 | 0.071 |
+| DS s4 | 0.087 |
+
+**Held-out MAE.**
+
+| predictor | MAE | predictions (s14, s15, s3, s4) |
+|---|---|---|
+| A1 internal (CCP_3) | 0.126 | 0.495, 0.385, 0.168, 0.173 |
+| A2 behavioural (LPI_deg) | **0.026** | 0.385, 0.510, 0.072, 0.105 |
+| B1 architecture | **0.091** | 0.617, 0.617, 0.107, 0.107 |
+| B2 natural KL | 3.97 | blows up: TF s14 has KL 0.031, outside the development range |
+| B3 accuracy | 0.247 | — |
+| B4 ECE | 0.308 | — |
+| B5 constant | 0.245 | — |
+| B6 random (mean) | 0.258 | — |
+| B7 ridge | 1.47 | — |
+
+**Verdicts (frozen criteria).**
+- **P-A1: FAILED.** A1's MAE (0.126) exceeds the architecture baseline's (0.091). A1 also orders the two held-out Transformers *backwards*: it predicts s14 > s15, but observes s14 < s15.
+- **P-A2: PASSED** (0.026 ≤ 0.10). Per the post-freeze annotation, this is a near-proxy, so it shows transfer between two off-support shifts, not structural prediction.
+- **P-A3: PASSED.** Inside T4 support the local index is 0.042–0.089 and agreement with the global plug-in is 0.877–0.901.
+- **P-A4: PASSED.** DeepSets local indices are 0.071 and 0.087.
+
+**Reading.**
+- The frozen internal structural predictor of extrapolation direction **did not beat architecture**. It failed to rank the within-Transformer spread.
+- What predicted the direction was a *behavioural* probe under a milder off-support shift (A2).
+- COR failure F4 ("no distinctive prospective prediction") is **unchanged**.
+- Note: TF s14 is less Bayes-close than every development model (natural KL 0.031, accuracy 0.731). This is a held-out property that was not anticipated.

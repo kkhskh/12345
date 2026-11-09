@@ -1,0 +1,42 @@
+{
+ "R_patterns": [
+  [
+   0,
+   1,
+   6
+  ]
+ ],
+ "R_natural_mass": 0.00145,
+ "R_frac_scored_edit_endpoints": 0.0018083182640144665,
+ "R_frac_scored_base": 0.0012764599510690351,
+ "BAYES": {
+  "natural_acc": 0.7461916666666667,
+  "natural_ECE": 0.003022926280163121,
+  "natural_KL": 7.923811660216383e-18,
+  "sign_agreement": 1.0
+ },
+ "TEMP3_underconfident": {
+  "natural_acc": 0.7464083333333333,
+  "natural_ECE": 0.21956281802313038,
+  "natural_KL": 0.18761287792200415,
+  "sign_agreement": 1.0
+ },
+ "TEMP1/3_overconfident": {
+  "natural_acc": 0.7460166666666667,
+  "natural_ECE": 0.08227946228482583,
+  "natural_KL": 0.2754885488659254,
+  "sign_agreement": 1.0
+ },
+ "CX1_margin_distortion": {
+  "natural_acc": 0.7461,
+  "natural_ECE": 0.32409129013776955,
+  "natural_KL": 1.0092507608092642,
+  "sign_agreement": 0.22263588979895757
+ },
+ "CX3_density_ratio_region": {
+  "natural_acc": 0.745825,
+  "natural_ECE": 0.0026562596134964336,
+  "natural_KL": 0.00037439961683319095,
+  "sign_agreement": 0.9990639293692161
+ }
+}

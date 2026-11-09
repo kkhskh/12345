@@ -1,0 +1,1 @@
+2026-11-09T01:22:17 queue_all.sh killed after pre_plocal started; replaced by queue2.sh (budget cut: pcount/pgroup pre 3000, ft 2000, gate/trans 4000, held-out TF seeds 14,15 and DS 3,4; held-out first so PP2 can be confirmed)

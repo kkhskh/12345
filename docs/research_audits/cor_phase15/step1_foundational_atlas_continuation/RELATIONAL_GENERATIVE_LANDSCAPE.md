@@ -76,14 +76,17 @@ P(group 0 is reliable | its count n), averaged over the other groups' counts:
 - The failure needs an intermediate-agreement competitor, here the colluder at a = 0.73, between the two reliable types (0.35 and 0.98).
 - The atlas proof is correct for its stated assumptions. Its *interpretation* ("the response to more agreement never turns more than once") holds only when every reliable sub-type is one role.
 
-### 1.5 Argmax discontinuities
+### 1.5 Argmax sensitivity and the ρ → 1 boundary
 
 **Setting.** Fix 3,000 episodes sampled at ρ = 0.6 and recompute the Bayes argmax as the *assumed* ρ moves across a 0.05 grid. The fraction of answers that flip per step:
 - 1–5% in the interior;
 - **13% and 11%** at the steps crossing ρ* ≈ 0.49 (the role-swap line);
 - **52% at ρ → 1.**
 
-**Interpretation.** ρ = 1 is a singular point of the family. Disagreement by the colluder becomes impossible, so the posterior support changes discontinuously. T4 (the training distribution) sits exactly at this singular point. That is one structural reason why behaviour at T4 says little about behaviour at ρ < 1 or p_c = 0. The atlas PP2 results are consistent with this, but this is not a proof that it causes them.
+**Interpretation.** ρ = 1 is a singular point of the family.
+- The posterior is continuous in ρ, but its log-odds move like n·log(1 − ρ). The answers are therefore maximally sensitive to the copy rate as ρ → 1.
+- At ρ = 1 every colluder disagreement becomes impossible, which is a support change.
+- T4, the training distribution, sits exactly at this point. That is one structural reason why behaviour at T4 constrains behaviour at ρ < 1 or p_c = 0 so little. The atlas PP2 results are consistent with this, but this does not show it is their cause.
 
 ## 2. Unknown groups (§9)
 
@@ -138,7 +141,7 @@ P(group 0 is reliable | its count n), averaged over the other groups' counts:
 | a_c vs α | decision boundary at the one-vote threshold a_c* (0.970 at α = 0.8) | yes |
 | two answer-dependent groups | counts stop being sufficient (cross-agreement matters) | yes, but needs more than counts |
 | mixture over α with an intermediate competitor | the reliability response can have two peaks | yes |
-| ρ → 1 | support change, so argmax is discontinuous | — |
+| ρ → 1 | unbounded posterior sensitivity, then a support change at ρ = 1 | — |
 | hidden pairing, T1 | noise re-pairing | **no** (≤ 1/3 on the full pairing) |
 | block size and membership | identifiable at a rate set by ρ | yes |
 | overlapping groups under a one-block class | mis-explained | **no**: outside the hypothesis class |

@@ -1,0 +1,44 @@
+{
+ "OD1_all_reliable_equal_alpha": {
+  "argminD_consistent_with_bayes": 1.0,
+  "on_unique_minD": 1.0,
+  "frac_unique": 0.9733666666666667,
+  "acc_bayes": 0.9747333333333333,
+  "acc_minD_random_tiebreak": 0.9747777777777777
+ },
+ "unequal_alpha_0.9_0.7_0.55": {
+  "argminD_consistent_with_bayes": 0.9885666666666667,
+  "on_unique_minD": 0.9878536775381564,
+  "frac_unique": 0.9413,
+  "acc_bayes": 0.9576,
+  "acc_minD_random_tiebreak": 0.9388888888888889
+ },
+ "correlated_pair_kappa0.7": {
+  "argminD_consistent_with_bayes": 1.0,
+  "on_unique_minD": 1.0,
+  "frac_unique": 0.9554,
+  "acc_bayes": 0.9618666666666666,
+  "acc_minD_random_tiebreak": 0.9535555555555556
+ },
+ "biased_errors_0.8": {
+  "argminD_consistent_with_bayes": 0.98,
+  "on_unique_minD": 0.9787030135235865,
+  "frac_unique": 0.9391,
+  "acc_bayes": 0.9925666666666667,
+  "acc_minD_random_tiebreak": 0.9625555555555556
+ },
+ "T1_rel_noise_noise": {
+  "argminD_consistent_with_bayes": 0.9002333333333333,
+  "on_unique_minD": 0.8767754950800773,
+  "frac_unique": 0.8096333333333333,
+  "acc_bayes": 0.7442,
+  "acc_minD_random_tiebreak": 0.6373333333333333
+ },
+ "T4_rel_coll_noise": {
+  "argminD_consistent_with_bayes": 0.7227333333333333,
+  "on_unique_minD": 0.6547401627096131,
+  "frac_unique": 0.8030666666666667,
+  "acc_bayes": 0.7407333333333334,
+  "acc_minD_random_tiebreak": 0.552
+ }
+}

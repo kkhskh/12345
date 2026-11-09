@@ -1,0 +1,13 @@
+clean-extraction check of commit 34490a2, 2026-11-09T05:52:57Z
+[1] manifest
+    manifest OK
+[2] exact-Bayes reproductions
+    OK   logs/landscape/checks.json
+    OK   logs/landscape/review_checks.json
+    OK   logs/od_bridge.json
+    OK   logs/landscape/unknown_groups.json
+    OK   logs/pp2_probe_control.json
+[3] constructed-model and learned-model reproductions (committed checkpoints)
+    OK   logs/pp1_cx_matched.json
+    OK   logs/pp1_learned_ece.json
+done: outputs in /tmp/cor_clean_extract/docs/research_audits/cor_phase15/step1_foundational_atlas_continuation/verify

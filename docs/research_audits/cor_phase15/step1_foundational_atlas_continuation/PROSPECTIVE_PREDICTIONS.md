@@ -114,3 +114,26 @@ Reviewers ST-F12 and NV-A7 established the following, before any held-out model 
 - What predicted the direction was a *behavioural* probe under a milder off-support shift (A2).
 - COR failure F4 ("no distinctive prospective prediction") is **unchanged**.
 - Note: TF s14 is less Bayes-close than every development model (natural KL 0.031, accuracy 0.731). This is a held-out property that was not anticipated.
+
+---
+
+## P-B: what the transferred early layers must contain (mandate §4), frozen before the P-count, P-group, probe and dynamics results
+
+**Frozen:** 2026-11-09.
+- At freeze time `pre_pcount` was at step 600 of 3000. `pre_pgroup`, both fine-tunes, `scripts/pp3_probes.py` and `scripts/pp3_dynamics.py` had not run.
+- **Known at freeze:** three frozen-feature transfer results (2000-step protocol, success threshold 0.6595 = own + ½(Bayes − own)):
+  - P-local 0.576 (fail);
+  - P-reliability, i.e. atlas T1 s0, 0.742 (success);
+  - P-control, a random frozen network, 0.554 (fail).
+
+**Predictions.**
+- **P-B1.** P-count (leave-one-out agreement counts as the target) **succeeds**: T4 accuracy ≥ 0.6595 under the frozen-feature protocol.
+- **P-B2.** P-group (agreement in one other question as the target) **succeeds**.
+- **P-B3 (feature criterion).** Across the five arms, transfer success coincides with the transferred layers making *within-pair agreement* linearly decodable at every source token of the last-layer input. Concretely: arms with agree_q probe accuracy ≥ 0.90 succeed, and arms below 0.90 fail. No mismatch is allowed.
+- **P-B4 (dynamics).** In the T1 s0 re-run, the snapshot at which frozen-feature transfer first reaches the threshold has agree_q probe accuracy ≥ 0.90. Every earlier snapshot below threshold has agree_q < 0.90. (Short fine-tune: 1000 steps; same threshold.)
+
+**Falsifiers.**
+- P-B1 or P-B2 fails if the arm is below 0.6595.
+- P-B3 fails on any mismatch between the 0.90 probe criterion and success.
+- P-B4 fails if the first successful snapshot has agree_q < 0.90, or if an unsuccessful snapshot has agree_q ≥ 0.90 *after* a successful one.
+- One seed per arm. An outcome within 0.02 of the threshold is reported as ambiguous.

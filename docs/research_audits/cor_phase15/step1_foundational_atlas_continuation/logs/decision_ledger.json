@@ -1,0 +1,32 @@
+{
+ "n_S1": 50130,
+ "n_reversals": 3562,
+ "n_conf_only": 11238,
+ "support_rule_bayes_sign_agreement": {
+  "all": 0.7991920152091255,
+  "boundary": 0.1112279779121746,
+  "interior": 1.0,
+  "n": 16832
+ },
+ "tf_s10": {
+  "reversal_follow": 0.8183604716451431,
+  "reversal_model_flips": 0.5887142055025266,
+  "conf_only_leakage": 0.13169603132229935,
+  "misleading_pc0_perfect_group_disagree_true": 0.6301859799713877,
+  "pc0_other_disagree_true": 0.07378629080833635
+ },
+ "tf_s12": {
+  "reversal_follow": 0.8239752947782145,
+  "reversal_model_flips": 0.5853453116226839,
+  "conf_only_leakage": 0.13142907990745684,
+  "misleading_pc0_perfect_group_disagree_true": 0.6437768240343348,
+  "pc0_other_disagree_true": 0.37368991687748465
+ },
+ "ds_s0": {
+  "reversal_follow": 0.8276249298147108,
+  "reversal_model_flips": 0.5960134755755194,
+  "conf_only_leakage": 0.13231891795693185,
+  "misleading_pc0_perfect_group_disagree_true": 0.6473533619456366,
+  "pc0_other_disagree_true": 0.4651849174798217
+ }
+}

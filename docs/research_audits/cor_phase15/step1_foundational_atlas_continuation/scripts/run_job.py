@@ -12,6 +12,11 @@ job = sys.argv[1]; out = os.path.join(HERE, "..", "checkpoints"); os.makedirs(ou
 lf = open(os.path.join(out, job + ".log"), "w"); log = lambda s: (lf.write(s + "\n"), lf.flush())
 if job.startswith("pre_"):
     task = job[4:]; p, h, dt = TT.train(task, 0, 6000 if task == "plocal" else 3000, log=log); ev = TT.evaluate(p, task, seed=41_000_000)
+elif job in ("ref_T1", "ref_randctrl"):
+    # P-reliability reference (atlas T1 s0 features) and P-control (random frozen layers), same 2000-step frozen protocol
+    p0 = C.load(os.path.join(HERE, "..", "..", "step1_latent_reliability", "checkpoints", "main", "T1_M_K3_s0.npz")) if job == "ref_T1" else None
+    p, h, dt = TE.train("T4", 0, 2000, p0=p0, reinit_layers=(2,), freeze_layers=(0, 1), freeze_embed=True, log=log)
+    ev = TE.evaluate(p, "T4", 20000, 6_300_000); ev.pop("X"); ev.pop("Y")
 elif job.startswith("ft_"):
     task = job[3:]; p0 = C.load(os.path.join(out, f"pre_{task}.npz")); p0.pop("WX", None)
     p, h, dt = TE.train("T4", 0, 2000, p0=p0, reinit_layers=(2,), freeze_layers=(0, 1), freeze_embed=True, log=log)

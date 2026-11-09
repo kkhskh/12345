@@ -55,7 +55,7 @@ Head-level shares of the *other* heads also move slightly under the split: 0.322
 - **L3.** R1 is about *where* (which class of operation), not *what variable*. A variable-level identification still needs an alignment class (atlas I7). The atlas convention stands: linear subspaces of dimension ≤ 5–10 at named sites.
 - **L4.** The site-level effect (all heads together) is trivially invariant. R1 is the finest invariant partition of that effect found here.
 
-## 2. Intervention targets: natural necessity versus patchability (§7)
+## 2. Intervention targets: (mean-replacement) necessity versus patchability (§7)
 
 Each intervention type is listed with its target, its support class (PP1 §1) and what it can identify. The same internal site can be necessary but not sufficient (seed 12).
 

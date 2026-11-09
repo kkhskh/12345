@@ -1,0 +1,25 @@
+{
+ "gate_zero_heads_layer0": {
+  "acc": 0.6911666666666667,
+  "agree_bayes_unique": 0.7557778308810978
+ },
+ "gate_zero_heads_layer1": {
+  "acc": 0.8811666666666667,
+  "agree_bayes_unique": 0.9781176390263886
+ },
+ "gate_zero_heads_layer2": {
+  "acc": 0.8996111111111111,
+  "agree_bayes_unique": 1.0
+ },
+ "pcount_transfer_1000steps": 0.6535,
+ "readout_count_loo_acc_P-count": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "readout_count_loo_acc_P-reliability(T1)": [
+  0.5561666666666667,
+  0.8108333333333333,
+  0.476
+ ]
+}

@@ -46,21 +46,21 @@ The atlas found its T1 transfer localised to layer 0 plus the embeddings. Comput
 1. **Within-question pair parsing is not sufficient.**
    - P-local makes within-pair agreement decodable at 0.876, well above chance, yet transfers nothing: 0.576, the own-question level.
    - This separates "source parsing" from what the curriculum supplies.
-2. **Cross-question agreement aggregation transfers most of the effect, without any answer or reliability supervision.**
+2. **Cross-question agreement aggregation transfers most of the effect, without answer supervision.** [R3] P-count's target (the leave-q counts) *is* the sufficient statistic of the leave-q reliability posterior under both T1 and T4 (reviewer R3-F1). So it does supervise the information that reliability needs. What it lacks is only the answer and the final combination with q's own reports.
    - P-count was trained only to count other questions' pair agreements, and transfers to 0.723. That is 88% of the T1 gain over own.
    - P-group (one other question only) gives a marginal 0.669.
    - So the transferable ingredient scales with how much *cross-question agreement aggregation* the pretraining demanded. This is the strongest identification here.
 3. **Generic optimisation effects are excluded at this protocol.** A random frozen network gives 0.554.
-4. **The linear source-token probe is not the transferred variable.**
+4. **[R3] The aggregate lives at the readout tokens in P-count.** A linear probe at P-count's readout tokens (last-layer input) decodes the leave-q counts with accuracy **1.000** for all three groups. T1's readout tokens give 0.48–0.81 (`logs/r3_checks.json`). T1 carries counts at the source tokens instead. The source-token probe used by P-B3 was the wrong site for P-count, which is why P-B3 failed:
    - P-count transfers with weak source-token count decodability (0.448).
    - So in P-count the aggregate is mostly not linearly present at source tokens. It may sit at readout tokens or in a nonlinear form.
    - This is why the frozen probe criterion P-B3 failed.
    - The T1 features are far richer at source tokens (counts 0.895; P_coll R² 0.71) and transfer only slightly better (0.742 vs 0.723).
 
 **Mandate question 4 ("what early-layer feature makes curriculum learning effective").**
-- **Answer on present evidence.** Early layers that *aggregate within-pair agreement across questions*.
-- It need not be linearly readable at source tokens.
-- It needs no reliability or answer supervision.
+- **Answer on present evidence.** Early layers that *aggregate within-pair agreement across questions*, that is, compute the leave-q counts.
+- The counts may be linearly carried at the source tokens (T1) or at the readout tokens (P-count). Both transfer.
+- No answer supervision is needed. The counts are the reliability sufficient statistic, so reliability *information* is supervised in P-count.
 - It is not provided by within-question parsing.
 - Its exact representation is not identified.
 
@@ -77,18 +77,21 @@ The atlas found its T1 transfer localised to layer 0 plus the embeddings. Comput
 | 4000 | 0.742 | 0.742 | 0.993 | 0.878 | 0.973 | 0.71 |
 | 6000 | 0.745 | 0.741 | 0.997 | 0.895 | 0.978 | 0.71 |
 
-**Findings.**
-- **Transferability emerges abruptly, in a single window (1000–2000 steps).** In that same window:
-  - T1 accuracy leaves the own-question plateau (0.650 → 0.735);
-  - agreement detection becomes decodable (0.74 → 0.93);
-  - the colluder-relevant "perfect leave-q agreement" feature appears (0.62 → 0.89), even though T1 contains no colluders.
-- **Before the window, nothing transfers.** After it, nearly everything does: 0.733 at 2000 steps against a final 0.741.
-- **The counts at source tokens keep improving after transfer has saturated** (0.60 → 0.90). Linear count decodability at source tokens is therefore not the limiting quantity, consistent with §2 finding 4.
-- **P-B4** (the first successful snapshot coincides with agree_q ≥ 0.90) **passed**. One run; the 1000-step resolution cannot order the features *within* the window.
+**Findings, corrected [R3-F3].**
+- The 1000-step fine-tune used for the snapshots is **confounded with fine-tune speed**. Under that protocol the fully trained P-count features score only **0.654**, below the threshold (verified in `logs/r3_checks.json`; reviewer: P-group 0.577), although they pass at 2000 steps.
+- So the table measures how *quickly* a frozen feature set can be used. It does not measure whether the features *exist*.
+- "Nothing transfers before 2000 steps" and "emerges abruptly" are **not established**.
+- The P-B4 pass stands under the frozen text, but carries little information.
+- What the table does show:
+  - between 1000 and 2000 T1 steps, T1 accuracy leaves the own-question plateau (0.650 → 0.735);
+  - in the same window, linear decodability of agreement (0.74 → 0.93) and of perfect leave-q agreement (0.62 → 0.89) rises at the source tokens;
+  - "fast-usable" transfer appears in that window too.
+- Source-token counts keep improving after fast-usable transfer saturates.
 
 ## 4. What remains open
 
+- **Learning dynamics with an unconfounded protocol.** Re-run the snapshots with the 2000-step fine-tune, and add the step-1000 snapshot under longer fine-tunes.
 - **Learning dynamics at finer resolution.** Which of agreement detection, aggregation and saturated-agreement features comes first inside the 1000–2000 window? This needs snapshots every 100 steps.
 - **Where the P-count aggregate lives.** Probes at readout tokens, and nonlinear probes, were not run.
-- **Seeds.** One seed per arm. P-group's marginal result needs replication.
+- **Seeds.** One seed per arm. The P-count < T1 ordering, P-group's marginal result and the "88%" figure need replication (R3-F6). [R3-F5] P-group's own target supports at most 0.622 on T4, yet it transfers to 0.669. That is consistent with a cross-question attention scaffold, not only with graded aggregation.
 - **Why curriculum and not end-to-end.** The atlas showed that T4 Transformers from scratch fail at this budget while DeepSets succeed. These results show *what* the T1 stage supplies. They do not show *why* T4 alone fails to discover it.

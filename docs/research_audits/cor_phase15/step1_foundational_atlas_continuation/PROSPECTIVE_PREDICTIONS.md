@@ -161,3 +161,9 @@ Reviewers ST-F12 and NV-A7 established the following, before any held-out model 
   - The first snapshot to reach the threshold is at 2000 steps, with transfer 0.733 and agree_q 0.928.
   - The earlier snapshots (250, 500, 1000) have transfer 0.551–0.562 and agree_q 0.667–0.736.
   - No later snapshot falls back below the threshold.
+
+### P-B: post-outcome annotation (review R3; verdicts unchanged)
+
+- **P-B4 carries little information.** Its 1000-step fine-tune protocol is confounded with fine-tune speed: fully trained P-count features fail at 1000 steps (0.654) but pass at 2000 (0.723).
+- **P-B3 probed the wrong site for P-count.** Its aggregate is linearly decodable at the readout tokens (1.000), not at the source tokens.
+- **P-B1's interpretation.** The P-count target is the reliability sufficient statistic, so P-B1 supports "cross-question agreement aggregation transfers". It does not support "transfers without reliability information".

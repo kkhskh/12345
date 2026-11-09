@@ -7,6 +7,7 @@ Each open problem is listed with what it depends on and what evidence would reso
 | id | problem | depends on | what would resolve it |
 |---|---|---|---|
 | OF-1 | **A useful distribution-level sign theorem.** C4 is vacuous at the observed ε (review R2). At density ratio ≥ 7.7 the learned models still get every \|Δm\| ≥ 1 sign right. Reviewer FM's multi-cell construction shows C7 is realisable for a constructed model | C1 / C4 / C7 | a bound in terms of the *distribution* of pointwise endpoint errors rather than its mean (for example, quantile-based), validated against the high-ratio family; a *learned* model that fails on a high-W family |
+| OF-2b | **When do transferable features exist during T1 training?** The 1000-step-fine-tune snapshots are confounded (R3) | PP3 | snapshots every 100 steps, scored with the 2000-step protocol and with readout-token probes |
 | OF-2 | **Why a seed lands in class A′, B or C.** No account links training dynamics to class | PP3 dynamics (partial, §TRANSFERRED_FEATURE) | many seeds with snapshots, plus a predictor of class from early-training quantities, frozen before the seeds finish |
 | OF-3 | **Seed 12's cross-question channels.** There are at least three besides own-question routing (other sources' values, other readouts, the readout residual). Under frozen routing, 0.40 of the tag effect survives. No low-dimensional variable is localised | R1; COMPUTATIONAL_CLASSES §1 | path patching that separates the value path from LN renormalisation; a variance-matched necessity protocol; more class-C seeds |
 | OF-4 | **The PP2 direction mechanism.** Revised hypothesis after the probe control: global extrapolation goes with representations carrying *graded* agreement counts, and local extrapolation with a *saturated* full-agreement detector | P-A outcome | (i) a probe-free causal test: inject graded-count features into a local Transformer and check whether it turns global; (ii) DeepSets with saturating pooled features; (iii) many Transformer seeds |
@@ -16,7 +17,7 @@ Each open problem is listed with what it depends on and what evidence would reso
 | OF-7 | **The multi-dimensional U.** For groups of size ≥ 3, the agreement statistic is a vector (the partition of the group's reports). Is the role posterior quasi-concave along each coordinate? | U | a proof or counterexample using `roles_engine` extended to size-3 groups |
 | OF-8 | **A learned mechanism under unknown or changing groups.** The atlas PP4 models failed to learn T1-perm beyond the own-question level. The continuation adds the bound (≤ 1/3 on the full pairing under T1) but no learned mechanism | I1′; the training budget | a model that beats own-question Bayes with unknown pairing, plus a mechanism analysis. T4-perm is the identifiable case (mass 0.64 at Q = 6) and the natural first target |
 | OF-9 | **Mixture-α learned behaviour.** Do models trained on a two-peak generator (U-scope counterexample) reproduce the two-peak reliability response? | U-scope | train on `roles_engine` mixture generators and run the PP1-style edit test on both peaks |
-| OF-10 | **The beyond-reliability families at the mechanism level.** GATE and TRANS were trained (seed 0 each). Their analysis is behavioural plus coarse routing (BEYOND_LATENT_RELIABILITY) | §11 | more seeds; a localisation of the gate-constraint detector and the composed map |
+| OF-10 | **The beyond-reliability families.** GATE is solved at Bayes level, but its last-layer routing is causally unnecessary (R3). TRANS composition was not learned in a truncated run | §11 | GATE: path patching through the layer-2 MLP and readout residual, plus more seeds. TRANS: a full 6000+ step run or a σ-first curriculum, plus a τ probe |
 | OF-11 | **P-A power.** Four held-out models | P-A | ≥ 10 held-out seeds per architecture, with the same frozen predictor |
 
 ## 2. Corrections now depending on other corrections
@@ -25,7 +26,7 @@ Each open problem is listed with what it depends on and what evidence would reso
   - by R1, which is an attribution-level invariance;
   - by L1, which shows value-equal mass moves change patterns.
 - Any future "invariant mechanism" claim must state which of the two equivalence relations it uses.
-- PP1's interpretation is downgraded from "implementation-independent causal law" to "a consequence of Bayes-closeness under W ≈ 1". Every downstream document relying on PP1 as evidence *about mechanism* inherits that downgrade. That includes the atlas H3 row.
+- PP1's interpretation is downgraded from "implementation-independent causal law" to "agreement wherever true effects exceed the models' pointwise margin errors" (empirical coverage; C4 is vacuous). Every downstream document relying on PP1 as evidence *about mechanism* inherits that downgrade. That includes the atlas H3 row.
 
 ## 3. Directions explicitly not examined
 

@@ -58,7 +58,7 @@ Full statements are in PP1_CALIBRATION_AND_INTERVENTION_THEOREMS.md.
 
 **I1′ [P, N].** Under T1 with a hidden pairing, the posterior mass on the full true pairing is ≤ 1/3. The noise-source re-pairings have equal likelihood (atlas I1). Reviewer FM-F17 notes the sketch shows equal likelihood but not the full bound under every prior. The bound holds numerically: 0.10, 0.15, 0.22 at Q = 3, 6, 12.
 
-**ρ = 1 support change [R: retracted as "singularity"].** At ρ = 1, configurations that make a disagreeing pair the colluder leave the support. That is the only true statement. The pre-review claims ("unbounded sensitivity", "52% of decisions flip") rested on a NaN artefact and are **withdrawn**. Measured on defined cells, flip rates near ρ = 1 are 2.4–6.2%, like interior steps.
+**ρ = 1 support change [R: retracted as "singularity"].** At ρ = 1, configurations that make a disagreeing pair the colluder leave the support. That is the only true statement. The pre-review claims ("unbounded sensitivity", "52% of decisions flip") rested on a NaN artefact and are **withdrawn**. Measured on defined cells, flip rates near ρ = 1 are 2.4–6.2%. The ρ = 1 figure is computed on the 21.9% of cells that remain defined, so it is not like-for-like with interior steps [R3-F14].
 
 **Misspecified overlap [X, N].** With a one-block hypothesis class and an overlapping truth, the mean posterior mass concentrates on the two non-overlapping blocks (0.50 / 0.50 at Q = 24) and gives zero mass to the true structure (KL projection; White 1982).
 
@@ -73,7 +73,7 @@ Full statements are in PP1_CALIBRATION_AND_INTERVENTION_THEOREMS.md.
 - **Assumptions.** Sources are conditionally independent given Y, Y is uniform, all share one accuracy α > 1/K, errors are symmetric, and D_c(x_q) = #{s : x_{q,s} ≠ c}.
 - **Statement.** log P(c | x_q) = const − D_c · log(α(K − 1)/(1 − α)). So the discrepancy ranking equals the Bayes ranking.
 
-**OD1′ (the exact condition for independent symmetric sources) [P].** Let w_s = log(α_s(K − 1)/(1 − α_s)). The D-ranking equals the Bayes ranking on every report pattern iff w(P) < w(R) for all disjoint source sets P and R with |P| < |R| and |P| + |R| ≤ S.
+**OD1′ (the no-strict-reversal condition for independent symmetric sources) [proposed by reviewer; the "only if" part is unverified].** Let w_s = log(α_s(K − 1)/(1 − α_s)). D never strictly reverses the Bayes order, so the Bayes argmax always lies in the arg-min-D set, iff w(P) < w(R) for all disjoint source sets P and R with |P| < |R| and |P| + |R| ≤ S. [R3-F11] Full ranking *equality* fails whenever two weights differ, because D-ties are broken strictly by Bayes. The quantity `od_bridge.json` checks is the arg-min-D membership.
 - This is the weighted-versus-simple-majority coincidence condition: Nitzan–Paroush 1982; Ben-Yashar–Paroush 2001; Taylor–Zwicker 1999.
 - A sufficient condition is w_max/w_min < (m + 1)/m, with m = ⌊(S − 1)/2⌋. For S = 6 that is a ratio below 3/2.
 - Proposed by reviewer NV-A1. The authors checked the derivation, but not the enumeration.
@@ -114,7 +114,7 @@ Full statements are in PP1_CALIBRATION_AND_INTERVENTION_THEOREMS.md.
 **K2 [R: replaced].**
 - **Withdrawn.** The pre-review K2 and its counterexample are withdrawn. T1 has full support, so a model that is KL-exact on T1 equals Bayes on every input and inherits all its invariances. The counterexample was impossible.
 - **Replacement (review NV-B4) [P].** On a full-support generator N, let W_s be the density ratio of shifted to natural inputs. Then E_shift[KL(Bayes ‖ model)] ≤ W_s · ε.
-- So T1 models' uniform-shift invariance is a **Bayes-closeness consequence, not an abstraction property**.
+- So T1 models' uniform-shift invariance is **consistent with** Bayes-closeness and needs no abstraction property. The bound's constant W_s was not computed, so this is a sufficiency argument, not a quantitative fit [R3-F13].
 - Abstraction questions arise only for generators with *partial* support (T4), which is where PP2 locates them.
 
 ## 7. Limits (what is not covered)

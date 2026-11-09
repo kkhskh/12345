@@ -139,7 +139,7 @@ P_E(fail) ≤ P_E(|Δm| ≤ b_τ(x) + b_τ(x′)) + W·ε/τ².
 
 **Findings.**
 - At W ≥ 7.7 the learned models still get every large-effect sign right (|Δm| ≥ 1: 1.000).
-- Failures sit entirely in the margin tail. For |Δm| < 0.1 agreement is at chance (0.49–0.66).
+- Failures sit entirely in the margin tail. For |Δm| < 0.1 agreement is 0.49–0.66, near chance [R3-F14].
 - A high density ratio alone does not break the learned models here, because they are accurate *on* this region. The region A_q has natural mass 0.13; it is not rare.
 - CX4 (Bayes with the top-2 candidates swapped on R = {≥ 2 groups with total count ≥ 5}) has sign agreement 0.60. But R has natural mass 0.35, giving natural KL 0.82 and accuracy 0.52, so CX4 is **not** a low-KL counterexample. It is reported only for completeness.
 - The C7-type construction that does bite at low KL is reviewer FM's (§2).
@@ -148,12 +148,12 @@ P_E(fail) ≤ P_E(|Δm| ≤ b_τ(x) + b_τ(x′)) + W·ε/τ².
 
 The atlas statement "calibrated models predict intervention signs" is replaced by:
 
-> For these ten models and both edit families tested (single-cell toggles: W = O(1); "noise group perfect": W ≥ 7.7), signs agree with Bayes whenever |Δm| exceeds the models' pointwise margin errors at the two endpoints. That condition holds for 98.6–99.7% of the filtered PP1 edits. Every observed failure is in the margin tail.
+> **(i)** On the filtered PP1 edits, the C1 condition (|Δm| exceeds the summed pointwise margin errors at both endpoints) holds for 98.6–99.7% of edits. By C1 (an identity), signs agree on all of them. The 0.996+ agreement therefore reflects these models' *pointwise* accuracy at the edit endpoints.
 >
-> This is an **empirical** fact about pointwise accuracy. The available distribution-level theorem (C4) is valid but vacuous at the observed ε.
+> **(ii)** On the high-ratio family NP (W ≥ 7.7), every sign with |Δm| ≥ 1 is correct, and agreement falls toward chance as |Δm| → 0. C1 coverage on NP was not computed [R3-F10].
 >
-> Sign agreement does **not** discriminate implementation classes, and is not evidence about the computation.
+> **(iii)** The distribution-level theorem C4 is valid but vacuous at the observed ε.
 >
-> Accuracy alone guarantees nothing (CX1), and ECE is irrelevant (TEMP, C5).
+> Sign agreement does **not** discriminate implementation classes, and is not evidence about the computation. Accuracy alone guarantees nothing (CX1), and ECE is irrelevant (TEMP, C5).
 
 **Scope.** One generator, two edit families, ten models. The clustered intervals cover the high-ratio family only.

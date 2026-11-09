@@ -52,7 +52,7 @@ Developed on T4 episodes whose colluder agreement was broken in j questions; the
 | TF s12 (class C) | 0.72 | 0.19 | 0.31 |
 | TF s10 | 0.39 | 0.29 | 0.87 |
 
-Global models keep the colluder code after one break and then *reassign* it, with CCP_3 below chance. Local models lose it immediately.
+Global models keep the probe's colluder assignment after one break and then *reassign* it, with CCP_3 below chance. Local models lose it immediately. ("Colluder code" here means the probe's output, not a validated variable; see §3.3.)
 
 ### 3.2 Which group the off-support code selects
 
@@ -130,8 +130,8 @@ This hypothesis is post hoc and statistically weak within Transformers. It has a
 **Answer to the §1 hypotheses on present evidence.**
 - **H-arch** is supported for the DeepSets-vs-Transformer direction: 5/5 DeepSets are global, against Transformers at 0.31–0.87.
 - **H-struct** has no prospective support. The one internal predictor frozen failed.
-- **Within Transformers.** The spread is predicted by a behavioural off-support probe (A2: development and held-out MAE 0.04 and 0.03). It is not predicted by any measured internal quantity.
-- **H-none** is rejected for the behavioural level, but not for the internal level.
+- **Within Transformers.** On two held-out Transformers and seven development ones, the spread is tracked by a behavioural off-support probe (A2: MAE 0.04 in development, 0.03 held-out). A2 is a near-proxy of the target. No measured internal quantity tracks it.
+- **H-none** is weakened at the behavioural level, on n = 2 held-out Transformers [R3-F8]. It is not rejected at the internal level.
 
 **What the PP2 shift reveals about internal computation (mandate question 3).**
 - On the support it reveals nothing: all models follow the training Bayes answer there.

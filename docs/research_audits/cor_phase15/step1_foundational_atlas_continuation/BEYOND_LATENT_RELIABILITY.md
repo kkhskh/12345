@@ -36,15 +36,19 @@ KL to Bayes is 2·10⁻⁴.
 - On that set the model follows the Bayes switch in **1.000** of cases.
 - [Correction] A pre-check without tie exclusion gave 0.64. That figure was driven by ties: after a flip, the newly trusted pair may disagree internally, which leaves Bayes indifferent between two candidates.
 
-**Routing (last layer).** Attention mass of readout q on q's sources:
+**Last-layer attention (descriptive).** Attention mass of readout q on q's sources:
 
 | head | gate open: sources 2, 3 | gate open: sources 4, 5 | gate closed: sources 2, 3 | gate closed: sources 4, 5 |
 |---|---|---|---|---|
-| 0 | **0.94** | 0.03 | 0.02 | **0.95** |
+| 0 | 0.94 | 0.03 | 0.02 | 0.95 |
 | 1 | 0.26 | 0.08 | 0.10 | 0.25 |
 | 2, 3 | ≤ 0.06 | ≤ 0.06 | ≤ 0.06 | ≤ 0.06 |
 
-Head 0 routes to the informative pair according to the relation.
+**[R3] This last-layer pattern is causally unnecessary** (reviewer R3-F1, verified in `logs/r3_checks.json`). Zeroing *all* layer-2 head outputs leaves agreement with Bayes at **1.000** on unique-argmax cases, with accuracy 0.900. By contrast:
+- zeroing layer-1 heads drops agreement to 0.978;
+- zeroing layer-0 heads drops it to 0.756.
+
+The relation-specific routing in head 0 is a correlate of the gate state, not the route by which it reaches the decision.
 
 **Where the relation lives** (`gate_mechanism.py`). Activations from the flipped run are patched into the base run. Entries are the fraction of scored cases in which the patched output takes the flipped Bayes answer:
 
@@ -55,15 +59,19 @@ Head 0 routes to the informative pair according to the relation.
 | readout token q | 0.15 | **0.97** |
 | evidence + readout | 1.00 | 1.00 |
 
-**Reconstruction.** This is a three-stage causal path, supported by interventions at each stage:
-1. **Layer 0.** The evidence tokens of question q read the gate tokens and encode the gate status. By the layer-1 input, the gate tokens themselves carry nothing that matters (0.00).
-2. **Layer 1.** The readout token q reads the gate status from the evidence tokens. At the layer-2 input it is carried by the readout token (0.97), that is, on the *query* side.
-3. **Layer 2.** Head 0 routes the readout's attention to the informative pair (0.94–0.95).
+**Reconstruction, corrected [R3].**
+1. **Layer 0.** Question q's evidence tokens encode the gate status, read from the gate tokens. Layer-0 heads are necessary: 0.756 without them.
+2. **Layer 1.** The readout token q integrates gate status and evidence. At the layer-2 input, the *full* readout residual carries the decision (0.97). A reviewer check shows that patching the readout only into the layer-2 *query* gives 0.003, so it is not a routing variable.
+3. **After layer 1.** The decision reaches the logits through the readout's residual path (the layer-2 MLP and the skip connection), not through layer-2 attention.
 
-**Comparison with latent reliability.**
-- *Same operation:* reliability-gated (here, constraint-gated) routing to an evidence pair in the last layer. In GATE the routing is query-side (readout token). In class A′ latent-reliability seeds, the atlas located the tag on the key side; seed 2 split it between key and query.
-- *Different:* the gating variable is computed within the question, from a non-agreement relation, in two early-layer hops.
-- So "routing the readout's attention by a relation-derived variable" recurs across two relation families in this architecture, with different variable placement. One seed per task; not a law.
+The pre-review claims "three-stage path ending in head-0 routing", "query-side routing variable" and "same operation as latent reliability" are **withdrawn**.
+
+**The flip result adds no new information.** It is implied by the model matching Bayes wherever the argmax is unique (R3-F2). Its value is only as a check that tie handling was the cause of the 0.64.
+
+**Comparison with latent reliability, corrected.**
+- In class A′ latent-reliability seeds, the last-layer routing pattern *is* causally used: freezing it removes the cond effect, and frozen-pattern tag ablation removes 0.02 against 0.64 with live patterns.
+- In GATE it is not.
+- So "relation-gated last-layer routing" does **not** recur as a causal operation across the two families. What recurs is only that a relation-derived variable is computed early and carried at the evidence tokens or readout token.
 
 ## 3. TRANS: composition not learned (negative result)
 
@@ -75,11 +83,19 @@ Head 0 routes to the informative pair according to the relation.
 | BC (B, C present; needs σ⁻¹) | 0.629 | 0.653 | 0.627 | 0.333 |
 | C-only (needs (τσ)⁻¹) | **0.336** | **0.487** | 0.336 | 0.329 |
 
-**Findings.**
-- The model learns the **one-hop** cross-question relation: on BC questions it reaches the one-hop reference (0.629 vs 0.627), far above own-question (0.333). So it infers σ from AB co-occurrences in other questions.
-- It does **not** learn the composition. C-only accuracy is at chance (0.336) and identical to the one-hop reference. Bayes gets 0.487, so the information is present: this is a **neural failure, not a statistical one**, at this budget and seed.
-- Input interventions agree. Masking the C reports of the BC questions, or the A reports of the AB questions, leaves model C-only accuracy at chance (0.343, 0.330). Bayes drops to the prior (0.336, 0.344).
-- All four heads attend 0.75–0.87 to other questions on BC and C-only questions. So cross-question reading happens, but the second hop is not composed.
+**Findings, corrected [R3].**
+- The model uses σ: BC accuracy matches the one-hop reference (0.629 vs 0.627), far above own-question (0.333).
+  - Its BC cross-entropy (0.669) is worse than the one-hop reference (0.635), so it does not fully reach even the σ-only solution (reviewer R3-F4).
+- **It makes no use of C reports anywhere.**
+  - Masking C in all BC questions moves its BC accuracy only from 0.629 to 0.626 (reviewer).
+  - C-only accuracy is at chance (0.336). Its exact equality with the one-hop reference is a coincidence.
+- Whether τ is *represented* but not composed was not tested. A τ probe would decide it.
+- Bayes reaches 0.487 on C-only questions (verified by brute-force enumeration, to 9·10⁻¹⁶). So the information is present per episode, *given the generative family*.
+- [R3] The pre-review "neural failure, not a statistical one" is withdrawn. Two facts make it unsupported:
+  - the Bayes reference knows the generative family, whereas the network must learn it;
+  - the training loss shows a late abrupt transition (0.79–0.81 until step 2400, then 0.59–0.66 by step 4000) under a cosine schedule cut from 6000 to 4000 steps.
+- The run was likely stopped mid-learning. The correct statement is "composition not learned in a truncated 4000-step run".
+- The cross-question attention figures (0.75–0.87) are close to the uniform-attention baseline (about 0.70), and are not evidence of targeted reading (R3-F7).
 
 **Limits.**
 - One seed, 4000 steps, and one architecture.
@@ -90,10 +106,13 @@ Head 0 routes to the informative pair according to the relation.
 
 | property (from latent reliability) | GATE | TRANS |
 |---|---|---|
-| model ≈ exact Bayes on the training distribution | yes (KL 2·10⁻⁴) | no (C-only at chance) |
+| model ≈ exact Bayes on the training distribution | yes (KL 2·10⁻⁴) | no (C-only at chance; truncated run) |
 | decision-level counterfactuals follow Bayes | yes (1.000, unique-argmax cases) | not tested beyond masking |
-| last-layer relation-gated routing | yes (head 0, query-side variable) | cross-question attention present; no composition |
-| relational variable localised | yes: evidence tokens (layer-1 input) → readout token (layer-2 input) | — |
+| last-layer relation-gated routing **causally used** | **no** [R3]: the pattern is gate-dependent, but zeroing layer-2 heads changes nothing | attention near uniform; no composition |
+| relational variable localised | yes: evidence tokens (layer-1 input) → full readout residual (layer-2 input), not the query | — |
 | a generator-free "discrepancy" statistic would suffice | no: the gate relation is a modular constraint, not agreement | no: the relation is a latent map |
 
-**Implication for COR.** In GATE, the relation that determines the decision is not an agreement or discrepancy relation of any kind. So any theory framed in terms of consistency or discrepancy among sources (O/D) cannot express it. This is a second, independent counterexample to the generality of the original O/D framing, alongside COR_TEN §2 for latent reliability.
+**Implication for COR (corrected [R3-F3]).**
+- GATE's relation x₀ + x₁ ≡ 0 is equality after a fixed recoding (x₀ = −x₁). So it *is* an agreement relation under per-source alphabets, and the pre-review "not agreement of any kind" is withdrawn.
+- What O/D in its answer-discrepancy form cannot express is that agreement among **non-answer** sources gates *which* answer sources count.
+- A generalised agreement statistic with known recodings and gating could express it. That would again be a semantics-laden (Bayesian) model, not a generator-free discrepancy.

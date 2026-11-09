@@ -56,8 +56,9 @@ LEVEL 3  INTERNAL COMPUTATION   (implementation-specific; identifiability-limite
 
 LEVEL 4  LEARNING / EMERGENCE
   T4 from scratch: barrier for Transformer M and the per-group MLP, none for DeepSets (architecture-dependent) [E]
-  curriculum: the T1 last layer is unnecessary; the T1 early layers are necessary
-      (PP3 partial, n=1 per arm); not yet separated from within-question parsing (R3-7)
+  curriculum: the T1 last layer is unnecessary; the T1 layer 0 (+ embeddings) is necessary and,
+      FROZEN, sufficient for a single trained layer to learn T4 (PP3 6/6 frozen arms + 2 post hoc; n=1
+      per arm); not yet separated from within-question parsing (R3-7)
   unknown groups: statistically learnable (I1, I4); the M Transformer stays at the
       own-question level (unknown pairing) (PP4 [F])
 ```
@@ -170,11 +171,15 @@ Details are in `GENERALIZATION_AND_EMERGENCE.md`.
 | starting point | result |
 |---|---|
 | T1 with the last layer reset | succeeds |
-| T1 with the early layers reset | fails |
+| T1 with layers 0–1 frozen, only the last layer trained (post hoc) | succeeds |
+| T1 with layer 1 reset (post hoc) | succeeds |
+| T1 with layers 0–1 reset | fails |
 | T0 | fails |
 | T5 | fails |
+| T2 | succeeds |
+| scratch | fails |
 
-  Only HC-relation fits. The remaining arms are in that document.
+  **Reading.** The benefit is in **T1's layer 0 (with the embeddings)**, as *features*, not as an initialisation basin. What those features encode (pair parsing, a scaffold, or counts) is not separated. Each arm has n = 1.
 - **Unknown groups.** Learnable in principle (Bayes 0.714 for T1). The M Transformer stays at the own-question level for unknown pairing (0.640 vs 0.634).
 - **Mechanism class survives fine-tuning.** Seed 2: split → split. No predictor of the class exists yet.
 

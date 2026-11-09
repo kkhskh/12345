@@ -176,7 +176,15 @@ Source: `logs/pp2_shift.json`. The table counts the models (out of 10) that side
 | (iii) | T1, last layer reset | 0.742 | **succeed** |
 | (iv) | T1, layers 0–1 reset | 0.552 | fail |
 | (vi) | scratch | 0.550 | fail |
-| (v) | T2 | see `GENERALIZATION_AND_EMERGENCE.md` §1a | |
+| (v) | T2 | 0.741 | **succeed** |
+
+**All 6 frozen arms are complete.**
+
+**Post hoc follow-ups** (`GENERALIZATION_AND_EMERGENCE.md` §1a):
+- frozen T1 layers 0–1 with only the last layer trained: 0.742;
+- layer 1 reset only: 0.742.
+
+The transfer is localised to layer 0 plus the embeddings.
 
 **Fit with the frozen hypotheses.**
 - **Matches the frozen HC-relation column** in all completed arms.

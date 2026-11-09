@@ -24,9 +24,9 @@
 | (i) | T0 s0 (within-question classifier, known reliability) | 0.575 | **fail** | fail ✓ | fail ✓ | succeed ✗ | succeed ✗ |
 | (iii) | T1 s0, **last layer re-initialised** | 0.742 | **succeed** | succeed ✓ | fail ✗ | succeed ✓ | ? |
 | (iv) | T1 s0, **layers 0–1 re-initialised** (last layer kept) | 0.552 | **fail** | fail ✓ | succeed ✗ | succeed ✗ | ? |
-| (ii) | T5 s0 (all sources exchangeable) | *see §1a* | | fail | fail | succeed | succeed |
-| (v) | T2 s0 (T1 plus a confidence head) | *see §1a* | | succeed | succeed | succeed | succeed |
-| (vi) | random init, 3000 steps | *see §1a* | | fail | fail | fail | fail |
+| (ii) | T5 s0 (all sources exchangeable) | 0.576 | **fail** | fail ✓ | fail ✓ | succeed ✗ | succeed ✗ |
+| (v) | T2 s0 (T1 plus a confidence head) | 0.741 | **succeed** | succeed ✓ | succeed ✓ | succeed ✓ | succeed ✓ |
+| (vi) | random init, 3000 steps | 0.550 | **fail** | fail ✓ | fail ✓ | fail ✓ | fail ✓ |
 
 **What T1 transfers (revised after R3-7).** The T1 **last layer is unnecessary** (arm iii), and the T1 **early layers are necessary** (arm iv).
 
@@ -56,9 +56,31 @@ T0 and T5 are not matched controls for the last two.
 
 The barrier is **architecture-dependent**. Its cause is open (OP-2).
 
-### 1a. Remaining arms
+### 1a. Final frozen arms and post hoc follow-ups (review R3-7)
 
-*(appended when complete)*
+**Frozen arms.** All 6 are complete:
+- (ii) T5 fails;
+- (v) T2 succeeds;
+- (vi) scratch fails.
+
+All six match the frozen HC-relation column. HC-generic and HC-classifier are falsified.
+
+**Post hoc follow-ups** (one seed each):
+
+| arm | construction | T4 accuracy | reading |
+|---|---|---|---|
+| (vii) | T1 s0: **layers 0–1 and embeddings frozen**, last layer re-initialised and trained alone | **0.742** | the *frozen* T1 features suffice. One trained attention+MLP layer learns the non-monotone T4 rule on top of them. The benefit is the features, not an initialisation basin (R3 decisive test 4) |
+| (viii) | T1 s0: **layer 1 only** re-initialised | **0.742** | layer 1 is re-learnable |
+| (iv) (frozen) | layers 0–1 re-initialised, embeddings kept | 0.552 | embeddings alone are insufficient |
+
+**What this localises.** The transferable content is in **layer 0 together with the embeddings**. Layer 1 and the last layer are not needed from T1.
+
+**What is still not separated.** Whether layer 0's contribution is:
+- (a) within-question pair-agreement detection;
+- (b) a cross-question same-group attention scaffold;
+- (c) the count/tag itself (layer 0 alone could aggregate agreement across questions).
+
+**Next decisive test.** A "T1-local" pretraining task with R resampled per question, where (a) is useful but (b) and (c) are not. This was not run.
 
 ## 2. Unknown source groups (PP4; Direction D)
 

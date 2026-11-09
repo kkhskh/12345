@@ -1,0 +1,183 @@
+{
+ "ckpt": "checkpoints/gate_s2.npz",
+ "equivalence_max_abs_diff": 2.86102294921875e-06,
+ "acc": 0.9000555555555556,
+ "acc_bayes": 0.9022222222222223,
+ "n_scored": 3211,
+ "patch_flip_transfer": {
+  "resid_pre1@E": 0.0,
+  "resid_pre2@R": 0.0,
+  "resid_pre2@E": 1.0,
+  "attn_out0@E": 0.0,
+  "attn_out0@G": 0.0,
+  "mlp_out0@E": 0.0,
+  "attn_out1@R": 0.0,
+  "mlp_out1@R": 0.0,
+  "attn_out1@E": 1.0,
+  "mlp_out1@E": 0.9962628464652756,
+  "attn_out2@R": 1.0,
+  "mlp_out2@R": 0.07318592338835254,
+  "attn_out1@R+mlp_out1@R": 0.0,
+  "attn_out0@E+mlp_out0@E": 0.0,
+  "head_out0[0]@E": 0.0,
+  "head_out1[0]@R": 0.0,
+  "head_out1[0]@E": 0.0,
+  "head_out0[1]@E": 0.0,
+  "head_out1[1]@R": 0.0,
+  "head_out1[1]@E": 0.0,
+  "head_out0[2]@E": 0.0,
+  "head_out1[2]@R": 0.0,
+  "head_out1[2]@E": 0.0,
+  "head_out0[3]@E": 0.0,
+  "head_out1[3]@R": 0.0,
+  "head_out1[3]@E": 1.0
+ },
+ "negative_controls_change_rate": {
+  "flip_other_question_changes_q_argmax": 0.008555555555555556,
+  "patch_resid_pre2@R_from_other_question_flip": 0.003111111111111111
+ },
+ "mean_ablation": {
+  "head_out0[0]@all": {
+   "acc": 0.8986666666666666,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out0[1]@all": {
+   "acc": 0.8978333333333334,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out0[2]@all": {
+   "acc": 0.9014444444444445,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out0[3]@all": {
+   "acc": 0.8999444444444444,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out0@all": {
+   "acc": 0.8992222222222223,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out0@all": {
+   "acc": 0.7382222222222222,
+   "agree_bayes_unique": 0.8075037450633256
+  },
+  "mlp_out0@readouts": {
+   "acc": 0.8998888888888888,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out0@sources": {
+   "acc": 0.7395,
+   "agree_bayes_unique": 0.8072994688819284
+  },
+  "attn_out0@readouts": {
+   "acc": 0.8982222222222223,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out0@sources": {
+   "acc": 0.9005,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out1[0]@all": {
+   "acc": 0.8983888888888889,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out1[1]@all": {
+   "acc": 0.8990555555555556,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out1[2]@all": {
+   "acc": 0.8998888888888888,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out1[3]@all": {
+   "acc": 0.6155555555555555,
+   "agree_bayes_unique": 0.664033773661991
+  },
+  "attn_out1@all": {
+   "acc": 0.6155555555555555,
+   "agree_bayes_unique": 0.664033773661991
+  },
+  "mlp_out1@all": {
+   "acc": 0.8716111111111111,
+   "agree_bayes_unique": 0.9660901538880566
+  },
+  "mlp_out1@readouts": {
+   "acc": 0.9005555555555556,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out1@sources": {
+   "acc": 0.8342222222222222,
+   "agree_bayes_unique": 0.9250987334876754
+  },
+  "attn_out1@readouts": {
+   "acc": 0.8995,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out1@sources": {
+   "acc": 0.6244444444444445,
+   "agree_bayes_unique": 0.6777883698760725
+  },
+  "head_out2[0]@all": {
+   "acc": 0.8993333333333333,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out2[1]@all": {
+   "acc": 0.6153333333333333,
+   "agree_bayes_unique": 0.6634209451177993
+  },
+  "head_out2[2]@all": {
+   "acc": 0.901,
+   "agree_bayes_unique": 1.0
+  },
+  "head_out2[3]@all": {
+   "acc": 0.9006111111111111,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out2@all": {
+   "acc": 0.6153333333333333,
+   "agree_bayes_unique": 0.6634209451177993
+  },
+  "mlp_out2@all": {
+   "acc": 0.9014444444444445,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out2@readouts": {
+   "acc": 0.9014444444444445,
+   "agree_bayes_unique": 1.0
+  },
+  "mlp_out2@sources": {
+   "acc": 0.9000555555555556,
+   "agree_bayes_unique": 1.0
+  },
+  "attn_out2@readouts": {
+   "acc": 0.6153333333333333,
+   "agree_bayes_unique": 0.6634209451177993
+  },
+  "attn_out2@sources": {
+   "acc": 0.9000555555555556,
+   "agree_bayes_unique": 1.0
+  }
+ },
+ "gate_state_decodable_answer_neutral": {
+  "resid_pre1@E": {
+   "n": 1634,
+   "acc": 0.4745417515274949,
+   "majority": 0.5091649694501018
+  },
+  "resid_pre2@E": {
+   "n": 1634,
+   "acc": 1.0,
+   "majority": 0.5091649694501018
+  },
+  "resid_pre2@R": {
+   "n": 1634,
+   "acc": 0.47657841140529533,
+   "majority": 0.5091649694501018
+  },
+  "resid_pre1@R": {
+   "n": 1634,
+   "acc": 0.48879837067209775,
+   "majority": 0.5091649694501018
+  }
+ }
+}

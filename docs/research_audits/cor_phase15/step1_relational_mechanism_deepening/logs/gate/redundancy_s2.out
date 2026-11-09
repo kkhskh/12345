@@ -1,0 +1,87 @@
+{
+"attn1+attn2@readouts": {
+"acc": 0.33994444444444444,
+"agree_bayes_unique": 0.3408007626310772
+},
+"attn1+attn2+mlp2@readouts": {
+"acc": 0.4146666666666667,
+"agree_bayes_unique": 0.42802669208770255
+},
+"attn1+mlp1+attn2+mlp2@readouts": {
+"acc": 0.42077777777777775,
+"agree_bayes_unique": 0.4353806346180035
+},
+"head1[0]+head2[0]@all": {
+"acc": 0.8996111111111111,
+"agree_bayes_unique": 1.0
+},
+"head1[0]+head2[1]@all": {
+"acc": 0.6153333333333333,
+"agree_bayes_unique": 0.6634209451177993
+},
+"head1[0]+head2[2]@all": {
+"acc": 0.9005555555555556,
+"agree_bayes_unique": 1.0
+},
+"head1[0]+head2[3]@all": {
+"acc": 0.9000555555555556,
+"agree_bayes_unique": 1.0
+},
+"head1[1]+head2[0]@all": {
+"acc": 0.8998888888888888,
+"agree_bayes_unique": 1.0
+},
+"head1[1]+head2[1]@all": {
+"acc": 0.6153333333333333,
+"agree_bayes_unique": 0.6634209451177993
+},
+"head1[1]+head2[2]@all": {
+"acc": 0.9009444444444444,
+"agree_bayes_unique": 1.0
+},
+"head1[1]+head2[3]@all": {
+"acc": 0.8996666666666666,
+"agree_bayes_unique": 1.0
+},
+"head1[2]+head2[0]@all": {
+"acc": 0.9002222222222223,
+"agree_bayes_unique": 1.0
+},
+"head1[2]+head2[1]@all": {
+"acc": 0.6153333333333333,
+"agree_bayes_unique": 0.6634209451177993
+},
+"head1[2]+head2[2]@all": {
+"acc": 0.9010555555555556,
+"agree_bayes_unique": 1.0
+},
+"head1[2]+head2[3]@all": {
+"acc": 0.8996111111111111,
+"agree_bayes_unique": 1.0
+},
+"head1[3]+head2[0]@all": {
+"acc": 0.6155555555555555,
+"agree_bayes_unique": 0.664033773661991
+},
+"head1[3]+head2[1]@all": {
+"acc": 0.2624444444444444,
+"agree_bayes_unique": 0.24942121748604112
+},
+"head1[3]+head2[2]@all": {
+"acc": 0.6155555555555555,
+"agree_bayes_unique": 0.664033773661991
+},
+"head1[3]+head2[3]@all": {
+"acc": 0.6155555555555555,
+"agree_bayes_unique": 0.664033773661991
+}
+}
+{
+"ablate_attn1@R_only": 0.0,
+"ablate_attn1@R+patch_attn2@R": 1.0,
+"ablate_attn1@R+patch_head2[0]@R": 0.0,
+"ablate_attn1@R+patch_head2[1]@R": 1.0,
+"ablate_attn1@R+patch_head2[2]@R": 0.0,
+"ablate_attn1@R+patch_head2[3]@R": 0.0,
+"flipped_run_with_attn1@R_ablated_follows_flipped_bayes": 1.0
+}

@@ -1,0 +1,13 @@
+{
+ "ckpt": "checkpoints/adapt_fromT1_s0.npz",
+ "probe_active_group_at_q": 0.6214166666666666,
+ "probe_initial_group": 0.5178333333333334,
+ "exact_MAP_active_at_q": 0.6545833333333333,
+ "static_MAP_active_at_q": 0.6031666666666666,
+ "after_change": {
+  "n": 4029,
+  "probe": 0.5763216679076694,
+  "exact_MAP": 0.6105733432613552,
+  "static_MAP": 0.5289153636138
+ }
+}

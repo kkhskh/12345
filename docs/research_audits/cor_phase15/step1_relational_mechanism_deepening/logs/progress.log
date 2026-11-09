@@ -21,3 +21,25 @@
 11:32:18 ft_pgroup_s2 done
 11:48:09 adapt_s0 done
 12:41:54 pre_plocal_s1 done
+12:54:14 ft_plocal_s1 done
+12:54:14 pre_plocal_s2 done
+12:54:14 ft_plocal_s2 done
+13:26:55 ftlong_pcount_s0 done
+13:34:09 trans_aux_s2 done
+13:49:56 ftlong_T1_s0 done
+13:49:56 ftlong_plocal_s0 done
+13:53:52 heldout3 ds 6 done (parallel)
+13:58:37 heldout3 ds 7 done (parallel)
+14:03:09 heldout3 ds 8 done (parallel)
+14:07:51 heldout3 ds 9 done (parallel)
+14:12:27 heldout3 ds 10 done (parallel)
+14:17:17 heldout3 ds 11 done (parallel)
+14:22:15 heldout3 ds 12 done (parallel)
+14:22:43 gate_s2 done
+14:22:43 LANE1 DONE
+14:25:35 heldout3 ds 13 done (parallel)
+14:28:52 heldout3 ds 14 done (parallel)
+14:33:38 heldout3 ds 15 done (parallel)
+14:54:54 dyn3 done
+15:07:15 heldout3 tf 45 (parent 12) done (parallel, reverse)
+15:30:15 heldout3 tf 40 (parent T1 s0) done

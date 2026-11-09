@@ -17,9 +17,10 @@ def step(p, st, X, Tt):
     l, g = jax.value_and_grad(N.loss_fn)(p, X, Tt, task, N.forward, False); up, st = opt.update(g, st, p); return optax.apply_updates(p, up), st, l
 rng = np.random.default_rng(1_000_003 * (seed + 1) + 7919 * ["T0", "T1", "T2", "T3", "T4", "T5"].index(task) + 31 * K)
 snaps = [250, 500, 1000, 1200, 1400, 1500, 1600, 1800, 2000]   # budget cut from every 100 steps (COMPUTE_LOG)
-for i in range(2000):
-    d = B.sample_fast(env, 256, rng); p, st, l = step(p, st, jnp.asarray(d["X"]), N.batch_targets(env, d))
-    if i + 1 in snaps: C.save(os.path.join(out, f"step{i + 1}.npz"), jax.tree_util.tree_map(np.asarray, p))
+if not all(os.path.exists(os.path.join(out, f"step{s}.npz")) for s in snaps):   # resume support (a run was OOM-killed)
+    for i in range(2000):
+        d = B.sample_fast(env, 256, rng); p, st, l = step(p, st, jnp.asarray(d["X"]), N.batch_targets(env, d))
+        if i + 1 in snaps: C.save(os.path.join(out, f"step{i + 1}.npz"), jax.tree_util.tree_map(np.asarray, p))
 c2000 = C.load(os.path.join(CONT, "T1_s0_step2000.npz")); n2000 = C.load(os.path.join(out, "step2000.npz"))
 diff = max(float(np.abs(np.asarray(a) - np.asarray(b)).max()) for a, b in zip(jax.tree_util.tree_leaves(c2000), jax.tree_util.tree_leaves(n2000)))
 f4 = G.Fam(); D = G.sample(f4, 2500, np.random.default_rng(9_100_000))["X"]
@@ -47,9 +48,12 @@ def probes(q):
             mu, sd = Z[m].mean(0), Z[m].std(0) + 1e-6
             r[f"{site}|{k}"] = float(LogisticRegression(max_iter=3000).fit((Z[m][::3] - mu) / sd, t[m][::3]).score((Z[~m] - mu) / sd, t[~m]))
     return r
-res = dict(max_param_diff_step2000_vs_continuation=diff, snaps={})
+LOG = os.path.join(HERE, "..", "logs", "pp3_dyn3.json")
+res = json.load(open(LOG)) if os.path.exists(LOG) else dict(snaps={})
+res["max_param_diff_step2000_vs_continuation"] = diff
 paths = [(s, os.path.join(out, f"step{s}.npz")) for s in snaps] + [(4000, os.path.join(CONT, "T1_s0_step4000.npz")), (6000, os.path.join(CONT, "T1_s0_step6000.npz"))]
 for s, path in paths:
+    if str(s) in res["snaps"]: continue
     q = C.load(path); ev1 = TE.evaluate(q, "T1", 5000, 6_300_001); ev1.pop("X", None); ev1.pop("Y", None)
     pr = probes(q)
     pt, _, _ = TE.train("T4", 0, 2000, p0=q, reinit_layers=(2,), freeze_layers=(0, 1), freeze_embed=True)

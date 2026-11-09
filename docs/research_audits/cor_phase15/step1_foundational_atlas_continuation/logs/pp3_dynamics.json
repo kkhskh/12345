@@ -1,0 +1,89 @@
+{
+ "max_param_diff_vs_stored_T1_s0": 0.0,
+ "snaps": {
+  "250": {
+   "T1_acc": 0.6332,
+   "transfer_T4_acc_1000steps": 0.5514666666666667,
+   "probes": {
+    "agree_q_acc": 0.6666111111111112,
+    "agree_q_majority": 0.6657777777777778,
+    "count_loo_acc": 0.3785833333333333,
+    "count_loo_majority": 0.3785,
+    "perfect_loo_acc": 0.6213333333333333,
+    "perfect_loo_majority": 0.6215,
+    "P_rel_R2": -0.0009797649942098197,
+    "P_coll_R2": -0.0010065077402572342
+   }
+  },
+  "500": {
+   "T1_acc": 0.6376,
+   "transfer_T4_acc_1000steps": 0.5501,
+   "probes": {
+    "agree_q_acc": 0.6670277777777778,
+    "agree_q_majority": 0.6657777777777778,
+    "count_loo_acc": 0.3784722222222222,
+    "count_loo_majority": 0.3785,
+    "perfect_loo_acc": 0.6211944444444445,
+    "perfect_loo_majority": 0.6215,
+    "P_rel_R2": -0.0009111565236354924,
+    "P_coll_R2": -0.00043551012964004876
+   }
+  },
+  "1000": {
+   "T1_acc": 0.6503333333333333,
+   "transfer_T4_acc_1000steps": 0.5617333333333333,
+   "probes": {
+    "agree_q_acc": 0.7363055555555555,
+    "agree_q_majority": 0.6657777777777778,
+    "count_loo_acc": 0.38780555555555557,
+    "count_loo_majority": 0.3785,
+    "perfect_loo_acc": 0.6179722222222223,
+    "perfect_loo_majority": 0.6215,
+    "P_rel_R2": 0.0005798149260533014,
+    "P_coll_R2": 0.035915286455839746
+   }
+  },
+  "2000": {
+   "T1_acc": 0.7347333333333333,
+   "transfer_T4_acc_1000steps": 0.7328333333333333,
+   "probes": {
+    "agree_q_acc": 0.9278333333333333,
+    "agree_q_majority": 0.6657777777777778,
+    "count_loo_acc": 0.6032222222222222,
+    "count_loo_majority": 0.3785,
+    "perfect_loo_acc": 0.8893055555555556,
+    "perfect_loo_majority": 0.6215,
+    "P_rel_R2": 0.04525103379989159,
+    "P_coll_R2": 0.548566016874547
+   }
+  },
+  "4000": {
+   "T1_acc": 0.7418,
+   "transfer_T4_acc_1000steps": 0.7420666666666667,
+   "probes": {
+    "agree_q_acc": 0.9928055555555556,
+    "agree_q_majority": 0.6657777777777778,
+    "count_loo_acc": 0.8784444444444445,
+    "count_loo_majority": 0.3785,
+    "perfect_loo_acc": 0.9728055555555556,
+    "perfect_loo_majority": 0.6215,
+    "P_rel_R2": 0.2989115985639501,
+    "P_coll_R2": 0.7068609558191163
+   }
+  },
+  "6000": {
+   "T1_acc": 0.7446666666666667,
+   "transfer_T4_acc_1000steps": 0.7412666666666666,
+   "probes": {
+    "agree_q_acc": 0.9974166666666666,
+    "agree_q_majority": 0.6657777777777778,
+    "count_loo_acc": 0.8953333333333333,
+    "count_loo_majority": 0.3785,
+    "perfect_loo_acc": 0.9783333333333334,
+    "perfect_loo_majority": 0.6215,
+    "P_rel_R2": 0.29380275618149154,
+    "P_coll_R2": 0.712056078179345
+   }
+  }
+ }
+}

@@ -137,3 +137,27 @@ Reviewers ST-F12 and NV-A7 established the following, before any held-out model 
 - P-B3 fails on any mismatch between the 0.90 probe criterion and success.
 - P-B4 fails if the first successful snapshot has agree_q < 0.90, or if an unsuccessful snapshot has agree_q ≥ 0.90 *after* a successful one.
 - One seed per arm. An outcome within 0.02 of the threshold is reported as ambiguous.
+
+### P-B: OUTCOME
+
+**Sources.**
+- Transfer results: `checkpoints/ft_*.json`, `checkpoints/ref_*.json`.
+- Probes: `logs/pp3_probes.json`.
+- Dynamics: `logs/pp3_dynamics.json`. The re-run reproduces the stored T1 s0 checkpoint exactly (max parameter difference 0.0).
+
+| arm | frozen-feature T4 accuracy (2000 steps) | agree_q probe accuracy (majority 0.666) | success (≥ 0.6595) |
+|---|---|---|---|
+| P-local | 0.576 | 0.876 | no |
+| P-count | **0.723** | **0.893** | yes |
+| P-group | 0.669 | 0.780 | ambiguous (within 0.02 of the threshold) |
+| P-reliability (T1 s0) | 0.742 | 0.997 | yes |
+| P-control (random) | 0.554 | 0.666 | no |
+
+**Verdicts.**
+- **P-B1 PASSED.** P-count reached 0.723.
+- **P-B2 AMBIGUOUS.** P-group reached 0.669, which is 0.009 above the threshold. Under the frozen rule it is not counted as a pass.
+- **P-B3 FAILED.** P-count succeeded with agree_q 0.893, below 0.90: a mismatch. P-group's ambiguous success at 0.780 is a second likely mismatch.
+- **P-B4 PASSED.**
+  - The first snapshot to reach the threshold is at 2000 steps, with transfer 0.733 and agree_q 0.928.
+  - The earlier snapshots (250, 500, 1000) have transfer 0.551–0.562 and agree_q 0.667–0.736.
+  - No later snapshot falls back below the threshold.

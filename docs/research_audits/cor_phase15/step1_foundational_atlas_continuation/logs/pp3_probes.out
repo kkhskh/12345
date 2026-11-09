@@ -1,0 +1,15 @@
+/home/claude/12345/docs/research_audits/cor_phase15/step1_foundational_atlas_continuation/scripts/pp3_probes.py:25: RuntimeWarning: divide by zero encountered in log
+  Mq = J.sum(-1); lMq = np.log(Mq); pr = np.log(f4.prior)
+P-local {'agree_q_acc': 0.876, 'agree_q_majority': 0.666, 'count_loo_acc': 0.422, 'count_loo_majority': 0.379, 'perfect_loo_acc': 0.642, 'perfect_loo_majority': 0.622, 'P_rel_R2': 0.005, 'P_coll_R2': 0.127}
+/home/claude/12345/docs/research_audits/cor_phase15/step1_foundational_atlas_continuation/scripts/pp3_probes.py:25: RuntimeWarning: divide by zero encountered in log
+  Mq = J.sum(-1); lMq = np.log(Mq); pr = np.log(f4.prior)
+P-count {'agree_q_acc': 0.893, 'agree_q_majority': 0.666, 'count_loo_acc': 0.448, 'count_loo_majority': 0.379, 'perfect_loo_acc': 0.724, 'perfect_loo_majority': 0.622, 'P_rel_R2': 0.013, 'P_coll_R2': 0.236}
+/home/claude/12345/docs/research_audits/cor_phase15/step1_foundational_atlas_continuation/scripts/pp3_probes.py:25: RuntimeWarning: divide by zero encountered in log
+  Mq = J.sum(-1); lMq = np.log(Mq); pr = np.log(f4.prior)
+P-group {'agree_q_acc': 0.78, 'agree_q_majority': 0.666, 'count_loo_acc': 0.397, 'count_loo_majority': 0.379, 'perfect_loo_acc': 0.631, 'perfect_loo_majority': 0.622, 'P_rel_R2': 0.001, 'P_coll_R2': 0.076}
+/home/claude/12345/docs/research_audits/cor_phase15/step1_foundational_atlas_continuation/scripts/pp3_probes.py:25: RuntimeWarning: divide by zero encountered in log
+  Mq = J.sum(-1); lMq = np.log(Mq); pr = np.log(f4.prior)
+P-reliability(T1) {'agree_q_acc': 0.997, 'agree_q_majority': 0.666, 'count_loo_acc': 0.895, 'count_loo_majority': 0.379, 'perfect_loo_acc': 0.978, 'perfect_loo_majority': 0.622, 'P_rel_R2': 0.294, 'P_coll_R2': 0.712}
+/home/claude/12345/docs/research_audits/cor_phase15/step1_foundational_atlas_continuation/scripts/pp3_probes.py:25: RuntimeWarning: divide by zero encountered in log
+  Mq = J.sum(-1); lMq = np.log(Mq); pr = np.log(f4.prior)
+P-control(random) {'agree_q_acc': 0.666, 'agree_q_majority': 0.666, 'count_loo_acc': 0.379, 'count_loo_majority': 0.379, 'perfect_loo_acc': 0.621, 'perfect_loo_majority': 0.622, 'P_rel_R2': -0.001, 'P_coll_R2': -0.004}

@@ -1,0 +1,52 @@
+{
+ "P-local": {
+  "agree_q_acc": 0.8759166666666667,
+  "agree_q_majority": 0.6657777777777778,
+  "count_loo_acc": 0.4216388888888889,
+  "count_loo_majority": 0.3785,
+  "perfect_loo_acc": 0.6415555555555555,
+  "perfect_loo_majority": 0.6215,
+  "P_rel_R2": 0.004615704984459401,
+  "P_coll_R2": 0.12713532690822527
+ },
+ "P-count": {
+  "agree_q_acc": 0.8928888888888888,
+  "agree_q_majority": 0.6657777777777778,
+  "count_loo_acc": 0.44819444444444445,
+  "count_loo_majority": 0.3785,
+  "perfect_loo_acc": 0.7244722222222222,
+  "perfect_loo_majority": 0.6215,
+  "P_rel_R2": 0.013289977991881696,
+  "P_coll_R2": 0.23624531021148165
+ },
+ "P-group": {
+  "agree_q_acc": 0.7797222222222222,
+  "agree_q_majority": 0.6657777777777778,
+  "count_loo_acc": 0.3972777777777778,
+  "count_loo_majority": 0.3785,
+  "perfect_loo_acc": 0.6311111111111111,
+  "perfect_loo_majority": 0.6215,
+  "P_rel_R2": 0.0005986903117205511,
+  "P_coll_R2": 0.07646539638740824
+ },
+ "P-reliability(T1)": {
+  "agree_q_acc": 0.9974166666666666,
+  "agree_q_majority": 0.6657777777777778,
+  "count_loo_acc": 0.8953333333333333,
+  "count_loo_majority": 0.3785,
+  "perfect_loo_acc": 0.9783333333333334,
+  "perfect_loo_majority": 0.6215,
+  "P_rel_R2": 0.29380275618149154,
+  "P_coll_R2": 0.712056078179345
+ },
+ "P-control(random)": {
+  "agree_q_acc": 0.6657777777777778,
+  "agree_q_majority": 0.6657777777777778,
+  "count_loo_acc": 0.37855555555555553,
+  "count_loo_majority": 0.3785,
+  "perfect_loo_acc": 0.6214444444444445,
+  "perfect_loo_majority": 0.6215,
+  "P_rel_R2": -0.0010423533044494615,
+  "P_coll_R2": -0.004211520221515608
+ }
+}

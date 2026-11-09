@@ -1,0 +1,20 @@
+{
+ "ckpt": "checkpoints/adapt_s0_snaps/step3000.npz",
+ "model_changed": 0.6534732633683158,
+ "bayes_changed": 0.6922788605697151,
+ "static_changed": 0.660432283858071,
+ "model_unchanged": 0.6536536536536537,
+ "bayes_unchanged": 0.7348348348348348,
+ "static_unchanged": 0.7482982982982983,
+ "model_all": 0.6535333333333333,
+ "bayes_all": 0.70645,
+ "Q3E1": false,
+ "Q3E2_n": 3576,
+ "Q3E2_model_follows_exact": 0.48461968680089484,
+ "Q3E2": false,
+ "history_intervention": {
+  "n": 6812,
+  "model_follows_new_exact": 0.4770992366412214,
+  "model_change_rate": 0.0491779213153259
+ }
+}

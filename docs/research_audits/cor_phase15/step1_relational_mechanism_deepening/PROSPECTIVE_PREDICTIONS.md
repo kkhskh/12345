@@ -66,3 +66,15 @@ Predictors (code `src/graded_sig.py` sha256 928f3a7b…, fits `logs/extrap/froze
 - **Q3-E2.** Count insufficiency is used: on pairs of episodes with equal per-group agreement counts and equal own
   reports but different exact-Bayes argmax (positional evidence), the model follows exact Bayes in ≥ 0.6 of cases
   (static-count reference: ≤ 0.5 by construction of the pairs being decided by position).
+
+---
+
+## Q3-E′ — adaptive sources under a T1 curriculum (frozen 2026-11-09 after the exploratory adapt_fromT1_s0 result; before the replication run below exists)
+
+Exploratory finding that motivates it (post hoc, `logs/adapt/eval_fromT1_s0.json`): ADAPT fine-tuned 3000 steps from the
+atlas T1 s0 checkpoint matches exact Bayes (0.706 vs 0.706) and passes the Q3-E1/E2 criteria, whereas the from-scratch
+adapt_s0 (frozen Q3-E) fails.  Replication: the same recipe from a DIFFERENT T1 parent (main T1 s1, train seed 1).
+- **Q3-E′1.** Q3-E1 holds (changed-episode accuracy ≥ static + 0.015; unchanged within 0.02 of exact Bayes).
+- **Q3-E′2.** Q3-E2 holds (≥ 0.6 agreement with exact Bayes in count classes decided by position).
+- **Q3-E′3.** History intervention (other questions' order permuted; counts unchanged): the model follows the new exact
+  answer in ≥ 0.8 of questions whose unique exact argmax changes.

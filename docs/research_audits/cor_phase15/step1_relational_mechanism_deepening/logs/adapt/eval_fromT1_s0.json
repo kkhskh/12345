@@ -1,0 +1,20 @@
+{
+ "ckpt": "checkpoints/adapt_fromT1_s0.npz",
+ "model_changed": 0.6914292853573213,
+ "bayes_changed": 0.6922788605697151,
+ "static_changed": 0.660432283858071,
+ "model_unchanged": 0.7358608608608609,
+ "bayes_unchanged": 0.7348348348348348,
+ "static_unchanged": 0.7482982982982983,
+ "model_all": 0.706225,
+ "bayes_all": 0.70645,
+ "Q3E1": true,
+ "Q3E2_n": 3576,
+ "Q3E2_model_follows_exact": 0.8766778523489933,
+ "Q3E2": true,
+ "history_intervention": {
+  "n": 6812,
+  "model_follows_new_exact": 0.8837345860246624,
+  "model_change_rate": 0.7899295361127422
+ }
+}

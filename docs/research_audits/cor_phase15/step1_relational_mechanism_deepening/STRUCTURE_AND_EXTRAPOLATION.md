@@ -1,5 +1,8 @@
 # Structure and extrapolation (Workstream D)
 
+> **Post-review [R].** Q3-D held-out Transformers are parent-shared replications (SD7); the GCD sign-reversal narrative is withdrawn (SD8); EX1 rules out on-support behaviour *determining* extrapolation, not on-support features *predicting* it among trained models (FM9). Frozen verdicts unchanged: D1 passed, D2 failed, D3 passed. [R2] The parent-sharing caveat also applies to D3: A2's held-out ρ 1.00 is matched by parent lookup; A2 beats it only on MAE (0.019 vs 0.042). Superseded pre-review statements are kept in ~~strikethrough~~ next to their
+> corrections; details in `reviews/ADJUDICATION_R1.md`.
+
 The continuation's frozen internal predictor P-A1 failed (MAE 0.126 vs architecture 0.091; held-out Transformers ranked
 backwards). That verdict stands. This document records why, what can be said formally, a second frozen test (Q3-D), and
 additional shifts. Code: `src/graded_sig.py`, `scripts/extrap_dev.py`, `scripts/eval_extrap.py`. Logs: `logs/extrap/`.
@@ -41,10 +44,12 @@ global; more saturated colluder code → more local), and SAT's frozen within-TF
 Q3-D3 passed.
 
 Reading. (i) Architecture still predicts the cross-architecture direction better than any structural signature. (ii) Within
-Transformers, an **on-support structural measurement (SAT) predicted unseen models' extrapolation prospectively** (ρ = 0.71,
-MAE 0.123 vs 0.166) — the first structural predictor in this programme to beat its baseline on held-out models. Its strength
+Transformers, ~~an on-support structural measurement (SAT) predicted unseen models' extrapolation prospectively (ρ = 0.71,
+MAE 0.123 vs 0.166) — the first structural predictor in this programme to beat its baseline on held-out models.~~ **[R: SD7]** SAT's
+held-out association (ρ 0.71, MAE 0.123) replicates the parents' development values: each held-out TF shares a T1 parent with a
+development TF, and a parent-lookup predictor gives ρ 1.00, MAE 0.042. Exact null p 0.068; no positive SAT prediction was frozen. Its strength
 is limited: n = 6, the six share T1 parents with development models, and a behavioural off-support probe is far better.
-(iii) GCD's within-TF sign reversed between development (−0.12, flat) and held-out (−0.83); its frozen fit therefore lost.
+(iii) ~~GCD's within-TF sign reversed between development and held-out~~ **[R: SD8]** On the same six parents in development GCD's ρ is already −0.66; the positive frozen slope came from one leverage model (tf_s14). Under the frozen signed wording GCD complied with Q3-D2; SAT alone failed it [R: SD9].
 No causal test (D3) of graded vs saturated features was run, so the association is not a mechanism.
 
 ## 4. Several shifts (D5)

@@ -8,13 +8,13 @@ groups, biased errors, copying and mixtures are in the continuation's RELATIONAL
 | phenomenon | seeds | stable? |
 |---|---|---|
 | P-count frozen-feature transfer (≥ 0.6595) | 5 | **yes**: 0.723, 0.724, 0.708, 0.725, 0.704 |
-| P-count readout count code causally used (abstract-variable interchange) | 5 | **yes**: 0.60–0.72 |
-| T1 cross-question information at source tokens (full-site interchange) | 3 parents | **yes**: 0.84–0.87; linear count code absent (0.04–0.08) |
+| P-count readout count code causally used (abstract-variable interchange) | 5 | **yes**: 0.60–0.72 (partial sufficiency; no permuted-count null [R: SD14]) |
+| T1 cross-question information at source tokens (full-site interchange) | 3 parents | **yes**: 0.84–0.87; ~~linear count code absent (0.04–0.08)~~ per-slot linear count code present: 0.82 / 0.80 / 0.66 [R: CA1] |
 | T1-parent transfer | 5 parents | **yes**: 0.738–0.742 |
 | P-group transfer | 3 | **no**: 0.669, 0.577, 0.571 |
 | P-local failure | 2 | yes: 0.576, 0.576 |
 | GATE Bayes-level accuracy | 3 | yes: 0.899–0.903 |
-| GATE stage-1 at evidence tokens, decision via readout attention | 3 | yes (structure) |
+| GATE stage-1 at evidence tokens, decision via readout attention | 3 | yes (structure; post-hoc cross-seed reading after Q3-B2–B4 failed [R: SD17]) |
 | GATE layer / redundancy layout | 3 | **no** (three different layouts) |
 | ADAPT with T1 curriculum: Bayes-level, positional evidence | 2 parents | yes (second prospectively confirmed) |
 | T4 off-support direction (DeepSets global) | 5 earlier + 10 held-out | see STRUCTURE_AND_EXTRAPOLATION |
@@ -31,7 +31,7 @@ groups, biased errors, copying and mixtures are in the continuation's RELATIONAL
 
 Pattern: within-question relations (GATE) are learned from scratch; cross-question relations needing an episode-level
 latent (T4, ADAPT) are learned with a relational curriculum; two-hop cross-question composition was not learned under any
-regime tried.
+regime tried. [R: SD17] Qualification: the 24-pair run learned its training pairs, but largely without composition (no-τ Bayes 0.429 under that prior [R: CN4]); one seed per regime.
 
 ## 3. Across architectures
 

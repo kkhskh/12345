@@ -1,5 +1,8 @@
 # Causal identification and invariance — Investigation III
 
+> **Post-review [R].** Corrections: §3 GATE pair is contributing, not jointly necessary (CA4); §4 T1 source result reversed by a per-slot encoder (CA1); necessity controls must be per-position (CA3); "2-D contrast subspace" should read k = 4 (CA11); invariance holds per token, not under cross-slot weight-sharing assumptions, and not across ablation operators (CA1, CA4). Superseded pre-review statements are kept in ~~strikethrough~~ next to their
+> corrections; details in `reviews/ADJUDICATION_R1.md`.
+
 This document states the identification framework used in this package, the specific failure modes it was built to
 avoid (each was a real error in an earlier package), and the results that the framework produced.  Earlier frameworks
 (atlas intervention taxonomy; continuation quotient-game attribution R1) are referenced, not restated.
@@ -49,7 +52,12 @@ whose raw activations live in different places.
 | same, patching layer-2 heads 1, 2 or 3 instead | 0.000 each |
 
 Identification statement: the gate-conditional decision reaches the readout through either of two attention routes —
-primary L1-h2 and backup L2-h0 — each sufficient in its regime, neither individually necessary, jointly necessary.
+primary L1-h2 and backup L2-h0 — each sufficient in its regime, neither individually necessary, ~~jointly necessary~~.
+**[R: CA4]** Not jointly necessary: with both mean-ablated the model still follows 86 % of gate flips; the 0.883 agreement
+is below the gate-blind level 0.890 only marginally. Resample ablation reverses single-head results (L1-h2 alone 0.62), so
+conclusions depend on the operator. The supported statement is "jointly contributing, with further routes" — under mean
+ablation; under resample ablation the pairs drop agreement to 0.37–0.39, below the gate-blind 0.890 [R2], because resampled
+heads inject another episode's evidence values.
 Ablation of either alone cannot detect use; the pair (joint ablation + conditional interchange) does.
 
 ## 4. Abstract-variable identification of the transferred count computation (Workstream A)
@@ -69,13 +77,15 @@ Counterfactual: cond pairs (the question's own reports kept, other questions res
 - In the P-count transfer model, writing *only the change of the leave-q counts* into the readout token, in the encoder's
   coordinates, reproduces 69 % of the counterfactual decision changes: the readout **count variable is causally used**,
   in an approximately additive one-hot code.
-- In the T1 transfer model, the counterfactual information is at the source tokens (full-site 0.87; 2-D contrast
-  subspace 0.72), but the same linear count abstraction fails there (0.04): T1's source tokens do **not** carry counts in an
-  additive one-hot code. The two curricula therefore produce causally effective cross-question information **at different
-  sites and in different codes**; under this (linear, generator-defined) alignment class they are **not** interchangeable.
+- In the T1 transfer model, the counterfactual information is at the source tokens (full-site 0.87; contrast
+  subspace k = 4 [R: CA11] 0.72). ~~The same linear count abstraction fails there (0.04) … not interchangeable.~~
+  **[R: CA1, R2]** The 0.04 used one encoder shared by all source slots; a per-slot linear one-hot count encoder gives
+  0.82 / 0.80 / 0.66 (3 parents), against a mismatched-count floor of 0.46 and capacity-matched nulls of 0.07–0.08. The two
+  curricula produce causally used count variables at different sites (readout vs source tokens), in a shared vs slot-specific
+  code; the T1 data fit an own-group-count-per-source reading equally well.
 - Selectivity: on count-preserving edits (every other question's six reports cyclically relabelled; counts and Bayes
   unchanged) the abstract intervention is zero by construction, and the count-subspace patch changes 1.7 % of P-count's
-  answers; but the models themselves are not relabel-invariant (they change 9–14 % of answers on such edits, Bayes 0 %),
+  answers; but the models themselves are not relabel-invariant (they change 7–15 % of answers on such edits [R: CA11], Bayes 0 %),
   i.e. both use some content beyond counts.
 
 ## 5. Map representation in TRANS (Workstream C3)
@@ -96,7 +106,7 @@ the composite is not represented. See TRANS_COMPOSITION_RESEARCH.md for the caus
 ## 6. Invariance under reparameterisation
 
 The continuation's R1 (quotient-game attribution over exact pattern classes is invariant under exact head splits) applies
-to the GATE redundancy result: the jointly necessary set {L1-h2, L2-h0} is a set of *pattern classes* (no two GATE heads
+to the GATE redundancy result: the ~~jointly necessary~~ contributing set {L1-h2, L2-h0} [R: CA4] is a set of *pattern classes* (no two GATE heads
 share a pattern), so the redundancy statement is split-invariant. The abstract-variable interchange is invariant under any
 invertible linear reparameterisation of the site (the encoder is refitted in the new coordinates), but not under nonlinear
 ones; its negative result for T1 is therefore relative to the linear alignment class (continuation I7).

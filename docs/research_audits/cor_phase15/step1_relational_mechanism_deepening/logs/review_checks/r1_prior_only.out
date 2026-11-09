@@ -1,0 +1,2 @@
+train prior24, no other-question evidence, C-only acc: 0.3924071756362119  prior36: 0.35227367542761784
+holdout prior24, no other-question evidence, C-only acc: 0.21218189403420942  prior36: 0.29470171047142263

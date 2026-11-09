@@ -1,0 +1,7 @@
+T3 one-pair-each: (chained, #composite candidates): [(False, 4), (True, 2)]
+preimages of 0 under composites: {(0,)}
+max |W - outer(marg)|: 8.881784197001252e-16
+full product {'AB': 0.95, 'BC': 0.661, 'C': 0.493}
+full train-restricted {'AB': 0.958, 'BC': 0.741, 'C': 0.591}
+no C in BC product {'AB': 0.95, 'BC': 0.645, 'C': 0.328}
+no C in BC train-restricted {'AB': 0.952, 'BC': 0.643, 'C': 0.429}

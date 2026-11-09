@@ -1,5 +1,8 @@
 # GATE: full causal circuit, three seeds (Workstream B)
 
+> **Post-review [R].** Strengthened (CA8, CA9): the gate is stored at E as an abstract variable (probes trained on two x₀ values decode the held-out x₀ at 0.98–1.00) and the decisive heads attend from R to E (0.93–0.99) not G (≤ 0.006). Weakened (CA4–CA6): head pairs are contributing, not jointly necessary (≥ 86 % of gate flips survive under mean ablation; under resample ablation the pairs drop agreement to 0.37–0.39 because foreign evidence is injected [R2]); mean vs resample ablation reverses single-head results; the conditional-sufficiency test is informative for seed 0 only; seed 2's ≈ 0.66 is collapse to one gate state. Equivalence check in logs is 0.0 (not 1.7e-6) [CA11]. Seed 0 has a ≈ 14 % route not via E. Superseded pre-review statements are kept in ~~strikethrough~~ next to their
+> corrections; details in `reviews/ADJUDICATION_R1.md`.
+
 Task (continuation `tasks_ext.sample_gate`): per question, sources 0, 1 satisfy x₀ + x₁ ≡ 0 (mod 3) ("gate open") w.p. ½;
 open ⇒ sources 2, 3 report Y w.p. 0.9 and 4, 5 are noise; closed ⇒ the reverse. Bayes depends on X_q only through the gate
 state and the two evidence pairs; nothing is shared across questions.
@@ -44,7 +47,7 @@ Mean-ablation (unique-argmax Bayes agreement; 1.000 = no effect; matched control
 | other heads of that layer | 1.000 | 1.000 | 1.000 |
 | layer-2 attention at the readouts | 1.000 | 0.939 | **0.663** |
 | the decisive layer-2 head alone | L2-h0 1.000 | L2-h1, L2-h3 1.000 each | **L2-h1 0.663** |
-| jointly necessary pair (each alone ≤ 0.01 drop) | **L1-h2 + L2-h0 → 0.883** | **L2-h1 + L2-h3 → 0.936** | none (single heads already necessary) |
+| ~~jointly necessary~~ contributing pair [R: CA4] (each alone ≤ 0.01 drop; flip-following with both ablated: s0 0.86, s1 0.92) | **L1-h2 + L2-h0 → 0.883** | **L2-h1 + L2-h3 → 0.936** | none (single heads already necessary) |
 | layer-0 MLP (all positions) | 0.951 | 0.861 | 0.808 |
 
 Conditional sufficiency with the layer-1 readout attention removed in both runs: patching the layer-2 attention at R gives
@@ -69,7 +72,7 @@ the Bayes answer — linear probe for the gate state, majority ≈ 0.51):
   from the readout to the gate-tagged evidence tokens** (layer-1 or layer-2 attention at R carries the full flip in every
   seed); the readout's MLPs never carry it (≤ 0.07).
 - **Seed-specific.** Which layer computes the gate (0 vs 1), which layer's readout attention carries the decision (1 vs 2),
-  and whether a backup exists: seed 0 has a redundant pair across layers (primary L1-h2, backup L2-h0); seed 1 a redundant
+  and whether a backup exists: seed 0 has two contributing routes across layers (primary L1-h2, backup L2-h0) plus a further route [R: CA4]; seed 1 a ~~redundant~~ contributing [R: CA4: the remaining redundancy is the pre-layer-2 readout residual]
   pair within layer 2 (L2-h1, L2-h3); seed 2 none (L2-h1 alone is necessary: unique-argmax Bayes agreement 0.663 after ablating it).
 - **Why the salient last-layer attention was dispensable in seed 0 (question 11).** Because it is a backup route: the
   primary route (layer-1 head 2 at the readout) carries the decision, and the layer-2 head becomes decisive only when the

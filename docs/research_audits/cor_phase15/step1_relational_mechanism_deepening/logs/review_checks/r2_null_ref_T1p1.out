@@ -1,0 +1,48 @@
+checkpoints/ref_T1p1.npz NE 600 NF 2000 {
+"slot|loo": [
+0.799,
+1393
+],
+"null|wrong_groups": [
+0.075,
+1393
+],
+"coarse|argmax_group": [
+0.452,
+1393
+],
+"oracle|answer_label": [
+0.08,
+1393
+],
+"null|permfit": [
+0.073,
+1393
+],
+"null|mismatch_target(vs true cf)": [
+0.459,
+1393
+],
+"null|mismatch_target(any flip)": [
+0.581,
+1393
+],
+"full_source_patch": [
+0.833,
+1393
+],
+"geom_slot_loo_vs_true_patch": {
+"norm_ratio": [
+0.426,
+0.421
+],
+"cos": [
+0.391,
+0.383
+],
+"frac_inf_counts_unchanged": [
+0.0,
+0.001
+]
+}
+}

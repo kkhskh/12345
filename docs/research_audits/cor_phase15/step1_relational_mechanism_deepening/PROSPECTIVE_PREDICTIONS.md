@@ -119,3 +119,17 @@ adapt_s0 (frozen Q3-E) fails.  Replication: the same recipe from a DIFFERENT T1 
 ## Q3-E′ — adaptive sources, T1 curriculum replication (`adapt_fromT1p1_s1`)
 - **Q3-E′1 PASSED** (changed 0.691 vs static 0.660; unchanged 0.736 vs Bayes 0.735). **Q3-E′2 PASSED** (0.88).
   **Q3-E′3 PASSED** (history intervention follows new exact answer 0.88).
+
+## Post-review notes on outcomes [R] (frozen blocks above are unchanged)
+
+- **Q3-A2:** relabelled **not evaluable as frozen** — the frozen text names 3 seeds; 2 were run (both fail). [R: SD]
+- **Q3-A (interpretation):** the location claims were not frozen; after review the count variable is found at the T1
+  source tokens too (per-slot encoder, CA1). The frozen Q3-A verdicts are unaffected.
+- **Q3-B1–B4:** verdicts unchanged. Interpretation of B3's "jointly necessary pair" is withdrawn (CA4).
+- **Q3-C:** verdicts unchanged; the masking criterion's chance reference should be 0.429 under the training prior (FM2, CN4).
+- **Q3-D1 PASSED, Q3-D2 FAILED, Q3-D3 PASSED:** unchanged. D2 failed because of SAT; GCD complied with the signed wording
+  (SD9). The held-out Transformers share parents with development models; a parent-lookup predictor (not frozen) gives
+  ρ 1.00, MAE 0.042 (SD7). SAT's association is therefore not a new confirmation.
+- **Q3-E2:** the reference "static ≤ 0.5 by construction" is false; static follows exact Bayes on 0.519 and the best
+  count rule 0.566 of the disagreement set; 4 % exact ties. Verdicts unchanged (SD).
+- **Q3-E′:** thresholds were set after the exploratory run's values were seen; it is a replication on a second parent.

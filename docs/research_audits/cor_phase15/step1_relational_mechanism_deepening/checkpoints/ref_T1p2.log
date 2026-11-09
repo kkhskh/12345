@@ -1,0 +1,11 @@
+T4 s2 step 200 loss 0.8179
+T4 s2 step 400 loss 0.5955
+T4 s2 step 600 loss 0.6122
+T4 s2 step 800 loss 0.5901
+T4 s2 step 1000 loss 0.6065
+T4 s2 step 1200 loss 0.5445
+T4 s2 step 1400 loss 0.5475
+T4 s2 step 1600 loss 0.5682
+T4 s2 step 1800 loss 0.5426
+T4 s2 step 2000 loss 0.6006
+{"acc": 0.7391166666666666, "bayes_known_groups": 0.74175, "own": 0.577225, "parent": "/home/claude/12345/docs/research_audits/cor_phase15/step1_relational_mechanism_deepening/scripts/../../step1_latent_reliability/checkpoints/main/T1_M_K3_s2.npz", "job": "ref_T1p2", "seconds": 653.6055731773376, "hist": [[200, 0.8179347515106201], [400, 0.5955269932746887], [600, 0.6122322082519531], [800, 0.5901405811309814], [1000, 0.6065312623977661], [1200, 0.5444521903991699], [1400, 0.5474793314933777], [1600, 0.5682282447814941], [1800, 0.5426350831985474], [2000, 0.6006247997283936]]}

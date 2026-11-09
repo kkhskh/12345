@@ -1,5 +1,8 @@
 # Relational computational classes: T4, GATE, TRANS, ADAPT (Workstream E)
 
+> **Post-review [R].** RC membership criteria tightened (FM10): interchange condition requires IIA ≥ 0.5 on informative pairs (stated post hoc; T4 seed 12 at 0.47 is therefore not a member); "TRANS: no" is re-graded "not shown" because condition 2 was not tested for one-hop σ mediation and σ/τ are not functions of the reports as condition 1 requires. "Relation variable at source tokens" is a property of answer-supervised curricula, not of the relation (CA10). Superseded pre-review statements are kept in ~~strikethrough~~ next to their
+> corrections; details in `reviews/ADJUDICATION_R1.md`.
+
 Purpose: decide, with interventions and counterexamples, what (if anything) the relation families share beyond "the
 input–output map depends on source relations". Evidence grades as in THEOREMS_AND_COUNTEREXAMPLES.md.
 
@@ -40,8 +43,9 @@ input–output map depends on source relations". Evidence grades as in THEOREMS_
 - **Scope of the relation variable**: T4/ADAPT episode- or question-indexed cross-question reliability; GATE strictly
   within-question.
 - **Code and site of the transferable variable**: P-count transfer models use an additive one-hot count code at the
-  readout (abstract-variable interchange 0.60–0.72 over 5 seeds); T1-transfer models carry the cross-question information at
-  source tokens in a non-count code (0.04–0.08 for the same abstraction, full-site 0.84–0.87 over 3 parents).
+  readout (abstract-variable interchange 0.60–0.72 over 5 seeds); T1-transfer models carry ~~the cross-question information at
+  source tokens in a non-count code (0.04–0.08 for the same abstraction~~ **[R: CA1, R2]** a count code at the source tokens
+  with slot-specific directions (per-slot encoder 0.66–0.82; shared encoder 0.04–0.08), full-site 0.84–0.87 over 3 parents).
 - **Layer and redundancy**: GATE's computation layer (0 vs 1), decisive readout layer (1 vs 2), and redundancy (cross-layer
   backup, within-layer pair, none) all vary by seed.
 - **Composition**: no learned TRANS model satisfied RC; aux supervision gives represented-but-unused maps — a separation
@@ -60,7 +64,7 @@ done here).
 | represented relation not used | TRANS aux run: σ, τ decodable at the statistical ceiling, composite near its ceiling; C-only at chance, unaffected by removing either map's evidence | decodability ≠ mediation; condition 2 is needed, condition 1 alone is vacuous |
 | salient attention not the mechanism | GATE seed 0: 94 % gate-dependent routing in L2-h0, ablation harmless (backup) | attention patterns alone cannot define the class |
 | same task, different circuits | GATE seeds 0/1/2 (layers, redundancy differ); T4 seeds 10 vs 12 | a class defined by components is not seed-invariant; RC defines it by mediated variables |
-| same relation, different codes | P-count (readout, count code) vs T1 (source tokens, non-count code) transfer models, both transferring | a shared *abstract variable* in a fixed (linear count) alignment class fails across curricula |
+| ~~same relation, different codes~~ count variables at different sites and codes [R: CA1, R2] | P-count (readout) vs T1 (source tokens, slot-specific) transfer models, both carrying the additive leave-q count code | ~~a shared abstract variable … fails across curricula~~ a count variable is causally used under both curricula, but its *site* and code differ — site-based class definitions fail |
 | prior-fitting instead of computation | TRANS holdout: above full-Bayes on training pairs, below chance on held-out pairs, matching training-prior Bayes | success on a relation family can be inference within a memorised hypothesis class; generalisation tests are required |
 | Bayes-closeness explains the behavioural signature | T4 PP1 sign agreement (continuation) | condition 4 alone adds nothing beyond accuracy |
 | relation statistic that discards information | ADAPT: static counts are insufficient (spread 0.35) | an aggregate-relation definition (counts) is not the general mediator |

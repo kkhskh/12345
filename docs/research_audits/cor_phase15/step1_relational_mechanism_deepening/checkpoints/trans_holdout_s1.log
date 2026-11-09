@@ -1,0 +1,21 @@
+trans_holdout s1 step 400 loss 0.7669
+trans_holdout s1 step 800 loss 0.7819
+trans_holdout s1 step 1200 loss 0.7673
+trans_holdout s1 step 1600 loss 0.7865
+trans_holdout s1 step 2000 loss 0.7660
+trans_holdout s1 step 2400 loss 0.6554
+trans_holdout s1 step 2800 loss 0.6511
+trans_holdout s1 step 3200 loss 0.5891
+trans_holdout s1 step 3600 loss 0.5782
+trans_holdout s1 step 4000 loss 0.5681
+trans_holdout s1 step 4400 loss 0.5729
+trans_holdout s1 step 4800 loss 0.5624
+trans_holdout s1 step 5200 loss 0.5601
+trans_holdout s1 step 5600 loss 0.5421
+trans_holdout s1 step 6000 loss 0.4800
+trans_holdout s1 step 6400 loss 0.5196
+trans_holdout s1 step 6800 loss 0.5169
+trans_holdout s1 step 7200 loss 0.4482
+trans_holdout s1 step 7600 loss 0.4893
+trans_holdout s1 step 8000 loss 0.4972
+{"job": "trans_holdout_s1", "seconds": 5627.220193862915, "hist": [[400, 0.7669021487236023], [800, 0.7818979024887085], [1200, 0.7673134803771973], [1600, 0.7864853143692017], [2000, 0.7659790515899658], [2400, 0.6554073095321655], [2800, 0.6510566473007202], [3200, 0.5890859961509705], [3600, 0.5781723856925964], [4000, 0.5680508613586426], [4400, 0.5729394555091858], [4800, 0.5624443292617798], [5200, 0.5600823163986206], [5600, 0.542060136795044], [6000, 0.4799960255622864], [6400, 0.519630491733551], [6800, 0.5169228315353394], [7200, 0.44820457696914673], [7600, 0.4892699718475342], [8000, 0.49723419547080994]]}

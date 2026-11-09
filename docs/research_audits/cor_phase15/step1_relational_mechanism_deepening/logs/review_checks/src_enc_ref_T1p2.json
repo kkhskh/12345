@@ -1,0 +1,42 @@
+checkpoints/ref_T1p2.npz {
+"shared|loo|all": [
+0.035,
+1419
+],
+"slot|loo|all": [
+0.657,
+1419
+],
+"slot|loo|own_q_only": [
+0.656,
+1419
+],
+"shared|full|all": [
+0.042,
+1419
+],
+"slot|full|all": [
+0.587,
+1419
+],
+"slot|full|own_q_only": [
+0.584,
+1419
+],
+"slot|own_group_loo|all": [
+0.65,
+1419
+],
+"slot|joint_lookup_loo|all": [
+0.652,
+1419
+],
+"full_source_patch": [
+0.563,
+1419
+],
+"_lookup_miss_frac": [
+0.013,
+6
+]
+}

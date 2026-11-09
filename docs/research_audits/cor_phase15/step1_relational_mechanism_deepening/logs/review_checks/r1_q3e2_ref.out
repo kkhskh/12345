@@ -1,0 +1,10 @@
+nonconst classes 94 max spread 3.3861802251067274e-15
+{
+ "n": 3576,
+ "n_classes": 1508,
+ "median_class_size": 2.0,
+ "static_follows_exact": 0.5190156599552572,
+ "best_count_rule_follows_exact": 0.5659955257270693,
+ "bayes_acc_in_set": 0.5648769574944071,
+ "static_acc_in_set": 0.4798657718120805
+}

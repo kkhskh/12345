@@ -1,5 +1,8 @@
 # Theorems and counterexamples — Investigation III
 
+> **Post-review [R].** Corrections: T1 verified (FM1); T1a and its learning consequence require the product prior on (σ, τ) (FM2); T3's "one value pair leaves 2 permutations" holds only for a chained pair (non-chained: 4 candidates) and certainty can arise from one chained pair of each type (FM3); OD2 K ≥ 3 verified (FM4), K = 2 closed negatively (FM5); AD2 restricted (FM6); AD1's 0.35 is a max deviation (FM7); AD4 is a dip, not a lag (FM8); EX1's corollary narrowed (FM9). The OD2 script docstring's "equivalently" describes weak NSR (FM4 wording). Superseded pre-review statements are kept in ~~strikethrough~~ next to their
+> corrections; details in `reviews/ADJUDICATION_R1.md`.
+
 Labels: **[P]** proof given here; **[N]** exact numerical validation; **[E]** learned-model evidence; **[X]** counterexample;
 **[O]** open proof obligation.  Earlier registries (atlas, continuation) are not restated; dependencies are cited.
 
@@ -14,10 +17,10 @@ where L_AB depends only on the AB questions and L_BC only on the BC questions.
 *Proof.* Given (σ, τ) the questions are independent. In an AB question, P(x | σ, τ) = Σ_y K⁻¹ p_A(x_A | y) p_B(x_B | σ(y)),
 free of τ. In a BC question, P = Σ_y K⁻¹ p_B(x_B | σ(y)) p_C(x_C | τσ(y)) = Σ_u K⁻¹ p_B(x_B | u) p_C(x_C | τ(u)) (substitute
 u = σ(y), a bijection, Y uniform), free of σ. A C-only question gives Σ_u K⁻¹ p_C(x_C | u) = const. ∎
-**Corollary T1a.** σ and τ are a-posteriori independent; σ is informed only by AB questions, τ only by BC questions, and
+**Corollary T1a** (**[R: FM2]** under a product prior on (σ, τ), as in the 36-pair task; false under the 24-pair holdout prior)**.** σ and τ are a-posteriori independent; σ is informed only by AB questions, τ only by BC questions, and
 C-only questions carry no map information.
 
-**Theorem T2 (composition needs both maps) [P].** If the posterior of σ (or of τ) is uniform on S₃, the posterior of the
+**Theorem T2 (composition needs both maps) [P]** (product prior [R: FM2])**.** If the posterior of σ (or of τ) is uniform on S₃, the posterior of the
 composite τσ is uniform, so the Bayes C-only answer is at chance, however well the other map is known.
 *Proof.* By T1a the composite is the group product of independent variables; if one factor is uniform on a finite group,
 the product is uniform (translation invariance of the uniform measure). ∎
@@ -25,8 +28,11 @@ the product is uniform (translation invariance of the uniform measure). ∎
 is at least each factor's).  [N] at β = 0.9, (nAB, nBC) = (1, 1): H(σ) 1.47, H(τ) 1.49, H(τσ) 2.16 bits.
 
 **Proposition T3 (coverage, noise-free) [P, N].** For β = 1, a single observed (a, σ(a)) pair leaves 2 of the 6
-permutations of {0,1,2}; two distinct pairs identify σ. Hence C-only decisions need ≥ 2 distinct AB value pairs and ≥ 2
-distinct BC value pairs for certainty; with exactly one of either, the composite is restricted to 2 candidates.
+permutations of {0,1,2}; two distinct pairs identify σ. ~~Hence C-only decisions need ≥ 2 distinct AB value pairs and ≥ 2
+distinct BC value pairs for certainty; with exactly one of either, the composite is restricted to 2 candidates.~~
+**[R: FM3]** With one AB pair and one BC pair the composite has 2 candidates if they chain (σ(a) = b, observed τ(b)) and 4 if
+they do not (`logs/review_checks/r1_chk1.out`); the "≥ 2 of each for certainty" statement is withdrawn (certainty can arise
+from one chained pair of each type for some C-only queries, per FM3).
 
 **Numerical validation [N]** (`logs/trans/identifiability.json`, 20,000 episodes, scored question q = 0): C-only Bayes
 accuracy is at chance (0.29–0.45; cells of 70–850 episodes) whenever nAB = 0 or nBC = 0 (for every count of the other type), and rises with both
@@ -34,6 +40,8 @@ accuracy is at chance (0.29–0.45; cells of 70–850 episodes) whenever nAB = 0
 
 **Consequence for learning.** A network that ignores C reports in BC questions (as the continuation's 4000-step model did)
 loses *all* τ information (Corollary T1a), so its C-only accuracy must be at chance — it cannot "partly compose".
+**[R: FM2]** Under the product prior only. Under the 24-pair training prior, Bayes without C reports in BC questions scores
+0.429 on C-only questions, and the prior plus the question's own C reports 0.392.
 
 ## 2. O/D: weighted-voting coincidence (mandate §11)
 
@@ -69,14 +77,14 @@ the question-dependent role r_g(q, cfg); two agreement patterns with equal count
 change point receive different likelihoods. ∎
 **Proposition AD2 (camouflaged copier) [P, N].** A copier pair that copies a uniform common value w.p. ρ_c = (K a_rel −
 1)/(K − 1) in every question has exactly the per-question law of an honest reliable pair marginalised over Y (atlas I2);
-any adaptive strategy whose per-question copying probability is constant has the same law. [N] max |Δ| of the pair law =
+~~any adaptive strategy whose per-question copying probability is constant has the same law.~~ **[R: FM6]** False as stated: a Markov copier at constant rate 0.49 raises P(agree on two consecutive questions) from 0.436 to 0.49–0.52, and a copier that copies only when the reliable pair agrees changes the joint law with that pair. AD2 holds for copying that is i.i.d. across questions and independent of the other sources. [N] max |Δ| of the pair law =
 2·10⁻¹⁷ at ρ_c = 0.49 (α = 0.8). Neural training cannot resolve it (statistical non-identifiability).
 **Proposition AD3 (triggered copier: dependence makes the trigger partly identifiable) [N].** A copier that copies only
 when the reliable pair disagrees (ρ_t = 0.9) has a different JOINT law with the reliable group than a static copier with
 matched marginal agreement rate (ρ_s = 0.306); exact posterior P(triggered) averages 0.66 when true and 0.34 when false;
 assuming the wrong mechanism costs ≤ 0.007 accuracy (`logs/adapt/theory.json`).  The decision-relevant evidence is the
 cross-group co-occurrence, which no per-group count captures.
-**Observation AD4 (posterior lag) [N].** After a change point, the exact posterior mass on the currently active reliable
+**Observation AD4 (posterior ~~lag~~ dip, symmetric around the change point [R: FM8]) [N].** After a change point, the exact posterior mass on the currently active reliable
 group dips to 0.36 at the questions adjacent to the change and recovers to ≈ 0.5 two questions away (Q = 6, one change).
 
 ## 4. Extrapolation from support behaviour (Workstream D1)
@@ -98,7 +106,7 @@ tautological).
 Listed there with evidence; each is an explicit model/input pair, not a construction on paper, unless marked.
 
 ## 6. Open obligations [O]
-- OD2 for K = 2.
+- ~~OD2 for K = 2.~~ **[R: FM5]** Closed: weights (10,4,4,4) satisfy NSR at K = 2 but fail COND, so NSR ⇔ COND is false at K = 2.
 - AD1 quantitative: which finite-dimensional statistic of the agreement history is sufficient (here: the agreement
   vector A ∈ {0,1}^{6×3} itself is; whether any lower-dimensional statistic is, is open).
 - T3 for larger alphabets: coverage needed to identify a permutation of K symbols is K − 1 distinct pairs; the effect on

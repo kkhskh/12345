@@ -1,5 +1,8 @@
 # TRANS: learned relational composition (Workstream C)
 
+> **Post-review [R].** Corrections: holdout-run probe ceilings must use the 24-pair prior (σ 0.694, τ 0.703, composite 0.540; the model is below all three) (CN1); aux-run decodability is by construction at the supervised token (CN2); map-intervention following ≈ 0.64 equals the training-prior Bayes rule's own following rate (0.65–0.74), and 78 % of held-out-episode counterfactuals land on training pairs (CN3); under the 24-pair prior Bayes without τ evidence scores 0.429 and prior + own C reports 0.392, so much of the 0.562 needs no composition (CN4, FM2); T1a holds only under the product prior; T3 corrected (FM3: non-chained single pairs leave 4 candidates); one seed per regime with confounded budgets (CN6); argmax ties bias near-chance references slightly (CN7). Superseded pre-review statements are kept in ~~strikethrough~~ next to their
+> corrections; details in `reviews/ADJUDICATION_R1.md`.
+
 Status: the statistical results are exact; the learned-model results are three training runs (one seed each, one per
 regime), evaluated with the criteria frozen in PROSPECTIVE_PREDICTIONS Q3-C before any run finished. Code: `src/tasks3.py`,
 `src/train3.py`, `scripts/run_job3.py` (`trans_*`), `scripts/eval_trans.py`, `scripts/trans_identifiability.py`,
@@ -98,6 +101,6 @@ explains the held-out behaviour; generalising composition was not observed.
   distribution makes C-only decisions learnable within the training class. No curriculum produced generalising composition.
 - **Limitation type.** Statistical: none for the full task (Bayes 0.487 is attainable). The failure is an optimisation /
   inductive-bias failure under this architecture and budget; it is **not** an impossibility result (one seed per regime,
-  fixed budgets). The aux result rules out "the maps cannot be represented"; the failure lies in combining them.
+  fixed budgets). ~~The aux result rules out "the maps cannot be represented"; the failure lies in combining them.~~ **[R: CN2]** σ/τ decodability at the episode token is guaranteed by the auxiliary head (a linear head on that token); at decision tokens τ reaches only 0.27–0.44 and the composite is at chance; composing the head's two predictions gives 0.396 (the composite ceiling), so composite decodability is the probe composing. Routing failure and combining failure are not distinguished.
 - **Not run (compute):** more seeds; longer runs beyond 12,000; σ-only or τ-only pretraining; intermediate composition
   questions; larger alphabets.

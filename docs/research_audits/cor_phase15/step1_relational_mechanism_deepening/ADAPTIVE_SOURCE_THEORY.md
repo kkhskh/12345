@@ -1,5 +1,8 @@
 # Adaptive and changing sources (Workstream F)
 
+> **Post-review [R].** AD2 narrowed (FM6); AD4 is a dip (FM8). Q3-E2 references added (SD): the static rule follows exact Bayes on 0.519 of the disagreement set and the best count-based rule 0.566 (not ≤ 0.5 "by construction"); 4 % exact ties; static reference for the history intervention 0.507. Verdicts unchanged. From-scratch ADAPT is one seed, step-unmatched; Q3-E′ thresholds were set after the exploratory values (SD15); the state probe lacks an input-level baseline. Superseded pre-review statements are kept in ~~strikethrough~~ next to their
+> corrections; details in `reviews/ADJUDICATION_R1.md`.
+
 First investigation of non-stationary source relations in this programme. Exact references are by enumeration; learned
 models are the 3-layer Transformer. Code: `src/tasks3.py` (ADAPT), `scripts/adapt_theory.py`, `eval_adapt.py`,
 `adapt_state_probe.py`, `adapt_curriculum*.py`. Logs: `logs/adapt/`.
@@ -23,8 +26,8 @@ marginal agreement rate: copies w.p. ρ_s = 0.306 in every question.
 | ADAPT Bayes accuracy (all / changed / unchanged episodes) | 0.706 / 0.692 / 0.735 | [N] |
 | static T1 reference (all / changed / unchanged) | 0.690 / 0.660 / 0.748 | [N] |
 | count insufficiency: episodes with equal per-group counts and own reports, posterior spread | max 0.35, median 0.04 (2,536 classes) | [P, N] (THEOREMS AD1) |
-| posterior mass on the currently reliable group vs distance q − c | 0.50 (far before) → **0.36** (q = c−1, c) → 0.45 → 0.50–0.52 (≥ 2 after) | [N] (AD4: decision lag around the change) |
-| camouflaged copier vs honest pair, per-question law | max \|Δ\| = 2·10⁻¹⁷ | [P, N] (AD2: non-identifiable) |
+| posterior mass on the currently reliable group vs distance q − c | 0.50 (far before) → **0.36** (q = c−1, c) → 0.45 → 0.50–0.52 (≥ 2 after) | [N] (AD4: posterior dip around the change, symmetric — not a lag [R: FM8]) |
+| camouflaged copier vs honest pair, per-question law | max \|Δ\| = 2·10⁻¹⁷ | [P, N] (AD2: non-identifiable for i.i.d. independent copying only [R: FM6]) |
 | triggered vs static copier: mean P(triggered) when true / when false | 0.66 / 0.34 | [N] (AD3) |
 | accuracy cost of assuming the wrong copier mechanism | ≤ 0.007 | [N] |
 

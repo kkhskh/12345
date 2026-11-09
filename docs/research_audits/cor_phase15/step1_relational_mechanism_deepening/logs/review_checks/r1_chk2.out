@@ -1,0 +1,10 @@
+a_rel 0.6600000000000001 rho_c 0.4900000000000002
+Markov lam=0.0: P(copy_q)=0.490 const; P(agree_q & agree_q+1)=0.4356 vs honest 0.4356
+Markov lam=0.5: P(copy_q)=0.490 const; P(agree_q & agree_q+1)=0.4911 vs honest 0.4356
+Markov lam=0.8: P(copy_q)=0.490 const; P(agree_q & agree_q+1)=0.5245 vs honest 0.4356
+r' = 0.7424242424242425
+copier marginal agree (trig-on-agree): 0.6600000000000001  honest: 0.6600000000000001
+joint trig-on-agree: {(1, 1): 0.5467, (1, 0): 0.1133, (0, 1): 0.1133, (0, 0): 0.2267}
+joint static/honest-indep: {(0, 0): 0.1156, (0, 1): 0.2244, (1, 0): 0.2244, (1, 1): 0.4356}
+K=2 NSR holds: True ; COND fails since w1=10 >= w2+w3=8
+K=3 x= [0 1 1 2] scores [np.float64(10.0), np.float64(8.0), np.float64(4.0)] D [np.int64(3), np.int64(2), np.int64(3)]

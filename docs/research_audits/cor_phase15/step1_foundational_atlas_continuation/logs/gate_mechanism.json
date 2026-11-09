@@ -1,0 +1,17 @@
+{
+ "n_scored": 4377,
+ "input_flip_model_follows_bayes": 1.0,
+ "base_model_agrees_bayes": 1.0,
+ "resid_pre1|gate": 0.0,
+ "resid_pre1|evidence": 0.8457847840986977,
+ "resid_pre1|readout": 0.14987434315741374,
+ "resid_pre1|gate+evidence": 0.8485263879369431,
+ "resid_pre1|evidence+readout": 1.0,
+ "resid_pre1|all_q_tokens+readout": 1.0,
+ "resid_pre2|gate": 0.0,
+ "resid_pre2|evidence": 0.03198537811286269,
+ "resid_pre2|readout": 0.9730408955905872,
+ "resid_pre2|gate+evidence": 0.03175691112634224,
+ "resid_pre2|evidence+readout": 1.0,
+ "resid_pre2|all_q_tokens+readout": 1.0
+}

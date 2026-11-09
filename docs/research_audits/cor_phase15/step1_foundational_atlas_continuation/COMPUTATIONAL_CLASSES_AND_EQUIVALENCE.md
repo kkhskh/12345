@@ -2,6 +2,8 @@
 
 Status: every analysis here is **post hoc and exploratory**. It is run on models whose classes were assigned in the atlas.
 
+Revision: revised after review round R2 (`reviews/ADJUDICATION_R2.md`); corrected claims are marked [R]. Additional checks are in `scripts/s12_review_checks.py` and `logs/s12/review_checks_s1{0,2}.json`. The tag rows in `logs/s12/ops_s1{0,2}.json` come from the buggy run and are superseded by `*_tagfix.json`.
+
 Scripts:
 - `scripts/s12_operations.py` (seeds 12 and 10);
 - `scripts/class_shapley.py`;
@@ -13,7 +15,7 @@ Logs:
 - `logs/class_shapley_s10.json`;
 - `logs/abstraction_shift.json`.
 
-**Bug note.** The first run of `s12_operations.py` combined token projectors by an elementwise maximum. That clips negative projector entries and corrupts every "tag" condition. The full-residual and head conditions were unaffected. The tag conditions were rerun after the fix (`*_tagfix.json`). The fixed tag@all36 result for seed 12 (0.474) reproduces the atlas value (0.455). The atlas script was re-executed as a check (`/tmp`, not kept): 0.455 exactly.
+**Bug note.** The first run of `s12_operations.py` combined token projectors by an elementwise maximum. That clips negative projector entries and corrupts every "tag" condition. The full-residual and head conditions were unaffected. The tag conditions were rerun after the fix (`*_tagfix.json`). After the fix, tag@all36 for seed 12 is 0.474 on stream 7,700,000. The atlas value is 0.455 on stream 7,600,000. These are different streams, so this is consistency, not exact reproduction. Re-executing the atlas script itself gave 0.455 exactly (`/tmp`, not kept). [R] `ops_s12_atlasstream.json` came from the buggy run and is superseded (CA-F1).
 
 ## 1. Seed 12: operation-level reconstruction (§5)
 
@@ -63,29 +65,49 @@ Logs:
 | 0+3 | **0.65** | 0.21 |
 | 2+3 | 0.50 | 0.15 |
 
-**Reconstruction (seed 12).** The relational evidence reaches the decision at q through three channels:
+**Additional checks (after review; `logs/s12/review_checks_s*.json`).**
 
-1. **Own-question tag routing** (head 3, which puts 95% of its attention on q's sources). This is the A′ operation, at about half strength: tag@own6 alone gives 0.395, against 0.771 in seed 10.
-2. **Cross-question rereading** (head 0, which puts 54% of its attention on other questions' sources). Its input is the *full* residual of other-question tokens:
-   - full@other30 gives 0.193, against tag@other30 0.109 in the atlas;
-   - adding it to the own-question tag raises IIA from 0.395 to 0.637.
-3. **The readout token's own residual**, accumulated in layers 0–1. Adding it to all source tokens raises IIA from 0.679 to 0.884. In seed 10 the same addition gives 0.834 → 0.982.
+| condition | seed 12 | seed 10 |
+|---|---|---|
+| full residual at all 36 sources + readout q + episode token, IIA | 0.897 | 0.983 |
+| full residual at all 36 sources + **all 6 readout tokens**, IIA | **0.989** | 0.996 |
+| content only (complement of the tag) at other30, IIA | 0.123 | 0.025 |
+| tag only at other30, IIA | 0.110 | 0.014 |
+| tag mean-ablation, live patterns: drop fraction | 0.93 | 0.64 |
+| tag mean-ablation with last-layer **patterns frozen** at clean values: drop fraction | **0.40** | **0.02** |
 
-**Additivity.**
-- Heads 0 and 3 are approximately additive in IIA: 0.33 + 0.43 = 0.76, and the joint patch also gives 0.76.
-- They are super-additive in KL: 0.28 + 0.42 = 0.70 against a joint 0.93.
-- Under ablation they are super-additive: 0.24 + 0.26 = 0.50 against a joint 0.65.
+Head 0 of seed 12 also puts 0.29 of its readout attention on the *other readout tokens* (reviewer CA-F2; seed 10: < 0.001 for heads 0, 2, 3).
 
-**Class C is therefore not a different operation from A′. It is A′ plus a parallel rereading channel.** The rereading channel is what the atlas called the "value path".
+**Reconstruction (seed 12), revised [R].** The relational evidence reaches the decision at q through at least four channels:
 
-**Reconciling mean-ablation sensitivity with interchange failure (the atlas puzzle).**
-- **Mean-ablation.** Mean-ablating the 2-D tag at all 36 source tokens makes seed 12 behave like the own-question Bayes reasoner: KL to own-Bayes drops from 0.46 to 0.13. Seed 10 behaves the same way (0.47 → 0.11). So the tag subspace is *necessary* for most of the relational evidence, in both seeds. The OP-5 drop fractions are 0.91 for seed 12 and 0.65 for seed 10.
-- **Interchange.** Interchanging the tag is *sufficient* only in seed 10.
-- **Account.** Seed 12's channel 2 reads the tag *jointly with* the non-tag content of the other-question tokens.
-  - Ablating the tag removes channel 2's input altogether.
-  - Interchanging only the tag gives channel 2 counterfactual tags with base contents, which is an inconsistent combination.
-  - Supporting measurements: tag@all36 gives 0.474; adding the full other-question residual gives 0.637; the full residual at other30 alone gives 0.193.
-- **Status.** This account is consistent with every number above but is still a hypothesis. The direct test would be a joint interchange of tag and content in which only the content is resampled, and it was not run. The bilinear form ("content × tag") is a description, not a localised variable.
+1. **Own-question tag routing** (head 3; 95% of its attention on q's sources). This is the A′ operation at reduced strength: tag@own6 alone gives 0.395, against 0.771 in seed 10.
+2. **Values read from other questions' source tokens** (head 0; 54% of its attention). Content alone at other30 gives 0.123 and the tag alone 0.110.
+3. **Other questions' readout tokens**, which already aggregate evidence in layers 0–1. Adding them raises IIA from 0.897 to 0.989.
+4. **The readout token's own residual** from layers 0–1. This bundles query, skip path and MLP input, so it is not a single operation (CA-F14).
+
+The strongest evidence for a non-routing edge in class C is the pattern-freeze result:
+- in seed 10, freezing the last-layer patterns removes almost all of the tag's effect (drop fraction 0.64 → 0.02). The tag acts through routing;
+- in seed 12, 0.40 of the gain still disappears under a tag ablation with frozen routing. Part of the tag's effect goes through values (or LayerNorm).
+
+**Status.** "Class C = A′ plus additional cross-question value channels" is a **hypothesis from one seed** [R: the pre-review text stated it as a conclusion].
+
+**Reconciling mean-ablation sensitivity with interchange failure, revised [R].**
+
+*What survives:*
+- Seed 12's tag subspace is mean-replacement-necessary: the drop fraction is 0.91–0.93 with live LayerNorm and patterns.
+- It is only partly interchange-sufficient (0.47).
+- At least three other channels (2–4 above) carry counterfactual information outside the 2-D source-token tag, so a tag-only interchange leaves them at base values. That alone explains the insufficiency.
+- The pattern-freeze result shows that, in seed 12, the tag also acts through values, which seed 10 does not.
+
+*What is withdrawn:*
+- **"The tag is necessary for all the relational evidence."**
+  - With the last-layer LayerNorm statistics frozen, the drop fraction is 0.63 for seed 12 and 0.71 for seed 10 (reviewer CA-F4, reviewer-reported). So part of the live-LN necessity is renormalisation, and the seed-12 > seed-10 ordering flips.
+  - A variance-matched control (the top-2 non-tag principal components) removes 0.71 in seed 10 (reviewer CA-F3). Necessity *by magnitude* therefore does not single out the tag.
+  - What does single it out is the *direction* of the damage: tag ablation moves the output distribution toward the own-question posterior (KL to own-Bayes 0.46 → 0.13), whereas the control destroys the output.
+- **"Makes the model behave like the own-question Bayes reasoner."** At the decision level argmax agreement with own-Bayes barely moves, and model entropy rises (CA-F5). The safe statement is: the relational gain is removed, and the output distribution moves toward the own-question posterior.
+- **"Bilinear content × tag".** Content-only and tag-only interchanges at other30 are sub-additive in IIA (0.123 + 0.110 > 0.193), so there is no multiplicative signature. "Pattern(tag) × value(content)" is the generic QK × OV form of attention, not an identified variable (CA-F7).
+
+*Terminology [R].* Mean-ablation is an off-manifold intervention. It is called **mean-replacement necessity** here, not "natural necessity" (CA-F6). The pooled mean (over episodes, positions and questions) and a per-position mean give different values in seed 10: 0.64 against 0.53 (reviewer-reported).
 
 ## 2. Abstraction test: do the models factor through *relative* counts? (§6, §7)
 
@@ -103,9 +125,12 @@ Logs:
 | T4 Transformer s12, on T1 data | 0.063 | 0.023 | 2.7 |
 | T4 DeepSets s0, on T1 data | 0.012 | 0.031 | 0.40 |
 
-**Findings.**
-- **T1 models factor through relative counts.** This is an abstraction property no input–output accuracy test checks. T1 seed 12 is the weakest (0.14). That is the same seed index as the T4 rereader, but the T4 and T1 replication seeds are separate training runs, so no link is claimed.
-- **T4 models violate the invariance badly on T1 data.** This is expected: under T4 semantics "every group agrees in k" is not a relative shift, because a colluder's agreement is absolute. It is another view of the off-support divergence (PP2).
+**Findings, revised [R].**
+- **Bayes-level fact.** Under T1 the uniform shift leaves Bayes unchanged.
+- **Model fact.** The T1 Transformers are approximately invariant to this one shift (ratio 0.02–0.04; seed 12 0.14). Their shift KL is about 2–4× a null-edit floor of 1–5·10⁻⁴ (reviewer CA-F12).
+- **What this is not.** It is not evidence of an abstraction property beyond Bayes-closeness. T1 has full support, so KL-closeness on T1 already bounds the shifted-input KL by the density ratio times ε (THEOREMS K2, replacement; reviewers FM-F2 and NV-A3).
+- [R] The pre-review "T1 models factor through relative counts" overstated a single-shift test and is withdrawn.
+- **T4 models on T1 data** violate the invariance strongly. That is off-support behaviour: a colluder's agreement is absolute under T4 semantics. It is another view of PP2.
 
 ## 3. Implementation-class equivalence: what is and is not invariant (§6, §12)
 
@@ -114,8 +139,11 @@ Logs:
 | E1, same natural-distribution behaviour (KL < 0.002) | yes | yes | yes |
 | E2, same intervention signs on S1 edits | yes (0.996+) | yes | yes |
 | E3, same off-support extrapolation | **no** (DeepSets global, local index 0.05–0.16) | partly | **no** (s12 global, 0.31) |
-| E4, common ≤ 2-D aligned relation variable at the last-layer input | not applicable (no attention) | yes (key/query split) | **no**: the tag is necessary but not sufficient (§1) |
-| E5, common channel structure | — | one channel | A′ plus a rereading channel |
-| uniform-shift invariance (T1 parents) | — | — | T1 seed 12 slightly weaker |
+| E4, common ≤ 2-D aligned relation variable at the last-layer input | not applicable (no attention) | yes (key/query split) | **no**: the tag is mean-replacement-necessary but not interchange-sufficient (§1) |
+| E5, common channel structure | — | one channel | A′ plus at least three cross-question channels (hypothesis, n = 1) |
+| tag acts only through routing (frozen-pattern necessity ≈ 0) | — | s10: yes (0.02) | **no** (0.40) |
+| uniform-shift invariance (T1 parents) | — | — | T1 seed 12 slightly weaker (a Bayes-closeness measure, not an abstraction) |
 
-**Strongest equivalence that holds across every observed class.** Functional equivalence on the generator support, plus sign-equivalence of on-support interventions. Both are implied by KL-closeness (PP1, theorem C4). Nothing implementation-specific is shared by all classes. The nearest candidate is a 2-D source-token subspace whose mean-ablation removes most of the relational gain in every Transformer seed tested: 0.65, 0.54, 0.91 and 0.68 for seeds 10, 11, 12 and 13 (OP-5). For comparison, a random 2-D subspace removes ≤ 0.03. The subspace's sufficiency is class-dependent.
+**Strongest equivalence that holds across every observed class.** This is functional equivalence on the generator support, together with sign agreement on on-support interventions wherever |Δm| exceeds the pointwise margin errors. Both are properties of each model's closeness to Bayes; no theorem with the observed constants implies them (PP1 §2).
+
+**No implementation-specific property is shared by all classes.** The nearest candidate is the 2-D source-token tag subspace. In every Transformer seed tested, ablating it moves outputs *toward the own-question posterior* (OP-5; §1). But its necessity *in magnitude* is matched by a variance-matched control in seed 10, and its sufficiency is class-dependent.

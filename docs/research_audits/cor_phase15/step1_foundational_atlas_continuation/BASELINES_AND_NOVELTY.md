@@ -37,7 +37,7 @@ The searches were limited. Absence of a hit is weak evidence.
 | ρ → 1 sensitivity and support change | standard: likelihood with a hard constraint at the boundary | **known in principle** |
 | hidden-pairing ≤ 1/3 bound under T1 | atlas I1 | **known** (corollary) |
 | overlap mis-explained under a one-block class | model misspecification (KL projection onto the model class; White 1982) | **known in principle** |
-| OD1: discrepancy ranking = Bayes iff the semantics are trivial (the "if" direction proved) | majority vote is the MLE for i.i.d. symmetric annotators of equal accuracy; Dawid–Skene weighted vote otherwise | **known**: majority vote optimality for exchangeable equal-accuracy sources is textbook |
+| OD1: discrepancy ranking = Bayes for equal-accuracy independent symmetric sources [R: the "iff" is withdrawn; OD1′ gives the exact weighted-voting condition] | majority vote is the MLE for i.i.d. symmetric annotators of equal accuracy; weighted majority otherwise (Nitzan–Paroush) | **known** |
 | P-local / P-count / P-group pretraining dissection of transferred features | Yosinski et al. 2014 (feature transferability); curriculum and transfer literature | method: **known**; results: pending |
 | GATE / TRANS beyond-reliability tasks | multi-hop reasoning and compositional generalisation; induction and composition circuits (Elhage et al. 2021) | pending |
 
@@ -52,13 +52,25 @@ The searches were limited. Absence of a hit is weak evidence.
 | abstraction test | exact Bayes (invariance 0) and a single-group shift (positive control) |
 | OD1 | the Bayes argmax under five generators that violate one assumption each |
 
+## Additions after review round R2 (reviewer NV; [v] marks references the reviewer verified by web search, [m] references from memory that the authors have not verified)
+
+| result | prior art added | verdict |
+|---|---|---|
+| R1 (quotient-game Shapley) | Owen 1977 (the Owen value; union totals = Shapley of the quotient game) [m]; Knudsen and Østerdal 2012, IJGT 41(4) (splitting/merging proofness) [v]; Jullum et al. 2021, groupShapley, arXiv:2106.12228 [v]; Kumar et al. 2020 (problems with Shapley explanations) [m] | **known in principle**; the gauge part is vacuous at the site used |
+| V1 and OD1/OD1′ | Nitzan and Paroush 1982, IER 23(2) [v]; Ben-Yashar and Paroush 2001, SCW 18(4) [v]; Shapley and Grofman 1984 [m]; Taylor and Zwicker 1999, *Simple Games* [m]; Ladha 1992 (correlated votes) [m] | **known** |
+| PP2 direction (DeepSets global) | Xu et al. 2021, ICLR, arXiv:2009.11848 (how aggregation and architecture fix extrapolation) [v]; Wagstaff et al. 2019 [m]; Panwar et al. 2024 [m] | **instance** of architecture-determined extrapolation. The within-Transformer spread is not explained by it; that disagreement is recorded in ADJUDICATION_R2 |
+| count-boundary reversal (0.111); misleading-relation failure | Gunn et al. 2016, Proc. R. Soc. A, "too good to be true" (paradox of unanimity) [m] | **known** |
+| S needs (O) | Fu et al. 2020, arXiv:2002.11955 (triplet method) [v]; Zhang, Chen, Zhou and Jordan 2014 (spectral Dawid–Skene) [m] | **known in principle** |
+| seed-12 necessity vs sufficiency | Tian and Pearl 2000 (probabilities of necessity and sufficiency) [m]; Mueller 2024 [m]; Makelov et al. 2024 | **instance** |
+| PP2 internal signature | probe control (`pp2_probe_control.py`): the index is reproduced by probes on raw graded counts | re-interpreted as a decodability statement. **Possibly new as an observation**; weak (Transformers-only p ≈ 0.07) |
+
 ## Net novelty statement
 
 Nothing in this continuation is a new *mathematical* theory. The contributions are:
 1. precise scope corrections to the atlas's own theorems;
-2. a cleaner separation of *what produces* PP1-type agreement (KL-closeness with W ≈ 1) from *what would* discriminate implementations;
-3. a reconciliation of the seed-12 necessity/sufficiency puzzle;
+2. a cleaner separation of *what produces* PP1-type agreement (pointwise margin errors below the effect sizes, holding even at density ratio ≥ 7.7; C4 itself is vacuous here) from *what would* discriminate implementations;
+3. a reconciliation of the seed-12 necessity/sufficiency puzzle: at least four channels, and a value-path effect of the tag under frozen routing (0.40 vs 0.02 in seed 10);
 4. a frozen prospective test of an internal predictor of extrapolation direction (P-A);
-5. a characterisation of the O/D bridge as holding exactly when source semantics are trivial.
+5. a characterisation of the O/D bridge. It is exact under the OD1′ weight condition (weighted-voting coincidence, known) and fails for zero-weight and copying sources. The pre-review "iff trivial semantics" is withdrawn.
 
 Item 4 is the only candidate for a distinctive empirical prediction (failure F4). Its fate is recorded in PROSPECTIVE_PREDICTIONS.md.

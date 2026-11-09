@@ -1,93 +1,86 @@
 # PP1: calibration, support and the sign of intervention effects (mandate §2)
 
-Status: Stage I correction of atlas PP1. The frozen PP1 prediction and its verdict are unchanged in the original atlas.
-This document re-analyses the same frozen edit population (1500 base episodes, stream 6,100,000; every query q, every
-other question k ≠ q, every group g; 135,000 surgical edits). The new analyses are **post hoc relative to the frozen
-PP1 run**. They are labelled as such and do not count as confirmation.
+**Status.** This is a Stage I correction of atlas PP1. The frozen PP1 prediction and its verdict are unchanged in the atlas.
 
-Scripts: `scripts/pp1_calibration.py`, `scripts/pp1_cx_matched.py`, `scripts/pp1_cx_targeted.py`, `scripts/pp1_learned_ece.py`.
-Logs: `logs/pp1_calibration.json`, `logs/pp1_cx_matched.json`, `logs/pp1_cx_targeted.json`, `logs/pp1_learned_ece.json`.
+**What this document analyses.** It re-analyses the same frozen edit population: 1500 base episodes from stream 6,100,000, with every query q, every other question k ≠ q and every group g, giving 135,000 surgical edits. The new analyses are **post hoc relative to the frozen run** and are not confirmations.
+
+**Revision.** Revised after review round R2 (`reviews/ADJUDICATION_R2.md`). Corrected claims are marked [R]. Pre-review text is in git history.
+
+**Scripts:**
+- `scripts/pp1_calibration.py`
+- `scripts/pp1_cx_matched.py`
+- `scripts/pp1_cx_targeted.py`
+- `scripts/pp1_learned_ece.py`
+- `scripts/pp1_highratio.py` (added after review)
+
+Logs: the matching `logs/pp1_*.json`.
 
 ## 1. Support notions (formal)
 
-Let P be the T4 generator (pc = 1, ρ = 1). Its latent is R = (reliable group g, colluder group h). The answer is Y. The
-observation is x = the 6×6 matrix of reports. A PP1 edit maps x to x′ = E_{k,g}(x) by toggling within-group agreement of
-group g in question k ≠ q.
+Let P be the T4 generator (p_c = 1, ρ = 1). The latent is R = (reliable group g, colluder group h); the answer is Y; the observation x is the 6×6 matrix of reports. A PP1 edit maps x to x′ = E_{k,g}(x) by toggling the within-group agreement of group g in question k ≠ q.
 
 | notion | definition | what it licenses |
 |---|---|---|
-| S1 marginal | P(x′) > 0 | the Bayes posterior p(y \| x′) is defined; Δm is a well-posed target |
+| S1 marginal | P(x′) > 0 | the Bayes posterior p(y \| x′) is defined, so Δm is a well-posed target |
 | S2 conditional on the latent | P(x′ \| R_true(x)) > 0 | the edit is a possible observation *for the same world* |
-| S3 naturally reachable | x′ is obtainable by resampling one source mechanism given (R, Y) | an actual "natural" counterfactual |
-| S4 surgical, observed | any edit of the input cells | only an input–output experiment |
+| S3 naturally reachable | x′ is obtainable by resampling one source mechanism given (R, Y) | an actual natural counterfactual |
+| S4 surgical, observed | any edit of the input cells | an input–output experiment only |
 | S5 surgical, internal | an edit of an internal activation | not a statement about P at all |
 
-In this generator S3 = S2 (proof): the reliable and noise sources give every value positive probability; the colluder's
-second source copies deterministically. Resampling one mechanism therefore stays inside P(· | R) exactly when the
-colluder group still agrees in every question.
+**S3 = S2 for this edit family.**
+- Reliable and noise sources give every value positive probability. The colluder's second source copies deterministically.
+- So resampling one mechanism stays inside P(· | R) exactly when the colluder group still agrees in every question.
+- [R] This equality is a property of this single-cell toggle design (reviewer ST-F8). It is not a general fact.
 
-Population counts (135,000 edits):
+**Population.** The 135,000 edits are 27,000 distinct inputs, each scored at 5 queries (reviewer ST-F7). Counts below are edit counts.
 
-| set | count |
+| set | edits |
 |---|---|
 | S1 | 93,570 |
 | S2 = S3 | 90,000 |
-| S1 \ S2 (marginally possible, impossible for the true world) | 3,570 |
-| S2 \ S1 | 0 |
-| outside S1 (no Bayes target; excluded from scoring) | 41,430 |
+| S1 \ S2 | 3,570 (714 distinct endpoints from 119 base episodes) |
+| outside S1 | 41,430 |
 
-Scored set: S1 and |Δm| > 0.5 (47,005 edits).
-
-Correction to the atlas wording: "on-support" in the atlas meant S1. Only the S2 subset is a natural counterfactual of
-the sampled world.
+**Scored set.** S1 and |Δm| > 0.5: 47,005 edits.
+- [R] This filter drops about half of S1, and that half is exactly where sign failures concentrate (ST-F6).
+- So the filtered rates below are conditional on a Bayes-side selection. Unfiltered rates are given for the new high-ratio family (§4).
+- **Correction to the atlas wording.** In the atlas, "on-support" meant S1.
 
 ## 2. Theorems: calibration-to-sign
 
-Notation:
-- m(x) = log p(c1 | x) − log p(c2 | x) is the Bayes margin. c1 and c2 are the base episode's top-2 candidates for q, held fixed across the pair.
-- m̂ is the model margin. e(x) = m̂(x) − m(x).
-- Δm = m(x′) − m(x) and Δm̂ = m̂(x′) − m̂(x).
+**Notation.**
+- m(x) = log p(c1 | x) − log p(c2 | x), with (c1, c2) the base top-2 pair, held fixed at both endpoints.
+- e(x) = m̂(x) − m(x).
+- Δm = m(x′) − m(x).
 
-**C1 (pointwise margin certificate).** If |Δm| > |e(x)| + |e(x′)|, then sign Δm̂ = sign Δm.
-*Proof.* Δm̂ = Δm + e(x′) − e(x). ∎
+**C1 (pointwise certificate).** If |Δm| > |e(x)| + |e(x′)|, then sign Δm̂ = sign Δm.
+- *Proof.* Δm̂ = Δm + e(x′) − e(x). ∎
+- [R] This is an identity. Its "never violated in 10 models" check is a code check. The *empirical content* is the **coverage**: the fraction of edits on which the condition holds.
 
-**C2 (log-probability certificate).** Let δ(x) = max_y |log p̂(y | x) − log p(y | x)|. Then |e(x)| ≤ 2δ(x), so
-|Δm| > 2(δ(x) + δ(x′)) suffices.
+**C2.** |e(x)| ≤ 2δ(x), with δ(x) = max_y |log p̂(y|x) − log p(y|x)|.
 
-**C3 (total-variation certificate).** Let t(x) = TV(p̂(·|x), p(·|x)) and π(x) = min(p(c1|x), p(c2|x)). If t < π, then
-|e(x)| ≤ 2t/(π − t).
-*Proof.* |log a − log b| ≤ |a − b| / min(a, b), and |p̂ − p| ≤ t for each candidate. ∎
+**C3.** With t(x) the TV distance between p̂ and p, and π(x) = min(p(c1|x), p(c2|x)): if t < π, then |e(x)| ≤ 2t/(π − t).
 
-**C4 (distribution-level guarantee; density ratio and tail).** Let N be the natural distribution and E the
-edit-endpoint distribution. Assume:
-- (DR) a density ratio dE/dN ≤ W on the endpoints;
-- an average natural divergence ε = E_N[KL(p ‖ p̂)].
+**C4 (distribution level).** Assume a density ratio dE/dN ≤ W on the endpoints (DR), and natural KL ε. Then
+P_E(fail) ≤ P_E(|Δm| ≤ b_τ(x) + b_τ(x′)) + W·ε/τ².
 
-By Pinsker and Markov, P_E(t(x) > τ) ≤ W ε / (2τ²). Then:
+- [R] **Valid but vacuous on PP1.** With ε ≈ 10⁻³, the right-hand side is ≥ 1 for every τ (reviewers ST-F2, FM-F3, NV-A2), because ε/τ² is O(1) at any τ small enough to make b_τ useful.
+- C4 therefore **does not explain** the 0.996+ agreement. The pre-review claim that it did "mechanistically" is withdrawn.
 
-P_E(sign fails) ≤ P_E(|Δm| ≤ b_τ(x) + b_τ(x′)) + W ε / τ²,  where b_τ = 2τ/(π − τ).
+**C5 (monotone-transform invariance).** If m̂ = φ(m) at both endpoints for a strictly increasing φ, then signs are exact. So global temperature is irrelevant to signs.
+- [R] Per-probability recalibrations, such as uniform mixing, are outside C5 (FM-F10).
 
-The first term is a margin-tail term. It is the fraction of edits whose true effect is smaller than the error budget.
-The second is the off-calibration mass, amplified by the density ratio.
+**C6 (no accuracy-only guarantee).**
+- [R] Stated as an existence result for this generator and edit family. CX1 attains Bayes accuracy with sign agreement 0.22.
+- It is not "for every generator". A ranking-preserving distortion such as CX1 automatically gets right any edit that swaps the order of c1 and c2: 1.000 on that stratum, against 0.094 elsewhere (reviewer FM-F5).
 
-What this needs: margin (the tail of |Δm| near 0), density ratio (W) and divergence (ε). None of these is "accuracy".
+**C7 (no average-KL guarantee without (DR)).**
+- [R] It needs a bounded-KL assumption.
+- It is realised by a multi-cell edit family with a model corrupted where that family lands. Reviewer FM: 46% of endpoints in the corrupted region, agreement 0.875 (reviewer-reported).
 
-**C5 (monotone-transform invariance).** If m̂ = φ(m) on both endpoints for one strictly increasing φ, then sign
-agreement is exact, regardless of calibration.
-*Corollary.* Global temperature scaling never changes PP1 signs. Calibration in the ECE sense is neither necessary nor
-sufficient.
+## 3. Learned models (frozen PP1 population; filtered |Δm| > 0.5)
 
-**C6 (no accuracy-only theorem).** For every generator with non-degenerate margins, some model has Bayes-optimal
-accuracy on N and sign agreement far from 1.
-*Construction.* Let s(x) = 1/(0.05 + m_top(x)²) and set the logits to s(x) times the centred Bayes log-probs. This
-preserves the argmax everywhere, but the margin is non-monotone in m across x.
-
-**C7 (no average-KL theorem without (DR)).** Let E place mass on a region A with N(A) = η. A model that is exact off A
-and arbitrary on A has KL ≤ η·B on N, yet any sign agreement on E(A). So the theorem needs W.
-
-## 3. Learned models
-
-| model | class | natural acc | ECE | natural KL | sign agreement | C1-certified | agreement when C1 fails |
+| model | class | natural acc | ECE | natural KL | sign agreement | C1 coverage | agreement where C1 fails |
 |---|---|---|---|---|---|---|---|
 | tf s0 | A′ | 0.739 | 0.004 | 0.0012 | 0.9986 | 0.991 | 0.84 |
 | tf s1 | A′ | 0.737 | 0.007 | 0.0016 | 0.9961 | 0.990 | 0.61 |
@@ -100,16 +93,18 @@ and arbitrary on A has KL ≤ η·B on N, yet any sign agreement on E(A). So the
 | ds s1 | A | 0.735 | 0.009 | 0.0016 | 0.9989 | 0.992 | 0.86 |
 | ds s2 | A | 0.739 | 0.005 | 0.0014 | 0.9993 | 0.994 | 0.88 |
 
-Findings:
-- **C1 is never violated.** Agreement where C1 holds is 1.000 in all 10 models, as it must be.
-- **Every sign failure is an uncertified edit.** The C2 and C3 certificates are much looser: they cover 66–92% of edits.
-- **Failures concentrate in two strata**, for the transformers:
-  - the count boundary (leave-q count 4 ↔ 5): agreement 0.971–0.999;
-  - S1 \ S2, edits impossible for the true world: agreement 0.968–0.998 for transformers. The DeepSets models score 1.000 on this stratum.
-  - *Hypothesis* (one stratum, 2,605 edits, untested): transformer key-tag routing errs where the colluder's agreement pattern is broken. The DeepSets pool has no such dependence.
-- **Across the 10 learned models, neither ECE nor natural KL ranks sign agreement.** Spearman correlation with sign agreement is −0.30 for ECE and −0.22 for natural KL. The models are too similar for a ranking test, so this is not evidence against C4; it is evidence that the learned population does not separate these quantities.
+**Findings.**
+- **The C1 condition covers 98.6–99.7% of scored edits.** The remaining edits are where every failure occurs.
+- **The explanation of high agreement is empirical:** these models' pointwise margin errors at the edit endpoints are smaller than the true effects. No theorem with these constants implies that (§2, C4).
+- **Strata.**
+  - At the count boundary (4 ↔ 5), agreement is 0.971–0.999.
+  - On S1 \ S2, agreement is **0.968–1.000** across Transformers [R: corrected from 0.968–0.998; TF s12 is 1.000], and 1.000 for the DeepSets models.
+  - [R] The pre-review hypothesis that "transformer key-tag routing errs on S1 \ S2" is **withdrawn**. It is one post hoc stratum among about 100 model × stratum cells, with no multiplicity control, drawn from 119 base episodes.
+- **Across the 10 models, ECE and natural KL do not rank sign agreement** (Spearman −0.30 and −0.22). The models are too similar for a ranking test.
 
-## 4. Constructed models (same edit population)
+## 4. Constructed models and a high-density-ratio edit family
+
+### 4a. Accuracy-matched constructed models (same population)
 
 | model | natural acc | ECE | natural KL | sign agreement |
 |---|---|---|---|---|
@@ -118,33 +113,47 @@ Findings:
 | TEMP ×3 (overconfident) | 0.746 | 0.082 | 0.275 | **1.000** |
 | CX1, argmax-preserving margin distortion | 0.746 | 0.324 | 1.009 | **0.223** |
 | CX2, permuted below the natural 2nd percentile of log P(x) | 0.739 | — | 0.02 | 0.994 |
-| CX3, density-ratio region (count pattern (0,1,6), natural mass 0.15%) | 0.746 | 0.003 | 0.0004 | 0.999 |
+| CX3, corrupted on the count pattern (0,1,6) | 0.746 | 0.003 | 0.0004 | 0.999 |
 
-- **The accuracy-matched triple (Bayes, TEMP, CX1)** is the required "matched accuracy, different calibration" contrast:
-  - TEMP is badly calibrated and still has perfect sign agreement (C5).
-  - CX1 has Bayes accuracy and fails most signs (C6).
-  - So **margin fidelity, not calibration or accuracy, is the operative quantity.**
-- **The density-ratio counterexamples (CX2, CX3) do not bite on this population.** This is a finding about the PP1 edit
-  family, not a failure of C7:
-  - single-cell toggles of natural episodes land in the bulk;
-  - the largest count-pattern edit/natural ratio found was about 1.2;
-  - only 0.18% of endpoints lie in the most over-represented class;
-  - a targeted family ("make the noise group perfect") put 0% of endpoints below the 2nd percentile.
-- **Conclusion for PP1.** W ≈ 1 here, so C4 reduces to "natural KL ≈ 10⁻³ plus a margin tail". That explains the 0.996+
-  agreement *mechanistically, without invoking anything about the internal algorithm*. C7 would bite only for an edit
-  family concentrated off the bulk. None was found among natural-like single-cell edits. This is recorded as an open
-  construction in OPEN_FOUNDATIONAL_MAP.md.
+- **The accuracy-matched triple (Bayes, TEMP, CX1)** shows that calibration (ECE) and accuracy are not what matter for signs. Margin fidelity at the endpoints is.
+- [R] CX2 and CX3 corrupted **low-probability** or **coarse-pattern** regions. A high *density ratio* is a different property, so these were not tests of C7 (reviewer ST-F5).
+- [R] The pre-review "W ≈ 1.2" was a coarse lower bound. The pointwise ratio on S1 reaches about 1.96 (reviewer ST-F4).
+
+### 4b. High-ratio family NP: make the noise group perfect (added after review)
+
+**Construction** (`scripts/pp1_highratio.py`; new stream 6,180,000; 2000 base episodes × 6 queries).
+- For query q, the noise group's second source is set equal to its first in every k ≠ q.
+- Every endpoint lies in A_q = {≥ 2 groups agree in every k ≠ q}. The natural probability of A_q is **0.130**, so the density ratio is **≥ 7.7**.
+- All 12,000 endpoints are in S1.
+
+| model | sign agreement, all S1 (clustered 95% CI) | \|Δm\| > 0.5 | \|Δm\| < 0.1 (n = 372) | 0.1–0.5 (n = 814) | 0.5–1 (n = 1043) | ≥ 1 (n = 8425) |
+|---|---|---|---|---|---|---|
+| tf s0 | 0.979 [0.976, 0.982] | 0.997 | 0.61 | 0.94 | 0.97 | 1.000 |
+| tf s1 | 0.979 | 0.997 | 0.66 | 0.91 | 0.98 | 1.000 |
+| tf s2 | **0.963** [0.959, 0.968] | 0.985 | 0.61 | 0.87 | 0.86 | 1.000 |
+| tf s10 | 0.969 | 0.999 | 0.54 | 0.81 | 0.99 | 1.000 |
+| tf s11 | 0.980 | 0.998 | 0.61 | 0.93 | 0.98 | 1.000 |
+| tf s12 | 0.977 | 0.999 | 0.52 | 0.94 | 0.99 | 1.000 |
+| tf s13 | 0.978 | 0.997 | 0.62 | 0.91 | 0.98 | 1.000 |
+| ds s0, s1, s2 | 0.977–0.979 | 0.998–0.999 | 0.49–0.51 | 0.95 | 0.99 | 1.000 |
+
+**Findings.**
+- At W ≥ 7.7 the learned models still get every large-effect sign right (|Δm| ≥ 1: 1.000).
+- Failures sit entirely in the margin tail. For |Δm| < 0.1 agreement is at chance (0.49–0.66).
+- A high density ratio alone does not break the learned models here, because they are accurate *on* this region. The region A_q has natural mass 0.13; it is not rare.
+- CX4 (Bayes with the top-2 candidates swapped on R = {≥ 2 groups with total count ≥ 5}) has sign agreement 0.60. But R has natural mass 0.35, giving natural KL 0.82 and accuracy 0.52, so CX4 is **not** a low-KL counterexample. It is reported only for completeness.
+- The C7-type construction that does bite at low KL is reviewer FM's (§2).
 
 ## 5. Corrected PP1 claim
 
-The atlas statement ("calibrated models predict intervention signs") is replaced by:
+The atlas statement "calibrated models predict intervention signs" is replaced by:
 
-> For a natural-like edit family (W ≈ 1), any model with natural KL ε gets every sign right except on
-> (i) edits whose true margin change is within its error budget and (ii) at most O(Wε/τ²) of the edit mass.
-> In the ten learned models all sign failures are of type (i), concentrated at the count boundary and, for the
-> transformers, in S1 \ S2.
-> Sign agreement therefore *does not discriminate between implementation classes*: it is a consequence of being close to Bayes on N.
-> It is not evidence about the computation.
-> Accuracy alone guarantees nothing (CX1). ECE is irrelevant (TEMP).
+> For these ten models and both edit families tested (single-cell toggles: W = O(1); "noise group perfect": W ≥ 7.7), signs agree with Bayes whenever |Δm| exceeds the models' pointwise margin errors at the two endpoints. That condition holds for 98.6–99.7% of the filtered PP1 edits. Every observed failure is in the margin tail.
+>
+> This is an **empirical** fact about pointwise accuracy. The available distribution-level theorem (C4) is valid but vacuous at the observed ε.
+>
+> Sign agreement does **not** discriminate implementation classes, and is not evidence about the computation.
+>
+> Accuracy alone guarantees nothing (CX1), and ECE is irrelevant (TEMP, C5).
 
-Scope: one generator, one edit family, ten models. The S1 \ S2 transformer gap is a one-stratum observation, not a law.
+**Scope.** One generator, two edit families, ten models. The clustered intervals cover the high-ratio family only.

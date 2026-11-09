@@ -11,7 +11,7 @@ HERE = os.path.dirname(__file__); sys.path.insert(0, os.path.join(HERE, "..", "s
 import numpy as np, roles_engine as RE
 OUT = os.path.join(HERE, "..", "logs", "landscape"); K, Q = 3, 6
 def perms3(roles):
-    return [tuple(p) for p in set(itertools.permutations(roles))]
+    return sorted(set(itertools.permutations(roles)))   # sorted: hash-seed-independent order (review R2-stat F16)
 def gen(roles_list, priors=None, Q=6):
     cf = []; pr = []
     for i, roles in enumerate(roles_list):
@@ -73,11 +73,14 @@ for acoll in (0.2, 0.5, 0.8, 0.9):
         R4.append(dict(a_coll=acoll, rel_error_bias=bias, a_rel=0.8, follow_colluder_in_conflict=float((py == xc)[conflict].mean()), bayes_acc=float((py == d["Y"]).mean())))
         print(R4[-1], flush=True)
 res["informative_colluder_and_bias"] = R4
-# (5) argmax discontinuity along rho
+# (5) argmax sensitivity along rho, NaN-guarded (review R2: undefined posteriors at rho = 1 are excluded, not argmax'd)
 X = gen([[("rel", 0.8, 0.0, 0.0), ("coll", 0.6, None), ("noise",)]]).sample(3000, np.random.default_rng(8_400_000))["X"]; prev = None; flips = []
 for rho in np.linspace(0.3, 1.0, 15):
-    a = gen([[("rel", 0.8, 0.0, 0.0), ("coll", float(rho), None), ("noise",)]]).posterior(X)["post_y"].argmax(-1)
-    if prev is not None: flips.append(dict(rho=float(rho), frac_answers_flipped_vs_previous=float((a != prev).mean())))
-    prev = a
-res["argmax_discontinuity_rho"] = flips; print(flips)
+    with np.errstate(all="ignore"):
+        py = gen([[("rel", 0.8, 0.0, 0.0), ("coll", float(rho), None), ("noise",)]]).posterior(X)["post_y"]
+    ok = np.isfinite(py).all(-1); a = np.where(ok, np.nan_to_num(py, nan=0).argmax(-1), -1)
+    if prev is not None:
+        both = ok & prev[1]; flips.append(dict(rho=float(rho), frac_defined=float(ok.mean()), flip_rate_on_defined=float((a != prev[0])[both].mean())))
+    prev = (a, ok)
+res["argmax_sensitivity_rho_guarded"] = flips; print(flips)
 json.dump(res, open(os.path.join(OUT, "phase.json"), "w"), indent=1)

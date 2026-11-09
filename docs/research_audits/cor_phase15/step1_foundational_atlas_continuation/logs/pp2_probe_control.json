@@ -1,0 +1,17 @@
+{
+ "counts": {
+  "train_acc": 0.95975,
+  "picks_top_agreement_group": 1.0,
+  "commit": 0.9045093698160825
+ },
+ "per_question_indicators": {
+  "train_acc": 0.964,
+  "picks_top_agreement_group": 1.0,
+  "commit": 0.9245548120138869
+ },
+ "all_agree_indicator": {
+  "train_acc": 0.957,
+  "picks_top_agreement_group": 0.39192495921696574,
+  "commit": 0.41443422631872756
+ }
+}

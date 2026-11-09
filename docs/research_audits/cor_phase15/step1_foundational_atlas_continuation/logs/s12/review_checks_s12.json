@@ -1,0 +1,33 @@
+{
+ "seed": 12,
+ "full@all36+readout_q+episode": {
+  "iia": 0.8971924029727498,
+  "kl_median": 0.9975324869155884
+ },
+ "full@all36+all6readouts": {
+  "iia": 0.9892650701899257,
+  "kl_median": 0.999991238117218
+ },
+ "full@all36+all6readouts+episode": {
+  "iia": 1.0,
+  "kl_median": 1.0
+ },
+ "content@other30 (I - Pt)": {
+  "iia": 0.12303881090008258,
+  "kl_median": 0.07519730925559998
+ },
+ "tag@other30": {
+  "iia": 0.11023947151114781,
+  "kl_median": 0.055616170167922974
+ },
+ "tag_meanabl_live_patterns": {
+  "acc": 0.5871666666666666,
+  "drop_frac": 0.926852743022137
+ },
+ "tag_meanabl_frozen_patterns": {
+  "acc": 0.6776666666666666,
+  "drop_frac": 0.40423484119345554
+ },
+ "acc_clean": 0.7476666666666667,
+ "acc_own": 0.5745
+}

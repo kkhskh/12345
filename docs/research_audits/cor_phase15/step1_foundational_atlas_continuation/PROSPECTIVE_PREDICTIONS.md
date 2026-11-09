@@ -56,3 +56,19 @@ Size and head count are constant within each architecture (all models are size M
 - P-A3 fails if any held-out model breaks either threshold.
 - P-A4 fails if any held-out DeepSets has local index ≥ 0.30.
 - With n = 4 held-out models, a pass is weak evidence and a failure is informative. No reading beyond these thresholds is pre-registered.
+
+### P-A: post-freeze annotation (added after review round R2; the frozen text above is unchanged)
+
+Reviewers ST-F12 and NV-A7 established the following, before any held-out model was evaluated:
+- **A-priori pass probabilities.** These come from a bootstrap of the development leave-one-out residuals, drawing 2 TF and 2 DS models (reviewer-reported).
+  - P-A1 ≈ 0.53. The only real competitor is B1, the architecture indicator.
+  - P-A2 ≈ 1.
+  - P-A3 and P-A4 are low-risk.
+- **A2 is nearly a proxy for the target.** In development its Spearman correlation with the local index is 0.988. A pass therefore shows behavioural transfer between two shifts, not structural prediction.
+- **"Computed on T4-derived inputs only" does not mean on-support inputs.** The degradation episodes (colluder broken in 3 questions) lie outside T4 support. So A1 and A2 predict one off-support behaviour from another off-support probe.
+- **P-A3 tests in-support fit, not extrapolation.**
+- **The A1 internal signature has been re-interpreted.** A1 (CCP_3) is a probe-based quantity. The probe control (`logs/pp2_probe_control.json`) shows that the related "picks the top group" index measures which agreement statistic is linearly decodable.
+- **Reading the outcome.**
+  - P-A1 is the only informative claim.
+  - With n = 4, a P-A1 pass is weak evidence. A P-A1 fail is also weak evidence, contrary to the frozen text's "a failure is informative".
+  - The outcome is reported with MAE differences against B1. Its verdicts are not changed.

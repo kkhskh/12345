@@ -1,0 +1,136 @@
+{
+ "rho_to_1_guarded": [
+  {
+   "rho": 0.95,
+   "frac_defined": 1.0,
+   "flip_rate_on_defined": 0.02361111111111111
+  },
+  {
+   "rho": 0.99,
+   "frac_defined": 1.0,
+   "flip_rate_on_defined": 0.034277777777777775
+  },
+  {
+   "rho": 0.999,
+   "frac_defined": 1.0,
+   "flip_rate_on_defined": 0.024722222222222222
+  },
+  {
+   "rho": 1.0,
+   "frac_defined": 0.21866666666666668,
+   "flip_rate_on_defined": 0.04801829268292683
+  }
+ ],
+ "biased_one_vote": {
+  "rows": [
+   {
+    "a_c": 0.85,
+    "follow_when_v_eq_c_plus_1": 0.17485745316318219,
+    "follow_when_v_eq_c_plus_2": 0.018775510204081632,
+    "n_up": 3683,
+    "n_dn": 2450
+   },
+   {
+    "a_c": 0.9,
+    "follow_when_v_eq_c_plus_1": 0.19973009446693657,
+    "follow_when_v_eq_c_plus_2": 0.015366430260047281,
+    "n_up": 2964,
+    "n_dn": 1692
+   },
+   {
+    "a_c": 0.905,
+    "follow_when_v_eq_c_plus_1": 0.22556131260794474,
+    "follow_when_v_eq_c_plus_2": 0.016697588126159554,
+    "n_up": 2895,
+    "n_dn": 1617
+   },
+   {
+    "a_c": 0.91,
+    "follow_when_v_eq_c_plus_1": 0.99115670321896,
+    "follow_when_v_eq_c_plus_2": 0.020833333333333332,
+    "n_up": 2827,
+    "n_dn": 1536
+   },
+   {
+    "a_c": 0.92,
+    "follow_when_v_eq_c_plus_1": 0.9959046909903202,
+    "follow_when_v_eq_c_plus_2": 0.020938628158844765,
+    "n_up": 2686,
+    "n_dn": 1385
+   },
+   {
+    "a_c": 0.97,
+    "follow_when_v_eq_c_plus_1": 0.9974709155285787,
+    "follow_when_v_eq_c_plus_2": 0.0299625468164794,
+    "n_up": 1977,
+    "n_dn": 534
+   },
+   {
+    "a_c": 0.995,
+    "follow_when_v_eq_c_plus_1": 0.9987819732034104,
+    "follow_when_v_eq_c_plus_2": 0.05504587155963303,
+    "n_up": 1642,
+    "n_dn": 109
+   },
+   {
+    "a_c": 0.999,
+    "follow_when_v_eq_c_plus_1": 0.9987484355444305,
+    "follow_when_v_eq_c_plus_2": 0.8461538461538461,
+    "n_up": 1598,
+    "n_dn": 39
+   }
+  ],
+  "predicted_threshold_v_c_plus_1": 0.9080590238365495,
+  "predicted_threshold_v_c_plus_2": 0.9987515605493134
+ },
+ "U_scope_exact_fixed_context": {
+  "contexts": 49,
+  "non_quasi_concave_union": 45,
+  "non_quasi_concave_single_role_generators": 0,
+  "examples": [
+   {
+    "n1": 0,
+    "n2": 0,
+    "P_rel_any_by_n0": [
+     0.3333,
+     0.1441,
+     0.0369,
+     0.0078,
+     0.0017,
+     0.0019,
+     0.0274
+    ]
+   },
+   {
+    "n1": 0,
+    "n2": 1,
+    "P_rel_any_by_n0": [
+     0.4279,
+     0.282,
+     0.1002,
+     0.0235,
+     0.0051,
+     0.0058,
+     0.0805
+    ]
+   },
+   {
+    "n1": 0,
+    "n2": 2,
+    "P_rel_any_by_n0": [
+     0.4815,
+     0.44,
+     0.2766,
+     0.0936,
+     0.0227,
+     0.026,
+     0.2861
+    ]
+   }
+  ]
+ },
+ "misleading_reference_T4_plugin": {
+  "perfect_group": 0.5872675250357654,
+  "other": 0.41314299481990124
+ }
+}

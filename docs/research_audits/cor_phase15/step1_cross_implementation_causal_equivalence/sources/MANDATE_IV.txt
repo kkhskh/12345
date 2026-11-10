@@ -1,0 +1,701 @@
+# COR — PHASE 1.5, STEP 1
+# FOCUSED FOUNDATIONAL INVESTIGATION IV
+## Is There a Shared Causal Relational Variable Across Different Transformer Implementations?
+
+### Research objective: causal equivalence of learned agreement-count computations
+
+You are continuing the COR repository from:
+
+`cor-phase15-step1-relational-mechanism-deepening`
+
+Starting commit: `8c31051`, unless the current repository differs; verify and record the actual base.
+
+The previous work contains an important unresolved result:
+
+**Two different training procedures produce Transformers that use agreement-count information to make candidate decisions, but they represent that information at different computational sites and in different codes.**
+
+The current evidence does not establish whether these are implementations of the same causal computational variable.
+
+Your assignment is to resolve that one question as rigorously as possible.
+
+This is a deliberately focused investigation.
+
+Do not launch another broad atlas.
+
+Do not investigate new relation families, adaptive sources, GATE, TRANS, or general extrapolation unless a narrowly defined control is logically necessary.
+
+Do not choose a paper thesis, assess readiness, or propose closing any phase.
+
+The goal is one deep mathematical and experimental result.
+
+---
+
+# 1. PRECISE BACKGROUND
+
+Read the actual code, checkpoints, logs, reviews, and final corrections in Investigation III, especially:
+
+- `PCOUNT_CAUSAL_TRANSFER.md`
+- `CAUSAL_IDENTIFICATION_AND_INVARIANCE.md`
+- `RELATIONAL_COMPUTATIONAL_CLASSES.md`
+- `OPEN_FOUNDATIONAL_RESEARCH_MAP.md`
+- `THEOREMS_AND_COUNTEREXAMPLES.md`
+- `reviews/ADJUDICATION_R1.md`
+- `reviews/ADJUDICATION_R2.md`
+- `scripts/pcount_causal.py`
+- `scripts/run_job3.py`
+
+Also inspect the underlying latent-reliability generators and T1/T4 models.
+
+Do not rely on the executive summary alone.
+
+### Established results
+
+**P-count pretraining:**
+
+- Transfers successfully in 5/5 tested seeds.
+- T4 frozen-feature transfer accuracy approximately 0.704–0.725.
+- Stores leave-question agreement-count information at readout tokens.
+- A count-based abstract-variable intervention has IIA approximately 0.60–0.72.
+
+**T1 pretraining:**
+
+- Transfers successfully in 5/5 tested parents.
+- T4 frozen-feature transfer accuracy approximately 0.738–0.742.
+- In three analysed parents, source-token representations contain causally effective count-related information.
+- A per-slot count encoder gives IIA approximately 0.66–0.82.
+- Capacity-matched null encoders score approximately 0.07–0.08.
+- But a mismatched-count baseline gives IIA around 0.46 in one tested parent.
+- An encoder using only a source token's own-group count performs almost as well as one using the full count vector.
+
+**Critical unresolved issue:**
+
+P-count may represent the full leave-question count vector at the readout, while T1 may distribute separate group-count components across source tokens.
+
+Those are potentially different mathematical representations.
+
+The previous work did not establish a causal equivalence between them.
+
+The earlier claim that T1 carries a non-count variable was a probe-specification artefact and has been retracted.
+
+The newer claim that both curricula carry a count variable is supported, but **identity of their causal variable remains unproved**.
+
+This is your research target.
+
+---
+
+# 2. THE SINGLE CENTRAL QUESTION
+
+Let \(M_P\) be a Transformer pretrained on explicit agreement counting and transferred to T4.
+
+Let \(M_T\) be a Transformer pretrained on T1 and transferred to T4.
+
+Let \(R(x)\) denote the relevant generator-defined agreement-count information.
+
+The central question is:
+
+**Is there an independently identifiable abstract relational state \(R\), possibly distributed across different token sites, whose controlled changes induce equivalent candidate-relevant computations in both \(M_P\) and \(M_T\)?**
+
+You must determine what "equivalent" means mathematically.
+
+Do not define it merely as:
+
+- Both models decode agreement counts.
+- Both models achieve good T4 accuracy.
+- Both models approximate Bayes.
+- Both models respond to changing source agreement.
+- Both models have correlated subspaces.
+- Both models pass separate probes.
+
+Those are insufficient.
+
+The proposed equivalence must make a nontrivial claim about causal computation.
+
+---
+
+# 3. FORMULATE COMPETING HYPOTHESES
+
+Before conducting new confirmation experiments, define and freeze these hypotheses or stronger, more precise alternatives.
+
+### H1 — Shared abstract causal variable
+
+Both models implement a common decision-relevant relational variable, possibly at different sites and in different coordinate systems.
+
+A transformation between the representations preserves the variable's relevant causal effects under a specified intervention family.
+
+### H2 — Different projections of a larger relational state
+
+P-count represents a global agreement-count vector.
+
+T1 distributes separate group-count components across source tokens.
+
+The representations overlap in information and causal influence but are not interchangeable without reconstructing additional state.
+
+### H3 — Different computations with similar decision behavior
+
+Both models use count-related information, but they perform different downstream operations.
+
+They may agree because both approximate the same Bayesian decision function, rather than because they share an intermediate causal computation.
+
+### H4 — Intervention-induced apparent equivalence
+
+The identified count directions steer the output under artificial activation changes but do not isolate the naturally used computation.
+
+High interchange accuracy may partly reflect:
+
+- Encoder capacity.
+- Representation correlations.
+- Mismatched-counterfactual floors.
+- LayerNorm effects.
+- Off-manifold interventions.
+- Overlapping or redundant pathways.
+
+These hypotheses must produce distinguishable predictions.
+
+Do not simply rank them by verbal plausibility.
+
+---
+
+# 4. FIRST MATHEMATICAL TASK: DEFINE CAUSAL EQUIVALENCE
+
+Before training new models, formulate the strongest meaningful equivalence relation between two learned computations.
+
+A promising starting point is a pair of abstractions:
+
+\[
+\alpha_P : Z_P \rightarrow V,
+\qquad
+\alpha_T : Z_T \rightarrow V,
+\]
+
+where \(Z_P\) and \(Z_T\) are appropriate internal computational states and \(V\) is a generator-defined relational variable or structured family of variables.
+
+But a shared decoded \(V\) is not enough.
+
+Develop a criterion requiring the following diagram to commute, exactly or approximately, for a specified family of valid interventions:
+
+1. Intervene on the generator-defined relationship.
+2. Observe the resulting model-specific computation.
+3. Map the internal states into the proposed abstract variable.
+4. Compare the abstract causal transitions and candidate-specific responses.
+
+Distinguish at least:
+
+**Information equivalence:** both representations contain the same relational information.
+
+**Intervention equivalence:** changes to the abstract relational variable reproduce corresponding internal effects.
+
+**Decision-response equivalence:** the causal effects on candidate margins agree within a specified tolerance.
+
+**Full computational equivalence:** a stronger claim about the relevant downstream operations, not just the final output.
+
+It is possible that only one or two of these hold.
+
+Define the objects, quantifiers, domains, and tolerances precisely.
+
+Specify what happens when the candidate's own evidence is held fixed.
+
+Develop exact or approximate invariance conditions under independently fitted coordinate transformations.
+
+Do not assume a globally invertible coordinate map exists.
+
+Investigate whether a distributed representation requires a product or tuple of local abstractions rather than one centralized latent vector.
+
+### Theoretical deliverable
+
+A formal proposition, theorem, or impossibility result answering:
+
+**Under what conditions can causally equivalent relational variables exist at different token sites, and what experimental evidence would identify that equivalence?**
+
+If the proposed conditions are not identifiable from the available observations, prove or construct that limitation.
+
+Do not manufacture an equivalence by definition.
+
+---
+
+# 5. SECOND TASK: IDENTIFY THE EXACT INFORMATION IN EACH IMPLEMENTATION
+
+The previous results contain a crucial ambiguity.
+
+P-count appears to store a leave-question count vector at readout tokens.
+
+T1 may store the count of each token's own source group in separate source-token directions.
+
+You must distinguish these possibilities experimentally.
+
+### 5.1 Compare candidate abstract variables
+
+At minimum, investigate:
+
+- Full leave-question group-count vector.
+- A token's own-group count.
+- The collection of all group-specific counts across tokens.
+- A reliability-posterior representation derived from those counts.
+- A smaller decision-sufficient statistic, if one exists under the exact generator.
+- Any necessary candidate- or question-conditioned version.
+
+Define every variable from the generator, independently of model outcomes.
+
+Determine mathematically whether the variables are informationally equivalent, strictly ordered by sufficiency, or incomparable.
+
+Do not assume that having all local counts at separate sites is the same computational architecture as having the whole vector at one site.
+
+### 5.2 Build discriminating counterfactual episodes
+
+Construct valid input pairs where the competing representations predict different effects.
+
+Examples include:
+
+- Change one group's count while holding other group counts fixed.
+- Change another group's count while preserving the first.
+- Change the full count vector while keeping the candidate's own reports fixed.
+- Preserve all counts while changing source identities or contents.
+- Change source reports without changing the posterior-relevant statistic.
+- Construct cases where a local group-count representation is insufficient but the full vector remains sufficient.
+
+Use exact generator support checks.
+
+Distinguish:
+
+- Marginally supported episodes.
+- Episodes possible under the same latent world.
+- Input-level interventions corresponding to specified structural changes.
+- Internal activation edits.
+
+Where an intended intervention is impossible under the generator, do not silently substitute an off-support example.
+
+### 5.3 Identify natural conditional dependence
+
+Determine whether source-token states depend selectively on their own group's count or also on other groups' counts.
+
+Control for source identity, token position, question index, source contents, and correlated generator variables.
+
+Use independent held-out evaluation.
+
+Include baseline probes with matched numbers of parameters.
+
+For the T1 models, compare per-slot encoders with shared encoders, properly accounting for their different capacities.
+
+For P-count models, investigate whether their readout representation is genuinely global or merely a sum of separately accessible group-specific components.
+
+**Deliverable:** a precise account of the information structure implemented by each curriculum, including where existing evidence cannot distinguish the alternatives.
+
+---
+
+# 6. THIRD TASK: CAUSAL INTERCHANGE ACROSS THE TWO IMPLEMENTATIONS
+
+This is the main experiment.
+
+Do not treat decoding agreement as causal equivalence.
+
+### 6.1 Establish within-model causal baselines
+
+Reproduce the existing count-interchange tests for:
+
+- Multiple P-count seeds.
+- Multiple independent T1 parents.
+- The relevant sites in each model.
+
+Use the original counterfactual episode construction and add the discriminating intervention families from Section 5.
+
+Measure:
+
+- Candidate-margin change.
+- Sign agreement with the counterfactual.
+- Interchange intervention accuracy.
+- Difference from full-site patching.
+- Difference from generator-level source edits.
+- Difference from simpler behavioral references.
+
+Use informative pairs selected by frozen mathematical criteria.
+
+Report unconditional results as well as selected-pair results.
+
+Do not compare raw IIA scores with different chance floors without adjusting for those floors.
+
+### 6.2 Construct independent abstract encoders
+
+Fit mappings from generator-defined relational variables to each model's natural representation.
+
+Fit these using natural training episodes and independently defined relationship labels.
+
+Do not fit them to maximize candidate-margin agreement on the final intervention set.
+
+Consider:
+
+- Shared linear encoders.
+- Per-slot linear encoders.
+- Explicit distributed encoders.
+- Low-complexity nonlinear encoders only where needed and justified.
+
+Match the capacities of null encoders and alternative-feature encoders.
+
+Freeze all mappings before final testing.
+
+### 6.3 Test cross-model causal transport
+
+A raw activation from one trained model generally cannot be inserted into another model and interpreted meaningfully.
+
+Therefore do not simply copy a hidden vector between networks.
+
+Instead, test whether a generator-defined relational intervention observed or identified in one model can be transported through independently fitted mappings into the recipient model's implementation.
+
+For example:
+
+- Identify the relational change in the donor.
+- Translate it through the candidate abstract state.
+- Implement the corresponding change at the recipient's independently identified sites.
+- Recompute the recipient's downstream computation.
+- Compare the resulting candidate-margin response with the recipient's natural counterfactual response.
+
+Repeat with donor and recipient reversed.
+
+The transformation must not be fitted on the held-out target responses.
+
+Compare full-vector transport against local-component transport.
+
+Investigate whether a distributed T1 state can be transported only by jointly changing multiple source-token sites.
+
+### 6.4 Distinguish equivalence from shared Bayes approximation
+
+Both models already approximate the same Bayesian decision rule.
+
+Therefore matching final candidate decisions is a weak test.
+
+Include controls where:
+
+- Both models agree behaviorally but internal interventions predict different responses.
+- Both use the same count information but different downstream transformations.
+- A count-preserving source change affects the model despite leaving exact Bayes unchanged.
+- A synthetic or engineered aggregate-only computation approximates the same Bayesian rule.
+- A matched-capacity encoder transfers an incorrect variable.
+
+The result must identify something beyond common output accuracy.
+
+If only the output function agrees, state that explicitly.
+
+### 6.5 Assess off-manifold effects
+
+A valid counterfactual source episode does not guarantee that an internal representation patch lies on the recipient model's activation manifold.
+
+Quantify:
+
+- Representation norms.
+- Covariance and conditional residuals.
+- Model-specific activation distributions.
+- Effects of partial versus full-state replacement.
+- Sensitivity to normalization.
+- Effects of alternative patching operators.
+
+Use targeted source-level interventions as the natural reference wherever possible.
+
+Do not claim that a cross-model abstract-variable patch is a natural intervention.
+
+**Required result:** a direct test of whether the two curricular implementations are causally equivalent under a specified, nontrivial family of relational interventions.
+
+A demonstrated failure is as scientifically valuable as a success.
+
+---
+
+# 7. FOURTH TASK: ESTABLISH NECESSITY WITHOUT COLLATERAL DAMAGE
+
+The current mean-ablation results are suggestive but not decisive.
+
+Some reported effects exceed the size of the relational performance advantage itself.
+
+That indicates possible collateral damage.
+
+Investigate whether the count-related variable is necessary for the natural relational benefit.
+
+Use:
+
+- Per-position control statistics.
+- Conditional rather than unconditional replacement where possible.
+- Matched-variance subspaces.
+- Wrong-group-count controls.
+- Count-preserving source-edit controls.
+- Orthogonal and overlapping component controls.
+- Restoration after ablation.
+- Redundant-path tests.
+
+Do not use an intervention that changes many unrelated computational variables as evidence that a specific count variable is necessary.
+
+If the model has redundant relational pathways, distinguish:
+
+- Individual component necessity.
+- Joint necessity.
+- Causal contribution.
+- Replaceability.
+- Natural computational use.
+
+Investigate whether removing the proposed abstract variable specifically moves the model toward the own-question posterior rather than merely producing arbitrary damage.
+
+The outcome must be compared against the corresponding candidate-specific Bayesian reference.
+
+### Important
+
+A successful restoration experiment should restore the lost relational response, not simply improve generic accuracy.
+
+A failed ablation effect does not establish non-use if the variable is redundant.
+
+A high interchange score does not establish unique mediation.
+
+---
+
+# 8. FIFTH TASK: WHY DOES THE VARIABLE MOVE BETWEEN TOKEN SITES?
+
+Only after Sections 4–7 have established a suitable characterization should you investigate this question.
+
+The previous atlas suggested:
+
+- P-count's direct counting objective encourages a readout-token representation.
+- T1's answer-supervised objective encourages source-token reliability information.
+
+That explanation is plausible but untested.
+
+Construct a small, matched intervention on training objectives.
+
+For example:
+
+- Train the same counting objective with supervision applied at a source token.
+- Train an otherwise matched model with supervision applied at a readout token.
+- Compare resulting feature locations and downstream transfer.
+- Include controls for attention masks, number of supervised positions, gradient magnitude, and total optimization budget.
+
+The key prediction is not simply that a probe follows the supervised site.
+
+It is whether **the site of relational computation and its downstream causal pathway change predictably with the objective while preserving, or altering, the abstract decision-relevant computation**.
+
+Use multiple seeds if feasible.
+
+If compute is insufficient, prioritize the existing-model causal equivalence tests over new training.
+
+Do not turn this into a broad curriculum sweep.
+
+---
+
+# 9. PROSPECTIVE PREDICTIONS
+
+Before evaluating the final held-out models or intervention episodes, freeze a compact set of tests.
+
+The predictions must genuinely discriminate H1–H4.
+
+They should include:
+
+### Prediction I — Full vector versus local components
+
+Whether changing a group count at one abstract location can reproduce the corresponding counterfactual effect without changing other relational components.
+
+### Prediction II — Cross-model causal transport
+
+Whether a relational change identified in a P-count model induces the correct candidate-margin response when transported through an independently fitted mapping into a T1 model, and vice versa.
+
+### Prediction III — Count-preserving controls
+
+Whether the hypothesized variable leaves the appropriate count-preserving effects unchanged, within a mathematically justified tolerance.
+
+### Prediction IV — Specific causal contribution
+
+Whether targeted removal and restoration of the identified computation affect the relational decision advantage more than matched null components.
+
+### Prediction V — Training-objective site effect
+
+If the training intervention is run, whether moving the auxiliary supervision location changes where the relevant computation is causally used.
+
+Before evaluation, define:
+
+- Exact model sets.
+- Independent seeds.
+- Model-pair selection.
+- Calibration and alignment data.
+- Confirmation data.
+- Support requirements.
+- Selection criteria for informative interventions.
+- Error metrics and confidence intervals.
+- Competing hypothesis predictions.
+- Failure conditions.
+
+Do not freeze arbitrary thresholds that simply favor the earlier IIA ranges.
+
+Justify the statistical power and detectable effect sizes.
+
+If the available compute permits only a small number of independent model families, describe that limitation rather than claiming population-level confirmation.
+
+Do not select the final hypothesis after inspecting held-out results.
+
+---
+
+# 10. MATHEMATICAL POSITIVE AND NEGATIVE RESULTS
+
+Do not stop at empirical interchange scores.
+
+Attempt the following formal developments.
+
+### Theorem target A — Abstract state sufficiency
+
+Under independently stated assumptions, determine when a relational state \(V\) is sufficient for the relation-dependent component of the candidate decision.
+
+Separate this from sufficiency for the entire candidate decision.
+
+### Theorem target B — Distributed realization
+
+Determine when a centralized relational state and a collection of local relational states implement equivalent abstract transitions under a specified intervention family.
+
+Characterize what decoding or reconstruction maps are required.
+
+### Theorem target C — Causal equivalence
+
+Define conditions under which two implementations have matching abstract intervention responses despite different internal sites or representations.
+
+Determine whether exact equality, approximate equality, or only partial equivalence is possible.
+
+### Theorem target D — Nonidentifiability
+
+Construct examples where:
+
+- Two representations decode the same counts but have different causal roles.
+- Two models agree on training decisions but disagree under abstract-state intervention.
+- A distributed representation cannot be replaced by a single local variable.
+- A count variable can be causally effective without being uniquely necessary.
+- A count encoder has high interchange accuracy because it steers a correlated decision feature rather than isolating the natural count computation.
+
+Include counterexamples to any overly broad theorem.
+
+Do not call a computational identity a major result merely because it has new notation.
+
+Every theorem must have precise definitions, proofs, assumptions, and a clear relationship to the learned models.
+
+---
+
+# 11. SCIENTIFIC STANDARDS
+
+The previous research suffered several avoidable identification errors.
+
+Do not repeat them.
+
+Specifically:
+
+- Do not use one shared encoder across all source slots and interpret failure as absence of a count variable.
+- Do not permit unlimited per-slot encoder capacity without matched controls.
+- Do not infer unique necessity from mean ablation.
+- Do not compare IIA scores with different null floors as if they were directly equivalent.
+- Do not infer causal equality from high probe accuracy.
+- Do not describe output-level agreement as proof of shared internal computation.
+- Do not use counterfactual episodes outside the generator's support without identifying the changed domain.
+- Do not claim raw hidden-state interchange across independently trained models is meaningful without an independently justified alignment.
+- Do not infer a universal theorem from a few seeds.
+- Do not modify frozen predictions after outcomes exist.
+- Do not obscure negative results with a post-hoc alternative success criterion.
+
+Use independent adversarial reviewers for:
+
+1. Formal causal equivalence and theorem validity.
+2. Mechanistic interventions, encoder capacity, and collateral damage.
+3. Statistical support, experimental design, and prospective prediction integrity.
+
+Review the final results after the major experiments.
+
+Preserve criticisms and corrections.
+
+---
+
+# 12. DELIVERABLES
+
+Create a new isolated directory:
+
+`docs/research_audits/cor_phase15/step1_cross_implementation_causal_equivalence/`
+
+The main report should be:
+
+`CAUSAL_EQUIVALENCE_RESULT.md`
+
+It must answer the single central question directly.
+
+Other required research artifacts:
+
+- `FORMAL_EQUIVALENCE_AND_THEOREMS.md`
+- `COUNT_INFORMATION_STRUCTURE.md`
+- `CROSS_MODEL_CAUSAL_TRANSPORT.md`
+- `NECESSITY_AND_RESTORATION.md`
+- `TRAINING_OBJECTIVE_SITE_TEST.md`, if that experiment is run
+- `FROZEN_PREDICTIONS.md`
+- `COUNTEREXAMPLES_AND_LIMITATIONS.md`
+- `REVIEW_ADJUDICATION.md`
+- `REPRODUCTION_README.md`
+
+Include executable code, saved evaluation episodes or seeds, actual outputs, checkpoints if new training occurs, and an integrity manifest.
+
+Historical files and verdicts must remain unchanged.
+
+Do not create empty documents just to satisfy the list.
+
+---
+
+# 13. WHAT COUNTS AS A SUBSTANTIVE RESULT?
+
+The central investigation can have three scientifically meaningful outcomes.
+
+### Outcome A — A shared causal relational variable is supported
+
+You identify a precisely defined abstract state and demonstrate that different representations instantiate the same relevant causal transition and candidate-decision response.
+
+The result survives strong null controls and multiple independent models.
+
+This would establish a restricted, implementation-independent causal abstraction for this specific relational computation.
+
+It would not prove the whole COR theory.
+
+### Outcome B — The models share only a partial abstraction
+
+For example, they encode the same agreement statistics, but the distributed T1 implementation and centralized P-count implementation differ in downstream causal operations or in which components are sufficient.
+
+You characterize the shared part and the nonshared part mathematically.
+
+This would be a valuable classification result.
+
+### Outcome C — The proposed equivalence fails
+
+Both models use relational information but cannot be identified as causally equivalent under the justified intervention family.
+
+You provide a concrete counterexample or controlled experimental separation.
+
+This would show why simple common-variable accounts are insufficient even within one relational task.
+
+That negative result would help define the boundaries of future theories.
+
+---
+
+# 14. FINAL DIRECTIVE
+
+We are deliberately narrowing the question.
+
+Do not use this investigation to claim that every relation-sensitive Transformer implements one general consistency mechanism.
+
+Do not investigate every unfinished COR workstream.
+
+Do not attempt to produce a paper thesis.
+
+Do not turn the result into a readiness or completion assessment.
+
+**Determine whether the count-related computations learned through P-count and T1 pretraining are causally equivalent across their different representations and computational sites.**
+
+Establish the mathematical conditions for equivalence.
+
+Find the actual information each model uses.
+
+Run meaningful cross-model abstract-variable interventions.
+
+Compare with natural source-level counterfactuals and strong null controls.
+
+Separate full equivalence from partial equivalence and behavioral coincidence.
+
+Explain the effect of representation location and training objective only where the experiments justify it.
+
+Construct counterexamples.
+
+Preserve negative results.
+
+The central scientific result should be a rigorous answer to:
+
+**Can distinct Transformer implementations instantiate the same identifiable causal relational computation, or does shared relational information conceal fundamentally different causal mechanisms?**
+
+Make that answer as precise, reproducible, and mathematically useful as the evidence allows.

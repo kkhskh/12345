@@ -1,0 +1,4 @@
+base commit: 8c31051696b0859911992b07cebeb28eb856c8c5
+branch: cor-phase15-step1-cross-implementation-equivalence (from cor-phase15-step1-relational-mechanism-deepening)
+date: Tue Nov 10 04:52:37 UTC 2026
+numpy 2.5.3 jax 0.12.0.1 sklearn 1.9.1 scipy 1.18.1

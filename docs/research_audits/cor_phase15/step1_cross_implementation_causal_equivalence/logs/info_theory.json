@@ -1,0 +1,151 @@
+{
+ "f_rel(agree)": 0.22000000000000006,
+ "f_rel(disagree)": 0.056666666666666664,
+ "rho": 3.882352941176472,
+ "S1_max_abs_err_pi_formula_vs_generator": 1.7763568394002505e-15,
+ "S1_max_abs_err_bayes_from_counts": 1.887379141862766e-15,
+ "S2_support_count_vectors": 91,
+ "S2_distinct_pi": 43,
+ "S2_example_classes": [
+  [
+   [
+    0,
+    0,
+    5
+   ],
+   [
+    1,
+    1,
+    5
+   ],
+   [
+    2,
+    2,
+    5
+   ],
+   [
+    3,
+    3,
+    5
+   ],
+   [
+    4,
+    4,
+    5
+   ]
+  ],
+  [
+   [
+    0,
+    1,
+    5
+   ],
+   [
+    1,
+    2,
+    5
+   ],
+   [
+    2,
+    3,
+    5
+   ],
+   [
+    3,
+    4,
+    5
+   ]
+  ],
+  [
+   [
+    0,
+    2,
+    5
+   ],
+   [
+    1,
+    3,
+    5
+   ],
+   [
+    2,
+    4,
+    5
+   ]
+  ],
+  [
+   [
+    0,
+    3,
+    5
+   ],
+   [
+    1,
+    4,
+    5
+   ]
+  ],
+  [
+   [
+    0,
+    5,
+    0
+   ],
+   [
+    1,
+    5,
+    1
+   ],
+   [
+    2,
+    5,
+    2
+   ],
+   [
+    3,
+    5,
+    3
+   ],
+   [
+    4,
+    5,
+    4
+   ]
+  ],
+  [
+   [
+    0,
+    5,
+    1
+   ],
+   [
+    1,
+    5,
+    2
+   ],
+   [
+    2,
+    5,
+    3
+   ],
+   [
+    3,
+    5,
+    4
+   ]
+  ]
+ ],
+ "S3_bayes_accuracy": {
+  "full": 0.7445416666666667,
+  "own_only": 0.5802083333333333,
+  "single_component_g0": 0.67275,
+  "single_component_g1": 0.670125,
+  "single_component_g2": 0.6687916666666667,
+  "two_components_(0, 1)": 0.739125,
+  "two_components_(0, 2)": 0.7331666666666666,
+  "two_components_(1, 2)": 0.7332083333333334
+ },
+ "S5_frac_episodes_admitting_pi_preserving_edit_q0": 0.82925,
+ "S5_max_abs_bayes_change_under_pi_preserving_edit": 1.887379141862766e-15,
+ "S5_mean_count_change_L1": 2.0
+}

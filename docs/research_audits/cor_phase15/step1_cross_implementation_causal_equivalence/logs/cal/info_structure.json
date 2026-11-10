@@ -1,0 +1,49 @@
+{
+ "phase": "cal",
+ "per_model": {
+  "P0": {
+   "source|own": 0.20075739005547721,
+   "source|own_other": 0.26768802307048883,
+   "source|own_null": 0.1980144677750394,
+   "source|own_shuf": 0.19832329112406077,
+   "readout|additive": 0.9887798007311313,
+   "readout|pairwise": 0.9925789119257411,
+   "readout|nullpair": 0.9883659424578117,
+   "decode_acc_at_readout": 1.0,
+   "decode_acc_at_q_source_tokens": 0.8508888888888889
+  },
+  "P1": {
+   "source|own": 0.05279932061235995,
+   "source|own_other": 0.0600489579969981,
+   "source|own_null": 0.04862723467000455,
+   "source|own_shuf": 0.04969187919532814,
+   "readout|additive": 0.8825261767736464,
+   "readout|pairwise": 0.8806740135155353,
+   "readout|nullpair": 0.8785042137334839,
+   "decode_acc_at_readout": 0.7673333333333333,
+   "decode_acc_at_q_source_tokens": 0.7868611111111111
+  },
+  "T0": {
+   "source|own": 0.1493945315911103,
+   "source|own_other": 0.16626664189035695,
+   "source|own_null": 0.14656944930017712,
+   "source|own_shuf": 0.14632732866002449,
+   "readout|additive": 0.3109092295416318,
+   "readout|pairwise": 0.29407843829439373,
+   "readout|nullpair": 0.28173769426491435,
+   "decode_acc_at_readout": 0.6141944444444444,
+   "decode_acc_at_q_source_tokens": 0.9999444444444444
+  },
+  "T1": {
+   "source|own": 0.22634931025217442,
+   "source|own_other": 0.22518257635453479,
+   "source|own_null": 0.22374315141590884,
+   "source|own_shuf": 0.22369362770416906,
+   "readout|additive": 0.08550548715553397,
+   "readout|pairwise": 0.06268133478475178,
+   "readout|nullpair": 0.049997700902645714,
+   "decode_acc_at_readout": 0.4446666666666666,
+   "decode_acc_at_q_source_tokens": 1.0
+  }
+ }
+}

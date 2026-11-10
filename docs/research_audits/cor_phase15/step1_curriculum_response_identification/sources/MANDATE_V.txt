@@ -1,0 +1,1033 @@
+# COR — PHASE 1.5, STEP 1
+# FOCUSED FOUNDATIONAL INVESTIGATION V
+
+## Are curriculum-dependent relational decision responses real computational differences or structured approximation errors?
+
+### A rigorous mathematical, causal, and prospective investigation
+
+You are continuing the COR research repository from:
+
+`cor-phase15-step1-cross-implementation-equivalence`
+
+Most recent Investigation IV commit: `ad4c629`.
+
+Verify the actual repository HEAD before proceeding.
+
+The relevant previous package is:
+
+`docs/research_audits/cor_phase15/step1_cross_implementation_causal_equivalence/`
+
+This is a focused continuation of Investigation IV.
+
+**The central question is whether the T1 and P-count curricula produce reproducibly different downstream uses of the same relational information, or whether their observed differences are explained by approximation errors, training randomness, output calibration, or intervention artifacts.**
+
+Do not open another broad foundational atlas.
+
+Do not choose a paper thesis.
+
+Do not assess readiness or propose closing Step 1.
+
+Do not revisit unrelated COR directions unless directly required for this investigation.
+
+The purpose is to resolve one scientifically important ambiguity through mathematics, independent training, causal interventions, and prospective predictions.
+
+---
+
+# 1. EXACT STARTING POINT
+
+Read the complete Investigation IV package, including:
+
+- `CAUSAL_EQUIVALENCE_RESULT.md`
+- `FORMAL_EQUIVALENCE_AND_THEOREMS.md`
+- `COUNT_INFORMATION_STRUCTURE.md`
+- `CROSS_MODEL_CAUSAL_TRANSPORT.md`
+- `NECESSITY_AND_RESTORATION.md`
+- `COUNTEREXAMPLES_AND_LIMITATIONS.md`
+- `FROZEN_PREDICTIONS.md`
+- `REVIEW_ADJUDICATION.md`
+- `REPRODUCTION_README.md`
+- `scripts/analyze.py`
+- `scripts/equiv_run.py`
+- `scripts/info_structure.py`
+- `scripts/necessity.py`
+- `src/eqv.py`
+- Archived evaluation episodes and response arrays.
+- All relevant checkpoints and generator code.
+
+Read the original experimental data and numerical scripts rather than relying on the summary.
+
+Also consult the previous Investigation III work where needed to reconstruct how the T1 and P-count models were trained.
+
+Preserve every historical result.
+
+### Established mathematical setting
+
+For a target question q, define the generator-derived relational statistic:
+
+\[
+V=n^{(-q)}
+\]
+
+where V contains the leave-question agreement counts for the source groups.
+
+The Bayesian candidate posterior depends on the target question's own reports \(X_q\) and the relevant relational information:
+
+\[
+\pi(c\mid X_q,V).
+\]
+
+The count vector V is sufficient for the relational contribution in the specified T4 generator, but it is not a minimal statistic.
+
+Investigation IV identified:
+
+- 91 possible count vectors.
+- 43 distinct reliability-posterior equivalence classes.
+- Count information at different sites in T1 and P-count models.
+- Strong within-model causal effects from count-related representation interventions.
+- Successful transport after sufficiently complete donor decoding, explained by decodability rather than a shared downstream algorithm.
+
+The proposed full equivalence failed its frozen criteria.
+
+**Preserve that verdict. Do not reinterpret it retroactively.**
+
+But the investigation did not establish that the models implement fundamentally different downstream algorithms.
+
+That is the issue to resolve.
+
+---
+
+# 2. THE SPECIFIC OBSERVATION TO EXPLAIN
+
+Investigation IV examined changes to V that preserve the exact Bayesian posterior:
+
+\[
+\pi(\cdot\mid X_q,V)
+=
+\pi(\cdot\mid X_q,V').
+\]
+
+For a correctly calibrated Bayesian inference system, these changes should leave the candidate posterior unchanged.
+
+But the trained models sometimes respond to them.
+
+The independent audit reproduced the following mean pairwise correlations of centered-logit responses:
+
+| Model comparison | Abstract V interventions | Natural input edits |
+|---|---:|---:|
+| P-count versus P-count | −0.074 | 0.029 |
+| T1 versus T1 | 0.377 | 0.532 |
+| P-count versus T1 | 0.096 | 0.208 |
+
+The T1 parents show partially correlated responses.
+
+The P-count seeds do not show the same internal consistency.
+
+The original statistical test involved only three confirmation models per curriculum.
+
+Its model-level exact permutation p-value was 0.05, the smallest available at that sample size.
+
+This is suggestive evidence, not a demonstrated population-level law.
+
+**Your assignment is to establish what causes this pattern and whether it persists in truly independent models.**
+
+Do not assume that the curriculum causes it.
+
+Do not assume that it proves different mechanisms.
+
+Do not assume that it is meaningless noise.
+
+Investigate the competing possibilities.
+
+---
+
+# 3. THE CENTRAL COMPETING HYPOTHESES
+
+Before evaluating new confirmation models, define exact and discriminating predictions for these hypotheses.
+
+## H1 — Curriculum-dependent downstream computation
+
+T1 and P-count pretraining induce systematically different operations that transform agreement-count information into candidate evidence.
+
+The differences persist after controlling for:
+
+- Overall task accuracy.
+- Bayesian posterior approximation error.
+- Output calibration.
+- Model architecture.
+- Model size.
+- Training budget.
+- Random initialization.
+
+This hypothesis must imply independently measurable computational differences, not merely different output errors.
+
+## H2 — Shared computation with curriculum-dependent approximation errors
+
+The models learn substantially similar Bayesian evidence transformations.
+
+The observed π-preserving responses arise from different approximation-error structures induced by their training procedures.
+
+These errors need not imply different computational algorithms.
+
+## H3 — Training-parent or seed dependence
+
+The apparent within-T1 coherence is specific to the original parent models or training trajectories.
+
+New independent T1 parents do not reproduce it reliably.
+
+A curriculum-level conclusion would therefore be unsupported.
+
+## H4 — Representation or intervention artifact
+
+The apparent distinction arises partly from:
+
+- Incomplete count decoding.
+- Correlation with own-question evidence.
+- The choice of activation site.
+- Activation-addition artifacts.
+- Normalization.
+- Inconsistent distributed representations.
+- The selected response metric.
+- Differences in output scale.
+
+Natural input-level responses must be compared with surgical internal interventions.
+
+## H5 — A common abstract operation with different nuisance pathways
+
+Both curricula may implement the same core count-dependent inference operation while differing in auxiliary information, redundant pathways, or irrelevant residual computations.
+
+Their responses to π-preserving changes may differ even if their decision-relevant core is equivalent.
+
+This is distinct from both a fully shared algorithm and fundamentally different relational decision algorithms.
+
+### Requirement
+
+Each hypothesis must have at least one prediction distinguishing it from the strongest alternatives.
+
+If two hypotheses are observationally equivalent under the available interventions, prove or explicitly document that limitation.
+
+---
+
+# 4. FIRST MATHEMATICAL TASK: CORRECT THE DECISION-EQUIVALENCE THEOREM
+
+Investigation IV's Theorem C3 needs a precise qualification.
+
+It states, approximately, that two exactly Bayes-optimal models with exact abstract intervention equivalence have identical decision-response functions on natural support.
+
+This is false if "Bayes-optimal" means only optimal classification accuracy.
+
+For example, a model producing logits proportional to log posterior probabilities and another producing twice those logits can have identical Bayes-optimal argmax decisions but different logit changes.
+
+Therefore, before investigating the learned-model differences:
+
+### 4.1 Define four distinct equivalences
+
+**Classification equivalence:** models choose the same Bayes-optimal candidate.
+
+**Posterior equivalence:** models return the same calibrated Bayesian candidate probabilities.
+
+**Log-odds equivalence:** models return equal candidate log-probability ratios under a fixed convention.
+
+**Computational equivalence:** models implement equivalent downstream causal operations under a declared intervention family.
+
+Do not conflate these.
+
+### 4.2 Prove the appropriate restricted theorem
+
+Determine under which assumptions:
+
+\[
+\Delta m_M
+=
+\Delta m_{M'}
+\]
+
+must hold for two models.
+
+Specify:
+
+- Whether m is a logit difference or calibrated log posterior odds.
+- What exact Bayes matching means.
+- Which intervention pairs lie on natural support.
+- Whether the abstract intervention matches the natural counterfactual pointwise.
+- Whether equality holds for every episode or only on average.
+- The relevant gauge or score normalization.
+
+Derive the approximate version.
+
+For example, show how pointwise approximation errors bound differences between the models' candidate-margin responses.
+
+Then construct explicit counterexamples demonstrating why weaker notions of Bayes-optimality are insufficient.
+
+### 4.3 Distinguish exact posterior invariance from learned-model invariance
+
+For π-preserving count changes, the exact Bayesian probability response is zero.
+
+Investigate what can be said about learned models that approximate the posterior in:
+
+- KL divergence.
+- Total variation.
+- Pointwise probability error.
+- Log-odds error.
+- Classification accuracy.
+
+Show which of these can and cannot bound π-preserving response errors without further assumptions.
+
+### Required output
+
+A corrected theorem and counterexample package that separates posterior correctness, optimal candidate selection, and downstream computational equivalence.
+
+Do not claim a new theorem merely by restating an elementary approximation inequality.
+
+---
+
+# 5. SECOND TASK: DETERMINE WHAT THE RESPONSE CORRELATIONS REALLY MEASURE
+
+Before training new models, analyze the archived response data more deeply.
+
+The old correlations may mix several effects.
+
+## 5.1 Separate response magnitude from response direction
+
+For each model, report:
+
+- Mean absolute response.
+- Response variance.
+- Signed response distribution.
+- Fraction of exactly or approximately zero responses.
+- Correlation with other models.
+- Relative scale compared with Bayesian-relevant effects.
+- Sensitivity to candidate-margin magnitude.
+- Dependence on the target question's own evidence.
+
+A correlation between nearly zero, noisy responses may be unstable or scientifically unimportant.
+
+Do not rely only on Pearson correlation.
+
+Use complementary statistics that distinguish shared signed response patterns from small arbitrary fluctuations.
+
+## 5.2 Analyze output representations
+
+Repeat the relevant comparisons using:
+
+- Centered logits.
+- Candidate-pair logit margins.
+- Softmax probabilities.
+- Log-probability ratios.
+- Calibration-adjusted outputs where justified.
+
+Do not tune output transformations to maximize the desired separation.
+
+Determine whether the T1 coherence persists under reasonable score normalization.
+
+If the pattern disappears after correcting output scale, report that.
+
+## 5.3 Analyze Bayesian-equivalence classes
+
+The exact generator has multiple count vectors that correspond to the same posterior.
+
+Characterize those equivalence classes mathematically.
+
+Determine whether the learned response depends on:
+
+- The particular count vector.
+- Its absolute magnitude.
+- Group-specific count differences.
+- The location of perfect agreement.
+- Source-group identity.
+- The Bayesian posterior equivalence class.
+- Specific nuisance features discarded by the sufficient statistic.
+
+Do not infer a computational preference from a feature that is simply correlated with the selected episodes.
+
+## 5.4 Distinguish two types of error
+
+Separate:
+
+**Error on Bayes-relevant changes:** the model incorrectly approximates a genuinely nonzero Bayesian response.
+
+**Error on Bayes-irrelevant changes:** the model responds when the true posterior is unchanged.
+
+Determine whether these errors are statistically and computationally related.
+
+A model may have coherent irrelevant responses because it learns an approximate formula with a consistent bias, not because it implements a distinct relational algorithm.
+
+That possibility must be tested directly.
+
+---
+
+# 6. THIRD TASK: DESIGN VALID NATURAL INTERVENTIONS
+
+The strongest previous evidence was the agreement between abstract count edits and input-level π-preserving edits.
+
+But input edits can change information outside V.
+
+We need a more rigorous causal intervention design.
+
+## 6.1 Exact support requirements
+
+For every intervention pair \((x,x')\), calculate:
+
+- Whether both inputs have positive generator probability.
+- Whether the change is possible under the same latent world.
+- Whether the target question's own reports remain fixed.
+- Whether the Bayesian candidate posterior is exactly preserved.
+- Which source identities, reports, or source relationships change.
+
+Report these categories separately.
+
+Do not call marginal support "same-world natural reachability."
+
+Do not silently change latent generating states while claiming a single-world causal intervention.
+
+## 6.2 Mathematically matched intervention families
+
+Construct at least three primary families.
+
+### Family N — Bayesian-null relational edits
+
+Change V while keeping the exact posterior unchanged.
+
+These are the central tests of structured beyond-Bayes responses.
+
+### Family R — Bayesian-relevant relational edits
+
+Change V such that the Bayesian candidate posterior changes by a known nonzero amount.
+
+These allow investigation of the actual decision-relevant computation, rather than only its errors.
+
+### Family C — Relational-statistic-preserving controls
+
+Change the observable source reports or identities while preserving V and the appropriate reference posterior.
+
+These test whether model responses arise from information outside the proposed relational variable.
+
+Construct the intervention families before examining the new models.
+
+Use a fixed exact generator reference.
+
+If a proposed family is impossible under the required support notion, prove that or report it explicitly.
+
+## 6.3 Avoid outcome-dependent selection
+
+Select informative interventions using the generator's mathematical properties, not the new models' outputs.
+
+Do not discard interventions because the model's response is small or disagrees with the proposed explanation.
+
+Report all valid episodes alongside any preregistered informative subset.
+
+---
+
+# 7. FOURTH TASK: TRAIN GENUINELY INDEPENDENT MODELS
+
+This is essential.
+
+The preceding investigation had only three confirmation models in each group.
+
+Additional episodes evaluated on the same checkpoints do not provide independent training-run replication.
+
+### 7.1 Independent-parent design
+
+Train new T1 parents from fresh random initializations.
+
+Train new P-count pretraining models from independent initializations.
+
+Do not reuse:
+
+- T1 parent checkpoints from Investigations II–IV.
+- Fine-tuned descendants of those parents.
+- Initial weights copied from previously evaluated models.
+- Hyperparameters selected using the new confirmation results.
+
+A held-out model must be independent at the level relevant to the hypothesis.
+
+### 7.2 Matched architecture and training
+
+Hold constant where possible:
+
+- Transformer architecture.
+- Width and depth.
+- Tokenization.
+- Source layout.
+- T4 fine-tuning protocol.
+- Data-generation parameters.
+- Final evaluation distribution.
+- Evaluation sample size.
+
+The pretraining objectives intentionally differ.
+
+Document any resulting differences in optimization success or information availability.
+
+Do not attribute a response difference to curriculum if it is explained by a systematic difference in final T4 approximation quality.
+
+### 7.3 Adequate independent sample size
+
+Aim for **at least eight genuinely independent successful training runs per curriculum** if the environment allows.
+
+Prefer more if justified by power calculations and the observed between-run variance.
+
+If compute prevents this, use a staged design:
+
+1. Establish the mathematical prediction and evaluation procedure.
+2. Freeze it.
+3. Train the maximum feasible independent cohort.
+4. Report the actual sample size and the precision it supports.
+5. Do not substitute episode-level confidence intervals for model-level replication.
+
+Never claim population generality from an underpowered run.
+
+### 7.4 Model-quality controls
+
+Compare models matched, where possible, for:
+
+- T4 classification accuracy.
+- KL divergence to exact Bayes.
+- Calibration.
+- Training duration.
+- Final loss.
+- Relevant representation decodability.
+
+Use prespecified quality bands or transparent regression/stratification procedures.
+
+Do not retrospectively select only the checkpoints that support the hypothesis.
+
+A central question is whether the curriculum difference persists **after controlling for posterior approximation error**.
+
+---
+
+# 8. FIFTH TASK: FREEZE PROSPECTIVE PREDICTIONS BEFORE TRAINING CONFIRMATION MODELS
+
+Use the six original Investigation IV confirmation models for hypothesis development.
+
+These models are not new confirmation units.
+
+Freeze the final analysis code, intervention sets, model-selection rules, baselines, and hypothesis predictions before inspecting the new model outcomes.
+
+The primary predictions should include:
+
+## P1 — Replication of curriculum-dependent null responses
+
+Does the difference between within-T1 and within-P-count response coherence replicate in independently trained models?
+
+Use an explicit model-level estimand.
+
+Report confidence intervals reflecting independent training runs.
+
+Do not claim confirmation merely because the original effect direction appears again.
+
+## P2 — Persistence after controlling for posterior approximation
+
+Does the curriculum effect remain after accounting for differences in closeness to exact Bayesian inference?
+
+If the apparent separation vanishes when error magnitude and calibration are controlled, that supports an approximation-based explanation.
+
+## P3 — Responses to Bayesian-relevant count changes
+
+Do the curricula differ in a way that cannot be explained by the shared Bayesian target and their pointwise approximation errors?
+
+Develop a conditional prediction about the response operator, not only overall accuracy.
+
+A model that approximates Bayes closely should not be counted as having a common algorithm solely because its final responses match Bayes.
+
+## P4 — Input-level versus internal-intervention agreement
+
+Does the same curriculum-dependent pattern appear under valid natural source edits and independently specified abstract V interventions?
+
+If it appears only under surgical activation changes, investigate intervention artifacts.
+
+## P5 — Causal downstream mechanism
+
+Can an independently identified computational pathway explain and selectively modify the disputed response pattern?
+
+The prediction should distinguish curriculum-specific downstream computation from nonspecific output perturbation.
+
+## P6 — Stability across training trajectories
+
+If computationally feasible, determine whether the response pattern depends on final convergence, training stage, or fine-tuning trajectory.
+
+Use a preregistered checkpoint schedule.
+
+Do not choose the best explanatory snapshot afterward.
+
+### Statistical standards
+
+Specify primary and secondary outcomes.
+
+Specify the statistical unit.
+
+Estimate between-model uncertainty, not just between-episode uncertainty.
+
+Account for dependence among pairwise model correlations.
+
+Use appropriate hierarchical, paired, or permutation methods.
+
+The old exact model-label permutation p-value of 0.05 must not be treated as decisive evidence.
+
+Do not invent arbitrary thresholds chosen to rescue the existing result.
+
+---
+
+# 9. SIXTH TASK: IDENTIFY THE DOWNSTREAM COMPUTATION
+
+If a curriculum-dependent response difference replicates, the next problem is causal explanation.
+
+Even a replicated difference in output-error patterns does not prove different computational algorithms.
+
+You must investigate where and how the models transform V into candidate evidence.
+
+## 9.1 Develop concrete mechanistic hypotheses
+
+Potential explanations include:
+
+- Direct count-to-reliability-posterior computation.
+- Separate groupwise reliability transformations.
+- A shared latent configuration computation.
+- A candidate-conditioned nonlinear interaction.
+- Additive source-evidence weighting.
+- A direct learned approximation to the candidate posterior.
+- A shortcut sensitive to absolute counts despite posterior invariance.
+- Redundant source and readout pathways.
+- A shared operation combined with curriculum-specific nuisance features.
+
+These are hypotheses, not established mechanisms.
+
+For each, derive a testable signature.
+
+## 9.2 Avoid the previous pathway confound
+
+Investigation IV withdrew its claim that different source and readout sites imply different downstream operations.
+
+That was not an independent comparison.
+
+Therefore, do not conclude that two algorithms differ merely because their relational variables appear at different token locations.
+
+Identify the computational operator independently of its site.
+
+Where possible, compare equivalent causal effects using a representation-invariant or appropriately aligned description.
+
+## 9.3 Intervention requirements
+
+Use targeted, hypothesis-driven interventions on:
+
+- Count-related information.
+- Candidate-evidence information.
+- Relevant attention pathways.
+- Value and output projections.
+- MLP transformations.
+- Residual pathways.
+- Redundant computational routes.
+
+The intervention should distinguish the hypothesized mechanism from at least one alternative.
+
+Compare:
+
+- Natural source edits.
+- Abstract state edits.
+- Path-specific interventions.
+- Full-path restoration.
+- Matched null interventions.
+
+Do not equate a large ablation effect with unique necessity.
+
+## 9.4 Seek a minimal causal explanation
+
+For any reproducible curriculum-specific response:
+
+1. Identify the source-dependent information.
+2. Trace the operations that carry it to candidate evidence.
+3. Determine where the model's response departs from exact Bayes.
+4. Identify whether that departure is produced by a specific computational operation.
+5. Test whether changing that operation removes the departure while preserving useful Bayesian behavior.
+
+An intervention that merely destroys accuracy is not an explanation.
+
+The strongest result would show that a particular learned operation causes the curriculum-specific response signature.
+
+If that cannot be established, say so.
+
+---
+
+# 10. SEVENTH TASK: DISTINGUISH AN ALGORITHM FROM A STABLE APPROXIMATION BIAS
+
+This is the central conceptual challenge.
+
+Suppose every T1 parent uses a similar approximate formula for reliability, while P-count seeds use different approximations.
+
+Would that count as a different algorithm, or simply a stable learned approximation bias?
+
+Do not resolve this by terminology.
+
+Develop a mathematical distinction.
+
+Consider:
+
+- A common exact Bayesian computation with different error perturbations.
+- A common approximate computation with seed-specific residual errors.
+- Different computational factorizations implementing the same approximate function.
+- Different nonlinear operators that agree on training support.
+- Different operations that yield statistically distinguishable responses under controlled interventions.
+
+Determine what kinds of experiments could separate them.
+
+Construct explicit counterexamples showing that:
+
+- Correlated output errors do not prove a shared internal algorithm.
+- Uncorrelated output errors do not prove different algorithms.
+- Similar internal representations do not guarantee equivalent downstream computation.
+- Distinct implementations can produce identical causal responses on the tested intervention family.
+
+Investigate whether the actual learned models satisfy stronger identification conditions.
+
+If the distinction remains unidentifiable, provide a rigorous account of that limitation.
+
+**A precise impossibility or nonidentifiability result is a legitimate success.**
+
+---
+
+# 11. EIGHTH TASK: CHARACTERIZE WHAT IS SHARED
+
+Do not let the investigation become solely a search for differences.
+
+The evidence already supports a meaningful common core.
+
+Both curricula use generator-defined agreement-count information.
+
+Both approximate the same Bayesian T4 decision rule.
+
+Both respond causally to count-related interventions.
+
+Determine whether the common core can be expressed through:
+
+- A shared sufficient statistic.
+- A shared conditional evidence transformation.
+- A shared partial causal abstraction.
+- A common restricted candidate-response operator.
+- A common mathematical factorization with different error terms.
+
+Try to characterize the strongest nontrivial shared structure that the evidence supports.
+
+Then determine precisely where the model families diverge.
+
+Do not claim a universal causal abstraction from shared Bayes accuracy or decodability alone.
+
+Do not reject a valid restricted abstraction simply because complete downstream equivalence is absent.
+
+The potential result is a **decomposition into shared computation and model-specific behavior**.
+
+That would be scientifically more informative than a binary equivalence verdict.
+
+---
+
+# 12. REVISIT CAUSAL NECESSITY AND REPRESENTATION IDENTIFICATION
+
+The previous investigation found substantial count-related causal effects, but some specificity tests failed.
+
+Important cases include:
+
+- P4's marginalization score of 0.677 against a frozen 0.70 requirement.
+- T11's rotated-control effect of 0.386 against a 0.30 ceiling.
+- P4's imperfect restoration.
+- Evidence leakage into T2's count encoder.
+
+These failures must remain visible.
+
+Investigate whether they reflect:
+
+- Imperfect encoder identification.
+- Collateral damage.
+- Distributed representations.
+- Overlapping own-evidence and count information.
+- Redundant pathways.
+- A genuinely incomplete count abstraction.
+
+Improve the controls where mathematically justified.
+
+But do not change Investigation IV's frozen verdict.
+
+Any new intervention method must be evaluated prospectively.
+
+And any conclusion about necessity must be specific to the intervention operator unless a stronger identification theorem is available.
+
+---
+
+# 13. ADVERSARIAL MATHEMATICAL AND SCIENTIFIC REVIEW
+
+Use independent reviewers where available.
+
+Assign separate responsibilities.
+
+### Formal reviewer
+
+Check:
+
+- The corrected Bayes-optimality theorem.
+- Probability versus logit response claims.
+- The approximation-error arguments.
+- The definitions of computational and causal equivalence.
+- All claimed impossibility results.
+
+### Statistical reviewer
+
+Check:
+
+- Independent model sampling.
+- Statistical power.
+- Model-level uncertainty.
+- Shared-parent leakage.
+- Pairwise-correlation dependence.
+- Multiple testing.
+- Outcome-dependent model selection.
+
+### Mechanistic reviewer
+
+Check:
+
+- Whether intervention effects identify actual pathways.
+- Whether measured differences follow trivially from representation location.
+- Whether the proposed mechanism is distinct from a simple approximation bias.
+- Ablation artifacts.
+- Null and restoration controls.
+
+### Counterexample reviewer
+
+Construct models that satisfy the observed correlations without implementing the claimed computational explanation.
+
+Construct models with shared algorithms but different irrelevant-count responses.
+
+### Positive-theory reviewer
+
+Challenge overly negative conclusions.
+
+Determine whether a meaningful restricted common abstraction survives despite model-specific errors.
+
+Reviewers must inspect the final results.
+
+Preserve all disagreements, failed criteria, and corrected claims.
+
+---
+
+# 14. REQUIRED RESEARCH PACKAGE
+
+Create a new directory:
+
+`docs/research_audits/cor_phase15/step1_curriculum_response_identification/`
+
+Create a new branch without modifying historical artifacts.
+
+Produce:
+
+### `MAIN_RESULT.md`
+
+A direct scientific answer to the central question.
+
+Distinguish what replicated, what was causally identified, and what remains unresolved.
+
+### `FORMAL_DECISION_EQUIVALENCE.md`
+
+The corrected theorem, approximation-error mathematics, counterexamples, and precise output-space definitions.
+
+### `BAYES_NULL_RESPONSE_STRUCTURE.md`
+
+A detailed analysis of π-preserving responses, their magnitudes, correlations, and dependence on count-equivalence classes.
+
+### `INDEPENDENT_PARENT_REPLICATION.md`
+
+Training configurations, independent parent identities, random seeds, checkpoints, statistical analysis, and replication outcomes.
+
+### `NATURAL_INTERVENTIONS.md`
+
+Exact support checks, Bayesian-null and Bayesian-relevant intervention families, and source-level controls.
+
+### `DOWNSTREAM_CAUSAL_MECHANISMS.md`
+
+The strongest causally supported explanation of the count-to-candidate computation.
+
+### `APPROXIMATION_VS_ALGORITHM.md`
+
+Explicit competing models, quantitative fits, counterexamples, and discriminating evidence.
+
+### `SHARED_AND_NONSHARED_STRUCTURE.md`
+
+A formal characterization of the shared relational computation and the boundaries of downstream equivalence.
+
+### `FROZEN_PREDICTIONS.md`
+
+All preregistered hypotheses, exact confirmation protocols, results, and failures.
+
+### `REVIEWS_AND_ADJUDICATION.md`
+
+Independent challenges, responses, retractions, and unresolved disagreements.
+
+### `OPEN_QUESTIONS.md`
+
+The exact unresolved scientific questions and the evidence needed to answer them.
+
+Include:
+
+- Executable code.
+- Relevant model checkpoints.
+- Exact generators.
+- Saved evaluation streams.
+- Raw result arrays.
+- Reproducible statistical analyses.
+- Model-level uncertainty calculations.
+- Execution logs.
+- Integrity manifest.
+- Clean-extraction verification.
+
+The reproduction instructions must specify all companion package dependencies.
+
+Do not describe a replay of archived response arrays as an independent forward-pass verification.
+
+---
+
+# 15. EXECUTION PRIORITIES
+
+The investigation is focused but technically substantial.
+
+Use this order:
+
+**First:** Establish the mathematical definitions, correct Theorem C3, and analyze the existing six-model data.
+
+**Second:** Design and freeze the exact intervention families, primary tests, and comparison procedures.
+
+**Third:** Train genuinely independent parents and collect new confirmation results.
+
+**Fourth:** Investigate the causal downstream mechanism using the strongest surviving hypotheses.
+
+**Fifth:** Establish the precise shared and nonshared computational structures.
+
+**Sixth:** Conduct independent reviews and adjudicate the results.
+
+If computational resources are limited, prioritize:
+
+1. Independent-parent replication.
+2. Exact Bayesian-null and Bayesian-relevant source-level interventions.
+3. The formal theorem correction.
+4. A discriminating causal mechanism test.
+
+Do not spend the compute budget on another large probe search while leaving replication unfinished.
+
+If the available compute makes the target sample size unattainable, report the incomplete evidence honestly.
+
+Do not substitute extra evaluation episodes for missing independently trained models.
+
+---
+
+# 16. WHAT COUNTS AS SCIENTIFIC PROGRESS?
+
+There are several legitimate outcomes.
+
+### Outcome A — Curriculum-specific computation is identified
+
+The curriculum-dependent response difference replicates across independent parents.
+
+It persists after controlling for Bayesian approximation quality.
+
+A concrete internal computational operation is causally identified as responsible.
+
+This would provide evidence that different training objectives induce different downstream relational algorithms or operations.
+
+### Outcome B — Structured approximation errors explain the difference
+
+The original contrast is largely explained by error magnitude, calibration, training trajectory, or a shared approximate inference operation.
+
+The models may share more of their causal computation than Investigation IV suggested.
+
+This would be an important correction and potentially strengthen the case for restricted computational equivalence.
+
+### Outcome C — The original difference does not replicate
+
+Independent T1 parents fail to show a stable within-curriculum response pattern.
+
+The original six-model observation was too fragile to support a curriculum-level conclusion.
+
+This would eliminate a misleading foundation for later theory.
+
+### Outcome D — The distinction is not identifiable from the available experiments
+
+You derive or demonstrate that multiple different computational explanations are compatible with the observed intervention responses.
+
+You characterize what additional measurement or intervention would be required.
+
+This would establish a meaningful boundary on mechanistic identification.
+
+### Outcome E — A shared core plus different residual computations is identified
+
+Both curricula share a causally meaningful relational evidence transformation.
+
+They differ only in specified error-producing or nuisance pathways.
+
+You establish which parts of the candidate response belong to the common operation and which do not.
+
+This would be an especially valuable mathematical characterization.
+
+These outcomes are not required to be mutually exclusive. Report the evidence for each component directly; retain any frozen primary verdict separately.
+
+---
+
+# 17. FINAL SCIENTIFIC QUESTIONS
+
+Your final report must answer:
+
+1. Does the π-preserving response contrast replicate across genuinely independent T1 and P-count models?
+2. Is the contrast robust to output scaling and calibration?
+3. How much of it can be explained by Bayesian approximation error?
+4. Does it persist under valid natural source interventions?
+5. Do the same differences appear for Bayesian-relevant count changes?
+6. Are the responses caused by identifiable downstream computational pathways?
+7. Do those pathways differ by curriculum or merely by seed?
+8. Is there a common relational computation beneath the observed errors?
+9. What part of the computation can be formally identified independently of the final decision?
+10. Which claimed equivalences are invariant under reasonable representation changes?
+11. Which conclusions are supported at the training-run population level, rather than only for particular checkpoints?
+12. What does the corrected theorem actually imply about candidate-margin responses?
+13. What mathematical or empirical evidence distinguishes a stable approximation bias from a genuinely different algorithm?
+14. Which hypotheses were prospectively falsified?
+15. What remains unidentifiable?
+16. What has this investigation established beyond standard Bayesian approximation and existing causal abstraction?
+
+Do not answer these through generic narrative.
+
+Use proofs, exact generator calculations, trained models, causal interventions, controlled comparisons, and counterexamples.
+
+---
+
+# 18. FINAL DIRECTIVE
+
+The previous research established something important:
+
+**Two differently trained Transformer families can use substantially the same relational information, represent it at different computational sites, and influence candidate decisions through that information.**
+
+But it did not establish that they implement identical downstream computations.
+
+The strongest evidence for a difference came from how six models responded to count changes that exact Bayesian inference would ignore.
+
+That result is too important to accept without deeper investigation and too promising to dismiss merely because the sample is small.
+
+Your task is to determine whether the difference is reproducible, what causes it, and what it means mathematically.
+
+Do not replace the question with another exercise in count decoding.
+
+Do not mistake correlations in approximation errors for mechanistic identity.
+
+Do not declare distinct algorithms because one curriculum's errors differ from another's.
+
+Do not claim a common algorithm merely because both approximate Bayes.
+
+Do not use off-support activation interventions as substitutes for supported causal experiments.
+
+Do not allow shared training parents to contaminate the held-out test.
+
+Do not change frozen success criteria after inspecting outcomes.
+
+Do not force a positive or negative conclusion.
+
+**Find the strongest defensible mathematical explanation of what is shared, what differs, and why.**
+
+The goal is one deep result that genuinely advances our understanding of causal relational computation in trained Transformers.
+
+Remain within Phase 1.5 Step 1.
+
+Preserve all historical evidence.
+
+Execute the research, record failures, and leave unresolved questions open.

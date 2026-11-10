@@ -1,0 +1,3 @@
+base commit: ad4c6298a515a398439da53d18e29db7f126f4df
+branch: cor-phase15-step1-curriculum-response-identification (from cor-phase15-step1-cross-implementation-equivalence)
+Tue Nov 10 17:46:39 UTC 2026

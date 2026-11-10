@@ -1,0 +1,71 @@
+{
+ "phase": "conf",
+ "per_model": {
+  "P2": {
+   "source|own": 0.10142779909691378,
+   "source|own_other": 0.11577942066526946,
+   "source|own_null": 0.09800802165097902,
+   "source|own_shuf": 0.09844280954883772,
+   "readout|additive": 0.9507099489011064,
+   "readout|pairwise": 0.9506324737811734,
+   "readout|nullpair": 0.949329348816487,
+   "decode_acc_at_readout": 0.7067777777777778,
+   "decode_acc_at_q_source_tokens": 0.8497500000000001
+  },
+  "P3": {
+   "source|own": 0.028886094276758374,
+   "source|own_other": 0.03319069801802329,
+   "source|own_null": 0.0254513806383753,
+   "source|own_shuf": 0.025743386724525318,
+   "readout|additive": 0.9672888682621782,
+   "readout|pairwise": 0.9682806010218682,
+   "readout|nullpair": 0.9663099796246041,
+   "decode_acc_at_readout": 0.7600833333333333,
+   "decode_acc_at_q_source_tokens": 0.6191944444444445
+  },
+  "P4": {
+   "source|own": 0.14218497881365558,
+   "source|own_other": 0.21848188974707788,
+   "source|own_null": 0.13930678666164953,
+   "source|own_shuf": 0.1390501288723613,
+   "readout|additive": 0.946961462008512,
+   "readout|pairwise": 0.9478699627537438,
+   "readout|nullpair": 0.9453694560234456,
+   "decode_acc_at_readout": 0.7725555555555556,
+   "decode_acc_at_q_source_tokens": 0.7354444444444445
+  },
+  "T2": {
+   "source|own": 0.14514581088219367,
+   "source|own_other": 0.21475020461079108,
+   "source|own_null": 0.14223747189141317,
+   "source|own_shuf": 0.14225756608423634,
+   "readout|additive": 0.7503750139815758,
+   "readout|pairwise": 0.7479648194930665,
+   "readout|nullpair": 0.7428781190964657,
+   "decode_acc_at_readout": 0.9322777777777779,
+   "decode_acc_at_q_source_tokens": 0.99625
+  },
+  "T10": {
+   "source|own": 0.15195523669739314,
+   "source|own_other": 0.1519336401432714,
+   "source|own_null": 0.14873212607180045,
+   "source|own_shuf": 0.14883658488416066,
+   "readout|additive": 0.07862484403423618,
+   "readout|pairwise": 0.0548813596965772,
+   "readout|nullpair": 0.051869316750198104,
+   "decode_acc_at_readout": 0.5639444444444445,
+   "decode_acc_at_q_source_tokens": 0.9992222222222221
+  },
+  "T11": {
+   "source|own": 0.24656482480562106,
+   "source|own_other": 0.24912701258971273,
+   "source|own_null": 0.2437548471098333,
+   "source|own_shuf": 0.24392525024436285,
+   "readout|additive": 0.26940162499869913,
+   "readout|pairwise": 0.25232567303808534,
+   "readout|nullpair": 0.24785060743751272,
+   "decode_acc_at_readout": 0.7664166666666666,
+   "decode_acc_at_q_source_tokens": 1.0
+  }
+ }
+}

@@ -1,0 +1,6 @@
+[  115.4s] P2: {"clean": 0.0, "marg": 0.855, "null_cross": 0.015, "rotated": 0.275, "wrong_site": 0.297, "span_ablate": 1.096, "span_ablate_restore_true": 0.03, "span_ablate_restore_wrong_episode": 1.261}
+[  232.4s] P3: {"clean": 0.0, "marg": 0.878, "null_cross": 0.029, "rotated": 0.586, "wrong_site": 0.035, "span_ablate": 1.315, "span_ablate_restore_true": 0.027, "span_ablate_restore_wrong_episode": 1.345}
+[  350.9s] P4: {"clean": 0.0, "marg": 0.861, "null_cross": 0.017, "rotated": 1.141, "wrong_site": 0.101, "span_ablate": 1.538, "span_ablate_restore_true": 0.33, "span_ablate_restore_wrong_episode": 1.55}
+[  487.6s] T2: {"clean": 0.0, "marg": 1.143, "null_cross": -0.027, "rotated": -0.008, "wrong_site": 0.409, "all_sources": 1.153, "span_ablate": 1.17, "span_ablate_restore_true": 0.372, "span_ablate_restore_wrong_episode": 1.2}
+[  627.0s] T10: {"clean": 0.0, "marg": 1.192, "null_cross": 0.017, "rotated": 0.131, "wrong_site": 0.035, "all_sources": 1.188, "span_ablate": 1.887, "span_ablate_restore_true": 1.224, "span_ablate_restore_wrong_episode": 1.758}
+[  764.3s] T11: {"clean": 0.0, "marg": 1.373, "null_cross": 0.018, "rotated": 0.296, "wrong_site": 0.158, "all_sources": 1.367, "span_ablate": 1.645, "span_ablate_restore_true": 1.034, "span_ablate_restore_wrong_episode": 1.694}

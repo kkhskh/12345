@@ -1,0 +1,14 @@
+[    0.3s] families built; support {"cond": {"frac_ok": 1.0, "frac_marginal_support": 1.0, "frac_same_world": 0.6113333333333333}, "single": {"frac_ok": 1.0, "frac_marginal_support": 1.0, "frac_same_world": 0.9683333333333333}, "pipres": {"frac_ok": 0.8116666666666666, "frac_marginal_support": 1.0, "frac_same_world": 1.0}, "relabel": {"frac_ok": 1.0, "frac_marginal_support": 1.0, "frac_same_world": 1.0}}
+[    4.2s] P0: acc 0.713 decoder acc 1.000
+[   80.9s] P0: within done; pathway {'full': 1.0, 'attn_frozen': 0.40604734420776367, 'mlp_frozen': 0.7088080644607544}
+[   89.8s] P1: acc 0.716 decoder acc 0.776
+[  169.1s] P1: within done; pathway {'full': 1.0, 'attn_frozen': 0.4611685276031494, 'mlp_frozen': 0.46971070766448975}
+[  195.3s] T0: acc 0.729 decoder acc 1.000
+[  301.5s] T0: within done; pathway {'full': 1.0, 'attn_frozen': 9.661336974886581e-08, 'mlp_frozen': 0.38636791706085205}
+[  331.9s] T1: acc 0.733 decoder acc 1.000
+[  439.4s] T1: within done; pathway {'full': 1.0, 'attn_frozen': 7.665074264195937e-08, 'mlp_frozen': 0.5300527215003967}
+[  510.7s] transport from P0 done
+[  580.6s] transport from P1 done
+[  654.5s] transport from T0 done
+[  723.8s] transport from T1 done
+[  744.9s] written /home/claude/12345/docs/research_audits/cor_phase15/step1_cross_implementation_causal_equivalence/scripts/../logs/cal/results.json

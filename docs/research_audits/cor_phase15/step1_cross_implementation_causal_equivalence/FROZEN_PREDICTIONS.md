@@ -82,3 +82,31 @@ the frozen sites (exact Bayes response 0). Statistic: mean pairwise Pearson r of
 
 ---
 # OUTCOMES
+
+Evaluated on the confirmation models and streams after the freeze commit 579a7a2 (`logs/conf/results.json`, `analysis.json`,
+`necessity.json`, `info_structure.json`; `logs/site/site_eval.json`). Adjusted = (IIA − floor)/(ceiling − floor).
+
+| prediction | criterion | values | verdict |
+|---|---|---|---|
+| I(a) T local write | adjusted ≥ 0.5 each T | T2 0.95, T10 0.98, T11 1.03 | **PASSED** |
+| I(b) one token of pair | ≥ 0.20 below I(a) each T | T2 −0.04 (Δ 0.99), T10 0.55 (Δ 0.43), T11 −0.10 (Δ 1.13) | **PASSED** |
+| I(c) P single component | adjusted ≥ 0.5 each P | P2 0.95, P3 0.84, P4 0.84 | **PASSED** |
+| II(a) fidelity independent of recipient curriculum | \|cross − same\| ≤ 0.10 per donor | T donors: ≤ 0.012 (pass); P donors cond: P2 0.19, P3 0.18, P4 0.33; single: 0.12, 0.10, 0.40 | **FAILED** (P donors) |
+| II(b) decodable donors | every cross fidelity ≥ 0.85 for donors with decoder ≥ 0.95 | T2, T10, T11 → P: 0.984–1.006 | **PASSED** (no P donor qualified: decoders 0.72–0.78) |
+| III count-preserving | count channel IIA ≤ 0.20, full site ≥ 0.20, every model | count channel 0.008–0.095; full site 0.33–0.62 | **PASSED** |
+| IV(a) specificity | marg KL-to-own reduction ≥ 0.70; null and rotated < 0.30, every model | marg: P2 0.701, P3 0.830, **P4 0.677**, T2 0.803, T10 0.878, T11 0.860; null 0.005–0.020; rotated −0.17–0.28 except **T11 0.386** | **FAILED** (P4 marg; T11 rotated) |
+| IV(b) restoration | P ≥ 0.8 each; T < 0.8 in ≥ 2/3 | P2 0.973, P3 0.979, **P4 0.785**; T 0.68, 0.35, 0.37 | **FAILED** (P4) |
+| V site | ≥ 2/3 S: source adjusted ≥ 0.5 and ≥ readout + 0.2; all P: readout ≥ source + 0.2 | S5 0.15 vs 0.12; S6 4.39 vs 0.83 (ceiling 0.231 ≈ floor 0.223: degenerate); S7 0.34 vs 0.33; P2 0.85 vs 0.92 (degenerate source ceiling), P3 0.82 vs −0.26, P4 0.76 vs undefined | **FAILED** (and partly not evaluable: degenerate floors/ceilings) |
+| VI-sep / VI-shared | upper CI of cross − within_T < −0.10 | cross − within_T −0.281 [−0.316, −0.249]; cross − within_P +0.170 [0.142, 0.200]; within_P −0.074, within_T 0.377, cross 0.096 | **VI-sep** |
+| VI-bayes | r with Bayes ≥ 0.5 every model | P2 **0.486**, P3 0.716, P4 0.571, T2 0.788, T10 0.824, T11 0.732 | **FAILED** (P2) |
+
+**Pre-registered classification: Outcome C** (rule: II(b) or IV(a) fails; IV(a) failed). It is reported as C without
+reclassification. How close the failures were and what the rest of the evidence shows is set out in CAUSAL_EQUIVALENCE_RESULT.md.
+
+Notes added at evaluation:
+- The V criterion used floor-adjusted IIA; when the full-site ceiling of a site is within a few points of its floor (S6 source,
+  P2 source, P4 source), the adjusted score is numerically meaningless. This weakness of the frozen statistic was not anticipated.
+- Prediction II's decoder pooled the six decision positions. A post-hoc rerun with per-position decoders
+  (`scripts/transport_posthoc.py`, written after the outcomes) gives the same pattern (P decoders 0.73–0.79; P-donor
+  same-curriculum fidelity 0.37–0.66, cross 0.55–0.89; T donors 0.98–1.01), so the failure is not a decoder-pooling artefact.
+- The S arm's pretraining reached count accuracy 0.516 (S5), 1.000 (S6), 1.000 (S7).

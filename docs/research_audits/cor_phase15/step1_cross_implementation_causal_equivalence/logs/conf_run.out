@@ -1,0 +1,20 @@
+[    0.3s] families built; support {"cond": {"frac_ok": 1.0, "frac_marginal_support": 1.0, "frac_same_world": 0.6043333333333333}, "single": {"frac_ok": 1.0, "frac_marginal_support": 1.0, "frac_same_world": 0.9638333333333334}, "pipres": {"frac_ok": 0.8079999999999998, "frac_marginal_support": 1.0, "frac_same_world": 1.0}, "relabel": {"frac_ok": 1.0, "frac_marginal_support": 1.0, "frac_same_world": 1.0}}
+[    7.5s] P2: acc 0.708 decoder acc 0.717
+[   82.9s] P2: within done; pathway {'full': 1.0, 'attn_frozen': 0.44615665078163147, 'mlp_frozen': 0.5732141137123108}
+[   92.6s] P3: acc 0.720 decoder acc 0.756
+[  170.5s] P3: within done; pathway {'full': 1.0, 'attn_frozen': 0.8106656074523926, 'mlp_frozen': 0.4761103093624115}
+[  179.3s] P4: acc 0.711 decoder acc 0.776
+[  258.1s] P4: within done; pathway {'full': 1.0, 'attn_frozen': 0.9073106646537781, 'mlp_frozen': 0.7253727316856384}
+[  291.0s] T2: acc 0.746 decoder acc 0.998
+[  401.0s] T2: within done; pathway {'full': 1.0, 'attn_frozen': 1.06484684181396e-07, 'mlp_frozen': 0.4361966848373413}
+[  434.4s] T10: acc 0.743 decoder acc 0.999
+[  546.9s] T10: within done; pathway {'full': 1.0, 'attn_frozen': 8.736852663560057e-08, 'mlp_frozen': 0.7309336066246033}
+[  577.6s] T11: acc 0.749 decoder acc 1.000
+[  688.7s] T11: within done; pathway {'full': 1.0, 'attn_frozen': 7.026446269264852e-08, 'mlp_frozen': 0.7178061008453369}
+[  796.2s] transport from P2 done
+[  900.0s] transport from P3 done
+[ 1004.7s] transport from P4 done
+[ 1111.2s] transport from T2 done
+[ 1218.7s] transport from T10 done
+[ 1327.4s] transport from T11 done
+[ 1362.2s] written /home/claude/12345/docs/research_audits/cor_phase15/step1_cross_implementation_causal_equivalence/scripts/../logs/conf/results.json

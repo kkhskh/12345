@@ -35,6 +35,7 @@ e5af6f94f596b2f9e3dfff0c9509afee3d803e8dd53000cb12545c833c8d0068  ./logs/cal/nec
 93fa7d1d344fe02e254454e092e8ad64f54c97d2160521e6570918d58a059564  ./logs/cal/responses.npz
 d8119aeb888ea3c58d2adb5b10f51b502efd89864f9c1566d373e99b0f0e5c51  ./logs/cal/results.json
 b552b370d4386ca088b51f63458771aebfd0b23a691d092f25e520a4f09ea762  ./logs/cal_run.out
+507b70dd71bd44b9dc997edc892e98c26464c1e186b4e7eaca79abe166abbea5  ./logs/clean_extraction_check.txt
 a5c8cd53805079f64833c0eedc9d405c0822ebaf9b60d2346d467b648fe5ea68  ./logs/conf/analysis.json
 c5af2b2726b99b951907ade2f6a1ae8ee4a2a952aa310dff0bfca7a3aded1e40  ./logs/conf/episodes.npz
 b6cabb27150eb2a57a3d83c6689e6b919fe096802924b47b5a2a80afe587806d  ./logs/conf/info_structure.json

@@ -1,0 +1,7 @@
+[1] manifest
+    manifest OK
+[2] exact generator numerics
+    OK   logs/info_theory.json
+[3] confirmation group statistics from committed responses
+    OK   logs/conf/analysis.json
+done: /tmp/cor_inv4_clean/docs/research_audits/cor_phase15/step1_cross_implementation_causal_equivalence/verify

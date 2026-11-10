@@ -1,0 +1,11 @@
+[     1s] generator data written; ok fractions {"N": 0.822, "N2": 0.822, "R": 0.8675, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.822}
+[    91s] P2 (P): acc 0.706 KL 0.135 T* 1.00; R2_within mix 0.343 vote 0.113 exact 0.154 split-half 0.874
+[   182s] P3 (P): acc 0.720 KL 0.093 T* 1.00; R2_within mix 0.518 vote 0.133 exact 0.435 split-half 0.807
+[   271s] P4 (P): acc 0.702 KL 0.149 T* 1.00; R2_within mix 0.334 vote 0.098 exact 0.147 split-half 0.642
+[   359s] T2 (T): acc 0.732 KL 0.011 T* 1.00; R2_within mix 0.915 vote 0.079 exact 0.905 split-half 0.981
+[   447s] T10 (T): acc 0.739 KL 0.029 T* 1.00; R2_within mix 0.823 vote 0.213 exact 0.772 split-half 0.964
+[   531s] T11 (T): acc 0.734 KL 0.020 T* 1.00; R2_within mix 0.889 vote 0.175 exact 0.855 split-half 0.968
+[   619s] P0 (P): acc 0.717 KL 0.087 T* 1.00; R2_within mix 0.654 vote 0.352 exact 0.535 split-half 0.858
+[   703s] P1 (P): acc 0.720 KL 0.092 T* 1.00; R2_within mix 0.479 vote 0.099 exact 0.350 split-half 0.820
+[   789s] T0 (T): acc 0.731 KL 0.016 T* 1.00; R2_within mix 0.918 vote 0.079 exact 0.898 split-half 0.960
+[   878s] T1 (T): acc 0.737 KL 0.016 T* 1.00; R2_within mix 0.898 vote 0.119 exact 0.872 split-half 0.977

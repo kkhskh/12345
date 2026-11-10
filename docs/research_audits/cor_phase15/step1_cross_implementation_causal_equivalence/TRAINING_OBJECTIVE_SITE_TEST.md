@@ -1,5 +1,7 @@
 # Training-objective site test (mandate §8; Prediction V)
 
+> **Post-review [R].** Detectability limit added (ME). Pre-review text: commit 8c6363e; adjudication: REVIEW_ADJUDICATION.md.
+
 **Design.** Arm S ("pcsrc", seeds 5, 6, 7): the continuation's P-count pretraining (`train_tasks.train`, task pcount, 3000 steps,
 identical optimiser, schedule, sampler, loss, head) with one change — question q's leave-q count targets are read from the
 final-layer state of source token 6q + 2(q mod 3) instead of readout token 36+q. Number of supervised positions (6), loss
@@ -31,6 +33,9 @@ evaluation `scripts/site_eval.py` → `logs/site/site_eval.json`.
    objective perfectly.
 3. The arms are not matched in optimisation success (S5 reached only 0.516 count accuracy), so even the transfer comparison is
    confounded for S5.
+
+**[R: ME]** The test could not detect a variable that moved but stayed distributed: patching all source tokens plus the readout
+reaches 0.82–0.99 in the S models.
 
 **Conclusion.** Under a matched change of the supervised position, the site of the causally used count variable does not
 follow the supervision; the readout arm's localisation at the readout is not reproduced at a source token. This does not

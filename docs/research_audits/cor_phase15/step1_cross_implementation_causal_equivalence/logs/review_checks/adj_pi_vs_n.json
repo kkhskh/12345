@@ -1,0 +1,62 @@
+{
+ "P2": {
+  "pi_class_decoder_acc": 0.2905,
+  "pi_class_majority": 0.04616666666666667,
+  "within_class_rank_acc": 0.8742239134788704,
+  "within_class_rank_baseline": 0.4952934107750851,
+  "n_within": 9986,
+  "displacement_pipres": 1.7488512992858887,
+  "displacement_single": 0.2550877332687378,
+  "displacement_ratio": 6.855881609342046
+ },
+ "P3": {
+  "pi_class_decoder_acc": 0.37183333333333335,
+  "pi_class_majority": 0.04616666666666667,
+  "within_class_rank_acc": 0.9118766272781894,
+  "within_class_rank_baseline": 0.4952934107750851,
+  "n_within": 9986,
+  "displacement_pipres": 3.4341845512390137,
+  "displacement_single": 2.7286853790283203,
+  "displacement_ratio": 1.2585491085314937
+ },
+ "P4": {
+  "pi_class_decoder_acc": 0.39358333333333334,
+  "pi_class_majority": 0.04616666666666667,
+  "within_class_rank_acc": 0.9102743841377929,
+  "within_class_rank_baseline": 0.4952934107750851,
+  "n_within": 9986,
+  "displacement_pipres": 3.9423930644989014,
+  "displacement_single": 2.663358211517334,
+  "displacement_ratio": 1.480233881965465
+ },
+ "T2": {
+  "pi_class_decoder_acc": 0.99025,
+  "pi_class_majority": 0.04616666666666667,
+  "within_class_rank_acc": 0.9915882235129181,
+  "within_class_rank_baseline": 0.4952934107750851,
+  "n_within": 9986,
+  "displacement_pipres": 4.5101118087768555,
+  "displacement_single": 3.9997119903564453,
+  "displacement_ratio": 1.1276091427710335
+ },
+ "T10": {
+  "pi_class_decoder_acc": 0.9665,
+  "pi_class_majority": 0.04616666666666667,
+  "within_class_rank_acc": 0.9992990186260765,
+  "within_class_rank_baseline": 0.4952934107750851,
+  "n_within": 9986,
+  "displacement_pipres": 7.096994876861572,
+  "displacement_single": 4.899755477905273,
+  "displacement_ratio": 1.4484385820607635
+ },
+ "T11": {
+  "pi_class_decoder_acc": 0.9943333333333333,
+  "pi_class_majority": 0.04616666666666667,
+  "within_class_rank_acc": 0.9997997196074504,
+  "within_class_rank_baseline": 0.4952934107750851,
+  "n_within": 9986,
+  "displacement_pipres": 7.02528190612793,
+  "displacement_single": 4.745796203613281,
+  "displacement_ratio": 1.4803168119143273
+ }
+}

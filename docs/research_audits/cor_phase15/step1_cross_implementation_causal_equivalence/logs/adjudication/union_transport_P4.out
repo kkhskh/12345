@@ -1,0 +1,4 @@
+P4 readout decoder acc 0.79
+P4 readout+q_src decoder acc 0.95
+P4->P2 {"readout": {"iia": 0.4296, "floor": 0.2306, "oracle": 0.6421, "fidelity": 0.484}, "readout+q_src": {"iia": 0.6116, "floor": 0.2444, "oracle": 0.6421, "fidelity": 0.923}} [20s]
+P4->T11 {"readout": {"iia": 0.722, "floor": 0.2858, "oracle": 0.768, "fidelity": 0.904}, "readout+q_src": {"iia": 0.7509, "floor": 0.2956, "oracle": 0.768, "fidelity": 0.964}} [33s]

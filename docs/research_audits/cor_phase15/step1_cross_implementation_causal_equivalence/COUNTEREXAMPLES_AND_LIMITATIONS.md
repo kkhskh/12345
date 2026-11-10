@@ -1,22 +1,27 @@
 # Counterexamples and limitations
 
+> **Post-review [R].** Items revised per adjudication. Pre-review text: commit 8c6363e; adjudication: REVIEW_ADJUDICATION.md.
+
 ## Counterexamples established here
 
 1. **Transport through a shared abstract variable does not identify shared computation** (Theorem C1–C2, confirmed: every exactly
    decodable donor transports at fidelity 0.98–1.01 into every recipient, whatever its curriculum). Any future claim of
    "implementation-independent causal abstraction" from transport alone is refuted by construction.
-2. **Shared information and shared intervention behaviour with non-shared decision responses**: T1 and P-count models both satisfy
+2. **Shared information and shared intervention behaviour with non-shared decision responses** (six models; p = 0.05 at model level [R: ST3]): T1 and P-count models both satisfy
    intervention equivalence for V (Prediction I, cond/single adjusted IIA 0.76–1.03), yet their responses to π-preserving count
    changes share r ≈ 0.10 across curricula vs 0.38 within T1 (Prediction VI).
-3. **Same decoded variable, different causal role** (Theorem D1): P's source tokens decode n at 0.62–0.85 but carry 5–27 % of
-   the causal effect; T2's readout decodes n at 0.93 and carries 59 % (wrong-site marginalisation).
-4. **Distributed state not replaceable by one local variable** (Theorem D3; Prediction I(b)): one token of a T pair reproduces
-   −0.10 to 0.55 of the effect that the consistent pair reproduces.
-5. **High interchange from a coarser statistic** (Theorem D5): additive one-hot count encoders fit any site storing only
-   configuration log-odds; excluded empirically only where decoders are exact (T models, P0).
+3. **Same decoded variable, different causal role** (Theorem D1): P's source tokens decode n at 0.62–0.85 (and complete the
+   readout's lossy code to 0.87–0.97 [R: ME5]) but carry 5–27 % of the causal effect; T2's readout decodes n at 0.93 and carries 59 % (wrong-site marginalisation).
+4. **Distributed state not replaceable by one local own-group variable** (Theorem D3; Prediction I(b)); clear in T11 only once edit
+   size is controlled [R: ME].
+5. **High interchange from a coarser statistic** (Theorem D5, restated [R: FE3]): only approximate fits are possible; excluded
+   empirically for all confirmation models (FE12 test).
 6. **Operator dependence of necessity**: span ablation restores cleanly in P (0.97–0.98, except P4 0.79) and not in T (0.35–0.68),
    because the T encoder span overlaps own-report content; the on-support marginalisation operator does not have this problem.
-7. **Supervision site does not determine computation site** (TRAINING_OBJECTIVE_SITE_TEST.md): moving the count supervision
+7. **Own-evidence leakage of count encoders** [R: ME1]: fitting E(n) on natural data absorbs X_q-correlated directions; T2's
+   interchange fell from 0.648 to 0.516 when X_q was included as covariates. Count encoders must condition on the held-fixed evidence.
+8. **Pathway "differences" forced by site choice** [R: ME4]: freezing readout attention zeroes any source-site edit, whatever it encodes.
+9. **Supervision site does not determine computation site** (TRAINING_OBJECTIVE_SITE_TEST.md): moving the count supervision
    to a source token did not produce a source-site count variable.
 
 ## Limitations

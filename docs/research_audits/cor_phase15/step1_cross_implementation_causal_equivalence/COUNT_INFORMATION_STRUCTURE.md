@@ -1,5 +1,7 @@
 # Count information structure of each implementation (mandate §5)
 
+> **Post-review [R].** P readout is lossy but not π-like (FE12, ME6); P's count state is completed by q's source tokens (ME5); T2's own-group encoder absorbs own-evidence correlates (ME1). Pre-review text: commit 8c6363e; adjudication: REVIEW_ADJUDICATION.md.
+
 Sources: `logs/info_theory.json` (generator, exact), `logs/{cal,conf}/info_structure.json` (natural conditional dependence,
 held-out R² and decoders), `logs/{cal,conf}/results.json` (`decoder_acc_per_component`, family support statistics).
 Confirmation models unless marked (cal).
@@ -58,14 +60,19 @@ causally (adjusted cond IIA −0.58 to −1.21 in every T model). Jointly, quest
 distributed tuple carries V exactly and distinguishes π-equivalent count vectors (excluding Theorem D5's "log-odds only"
 alternative for T models).
 
-**Where existing evidence cannot distinguish.** For P seeds with lossy decoders (P1–P4) D5 is not excluded: the readout may
-carry a coarsened statistic between π and n. The R² measure cannot tell an injective-but-curved code from a non-injective one;
+**[R: FE12, ME5, ME6]** The P readout is lossy but not π-like: it decodes the within-π-class rank of n at 0.87–0.91 (baseline 0.50)
+and the π-class only at 0.29–0.39, and its decoding errors are almost never π-equivalent; the loss persists under logistic
+(C = 1, 100), LDA, regularised QDA and a small MLP (0.69–0.80). Adding question q's six source tokens to the decoder recovers n
+at 0.973 (P2), 0.87 (P3), 0.95 (P4): **P-count's count state is distributed over the readout and q's source tokens**, while its
+causally decisive part is at the readout. ~~For P seeds with lossy decoders (P1–P4) D5 is not excluded: the readout may
+carry a coarsened statistic between π and n.~~ The R² measure cannot tell an injective-but-curved code from a non-injective one;
 decoder capacity (logistic, linear) is the limiting assumption.
 
 ## 4. Answer to §5
 
-P-count (most seeds) carries a **centralised, additive, lossy** code of the full leave-q count vector at the readout token; T1
+P-count (most seeds) carries a **readout-centred, additive code, lossy at the readout alone and completed by q's source tokens [R: ME5]** of the full leave-q count vector at the readout token; T1
 carries an **exact, distributed, slot-bound tuple of own-group counts** at question q's source tokens that is
 information-equivalent to the full vector only jointly (one token or one group is insufficient: Theorem A5, Prediction I(b)).
-They are information-equivalent at the level of V only for T models and the best P seed; for the other P seeds, P's site
-holds strictly less than V.
+~~They are information-equivalent at the level of V only for T models and the best P seed; for the other P seeds, P's site
+holds strictly less than V.~~ **[R: ME5]** Taking P's site as readout + q's source tokens, both implementations carry V
+(P 0.87–0.97, T ≥ 0.998).

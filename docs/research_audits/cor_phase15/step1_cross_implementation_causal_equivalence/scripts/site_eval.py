@@ -1,7 +1,7 @@
 """Prediction V evaluation (training-objective site test).  Usage: site_eval.py MODEL [MODEL ...]
 For each model: cond-family abstract-variable interchange at the READOUT site (P_full encoder at 36+q) and at the
 SOURCE site (question q's six source tokens; T_own and T_full encoders), floor-adjusted exactly as in equiv_run.py
-(floor = mismatched counterfactual counts, ceiling = full-site patch of the same site), plus the pathway fractions.
+(floor = mismatched counterfactual counts, ceiling = full-site patch of the same site), [docstring corrected after review: no pathway fractions are computed].
 Streams as conf (fit 12_300_000, eval 12_400_000).  Writes logs/site/site_eval.json (merged across calls)."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, "..", "src"))

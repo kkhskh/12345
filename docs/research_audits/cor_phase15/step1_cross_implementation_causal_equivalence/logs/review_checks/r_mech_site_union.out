@@ -1,0 +1,5 @@
+S5 {"readout": 0.3264, "q_src": 0.4311, "readout+q_src": 0.6118, "all_src": 0.5307, "all_src+readout": 0.8208} [12s]
+S6 {"readout": 0.3597, "q_src": 0.2309, "readout+q_src": 0.5364, "all_src": 0.5893, "all_src+readout": 0.9878} [24s]
+S7 {"readout": 0.4586, "q_src": 0.3346, "readout+q_src": 0.6429, "all_src": 0.4419, "all_src+readout": 0.9165} [35s]
+P3 {"readout": 0.8048, "q_src": 0.0808, "readout+q_src": 0.8618, "all_src": 0.151, "all_src+readout": 0.9685} [46s]
+T10 {"readout": 0.1103, "q_src": 0.8377, "readout+q_src": 0.9599, "all_src": 0.8456, "all_src+readout": 0.9909} [58s]

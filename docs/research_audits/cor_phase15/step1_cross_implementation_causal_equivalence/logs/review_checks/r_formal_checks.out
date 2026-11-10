@@ -1,0 +1,14 @@
+A1 exact factorization mismatches over 6x729: 0  f1,f0,rho = 11/50 17/300 66/17 3.8823529411764706
+support vectors 91 exact distinct pi 43
+A4 characterisation vs exact equality, mismatching ordered pairs: 0
+class size histogram {1: 22, 2: 6, 3: 6, 4: 6, 5: 3}
+sum P(n) = 1.0
+per-component accuracy of decoding n from pi only (Bayes-optimal): [0.7268, 0.7268, 0.7268] mean 0.7268
+joint accuracy of decoding full n from pi only: 0.5901
+additive functionals constant on pi-classes: dim 7 (of 19); max within-H variation 4.44e-16  -> function of H only
+weighted additive R^2: pi (6-vec) 0.7648 ; sqrt(pi) 0.8414 ; log(pi+1e-3) 0.9227
+A3 as written  sum_R pi(R) P(Y|X_q,R) vs exact: max abs diff 0.269, argmax disagreement 0.0302
+A3 corrected   sum_R pi(R) P(X_q,Y|R) normalised vs exact: max abs diff 0.0e+00
+distinct decision posteriors across the 43 pi-classes, over the 513 possible X_q: min 1, median 11, max 43
+C2 counterexample: Bayes recipient response identical under representative-decoded transport: True
+D4 reverse: interchange IIA on informative cases 0.00; ablation changes output in 1.00 of cases

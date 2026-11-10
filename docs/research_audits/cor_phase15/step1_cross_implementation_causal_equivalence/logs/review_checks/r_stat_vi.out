@@ -1,0 +1,60 @@
+
+===== pi_preserving_abstract n_ep 802: within_P -0.074 within_T 0.377 cross 0.096 cross-wT -0.281 cross-wP 0.170
+episode bootstrap 1000: cross-wT CI [-0.315, -0.247], SE 0.017
+MC sd of the 300-replicate upper bound: 0.0033
+per-pair r point (episode-boot SE): {'P2~P3': '0.032(0.031)', 'P2~P4': '-0.220(0.023)', 'P2~T2': '0.129(0.028)', 'P2~T10': '0.038(0.026)', 'P2~T11': '0.085(0.032)', 'P3~P4': '-0.033(0.027)', 'P3~T2': '0.103(0.025)', 'P3~T10': '0.182(0.027)', 'P3~T11': '0.168(0.026)', 'P4~T2': '-0.035(0.025)', 'P4~T10': '0.143(0.027)', 'P4~T11': '0.051(0.029)', 'T2~T10': '0.243(0.024)', 'T2~T11': '0.428(0.024)', 'T10~T11': '0.461(0.023)'}
+  drop P2: within_T 0.377 within_P -0.033 cross 0.102 cross-wT -0.275
+  drop P3: within_T 0.377 within_P -0.220 cross 0.069 cross-wT -0.309
+  drop P4: within_T 0.377 within_P 0.032 cross 0.117 cross-wT -0.260
+  drop T2: within_T 0.461 within_P -0.074 cross 0.111 cross-wT -0.350
+  drop T10: within_T 0.428 within_P -0.074 cross 0.084 cross-wT -0.345
+  drop T11: within_T 0.243 within_P -0.074 cross 0.093 cross-wT -0.149
+label permutation (20 splits): #splits with cross-'T' <= observed = 1/20 -> p = 0.05; most extreme splits: [(np.float64(-0.281), ('T2', 'T10', 'T11')), (np.float64(-0.149), ('P3', 'T10', 'T11')), (np.float64(-0.123), ('P4', 'T10', 'T11'))]
+symmetric stat min(cross-wT, cross-wP): obs -0.281, p = 2/20
+two-way bootstrap (models within curriculum x episodes, 873 valid): cross-wT CI [-0.412, -0.102]; frac upper<-0.10 criterion-like: P(stat>=-0.10)=0.024
+  T2 excluded: within_T(T10~T11) 0.461 cross(P x T10,T11) 0.111; min within_T pair 0.243 vs max cross pair 0.182
+
+===== pi_preserving_input n_ep 802: within_P 0.029 within_T 0.532 cross 0.208 cross-wT -0.325 cross-wP 0.178
+episode bootstrap 1000: cross-wT CI [-0.358, -0.293], SE 0.016
+MC sd of the 300-replicate upper bound: 0.0026
+per-pair r point (episode-boot SE): {'P2~P3': '0.081(0.026)', 'P2~P4': '-0.056(0.026)', 'P2~T2': '0.240(0.025)', 'P2~T10': '0.156(0.027)', 'P2~T11': '0.222(0.025)', 'P3~P4': '0.062(0.025)', 'P3~T2': '0.217(0.025)', 'P3~T10': '0.191(0.024)', 'P3~T11': '0.206(0.027)', 'P4~T2': '0.174(0.025)', 'P4~T10': '0.220(0.026)', 'P4~T11': '0.242(0.025)', 'T2~T10': '0.452(0.020)', 'T2~T11': '0.579(0.021)', 'T10~T11': '0.565(0.019)'}
+  drop P2: within_T 0.532 within_P 0.062 cross 0.208 cross-wT -0.324
+  drop P3: within_T 0.532 within_P -0.056 cross 0.209 cross-wT -0.323
+  drop P4: within_T 0.532 within_P 0.081 cross 0.205 cross-wT -0.327
+  drop T2: within_T 0.565 within_P 0.029 cross 0.206 cross-wT -0.359
+  drop T10: within_T 0.579 within_P 0.029 cross 0.217 cross-wT -0.363
+  drop T11: within_T 0.452 within_P 0.029 cross 0.200 cross-wT -0.252
+label permutation (20 splits): #splits with cross-'T' <= observed = 1/20 -> p = 0.05; most extreme splits: [(np.float64(-0.325), ('T2', 'T10', 'T11')), (np.float64(-0.121), ('P4', 'T10', 'T11')), (np.float64(-0.121), ('P2', 'T2', 'T11'))]
+symmetric stat min(cross-wT, cross-wP): obs -0.325, p = 2/20
+two-way bootstrap (models within curriculum x episodes, 871 valid): cross-wT CI [-0.403, -0.224]; frac upper<-0.10 criterion-like: P(stat>=-0.10)=0.000
+  T2 excluded: within_T(T10~T11) 0.565 cross(P x T10,T11) 0.206; min within_T pair 0.452 vs max cross pair 0.242
+
+===== off_natural_support n_ep 784: within_P 0.348 within_T 0.672 cross 0.506 cross-wT -0.165 cross-wP 0.159
+episode bootstrap 1000: cross-wT CI [-0.188, -0.143], SE 0.011
+MC sd of the 300-replicate upper bound: 0.0023
+per-pair r point (episode-boot SE): {'P2~P3': '0.466(0.020)', 'P2~P4': '0.295(0.023)', 'P2~T2': '0.434(0.020)', 'P2~T10': '0.495(0.020)', 'P2~T11': '0.481(0.021)', 'P3~P4': '0.282(0.021)', 'P3~T2': '0.454(0.019)', 'P3~T10': '0.688(0.014)', 'P3~T11': '0.603(0.017)', 'P4~T2': '0.501(0.021)', 'P4~T10': '0.462(0.021)', 'P4~T11': '0.440(0.023)', 'T2~T10': '0.627(0.017)', 'T2~T11': '0.605(0.017)', 'T10~T11': '0.784(0.012)'}
+  drop P2: within_T 0.672 within_P 0.282 cross 0.525 cross-wT -0.147
+  drop P3: within_T 0.672 within_P 0.295 cross 0.469 cross-wT -0.203
+  drop P4: within_T 0.672 within_P 0.466 cross 0.526 cross-wT -0.146
+  drop T2: within_T 0.784 within_P 0.348 cross 0.528 cross-wT -0.255
+  drop T10: within_T 0.605 within_P 0.348 cross 0.486 cross-wT -0.120
+  drop T11: within_T 0.627 within_P 0.348 cross 0.506 cross-wT -0.121
+label permutation (20 splits): #splits with cross-'T' <= observed = 2/20 -> p = 0.10; most extreme splits: [(np.float64(-0.212), ('P3', 'T10', 'T11')), (np.float64(-0.165), ('T2', 'T10', 'T11')), (np.float64(-0.075), ('P3', 'T2', 'T10'))]
+symmetric stat min(cross-wT, cross-wP): obs -0.165, p = 4/20
+two-way bootstrap (models within curriculum x episodes, 887 valid): cross-wT CI [-0.320, -0.060]; frac upper<-0.10 criterion-like: P(stat>=-0.10)=0.131
+  T2 excluded: within_T(T10~T11) 0.784 cross(P x T10,T11) 0.528; min within_T pair 0.605 vs max cross pair 0.688
+
+===== random_support n_ep 1000: within_P 0.063 within_T 0.301 cross 0.166 cross-wT -0.135 cross-wP 0.103
+episode bootstrap 1000: cross-wT CI [-0.174, -0.099], SE 0.019
+MC sd of the 300-replicate upper bound: 0.0025
+per-pair r point (episode-boot SE): {'P2~P3': '0.198(0.027)', 'P2~P4': '-0.019(0.025)', 'P2~T2': '0.058(0.031)', 'P2~T10': '0.220(0.025)', 'P2~T11': '0.153(0.029)', 'P3~P4': '0.010(0.023)', 'P3~T2': '0.176(0.029)', 'P3~T10': '0.249(0.028)', 'P3~T11': '0.166(0.030)', 'P4~T2': '0.188(0.023)', 'P4~T10': '0.165(0.024)', 'P4~T11': '0.116(0.026)', 'T2~T10': '0.171(0.029)', 'T2~T11': '0.119(0.028)', 'T10~T11': '0.613(0.022)'}
+  drop P2: within_T 0.301 within_P 0.010 cross 0.177 cross-wT -0.125
+  drop P3: within_T 0.301 within_P -0.019 cross 0.150 cross-wT -0.151
+  drop P4: within_T 0.301 within_P 0.198 cross 0.170 cross-wT -0.131
+  drop T2: within_T 0.613 within_P 0.063 cross 0.178 cross-wT -0.435
+  drop T10: within_T 0.119 within_P 0.063 cross 0.143 cross-wT 0.024
+  drop T11: within_T 0.171 within_P 0.063 cross 0.176 cross-wT 0.005
+label permutation (20 splits): #splits with cross-'T' <= observed = 4/20 -> p = 0.20; most extreme splits: [(np.float64(-0.195), ('P3', 'T10', 'T11')), (np.float64(-0.193), ('P2', 'T10', 'T11')), (np.float64(-0.158), ('P4', 'T10', 'T11'))]
+symmetric stat min(cross-wT, cross-wP): obs -0.135, p = 8/20
+two-way bootstrap (models within curriculum x episodes, 887 valid): cross-wT CI [-0.476, 0.070]; frac upper<-0.10 criterion-like: P(stat>=-0.10)=0.514
+  T2 excluded: within_T(T10~T11) 0.613 cross(P x T10,T11) 0.178; min within_T pair 0.119 vs max cross pair 0.249

@@ -1,5 +1,7 @@
 # Necessity without collateral damage, restoration, redundancy (mandate §7)
 
+> **Post-review [R].** Overshoot reference corrected (natural marginalisation, ME2); P collateral claim withdrawn; redundancy qualified (ME3). Pre-review text: commit 8c6363e; adjudication: REVIEW_ADJUDICATION.md.
+
 `scripts/necessity.py`; confirmation `logs/conf/necessity.json` (evaluation stream 12_450_000, 1000 episodes × 6 decisions),
 calibration `logs/cal/necessity.json`. Own-question Bayes accuracy 0.577, full Bayes 0.727 on this stream.
 
@@ -24,12 +26,19 @@ relational information the model uses, the output should move to the **own-quest
   IV(a) required ≥ 70 % in every model and < 30 % for the rotated control; P4 (0.677) and T11's rotated control (0.386) missed.
   T11's rotated delta (same norms, random directions) moving the output 39 % toward the own-question posterior means part of T11's
   marginalisation effect is not direction-specific — a residual H4 element.
-- **Collateral damage.** P drop fractions 0.86–0.88 (no overshoot). T drop fractions 1.14–1.37: T models end *below* own-question
+- **[R: ME2] Reference for overshoot.** Averaging each model's outputs over real resampled X_{-q} (natural input marginalisation,
+  no activation edit) already gives drop fractions 1.02–1.14 in all six models: falling below own-question Bayes accuracy is the
+  models' own behaviour. Against that reference T10 has no excess, T11 ≈ 0.25 unexplained excess, and T2's 1.14 is the own-evidence
+  leakage of its encoder (refitted encoder removes it). For P, the norm-matched rotated control removes 0.59 (P3) and 1.14 (P4) of
+  the accuracy gain although it does not move the output toward the own posterior: **"no collateral damage" is not shown for P**;
+  P4's 0.677 is close to what natural marginalisation at that site reaches (0.711).
+- ~~**Collateral damage.** P drop fractions 0.86–0.88 (no overshoot).~~ T drop fractions 1.14–1.37: T models end *below* own-question
   Bayes accuracy, i.e. the operator also removes 14–37 % of a gain that the own-question evidence alone would support. Since KL to
   the own posterior is small but non-zero (all models 0.04–0.08 nats after marginalisation, against 0.31–0.43 clean), the overshoot is a modest distortion of own-question processing, not
   arbitrary damage. Necessity of V is therefore shown for P without collateral damage, and for T with a bounded one.
 - **Redundancy.** In T, marginalising every source token's own leave-k counts (all 36 tokens) gives the same result as q's six tokens
-  only (0.80/0.88/0.86 in both): no redundant copy elsewhere at this layer. The wrong-site controls show P's source tokens and T's
+  only (0.80/0.88/0.86 in both): no redundant copy among other source tokens (withdrawn for T2, whose encoder leaks [R: ME]).
+  The readouts of T models do carry part of the effect (union ceilings 0.94–0.96 vs 0.55–0.84 [R: ME3]). The wrong-site controls show P's source tokens and T's
   readout carry 5–59 % of the effect (largest T2 0.59, whose readout decodes n at 0.93): partial copies with partial causal role
   (Theorem D1 learned instance; D4's redundancy pattern is not observed).
 
@@ -48,7 +57,7 @@ the restored response is the relational one (KL to full Bayes back to clean leve
 accuracy (0.45–0.55): the encoder span at a source token also carries own-report information, so the operator is not clean for T,
 as predicted (IV(b) T part held; the P part failed narrowly at P4 0.785).
 
-**Conclusion for §7.** The identified count variable makes a specific, on-support causal contribution to the relational decision
+**Conclusion for §7** [R: ST2 — narrowness is symmetric: P2 passed IV(a) by 0.0006; T11's rotated 0.386 is not narrow]. The identified count variable makes a specific, on-support causal contribution to the relational decision
 advantage in all six models, directed at the own-question posterior and far above matched nulls. "Uniquely necessary" is not
 claimed: the operator is a replacement within the encoder image, T shows bounded overshoot, and T11 shows partial
 direction-nonspecificity.

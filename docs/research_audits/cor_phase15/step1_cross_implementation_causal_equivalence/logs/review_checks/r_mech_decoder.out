@@ -1,0 +1,4 @@
+# P2 run (full)
+P2 {"readout": {"logit_C1_std": 0.7296, "logit_C100_std": 0.7417, "lda": 0.7376, "mlp256": 0.7264, "qda_reg": 0.6938, "joint_lda_exact": 0.2977, "joint_lda_component": 0.7237, "joint_lda_frac_errors_pi_equiv": 0.0248, "joint_lda_mean_abs_err_given_err": 1.4578}, "readout+qsrc": {"logit_C1_std": 0.9134, "logit_C100_std": 0.9217, "lda": 0.9728, "mlp256": 0.8864}} [253s]
+P3 {"readout": {"logit_C1_std": 0.7566, "logit_C100_std": 0.7606, "lda": 0.7554, "mlp256": 0.7498, "qda_reg": 0.7416, "joint_lda_exact": 0.3262, "joint_lda_component": 0.7438, "joint_lda_frac_errors_pi_equiv": 0.0166, "joint_lda_mean_abs_err_given_err": 1.6067}} [72s]
+P4 {"readout": {"logit_C1_std": 0.7856, "logit_C100_std": 0.7983, "lda": 0.79, "mlp256": 0.7926, "qda_reg": 0.7544, "joint_lda_exact": 0.4123, "joint_lda_component": 0.7781, "joint_lda_frac_errors_pi_equiv": 0.0267, "joint_lda_mean_abs_err_given_err": 1.2358}} [151s]

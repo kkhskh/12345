@@ -110,3 +110,13 @@ Notes added at evaluation:
   (`scripts/transport_posthoc.py`, written after the outcomes) gives the same pattern (P decoders 0.73–0.79; P-donor
   same-curriculum fidelity 0.37–0.66, cross 0.55–0.89; T donors 0.98–1.01), so the failure is not a decoder-pooling artefact.
 - The S arm's pretraining reached count accuracy 0.516 (S5), 1.000 (S6), 1.000 (S7).
+
+Post-review notes (verdicts unchanged; REVIEW_ADJUDICATION.md):
+- [R: ST1] II(a) failed, so Outcomes A and B were excluded independently of IV(a); the classification C rests on both.
+- [R: ST4] II(b) passed only for T donors; it was vacuous for P donors (none reached decoder accuracy 0.95 at the readout).
+- [R: ME5] With decoders that read the readout and question q's source tokens, P donors' decoders reach 0.87–0.97 and transport
+  at 0.81–0.98 (post hoc; not a frozen test).
+- [R: ST2] Narrowness is symmetric: P2 passed IV(a) by 0.0006; T11's rotated control (0.386) failed by a wide margin.
+- [R: ST3] VI-sep: model-level permutation p = 0.05 (minimum attainable with 3 + 3 models).
+- Docstrings of `analyze.py` and `site_eval.py` were corrected after the freeze (no code change; hashes in
+  `logs/freeze_hashes.txt` refer to the pre-correction files).

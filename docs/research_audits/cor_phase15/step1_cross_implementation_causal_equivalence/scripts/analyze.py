@@ -1,4 +1,4 @@
-"""Group-level summaries with bootstrap CIs (episodes resampled; 2000 replicates).  Usage: analyze.py PHASE
+"""Group-level summaries with bootstrap CIs (episodes resampled; 300 replicates; random_support responses are stored as raw responses and residualised here).  Usage: analyze.py PHASE
 Decision-response equivalence: for each response family, mean Pearson r of model-pair responses within the P-count
 curriculum, within the T1 curriculum, and across curricula; also each model's r with the exact Bayes response
 (random_support family).  Writes logs/PHASE/analysis.json."""

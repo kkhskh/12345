@@ -1,0 +1,97 @@
+===== cal ['P0', 'P1', 'T0', 'T1']
+I(a) T0 local 0.611 pass=True | I(b) one-token 0.073 delta 0.538 pass=True | denom 0.432 n_inf 666 approx SE(adj) 0.045
+I(a) T1 local 1.015 pass=True | I(b) one-token 0.448 delta 0.568 pass=True | denom 0.368 n_inf 703 approx SE(adj) 0.051
+I(c) P0 0.896 pass=True denom 0.416
+I(c) P1 0.783 pass=True denom 0.306
+  cond P0: enc iia 0.704 ceiling 0.772 floor 0.389 adj 0.823
+  cond P1: enc iia 0.693 ceiling 0.738 floor 0.442 adj 0.847
+  cond T0: enc iia 0.771 ceiling 0.847 floor 0.439 adj 0.813
+  cond T1: enc iia 0.801 ceiling 0.840 floor 0.436 adj 0.902
+II cond iia donor P0 dec 1.000 same 0.999 cross 0.999 |diff| 0.001 IIa_pass=True IIb min cross 0.998 pass=True
+II cond iia donor P1 dec 0.776 same 0.723 cross 0.840 |diff| 0.117 IIa_pass=False
+II cond iia donor T0 dec 1.000 same 1.002 cross 0.995 |diff| 0.006 IIa_pass=True IIb min cross 0.992 pass=True
+II cond iia donor T1 dec 1.000 same 1.000 cross 0.994 |diff| 0.006 IIa_pass=True IIb min cross 0.990 pass=True
+II cond r donor P0 dec 1.000 same 1.000 cross 1.000 |diff| 0.000 IIa_pass=True
+II cond r donor P1 dec 0.776 same 0.804 cross 0.879 |diff| 0.075 IIa_pass=True
+II cond r donor T0 dec 1.000 same 1.003 cross 0.999 |diff| 0.003 IIa_pass=True
+II cond r donor T1 dec 1.000 same 1.001 cross 0.999 |diff| 0.002 IIa_pass=True
+II single iia donor P0 dec 1.000 same 1.000 cross 1.004 |diff| 0.004 IIa_pass=True IIb min cross 1.003 pass=True
+II single iia donor P1 dec 0.776 same 0.573 cross 0.630 |diff| 0.056 IIa_pass=True
+II single iia donor T0 dec 1.000 same 1.003 cross 0.993 |diff| 0.010 IIa_pass=True IIb min cross 0.986 pass=True
+II single iia donor T1 dec 1.000 same 1.000 cross 0.997 |diff| 0.003 IIa_pass=True IIb min cross 0.993 pass=True
+II single r donor P0 dec 1.000 same 1.000 cross 1.000 |diff| 0.001 IIa_pass=True
+II single r donor P1 dec 0.776 same 0.757 cross 0.789 |diff| 0.032 IIa_pass=True
+II single r donor T0 dec 1.000 same 1.003 cross 1.000 |diff| 0.003 IIa_pass=True
+II single r donor T1 dec 1.000 same 1.001 cross 1.000 |diff| 0.001 IIa_pass=True
+III P0 count-channel 0.003 full 0.255 pass=True
+III P1 count-channel 0.145 full 0.373 pass=True
+III T0 count-channel 0.031 full 0.692 pass=True
+III T1 count-channel 0.027 full 0.650 pass=True
+IV(a) P0 marg 0.7739 null 0.005 rot -0.007 pass=True | IV(b) restore 0.961
+IV(a) P1 marg 0.7810 null 0.019 rot 0.233 pass=True | IV(b) restore 1.025
+IV(a) T0 marg 0.8878 null 0.006 rot 0.268 pass=True | IV(b) restore 0.305
+IV(a) T1 marg 0.8910 null 0.007 rot 0.240 pass=True | IV(b) restore 0.600
+VI cross-wT -0.685 upper -0.649 sep=True shared=False
+VI-bayes {'P0': 0.672, 'P1': 0.709, 'T0': 0.822, 'T1': 0.805} all>=0.5: True
+===== conf ['P2', 'P3', 'P4', 'T2', 'T10', 'T11']
+I(a) T2 local 0.950 pass=True | I(b) one-token -0.042 delta 0.992 pass=True | denom 0.164 n_inf 726 approx SE(adj) 0.113
+I(a) T10 local 0.979 pass=True | I(b) one-token 0.550 delta 0.429 pass=True | denom 0.431 n_inf 772 approx SE(adj) 0.042
+I(a) T11 local 1.027 pass=True | I(b) one-token -0.099 delta 1.127 pass=True | denom 0.390 n_inf 749 approx SE(adj) 0.047
+I(c) P2 0.955 pass=True denom 0.215
+I(c) P3 0.835 pass=True denom 0.413
+I(c) P4 0.835 pass=True denom 0.350
+  cond P2: enc iia 0.642 ceiling 0.682 floor 0.411 adj 0.853
+  cond P3: enc iia 0.732 ceiling 0.805 floor 0.406 adj 0.818
+  cond P4: enc iia 0.609 ceiling 0.677 floor 0.392 adj 0.762
+  cond T2: enc iia 0.648 ceiling 0.549 floor 0.428 adj 1.823
+  cond T10: enc iia 0.818 ceiling 0.838 floor 0.442 adj 0.951
+  cond T11: enc iia 0.768 ceiling 0.788 floor 0.465 adj 0.939
+II cond iia donor P2 dec 0.717 same 0.588 cross 0.778 |diff| 0.190 IIa_pass=False
+II cond iia donor P3 dec 0.756 same 0.663 cross 0.838 |diff| 0.175 IIa_pass=False
+II cond iia donor P4 dec 0.776 same 0.526 cross 0.857 |diff| 0.331 IIa_pass=False
+II cond iia donor T2 dec 0.998 same 1.003 cross 0.998 |diff| 0.006 IIa_pass=True IIb min cross 0.984 pass=True
+II cond iia donor T10 dec 0.999 same 0.996 cross 1.003 |diff| 0.007 IIa_pass=True IIb min cross 0.999 pass=True
+II cond iia donor T11 dec 1.000 same 0.999 cross 1.000 |diff| 0.001 IIa_pass=True IIb min cross 0.998 pass=True
+II cond r donor P2 dec 0.717 same 0.608 cross 0.844 |diff| 0.236 IIa_pass=False
+II cond r donor P3 dec 0.756 same 0.713 cross 0.900 |diff| 0.187 IIa_pass=False
+II cond r donor P4 dec 0.776 same 0.596 cross 0.921 |diff| 0.324 IIa_pass=False
+II cond r donor T2 dec 0.998 same 1.006 cross 0.997 |diff| 0.009 IIa_pass=True
+II cond r donor T10 dec 0.999 same 1.001 cross 0.999 |diff| 0.002 IIa_pass=True
+II cond r donor T11 dec 1.000 same 1.000 cross 1.000 |diff| 0.000 IIa_pass=True
+II single iia donor P2 dec 0.717 same 0.383 cross 0.505 |diff| 0.122 IIa_pass=False
+II single iia donor P3 dec 0.756 same 0.451 cross 0.548 |diff| 0.097 IIa_pass=True
+II single iia donor P4 dec 0.776 same 0.279 cross 0.683 |diff| 0.404 IIa_pass=False
+II single iia donor T2 dec 0.998 same 1.007 cross 0.995 |diff| 0.013 IIa_pass=True IIb min cross 0.993 pass=True
+II single iia donor T10 dec 0.999 same 0.999 cross 0.995 |diff| 0.004 IIa_pass=True IIb min cross 0.991 pass=True
+II single iia donor T11 dec 1.000 same 0.998 cross 0.996 |diff| 0.002 IIa_pass=True IIb min cross 0.993 pass=True
+II single r donor P2 dec 0.717 same 0.500 cross 0.713 |diff| 0.213 IIa_pass=False
+II single r donor P3 dec 0.756 same 0.562 cross 0.733 |diff| 0.171 IIa_pass=False
+II single r donor P4 dec 0.776 same 0.423 cross 0.845 |diff| 0.422 IIa_pass=False
+II single r donor T2 dec 0.998 same 1.003 cross 0.998 |diff| 0.004 IIa_pass=True
+II single r donor T10 dec 0.999 same 1.001 cross 1.000 |diff| 0.001 IIa_pass=True
+II single r donor T11 dec 1.000 same 1.000 cross 1.000 |diff| 0.000 IIa_pass=True
+III P2 count-channel 0.043 full 0.328 pass=True
+III P3 count-channel 0.095 full 0.333 pass=True
+III P4 count-channel 0.041 full 0.402 pass=True
+III T2 count-channel 0.052 full 0.504 pass=True
+III T10 count-channel 0.024 full 0.624 pass=True
+III T11 count-channel 0.008 full 0.574 pass=True
+IV(a) P2 marg 0.7006 null 0.012 rot 0.215 pass=True | IV(b) restore 0.973
+IV(a) P3 marg 0.8304 null 0.020 rot 0.278 pass=True | IV(b) restore 0.979
+IV(a) P4 marg 0.6770 null 0.017 rot -0.170 pass=False | IV(b) restore 0.785
+IV(a) T2 marg 0.8034 null 0.005 rot 0.179 pass=True | IV(b) restore 0.682
+IV(a) T10 marg 0.8783 null 0.008 rot 0.279 pass=True | IV(b) restore 0.351
+IV(a) T11 marg 0.8604 null 0.016 rot 0.386 pass=False | IV(b) restore 0.372
+VI cross-wT -0.281 upper -0.249 sep=True shared=False
+VI-bayes {'P2': 0.486, 'P3': 0.716, 'P4': 0.571, 'T2': 0.788, 'T10': 0.824, 'T11': 0.732} all>=0.5: False
+===== site
+V S5 source adj 0.146 (ceil-floor 0.178, n_inf 2120) readout adj 0.119 (ceil-floor 0.127) pass=False
+   raw IIA source 0.279 readout 0.214; raw iia-floor: source 0.026 readout 0.015
+V S6 source adj 4.389 (ceil-floor 0.008, n_inf 2291) readout adj 0.833 (ceil-floor 0.081) pass=True
+   raw IIA source 0.258 readout 0.346; raw iia-floor: source 0.034 readout 0.068
+V S7 source adj 0.342 (ceil-floor 0.073, n_inf 1557) readout adj 0.325 (ceil-floor 0.136) pass=False
+   raw IIA source 0.286 readout 0.367; raw iia-floor: source 0.025 readout 0.044
+V P2 readout 0.853 source 0.9178082191780824 pass=False raw readout-floor 0.231 source-floor 0.031
+V P3 readout 0.818 source -0.25581395348837227 pass=True raw readout-floor 0.326 source-floor -0.005
+V P4 readout 0.762 source nan pass=False raw readout-floor 0.217 source-floor 0.000
+V S-part passes: 1 of 3

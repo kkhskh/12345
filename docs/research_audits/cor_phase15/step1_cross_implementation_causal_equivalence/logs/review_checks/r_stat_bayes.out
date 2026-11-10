@@ -1,0 +1,8 @@
+VI-bayes P2: r 0.486 CI [0.438, 0.530] P(r<0.5) 0.728
+VI-bayes P3: r 0.716 CI [0.691, 0.740] P(r<0.5) 0.000
+VI-bayes P4: r 0.571 CI [0.535, 0.606] P(r<0.5) 0.000
+VI-bayes T2: r 0.788 CI [0.764, 0.810] P(r<0.5) 0.000
+VI-bayes T10: r 0.824 CI [0.802, 0.846] P(r<0.5) 0.000
+VI-bayes T11: r 0.732 CI [0.699, 0.764] P(r<0.5) 0.000
+IV(b) P2: restoration 0.973; denominator 0.136; rough SE (paired, binomial on changed decisions) ~0.054
+IV(b) P4: restoration 0.785; denominator 0.180; rough SE (paired, binomial on changed decisions) ~0.046

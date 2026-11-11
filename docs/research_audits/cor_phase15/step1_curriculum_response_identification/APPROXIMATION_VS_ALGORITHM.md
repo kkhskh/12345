@@ -47,5 +47,42 @@ Hence a class verdict is only as sharp as the classes are separated on 𝒟; �
 
 ## 4. Empirical results
 
-(Filled from the confirmatory analysis: per-model operator-class fits at budget 2000 and at the quality-matched budget, fitted
-parameters, and the account of null responses by the fitted class.)
+Input-level V-surface fits (`logs/conf/model_*.json`; relative R² = R²_within / split-half ceiling).
+
+| | T1 cohort, 2000 steps (6) | T1 parents at 500 steps (6) | P-count cohort (6) |
+|---|---|---|---|
+| ceiling (split-half R²) | 0.68–0.98 | 0.19 (cT67), 0.89–0.96 | 0.73–0.91 |
+| 𝔽_mix relative R² | 0.81–0.97 | 0.67–0.92 (one degenerate ceiling) | 0.38–0.85 |
+| exact Bayes (scaled) relative R² | 0.35–0.96 | — | −0.02–0.77 |
+| 𝔽_vote relative R² | −0.15–0.12 | — | 0.17–0.36 |
+| fitted output scale τ | 0.95–1.04 | — | 0.69–0.79 |
+
+- **No model is 𝔽_vote-representable**; every full-budget T1 model and the better P-count models are largely 𝔽_mix-representable.
+  At the frozen ε this classifies the curricula as using the *same factorization* (count → configuration evidence → posterior
+  mixture), with P-count models further from it (more out-of-class structure) and with a compressed output scale (τ ≈ 0.75: the
+  P-count models are under-confident in their count-dependent evidence, a calibration-like bias inside the class).
+- The arm difference in 𝔽_mix fit (P3(b)) is significant at full budget (+0.30, p = 0.004) and not at the quality-matched budget
+  (+0.37 but p = 0.056, with one degenerate ratio). It is consistent with "same class, P-count further from it", and its
+  persistence under quality matching is undecided.
+- **How much of the null responses the class explains.** On π-equivalent pairs within the surface, the fitted 𝔽_mix member
+  reproduces only 0–16 % of each model's observed null-response variance. The fitted members' predicted null responses are
+  mutually coherent (within T1 0.50, within P-count 0.76), but the observed ones are not (0.20 / 0.18): **most of each model's
+  null response lies outside the shared factorization** and is model-specific. The parameter differences inside the class
+  (stable approximation bias) are not what produces the observed null-response pattern.
+
+**Exploratory parameter-level difference (post hoc, `scripts/phi_sign_posthoc.py`).** In the fitted class, the reliability
+evidence at perfect agreement, s = φ_rel(5) − φ_rel(4), is negative in **every** P-count model (13/13, development + cohort) and
+positive in 12 of 13 full-budget T1 models (exception: the failed run cT66, −0.03); cohort-only Fisher p = 0.0014. Exact Bayes
+has s = log ρ = +1.36. P-count models treat a group that agreed in all five other questions as *less* reliable than one that agreed
+in four — a "perfect agreement is suspicious" heuristic that double-counts the collusion signature the class already represents
+through φ_col. It is not explained by approximation quality alone: cT67 (KL 0.121, P-count-like) has s = +0.57, while cP62 and cP64
+(KL 0.07) have s < 0. It is, however, unstable in T1 parents transferred for 250/500 steps (signs mixed), so it is a property of
+fully transferred T1 models, not of T1 pretraining alone. This is a candidate stable curriculum-dependent approximation bias —
+the same algorithm with a qualitatively different parameter — and has not been prospectively tested.
+
+## 5. Answer to §10
+
+Relative to the two declared classes, the evidence supports **the same algorithmic factorization with curriculum-dependent
+approximation bias**, plus large model-specific out-of-class errors that carry the null responses. Distinct algorithms are not
+supported (no model is better described by 𝔽_vote). By Proposition 2 this is a statement relative to the classes, not an
+identification of the internal implementation.

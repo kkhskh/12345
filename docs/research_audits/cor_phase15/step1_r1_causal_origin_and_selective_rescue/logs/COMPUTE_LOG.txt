@@ -1,0 +1,37 @@
+2026-11-11T20:02:06Z stage-0 freeze commit a688902; launching pretraining lane B
+2026-11-11T20:02:06Z lane B start pretrain P90
+2026-11-11T20:19:50Z lane B end pretrain P90 rc=0
+2026-11-11T20:19:50Z lane B start pretrain P91
+2026-11-11T20:24:34Z lane A start xP80 Asoft 0
+2026-11-11T20:43:52Z lane A end xP80 Asoft 0 rc=0
+2026-11-11T20:43:52Z lane A start xP80 Bsoft 0
+2026-11-11T20:47:53Z lane B end pretrain P91 rc=0
+2026-11-11T20:47:53Z lane B start pretrain P92
+2026-11-11T20:49:48Z queue re-prioritised (devqueue2.txt; readout-site variant added after Stage-III development findings); old lanes stopped after current job
+2026-11-11T21:05:02Z lane A2 start xP80 C1_rtemb 0
+2026-11-11T21:10:17Z lane B end pretrain P92 rc=0
+2026-11-11T21:10:17Z lane B start pretrain P93
+2026-11-11T21:18:46Z lane A2 end xP80 C1_rtemb 0 rc=0
+2026-11-11T21:18:46Z lane A2 start xP81 C1_rtemb 0
+2026-11-11T21:20:07Z queue reduced to essential development set (devqueue3.txt) for compute; dropped jobs listed in devqueue2.txt but never run
+2026-11-11T21:39:27Z lane B end pretrain P93 rc=0
+2026-11-11T21:39:27Z lane B start pretrain P94
+2026-11-11T21:40:08Z lane A3 start xP80 Csoft 0
+2026-11-11T21:52:21Z lane A3 end xP80 Csoft 0 rc=0
+2026-11-11T21:52:21Z lane A3 start xP80 Esrcsoft 0
+2026-11-11T21:59:48Z lane A3 end xP80 Esrcsoft 0 rc=0
+2026-11-11T21:59:48Z lane A3 start xT70 C1_rtemb 0
+2026-11-11T22:19:06Z lane B end pretrain P94 rc=0
+2026-11-11T22:19:06Z lane B start pretrain P95
+2026-11-11T22:24:07Z lane A3 end xT70 C1_rtemb 0 rc=0
+2026-11-11T22:24:07Z lane A3 start xP80 C5 0
+2026-11-11T22:29:32Z queue devqueue4.txt: feature-injection repair candidates (motivated by oracle-reader result) placed first
+2026-11-11T22:53:00Z lane A4 start xP80 C1_injm 0
+2026-11-11T23:00:57Z lane B end pretrain P95 rc=0
+2026-11-11T23:00:57Z lane B start pretrain P96
+2026-11-11T23:13:02Z lane A4 end xP80 C1_injm 0 rc=0
+2026-11-11T23:13:02Z lane A4 start xP81 C1_injm 0
+2026-11-11T23:25:27Z lane B end pretrain P96 rc=0
+2026-11-11T23:25:27Z lane B start pretrain P97
+2026-11-11T23:27:17Z lane A4 end xP81 C1_injm 0 rc=0
+2026-11-11T23:27:17Z lane A4 start xP80 C1_injn 0

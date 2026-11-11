@@ -1,0 +1,19 @@
+{
+ "T1_all_hold": {
+  "R1": true,
+  "R2": true,
+  "R3": true
+ },
+ "T2_all_hold": {
+  "R1": true,
+  "R2": true,
+  "R3": false
+ },
+ "T2_R1_max_frac_zero": 0.12017167381974249,
+ "n_rules": 300,
+ "n_pairs": {
+  "R1": 466,
+  "R2": 98,
+  "R3": 790
+ }
+}

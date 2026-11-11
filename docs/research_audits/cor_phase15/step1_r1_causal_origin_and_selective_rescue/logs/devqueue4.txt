@@ -1,0 +1,32 @@
+xP80 C1_injm 0
+xP81 C1_injm 0
+xP80 C1_injn 0
+xP80 C1_injrand 0
+xP83 C1_injm 0
+xP81 C1_injrand 0
+xT70 C1_injm 0
+xP80 C2 0
+xP80 C3 0
+xP80 W_bal 0
+xP81 Csoft 0
+xP81 Asoft 0
+xP81 Bsoft 0
+xP81 C5 0
+xP81 C2 0
+xP81 C3 0
+xP81 W_bal 0
+xP80 W_r1up 0
+xP80 Ereadsoft 0
+xT70 C5 0
+xT70 C2 0
+xT70 C3 0
+xT71 C5 0
+xT71 C2 0
+xT71 C3 0
+xP80 Asoft 0 12000
+xP81 W_r1up 0
+xT70 Csoft 0
+xT70 Esrcsoft 0
+xT70 Asoft 0
+xP80 C1 0 12000
+xP81 C1 0 12000

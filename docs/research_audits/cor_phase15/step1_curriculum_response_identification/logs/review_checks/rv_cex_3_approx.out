@@ -1,0 +1,11 @@
+approximators fitted to exact Bayes on natural episodes; evaluated on the conf N/R pairs (6 seeds per width)
+  RF-64    coh_N +0.046 (prob +0.048) coh_Rerr +0.055 KL 0.2982 |N| 0.441
+  RF-256   coh_N +0.114 (prob +0.130) coh_Rerr +0.220 KL 0.1484 |N| 0.486
+  RF-1024  coh_N +0.282 (prob +0.263) coh_Rerr +0.397 KL 0.0676 |N| 0.400
+  RF-2048  coh_N +0.214 (prob +0.172) coh_Rerr +0.294 KL 0.0457 |N| 0.371
+  POLY     coh_N +nan KL 0.0774 |N| 0.394
+  KNN      coh_N +0.301 KL 0.1048 |N| 0.230
+  cross-family null-response coherence: {'RF-64~RF-256': 0.025, 'RF-64~RF-1024': 0.033, 'RF-64~RF-2048': 0.025, 'RF-64~POLY': -0.034, 'RF-64~KNN': 0.024, 'RF-256~RF-1024': 0.168, 'RF-256~RF-2048': 0.136, 'RF-256~POLY': -0.206, 'RF-256~KNN': 0.106, 'RF-1024~RF-2048': 0.236, 'RF-1024~POLY': -0.381, 'RF-1024~KNN': 0.148, 'RF-2048~POLY': -0.313, 'RF-2048~KNN': 0.12, 'POLY~KNN': -0.183}
+  (B2) latent noise sd0 0.5: coh_N -0.014 (prob -0.008) KL 0.0122 |N| 0.164
+  (B2) latent noise sd0 1.0: coh_N -0.003 (prob +0.008) KL 0.0444 |N| 0.310
+  (B2) latent noise sd0 2.0: coh_N -0.007 (prob -0.011) KL 0.1384 |N| 0.525

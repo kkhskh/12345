@@ -1,5 +1,7 @@
 # Downstream causal mechanisms (mandate §9)
 
+> **Post-review [R].** §2's selective-route claim is withdrawn (ME1–ME3, CX9). Pre-review text: commit 44f17a6; adjudication: REVIEWS_AND_ADJUDICATION.md.
+
 Data: frozen path-patching arrays (`cri_run.py`: layer-2 input patched with counterfactual values only at, or everywhere except,
 position sets Rq = {readout 36+q}, Qs = {question q's six source tokens}, Oth = the rest), `logs/conf/primary.json` (P5),
 `logs/conf/route_selectivity.json` (exploratory, post hoc). Because layers 0–1 are frozen, patching every position reproduces the
@@ -23,7 +25,7 @@ between the Bayesian-null (N) and Bayesian-relevant (R) responses, so the site o
 **P5(a) passed** (one-sided Wilcoxon over the 12 models, p = 0.0005): null and relevant responses travel by different routes, and
 the difference is carried by the T1 models.
 
-## 2. The strongest causally supported explanation
+## 2. ~~The strongest causally supported explanation~~ Pre-review reading (withdrawn [R: ME1–ME3, CX9])
 
 In four of six T1 parents (cT62, cT64, cT65, cT67) the Bayes-relevant response enters layer 2 almost entirely at the source tokens
 (or, in cT67, at other questions' tokens), while 26–56 % of the Bayes-null response enters at the **readout token itself**.
@@ -45,6 +47,18 @@ Limits:
   and the coherence pattern are separate phenomena.
 - The route test is exploratory beyond P5(a); its selectivity numbers were computed after the outcomes.
 
+## 2b. Corrected reading [R: ME1–ME3, CX9]
+
+The shares above are projections onto the natural response, not a decomposition. In cT62, cT64, cT65 the readout-only and
+readout-blocked null responses are each 2.5–3.9× the natural one and point in nearly opposite directions; blocking the readout route
+**increases** the null response (mean |Δ| 0.114 → 0.447, 0.178 → 0.407, 0.159 → 0.419; recomputed) and doubles the Bayes-relevant
+response error (0.095 → 0.220 …), moving the model away from Bayes. Only cT67 shows a reduction (0.194 → 0.163). T1 readouts carry
+the total count S (R² 0.58–0.83) and not the Bayes-relevant difference d; per unit ΔS the readout route responds alike to null and
+relevant edits; null edits change S by 2, relevant edits by 1. The null-vs-relevant route split therefore follows from where the
+information sits and how the families are built. **Supported:** T1 models combine a source-token route and a readout total-count route
+that largely cancel; null responses are the imperfect cancellation — an approximation bias, not a separate nuisance pathway.
+P5(a) passed as frozen, but it is pooled over all models and is also positive in 5 of 6 P-count models (p = 0.031 within P-count).
+
 ## 3. Mechanistic hypotheses (§9.1) and their status
 
 | hypothesis | signature | status |
@@ -52,8 +66,8 @@ Limits:
 | direct count → configuration-posterior computation (Bayes mixture) | V-surface fitted by 𝔽_mix near the reliability ceiling | holds for T1 at full budget (relative R² 0.81–0.97); P-count 0.38–0.85 |
 | additive source-evidence weighting (𝔽_vote) | 𝔽_vote fit near ceiling | rejected for all models (relative R² ≤ 0.36) |
 | shortcut sensitive to absolute counts | null responses with "level" structure | present in all models (common bias, BAYES_NULL §4), small share of variance |
-| redundant source and readout pathways | different N vs R routes | **present in 4 of 6 T1 parents**; absent in P-count |
-| shared operation + curriculum-specific nuisance features | route separation plus common relevant operator | partially supported (T1 only) |
+| redundant source and readout pathways | different N vs R routes | non-additive cancelling routes in T1 [R: ME]; not a selective nuisance route |
+| shared operation + curriculum-specific nuisance features | route separation plus common relevant operator | not supported [R: ME, CX9] |
 
 No curriculum-specific *operation* was causally identified as producing a curriculum-specific response signature, because the
 signature itself (P1) did not replicate under the frozen criterion.

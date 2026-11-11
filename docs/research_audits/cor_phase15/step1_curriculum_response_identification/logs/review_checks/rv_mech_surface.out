@@ -1,0 +1,15 @@
+natural   : cross-pair first-source agreement 0.336, first source = truth 0.489
+realised  : cross-pair first-source agreement 0.335, first source = truth 0.333
+R valid pairs: base already |H|>=2 0.147 ; edit creates second count-5 group 0.037
+cT61 ||dCm||/||dN|| = 0.46   f_Cm(proj) = 0.078
+cT62 ||dCm||/||dN|| = 0.38   f_Cm(proj) = 0.068
+cT63 ||dCm||/||dN|| = 0.36   f_Cm(proj) = 0.067
+cT64 ||dCm||/||dN|| = 0.26   f_Cm(proj) = 0.028
+cT65 ||dCm||/||dN|| = 0.35   f_Cm(proj) = 0.065
+cT67 ||dCm||/||dN|| = 0.62   f_Cm(proj) = 0.134
+cP61 ||dCm||/||dN|| = 0.44   f_Cm(proj) = 0.091
+cP62 ||dCm||/||dN|| = 0.47   f_Cm(proj) = 0.113
+cP63 ||dCm||/||dN|| = 0.25   f_Cm(proj) = 0.024
+cP64 ||dCm||/||dN|| = 0.25   f_Cm(proj) = 0.017
+cP66 ||dCm||/||dN|| = 0.36   f_Cm(proj) = 0.045
+cP67 ||dCm||/||dN|| = 0.33   f_Cm(proj) = 0.046

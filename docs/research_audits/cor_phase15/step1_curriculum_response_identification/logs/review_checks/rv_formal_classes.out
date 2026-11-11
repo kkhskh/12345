@@ -1,0 +1,23 @@
+E.RHO (reliability likelihood ratio, called rho in pi formula) = 3.882352941176472  log = 1.35644139797021 ; generator rho = 1.0
+support vectors 91 distinct pi 43 by |H|: {1: 27, 2: 15, 3: 1}
+pi-equal pairs not of form |H|=1, common shift: 0
+no minimal null edit for |H|=1 vectors: [(0, 4), (4, 0)]
+analytic P(minimal null edit exists) = 0.8285  (doc: 81-82%)
+/home/claude/12345/docs/research_audits/cor_phase15/step1_curriculum_response_identification/reviews/checks/rv_formal_classes.py:42: RuntimeWarning: invalid value encountered in divide
+  pall = np.einsum("vc,nck->nvk", P, J); pall /= pall.sum(-1, keepdims=True)                      # p*(.|x_q, v) for all 91 v
+decisions whose p*(.|x_q, v) is identical for ALL 91 support v (every count edit is Bayes-null): 0.0255
+single-component edits in support that leave p* at q unchanged (yet change pi): 10605 / 77246 = 0.1373
+max |mix_exact - exact Bayes| on surface: 2.6645352591003757e-15
+vote -> exact Bayes R2_within = 0.106 (doc ~0.1)
+mix member phi scaled by 1.00: vote R2_within = 0.253 ; within-sd 0.7539
+mix member phi scaled by 0.30: vote R2_within = 0.053 ; within-sd 0.2900
+mix member phi scaled by 0.10: vote R2_within = -1.182 ; within-sd 0.0978
+mix member phi scaled by 0.03: vote R2_within = -13.017 ; within-sd 0.0292
+random vote member 0: mix R2_within = 0.000
+random vote member 1: mix R2_within = 0.390
+random vote member 2: mix R2_within = 0.000
+Bayes + vote-type component (within-norm ratio 0.25): R2_mix 0.966  R2_vote 0.156
+Bayes + vote-type component (within-norm ratio 0.50): R2_mix 0.879  R2_vote 0.266
+Bayes + vote-type component (within-norm ratio 1.00): R2_mix 0.786  R2_vote 0.680
+Bayes + iid lookup-table error eta=0.3: R2_mix 0.872  R2_vote 0.091
+Bayes + iid lookup-table error eta=0.6: R2_mix 0.633  R2_vote 0.062

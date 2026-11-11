@@ -1,5 +1,7 @@
 # Approximation bias vs a different algorithm (mandate §10)
 
+> **Post-review [R].** Same-factorization claim withdrawn; s-sign → s-ordering; τ reading withdrawn; split-half ceiling should be Spearman–Brown corrected (ME: cT67 0.81 → 0.61, cP61 0.74 → 0.58). Pre-review text: commit 44f17a6; adjudication: REVIEWS_AND_ADJUDICATION.md.
+
 ## 1. A mathematical distinction relative to an operator class
 
 Let g_M(x_q, v) be the model's centred-logit output as a function of the own-question reports and the count vector, measured
@@ -57,10 +59,8 @@ Input-level V-surface fits (`logs/conf/model_*.json`; relative R² = R²_within 
 | 𝔽_vote relative R² | −0.15–0.12 | — | 0.17–0.36 |
 | fitted output scale τ | 0.95–1.04 | — | 0.69–0.79 |
 
-- **No model is 𝔽_vote-representable**; every full-budget T1 model and the better P-count models are largely 𝔽_mix-representable.
-  At the frozen ε this classifies the curricula as using the *same factorization* (count → configuration evidence → posterior
-  mixture), with P-count models further from it (more out-of-class structure) and with a compressed output scale (τ ≈ 0.75: the
-  P-count models are under-confident in their count-dependent evidence, a calibration-like bias inside the class).
+- **[R: FO1, FO2, CX1]** No ε was frozen, and 𝔽_mix contains Bayes, so its fit mainly measures closeness to Bayes (Bayes plus arbitrary errors fits it at 0.79–0.87); a log-opinion pool with 11 parameters fits P-count models as well as 𝔽_mix (difference ≤ 0.02) while T1 models prefer 𝔽_mix by 0.04–0.11. The following pre-review reading is therefore withdrawn: ~~No model is 𝔽_vote-representable; … classifies the curricula as using the *same factorization*~~ (count → configuration evidence → posterior
+  mixture), with P-count models further from it (more out-of-class structure) and with a compressed output scale (τ ≈ 0.75; ~~under-confident count evidence~~ — exact Bayes with a 10 % probability floor also gives τ = 0.74 [R: CX3]).
 - The arm difference in 𝔽_mix fit (P3(b)) is significant at full budget (+0.30, p = 0.004) and not at the quality-matched budget
   (+0.37 but p = 0.056, with one degenerate ratio). It is consistent with "same class, P-count further from it", and its
   persistence under quality matching is undecided.
@@ -69,6 +69,8 @@ Input-level V-surface fits (`logs/conf/model_*.json`; relative R² = R²_within 
   mutually coherent (within T1 0.50, within P-count 0.76), but the observed ones are not (0.20 / 0.18): **most of each model's
   null response lies outside the shared factorization** and is model-specific. The parameter differences inside the class
   (stable approximation bias) are not what produces the observed null-response pattern.
+
+**[R: PT, ME, CX2, ST5] Corrected:** the *sign* of s below is not identified for P-count models (forcing s = 0 costs ≤ 0.2 % of the loss in 4/6; 3/6 flip under a log-pool) and is stage-confounded; the robust statement is the **ordering**: every T1-lineage model has higher s than every P-count model, at full budget and at 500 steps (exact p = 0.0022 each); for T1, s > 0 is identified. The 13/13 count included failed runs. Pre-review text:
 
 **Exploratory parameter-level difference (post hoc, `scripts/phi_sign_posthoc.py`).** In the fitted class, the reliability
 evidence at perfect agreement, s = φ_rel(5) − φ_rel(4), is negative in **every** P-count model (13/13, development + cohort) and
@@ -82,7 +84,8 @@ the same algorithm with a qualitatively different parameter — and has not been
 
 ## 5. Answer to §10
 
-Relative to the two declared classes, the evidence supports **the same algorithmic factorization with curriculum-dependent
-approximation bias**, plus large model-specific out-of-class errors that carry the null responses. Distinct algorithms are not
-supported (no model is better described by 𝔽_vote). By Proposition 2 this is a statement relative to the classes, not an
+~~Relative to the two declared classes, the evidence supports the same algorithmic factorization with curriculum-dependent
+approximation bias~~ **[R: FO1, CX1]** Relative to the declared classes, full-budget T1 models are close to the Bayes-mixture form;
+P-count models are not characterised (linear vs log pooling undetermined). Distinct algorithms are not supported and a shared one is
+not established; large model-specific out-of-class errors carry the null responses in both. By Proposition 2 this is a statement relative to the classes, not an
 identification of the internal implementation.

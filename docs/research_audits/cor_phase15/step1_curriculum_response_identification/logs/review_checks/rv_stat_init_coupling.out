@@ -1,0 +1,4 @@
+seed 60: 46 shared parameter arrays, 46 bit-identical between T1 and P-count init; P-only arrays ["['WX']"]
+  control seed 60 vs 61 (T1 init): identical arrays 20
+seed 61: 46 shared parameter arrays, 46 bit-identical between T1 and P-count init; P-only arrays ["['WX']"]
+  control seed 61 vs 62 (T1 init): identical arrays 20

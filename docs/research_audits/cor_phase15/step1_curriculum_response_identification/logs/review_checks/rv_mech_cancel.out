@@ -1,0 +1,12 @@
+cT61 | N: |full| 0.201 |Rq| 0.215 |Qs| 0.337 |Oth| 0.194 |blkRq| 0.297 cos(Rq,blkRq) -0.56 interaction 0.56 | R: |full| 0.604 |Rq| 0.115 |Qs| 0.599 |Oth| 0.102 |blkRq| 0.593 cos(Rq,blkRq) -0.05 interaction 0.06
+cT62 | N: |full| 0.219 |Rq| 0.769 |Qs| 0.856 |Oth| 0.027 |blkRq| 0.846 cos(Rq,blkRq) -0.84 interaction 2.56 | R: |full| 0.627 |Rq| 0.365 |Qs| 0.686 |Oth| 0.018 |blkRq| 0.687 cos(Rq,blkRq) -0.27 interaction 0.26
+cT63 | N: |full| 0.306 |Rq| 0.081 |Qs| 0.321 |Oth| 0.027 |blkRq| 0.322 cos(Rq,blkRq) -0.26 interaction 0.06 | R: |full| 0.606 |Rq| 0.044 |Qs| 0.608 |Oth| 0.015 |blkRq| 0.608 cos(Rq,blkRq) -0.07 interaction 0.01
+cT64 | N: |full| 0.342 |Rq| 0.716 |Qs| 0.765 |Oth| 0.050 |blkRq| 0.777 cos(Rq,blkRq) -0.70 interaction 1.54 | R: |full| 0.629 |Rq| 0.341 |Qs| 0.654 |Oth| 0.034 |blkRq| 0.659 cos(Rq,blkRq) -0.24 interaction 0.25
+cT65 | N: |full| 0.304 |Rq| 0.716 |Qs| 0.840 |Oth| 0.209 |blkRq| 0.799 cos(Rq,blkRq) -0.81 interaction 1.38 | R: |full| 0.627 |Rq| 0.331 |Qs| 0.666 |Oth| 0.121 |blkRq| 0.681 cos(Rq,blkRq) -0.32 interaction 0.19
+cT67 | N: |full| 0.372 |Rq| 0.182 |Qs| 0.038 |Oth| 0.297 |blkRq| 0.312 cos(Rq,blkRq) -0.05 interaction 0.13 | R: |full| 0.374 |Rq| 0.098 |Qs| 0.024 |Oth| 0.328 |blkRq| 0.338 cos(Rq,blkRq) -0.01 interaction 0.06
+cP61 | N: |full| 0.623 |Rq| 0.612 |Qs| 0.325 |Oth| 0.223 |blkRq| 0.422 cos(Rq,blkRq) -0.19 interaction 0.41 | R: |full| 0.600 |Rq| 0.552 |Qs| 0.219 |Oth| 0.149 |blkRq| 0.285 cos(Rq,blkRq) -0.08 interaction 0.22
+cP62 | N: |full| 0.617 |Rq| 0.671 |Qs| 0.268 |Oth| 0.384 |blkRq| 0.507 cos(Rq,blkRq) -0.32 interaction 0.47 | R: |full| 0.712 |Rq| 0.694 |Qs| 0.174 |Oth| 0.229 |blkRq| 0.311 cos(Rq,blkRq) -0.18 interaction 0.22
+cP63 | N: |full| 0.650 |Rq| 0.639 |Qs| 0.144 |Oth| 0.174 |blkRq| 0.227 cos(Rq,blkRq) -0.04 interaction 0.23 | R: |full| 0.599 |Rq| 0.522 |Qs| 0.105 |Oth| 0.145 |blkRq| 0.188 cos(Rq,blkRq) +0.06 interaction 0.13
+cP64 | N: |full| 0.569 |Rq| 0.580 |Qs| 0.338 |Oth| 0.168 |blkRq| 0.373 cos(Rq,blkRq) -0.22 interaction 0.38 | R: |full| 0.634 |Rq| 0.502 |Qs| 0.230 |Oth| 0.124 |blkRq| 0.271 cos(Rq,blkRq) -0.03 interaction 0.14
+cP66 | N: |full| 0.429 |Rq| 0.400 |Qs| 0.119 |Oth| 0.159 |blkRq| 0.192 cos(Rq,blkRq) -0.02 interaction 0.20 | R: |full| 0.360 |Rq| 0.320 |Qs| 0.081 |Oth| 0.109 |blkRq| 0.136 cos(Rq,blkRq) +0.07 interaction 0.13
+cP67 | N: |full| 0.497 |Rq| 0.477 |Qs| 0.177 |Oth| 0.178 |blkRq| 0.237 cos(Rq,blkRq) -0.10 interaction 0.29 | R: |full| 0.526 |Rq| 0.468 |Qs| 0.113 |Oth| 0.111 |blkRq| 0.168 cos(Rq,blkRq) -0.02 interaction 0.15

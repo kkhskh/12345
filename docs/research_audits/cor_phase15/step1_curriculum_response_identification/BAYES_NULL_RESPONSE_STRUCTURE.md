@@ -1,5 +1,7 @@
 # Structure of Bayesian-null responses (mandate §5)
 
+> **Post-review [R].** Saturation of independent noise reproduces the sign pattern of §4's bias (CX6); P-count/T1 errors align at matched KL (PT); quality-dependent coherence is also produced by unrelated approximators but is not a function of KL alone (CX5). Pre-review text: commit 44f17a6; adjudication: REVIEWS_AND_ADJUDICATION.md.
+
 Development data: Investigation IV models on a new stream (`logs/dev/stats_dev6.json`, `stats_dev10.json`, `null_dev10.json`);
 confirmation: the independent cohort (`logs/conf/primary.json`, `null_primary.json`). "N" = input-level Bayesian-null minimal edits
 (exact Bayes response 0; NATURAL_INTERVENTIONS.md).

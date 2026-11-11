@@ -1,0 +1,16 @@
+Lemma 2 violations: 0
+max(inf/TV) = 1.0000 (<=1 means TV<=eps => ||.||_inf<=eps); min(inf/TV) = 1.0000
+prob-error row: violations 0, max e/bound 0.601
+T4 min p*_y over 120k decisions: 0.01515
+B=   1 p*=[0.783 0.108 0.108] KL=0.0694  bound B(1-p_yhat)=0.2169  ||Delta||_inf=0.667*B
+B=   1 p*=[0.386 0.471 0.143] KL=0.1220  bound B(1-p_yhat)=0.5294  ||Delta||_inf=0.667*B
+B=   5 p*=[0.783 0.108 0.108] KL=0.8417  bound B(1-p_yhat)=1.0843  ||Delta||_inf=0.667*B
+B=   5 p*=[0.386 0.471 0.143] KL=1.9008  bound B(1-p_yhat)=2.6471  ||Delta||_inf=0.667*B
+B=  20 p*=[0.783 0.108 0.108] KL=4.0929  bound B(1-p_yhat)=4.3373  ||Delta||_inf=0.667*B
+B=  20 p*=[0.386 0.471 0.143] KL=9.8345  bound B(1-p_yhat)=10.5882  ||Delta||_inf=0.667*B
+B= 100 p*=[0.783 0.108 0.108] KL=21.4423  bound B(1-p_yhat)=21.6867  ||Delta||_inf=0.667*B
+B= 100 p*=[0.386 0.471 0.143] KL=52.1874  bound B(1-p_yhat)=52.9412  ||Delta||_inf=0.667*B
+approx min pointwise KL at log-odds error B (grows ~linearly): {2: np.float64(0.21), 5: np.float64(0.691), 10: np.float64(1.505), 20: np.float64(3.131)}
+lower bound on min P(x) for a positive-probability episode ~ 1.42e-17  => Prop 1 needs kappa >= ~P(S)*B*(1-p_yhat) > 0
+CE2 beta=+0.5 argmax==Bayes fraction 1.0000
+CE2 beta=-0.5 argmax==Bayes fraction 0.0463

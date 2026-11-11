@@ -1,5 +1,7 @@
 # Natural intervention families (mandate §6)
 
+> **Post-review [R].** Notation: ρ = 1 is the generator's colluder agreement; the π formula's ρ is the likelihood ratio 3.88 [R: FO, PT]. 15 % of R pairs have two count-5 groups [R: ME]; 13.7 % of single-count edits leave Bayes unchanged while changing π (excluded from R by its validity rule) [R: FO]. Pre-review text: commit 44f17a6; adjudication: REVIEWS_AND_ADJUDICATION.md.
+
 All families are built by `scripts/cri_run.py` from the exact generator (`gen_family.Fam()`: K = 3, Q = 6, α = 0.8, ρ = 1, pc = 1)
 before any model output is computed; validity masks depend only on the generator. One scored decision q per base episode.
 Support statistics: development stream `logs/dev/support_summary.json`; confirmation stream `logs/conf/support_summary.json`.
@@ -26,7 +28,7 @@ non-colluder counts and nothing else that π uses; this is the nuisance feature 
 | **C1** relabel | other questions' reports cyclically relabelled | 100 % | 100 % | 100 % | preserved; V preserved | 30 | no |
 | C2 swap | the two sources of every pair swapped (other questions) | 100 % | 100 % | 100 % | preserved; V preserved | 10 | no |
 | C3 content resample | X_{-q} re-drawn with the same per-question agreement pattern | 100 % | 100 % | 100 % | preserved; V preserved | 20 | no |
-| **Cm** matched content | the report tokens touched by N changed without changing agreement | 82 % | 100 % | 100 % | preserved; V preserved | 4 | no |
+| **Cm** matched content | the report tokens touched by N changed without changing agreement ([R: ME] same tokens in only 36 % of pairs; median 4 vs 2 tokens) | 82 % | 100 % | 100 % | preserved; V preserved | 4 | no |
 
 "Same world": the true colluder agrees in every question of x′, so x′ has positive probability under the latent configuration
 that generated x (reliable and noise pairs can produce any report pattern). "Marginal support" is reported separately and is

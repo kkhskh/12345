@@ -1,0 +1,46 @@
+== T2000
+  cT61         KL=0.010 N_rem|blockRq=0.90 R_rem|blockRq=0.97 R_via_Rq=0.03 sel=+0.07 CI[+0.04,+0.11]
+  cT62         KL=0.008 N_rem|blockRq=0.35 R_rem|blockRq=0.94 R_via_Rq=0.06 sel=+0.59 CI[+0.46,+0.76]
+  cT63         KL=0.021 N_rem|blockRq=1.03 R_rem|blockRq=1.00 R_via_Rq=-0.00 sel=-0.03 CI[-0.04,-0.01]
+  cT64         KL=0.012 N_rem|blockRq=0.53 R_rem|blockRq=0.93 R_via_Rq=0.07 sel=+0.41 CI[+0.33,+0.49]
+  cT65         KL=0.014 N_rem|blockRq=0.66 R_rem|blockRq=0.95 R_via_Rq=0.05 sel=+0.30 CI[+0.18,+0.41]
+  cT67         KL=0.121 N_rem|blockRq=0.59 R_rem|blockRq=0.87 R_via_Rq=0.13 sel=+0.28 CI[+0.21,+0.34]
+== P
+  cP61         KL=0.111 N_rem|blockRq=0.26 R_rem|blockRq=0.18 R_via_Rq=0.83 sel=-0.08 CI[-0.13,-0.04]
+  cP62         KL=0.074 N_rem|blockRq=0.26 R_rem|blockRq=0.12 R_via_Rq=0.89 sel=-0.14 CI[-0.19,-0.10]
+  cP63         KL=0.109 N_rem|blockRq=0.07 R_rem|blockRq=0.12 R_via_Rq=0.89 sel=+0.05 CI[+0.02,+0.08]
+  cP64         KL=0.068 N_rem|blockRq=0.22 R_rem|blockRq=0.20 R_via_Rq=0.82 sel=-0.02 CI[-0.07,+0.02]
+  cP66         KL=0.188 N_rem|blockRq=0.14 R_rem|blockRq=0.10 R_via_Rq=0.93 sel=-0.04 CI[-0.07,-0.01]
+  cP67         KL=0.090 N_rem|blockRq=0.17 R_rem|blockRq=0.10 R_via_Rq=0.92 sel=-0.07 CI[-0.12,-0.03]
+== T500
+  bcT61_b500   KL=0.054 N_rem|blockRq=0.64 R_rem|blockRq=0.91 R_via_Rq=0.09 sel=+0.26 CI[+0.20,+0.33]
+  bcT62_b500   KL=0.025 N_rem|blockRq=1.54 R_rem|blockRq=0.98 R_via_Rq=0.02 sel=-0.56 CI[-0.68,-0.44]
+  bcT63_b500   KL=0.098 N_rem|blockRq=1.00 R_rem|blockRq=1.00 R_via_Rq=0.00 sel=-0.01 CI[-0.01,+0.00]
+  bcT64_b500   KL=0.071 N_rem|blockRq=0.95 R_rem|blockRq=0.96 R_via_Rq=0.03 sel=+0.01 CI[-0.04,+0.06]
+  bcT65_b500   KL=0.056 N_rem|blockRq=1.08 R_rem|blockRq=0.96 R_via_Rq=0.04 sel=-0.12 CI[-0.18,-0.05]
+  bcT67_b500   KL=0.226 N_rem|blockRq=0.52 R_rem|blockRq=0.61 R_via_Rq=0.39 sel=+0.08 CI[-0.01,+0.18]
+== T250
+  bcT61_b250   KL=0.184 N_rem|blockRq=0.53 R_rem|blockRq=0.77 R_via_Rq=0.23 sel=+0.24 CI[+0.20,+0.29]
+  bcT62_b250   KL=0.069 N_rem|blockRq=1.31 R_rem|blockRq=1.01 R_via_Rq=-0.01 sel=-0.30 CI[-0.33,-0.28]
+  bcT63_b250   KL=0.234 N_rem|blockRq=1.00 R_rem|blockRq=1.00 R_via_Rq=0.00 sel=-0.01 CI[-0.01,+0.00]
+  bcT64_b250   KL=0.284 N_rem|blockRq=0.82 R_rem|blockRq=0.91 R_via_Rq=0.09 sel=+0.09 CI[+0.07,+0.11]
+  bcT65_b250   KL=0.175 N_rem|blockRq=0.44 R_rem|blockRq=0.84 R_via_Rq=0.15 sel=+0.40 CI[+0.35,+0.43]
+  bcT67_b250   KL=0.272 N_rem|blockRq=0.28 R_rem|blockRq=0.34 R_via_Rq=0.66 sel=+0.06 CI[-0.02,+0.13]
+== failed
+  cT60         KL=0.227 N_rem|blockRq=0.31 R_rem|blockRq=0.25 R_via_Rq=0.71 sel=-0.06 CI[-0.12,-0.01]
+  cT66         KL=0.250 N_rem|blockRq=0.01 R_rem|blockRq=-0.01 R_via_Rq=1.00 sel=-0.02 CI[-0.05,+0.01]
+  cP60         KL=0.228 N_rem|blockRq=0.37 R_rem|blockRq=0.23 R_via_Rq=0.82 sel=-0.14 CI[-0.19,-0.08]
+  cP65         KL=0.246 N_rem|blockRq=0.46 R_rem|blockRq=0.28 R_via_Rq=0.80 sel=-0.17 CI[-0.23,-0.10]
+
+arm difference in sel (T2000 - P): +0.324, exact two-sided perm p = 0.0065
+P5(a) excess, T vs P (frozen values from FROZEN_PREDICTIONS OUTCOMES), exact one-sided perm:
+  diff +0.425, p = 0.0097
+
+mean sel by set: {'T2000': 0.271, 'P': -0.053, 'T500': -0.054, 'T250': 0.081, 'failed': -0.098}
+same-parent sel across stages (T250, T500, T2000):
+  seed 61: +0.24 +0.26 +0.07
+  seed 62: -0.30 -0.56 +0.59
+  seed 63: -0.01 -0.01 -0.03
+  seed 64: +0.09 +0.01 +0.41
+  seed 65: +0.40 -0.12 +0.30
+  seed 67: +0.06 +0.08 +0.28

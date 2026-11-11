@@ -1,0 +1,27 @@
+== cT62 layers 3
+N max|patch-all - natural| = 9.5367431640625e-07  max|natural - frozen c_F| = 0.0
+N max|recomputed - frozen| patch_Rq 0.0 block_Rq 0.0
+N mean|clogit - Bayes| natural 0.160  Rq-blocked 0.479  Rq-only 0.424  base(for ref, vs base Bayes) 0.155
+N KL(Bayes||model) natural 0.0081  Rq-blocked 0.0974;  argmax agreement with Bayes natural 0.887 blocked 0.802
+R max|patch-all - natural| = 1.430511474609375e-06  max|natural - frozen c_F| = 0.0
+R max|recomputed - frozen| patch_Rq 0.0 block_Rq 0.0
+R mean|clogit - Bayes| natural 0.161  Rq-blocked 0.257  Rq-only 0.368  base(for ref, vs base Bayes) 0.163
+R KL(Bayes||model) natural 0.0092  Rq-blocked 0.0249;  argmax agreement with Bayes natural 0.898 blocked 0.855
+== cT64 layers 3
+N max|patch-all - natural| = 8.940696716308594e-07  max|natural - frozen c_F| = 0.0
+N max|recomputed - frozen| patch_Rq 0.0 block_Rq 0.0
+N mean|clogit - Bayes| natural 0.215  Rq-blocked 0.456  Rq-only 0.395  base(for ref, vs base Bayes) 0.206
+N KL(Bayes||model) natural 0.0133  Rq-blocked 0.0929;  argmax agreement with Bayes natural 0.897 blocked 0.798
+R max|patch-all - natural| = 5.960464477539062e-07  max|natural - frozen c_F| = 0.0
+R max|recomputed - frozen| patch_Rq 0.0 block_Rq 0.0
+R mean|clogit - Bayes| natural 0.204  Rq-blocked 0.270  Rq-only 0.377  base(for ref, vs base Bayes) 0.215
+R KL(Bayes||model) natural 0.0138  Rq-blocked 0.0289;  argmax agreement with Bayes natural 0.902 blocked 0.875
+== cP61 layers 3
+N max|patch-all - natural| = 1.430511474609375e-06  max|natural - frozen c_F| = 0.0
+N max|recomputed - frozen| patch_Rq 0.0 block_Rq 0.0
+N mean|clogit - Bayes| natural 0.542  Rq-blocked 0.576  Rq-only 0.553  base(for ref, vs base Bayes) 0.533
+N KL(Bayes||model) natural 0.1039  Rq-blocked 0.1141;  argmax agreement with Bayes natural 0.800 blocked 0.807
+R max|patch-all - natural| = 1.5497207641601562e-06  max|natural - frozen c_F| = 0.0
+R max|recomputed - frozen| patch_Rq 0.0 block_Rq 0.0
+R mean|clogit - Bayes| natural 0.550  Rq-blocked 0.603  Rq-only 0.565  base(for ref, vs base Bayes) 0.565
+R KL(Bayes||model) natural 0.1118  Rq-blocked 0.1575;  argmax agreement with Bayes natural 0.802 blocked 0.770

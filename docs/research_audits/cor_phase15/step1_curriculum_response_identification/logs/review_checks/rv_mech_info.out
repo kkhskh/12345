@@ -1,0 +1,7 @@
+(a) tokens changed per pair: N [   0    0 1642]  Cm [   0    0  589    0 1053] | Cm superset of N: 1.0 | Cm == N token set: 0.3587088915956151
+cT62 S: readout 0.83 sources 1.00 | L: readout 0.50 sources 0.80 | |d|: readout 0.00 sources 0.50 |
+cT64 S: readout 0.80 sources 0.99 | L: readout 0.49 sources 0.82 | |d|: readout -0.00 sources 0.54 |
+cT65 S: readout 0.63 sources 0.99 | L: readout 0.38 sources 0.80 | |d|: readout -0.00 sources 0.49 |
+cT63 S: readout 0.58 sources 0.96 | L: readout 0.35 sources 0.78 | |d|: readout -0.00 sources 0.49 |
+cT61 S: readout 0.58 sources 0.99 | L: readout 0.35 sources 0.78 | |d|: readout -0.00 sources 0.45 |
+cP61 S: readout 0.83 sources 0.76 | L: readout 0.71 sources 0.54 | |d|: readout 0.46 sources 0.17 |

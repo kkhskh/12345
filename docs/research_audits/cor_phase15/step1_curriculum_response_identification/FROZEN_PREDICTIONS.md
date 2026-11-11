@@ -120,3 +120,13 @@ Notes at evaluation:
   anticipated.
 - `scripts/p5b_matched_content.py` implements the frozen P5(b) estimand; it was written after the freeze because `cri_stats.py`
   did not compute it. `scripts/route_selectivity.py` is exploratory (post hoc).
+
+Post-review notes (verdicts unchanged; REVIEWS_AND_ADJUDICATION.md):
+- [R: ST2] Same-seed runs of the two arms share initial weights and transfer seed; pairing-respecting permutation for P1 p = 0.0625.
+- [R: ST1] The pre-registered reading interprets P2(b) only if P1 replicates (it did not); P2(b)'s "explained by quality" is a
+  low-power non-rejection and the manipulation changes training stage as well as KL.
+- [R: ST4, ME] P5(a) is a pooled test; its route reading is withdrawn (blocking the readout route enlarges null responses).
+- [R: CX7] P1b is invalid as a test (p < 0.05 in 200/200 simulated worlds without curriculum structure).
+- [R: ST6, ST7] P2(a), P3(a), P4 are non-rejections, not demonstrations of equality.
+- [R: ME] P3(b)'s split-half ceiling lacks a Spearman–Brown correction.
+

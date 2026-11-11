@@ -1,0 +1,15 @@
+(a) toy a=0.15: N rem(block Rq) 0.42 ('removes 58%') but |N| 0.088 -> 0.383; R rem 0.99 ('keeps 99%'), R-error norm 0.089 -> 0.199
+(a) toy a=0.3: N rem(block Rq) 0.31 ('removes 69%') but |N| 0.089 -> 0.761; R rem 0.99 ('keeps 99%'), R-error norm 0.088 -> 0.382
+(b) real cohort models: rem (package) vs norm ratio of the blocked response (mean per-pair L2 norm)
+  cT61: N rem 0.90 |blocked|/|natural| 1.48 | R rem 0.97 ratio 0.98; R-error norm natural 0.232 -> blocked 0.255 (refit scale 0.255)
+  cT62: N rem 0.35 |blocked|/|natural| 3.87 | R rem 0.94 ratio 1.09; R-error norm natural 0.182 -> blocked 0.418 (refit scale 0.416)
+  cT63: N rem 1.03 |blocked|/|natural| 1.05 | R rem 1.00 ratio 1.00; R-error norm natural 0.276 -> blocked 0.282 (refit scale 0.282)
+  cT64: N rem 0.53 |blocked|/|natural| 2.27 | R rem 0.93 ratio 1.05; R-error norm natural 0.273 -> blocked 0.445 (refit scale 0.443)
+  cT65: N rem 0.66 |blocked|/|natural| 2.63 | R rem 0.95 ratio 1.09; R-error norm natural 0.256 -> blocked 0.427 (refit scale 0.425)
+  cT67: N rem 0.59 |blocked|/|natural| 0.84 | R rem 0.87 ratio 0.90; R-error norm natural 0.332 -> blocked 0.308 (refit scale 0.306)
+  cP61: N rem 0.26 |blocked|/|natural| 0.68 | R rem 0.18 ratio 0.48; R-error norm natural 0.519 -> blocked 0.424 (refit scale 0.282)
+  cP62: N rem 0.26 |blocked|/|natural| 0.82 | R rem 0.12 ratio 0.44; R-error norm natural 0.541 -> blocked 0.537 (refit scale 0.310)
+  cP63: N rem 0.07 |blocked|/|natural| 0.35 | R rem 0.12 ratio 0.31; R-error norm natural 0.547 -> blocked 0.370 (refit scale 0.186)
+  cP64: N rem 0.22 |blocked|/|natural| 0.66 | R rem 0.20 ratio 0.43; R-error norm natural 0.487 -> blocked 0.443 (refit scale 0.265)
+  cP66: N rem 0.14 |blocked|/|natural| 0.45 | R rem 0.10 ratio 0.38; R-error norm natural 0.355 -> blocked 0.224 (refit scale 0.134)
+  cP67: N rem 0.17 |blocked|/|natural| 0.48 | R rem 0.10 ratio 0.32; R-error norm natural 0.456 -> blocked 0.403 (refit scale 0.170)

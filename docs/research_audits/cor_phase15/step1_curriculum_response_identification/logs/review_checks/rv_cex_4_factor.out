@@ -1,0 +1,5 @@
+(i) observed coh_T 0.335 coh_P 0.186 cross 0.174; sqrt(T*P) 0.250; D_cross -0.075
+    one-factor loadings: {'cT61': np.float64(0.64), 'cT62': np.float64(0.7), 'cT63': np.float64(0.5), 'cT64': np.float64(0.69), 'cT65': np.float64(0.65), 'cT67': np.float64(0.23), 'cP61': np.float64(0.41), 'cP62': np.float64(0.4), 'cP63': np.float64(0.26), 'cP64': np.float64(0.48), 'cP66': np.float64(0.28), 'cP67': np.float64(0.31)} | mean residual by pair type: {'TT': 0.018, 'PP': 0.06, 'TP': -0.028}
+    D_cross model-bootstrap 95% CI [-0.164, +0.010]
+(ii) one-factor null (quality-dependent loadings only), 200 sims: P1b EXCESS_TT mean +0.094 (observed +0.135; parametric P(EXCESS_TT >= 0.135) = 0.000), false-positive rate at p<0.05: 1.00; DELTA mean +0.191; D_cross mean +0.003, 2.5-97.5% [-0.004, +0.011] (observed -0.075)
+(iii) arm-specific orthogonal shared components, equal size and quality: coh_T 0.187 coh_P 0.205 DELTA -0.018; KL-adjusted DELTA -0.018; cross +0.004

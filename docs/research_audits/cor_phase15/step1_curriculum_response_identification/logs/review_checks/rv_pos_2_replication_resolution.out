@@ -1,0 +1,19 @@
+observed DELTA 0.149
+== leave-one-model-out DELTA
+  drop cT61: 0.144
+  drop cT62: 0.109
+  drop cT63: 0.158
+  drop cT64: 0.109
+  drop cT65: 0.121
+  drop cT67: 0.250
+  drop cP61: 0.165
+  drop cP62: 0.135
+  drop cP63: 0.102
+  drop cP64: 0.186
+  drop cP66: 0.154
+  drop cP67: 0.150
+check: exact perm p = 0.039
+true T-specific variance≈0.00: mean simulated DELTA=-0.004, P(pass frozen rule)=0.05
+true T-specific variance≈0.15: mean simulated DELTA=0.149, P(pass frozen rule)=0.72
+true T-specific variance≈0.30: mean simulated DELTA=0.303, P(pass frozen rule)=0.98
+true T-specific variance≈0.45: mean simulated DELTA=0.432, P(pass frozen rule)=1.00

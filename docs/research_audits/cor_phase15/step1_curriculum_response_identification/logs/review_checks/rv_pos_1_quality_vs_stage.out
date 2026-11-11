@@ -1,0 +1,86 @@
+== within-group coherence and KL
+T2000   coh=0.335  KL median=0.013  range=[0.008,0.121]
+T500    coh=0.086  KL median=0.063  range=[0.025,0.226]
+T250    coh=0.083  KL median=0.209  range=[0.069,0.284]
+P       coh=0.186  KL median=0.099  range=[0.068,0.188]
+failed  coh=-0.063  KL median=0.237  range=[0.227,0.250]
+
+== (a) T1 at 500 steps split by KL
+T500 KL<0.06: ['bcT61_b500', 'bcT62_b500', 'bcT65_b500'] coh=0.264
+T500 KL in P-count range: ['bcT63_b500', 'bcT64_b500'] coh=0.243
+P-count (KL 0.068-0.188) coh=0.186
+T2000 without cT67 (KL<=0.021): coh=0.436
+
+== (b) same-parent vs other-parent correlation across stages
+T500~T2000: same parent mean=0.519 [0.39, 0.62, 0.52, 0.55, 0.49, 0.54]  other parents mean=0.184
+T250~T2000: same parent mean=0.314 [0.3, 0.29, 0.4, 0.24, 0.25, 0.41]  other parents mean=0.164
+T250~T500: same parent mean=0.525 [0.36, 0.71, 0.81, 0.31, 0.24, 0.71]  other parents mean=0.063
+
+== (c) corr with leave-one-out consensus of the five near-Bayes T2000 models, vs log KL
+cT62         T2000   KL=0.008 r_cons=0.648
+cT61         T2000   KL=0.010 r_cons=0.512
+cT64         T2000   KL=0.012 r_cons=0.617
+cT65         T2000   KL=0.014 r_cons=0.595
+cT63         T2000   KL=0.021 r_cons=0.497
+bcT62_b500   T500    KL=0.025 r_cons=0.397
+bcT61_b500   T500    KL=0.054 r_cons=0.259
+bcT65_b500   T500    KL=0.056 r_cons=0.227
+cP64         P       KL=0.068 r_cons=0.320
+bcT62_b250   T250    KL=0.069 r_cons=0.223
+bcT64_b500   T500    KL=0.071 r_cons=0.564
+cP62         P       KL=0.074 r_cons=0.315
+cP67         P       KL=0.090 r_cons=0.189
+bcT63_b500   T500    KL=0.098 r_cons=0.492
+cP63         P       KL=0.109 r_cons=0.224
+cP61         P       KL=0.111 r_cons=0.279
+cT67         T2000   KL=0.121 r_cons=0.175
+bcT65_b250   T250    KL=0.175 r_cons=0.303
+bcT61_b250   T250    KL=0.184 r_cons=0.275
+cP66         P       KL=0.188 r_cons=0.156
+bcT67_b500   T500    KL=0.226 r_cons=0.177
+cT60         failed  KL=0.227 r_cons=0.106
+cP60         failed  KL=0.228 r_cons=0.052
+bcT63_b250   T250    KL=0.234 r_cons=0.388
+cP65         failed  KL=0.246 r_cons=0.080
+cT66         failed  KL=0.250 r_cons=0.103
+bcT67_b250   T250    KL=0.272 r_cons=0.055
+bcT64_b250   T250    KL=0.284 r_cons=0.301
+
+r_cons ~ 1 + logKL + T1lineage (non-reference models): [-0.017, -0.105, 0.069] resid sd 0.106
+r_cons ~ 1 + logKL: [0.03, -0.104] resid sd 0.111
+KL in [0.05,0.2]: T1-lineage r_cons mean=0.315 (n=8)  P-count mean=0.247 (n=6)
+
+== (d) parent-aware leave-out consensus (exclude own parent seed)
+cT62         T2000   KL=0.008 r_cons=0.648
+cT61         T2000   KL=0.010 r_cons=0.512
+cT64         T2000   KL=0.012 r_cons=0.617
+cT65         T2000   KL=0.014 r_cons=0.595
+cT63         T2000   KL=0.021 r_cons=0.497
+bcT62_b500   T500    KL=0.025 r_cons=0.312
+bcT61_b500   T500    KL=0.054 r_cons=0.206
+bcT65_b500   T500    KL=0.056 r_cons=0.104
+cP64         P       KL=0.068 r_cons=0.320
+bcT62_b250   T250    KL=0.069 r_cons=0.190
+bcT64_b500   T500    KL=0.071 r_cons=0.501
+cP62         P       KL=0.074 r_cons=0.315
+cP67         P       KL=0.090 r_cons=0.189
+bcT63_b500   T500    KL=0.098 r_cons=0.410
+cP63         P       KL=0.109 r_cons=0.224
+cP61         P       KL=0.111 r_cons=0.279
+cT67         T2000   KL=0.121 r_cons=0.175
+bcT65_b250   T250    KL=0.175 r_cons=0.289
+bcT61_b250   T250    KL=0.184 r_cons=0.245
+cP66         P       KL=0.188 r_cons=0.156
+bcT67_b500   T500    KL=0.226 r_cons=0.177
+cT60         failed  KL=0.227 r_cons=0.106
+cP60         failed  KL=0.228 r_cons=0.052
+bcT63_b250   T250    KL=0.234 r_cons=0.327
+cP65         failed  KL=0.246 r_cons=0.080
+cT66         failed  KL=0.250 r_cons=0.103
+bcT67_b250   T250    KL=0.272 r_cons=0.055
+bcT64_b250   T250    KL=0.284 r_cons=0.291
+r_cons ~ 1 + logKL + T1lineage: [0.048, -0.074, 0.032]
+P vs T500 (12 independent parents): logKL slope=-0.044, T1 coef=0.022, two-sided perm p=0.775
+corr(logKL, r_cons) over P+T500 = -0.256 ; over all non-reference models = -0.419
+
+== (e) T500 coherence without bcT67_b500 (KL 0.226, failed-level quality): 0.112 ; median KL of the five: 0.056

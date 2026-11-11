@@ -1,0 +1,14 @@
+  cT61: loading 0.64  KL 0.010
+  cT62: loading 0.70  KL 0.008
+  cT63: loading 0.50  KL 0.021
+  cT64: loading 0.69  KL 0.012
+  cT65: loading 0.65  KL 0.014
+  cT67: loading 0.23  KL 0.121
+  cP61: loading 0.41  KL 0.111
+  cP62: loading 0.40  KL 0.074
+  cP63: loading 0.26  KL 0.109
+  cP64: loading 0.48  KL 0.068
+  cP66: loading 0.28  KL 0.188
+  cP67: loading 0.31  KL 0.090
+Spearman(loading, log KL) all -0.91 | within T1 -0.83 | within P -0.54
+loading ~ log KL: slope -0.141, R2 0.89; adding arm: arm coef -0.090, mean residual T -0.017 P +0.017

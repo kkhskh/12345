@@ -1,0 +1,11 @@
+[1] manifest
+    manifest OK
+[2] forward-pass reproduction (cri_run.py conf cT61 cP61)
+    OK   logs/conf/model_cT61.json
+    OK   logs/conf/model_cP61.json
+[3] replay of the primary statistics from committed arrays
+    OK   P1_primary_N_input_clogit_pearson {'DELTA': 0.1485614136565886, 'perm_p_one_sided': 0.03896103896103896}
+    OK   P2_adjusted {'DELTA_adj_KL': -0.0038196338241297256, 'perm_p_KL': 0.5313852813852814}
+    OK   P3_R_error_coherence {'DELTA': -0.0039294187214414245, 'perm_p_one_sided': 0.5313852813852814}
+    OK   family_Nabs {'DELTA': 0.229731326146455, 'perm_p_one_sided': 0.07034632034632035}
+done: /tmp/cor_inv5_clean/docs/research_audits/cor_phase15/step1_curriculum_response_identification/verify

@@ -44,8 +44,8 @@ group.
 
 **Overall F45.**
 - Mean Δ45 m_B = −1.32: 67 % negative and 29 % positive.
-- The argmax reverses in 22 % of oriented pairs.
-- In 68 % the probabilities change without an argmax change.
+- The argmax reverses in 22 % of all valid F45 edits, oriented or not. Among oriented pairs it is 35.7 % (stream 15_100_000; OBSERVABLE_BOUNDARY_RESPONSES.md §3).
+- In 68 % of valid edits the probabilities change without an argmax change.
 - In 9.8 % the role posterior changes while the predictive does not: information change without decision change.
 
 **Comparison families.** F34 and F23 only re-weight *who is reliable*. They never create a colluder candidate.

@@ -1,0 +1,8 @@
+[61s] xT74@4000 T dec [0.5175555555555555, 0.5821111111111111]  F45 share all 1.00 site 0.01 nonsite 0.99 sub 0.00 subc 0.01 abl-remaining 1.00 | R1 B_full +0.127 B_site -0.228 B_sub -0.245 | F0 site |dm| 0.019
+[121s] xT75@4000 T dec [1.0, 1.0]  F45 share all 1.00 site 1.03 nonsite 0.10 sub 0.66 subc 0.12 abl-remaining 0.23 | R1 B_full -0.119 B_site -0.288 B_sub -0.196 | F0 site |dm| 0.038
+[200s] xT76@4000 T dec [0.9428888888888889, 0.937]  F45 share all 1.00 site 0.70 nonsite 0.30 sub 0.41 subc 0.11 abl-remaining 0.42 | R1 B_full +0.002 B_site -0.137 B_sub -0.189 | F0 site |dm| 0.025
+[262s] xT77@4000 T dec [1.0, 1.0]  F45 share all 1.00 site 1.01 nonsite 0.13 sub 0.88 subc 0.03 abl-remaining 0.15 | R1 B_full -0.082 B_site -0.211 B_sub -0.179 | F0 site |dm| 0.035
+[302s] xP84@4000 P dec [1.0, 1.0]  F45 share all 1.00 site 1.26 nonsite 0.27 sub 1.09 subc 0.32 abl-remaining 0.43 | R1 B_full -0.853 B_site -2.335 B_sub -2.206 | F0 site |dm| 0.060
+[346s] xP85@4000 P dec [0.7481111111111111, 0.763]  F45 share all 1.00 site 0.72 nonsite 0.20 sub 0.46 subc 0.20 abl-remaining 0.45 | R1 B_full -0.478 B_site -0.601 B_sub -0.496 | F0 site |dm| 0.082
+[387s] xP86@4000 P dec [0.6483333333333333, 0.6711111111111111]  F45 share all 1.00 site 0.73 nonsite 0.24 sub 0.66 subc 0.28 abl-remaining 0.48 | R1 B_full -0.572 B_site -0.932 B_sub -0.637 | F0 site |dm| 0.077
+[426s] xP87@4000 P dec [0.5402222222222223, 0.5717777777777778]  F45 share all 1.00 site 0.63 nonsite 0.41 sub 0.28 subc 0.33 abl-remaining 0.77 | R1 B_full -0.683 B_site -0.740 B_sub -0.450 | F0 site |dm| 0.083

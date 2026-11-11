@@ -66,4 +66,4 @@ for m in names:
     out["s_rejected_by_observables"] = [p["s"] for p in prof if abs(p["predicted"]["B45R1"] - obs["B45R1"]) > 0.1]
     res[m] = out; fm = out["families"]
     print(m, "obs B45R1 %.3f B34R1 %.3f" % (obs["B45R1"], obs["B34R1"]), {k: (round(v["r2"], 3), round(v["predicted"]["B45R1"], 3)) for k, v in fm.items()}, "s_hat %.2f flat %s" % (s_hat, out["s_flat_set_2pct"]), flush=True)
-    json.dump(res, open(os.path.join(HERE, "..", "logs", f"fitted_operators_{PH}.json"), "w"), indent=1)
+    json.dump(res, open(os.path.join(HERE, "..", "logs", f"fitted_operators_{PH}{os.environ.get('TAG', '')}.json"), "w"), indent=1)

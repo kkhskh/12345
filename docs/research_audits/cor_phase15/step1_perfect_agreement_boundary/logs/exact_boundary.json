@@ -1,0 +1,241 @@
+{
+ "F45": {
+  "valid": 0.35685,
+  "oriented": 0.22365,
+  "marginal_support": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": true,
+  "reports_changed": 1,
+  "counts_changed_exactly_one_group_by_one": true,
+  "mean_dm": -1.3189682957555395,
+  "frac_dm_pos": 0.28817348535658394,
+  "frac_dm_neg": 0.6711379387435725,
+  "frac_pi_unchanged": 0.0,
+  "frac_role_post_changed_but_prob_unchanged": 0.09794031105506515,
+  "frac_prob_changed_without_rank_change": 0.6798374667227126,
+  "frac_rank_reversal": 0.2222222222222222,
+  "regimes": {
+   "H_before=1|agrees_with_colluder_candidate": {
+    "n": 1439,
+    "mean_dm": 0.24324572532266844,
+    "frac_pos": 0.8742182070882557,
+    "frac_neg": 0.0,
+    "frac_zero": 0.12578179291174427,
+    "q10": 8.881784197001252e-16,
+    "q90": 0.681419047736544
+   },
+   "H_before=1|agrees_with_third_group": {
+    "n": 363,
+    "mean_dm": -2.382828992864404,
+    "frac_pos": 0.0,
+    "frac_neg": 1.0,
+    "frac_zero": 0.0,
+    "q10": -2.416616878909169,
+    "q90": -2.328609342586309
+   },
+   "H_before=1|agrees_with_no_group": {
+    "n": 2617,
+    "mean_dm": -2.0592715656812026,
+    "frac_pos": 0.0,
+    "frac_neg": 1.0,
+    "frac_zero": 0.0,
+    "q10": -2.364143567030559,
+    "q90": -1.5829340570577402
+   },
+   "H_before=2|agrees_with_no_group": {
+    "n": 37,
+    "mean_dm": -0.09784007368497759,
+    "frac_pos": 0.40540540540540543,
+    "frac_neg": 0.5945945945945946,
+    "frac_zero": 0.0,
+    "q10": -1.180979071822246,
+    "q90": 0.627799551131109
+   }
+  }
+ },
+ "F0": {
+  "valid": 0.35685,
+  "V_preserved": true,
+  "bayes_preserved_max": 0.0,
+  "same_world": 1.0,
+  "reports_changed": 1,
+  "same_token_as_F45": true
+ },
+ "F34": {
+  "valid": 0.44405,
+  "oriented": 0.24855,
+  "marginal_support": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": true,
+  "reports_changed": 1,
+  "counts_changed_exactly_one_group_by_one": true,
+  "mean_dm": 0.4430498059073373,
+  "frac_dm_pos": 0.8702474351237176,
+  "frac_dm_neg": 0.0,
+  "frac_pi_unchanged": 0.0,
+  "frac_role_post_changed_but_prob_unchanged": 0.1469429118342529,
+  "frac_prob_changed_without_rank_change": 0.811282513230492,
+  "frac_rank_reversal": 0.04177457493525504,
+  "regimes": {
+   "H_before=1|agrees_with_colluder_candidate": {
+    "n": 1567,
+    "mean_dm": 0.42389879611360987,
+    "frac_pos": 0.8640714741544352,
+    "frac_neg": 0.0,
+    "frac_zero": 0.13592852584556478,
+    "q10": 0.0,
+    "q90": 0.8770192973744233
+   },
+   "H_before=1|agrees_with_third_group": {
+    "n": 429,
+    "mean_dm": 1.2836144993335142e-16,
+    "frac_pos": 0.0,
+    "frac_neg": 0.0,
+    "frac_zero": 1.0,
+    "q10": 0.0,
+    "q90": 8.881784197001252e-16
+   },
+   "H_before=1|agrees_with_no_group": {
+    "n": 2815,
+    "mean_dm": 0.5056533833034507,
+    "frac_pos": 1.0,
+    "frac_neg": 0.0,
+    "frac_zero": 0.0,
+    "q10": 0.1663343543864384,
+    "q90": 1.0671239795139684
+   },
+   "H_before=2|agrees_with_colluder_candidate": {
+    "n": 65,
+    "mean_dm": 0.33552463604350385,
+    "frac_pos": 0.9538461538461539,
+    "frac_neg": 0.0,
+    "frac_zero": 0.046153846153846156,
+    "q10": 0.20207723395419386,
+    "q90": 0.5986575705756123
+   },
+   "H_before=2|agrees_with_no_group": {
+    "n": 95,
+    "mean_dm": 0.9781873296137392,
+    "frac_pos": 1.0,
+    "frac_neg": 0.0,
+    "frac_zero": 0.0,
+    "q10": 0.5986575705756123,
+    "q90": 1.1979954145523304
+   }
+  }
+ },
+ "F23": {
+  "valid": 0.44315,
+  "oriented": 0.19365,
+  "marginal_support": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": true,
+  "reports_changed": 1,
+  "counts_changed_exactly_one_group_by_one": true,
+  "mean_dm": 0.6454112973347081,
+  "frac_dm_pos": 0.844564936741544,
+  "frac_dm_neg": 0.0,
+  "frac_pi_unchanged": 0.0,
+  "frac_role_post_changed_but_prob_unchanged": 0.14317951032381812,
+  "frac_prob_changed_without_rank_change": 0.8035653841814284,
+  "frac_rank_reversal": 0.05325510549475347,
+  "regimes": {
+   "H_before=1|agrees_with_colluder_candidate": {
+    "n": 1231,
+    "mean_dm": 0.6488042843518529,
+    "frac_pos": 0.8383428107229894,
+    "frac_neg": 0.0,
+    "frac_zero": 0.16165718927701056,
+    "q10": 0.0,
+    "q90": 1.1198857018745465
+   },
+   "H_before=1|agrees_with_third_group": {
+    "n": 393,
+    "mean_dm": 3.6159935662091615e-17,
+    "frac_pos": 0.0,
+    "frac_neg": 0.0,
+    "frac_zero": 1.0,
+    "q10": -8.881784197001252e-16,
+    "q90": 8.881784197001252e-16
+   },
+   "H_before=1|agrees_with_no_group": {
+    "n": 2012,
+    "mean_dm": 0.7928300818385954,
+    "frac_pos": 1.0,
+    "frac_neg": 0.0,
+    "frac_zero": 0.0,
+    "q10": 0.4054673956784334,
+    "q90": 1.1198857018745467
+   },
+   "H_before=2|agrees_with_colluder_candidate": {
+    "n": 109,
+    "mean_dm": 0.12834402356583427,
+    "frac_pos": 0.908256880733945,
+    "frac_neg": 0.0,
+    "frac_zero": 0.09174311926605505,
+    "q10": 0.0652905995833013,
+    "q90": 0.27091747978766634
+   },
+   "H_before=2|agrees_with_no_group": {
+    "n": 128,
+    "mean_dm": 0.7174707602520628,
+    "frac_pos": 1.0,
+    "frac_neg": 0.0,
+    "frac_zero": 0.0,
+    "q10": 0.27091747978766634,
+    "q90": 0.9170419090666231
+   }
+  }
+ },
+ "prop3_counterexample": {
+  "max_abs_null_response": 0.0,
+  "max_abs_F45_response": 0.6315249887521608,
+  "n_null_pairs": 96
+ },
+ "prop3_characterisation_tests": {
+  "exact_bayes": [
+   2.220446049250313e-15
+  ],
+  "hard_affine": [
+   3.552713678800501e-15,
+   1.3322676295501878e-15,
+   3.552713678800501e-15,
+   1.7763568394002505e-15,
+   1.7763568394002505e-15
+  ],
+  "finite_constant": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "hard_nonaffine": [
+   1.6547734319716803,
+   2.6596708142480123,
+   2.2467307392710145,
+   1.85456810636729,
+   1.1759341067047941
+  ],
+  "finite_affine_rel_constant_col": [
+   0.31174378877372977,
+   0.28849374521003934,
+   0.663759914988864,
+   0.7980161413080573,
+   0.4361230326400456
+  ],
+  "finite_constant_rel_affine_col": [
+   0.7502279495500535,
+   0.16594505460816045,
+   1.0442943422119693,
+   0.3960694311650883,
+   0.23287147583537227
+  ]
+ },
+ "nondegeneracy": {
+  "n_unknowns": 519,
+  "rank": 518,
+  "null_dim": 1,
+  "note": "null_dim == 1 means the mixture weights are identified up to scale from P(y|X_q) over all X_q"
+ }
+}

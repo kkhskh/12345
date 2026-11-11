@@ -1,0 +1,903 @@
+# COR — PHASE 1.5, STEP 1
+# FOCUSED FOUNDATIONAL INVESTIGATION VI
+
+## The Perfect-Agreement Boundary: Does Relational Pretraining Change the Causal Evidence-Update Computation?
+
+### Prospective replication, mathematical correction, training-stage controls, and causal mechanism identification
+
+You are continuing the COR research repository from branch:
+
+`cor-phase15-step1-curriculum-response-identification`
+
+Investigation V ending commit: `033b315`.
+
+Verify the actual repository HEAD before proceeding.
+
+The relevant package is:
+
+`docs/research_audits/cor_phase15/step1_curriculum_response_identification/`
+
+This is a deliberately focused foundational investigation.
+
+**Central question:**
+
+Does T1 versus P-count pretraining systematically change the way a Transformer uses the transition from nearly perfect source agreement (4/5) to perfect agreement (5/5) when updating candidate decisions?
+
+If so, is that difference attributable to a particular learned computational operation, or does it arise from approximation error, training stage, statistical support, or an inadequately identified fitted model?
+
+We are not seeking another agreement-count decoder.
+
+We are seeking a **causally and mathematically characterized decision response to relational evidence**.
+
+Do not select a paper thesis, assess readiness, or close Step 1.
+
+Do not open unrelated workstreams such as GATE, TRANS, or adaptive sources.
+
+Preserve all earlier verdicts.
+
+---
+
+# 1. START FROM THE ACTUAL EVIDENCE
+
+Read the full history relevant to this question.
+
+In particular:
+
+**Investigation I — Relational-computation atlas**
+
+- Bayesian reliability and collusion mathematics.
+- Nonmonotonic agreement behavior.
+- PP1 intervention-sign results and their corrected interpretation.
+- Source-support restrictions.
+- Alternative learned implementations.
+- PP2 distribution-shift findings.
+
+**Investigation II — Foundational continuation**
+
+- P-count curriculum controls.
+- Source parsing versus cross-question aggregation.
+- The original feature-localization errors.
+- The limits of inference from Bayesian accuracy.
+- The evidence-semantic and identifiability results.
+
+**Investigation III — Relational mechanism deepening**
+
+- P-count and T1 count representations.
+- Their different token locations.
+- Per-slot encoder corrections.
+- Causal interchange controls.
+- Collateral-damage and representation-identification failures.
+
+**Investigations IV and V**
+
+- Cross-model abstract count transport.
+- Failed downstream-equivalence criteria.
+- Bayesian-null response correlations.
+- Independent-parent replication.
+- Training-stage effects.
+- The failed nuisance-route explanation.
+- The perfect-agreement evidence parameter found post hoc.
+
+Read the underlying generators, checkpoints, code, logs, reviewers, and corrected conclusions.
+
+Do not rely only on summary documents.
+
+The previous work contains valid discoveries and serious errors. Both matter.
+
+---
+
+# 2. THE SPECIFIC OBSERVATION TO TEST
+
+Investigation V identified the fitted quantity:
+
+\[
+s=\phi_{\mathrm{rel}}(5)-\phi_{\mathrm{rel}}(4).
+\]
+
+Across the previously evaluated successful models, its fitted value was higher for T1-lineage models than P-count models.
+
+The separation appeared at full transfer budget and in the available shorter-transfer comparisons.
+
+The reported exploratory model-label comparison gave approximately \(p=0.0022\).
+
+**This was discovered after the confirmation data were examined. It is not a prospective success.**
+
+Further, the fitted parameter is not uniquely identified for P-count models because alternative evidence-pooling formulas can fit their behavior similarly.
+
+Therefore the hypothesis cannot be validated by fitting the same parameter again.
+
+The principal scientific claim to investigate is instead:
+
+**T1 and P-count pretraining induce a reproducible difference in the observable candidate-decision response to the 4/5→5/5 source-agreement transition, beyond the difference expected from exact Bayes and ordinary model-approximation error.**
+
+This is a hypothesis, not an established result.
+
+The next experiment must be capable of falsifying it.
+
+---
+
+# 3. FIRST PRIORITY: REPAIR THE MATHEMATICAL FOUNDATION
+
+The independent audit of Investigation V identified an error in Proposition 3 of `FORMAL_DECISION_EQUIVALENCE.md`.
+
+The proposition claimed that zero response to every minimal Bayesian-null count edit requires:
+
+1. An affine reliability score on counts 0–4.
+2. A hard collusion gate.
+
+The necessity of a hard gate is false under its stated model class.
+
+An explicit counterexample is:
+
+\[
+\phi_{\mathrm{rel}}(n)=0
+\quad(n=0,\ldots,4),
+\]
+
+\[
+\phi_{\mathrm{rel}}(5)=1,
+\]
+
+\[
+\phi_{\mathrm{col}}(n)=0
+\quad(n=0,\ldots,5).
+\]
+
+The collusion gate is finite.
+
+For the relevant minimal Bayesian-null edits that alter only subperfect counts, the mixture weights remain unchanged.
+
+Nevertheless, edits involving count 5 can produce nonzero candidate responses.
+
+This violates the claimed necessity of a hard gate.
+
+## Required mathematical work
+
+A. Independently verify this counterexample using the exact model definition.
+
+B. Withdraw or correct the unrestricted necessity claim.
+
+C. Determine the strongest valid characterization of null-response invariance.
+
+D. Explicitly handle degenerate score functions and limits of the parameter family.
+
+E. If a stronger theorem requires strict monotonicity, nondegeneracy, positive sensitivity, or other assumptions, state and prove those conditions.
+
+F. Distinguish properties of the exact T4 Bayesian posterior from properties of a fitted neural surrogate.
+
+Also revisit the separate quantifier issue in Proposition 1 identified in the independent audit: the theorem statement must respect restrictions imposed by the minimum positive probability in the fixed finite-support generator.
+
+These are necessary repairs.
+
+Do not let theorem repair consume the entire investigation.
+
+---
+
+# 4. DERIVE THE EXACT 4/5→5/5 BAYESIAN RESPONSE
+
+This is the mathematical core of the new experiment.
+
+The original T4 environment contains:
+
+- Candidate-bearing source reports.
+- Source groups.
+- Reliable-source roles.
+- Noise.
+- Copying or collusion roles.
+- Latent configurations governing how agreement should be interpreted.
+
+The transition from four agreements to five is not necessarily an ordinary increment in evidence.
+
+It may change whether a group is interpreted as reliable, colluding, or copying.
+
+## 4.1 Define the response precisely
+
+For the target question q, let:
+
+\[
+V=n^{(-q)}
+\]
+
+be the leave-question agreement-count vector.
+
+For a selected candidate pair \(c,c'\), define the model response:
+
+\[
+\Delta_{45}m_M
+=
+m_M(c,c';X_q,V_5)
+-
+m_M(c,c';X_q,V_4).
+\]
+
+Define the corresponding exact Bayesian response:
+
+\[
+\Delta_{45}m_B.
+\]
+
+The primary error quantity should be:
+
+\[
+E_{45}(M)
+=
+\Delta_{45}m_M-\Delta_{45}m_B.
+\]
+
+Here \(m_M\) and \(m_B\) must be defined unambiguously.
+
+Use candidate log-probability ratios as the principal margin measure.
+
+Also evaluate probabilities as a separate, prespecified outcome.
+
+Do not treat arbitrary logit scaling as a causal mechanism.
+
+## 4.2 Characterize the Bayesian decision boundary
+
+Derive the exact response for relevant source configurations.
+
+Investigate:
+
+- When reaching perfect agreement increases inferred reliability.
+- When it decreases reliability because of collusion or copying.
+- When it changes which latent role is favored.
+- When it reverses candidate preference.
+- When the effect is negligible.
+- When the candidate's own evidence changes the sign.
+- How the response depends on other groups' agreement counts.
+
+A 4→5 transition should not automatically be assigned a positive sign.
+
+The source-generating semantics determine the correct effect.
+
+Where possible, derive exact inequalities separating these regimes.
+
+Where not possible analytically, use exact enumeration with verified numerical boundaries.
+
+## 4.3 Distinguish the information change from the decision change
+
+The relevant mathematical object is not merely the count increment.
+
+It is the effect of that increment on the candidate-conditioned source-role posterior and then on the candidate decision.
+
+Determine whether there are contexts where:
+
+- Count changes but source-role posterior does not.
+- Source-role posterior changes but candidate probabilities do not.
+- Candidate probabilities change without changing the selected candidate.
+- Candidate ranking reverses.
+
+Use these distinctions to select experiments.
+
+**Required result:** an exact mathematical reference for the observable 4→5 decision response across the source-role regimes relevant to T4.
+
+---
+
+# 5. REPAIR THE INTERVENTION-SUPPORT PROBLEMS FROM INVESTIGATIONS I–III
+
+Earlier investigations sometimes used interventions that were marginally supported but impossible under the original latent world, or internal patches that were only partially on-manifold.
+
+Do not repeat those mistakes.
+
+For every proposed 4→5 episode pair:
+
+1. Verify positive marginal probability of both inputs.
+2. Determine whether the two observations are possible under the same latent configuration.
+3. State the structural intervention generating the change, if one exists.
+4. Hold the target question's own reports fixed.
+5. Verify which source reports and group counts change.
+6. Calculate the exact Bayesian response.
+7. Check that the selected intervention does not silently introduce another relation change.
+8. Record the support category explicitly.
+
+Distinguish natural source-level interventions from surgical activation edits.
+
+If a single-report 4→5 change is impossible under the specified generator, do not fabricate a supposedly natural edit.
+
+Instead:
+
+- Derive the feasibility condition.
+- Construct an admissible intervention if one exists.
+- Otherwise use a clearly labeled paired observational contrast or a separately defined intervention model.
+
+Do not silently redefine the generator.
+
+## Required contrast families
+
+**F45 — Perfect-agreement boundary**
+
+Supported transitions from four agreements to five.
+
+**F34 — Near-boundary control**
+
+Transitions from three agreements to four.
+
+**F23 — Ordinary-count control**
+
+Transitions from two agreements to three where supported.
+
+**F0 — Count-preserving control**
+
+Source changes that preserve the relevant count information.
+
+**FB — Bayesian-matched control**
+
+Interventions selected to have similar exact Bayesian candidate-margin changes but different count-transition types.
+
+Do not assume that F45 and F34 are comparable without conditioning on source configuration and exact Bayes response.
+
+Predefine the comparison distributions and weighting.
+
+---
+
+# 6. FREEZE THE PROSPECTIVE CLAIM BEFORE ANY NEW CONFIRMATION OUTCOMES
+
+The principal hypothesis is directional:
+
+**T1-lineage models exhibit a systematically stronger candidate-level evidence update at the perfect-agreement boundary than P-count models, after appropriate Bayesian correction and control for training.**
+
+The direction comes from the earlier exploratory fitted-parameter result.
+
+This is now a prospective prediction.
+
+It must be tested on genuinely unseen models.
+
+## Primary prediction P1 — Observable boundary response
+
+Define a model-level statistic based on the supported F45 interventions:
+
+\[
+B(M)=
+\mathbb{E}_{F45}
+\left[
+E_{45}(M)
+\right],
+\]
+
+or another mathematically justified candidate-oriented quantity.
+
+Before freezing, determine whether signed averaging is meaningful across different candidate pairs and source roles.
+
+If not, use a preregistered orientation based on the exact candidate semantics.
+
+Do not define the orientation using model outcomes.
+
+The primary test must compare T1 and P-count independently of fitted \(\phi\) parameters.
+
+## P2 — Specificity to perfect agreement
+
+Determine whether the difference is particular to F45, rather than a general increase in response magnitude.
+
+Compare F45 against F34 and F23 with appropriate Bayesian correction.
+
+A curriculum that makes all count responses larger has not necessarily learned a distinctive perfect-agreement treatment.
+
+## P3 — Transfer-stage robustness
+
+Determine whether the curriculum contrast persists at comparable training stages.
+
+Explicitly compare both curricula at:
+
+- 500 T4 transfer steps.
+- 1,000 transfer steps.
+- 2,000 transfer steps.
+- A longer transfer budget, if justified by convergence and available compute.
+
+**The P-count long-transfer arm is mandatory for a serious comparison.**
+
+Do not repeat the old asymmetry of studying longer transfer only in T1.
+
+## P4 — Posterior-quality robustness
+
+Evaluate whether the curriculum contrast survives accounting for:
+
+- T4 KL to exact Bayes.
+- Classification accuracy.
+- Calibration.
+- Margin scale.
+- Final training loss.
+
+Training stage and Bayesian approximation quality were confounded in Investigation V.
+
+This experiment must deliberately improve that design.
+
+Where model-quality ranges do not overlap, state that the two causes remain unidentified.
+
+Do not extrapolate a regression outside observed quality overlap.
+
+## P5 — Generalization within the mathematical boundary
+
+Determine whether the learned difference appears across multiple frozen source-role contexts.
+
+If the effect exists only in one narrow collusion configuration, report its scope.
+
+If its direction changes with candidate evidence, evaluate whether those changes match the derived mathematical predictions.
+
+## P6 — Causal computation
+
+If the behavioral effect replicates, test whether an independently identified count-to-evidence operation causes it.
+
+Do not count decoding or an attention visualization as sufficient.
+
+Freeze P1–P5 and all statistical procedures before training the confirmation cohort.
+
+P6 may use a separately preregistered mechanistic protocol after the behavioral result is known, but it must have independent confirmation episodes and cannot be presented as having been frozen before discovery if it was not.
+
+Maintain exact Git evidence for the freeze.
+
+---
+
+# 7. TRAIN GENUINELY INDEPENDENT NEW MODELS
+
+The previous experiment had same-seed models in different arms starting from identical initial weights.
+
+That coupling was discovered only after evaluation and affected the statistical analysis.
+
+Do not repeat it unintentionally.
+
+## Training design
+
+Train fresh T1 and P-count parents using:
+
+- Independent initialization streams across curricula.
+- Independent data-generation streams.
+- A common architecture and final T4 objective.
+- Matched evaluation data.
+- Documented optimizer settings and training budgets.
+- A fixed checkpoint schedule.
+- Prespecified failure and inclusion criteria.
+
+New confirmation models must not descend from the models used to discover the fitted parameter ordering.
+
+Do not reuse Investigation IV or V checkpoints as confirmation units.
+
+The earlier models are development data only.
+
+Target at least 8–12 independent parents per curriculum if resources permit, with a model-level power analysis.
+
+If compute permits fewer, report the resulting statistical limitations honestly.
+
+**Do not increase episode counts and pretend they substitute for independent model runs.**
+
+Preserve unsuccessful training runs.
+
+Do not silently analyze only the successful models.
+
+Use an intention-to-train primary analysis where feasible, with a separately specified successful-model conditional analysis.
+
+## Avoid confounding curriculum with training success
+
+The pretraining tasks differ in difficulty and supervision.
+
+Therefore record:
+
+- Initial and final auxiliary-task loss.
+- Actual relational information learned.
+- T4 transfer trajectory.
+- T4 posterior approximation.
+- Representation accessibility.
+- Whether the model reaches the same approximate quality regime as the other curriculum.
+
+If the T1 and P-count quality ranges never overlap, state that the curriculum-specific effect cannot be isolated from quality under that design.
+
+Do not declare one curriculum's mechanism superior based only on better performance.
+
+---
+
+# 8. MEASURE THE EFFECT WITHOUT RELYING ON AN UNIDENTIFIED FITTED PARAMETER
+
+The earlier separation in
+
+\[
+s=\phi_{\mathrm{rel}}(5)-\phi_{\mathrm{rel}}(4)
+\]
+
+was interesting but not a valid primary causal measurement.
+
+In P-count models, multiple operator families fit similarly.
+
+Consequently, the parameter value can depend on the chosen family.
+
+## Required analysis
+
+A. Test the observable, generator-matched 4→5 response directly.
+
+B. Evaluate probability-space and log-odds responses separately.
+
+C. Compare with exact Bayes on each episode.
+
+D. Report the model's signed excess response and its uncertainty.
+
+E. Evaluate candidate-rank changes when they occur, but do not restrict the whole analysis to rank reversals.
+
+F. Fit the earlier Bayes-mixture operator as a secondary explanation.
+
+G. Fit strong alternative pooling and gating operators.
+
+H. Quantify parameter nonidentifiability using refitting, profile uncertainty, or equivalent methods.
+
+I. Reject any interpretation of \(s\) that depends on a poorly identified parameterization when the observable responses disagree.
+
+The fitted parameter may still be useful for generating hypotheses.
+
+It is not a substitute for the actual decision response.
+
+---
+
+# 9. DISTINGUISH COUNT REPRESENTATION FROM COUNT INTERPRETATION
+
+This is where Investigations II–IV connect directly to the new question.
+
+Both curricula can encode agreement counts.
+
+That fact alone does not determine how those counts affect candidate probabilities.
+
+We need to separate:
+
+**Representation:** What agreement count is available?
+
+**Transformation:** What reliability evidence is inferred from it?
+
+**Selection:** How does that evidence affect the contribution of candidate-bearing sources?
+
+**Decision:** What candidate-margin response follows?
+
+## Required mechanistic comparisons
+
+Examine whether the curricula differ in:
+
+- Sensitivity of the reliability evidence transformation near count 5.
+- How a possible colluder configuration is represented.
+- Graded agreement versus a saturated perfect-agreement indicator.
+- Source-group-specific evidence weighting.
+- Candidate-conditioned source interpretation.
+- Readout pooling.
+- Compensation between source-token and readout routes.
+
+Do not assume any of these is the correct explanation.
+
+For each proposed operation, define a measurable, falsifiable signature.
+
+Determine whether the effect is present in naturally generated representations before intervening.
+
+Use the identified source/readout sites from Investigations III–IV, but do not assume the full count variable exists at one site.
+
+## Causal tests
+
+Where a candidate difference is observed:
+
+1. Identify the relational information used.
+2. Trace its effect through candidate-bearing computation.
+3. Intervene on the proposed operation.
+4. Test whether the 4→5 response changes specifically.
+5. Verify that ordinary Bayesian-relevant decisions remain largely functional.
+6. Use matched intervention controls.
+7. Check redundant and compensating pathways.
+8. Repeat in independent model instances.
+
+A large accuracy drop after ablation is not sufficient evidence.
+
+A feature that decodes count 5 is not automatically a causal perfect-agreement detector.
+
+An intervention that perturbs the output toward the desired answer is not necessarily an intervention on the model's natural inference mechanism.
+
+A valid mechanistic result should selectively explain the observed boundary-response difference.
+
+---
+
+# 10. MATHEMATICAL TARGET: WHEN DOES THE BOUNDARY EFFECT FOLLOW FROM THE COMPUTATION?
+
+Do not stop at an empirical curriculum comparison.
+
+Derive conditional mathematical statements connecting:
+
+- The source-role likelihoods.
+- Agreement-count changes.
+- The candidate-conditioned posterior.
+- The learned count-to-evidence transformation.
+- Candidate-margin responses.
+
+Try to determine whether there are identifiable operator properties that guarantee a specific 4→5 response or response ordering.
+
+Possible targets include:
+
+### T1 — Boundary evidence-update theorem
+
+Under independently stated generator and computational assumptions, establish how a learned source-evidence transformation determines the signed candidate-margin response to perfect agreement.
+
+### T2 — Representation insufficiency counterexample
+
+Show that two models can encode the same exact count vector yet respond differently to count 5.
+
+This should not merely restate that arbitrary functions of the same input can differ.
+
+Identify a meaningful restricted computational setting.
+
+### T3 — Fitted-parameter nonidentifiability
+
+Characterize conditions under which different pooling operators give equivalent observed decisions but disagree about the interpretation of \(s\).
+
+### T4 — Calibration and approximation limits
+
+Determine what closeness to Bayes does and does not guarantee about the difference between F45 and F34 responses.
+
+### T5 — Causal operator identifiability
+
+Identify the intervention conditions necessary to distinguish a real boundary-specific evidence transformation from correlated nuisance pathways.
+
+Prove restricted results where possible.
+
+Construct counterexamples to broader claims.
+
+Do not call existing Bayesian identities new COR theorems.
+
+---
+
+# 11. REQUIRED NEGATIVE CONTROLS FROM EARLIER INVESTIGATIONS
+
+The next study must specifically address these earlier methodological weaknesses.
+
+## I — Bayes-closeness mistaken for a new principle
+
+Evaluate whether the alleged curriculum difference contains information beyond approximation to the exact Bayesian decision rule.
+
+If the effect is fully predicted by approximation quality, say so.
+
+## II — Mechanistic localization errors
+
+Use per-position controls and distributed representations.
+
+Do not impose a pooled encoder when the relevant information is slot-specific.
+
+Do not infer absence of a variable from a failed probe at the wrong site.
+
+## III — Apparent causal pathways that are dispensable
+
+Use attention, value, MLP, and residual-path interventions only where supported by actual forward computations.
+
+A salient attention pattern is not a mechanism.
+
+Mean replacement and resampling may answer different causal questions.
+
+## IV — Transport without computational equivalence
+
+Count transport success may follow from decodability and cannot establish shared downstream computation.
+
+Do not reuse transport fidelity as proof that the curricula interpret count 5 identically.
+
+## V — Correlated approximation errors
+
+Do not infer algorithms from correlations between responses that exact Bayes says should be zero.
+
+The primary target here is a Bayes-corrected, decision-relevant boundary response, not null-error coherence.
+
+These corrections should be integrated into the experiment, not treated as a separate generic audit.
+
+---
+
+# 12. ANALYZE TRAINING DYNAMICS WITHOUT REPEATING THE OLD CONFOUND
+
+We previously found that T1 null-response coherence increased late during transfer.
+
+But quality and training stage changed together.
+
+This investigation should determine whether the perfect-agreement boundary difference:
+
+- Exists immediately after pretraining.
+- Emerges during T4 fine-tuning.
+- Strengthens as models approach Bayes.
+- Weakens with longer training.
+- Changes with the objective.
+- Is associated with a particular computational feature.
+
+Record matched snapshots for both T1 and P-count models.
+
+If the count representation is decodable at a stage where the decision bias is absent, investigate whether the downstream transformation is not yet learned.
+
+If the decision bias changes while count decoding remains stable, that provides evidence of a change in interpretation rather than count availability.
+
+Do not infer a causal training transition solely from correlated probe scores and accuracy.
+
+Where practical, introduce a narrowly targeted training-objective intervention to discriminate count acquisition from evidence-update learning.
+
+Any such experiment must preserve the main confirmation protocol rather than become a new exploratory curriculum sweep.
+
+---
+
+# 13. ADVERSARIAL REVIEW
+
+Use independent reviewers where available.
+
+The final package must receive serious scrutiny from:
+
+**Formal mathematics**
+
+Check the corrected Proposition 3, exact Bayes boundary results, theorem assumptions, and counterexamples.
+
+**Statistical design**
+
+Check independent parents, sample size, paired versus unpaired testing, selection on training success, multiple comparisons, and frozen criteria.
+
+**Causal identification**
+
+Check whether any claimed mechanism actually mediates the decision effect, whether interventions are valid, and whether ablation causes collateral damage.
+
+**Transformer computation**
+
+Check Q/K/V/O pathways, readout pooling, residual contributions, LayerNorm, and MLP operations.
+
+**Adversarial theory and novelty**
+
+Determine whether every positive result is already implied by Bayesian approximation, a fitted pooling operator, or a known learning phenomenon.
+
+Reviewers must examine the final findings, not just the initial plan.
+
+Preserve all counterexamples, retractions, and unresolved criticisms.
+
+---
+
+# 14. REQUIRED RESEARCH PACKAGE
+
+Create a new isolated directory:
+
+`docs/research_audits/cor_phase15/step1_perfect_agreement_boundary/`
+
+Use a new branch.
+
+Preserve all earlier historical artifacts.
+
+Required scientific documents:
+
+### `MAIN_RESULT.md`
+
+Directly answer whether the boundary effect replicates and what causes it, separating behavioral, causal, and mathematical evidence.
+
+### `EXACT_BAYES_BOUNDARY_THEORY.md`
+
+Source-role semantics, support classification, exact posterior response, decision boundaries, and corrected theorems.
+
+### `PROPOSITION_3_CORRECTION.md`
+
+Independent verification of the counterexample, corrected theorem, and remaining mathematical limits.
+
+### `FROZEN_PROSPECTIVE_PROTOCOL.md`
+
+Predictions, cohort definitions, estimands, intervention distributions, inclusion rules, statistical tests, and freeze evidence.
+
+### `INDEPENDENT_PARENT_REPLICATION.md`
+
+New parent lineages, independent seeds, complete training records, failed runs, statistical analysis, and uncertainty.
+
+### `TRAINING_STAGE_AND_QUALITY.md`
+
+Matched P-count and T1 transfer schedules, quality overlap, and the limits of causal inference about training stage.
+
+### `OBSERVABLE_BOUNDARY_RESPONSES.md`
+
+Actual candidate-margin and probability responses, Bayes-corrected effects, and F45/F34/F23 comparisons.
+
+### `CAUSAL_EVIDENCE_UPDATE_MECHANISM.md`
+
+Identification of the count-to-candidate operation, competing explanations, and intervention controls.
+
+### `FITTED_OPERATOR_IDENTIFIABILITY.md`
+
+Comparison with Bayes-mixture, linear pooling, logarithmic pooling, and other justified baselines.
+
+### `THEOREMS_AND_COUNTEREXAMPLES.md`
+
+Formal results, exact scopes, failures, and mathematical nonidentifiability findings.
+
+### `REVIEWS_AND_ADJUDICATION.md`
+
+Independent reviewer findings and actual corrections.
+
+### `OPEN_QUESTIONS.md`
+
+The remaining unanswered questions in this specific research line and their relation to the broader foundational map.
+
+Include runnable code, checkpoints, full results, logs, and an integrity manifest.
+
+Provide a clean-extraction reproduction procedure.
+
+Distinguish exact replay from independent confirmation.
+
+Do not manufacture documents merely to satisfy the requested file structure.
+
+---
+
+# 15. WHAT WOULD COUNT AS A SIGNIFICANT RESULT?
+
+There are several legitimate possible outcomes.
+
+## Outcome A — Prospective curriculum-dependent boundary bias
+
+New independent models reproduce the predicted T1 versus P-count difference in observable Bayes-corrected 4→5 responses.
+
+The effect survives appropriate training-stage, quality, support, and output-space controls.
+
+**This would be a genuinely prospective positive finding about curriculum-associated evidence interpretation.**
+
+It would not by itself establish a distinct neural algorithm.
+
+## Outcome B — A causal computational mechanism is identified
+
+In addition to Outcome A, an independently identified computation selectively explains the boundary-response difference.
+
+Targeted interventions change that effect while preserving relevant baseline decisions.
+
+This would be a stronger contribution: a curriculum-associated causal evidence-update computation.
+
+## Outcome C — The fitted parameter ordering does not correspond to a real decision difference
+
+The observed separation vanishes when tested through supported source-level counterfactuals and directly measured candidate responses.
+
+That would establish that the fitted operator was misleading.
+
+## Outcome D — The apparent difference is explained by training stage or approximation quality
+
+The original ordering does not survive matched convergence or posterior-quality comparisons.
+
+That would clarify the learning dynamics and remove a false curriculum-level explanation.
+
+## Outcome E — Different computational implementations realize the same boundary response
+
+The curricula preserve distinct internal representations or pathways but have equivalent decision responses under the relevant intervention family.
+
+This would provide another restricted example of implementation diversity without a behavioral distinction.
+
+## Outcome F — The mechanism or effect remains unidentified
+
+The confirmation cohort is underpowered, the relevant quality ranges do not overlap, or available interventions cannot separate the proposed explanations.
+
+Report exactly what is unresolved.
+
+Do not manufacture a stronger verdict.
+
+---
+
+# 16. FINAL DIRECTIVE
+
+Our earlier research established that Transformers can learn source relationships, use them in candidate decisions, and implement the same relational information through different pathways.
+
+But we have repeatedly encountered an important limitation:
+
+**Representing a relationship is not the same as interpreting its decision significance.**
+
+The next experiment targets that distinction.
+
+Both T1 and P-count models can represent source-agreement counts.
+
+The question is whether their training objectives make them interpret perfect agreement differently—particularly where perfect agreement may indicate copying or collusion instead of independent reliability.
+
+You must establish the Bayesian mathematics first.
+
+Then freeze a genuinely prospective, observable decision-response prediction.
+
+Train independent models.
+
+Complete matched transfer schedules in both curricula.
+
+Test valid source-level interventions.
+
+Control for Bayesian approximation and output scaling.
+
+Identify the actual causal operation if a response difference survives.
+
+Challenge the result with alternative pooling models, null controls, and mathematical counterexamples.
+
+Do not repeat the failed null-response-correlation argument.
+
+Do not infer new causal principles from mere Bayes-closeness.
+
+Do not claim a new algorithm from a fitted parameter whose value is not identified.
+
+Do not generalize from one agreement boundary to every relational task.
+
+And do not turn this research into a completion assessment.
+
+**The central scientific deliverable is a defensible answer to:**
+
+### Does relational pretraining change not only what a Transformer knows about agreement, but how it uses that agreement to update candidate decisions?
+
+Establish the answer prospectively, mathematically, and causally, as far as the available evidence permits.

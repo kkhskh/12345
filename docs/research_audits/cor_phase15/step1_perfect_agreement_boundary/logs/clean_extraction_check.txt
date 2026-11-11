@@ -1,0 +1,12 @@
+Wed Nov 11 12:45:53 UTC 2026
+commit f7bffff
+[1] manifest
+    manifest OK
+[2] forward-pass reproduction
+    OK   logs/conf/model_xT70_4000.json
+    OK   logs/conf/model_xP80_4000.json
+[3] replay of frozen confirmatory analysis
+    OK   logs/confirmatory.json
+[4] replay of P6 analysis
+    OK   logs/p6.json
+done

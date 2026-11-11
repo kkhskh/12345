@@ -5,3 +5,68 @@ Tue Nov 10 18:04:07 UTC 2026 dev budget variants start
 Tue Nov 10 18:04:07 UTC 2026 dev budget variants end
 Tue Nov 10 18:05:57 UTC 2026 dev budget variants restart (import path fix)
 Tue Nov 10 18:24:22 UTC 2026 dev budget variants end
+Tue Nov 10 18:33:43 UTC 2026 FREEZE commit db60086; budget watcher started
+Tue Nov 10 18:47:42 UTC 2026 end P s60 exit 0
+Tue Nov 10 18:47:42 UTC 2026 start T1 s61 lane 336
+Tue Nov 10 19:08:48 UTC 2026 end T1 s60 exit 0
+Tue Nov 10 19:08:48 UTC 2026 start P s61 lane 313
+Tue Nov 10 19:09:44 UTC 2026 start budget cT60_b250
+Tue Nov 10 19:11:16 UTC 2026 end budget cT60_b250
+Tue Nov 10 19:11:16 UTC 2026 start budget cT60_b500
+Tue Nov 10 19:13:48 UTC 2026 end budget cT60_b500
+Tue Nov 10 19:14:38 UTC 2026 conf watcher started (frozen pipeline; outputs not read)
+Tue Nov 10 19:50:16 UTC 2026 end P s61 exit 0
+Tue Nov 10 19:50:16 UTC 2026 start T1 s62 lane 313
+Tue Nov 10 19:50:16 UTC 2026 end T1 s61 exit 0
+Tue Nov 10 19:50:16 UTC 2026 start P s62 lane 336
+Tue Nov 10 19:51:48 UTC 2026 start budget cT61_b250
+Tue Nov 10 19:53:45 UTC 2026 end budget cT61_b250
+Tue Nov 10 19:53:45 UTC 2026 start budget cT61_b500
+Tue Nov 10 19:56:48 UTC 2026 end budget cT61_b500
+Tue Nov 10 20:30:14 UTC 2026 end P s62 exit 0
+Tue Nov 10 20:30:14 UTC 2026 start T1 s63 lane 336
+Tue Nov 10 20:50:53 UTC 2026 end T1 s62 exit 0
+Tue Nov 10 20:50:53 UTC 2026 start P s63 lane 313
+Tue Nov 10 20:52:48 UTC 2026 start budget cT62_b250
+Tue Nov 10 20:54:29 UTC 2026 end budget cT62_b250
+Tue Nov 10 20:54:29 UTC 2026 start budget cT62_b500
+Tue Nov 10 20:57:31 UTC 2026 end budget cT62_b500
+Tue Nov 10 21:30:35 UTC 2026 end P s63 exit 0
+Tue Nov 10 21:30:35 UTC 2026 start T1 s64 lane 313
+Tue Nov 10 21:30:39 UTC 2026 end T1 s63 exit 0
+Tue Nov 10 21:30:39 UTC 2026 start P s64 lane 336
+Tue Nov 10 21:31:31 UTC 2026 start budget cT63_b250
+Tue Nov 10 21:33:55 UTC 2026 end budget cT63_b250
+Tue Nov 10 21:33:55 UTC 2026 start budget cT63_b500
+Tue Nov 10 21:37:12 UTC 2026 end budget cT63_b500
+Tue Nov 10 22:11:32 UTC 2026 end P s64 exit 0
+Tue Nov 10 22:11:32 UTC 2026 start T1 s65 lane 336
+Tue Nov 10 22:33:30 UTC 2026 end T1 s64 exit 0
+Tue Nov 10 22:33:30 UTC 2026 start P s65 lane 313
+Tue Nov 10 22:35:12 UTC 2026 start budget cT64_b250
+Tue Nov 10 22:36:49 UTC 2026 end budget cT64_b250
+Tue Nov 10 22:36:49 UTC 2026 start budget cT64_b500
+Tue Nov 10 22:39:48 UTC 2026 end budget cT64_b500
+Tue Nov 10 23:13:38 UTC 2026 end T1 s65 exit 0
+Tue Nov 10 23:13:38 UTC 2026 start T1 s66 lane 336
+Tue Nov 10 23:13:41 UTC 2026 end P s65 exit 0
+Tue Nov 10 23:13:41 UTC 2026 start P s66 lane 313
+Tue Nov 10 23:13:48 UTC 2026 start budget cT65_b250
+Tue Nov 10 23:15:25 UTC 2026 end budget cT65_b250
+Tue Nov 10 23:15:25 UTC 2026 start budget cT65_b500
+Tue Nov 10 23:19:16 UTC 2026 end budget cT65_b500
+Tue Nov 10 23:54:14 UTC 2026 end P s66 exit 0
+Tue Nov 10 23:54:14 UTC 2026 start T1 s67 lane 313
+Wed Nov 11 00:15:35 UTC 2026 end T1 s66 exit 0
+Wed Nov 11 00:15:35 UTC 2026 start P s67 lane 336
+Wed Nov 11 00:17:16 UTC 2026 start budget cT66_b250
+Wed Nov 11 00:19:18 UTC 2026 end budget cT66_b250
+Wed Nov 11 00:19:18 UTC 2026 start budget cT66_b500
+Wed Nov 11 00:22:17 UTC 2026 end budget cT66_b500
+Wed Nov 11 00:54:37 UTC 2026 end T1 s67 exit 0
+Wed Nov 11 00:54:41 UTC 2026 end P s67 exit 0
+Wed Nov 11 00:56:17 UTC 2026 start budget cT67_b250
+Wed Nov 11 00:57:10 UTC 2026 end budget cT67_b250
+Wed Nov 11 00:57:10 UTC 2026 start budget cT67_b500
+Wed Nov 11 00:58:42 UTC 2026 end budget cT67_b500
+Wed Nov 11 01:00:08 UTC 2026 cohort complete; confirmatory analysis begins (first reading of cohort outputs)

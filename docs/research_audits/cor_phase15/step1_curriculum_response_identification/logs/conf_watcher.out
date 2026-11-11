@@ -1,0 +1,64 @@
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    58s] cT60 (T): acc 0.624 KL 0.227 T* 1.00; R2_within mix 0.527 vote -0.306 exact -2.429 split-half 0.133
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    57s] cP60 (P): acc 0.651 KL 0.228 T* 1.00; R2_within mix 0.238 vote 0.147 exact -0.289 split-half 0.622
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    60s] bcT60_b250 (T): acc 0.585 KL 0.286 T* 0.97; R2_within mix 0.248 vote -0.275 exact -6.851 split-half -0.084
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    56s] bcT60_b500 (T): acc 0.604 KL 0.258 T* 0.99; R2_within mix 0.343 vote -0.352 exact -4.816 split-half -0.012
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    56s] cT61 (T): acc 0.748 KL 0.010 T* 1.00; R2_within mix 0.930 vote 0.094 exact 0.916 split-half 0.976
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    77s] cP61 (P): acc 0.723 KL 0.111 T* 1.00; R2_within mix 0.540 vote 0.203 exact 0.484 split-half 0.732
+[     2s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    84s] bcT61_b250 (T): acc 0.685 KL 0.184 T* 0.97; R2_within mix 0.308 vote -0.022 exact -1.611 split-half 0.532
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    56s] bcT61_b500 (T): acc 0.737 KL 0.054 T* 1.00; R2_within mix 0.722 vote 0.036 exact 0.558 split-half 0.888
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    52s] cP62 (P): acc 0.727 KL 0.074 T* 1.00; R2_within mix 0.694 vote 0.294 exact 0.627 split-half 0.814
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    61s] cT62 (T): acc 0.747 KL 0.008 T* 1.00; R2_within mix 0.949 vote 0.090 exact 0.941 split-half 0.982
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    81s] bcT62_b250 (T): acc 0.734 KL 0.069 T* 1.00; R2_within mix 0.708 vote 0.042 exact 0.174 split-half 0.900
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    52s] bcT62_b500 (T): acc 0.742 KL 0.025 T* 1.00; R2_within mix 0.881 vote 0.120 exact 0.797 split-half 0.959
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    85s] cT63 (T): acc 0.746 KL 0.021 T* 1.00; R2_within mix 0.884 vote 0.039 exact 0.845 split-half 0.962
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    87s] cP63 (P): acc 0.714 KL 0.109 T* 1.00; R2_within mix 0.454 vote 0.258 exact 0.323 split-half 0.875
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    90s] bcT63_b250 (T): acc 0.657 KL 0.234 T* 0.99; R2_within mix 0.287 vote 0.015 exact -3.209 split-half 0.774
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    59s] bcT63_b500 (T): acc 0.721 KL 0.098 T* 0.99; R2_within mix 0.614 vote 0.006 exact 0.489 split-half 0.895
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    56s] cP64 (P): acc 0.730 KL 0.068 T* 1.00; R2_within mix 0.633 vote 0.225 exact 0.587 split-half 0.903
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    61s] cT64 (T): acc 0.744 KL 0.012 T* 1.00; R2_within mix 0.900 vote 0.119 exact 0.882 split-half 0.976
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    85s] bcT64_b250 (T): acc 0.610 KL 0.284 T* 0.97; R2_within mix 0.098 vote -0.046 exact -4.891 split-half 0.283
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    53s] bcT64_b500 (T): acc 0.735 KL 0.071 T* 0.99; R2_within mix 0.602 vote 0.130 exact 0.323 split-half 0.896
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    86s] cT65 (T): acc 0.744 KL 0.014 T* 1.00; R2_within mix 0.909 vote 0.116 exact 0.879 split-half 0.970
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    86s] cP65 (P): acc 0.636 KL 0.246 T* 1.00; R2_within mix 0.220 vote 0.201 exact -0.339 split-half 0.660
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    79s] bcT65_b250 (T): acc 0.689 KL 0.175 T* 0.97; R2_within mix 0.480 vote -0.097 exact -2.172 split-half 0.606
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    54s] bcT65_b500 (T): acc 0.740 KL 0.056 T* 1.00; R2_within mix 0.742 vote 0.012 exact 0.416 split-half 0.928
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    54s] cP66 (P): acc 0.672 KL 0.188 T* 1.00; R2_within mix 0.277 vote 0.122 exact -0.012 split-half 0.735
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    84s] cT66 (T): acc 0.620 KL 0.250 T* 1.00; R2_within mix 0.266 vote -0.256 exact -3.243 split-half 0.275
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    84s] bcT66_b250 (T): acc 0.572 KL 0.292 T* 0.99; R2_within mix 0.151 vote -0.210 exact -8.881 split-half 0.151
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    55s] bcT66_b500 (T): acc 0.600 KL 0.276 T* 1.00; R2_within mix 0.194 vote -0.238 exact -5.654 split-half 0.243
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    31s] cT67 (T): acc 0.699 KL 0.121 T* 1.00; R2_within mix 0.555 vote -0.104 exact 0.239 split-half 0.682
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    30s] cP67 (P): acc 0.726 KL 0.090 T* 1.00; R2_within mix 0.475 vote 0.253 exact 0.328 split-half 0.910
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    41s] bcT67_b250 (T): acc 0.601 KL 0.272 T* 0.99; R2_within mix 0.152 vote -0.305 exact -9.208 split-half -0.095
+[     1s] generator data written; ok fractions {"N": 0.821, "N2": 0.821, "R": 0.8615, "R2": 1.0, "C1": 1.0, "C2": 1.0, "C3": 1.0, "Cm": 0.821}
+[    30s] bcT67_b500 (T): acc 0.651 KL 0.226 T* 1.00; R2_within mix 0.375 vote -0.325 exact -4.315 split-half 0.185

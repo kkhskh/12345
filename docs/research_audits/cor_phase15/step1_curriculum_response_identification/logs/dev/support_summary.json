@@ -1,0 +1,74 @@
+{
+ "N": {
+  "valid": 0.822,
+  "marginal": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": 1.0,
+  "bayes_preserved": 1.0,
+  "agreement_pattern_changed": 1.0,
+  "median_reports_changed": 2.0
+ },
+ "N2": {
+  "valid": 0.822,
+  "marginal": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": 1.0,
+  "bayes_preserved": 1.0,
+  "agreement_pattern_changed": 1.0,
+  "median_reports_changed": 20.0
+ },
+ "R": {
+  "valid": 0.8675,
+  "marginal": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": 1.0,
+  "bayes_preserved": 0.0,
+  "agreement_pattern_changed": 1.0,
+  "median_reports_changed": 1.0
+ },
+ "R2": {
+  "valid": 1.0,
+  "marginal": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": 1.0,
+  "bayes_preserved": 0.1375,
+  "agreement_pattern_changed": 1.0,
+  "median_reports_changed": 20.0
+ },
+ "C1": {
+  "valid": 1.0,
+  "marginal": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": 1.0,
+  "bayes_preserved": 1.0,
+  "agreement_pattern_changed": 0.0,
+  "median_reports_changed": 30.0
+ },
+ "C2": {
+  "valid": 1.0,
+  "marginal": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": 1.0,
+  "bayes_preserved": 1.0,
+  "agreement_pattern_changed": 0.0,
+  "median_reports_changed": 10.0
+ },
+ "C3": {
+  "valid": 1.0,
+  "marginal": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": 1.0,
+  "bayes_preserved": 1.0,
+  "agreement_pattern_changed": 0.0,
+  "median_reports_changed": 20.0
+ },
+ "Cm": {
+  "valid": 0.822,
+  "marginal": 1.0,
+  "same_world": 1.0,
+  "xq_fixed": 1.0,
+  "bayes_preserved": 1.0,
+  "agreement_pattern_changed": 0.0,
+  "median_reports_changed": 4.0
+ }
+}

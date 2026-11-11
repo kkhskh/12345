@@ -1,0 +1,12 @@
+{
+ "name": "cT64_b250",
+ "parent": "step1_curriculum_response_identification/checkpoints/pre_T1_s64.npz",
+ "seed": 64,
+ "steps": 250,
+ "seconds": 60.05792284011841,
+ "eval": {
+  "acc": 0.60725,
+  "bayes_known_groups": 0.74175,
+  "own": 0.577225
+ }
+}

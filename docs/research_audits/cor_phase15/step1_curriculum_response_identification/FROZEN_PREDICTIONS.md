@@ -88,3 +88,35 @@ common to all models.
 
 ---
 # OUTCOMES
+
+Confirmatory analysis started after all 16 cohort runs finished (COMPUTE_LOG: "cohort complete; confirmatory analysis begins").
+Logs: `logs/conf/cohort_quality.json`, `primary.json`, `allruns.json`, `budget_b500.json`, `budget_b250.json`, `null_primary.json`,
+`p5b.json`. Successful runs (transfer accuracy ≥ 0.6595): T1 cT61, cT62, cT63, cT64, cT65, cT67; P-count cP61, cP62, cP63, cP64,
+cP66, cP67 (6 + 6; failed: cT60 0.627, cT66 0.622, cP60 0.652, cP65 0.639). Six successes per arm → no replacement seeds.
+b* = 500 (median KL of T1 budget variants of successful parents: 250 → 0.21, 500 → 0.064, 2000 → 0.013; P-count median 0.099).
+
+| prediction | criterion | result | verdict |
+|---|---|---|---|
+| **P1 (primary)** replication | one-sided perm p < 0.05 **and** bootstrap CI lower > 0 | Δ = 0.149 (coh_T 0.335, coh_P 0.186, cross 0.174); perm p = 0.039 (924 relabellings); CI [−0.047, 0.341] | **FAILED** (CI includes 0) |
+| P1 all 16 runs (reported) | — | Δ = 0.094, p = 0.130, CI [−0.066, 0.301] | — |
+| P2(a) KL overlap / adjusted Δ | ranges overlap → report adjusted | T1 KL 0.008–0.121, P-count 0.068–0.188 (overlap: cT67); adjusted Δ = −0.004, p = 0.53, CI [−0.44, 0.35] | no curriculum effect after adjustment |
+| **P2(b)** quality-matched (b* = 500) | persists iff p < 0.05 and CI lower > 0 | Δ_q = −0.100 (coh_T(500) 0.086 vs coh_P 0.186), p = 0.95, CI [−0.28, 0.09] | **explained by quality** |
+| P3(a) R-error coherence | P1 tests | Δ_R = −0.004, p = 0.53, CI [−0.21, 0.18] | no curriculum difference |
+| P3(b) operator family | arm difference in mix_rel at 2000 and at b* | 2000: +0.300, p = 0.004; b*: +0.367, p = 0.056 (b* mean inflated by a degenerate ceiling, bcT67_b500 ratio 2.02) | difference at 2000; **not significant at b*** |
+| P3(c) common structured bias | mean T–P coefficient-vector correlation ≥ 0.9 | 0.872 (T–T 0.931, P–P 0.927) | **FAILED** (narrowly) |
+| P4 input vs abstract | both CIs exclude 0 with same sign, or both include 0 | input CI [−0.047, 0.341]; Nabs Δ 0.230, CI [−0.21, 0.68] | **agreement** (both include 0) |
+| P5(a) N vs R routes | one-sided Wilcoxon p < 0.05 | excess per model 0.17, 1.01, 0.05, 0.72, 0.53, 0.52 (T1), 0.12, 0.20, 0.04, −0.03, 0.04, 0.08 (P-count); p = 0.0005 | **PASSED** (routes differ, driven by T1 models) |
+| P5(b) matched content | arm difference, two-sided | f_Cm T1 0.03–0.13, P-count 0.02–0.11; diff 0.017, p = 0.44 | no difference |
+| P6 training stage (descriptive) | — | coh_T: 250 → 0.083, 500 → 0.086, 2000 → 0.335 | coherence appears only at the full budget |
+| P1b one factor (secondary) | EXCESS_TT > 0, p < 0.05 | 2000: +0.135, p = 0.003; at b*: +0.038, p = 0.74 | T1-specific shared component at full budget only |
+
+**Pre-registered reading: Outcome C (the primary replication criterion failed).** P2(b) independently says the T1 coherence is
+explained by approximation quality. Outcome E's component (P3c) failed narrowly. H4 is not supported (P4 agreement).
+P5(a) supports a route difference between null and relevant responses in T1 models.
+
+Notes at evaluation:
+- P3(b)'s statistic divides by a split-half ceiling; for one quality-matched model (bcT67_b500) and several 250-step models the
+  ceiling is near zero and the ratio is meaningless (budget_b250 values of order 10⁴). This weakness of the frozen statistic was not
+  anticipated.
+- `scripts/p5b_matched_content.py` implements the frozen P5(b) estimand; it was written after the freeze because `cri_stats.py`
+  did not compute it. `scripts/route_selectivity.py` is exploratory (post hoc).

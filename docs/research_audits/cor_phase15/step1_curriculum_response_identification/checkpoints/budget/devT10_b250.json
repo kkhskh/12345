@@ -1,0 +1,12 @@
+{
+ "name": "devT10_b250",
+ "parent": "step1_latent_reliability/checkpoints/replication/T1_M_K3_s10.npz",
+ "seed": 10,
+ "steps": 250,
+ "seconds": 100.2841911315918,
+ "eval": {
+  "acc": 0.68255,
+  "bayes_known_groups": 0.74175,
+  "own": 0.577225
+ }
+}

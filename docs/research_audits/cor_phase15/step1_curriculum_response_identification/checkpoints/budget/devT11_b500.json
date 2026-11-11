@@ -1,0 +1,12 @@
+{
+ "name": "devT11_b500",
+ "parent": "step1_latent_reliability/checkpoints/replication/T1_M_K3_s11.npz",
+ "seed": 11,
+ "steps": 500,
+ "seconds": 122.99141383171082,
+ "eval": {
+  "acc": 0.7315166666666667,
+  "bayes_known_groups": 0.74175,
+  "own": 0.577225
+ }
+}

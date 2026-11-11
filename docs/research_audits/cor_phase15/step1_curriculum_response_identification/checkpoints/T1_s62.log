@@ -1,0 +1,20 @@
+   T1 M s62 step 600 loss 0.7791
+   T1 M s62 step 1200 loss 0.6085
+   T1 M s62 step 1800 loss 0.5963
+   T1 M s62 step 2400 loss 0.6042
+   T1 M s62 step 3000 loss 0.5785
+   T1 M s62 step 3600 loss 0.6476
+   T1 M s62 step 4200 loss 0.5385
+   T1 M s62 step 4800 loss 0.5716
+   T1 M s62 step 5400 loss 0.5858
+   T1 M s62 step 6000 loss 0.6017
+T4 s62 step 200 loss 0.6119
+T4 s62 step 400 loss 0.5489
+T4 s62 step 600 loss 0.5613
+T4 s62 step 800 loss 0.5386
+T4 s62 step 1000 loss 0.5713
+T4 s62 step 1200 loss 0.5623
+T4 s62 step 1400 loss 0.5336
+T4 s62 step 1600 loss 0.5475
+T4 s62 step 1800 loss 0.5600
+T4 s62 step 2000 loss 0.5338

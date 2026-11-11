@@ -1,0 +1,20 @@
+   T1 M s65 step 600 loss 0.7668
+   T1 M s65 step 1200 loss 0.7634
+   T1 M s65 step 1800 loss 0.6197
+   T1 M s65 step 2400 loss 0.6083
+   T1 M s65 step 3000 loss 0.5577
+   T1 M s65 step 3600 loss 0.5661
+   T1 M s65 step 4200 loss 0.6158
+   T1 M s65 step 4800 loss 0.5672
+   T1 M s65 step 5400 loss 0.5818
+   T1 M s65 step 6000 loss 0.5508
+T4 s65 step 200 loss 0.7124
+T4 s65 step 400 loss 0.6048
+T4 s65 step 600 loss 0.6052
+T4 s65 step 800 loss 0.5841
+T4 s65 step 1000 loss 0.6076
+T4 s65 step 1200 loss 0.5173
+T4 s65 step 1400 loss 0.5515
+T4 s65 step 1600 loss 0.5250
+T4 s65 step 1800 loss 0.5743
+T4 s65 step 2000 loss 0.5449

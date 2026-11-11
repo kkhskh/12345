@@ -12,3 +12,6 @@ d79862415d84f5e4d5072ec79666e305f5cf950de9d3626c101d9ce34ffb01fb  scripts/confir
 5bf69368a7164eeafe941c717385b82a60b72d5374004b3d305c18771ac337a4  ../step1_latent_reliability/src/nets.py
 sha256sum: ../step1_latent_reliability/src/train_tasks.py: No such file or directory
 sha256sum: ../step1_latent_reliability/src/train_ext.py: No such file or directory
+# addendum (same session, before any cohort training; dependency paths corrected):
+9afa16541c40925ba35747ba257731ab62ca05db7f6a73c53f1e44dd51e519e4  ../step1_foundational_atlas_continuation/src/train_tasks.py
+87cd8c0a088d021d414ab153e8b8703c5968c67acf5a7f02309a27521b962c68  ../step1_relational_computation_atlas/src/train_ext.py

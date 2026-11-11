@@ -12,3 +12,25 @@
 2026-11-11T06:29:46Z environment restart killed lanes (T72, P82 in pretraining, no checkpoint); stale claims cleared; partial logs kept as train.log.interrupted1; relaunching from scratch with the same seeds
 2026-11-11T06:29:46Z lane A start T 72
 2026-11-11T06:29:48Z lane B start P 82
+2026-11-11T07:10:47Z lane B end P 82 rc=0
+2026-11-11T07:10:47Z lane B start T 73
+2026-11-11T07:31:13Z lane A end T 72 rc=0
+2026-11-11T07:31:13Z lane A start P 83
+2026-11-11T08:13:11Z lane B end T 73 rc=0
+2026-11-11T08:13:11Z lane B start T 74
+2026-11-11T08:13:25Z lane A end P 83 rc=0
+2026-11-11T08:13:25Z lane A start P 84
+2026-11-11T08:54:32Z lane A end P 84 rc=0
+2026-11-11T08:54:32Z lane A start T 75
+2026-11-11T09:15:32Z lane B end T 74 rc=0
+2026-11-11T09:15:32Z lane B start P 85
+2026-11-11T09:58:07Z lane B end P 85 rc=0
+2026-11-11T09:58:07Z lane B start T 76
+2026-11-11T09:58:46Z lane A end T 75 rc=0
+2026-11-11T09:58:46Z lane A start P 86
+2026-11-11T10:48:26Z lane A end P 86 rc=0
+2026-11-11T10:48:26Z lane A start T 77
+2026-11-11T11:09:03Z lane B end T 76 rc=0
+2026-11-11T11:09:03Z lane B start P 87
+2026-11-11T11:52:30Z lane B end P 87 rc=0
+2026-11-11T11:52:38Z lane A end T 77 rc=0

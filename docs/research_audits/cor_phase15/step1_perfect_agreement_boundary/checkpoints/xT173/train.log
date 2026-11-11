@@ -1,0 +1,30 @@
+   T1 M s73 step 600 loss 0.7544
+   T1 M s73 step 1200 loss 0.7857
+   T1 M s73 step 1800 loss 0.5645
+   T1 M s73 step 2400 loss 0.5639
+   T1 M s73 step 3000 loss 0.6163
+   T1 M s73 step 3600 loss 0.5537
+   T1 M s73 step 4200 loss 0.5702
+   T1 M s73 step 4800 loss 0.5193
+   T1 M s73 step 5400 loss 0.5760
+   T1 M s73 step 6000 loss 0.5823
+T4 s73 step 200 loss 0.7506
+T4 s73 step 400 loss 0.5812
+T4 s73 step 600 loss 0.6041
+T4 s73 step 800 loss 0.5509
+T4 s73 step 1000 loss 0.6126
+T4 s73 step 1200 loss 0.5686
+T4 s73 step 1400 loss 0.5405
+T4 s73 step 1600 loss 0.5625
+T4 s73 step 1800 loss 0.5549
+T4 s73 step 2000 loss 0.5561
+T4 s73 step 2200 loss 0.5272
+T4 s73 step 2400 loss 0.5401
+T4 s73 step 2600 loss 0.5578
+T4 s73 step 2800 loss 0.5162
+T4 s73 step 3000 loss 0.5465
+T4 s73 step 3200 loss 0.5223
+T4 s73 step 3400 loss 0.5659
+T4 s73 step 3600 loss 0.5561
+T4 s73 step 3800 loss 0.5333
+T4 s73 step 4000 loss 0.5698

@@ -1,0 +1,14 @@
+2026-11-11T04:12:09Z freeze commit 4d42d0a (+addendum 8d8e41a); launching lanes
+2026-11-11T04:12:09Z lane A start T 70
+2026-11-11T04:12:11Z lane B start P 80
+2026-11-11T05:07:39Z lane B end P 80 rc=0
+2026-11-11T05:07:39Z lane B start T 71
+2026-11-11T05:28:11Z lane A end T 70 rc=0
+2026-11-11T05:28:11Z lane A start P 81
+2026-11-11T06:13:32Z lane B end T 71 rc=0
+2026-11-11T06:13:32Z lane B start T 72
+2026-11-11T06:13:36Z lane A end P 81 rc=0
+2026-11-11T06:13:36Z lane A start P 82
+2026-11-11T06:29:46Z environment restart killed lanes (T72, P82 in pretraining, no checkpoint); stale claims cleared; partial logs kept as train.log.interrupted1; relaunching from scratch with the same seeds
+2026-11-11T06:29:46Z lane A start T 72
+2026-11-11T06:29:48Z lane B start P 82

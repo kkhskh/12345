@@ -1,0 +1,32 @@
+T2 obs B45R1 -0.057 B34R1 -0.002 {'gain': (0.968, -0.007), 'mix': (0.973, -0.066), 'logpool': (0.944, 0.254), 'vote': (0.752, -2.972)} s_hat 0.72 flat [0.25, 1.25]
+T10 obs B45R1 -0.601 B34R1 -0.197 {'gain': (0.911, -0.022), 'mix': (0.944, -0.273), 'logpool': (0.921, -0.094), 'vote': (0.774, -2.553)} s_hat -0.22 flat [-0.75, 0.5]
+T11 obs B45R1 -0.278 B34R1 -0.108 {'gain': (0.939, -0.014), 'mix': (0.959, -0.188), 'logpool': (0.927, 0.046), 'vote': (0.758, -2.685)} s_hat 0.16 flat [-0.25, 0.75]
+T0 obs B45R1 0.042 B34R1 0.022 {'gain': (0.964, -0.008), 'mix': (0.972, -0.065), 'logpool': (0.942, 0.271), 'vote': (0.766, -2.952)} s_hat 0.63 flat [0.25, 1.0]
+T1 obs B45R1 -0.146 B34R1 -0.002 {'gain': (0.958, -0.008), 'mix': (0.967, -0.13), 'logpool': (0.938, 0.205), 'vote': (0.764, -3.008)} s_hat 0.35 flat [0.0, 0.75]
+cT61 obs B45R1 -0.043 B34R1 0.014 {'gain': (0.969, -0.01), 'mix': (0.976, -0.121), 'logpool': (0.951, 0.194), 'vote': (0.765, -2.945)} s_hat 0.43 flat [0.0, 0.75]
+cT62 obs B45R1 -0.090 B34R1 -0.051 {'gain': (0.98, -0.001), 'mix': (0.983, -0.023), 'logpool': (0.947, 0.358), 'vote': (0.754, -3.08)} s_hat 0.84 flat [0.5, 1.0]
+cT63 obs B45R1 0.120 B34R1 0.082 {'gain': (0.944, -0.007), 'mix': (0.96, -0.082), 'logpool': (0.929, 0.319), 'vote': (0.758, -2.938)} s_hat 0.47 flat [0.0, 1.0]
+cT64 obs B45R1 -0.259 B34R1 -0.054 {'gain': (0.961, -0.008), 'mix': (0.97, -0.116), 'logpool': (0.945, 0.149), 'vote': (0.777, -3.054)} s_hat 0.47 flat [0.0, 1.0]
+cT65 obs B45R1 -0.118 B34R1 -0.023 {'gain': (0.961, -0.004), 'mix': (0.97, -0.102), 'logpool': (0.94, 0.24), 'vote': (0.768, -3.072)} s_hat 0.42 flat [0.0, 0.75]
+cT67 obs B45R1 -0.071 B34R1 -0.081 {'gain': (0.762, -0.058), 'mix': (0.87, -0.056), 'logpool': (0.828, 0.351), 'vote': (0.74, -1.778)} s_hat 0.46 flat [-0.25, 1.25]
+/home/claude/12345/docs/research_audits/cor_phase15/step1_perfect_agreement_boundary/src/../../step1_curriculum_response_identification/src/cri.py:137: RuntimeWarning: overflow encountered in exp
+  w = np.exp(pr[Vs[:, G_OF]] + pc[Vs[:, H_OF]])                          # (M, C)
+/home/claude/12345/docs/research_audits/cor_phase15/step1_perfect_agreement_boundary/src/../../step1_curriculum_response_identification/src/cri.py:138: RuntimeWarning: invalid value encountered in multiply
+  P = (w[:, :, None] * Jq).sum(1); L = tau * np.log(P + 1e-300); return L - L.mean(-1, keepdims=True)
+/home/claude/12345/docs/research_audits/cor_phase15/step1_perfect_agreement_boundary/src/../../step1_curriculum_response_identification/src/cri.py:138: RuntimeWarning: invalid value encountered in subtract
+  P = (w[:, :, None] * Jq).sum(1); L = tau * np.log(P + 1e-300); return L - L.mean(-1, keepdims=True)
+/home/claude/12345/docs/research_audits/cor_phase15/step1_perfect_agreement_boundary/src/../../step1_curriculum_response_identification/src/cri.py:136: RuntimeWarning: overflow encountered in exp
+  pr = np.r_[0, theta[0:5]]; pc = np.r_[theta[5:10], 0]; tau = np.exp(theta[10])
+P0 obs B45R1 -0.854 B34R1 -0.298 {'gain': (0.799, -0.06), 'mix': (0.837, -0.514), 'logpool': (0.86, -0.319), 'vote': (0.764, -2.261)} s_hat -1.36 flat [-2.0, -0.25]
+P1 obs B45R1 -0.779 B34R1 -0.220 {'gain': (0.804, -0.054), 'mix': (0.842, -0.495), 'logpool': (0.83, -0.267), 'vote': (0.752, -2.297)} s_hat -0.81 flat [-1.75, 0.0]
+/home/claude/12345/docs/research_audits/cor_phase15/step1_perfect_agreement_boundary/scripts/fitted_operators.py:44: RuntimeWarning: overflow encountered in square
+  loss = lambda t: ((f(full(t)) - target) ** 2).mean(); r = minimize(loss, np.delete(th0, 4), method="L-BFGS-B", options=dict(maxiter=2000)); return full(r.x), r.fun
+P2 obs B45R1 -0.718 B34R1 -0.292 {'gain': (0.72, -0.078), 'mix': (0.78, -0.553), 'logpool': (0.787, -0.26), 'vote': (0.74, -1.8)} s_hat -1.00 flat [-2.0, 0.0]
+P3 obs B45R1 -0.716 B34R1 -0.100 {'gain': (0.8, -0.058), 'mix': (0.825, -0.427), 'logpool': (0.826, -0.127), 'vote': (0.745, -2.296)} s_hat -0.74 flat [-1.75, 0.25]
+P4 obs B45R1 -0.333 B34R1 -0.166 {'gain': (0.7, -0.084), 'mix': (0.746, -0.365), 'logpool': (0.762, -0.082), 'vote': (0.721, -1.646)} s_hat -0.49 flat [-1.75, 0.75]
+cP61 obs B45R1 -0.455 B34R1 -0.189 {'gain': (0.763, -0.066), 'mix': (0.792, -0.333), 'logpool': (0.805, -0.139), 'vote': (0.72, -1.923)} s_hat -0.44 flat [-1.75, 0.75]
+cP62 obs B45R1 -0.704 B34R1 -0.171 {'gain': (0.819, -0.049), 'mix': (0.841, -0.408), 'logpool': (0.855, -0.265), 'vote': (0.736, -2.459)} s_hat -0.90 flat [-2.0, 0.25]
+cP63 obs B45R1 -1.203 B34R1 -0.210 {'gain': (0.761, -0.067), 'mix': (0.805, -0.612), 'logpool': (0.816, -0.302), 'vote': (0.75, -2.194)} s_hat -1.28 flat [-2.0, -0.25]
+cP64 obs B45R1 -0.695 B34R1 -0.000 {'gain': (0.84, -0.045), 'mix': (0.862, -0.359), 'logpool': (0.872, -0.155), 'vote': (0.765, -2.369)} s_hat -0.55 flat [-1.5, 0.5]
+cP66 obs B45R1 -0.478 B34R1 -0.368 {'gain': (0.65, -0.096), 'mix': (0.755, -0.304), 'logpool': (0.759, 0.001), 'vote': (0.745, -1.249)} s_hat -0.26 flat [-1.25, 0.75]
+cP67 obs B45R1 -0.872 B34R1 -0.046 {'gain': (0.805, -0.057), 'mix': (0.84, -0.663), 'logpool': (0.839, -0.361), 'vote': (0.785, -2.473)} s_hat -1.37 flat [-2.0, -0.5]

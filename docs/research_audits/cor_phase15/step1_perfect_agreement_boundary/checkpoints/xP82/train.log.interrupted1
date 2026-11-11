@@ -1,0 +1,5 @@
+pcount s82 step 300 loss 1.6415
+pcount s82 step 600 loss 1.6374
+pcount s82 step 900 loss 1.5572
+pcount s82 step 1200 loss 1.4192
+pcount s82 step 1500 loss 0.2171

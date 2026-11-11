@@ -1,0 +1,1454 @@
+# COR — PHASE 1.5, STEP 1
+# FOCUSED FOUNDATIONAL INVESTIGATION VII
+
+## Causal Origin and Selective Correction of the Perfect-Agreement Decision Reversal
+
+### Representation sufficiency, downstream computation, explaining-away, and causal repair
+
+You are continuing the COR research repository from the latest Investigation VI branch:
+
+`cor-phase15-step1-perfect-agreement-boundary`
+
+Verify and record the actual base commit.
+
+The relevant research package is:
+
+`docs/research_audits/cor_phase15/step1_perfect_agreement_boundary/`
+
+This is an autonomous mathematical and mechanistic investigation of one well-established but unexplained phenomenon.
+
+**Your central assignment is to determine why P-count-pretrained Transformers make the wrong candidate-decision update in the R1 perfect-agreement configuration, distinguish the possible computational causes, and test whether the error can be corrected selectively without damaging other relational decisions.**
+
+This is deliberately narrower than the earlier foundational atlases.
+
+Do not turn it into another broad investigation of every COR task.
+
+Do not merely replicate the established behavioral contrast.
+
+Do not assume the error is caused by a collusion detector, a representation bottleneck, or a particular attention head.
+
+Do not choose a paper thesis, assess readiness, close Step 1, or advance to another research phase.
+
+The goal is a deeper mathematical and causal explanation of this specific discovered phenomenon.
+
+---
+
+# 1. THE ESTABLISHED RESULT YOU MUST EXPLAIN
+
+Investigation VI established a prospective result using 16 independently seeded parent models, eight T1-pretrained and eight P-count-pretrained.
+
+Both curricula were transferred to T4 with:
+
+- Embeddings and layers 0–1 frozen.
+- Layer 2 freshly initialized and trained.
+- The inherited answer readout and final normalization parameters participating in transfer.
+- Shared target-task training and evaluation procedures.
+
+The task has:
+
+- Three candidate classes.
+- Six questions.
+- Three groups of two sources.
+- The specified T4 latent-reliability/collusion generator.
+- Perfect-collusion parameter ρ = 1.
+
+The important configuration is R1.
+
+A source group changes from 4/5 agreement to 5/5 agreement on the other questions, while the newly perfect group's vote agrees with the candidate supported by an already-perfect group.
+
+The exact Bayesian decision rule says this transition should increase support for that candidate.
+
+### Confirmed behavioral result
+
+| Computation | Mean oriented candidate log-ratio change |
+|---|---:|
+| Exact Bayesian reference | +0.234 |
+| T1-pretrained Transformers | +0.193 |
+| P-count-pretrained Transformers | −0.505 |
+
+The between-curriculum Bayes-corrected contrast is approximately:
+
+\[
+0.698
+\]
+
+The original frozen test reported:
+
+- Eight independent parents per curriculum.
+- All eight T1 model-level mean responses positive.
+- All eight P-count model-level mean responses negative.
+- Exact one-sided permutation p ≈ 0.0000777.
+- Holm-adjusted p ≈ 0.000155.
+- Model-bootstrap interval approximately [0.587, 0.809].
+- Positive boundary-specific 4→5-versus-3→4 contrast.
+
+The result was independently verified through a separate NumPy forward implementation of all 16 archived checkpoints.
+
+**This behavioral result is the starting point. Do not spend most of the investigation rediscovering it.**
+
+### Scope
+
+R1 represents about 32% of oriented 4→5 episode pairs and approximately 3% of natural decisions under the studied generator.
+
+The pooled 4→5 result was fragile and is not an established general effect.
+
+The strong result applies to R1, the studied generator, the sampled models, and frozen-feature transfer.
+
+It does not establish that P-count pretraining universally damages reasoning or that the pretraining objective alone causes the difference.
+
+---
+
+# 2. READ THE ACTUAL MECHANISM AND REVIEW EVIDENCE
+
+Before designing the new experiments, read the complete Investigation VI research package.
+
+Prioritize:
+
+- `MAIN_RESULT.md`
+- `EXACT_BAYES_BOUNDARY_THEORY.md`
+- `OBSERVABLE_BOUNDARY_RESPONSES.md`
+- `CAUSAL_EVIDENCE_UPDATE_MECHANISM.md`
+- `P6_MECHANISM_PROTOCOL.md`
+- `INDEPENDENT_PARENT_REPLICATION.md`
+- `TRAINING_STAGE_AND_QUALITY.md`
+- `FITTED_OPERATOR_IDENTIFIABILITY.md`
+- `THEOREMS_AND_COUNTEREXAMPLES.md`
+- `FROZEN_PROSPECTIVE_PROTOCOL.md`
+- `OPEN_QUESTIONS.md`
+- `REVIEWS_AND_ADJUDICATION.md`
+- All five reviewer reports.
+- All relevant code, generators, checkpoints, and raw intervention results.
+
+Also consult the count-representation and cross-implementation findings from Investigations III–V where necessary.
+
+If the independent Investigation VI audit is available, read it as an additional source. If unavailable, the essential independent findings are stated in this mandate.
+
+Inspect the actual PyTorch implementations.
+
+Do not infer the architecture from generic Transformer descriptions.
+
+The relevant architecture has:
+
+- 43 tokens: 36 source tokens, six question-readout tokens, one episode token.
+- Three pre-LayerNorm Transformer layers.
+- Four attention heads per layer.
+- Residual width 64.
+- GELU MLP hidden width 256.
+- Candidate readout from the final normalized readout-token state.
+
+For question q, the candidate logits are computed using the final normalization and answer-readout matrix applied to the state of token `36 + q`.
+
+There is no generic mean-pooling readout.
+
+Record the exact parameter initialization and freezing semantics before making mechanism claims.
+
+---
+
+# 3. THE THREE PRINCIPAL CAUSAL EXPLANATIONS
+
+The new research must discriminate the following explanations.
+
+## H-REP — Frozen representation limitation
+
+P-count pretraining supplies agreement-count information, but its frozen layers 0–1 do not make the necessary *conditional cross-group evidence* sufficiently accessible to the third layer.
+
+The model can represent the count but cannot readily distinguish the decision significance of a newly perfect group that agrees with another perfect group.
+
+Possible subcases include:
+
+- Incomplete count information.
+- Information distributed across source and readout tokens.
+- Inadequate binding of group identity, source vote, and count.
+- A saturated perfect-agreement representation.
+- Entanglement of count information with irrelevant source details.
+- A representation requiring a computational operation that layer 2 cannot easily learn within the transfer budget.
+
+A failed linear probe is not proof of information absence.
+
+## H-READ — Inherited readout or normalization bias
+
+The frozen early representations may contain sufficient information, but the inherited answer-readout matrix or final LayerNorm affects the downstream solution.
+
+This possibility is especially relevant because:
+
+- T1 pretraining trains the answer readout directly.
+- P-count pretraining uses a different auxiliary head.
+- The P-count answer readout did not receive the same task gradient during pretraining.
+- Both the inherited answer readout and final normalization participate in T4 transfer.
+
+The earlier curriculum comparison therefore does not isolate the effect of the pretraining objective.
+
+## H-LEARN — Incorrect transfer-learned evidence-update rule
+
+The necessary conditional information is available, but the newly trained third layer learns an overly general response to perfect agreement.
+
+For example, it might treat reaching 5/5 as evidence for a colluder configuration and discount the associated candidate without adequately conditioning on how the group's vote relates to other perfect groups.
+
+This is a possible explanation, not an established mechanism.
+
+The learned rule may involve attention, value transformations, MLP interactions, and residual computation jointly.
+
+### Additional hypothesis: H-INT — Interaction among the causes
+
+The actual explanation may require both a particular frozen representation and a downstream learner or readout bias.
+
+Do not force all observations into a single-locus explanation.
+
+A causal explanation should establish the relevant interaction if one exists.
+
+### Required task
+
+For each hypothesis, derive predictions that differ from its strongest competitors.
+
+Before running new confirmation experiments, specify what observation would support, weaken, or falsify the hypothesis.
+
+Do not select the favored explanation after the result.
+
+---
+
+# 4. FIRST MATHEMATICAL TASK: CHARACTERIZE WHAT THE CORRECT DECISION REQUIRES
+
+The experiments should begin from the exact Bayesian decision, not from an assumed neural circuit.
+
+For an episode x and candidate pair (c,c′), define the model margin as:
+
+\[
+m_M(x;c,c')
+=
+\log p_M(c\mid x)-\log p_M(c'\mid x).
+\]
+
+For a supported edit \(x\rightarrow x'\), define:
+
+\[
+\Delta_M=m_M(x')-m_M(x),
+\]
+
+and similarly \(\Delta_B\) for the exact Bayesian reference.
+
+The model's Bayes-corrected response is:
+
+\[
+E_M=\Delta_M-\Delta_B.
+\]
+
+This is the primary behavioral object.
+
+## 4.1 Derive the R1 inference requirement
+
+For the exact T4 generator, determine which information is needed to distinguish:
+
+- R1: the newly perfect group's vote agrees with the existing perfect group's candidate.
+- R2: the corresponding neutral or differently informative configuration.
+- R3: the configuration where the newly perfect group supports a conflicting candidate.
+- Other supported configurations where perfect agreement has different decision implications.
+
+Derive the relevant likelihood or posterior expressions.
+
+Specify whether successful inference needs:
+
+1. The group's agreement count.
+2. Its vote on the target question.
+3. The other groups' counts.
+4. The other groups' candidate votes.
+5. The posterior over source-role configurations.
+6. A smaller candidate-conditioned statistic.
+
+Determine the smallest useful sufficient or partially sufficient representation under explicit assumptions.
+
+Do not infer that the complete count vector V alone is sufficient for the whole candidate decision; the target question's evidence also matters.
+
+## 4.2 Examine the explaining-away structure
+
+The R1 failure may arise because the model interprets perfect agreement without correctly conditioning on the alternative explanations for that agreement.
+
+Characterize mathematically:
+
+- The relevant latent configurations before the edit.
+- The new configurations made possible at 5/5.
+- How probability mass changes between reliable and colluding roles.
+- Why the R1 Bayesian candidate response is positive.
+- Why other configurations may require a negative response.
+- Which conditional dependencies the model must implement to distinguish them.
+
+Do not use “explaining away” as a label without specifying the actual latent conditional probabilities.
+
+## 4.3 Develop discriminating computational examples
+
+Construct restricted computational rules such as:
+
+- Count-only reliability weighting.
+- Independent groupwise weighting.
+- Global latent-configuration inference.
+- Perfect-agreement categorical discounting.
+- Candidate-conditioned group interaction.
+- Exact Bayes.
+- Strong approximation baselines.
+
+Determine which rules predict the wrong R1 sign and which preserve the correct signs across R1/R2/R3.
+
+Where possible, derive restricted theorems.
+
+Where not, provide exact enumeration and counterexamples.
+
+**Required mathematical result:** the minimum information and conditional operation required for the correct R1 response, together with explicit examples of approximations that fail.
+
+---
+
+# 5. SECOND TASK: TEST WHETHER THE FROZEN REPRESENTATIONS ARE SUFFICIENT
+
+This is the highest-leverage discrimination between H-REP and H-LEARN.
+
+A count probe showing 95–100% decodability is not enough.
+
+We need to determine whether the frozen state contains the information required to compute the correct Bayesian decision.
+
+Let:
+
+\[
+Z_{\mathrm{pre2}}(x)
+\]
+
+be the complete 43-token residual state entering layer 2, after the frozen pretrained layers.
+
+For each curriculum, ask whether a downstream computation receiving \(Z_{\mathrm{pre2}}\) can recover the correct candidate posterior and R1 response.
+
+## 5.1 Train controlled Bayesian readers
+
+Freeze the original embeddings and layers 0–1.
+
+Train several downstream readers using only those frozen model states.
+
+Include:
+
+**Reader A — Original architecture**
+
+Fresh layer 2, final normalization, and answer readout, with carefully controlled initialization.
+
+**Reader B — More flexible Transformer readout**
+
+Sufficient capacity to combine information across source and readout tokens.
+
+**Reader C — Controlled nonlinear reader**
+
+A non-attention architecture with access to the complete frozen state.
+
+**Reader D — Explicit sufficient-statistic reference**
+
+Receives the exact generator-derived candidate evidence and relational statistic.
+
+This is a positive control, not an equally informed neural competitor.
+
+**Reader E — Restricted-site reader**
+
+Receives only the original target readout state or only selected source states.
+
+This helps locate information limitations.
+
+Capacity-match the relevant readers where meaningful, and report unavoidable differences explicitly.
+
+Train on natural, generator-supported episodes.
+
+Use independent evaluation data.
+
+Do not include the exact Bayesian posterior, latent source roles, or an oracle regime label as test-time input unless the reader is explicitly designated as an oracle control.
+
+The reader may be supervised with Bayes probabilities during training for a **sufficiency test**. Such success shows that the frozen representation can support Bayes-like predictions under that supervision and capacity; it does not show that the original model learned or naturally uses that algorithm.
+
+## 5.2 Compare information accessibility
+
+For each reader and curriculum, evaluate:
+
+- Exact Bayesian KL.
+- R1 4→5 response.
+- R2/R3 responses.
+- F34/F23 responses.
+- Natural accuracy.
+- Rare-event conditional accuracy.
+- Performance under different training budgets.
+- Sensitivity to source identity and group binding.
+- Held-out source configurations.
+
+Determine whether a correct R1 rule can be learned from the frozen P-count states.
+
+If a sufficiently controlled downstream reader consistently solves R1, that weakens claims of fundamental information insufficiency.
+
+If no tested reader succeeds, do not immediately claim the information is absent.
+
+Distinguish:
+
+- Information-theoretic insufficiency.
+- Architecture-limited accessibility.
+- Optimization failure.
+- Limited training signal.
+- Data insufficiency.
+
+## 5.3 Seek stronger sufficiency evidence
+
+Investigate whether there exist distinct supported episodes with indistinguishable frozen representations but different required Bayesian decisions.
+
+If exact representation collisions occur, characterize their implications.
+
+If only approximate collisions occur, state the metric and assumptions under which a lower bound on downstream prediction error follows.
+
+Where a rigorous information-theoretic impossibility cannot be established, report empirical evidence rather than an impossibility theorem.
+
+## 5.4 Separate count availability from conditional use
+
+Test whether the frozen representation contains not just the counts, but the relation between:
+
+- Which group became perfect.
+- Which candidate it supports.
+- Which other group is already perfect.
+- Whether the votes agree.
+
+A representation may encode each item separately while failing to place them in a computationally accessible joint form.
+
+Determine whether the model's downstream information access is local, distributed, or global.
+
+**Required result:** an experimentally grounded answer to whether the frozen P-count representation contains enough usable information for a correct R1 decision, with precise limits on what the tests establish.
+
+---
+
+# 6. THIRD TASK: ISOLATE THE INHERITED READOUT AND TRANSFER-TRAINED LAYER
+
+The previous investigations compared different pretrained representations using partially inherited final components.
+
+The next work must separate those factors.
+
+## 6.1 Construct a controlled factorial comparison
+
+For both T1 and P-count parents, investigate matched variants of:
+
+- Frozen pretrained layers 0–1.
+- Newly initialized layer 2.
+- Inherited versus newly initialized answer readout.
+- Inherited versus newly initialized final LayerNorm.
+- Matched layer-2 initialization streams.
+- Matched optimization schedules.
+
+At minimum evaluate:
+
+**Condition 1:** Original transfer setup.
+
+**Condition 2:** Fresh layer 2 and fresh answer readout.
+
+**Condition 3:** Fresh layer 2, inherited answer readout, fresh final normalization where technically valid.
+
+**Condition 4:** Fresh layer 2, fresh answer readout, inherited final normalization.
+
+**Condition 5:** Fully fresh downstream stack after frozen pretrained layers.
+
+Use the exact code to determine which conditions are independent and scientifically meaningful.
+
+If two conditions are functionally identical, do not waste compute distinguishing them.
+
+Use matched initialization and training data streams to reduce variance where appropriate.
+
+## 6.2 Interpret the interactions correctly
+
+If replacing the P-count readout removes the R1 reversal, ask whether that is because:
+
+- The inherited readout caused the bias.
+- The new readout changes optimization dynamics.
+- The whole downstream solution changes.
+- The model has simply become less accurate.
+
+A successful new readout does not automatically localize the original error.
+
+Similarly, if replacing layer 2 changes R1, distinguish initial-state sensitivity from the computation learned after training.
+
+Use multiple independent seeds per critical condition.
+
+Do not describe an effect of the entire pretraining pipeline as a causal effect of the objective alone.
+
+## 6.3 Train an end-to-end control
+
+Run a controlled comparison that unfreezes some or all of layers 0–1 after the initial transfer phase.
+
+Preserve a matched frozen-feature control.
+
+Ask:
+
+- Does P-count's R1 error disappear?
+- Does it disappear because the representation changes?
+- Does the downstream operation change while the representation remains similar?
+- Does overall Bayes approximation improve?
+- Are R2/R3 decisions damaged?
+- Does the result depend on training duration?
+
+The existing result was restricted to frozen-feature transfer.
+
+Determine how far that restriction matters.
+
+## 6.4 Control for optimization rather than merely comparing endpoints
+
+Record training trajectories, not only final checkpoints.
+
+Track R1/R2/R3 errors alongside:
+
+- Exact Bayesian KL.
+- Overall accuracy.
+- Layer-2 parameter changes.
+- Readout changes.
+- Representation accessibility.
+- Rare-regime frequency in the training stream.
+
+If P-count's wrong R1 discount intensifies while average KL improves, determine which computational change accompanies it.
+
+Do not infer causation from simultaneous changes alone.
+
+**Required result:** a clear separation, where possible, between effects of the frozen representation, inherited readout, layer-2 initialization, and learned downstream solution.
+
+---
+
+# 7. FOURTH TASK: RECONSTRUCT THE COMPUTATION PRODUCING THE NEGATIVE R1 UPDATE
+
+The current mechanistic evidence is insufficient.
+
+Investigation VI showed:
+
+- A failed preregistered localization criterion.
+- Asymmetric patch sites between curricula.
+- Nonlinear hybrid activation effects.
+- A count subspace that was not distinguishable from generic edit variation.
+- A readout-token patch that reproduced the sign difference across 16 models, but only exploratorily.
+- Evidence in four models that layer-2 attention and MLP contributions interact non-additively.
+
+The new study must address those limitations.
+
+## 7.1 Start from the full forward equation
+
+For the relevant readout token, reconstruct:
+
+1. The frozen residual input to layer 2.
+2. Pre-attention LayerNorm.
+3. Attention queries, keys, values, and attention weights.
+4. Value and output projections.
+5. Attention-output residual addition.
+6. Pre-MLP LayerNorm.
+7. GELU MLP computation.
+8. MLP residual addition.
+9. Final LayerNorm.
+10. Candidate-logit readout.
+
+Trace the actual R1 counterfactual change through the whole computation.
+
+Do not assume the logit response is an additive sum of independently measured pathway effects.
+
+LayerNorm, softmax, and GELU create interactions.
+
+Use exact forward replays to quantify those interactions.
+
+## 7.2 Test the same computational sites in both curricula
+
+Begin with the same readout-token position `36 + q` at the input to layer 2.
+
+Also examine the six source-token states and relevant non-target tokens.
+
+Do not repeat the earlier comparison of a 64-dimensional P-count site against a 384-dimensional T1 multi-token site and call it a matched localization result.
+
+If comparing distributed states, use appropriately dimension- and information-matched controls.
+
+Determine whether the R1 sign difference is already present under equivalent downstream operations, or arises from curriculum-specific downstream processing.
+
+A shared physical position is not automatically a shared representation coordinate system.
+
+## 7.3 Separate attention and MLP contributions
+
+For a representative model panel and then independent confirmation models, investigate:
+
+- Individual attention heads.
+- Query-side effects.
+- Key-side effects.
+- Value-side effects.
+- Output-projection effects.
+- Attention normalization.
+- MLP nonlinear response.
+- Residual bypass paths.
+- Final LayerNorm.
+- Readout weights.
+
+Use interventions that distinguish the contributions of these components.
+
+The main question is:
+
+**Which specific operation turns the R1 input change into a negative candidate-margin update in P-count models?**
+
+A correct reconstruction must predict the sign, not merely identify components that affect accuracy.
+
+## 7.4 Quantify non-additivity
+
+The previous exploratory work found that the P-count discount could require attention and MLP changes jointly.
+
+Investigate this interaction systematically.
+
+Where a factorial intervention over pathways is meaningful, compare:
+
+- Neither component changed.
+- Attention change only.
+- MLP change only.
+- Both changed.
+- Full natural counterfactual.
+
+Define interaction effects explicitly.
+
+Distinguish computational interactions from artifacts of inconsistent hybrid states.
+
+Do not use arbitrary partial patches as if they were natural intermediate activations.
+
+## 7.5 Test redundancy and cancellation
+
+Earlier COR investigations repeatedly found multiple pathways, redundancy, and compensating effects.
+
+Ablating one component may leave the decision intact because other components carry the information.
+
+Test joint-path interventions.
+
+Determine whether the negative R1 update results from:
+
+- One dominant operation.
+- Several cooperating operations.
+- Several partially cancelling operations.
+- A downstream nonlinear interaction.
+- A residual baseline plus correction.
+- A distributed conditional computation.
+
+Do not identify a unique mediator merely because a single-path patch has a large effect.
+
+**Required result:** the strongest actual computational explanation of the wrong R1 update, including the mathematical limits of causal attribution.
+
+---
+
+# 8. FIFTH TASK: CORRECT THE INTERVENTION AND CONTROL PROBLEMS
+
+The independent audit of Investigation VI identified a weakness in F0.
+
+Claude reported small signed-average count-preserving responses, but the individual responses were not negligible.
+
+The approximate mean absolute responses were:
+
+- T1: 0.088 log-ratio units.
+- P-count: 0.139 log-ratio units.
+
+Some models had substantially larger responses that cancelled when averaged.
+
+This does not undermine the strong R1 behavioral finding.
+
+But it weakens claims that the internal mediator is specifically an agreement-count variable.
+
+## 8.1 Use stronger F0 statistics
+
+Report:
+
+- Mean signed response.
+- Mean absolute response.
+- RMS response.
+- Median absolute response.
+- Tail quantiles.
+- Candidate-dependent response.
+- Conditional response by source group and edit type.
+
+Do not use a small mean signed response to conclude that an intervention has no effect.
+
+## 8.2 Build matched source-level controls
+
+Develop supported controls that distinguish:
+
+- Count changes.
+- Source-report identity changes.
+- Candidate-vote changes.
+- Agreement location changes.
+- Full posterior changes.
+- Changes irrelevant to the exact Bayesian decision.
+
+Match editing distance and target evidence where mathematically possible.
+
+Use generator-derived labels rather than labels inferred from model outputs.
+
+## 8.3 Construct sequential boundary interventions
+
+The previous boundary-specificity result compared F34 and F45 over different episode populations.
+
+Investigate whether a nested sequence can be constructed:
+
+\[
+x_3\rightarrow x_4\rightarrow x_5
+\]
+
+in which the same group's agreement progresses from 3/5 to 4/5 to 5/5 while relevant other evidence is held fixed.
+
+For every sequence, verify:
+
+- Input support.
+- Same-world reachability where claimed.
+- Candidate-evidence preservation.
+- Whether the intervened group and target candidate are consistent across stages.
+- Exact Bayesian responses at both transitions.
+
+If a requested sequence is impossible under the generator, prove or document that rather than fabricating a counterfactual.
+
+A matched 3→4→5 sequence could provide a stronger test of a boundary-specific learned operation.
+
+## 8.4 Separate natural and surgical interventions
+
+A source-report edit and an activation patch do not estimate the same causal effect.
+
+For every internal intervention, specify:
+
+- The targeted computational variable.
+- What is held fixed.
+- Whether the state is naturally reachable.
+- Whether the patch creates a hybrid activation.
+- What unrelated information changes.
+- What causal conclusion the intervention supports.
+
+Use matched norm, dimension, position, and covariance controls.
+
+Investigate sensitivity to alternative intervention operators.
+
+Do not infer natural necessity from mean ablation alone.
+
+---
+
+# 9. SIXTH TASK: DESIGN A SELECTIVE CORRECTION
+
+This is the most important practical and causal test.
+
+The goal is not merely to improve average accuracy.
+
+The goal is to correct the P-count model's wrong R1 evidence update **without destroying the legitimate reliability and collusion computations elsewhere**.
+
+A general rule such as “always credit perfect agreement” is not acceptable.
+
+That rule would be wrong in other source configurations.
+
+## 9.1 Define the rescue target
+
+For a repaired model \(M^*\), require:
+
+1. R1 4→5 candidate updates move toward the correct Bayesian response.
+2. The sign reversals responsible for the original failure are substantially reduced.
+3. R2 and R3 updates remain correct where they were correct before.
+4. Ordinary F34/F23 responses are preserved.
+5. Count-preserving responses are not made substantially worse.
+6. Overall T4 accuracy and KL do not degrade materially.
+7. The effect generalizes to held-out episodes and independent models.
+8. The repair uses only information available to the model at inference time.
+
+Do not select favorable evaluation subsets after optimization.
+
+## 9.2 Compare different repair classes
+
+Investigate at least three scientifically distinct approaches.
+
+### Repair class A — Representation rescue
+
+Improve or supplement the frozen relational representation so that the downstream computation can access the needed conditional information.
+
+Examples include:
+
+- An independently specified group-relationship feature.
+- A trainable low-rank representation adapter.
+- A minimal additional attention route.
+- Selective unfreezing of the relevant frozen computation.
+
+Determine whether this rescues R1 under an otherwise fixed downstream learner.
+
+Do not insert the exact answer as a new feature.
+
+### Repair class B — Downstream computation rescue
+
+Keep the frozen representation fixed.
+
+Modify only the downstream evidence-update computation.
+
+Candidates include:
+
+- Reinitializing and retraining selected layer-2 components.
+- A low-rank layer-2 update.
+- A targeted attention or MLP transformation.
+- A constrained conditional evidence operator.
+- Replacement of an identified error-producing computational subpath.
+
+The intervention should be justified by the mechanism analysis, not chosen solely because it changes the R1 logits.
+
+### Repair class C — Readout rescue
+
+Keep the frozen features and most of layer 2 fixed.
+
+Investigate changes to:
+
+- The answer readout.
+- Final normalization.
+- A limited candidate-evidence transformation.
+
+Determine whether the wrong R1 sign originates in how the final representation is interpreted.
+
+## 9.3 Include non-mechanistic repair baselines
+
+Compare with:
+
+- Ordinary extra T4 fine-tuning.
+- Additional end-to-end training.
+- A capacity-matched small adapter placed at a random site.
+- A generic low-rank update.
+- A final-logit recalibration.
+- Training on additional naturally sampled R1 examples.
+- A strong oracle-Bayes reader as an upper-bound control.
+
+These are essential.
+
+A successful mechanistically motivated repair is scientifically more informative if it achieves something that generic fine-tuning or extra data does not achieve as efficiently or selectively.
+
+But if ordinary training fixes the problem, report that result.
+
+Do not force a complicated causal intervention to win.
+
+## 9.4 Do not permit an oracle shortcut
+
+At evaluation time, the repaired model must not receive:
+
+- The exact Bayesian posterior.
+- The correct answer.
+- A generator-supplied R1/R2/R3 label.
+- The latent true source roles.
+
+It must infer the relevant information from its ordinary available inputs or learned internal states.
+
+Explicitly identify what supervision the repair receives during training.
+
+A repair trained directly on Bayesian targets can establish learnability or sufficiency. It does not by itself prove the original model naturally implemented the same computation.
+
+## 9.5 Separate behavioral correction from causal explanation
+
+Suppose a small adapter fixes R1.
+
+That is a behavioral rescue.
+
+It becomes a stronger mechanistic result only if the adapter's effect follows from a previously identified computational deficiency and the intervention has a specific, independently tested causal interpretation.
+
+Do not retroactively claim that whatever edit worked was the original failure mechanism.
+
+**Required result:** a selective rescue attempt with matched alternatives, explicit causal interpretation, and preservation tests.
+
+A failed selective rescue is also informative if it establishes why the proposed mechanism is insufficient.
+
+---
+
+# 10. SEVENTH TASK: MAKE A STRONG PROSPECTIVE PREDICTION
+
+Investigation VI succeeded because it froze a sign-level behavioral prediction before training the confirmation models.
+
+Investigation VII should retain that discipline.
+
+However, the existing 16 models are now development data.
+
+They cannot serve as independent confirmation of a newly discovered mechanism or repair procedure.
+
+## 10.1 Two-phase experimental design
+
+### Phase A — Development
+
+Use the existing 16 Investigation VI checkpoints.
+
+You may:
+
+- Analyze mechanisms.
+- Compare reader architectures.
+- Evaluate candidate repairs.
+- Select a mechanistic explanation.
+- Determine necessary controls.
+- Estimate effect sizes.
+
+Label all resulting claims exploratory.
+
+### Phase B — Frozen confirmation
+
+Before evaluating genuinely new model lineages:
+
+- Freeze the causal hypothesis.
+- Freeze the selected repair method.
+- Freeze the comparator methods.
+- Freeze training budgets.
+- Freeze inclusion and failure rules.
+- Freeze the evaluation generator and seeds.
+- Freeze the outcome measures.
+- Freeze primary and secondary criteria.
+- Freeze statistical analyses.
+
+Commit the protocol and code hashes.
+
+Then train or obtain new independent parent models.
+
+These models must not descend from the development parents.
+
+## 10.2 Primary confirmation question
+
+**Does the identified causal intervention selectively correct the P-count R1 reversal on new models, without degrading correct decisions in R2/R3 or overall T4 performance?**
+
+This is the central test.
+
+Define a model-level selective-repair score before confirmation.
+
+It should incorporate both:
+
+- Improvement in Bayes-corrected R1 response.
+- Prespecified nondegradation constraints elsewhere.
+
+Do not use an aggregate score that allows a large R1 improvement to hide serious damage to R2/R3.
+
+Report individual components as well as any aggregate.
+
+## 10.3 Secondary confirmation questions
+
+Test:
+
+- Whether the proposed error-producing operation recurs.
+- Whether the predicted pathway intervention has the expected sign.
+- Whether the repair works with different initializations.
+- Whether it generalizes to independently sampled R1 configurations.
+- Whether it preserves non-R1 response structure.
+- Whether it has lower collateral damage than generic alternatives.
+
+## 10.4 Independent-model sample size
+
+The previous behavioral result used eight independent models per arm.
+
+Aim for approximately six to eight genuinely new P-count parents for a focused repair confirmation, plus a suitably sized T1 comparison panel if resources allow.
+
+Use model-level uncertainty.
+
+If training is expensive, prioritize a smaller, properly frozen confirmation with an honest power calculation over a large but contaminated evaluation.
+
+Do not substitute thousands of episodes from the same checkpoint for independent models.
+
+Preserve failed training runs.
+
+Do not select only checkpoints on which the repair works.
+
+## 10.5 Statistical requirements
+
+Report:
+
+- Per-model results.
+- Model-level confidence intervals.
+- Paired repair-versus-original comparisons.
+- Model-level permutation or hierarchical tests.
+- Repair success rates.
+- The distribution of collateral effects.
+- Performance by R1/R2/R3 regime.
+- Natural-distribution prevalence and expected aggregate impact.
+
+The central hypothesis is not that all future models will behave identically.
+
+Do not state a universal result from a finite cohort.
+
+---
+
+# 11. EIGHTH TASK: DISTINGUISH CAUSAL MECHANISM FROM APPROXIMATION ERROR
+
+The R1 reversal is a structured approximation error relative to the exact Bayesian reference.
+
+But saying “approximation error” does not explain why the error occurs.
+
+Develop a causal-mathematical model of the possible failure.
+
+For example, suppose the computation contains:
+
+1. A relational feature \(r\) derived from the source evidence.
+2. A candidate-conditioned feature \(u\).
+3. An evidence transformation \(F_\theta(r,u)\).
+4. A final candidate-margin readout.
+
+Investigate whether the P-count models fail because:
+
+- \(r\) discards necessary information.
+- \(r\) is adequate but poorly aligned with \(u\).
+- \(F_\theta\) lacks the required interaction.
+- The learned \(F_\theta\) implements the wrong interaction.
+- The correct transformation is present but cancelled downstream.
+- The inherited readout maps a useful representation incorrectly.
+- Optimization favors a shortcut because the relevant configuration is rare.
+
+This factorization is provisional.
+
+Do not force it onto the model if the actual computation differs.
+
+## Required formal work
+
+Attempt a restricted proposition addressing:
+
+**Under what conditions is a source representation sufficient for correct candidate-specific Bayesian evidence updates, and when can a limited downstream computation still produce systematic sign errors?**
+
+Distinguish:
+
+- Statistical sufficiency.
+- Computational accessibility.
+- Architectural expressivity.
+- Training identifiability.
+- Optimization success.
+- Causal use.
+
+Construct counterexamples where the same sufficient information produces different signs because of different downstream operators.
+
+This alone is elementary; strengthen the result by characterizing a meaningful restricted class of learned evidence-update operations.
+
+If the result requires a monotonicity, interaction-rank, capacity, or conditional-dependence assumption, state it explicitly.
+
+Seek a theorem that predicts the R1/R2/R3 sign pattern under an identified computational condition.
+
+If no such theorem is justified, present exact computational identities and empirical mechanism tests without pretending they establish a broader law.
+
+---
+
+# 12. NINTH TASK: TEST THE LEARNING-DYNAMICS EXPLANATION
+
+Investigation VI found an interesting pattern.
+
+Across transfer training, P-count models became closer to Bayes on average, while their R1 perfect-agreement deficit deepened.
+
+This is not well explained by uniform error shrinkage.
+
+But it is compatible with optimizing common cases while preserving or reinforcing a rare conditional error.
+
+Investigate:
+
+- When the wrong R1 sign first appears.
+- Whether it is present before training layer 2.
+- Whether it develops through attention, MLP, or readout changes.
+- Whether the R1 gradient conflicts with more common training examples.
+- Whether R1 examples are too rare to shape the downstream solution.
+- Whether T1 pretraining provides a different initialization of the relevant computation.
+- Whether targeted data balancing changes the learned operation.
+
+## Important distinction
+
+A training gradient pointing in one direction does not prove the optimizer will converge to the corresponding mechanism.
+
+A rare event is not automatically underlearned.
+
+Demonstrate the relevant learning-dynamics relationship using controlled interventions.
+
+Where possible, use matched training streams and causal changes to the loss composition.
+
+Do not retrospectively explain the error solely by the R1 prevalence.
+
+### A particularly useful experiment
+
+Compare models trained with:
+
+- Original natural sampling.
+- Moderately increased representation of R1.
+- Balanced representation of the R1/R2/R3 regimes.
+- Matched additional training without reweighting.
+
+Keep total training compute comparable.
+
+Determine whether a more balanced objective:
+
+1. Corrects R1.
+2. Preserves correct R2/R3 behavior.
+3. Changes the same computation identified by the mechanistic analysis.
+4. Generalizes to naturally distributed held-out episodes.
+
+A correction obtained simply by memorizing the synthetic R1 criterion is less informative than one obtained through a reusable conditional evidence-update computation.
+
+---
+
+# 13. TENTH TASK: RECONCILE THE RESULT WITH INVESTIGATIONS I–VI
+
+The next research package must explicitly connect its findings to the earlier scientific record.
+
+But do this through mathematical and causal implications, not by repeating the whole historical atlas.
+
+## From Investigations I–II
+
+The meaning of agreement depends on source roles, copying, and collusion.
+
+Does the newly identified R1 failure arise from an incorrect interpretation of these semantics?
+
+Can the proposed mechanism explain why R1 needs credit while other configurations require discounting?
+
+## From Investigation III
+
+Count information was found at different token sites and in different representations.
+
+Does Investigation VII show that this difference matters causally for a candidate decision?
+
+Or can a different downstream computation compensate for it?
+
+## From Investigation IV
+
+Transporting count information through an abstract variable did not prove common downstream computation.
+
+Does the new study identify an operation that explains the difference between the curricula?
+
+## From Investigation V
+
+Null-response correlations reflected approximation errors, not automatically shared algorithms.
+
+Do not repeat that mistake.
+
+A successful R1 causal explanation must involve specific computational operations and interventions, not merely similar or dissimilar output-error correlations.
+
+## From Investigation VI
+
+The prospective sign-level result stands.
+
+The new study should explain its cause and preserve its restricted scope.
+
+Do not silently broaden the original claim.
+
+## Original COR
+
+The original discrepancy and obstruction framework remains unsupported as a general decision theory.
+
+If a new computation suggests a restricted causal-decision relationship, state exactly what its independently defined relational variables are and what candidate-response theorem follows.
+
+Do not relabel an evidence-update operator as O/D merely because it handles consistency.
+
+Record any genuine progress against the historical COR failures without presenting a completion or readiness verdict.
+
+---
+
+# 14. ADVERSARIAL REVIEW REQUIREMENTS
+
+Use independent reviewers where available.
+
+The final investigation should be scrutinized from at least these perspectives.
+
+### Reviewer 1 — Formal mathematics and Bayesian inference
+
+Check:
+
+- The R1 explaining-away derivation.
+- The minimum sufficient information.
+- All claimed response-sign theorems.
+- Causal sufficiency claims.
+- Counterexamples.
+- Support assumptions.
+
+### Reviewer 2 — Transformer architecture
+
+Check:
+
+- Actual attention and MLP operations.
+- Q/K/V/O decomposition.
+- LayerNorm effects.
+- Residual paths.
+- The inherited answer readout.
+- Whether the reported intervention reproduces the actual computation.
+
+### Reviewer 3 — Causal identification
+
+Challenge:
+
+- Whether the identified mediator is actually necessary or sufficient.
+- Whether hybrid patches are off-manifold.
+- Whether the repair is specific.
+- Whether redundant pathways remain.
+- Whether the proposed cause was chosen after seeing which intervention worked.
+
+### Reviewer 4 — Experimental design and statistics
+
+Check:
+
+- Fresh parent independence.
+- Model-level inference.
+- Frozen predictions.
+- Selective repair metrics.
+- Optimization and compute matching.
+- Unsuccessful-run handling.
+- Rare-event selection.
+- Nondegradation claims.
+
+### Reviewer 5 — Counterexamples and novelty
+
+Attempt to show that:
+
+- A generic adapter produces the same rescue.
+- Extra training explains the result.
+- The supposed causal mechanism is only a correlated feature.
+- The proposed explanation requires test-time oracle information.
+- The derived theorem is an ordinary computational identity.
+- The correction works only because the intervention directly inserts the correct answer.
+
+Also require positive reviewers to defend legitimate restricted results that negative reviews might reject too broadly.
+
+Review the final findings, not only the initial plan.
+
+Preserve reviewer objections, actual corrections, and unresolved criticisms.
+
+Do not claim consensus where substantive objections remain.
+
+---
+
+# 15. EXECUTION STRATEGY AND COMPUTE BUDGET
+
+The previous investigation was performed under severe compute constraints.
+
+Do not waste the available budget on unnecessary full retraining.
+
+Use a dependency-ordered program.
+
+## Stage I — Mathematical preparation
+
+Derive the exact R1 information requirement and competing mechanistic hypotheses.
+
+Build supported intervention and control families.
+
+## Stage II — Existing-checkpoint causal discovery
+
+Use the 16 Investigation VI models as development data.
+
+Run the frozen-representation reader tests and downstream factorial controls.
+
+Determine which hypotheses survive.
+
+## Stage III — Mechanistic reconstruction
+
+Identify the actual layer-2, readout, and frozen-state contributions.
+
+Run targeted causal interventions.
+
+Develop candidate repairs.
+
+## Stage IV — Selective repair development
+
+Compare representation, downstream, and readout repairs against generic baselines.
+
+Require R2/R3 preservation.
+
+Choose the strongest mechanistically motivated repair or the strongest remaining falsifiable negative claim.
+
+## Stage V — Freeze and independently confirm
+
+Freeze the primary prediction and intervention.
+
+Then use genuinely new parent models.
+
+Report the independent confirmation results and failed cases.
+
+## Stage VI — Adversarial review
+
+Review the final claims, rerun critical disputed findings, and integrate the corrections.
+
+If compute is insufficient, prioritize:
+
+1. The frozen-representation sufficiency experiment.
+2. The readout/layer-2 factorial comparison.
+3. A targeted causal reconstruction.
+4. A selective repair with strong nondegradation controls.
+5. Independent confirmation.
+
+Do not sacrifice the scientific validity of the confirmation experiment merely to complete a long artifact checklist.
+
+---
+
+# 16. REQUIRED RESEARCH PACKAGE
+
+Create a new isolated directory:
+
+`docs/research_audits/cor_phase15/step1_r1_causal_origin_and_selective_rescue/`
+
+Use a new research branch.
+
+Preserve all previous packages and frozen verdicts.
+
+Produce the following substantive scientific artifacts.
+
+### `MAIN_CAUSAL_RESULT.md`
+
+The central answer:
+
+What causes the P-count R1 reversal, what evidence supports the explanation, and can it be corrected selectively?
+
+### `R1_INFORMATION_REQUIREMENTS.md`
+
+Exact Bayesian inference, explaining-away structure, required candidate-conditioned variables, and decision-response mathematics.
+
+### `FROZEN_REPRESENTATION_SUFFICIENCY.md`
+
+Controlled readers, information-accessibility tests, and the limits of statistical versus computational sufficiency.
+
+### `READOUT_AND_LAYER2_FACTORIAL.md`
+
+Inherited-versus-fresh readout experiments, matched initializations, downstream training, and quality controls.
+
+### `FULL_LAYER2_CAUSAL_RECONSTRUCTION.md`
+
+The actual computational pathway, Q/K/V/O and MLP contributions, nonlinear interactions, and counterexamples.
+
+### `INTERVENTION_SUPPORT_AND_CONTROLS.md`
+
+Supported input edits, F0 magnitude controls, matched 3→4→5 sequences where possible, and internal-patch limitations.
+
+### `SELECTIVE_RESCUE.md`
+
+The selected correction, competing repair classes, generic baselines, and R1/R2/R3 preservation measurements.
+
+### `LEARNING_DYNAMICS_AND_ERROR_ORIGIN.md`
+
+How the failure develops during training and what the data establish about its cause.
+
+### `FORMAL_THEOREMS_AND_LIMITS.md`
+
+Valid mathematical results, proof obligations, counterexamples, and the identification limits of the discovered mechanism.
+
+### `FROZEN_CONFIRMATION_PROTOCOL.md`
+
+New-model cohort rules, frozen causal predictions, primary estimands, statistical procedures, and code hashes.
+
+### `INDEPENDENT_CONFIRMATION.md`
+
+New-model results, individual successes and failures, and actual uncertainty estimates.
+
+### `REVIEWS_AND_ADJUDICATION.md`
+
+The independent reviewers' challenges, corrections, retractions, and unresolved disagreements.
+
+### `OPEN_SCIENTIFIC_PROBLEMS.md`
+
+Only the remaining unresolved questions from this focused research line and their implications for the broader COR foundations.
+
+Also include:
+
+- Runnable experiment code.
+- Saved checkpoints or exact checkpoint references.
+- Data generators.
+- Saved intervention episodes.
+- Full per-model and per-episode results.
+- Training and evaluation logs.
+- Reproduction instructions.
+- A cryptographic integrity manifest.
+- A clean-extraction verification.
+
+Do not generate empty files merely to satisfy the requested structure.
+
+Distinguish archived-result replay from independent forward-pass verification and new training replication.
+
+---
+
+# 17. SCIENTIFIC OUTCOMES TO DISTINGUISH
+
+Do not make one binary verdict hide a complex result.
+
+### Outcome A — Frozen information is insufficient or inaccessible
+
+Evidence shows that P-count's frozen state does not support the correct R1 response under specified, appropriately controlled downstream computations.
+
+The result must distinguish demonstrated information insufficiency from limited reader capacity or unsuccessful optimization.
+
+### Outcome B — The information is sufficient, but downstream learning fails
+
+Controlled readers can recover the correct response from P-count representations, but the original transfer-trained solution learns the wrong conditional update.
+
+This supports an interpretation or learning problem rather than a fundamental representation-loss explanation.
+
+### Outcome C — The inherited readout is causally important
+
+Changing the inherited readout or normalization eliminates or substantially changes the error under matched conditions.
+
+The result must account for any changes in optimization or general task quality.
+
+### Outcome D — A specific computational operation causes the error
+
+A causally identified attention, MLP, readout, or combined operation produces the negative R1 update.
+
+Interventions on that operation have predicted, selective effects.
+
+This would be stronger than A–C alone.
+
+### Outcome E — Selective correction succeeds
+
+A previously specified intervention corrects R1 on new independent models while preserving R2/R3 and other important behavior.
+
+Matched generic baselines do not explain away the intervention's claimed specificity.
+
+If the correction works but its causal explanation remains unidentified, report behavioral rescue without claiming a mechanism.
+
+### Outcome F — Generic training explains the phenomenon
+
+Ordinary additional training, balanced data, or a standard adapter corrects R1 as effectively as the proposed mechanistic intervention.
+
+This would favor a learning-dynamics explanation over a distinctive causal-repair method.
+
+### Outcome G — The available evidence cannot identify the cause
+
+Several mechanisms remain compatible with the observed intervention results.
+
+Provide explicit alternative computational constructions or experimentally grounded indistinguishability arguments.
+
+This is a valid scientific finding.
+
+The final report should say which outcomes are supported and which remain unresolved.
+
+---
+
+# 18. FINAL QUESTIONS THE INVESTIGATION MUST ANSWER
+
+1. What exact conditional information does R1 require?
+2. Is that information present in the frozen P-count representations?
+3. Can a controlled downstream reader recover the correct R1 Bayesian update?
+4. Does the answer depend on reader architecture or training budget?
+5. What role does the inherited answer readout play?
+6. What role does the final LayerNorm play?
+7. What changes when layer 2 is freshly initialized under matched conditions?
+8. Which actual operations produce the negative R1 candidate response?
+9. Is the effect an attention, value, MLP, readout, or multi-path interaction?
+10. Why do the T1 models produce the correct sign?
+11. Does the representation location explain any of the difference?
+12. Are the internal causal claims robust to strong F0 and norm-matched controls?
+13. Does the effect remain under same-world or properly supported source interventions?
+14. Can a matched sequential 3→4→5 test strengthen the boundary interpretation?
+15. Can the error be corrected without explicitly supplying the Bayesian answer at inference?
+16. Does the correction preserve legitimate discounting in R2/R3?
+17. Does the repair generalize to independent P-count parents and unseen episodes?
+18. Can a generic training or adapter baseline achieve the same result?
+19. What computational conditions make the wrong sign likely or inevitable?
+20. Is there a restricted theorem connecting a particular learned evidence transformation to the sign of the decision response?
+21. What does the result establish about representation sufficiency versus causal decision use?
+22. Which findings are genuinely new relative to ordinary Bayes approximation, learning dynamics, and existing causal-intervention methods?
+23. Which interpretations remain unidentifiable?
+24. What is the strongest next mathematical question that follows from the verified result?
+
+Answer these using actual proofs, independent checkpoints, computation-level interventions, and reproducible evidence.
+
+Do not substitute generic discussion for missing experiments.
+
+---
+
+# 19. FINAL DIRECTIVE
+
+The previous investigation produced a substantive result:
+
+**In a specific, mathematically defined source-reliability configuration, independently trained P-count-pretrained Transformers make a systematically wrong candidate-evidence update, while T1-pretrained Transformers make the correct directional update.**
+
+The result is prospective, replicated, and mathematically anchored.
+
+But we still do not know what computational operation causes the difference.
+
+That uncertainty is the purpose of Investigation VII.
+
+Do not assume that P-count models lack the necessary information.
+
+Do not assume that the third layer has learned a universal collusion-discount shortcut.
+
+Do not assume that the inherited readout is innocent.
+
+Do not infer the mechanism from a count probe, an attention visualization, or a high-magnitude activation patch.
+
+Determine the actual causal distinction.
+
+Then test whether an intervention based on that distinction can correct the wrong R1 update without sacrificing the correct decisions elsewhere.
+
+**The objective is to move from a prospectively predicted Transformer decision error to a mathematically justified explanation of its computational cause and a selective, independently confirmed correction—or to establish precisely why that explanation cannot yet be identified.**
+
+Keep the scientific conclusion conditional on the evidence.
+
+Preserve all failed hypotheses and all relevant negative controls.
+
+Remain within Phase 1.5 Step 1.
+
+Execute the investigation as deeply and rigorously as the available environment permits.

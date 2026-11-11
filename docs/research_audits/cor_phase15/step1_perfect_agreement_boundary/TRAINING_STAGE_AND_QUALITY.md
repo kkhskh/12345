@@ -1,5 +1,8 @@
 # Training stage and approximation quality
 
+> **Post-review [R2-4, R5-3, R5-4, R5-6].** §2 has been reworded: the approximation-error argument is exploratory and
+> weaker than stated before. §5 has been added. Pre-review text: commit 9389496.
+
 **Schedule.** Both curricula follow the same matched schedule: 4000 transfer steps, snapshots at 250/500/1000/2000/4000, and the
 same optimiser and schedule. The P-count arm received the full long-transfer arm, as the mandate required.
 
@@ -27,7 +30,14 @@ Source: `logs/summary_tables.json` and `logs/confirmatory.json` → `quality_tab
    - From step 250 to step 4000, P-count KL falls fivefold (0.444 → 0.088).
    - Its below-boundary deficit B34-R1 closes almost to the T1 level (−0.456 → −0.071).
    - Its boundary excess B45-R1 becomes *more* negative (−0.343 → −0.739).
-   - Approximation error predicts that both shrink together. The opposite happens at 4→5.
+   - A *uniform-shrinkage* approximation account predicts that both shrink together. That does not happen at 4→5.
+     This argument is exploratory, not frozen, and limited in two ways [R2-4, R5-3]:
+     - At step 250 the P-count arm barely responds to any edit (slope 0.01, accuracy .51), so its B45-R1 there sits near
+       −Δm_B. Part of the "deepening" is the arm beginning to respond at all.
+     - The other 4→5 regimes improve strongly over the same period. The P-count R3 excess falls from 1.92 to 0.10, and R2
+       from 2.27 to 0.66. At step 4000 the P-count arm is *closer* to Bayes in R3 than T1 is (0.10 vs 0.34).
+   - The pattern is therefore the textbook one of an approximator improving its average while its error on a small subgroup
+     grows: R1 is about 3 % of natural decisions. It rules out uniform error, not a feature-limited approximation error.
 2. **T1 converges at both.** Its B45-R1 and B34-R1 both approach about −0.04 from below.
 3. **Global calibration is not the explanation.**
    - The KL-optimal temperature is 1.00 ± 0.02 in both arms at every stage after 250.
@@ -55,6 +65,9 @@ which snapshot one picks.
 
 ## 4. Limits
 
+- **The KL control is weak.** An error of 0.74 on about 3 % of decisions adds only about 1e-3 to KL, so KL matching barely
+  "sees" the effect [R5-6]. It shows that average quality does not explain the difference. It is not a strong control.
+
 - **The 'training stage' explanation is excluded only within this schedule.** We cannot exclude that much longer transfer
   (≫ 4000 steps) would close the gap. The trajectory from 2000 to 4000 is flat to slightly diverging (−0.711 → −0.739),
   which gives no sign of closing.
@@ -64,3 +77,15 @@ which snapshot one picks.
 - **Output-space dependence.** The quality measures are averages, and a small-measure set (F45-R1 pairs) can carry large
   errors at fixed KL (Proposition 1, corrected). The quality controls therefore show that *average* quality does not
   explain the effect. They cannot show that no quality measure does.
+
+## 5. What the dynamics do establish [R5-4]
+
+- **The discount is acquired during transfer.**
+  - The P-count pretraining objective contains no discount.
+  - The R1 reversal is weak at step 250 and grows during T4 training under the *same* objective and layer-2 learner as T1.
+  - Because there is no step-0 readout, the question of whether a P-count model already has the discount immediately
+    after pretraining cannot be answered.
+- **What separates the arms.** The T1 frozen features (together with the inherited readout) lead layer 2 to avoid the
+  R1 error under the same learner, objective and budget; the P-count ones do not.
+- **Interpretation.** This is a structured, curriculum-dependent approximation error, concentrated on an "explaining-away"
+  subgroup. It is not "beyond approximation error" in the sense of being unrelated to approximation [R5-8].

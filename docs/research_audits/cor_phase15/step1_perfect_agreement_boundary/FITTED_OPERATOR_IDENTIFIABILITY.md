@@ -63,3 +63,19 @@ s = φ_rel(5) − φ_rel(4). The exact-Bayes value is log RHO = 1.36.
   P-count models.
 
 No operator in these four families is claimed to be "the algorithm" of either curriculum.
+
+## 4. Post-review additions [R5-5]
+
+These are exploratory reviewer checks: `reviews/checks/R5_pa_discount_fit.py` and `R5_response_weighted_mix.py`.
+
+- **Mixture plus a regime-insensitive "5/5 discount" term.** The fitted discount has the wrong sign in 8/8 P-count models,
+  and the fit predicts a *positive* R1 excess (+0.11 to +0.41) against −0.51 to −1.00 observed. A uniform perfect-agreement
+  penalty therefore does not describe the P-count behaviour either.
+- **Bayes mixture fitted with weight on the edit responses.** It still reproduces only about half the R1 effect (−0.39 vs
+  −0.74). The "half" in §1 is therefore not just an artefact of whole-surface weighting.
+- **What the families cannot do.** None of them combines a deep R1 discount with near-Bayes R3 behaviour, and the P-count
+  models do both. An operator that fits would have to condition on the regime itself, i.e. on whether g's vote agrees with
+  the existing perfect group. That is a relabelling of the observable, not an explanation.
+
+The observable is therefore not implied by Bayesian approximation (exact or gain-scaled) or by any of the fitted pooling
+operators examined.

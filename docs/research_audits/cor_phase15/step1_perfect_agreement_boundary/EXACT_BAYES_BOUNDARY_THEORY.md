@@ -1,5 +1,9 @@
 # Exact-Bayes reference for the 4→5 boundary
 
+> **Post-review [R1].** Findings R1-8, R1-9 and R1-10 are applied: the "Reading" is restricted to |H| = 1 and labelled
+> [N-sample]; the B3 consequence is made conditional on which arm is more attenuated, with fitted per-arm gains; and the
+> gain-free cells are noted. Pre-review text: commit 9389496.
+
 **Status labels**
 - **[P]** proved.
 - **[N]** exact computation over 20,000 natural T4 episodes (stream 14_000_000, `scripts/exact_boundary.py`,
@@ -54,7 +58,12 @@ group.
 
 **Reading.** At the perfect-agreement boundary the exact Bayes update is mostly a **discount**. Reaching 5/5 makes g a
 possible colluder, so its vote at q stops counting as independent evidence. Below the boundary, an additional agreement is
-always (weakly) a **credit**. The sign of the Bayes response therefore changes at 4→5 in R2 and R3 and does not change in R1.
+always (weakly) a **credit**.
+
+**Scope [R1-8].** For |H_before| = 1 the Bayes response goes from positive (R3) or exactly zero (R2) below the boundary to
+negative at 4→5. In R1 it stays positive. This is [N-sample]: it was observed in every one of 20,000 sampled episodes, not
+proved for the finite domain. With |H_before| = 2 it does not hold: the R3 row there is mixed, 59 % negative and 41 %
+positive.
 
 ## 3. Results used later
 
@@ -75,15 +84,23 @@ disagree in that question, so n is unchanged. π depends on X only through n and
 **Lemma B3 (temperature and gain confound the excess) [P].** Suppose ℓ_M = γ ℓ_B + const per decision, i.e. a pure gain
 (γ = 1/T). Then E45 = (γ − 1) Δ45 m_B on every pair. The same identity holds for every family.
 
-*Consequence.* An attenuated model (γ < 1) shows a **negative** excess in R1 and a **positive** excess in R2/R3 of F45,
-and a negative excess on F34/F23. That is the qualitative pattern of the development P-count models.
+*Consequence.* An attenuated model (γ < 1) shows a **negative** excess in R1 and a **positive** excess in R2/R3 of F45, and
+a **non-positive** excess on F34/F23. That excess is exactly zero in R2, where Δm_B ≡ 0, so those pairs are gain-free
+[R1-10]. This is the qualitative pattern of the development P-count models.
 
 A single-family excess therefore cannot separate a boundary-specific operation from global attenuation. Under pure gain:
 
   D-R1 := B45-R1 − B34-R1 = (γ − 1)(Δm_B,45,R1 − Δm_B,34,R1) ≈ (γ − 1)(0.24 − 0.42).
 
-This is **positive** for γ < 1. Pure attenuation in the P-count arm would therefore make D-R1(P) > D-R1(T1), the
-**opposite** of the frozen P2 prediction. A confirmed P2 is evidence against "global gain" as the whole explanation.
+The between-arm contrast is what matters [R1-9]. Under pure gain, D-R1(T1) − D-R1(P) = −0.188 (γ_T − γ_P). That is
+**negative iff γ_T > γ_P**, i.e. iff the P-count arm is the more attenuated one. Only under that condition does a confirmed
+P2 (T1 > P) count against "global gain" as the whole explanation.
+
+The condition holds in the cohort. Gains fitted per model, one parameter τ · Bayes on all families (FITTED_OPERATOR_IDENTIFIABILITY.md):
+- T1 range 0.72–1.00, mean 0.93;
+- P-count range 0.57–0.90, mean 0.78.
+
+Pure gain therefore predicts T1 − P ≈ −0.188 × 0.15 ≈ **−0.03** for D-R1. The observed value is **+0.66**.
 (The frozen protocol did not state this reason; it is noted here as theory, and the frozen rule is unchanged.)
 Gain is not the only miscalibration, so a confirmed P2 does not exclude a regime-dependent gain. See
 THEOREMS_AND_COUNTEREXAMPLES.md, T4.

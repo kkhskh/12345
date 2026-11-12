@@ -130,3 +130,18 @@
 2026-11-12T04:34:06Z lane D5b start xP80 C2 0
 2026-11-12T04:37:02Z lane D5a end xT70 Csoft 0 rc=0
 2026-11-12T04:37:02Z lane D5a start xP80 C3 0
+2026-11-12T05:04:42Z lane D5b end xP80 C2 0 rc=0
+2026-11-12T05:04:42Z lane D5b start xP80 W_bal 0
+2026-11-12T05:07:31Z lane D5a end xP80 C3 0 rc=0
+2026-11-12T05:07:31Z lane D5a start xP81 W_bal 0
+2026-11-12T05:12:40Z dropped from devqueue5 for compute (pre-claimed, never run): xP80 Asoft 12000, xP81 C2/C3/C5
+2026-11-12T05:34:30Z lane D5b end xP80 W_bal 0 rc=0
+2026-11-12T05:34:30Z lane D5b start xT70 C5 0
+2026-11-12T05:37:33Z lane D5a end xP81 W_bal 0 rc=0
+2026-11-12T05:37:33Z lane D5a start xT70 C2 0
+2026-11-12T06:02:25Z lane D5b end xT70 C5 0 rc=0
+2026-11-12T06:02:25Z lane D5b start xT70 C3 0
+2026-11-12T06:03:43Z lane D5a end xT70 C2 0 rc=0
+2026-11-12T06:03:43Z lane D5a start xP81 Csoft 0
+2026-11-12T06:09:51Z lane D5a end xP81 Csoft 0 rc=0
+2026-11-12T06:09:51Z lane D5a start xP80 C1 0 12000

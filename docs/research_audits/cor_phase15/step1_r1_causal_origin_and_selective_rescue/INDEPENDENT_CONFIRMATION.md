@@ -1,5 +1,8 @@
 # Independent confirmation
 
+> **Post-review [R3, R4].** Caveats added on P3 overshoot, P6 risk, P7 hybridity, power, bootstrap, smoke run and timing. Pre-review text: commit 76a9d60.
+
+
 ## 1. Design and integrity
 
 **Protocol.** FROZEN_CONFIRMATION_PROTOCOL.md, committed as be4a0da. Hashes are in `logs/FREEZE7_HASHES.txt`.
@@ -11,7 +14,9 @@ They descend from no development parent.
 - 40 runs: 8 parents × {C1, injm, injn, injrand, W_bal}.
 - All finished with rc = 0 (`logs/COMPUTE_LOG.txt`, 00:02–04:28 UTC).
 - No confirmation outcome was examined before the last run ended.
-- One pre-freeze 20-step smoke run on yP90 is disclosed in the protocol. Its outputs were deleted.
+- One pre-freeze smoke run on yP90 is disclosed in the protocol. It was *trained* for 20 steps and evaluated once on the
+  confirmation set, with its outputs deleted. It does not appear in `COMPUTE_LOG.txt`. The pre-review wording "untrained" was
+  inaccurate (review R4-5).
 
 **Success rule.** C1 accuracy ≥ 0.6595 in all 8 parents (0.712–0.736). There were no failed runs, so ITT and successful-only
 analyses coincide.
@@ -31,13 +36,31 @@ Source: `logs/confirmatory7.json`, `logs/conf_probes.json`, `logs/conf_mech.json
 |---|---|---|---|
 | **P1** | E_R1(injm) − E_R1(C1) > 0 | mean **+0.695**, exact sign-flip p = 1/256 = **0.0039**, CI [0.476, 0.880]; positive in **8/8** | **confirmed** |
 | **P2** | Δ(injm) − Δ(injrand) > 0 | mean **+0.714**, p = 0.0039, CI [0.493, 0.896] | **confirmed** |
-| **P3** | selective success in ≥ 6/8 | **7/8** (yP96: Δ = +0.146 < 0.20; every preservation constraint met) | **confirmed** |
+| **P3** | selective success in ≥ 6/8 | **7/8** (yP96: Δ = +0.146 < 0.20; every preservation constraint met) | **confirmed as frozen**; see the caveat below |
 | P4 | Δ(injn) < 0 | mean worsening 0.637, p = 0.0117; worse in 7/8 | **confirmed** |
 | P5 | original C1 raw Δm_R1 < 0 in ≥ 7/8 | **8/8**. The Investigation VI reversal replicates on a third cohort | **confirmed** |
 | P6 | H2 linear-probe accuracy at q-sources < 0.96 in ≥ 6/8 | **8/8** (0.913–0.932; majority rate 0.912) | **confirmed** |
 | P7 | readout-token-only route negative in C1, ≥ 6/8 | **8/8** (−0.33 to −0.89) | **confirmed** |
 
-The primary pair (P1 ∧ P2) holds, and the selective criterion P3 holds. Under the frozen outcome map this is a **selective
+**Caveats (post-review).**
+- **P3 counts overshoot as success.** yP90–92 overshoot Bayes by 2.4–2.8× in raw R1 response. A distance-to-Bayes version of
+  P3 would pass 5/8 (3/8 per pair), below the frozen bar (review R4-1).
+- **P6 was a low-risk prediction.** The threshold of 0.96 sat just above the development maximum of 0.952, with a majority rate
+  of 0.912. The frozen probe output shows H2 well decoded elsewhere: MLP up to 0.977; linear on readout + q-sources 0.996 for
+  yP96. A class-balanced re-probe gives AUC 0.73 (review R3-6). P6 is **not** evidence that the relation is absent.
+- **P7 is a hybrid-patch quantity.** Its confirmation mean is −0.535, and it depends on the baseline (FULL_LAYER2 §2).
+- **P2 adds little.** The random-feature control carries almost no information by construction.
+- **Bootstrap width.** The percentile bootstrap is narrow at n = 8. The t-interval for P1 is [0.43, 0.96].
+- **No power analysis was done before the freeze** (mandate §10.4). Post hoc, assuming the development effect
+  (mean 0.90, SD 0.36), P1's power is ≈ 1.0. P3's binomial criterion has power 0.80 if each parent's true success rate is 0.8,
+  and still passes 14 % of the time at a rate of 0.5 (review R4-3).
+- **Pretraining quality splits** into 0.76 (yP90–92) and 1.00 (the rest), with no inclusion rule for it. The three weaker
+  parents are the overshooters.
+- **Unconstrained families.** F23, FLOC and FID improve under the repair. F54o overshoots in the same three parents.
+- **Hypothesis timing.** H7 was written *after* injection had worked on two development parents (23:13 and 23:27 UTC). It was
+  committed before any confirmation run (review R3-3).
+
+The primary pair (P1 ∧ P2) holds, and the selective criterion P3 holds as frozen. Under the frozen outcome map this is a **selective
 behavioural rescue by the specified relational feature, specific against capacity**.
 
 ## 3. Per-parent results

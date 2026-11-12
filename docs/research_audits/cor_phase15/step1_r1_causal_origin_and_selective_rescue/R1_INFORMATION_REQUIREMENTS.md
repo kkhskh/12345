@@ -1,5 +1,8 @@
 # R1 information requirements
 
+> **Post-review [R1, R5].** The corollary is corrected (R1-1, R5-3), the R2 result added and the R3 claim dropped for Theorem 2 (R1-2), and table caveats and provenance notes added. Pre-review text: commit 76a9d60.
+
+
 **Status labels.** [P] proved; [N] exact numerical computation (generator-exact posteriors on sampled episodes, scripts named);
 [E] empirical on models.
 
@@ -56,6 +59,10 @@ The edit does three things at once:
 3. it doubles the eligibility of the third group (1 → 2), because either perfect group could now be the colluder.
 
 **Posterior over "which group is reliable"** (mean over pairs; `explaining_away_weights_H1`):
+
+These entries are normalised mixture weights W_g/ΣW, not the full role posterior given X. The script picks h* as the first other
+count-5 group; in 6 of 1,354 development pairs that group disagrees at q, which produces the 0.003/0.002 "h* reliable before"
+entries. With h* chosen correctly these are 0.000 (review R1).
 
 | regime | before: g / h* / f | after: g / h* / f | posterior mass on hypotheses whose reliable group votes c_g (before → after) |
 |---|---|---|---|
@@ -118,9 +125,18 @@ Multiplying by a global factor u(|H|) leaves the rule separable, because u cance
 
 [N] Checked on 300 random separable rules × every |H| = 1 pair: no violation.
 
-**Corollary.** Any rule that gives the Bayes signs (R1 > 0 together with R3 < 0) has **non-separable** weights. A group's weight
-must depend on whether *other* groups are perfect. This is the eligibility factor m_g, or something equivalent. In Bayes it is
-exactly this cross-group factor that turns h* from "certain colluder" into "possibly reliable".
+**Corollary (corrected after review R1-1 / R5-3).** No separable rule has R1 > 0 together with R2 < 0 or R3 < 0. The weaker
+pre-review claim, that R1 > 0 with R3 < 0 needs other groups' *counts*, was false.
+
+A counterexample in the mixture class uses no other-group counts. It gives a perfect group the full weight only when its q-vote
+matches another group's q-vote. It reaches R1 +0.04 and R3 −0.72 (all pairs), but gets R2 wrong (+0.70).
+
+What holds:
+- **The full Bayes pattern** (R1 > 0, R2 < 0, R3 < 0) needs weights that depend on information about *other* groups. This can
+  be their counts or their votes.
+- **In Bayes** this information is the eligibility factor m_g.
+- **Scope.** Theorem 1 itself needs neither |H| = 1 nor a particular regime. Reviewer R1 found no violation over all oriented
+  pairs, and it holds for the pairwise margin as well.
 
 **Theorem 2 (sign of R1 in the interaction family) [P; N].** Let W_g = w(n_g) v(m_g) with v(0) = 0, so a lone perfect group is
 always taken to be the colluder. On every |H_before| = 1 F45 pair in R1:
@@ -135,10 +151,15 @@ Theorem 1 the margin rises iff the ratio of the c-weight to f's weight rises:
 [N] Checked on 300 random (w, v): no violation. The analogous claim for R3 is **false** in general, with violations found, so
 no R3 statement is made.
 
-**Reading of Theorem 2.** With collusion exclusion in place, the R1 sign is decided by a single balance. On one side is the
-reliability gain of perfect agreement, w(5)/w(4) (Bayes: RHO = 3.88). On the other is the inflation of the third group's
-credibility when two groups are perfect, v(2)/(2v(1)) (Bayes: 1). R1 turns negative when the model inflates the third group,
-relative to the two agreeing perfect groups, by more than the reliability gain.
+**Reading of Theorem 2.** With collusion exclusion in place, the R1 sign is decided by a single balance:
+- the reliability gain of perfect agreement, w(5)/w(4) (Bayes: RHO = 3.88);
+- the inflation of the third group's eligibility when two groups are perfect, v(2)/(2v(1)) (Bayes: 1).
+
+**R2 (added after review R1-2) [P].** Within this family R2 < 0 always holds. Before the edit, the c_g-supporting mixture is
+already at the maximal likelihood ratio log 64, because g and f are both unanimous on c_g. After the edit, h* adds a component
+favouring another candidate.
+
+No R3 statement holds: 105 of 300 random rules give positive R3 pairs.
 
 ## 4. Supported edits used here [N]
 
@@ -150,6 +171,10 @@ relative to the two agreeing perfect groups, by more than the reliability gain.
 | **FID** (report identity) | in a question k ≠ q where a non-perfect group agrees on v, both reports become v′ ≠ v | exactly 0 | edit distance 2 |
 | **Nested S** (3→4→5) | a count-3 group whose q-pair agrees has its two disagreeing questions repaired one at a time | S34-R1 +0.455, S45-R1 +0.281 | same group, same c_g, same other evidence at every stage |
 | **F54o** | in a natural state with two perfect groups agreeing at q, one of them loses perfect agreement | −0.239 | built on its own natural pool (stream + 900) |
+
+**Provenance (review R1).** The nested-S values in the first table (+0.455 / +0.281) and F54o (−0.239) are from the
+development evaluation stream 17_100_000. The table below is from stream 17_000_000. `formal_checks.py` loads `eval_dev.npz`
+(stream 17_100_000); its docstring saying 17_000_000 is wrong.
 
 **Nested S checks.** 10,473 sequences on stream 17_000_000. All count and X_q checks pass, and each step changes exactly one
 report.
@@ -179,8 +204,14 @@ Under the closed form, the correct R1 update needs:
 - **The full role posterior.** Not needed. The per-group statistic (n_g, m_g, q-reports of g) is sufficient for the predictive
   (Proposition 1).
 
-The smallest sufficient summary is therefore the three triples (RHO^{n_g} m_g, q-reports of g), g = 1, 2, 3. A smaller
-sufficient summary of the R1 *sign* is the balance in Theorem 2.
+The three triples (RHO^{n_g} m_g, q-reports of g), g = 1, 2, 3, are sufficient.
+
+**Minimality is not proved.** The smallest sufficient summary is the posterior itself (review R1). The "Theorem-2 balance" is a
+property of a *rule*, not a statistic of the data. "Vote-blind" describes how the exact rule is *written*, not the function it
+computes.
+
+**Theorem labels.** Theorems 1–2 are elementary consequences of the dominance lemma, and are labelled so in
+FORMAL_THEOREMS_AND_LIMITS.md.
 
 ## 6. Prevalence (natural decisions) [N]
 

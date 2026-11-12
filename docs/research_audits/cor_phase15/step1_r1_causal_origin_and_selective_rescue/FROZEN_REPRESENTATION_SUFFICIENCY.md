@@ -105,6 +105,13 @@ Source: `logs/accessibility_probes_xP80.json`. Natural decisions; fit stream 17_
 - In P-count states it is at chance linearly (parent 80) or weakly above chance. It is partly recoverable by an MLP probe.
 - The probes are consistent with the accessibility account. **They are not evidence of use** (Investigation VI, T2). The causal
   evidence is the injection rescue and its controls.
+- **They are not evidence of absence either (review R3-6).**
+  - A class-balanced re-probe on a confirmation parent gives AUC 0.73 for H2.
+  - The per-group "perfect" indicator reaches AUC 0.93–0.997.
+  - agree2 is MLP-decodable at 0.94.
+
+  The ingredients are present; their *conjunction* is weakly accessible. The post-review injna result (SELECTIVE_RESCUE.md §5)
+  shows that even supplying the ingredients explicitly does not help the learner.
 
 ## 4. Representation collisions (§5.3)
 

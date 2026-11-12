@@ -1,0 +1,10 @@
+pcount s97 step 300 loss 1.6664
+pcount s97 step 600 loss 1.6529
+pcount s97 step 900 loss 1.4636
+pcount s97 step 1200 loss 0.5459
+pcount s97 step 1500 loss 0.0512
+pcount s97 step 1800 loss 0.0104
+pcount s97 step 2100 loss 0.0050
+pcount s97 step 2400 loss 0.0033
+pcount s97 step 2700 loss 0.0034
+pcount s97 step 3000 loss 0.0034

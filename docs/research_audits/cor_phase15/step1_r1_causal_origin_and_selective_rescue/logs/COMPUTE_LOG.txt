@@ -145,3 +145,12 @@
 2026-11-12T06:03:43Z lane D5a start xP81 Csoft 0
 2026-11-12T06:09:51Z lane D5a end xP81 Csoft 0 rc=0
 2026-11-12T06:09:51Z lane D5a start xP80 C1 0 12000
+2026-11-12T06:18:07Z lane D5b end xT70 C3 0 rc=0
+2026-11-12T06:21:51Z POST-REVIEW development runs (devqueue6.txt): generic task-relevant adapter injna (counts + q-agreement, no conjunction) on P80/P81; T70 injm. downstream.py modified AFTER the confirmation freeze (new INJ option only; frozen code paths unchanged)
+2026-11-12T06:21:51Z lane R6 start xP80 C1_injna 0
+2026-11-12T06:22:06Z lane R6b start xP81 C1_injna 0
+2026-11-12T06:22:07Z frozen downstream.py restored from git; post-review option moved to scripts/downstream_postreview.py (+ dev_lane_postreview.sh)
+2026-11-12T06:46:25Z lane R6b end xP81 C1_injna 0 rc=0
+2026-11-12T06:46:25Z lane R6b start xT70 C1_injm 0
+2026-11-12T06:57:00Z lane D5a end xP80 C1 0 12000 rc=0
+2026-11-12T06:59:43Z lane R6b end xT70 C1_injm 0 rc=0

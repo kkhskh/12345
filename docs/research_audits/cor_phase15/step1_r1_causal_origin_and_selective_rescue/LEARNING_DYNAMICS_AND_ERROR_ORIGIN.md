@@ -25,7 +25,9 @@ near-uniform (KL 0.44–0.86). **The error is not present before layer 2 is trai
 | T71 | +0.05 | +0.19 | +0.16 | +0.13 | +0.14 |
 | T73 | +0.20 | +0.31 | +0.27 | +0.24 | +0.24 |
 
-In P-count parents the wrong sign appears within the first 250–500 steps and **deepens** while KL falls (P80: 0.41 → 0.10).
+In P-count parents the wrong sign appears within the first 250–500 steps. In P80 and P83 it **deepens** while KL falls
+(P80: 0.41 → 0.10). In P81 it peaks at step 1000 (−0.64) and eases slightly by step 4000 (−0.48), while KL keeps falling
+(review R2).
 T1 parents get the right sign from the start.
 
 ## 2. Which route develops
@@ -82,7 +84,8 @@ The repaired models over-credit R1 at intermediate steps and drift back towards 
 by step 4000.
 
 **What the training interventions establish.**
-1. **The R1 sign responds to loss composition.** Equalising the decision classes (R1-type examples about 12× more frequent)
+1. **The R1 sign responds to loss composition.** The balancing classes are defined by the same relation, so this is not a
+   relation-free baseline (review R3-5). Equalising the decision classes (R1-type examples about 12× more frequent)
    flips it. It does so by over-crediting perfect agreement everywhere, not by learning the interaction. Rarity alone is
    therefore *not* the explanation: balancing exposes the R1 class but moves the model along the separable family (Theorem 1)
    rather than off it.
@@ -101,3 +104,10 @@ The P-count R1 reversal arises during transfer. It is a learned, structured appr
   sign as R3.
 
 T1 states expose the cross-group relation at the source tokens, so the T1 learner takes a route where the relation is available.
+
+## 5. Post-review additions (development)
+
+- **Extra training (3× budget, P80).** R1 E −0.68 at 12,000 steps; the sign is still wrong.
+- **Generic ingredient adapter (injna).** R1 becomes worse (P80) or is unchanged (P81).
+- Both support the reading that the binding constraint is the *conjunction*, not the budget or the ingredients. With n = 1–2
+  development parents, this is **not** confirmed.

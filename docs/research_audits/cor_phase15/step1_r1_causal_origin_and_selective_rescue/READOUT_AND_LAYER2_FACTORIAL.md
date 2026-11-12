@@ -48,7 +48,9 @@ the same data stream and the same 4000 steps.
 | C2 fresh W_A | −0.021 | +0.213 | +0.159 | +0.100 | −0.021 | 0.006 | 0.747 |
 | C5 fresh W_A and LN | −0.019 | +0.214 | +0.161 | +0.099 | −0.021 | 0.006 | 0.747 |
 
-T70 C3 was still running when this was written; see §4.
+| C3 fresh LN | −0.093 | +0.140 | +0.237 | +0.265 | −0.036 | 0.008 | 0.745 |
+
+Weakness of C3 (review R2): a trainable W_A can absorb the LN gain, so "fresh LN" is a weak test.
 
 ## 3. Interpretation
 
@@ -73,4 +75,16 @@ T70 C3 was still running when this was written; see §4.
 **Unfreezing control** (mandate §6.3): **not run**, for compute reasons. The claim stays restricted to frozen-feature transfer.
 See OPEN_SCIENTIFIC_PROBLEMS.md.
 
-**Extra training (3× budget)** and T70 C3: results are appended in §5 when complete.
+## 5. Extra training (3× budget, development, P80)
+
+C1 run for 12,000 steps with the same schedule shape:
+
+| step | E_R1 | Δm_R1 | KL |
+|---|---|---|---|
+| 4000 | −1.03 | | |
+| 8000 | −0.70 | | |
+| 12,000 | −0.68 | −0.45 | 0.067 |
+
+The original 4000-step model has −0.90. Tripling the budget improves average quality but leaves the R1 sign wrong (n = 1;
+development). Generic extra training does not account for the rescue in this parent. Mandate outcome F remains **undetermined
+for larger budgets and other parents**.

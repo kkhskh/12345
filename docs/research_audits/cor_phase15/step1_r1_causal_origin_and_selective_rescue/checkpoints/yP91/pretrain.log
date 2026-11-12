@@ -1,0 +1,10 @@
+pcount s91 step 300 loss 1.6253
+pcount s91 step 600 loss 1.6385
+pcount s91 step 900 loss 1.2532
+pcount s91 step 1200 loss 1.1200
+pcount s91 step 1500 loss 1.1094
+pcount s91 step 1800 loss 0.8581
+pcount s91 step 2100 loss 0.6022
+pcount s91 step 2400 loss 0.5595
+pcount s91 step 2700 loss 0.5672
+pcount s91 step 3000 loss 0.5502

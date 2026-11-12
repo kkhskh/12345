@@ -32,3 +32,15 @@
 m_g, and proves that it is necessary for a family of candidate-response signs. It shows that representations differ in its
 accessibility, and that supplying it causally and selectively corrects decisions on independent models. It does not supply a
 general decision theory, and it does not revive the O/D framework.
+
+## Added after review
+
+9. **Can a network be led to construct the conjunction unaided?** Giving the ingredients (counts plus q-agreement) did not
+   help (P80, P81; development). Candidates:
+   - a learned conjunction-capable adapter (for example an MLP over counts and q-agreement);
+   - unfreezing layer 1;
+   - an auxiliary target for m during transfer.
+10. **Generic baselines not run.** LoRA layer-2 updates, logit recalibration, natural R1 up-weighting (W_r1up), and extra
+    training on more than one parent.
+11. **A distance-to-Bayes selective criterion.** The repair overshoots Bayes in three lineages, and those three had weaker
+    pretraining (aux 0.76). A frozen test of whether pretraining quality predicts the overshoot is needed.

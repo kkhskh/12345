@@ -1,5 +1,8 @@
 # Selective rescue
 
+> **Post-review [R2–R5].** Corrected: the 'Bayes level' claim is withdrawn; the n and random controls are re-described; a generic task-relevant adapter (injna, development) and an extra-training control are added; m's near-oracle character on the deciding subset is stated. Pre-review text: commit 76a9d60.
+
+
 **Rescue target** (mandate §9.1). Move the P-count R1 response toward Bayes without damaging:
 
 - R2 and R3;
@@ -74,29 +77,65 @@ Source: `logs/confirmatory7.json` (FROZEN_CONFIRMATION_PROTOCOL.md). The cohort 
 
 ## 4. Interpretation
 
-1. **m-injection is a selective behavioural rescue.**
-   - It moves R1 to the Bayes level on average: E −0.72 → −0.03, raw Δm −0.50 → +0.20.
+1. **m-injection is a selective behavioural rescue.** It is **not** a return to Bayes.
+   - The signed mean E goes from −0.72 to −0.03, but three parents overshoot (+0.32 to +0.43) and five undershoot (−0.13 to
+     −0.37).
+   - Mean |E_R1| falls from 0.72 to 0.30, a 58 % reduction. Per-pair |E| falls from 0.82 to 0.51.
+   - The raw Δm goes from −0.50 to +0.20, positive in 5/8 parents.
+   - The pre-review phrase "to the Bayes level" is **withdrawn** (reviews R4-1, R5-7).
    - It does not damage R2/R3; the combined |E| there falls from 1.23 to 0.51.
    - It improves KL (0.070 → 0.039) and accuracy (0.725 → 0.731).
    - It also fixes the nested 3→4→5 test (S45-R1 E −0.75 → −0.03).
    - It does this on independent lineages, under the frozen protocol.
-2. **The effect is specific to the relational statistic.**
-   - Random injection changes nothing: Δ ≈ 0 in every parent.
-   - Injecting the *separable* counts makes R1 **worse** in 7/8 parents (mean Δ −0.64), although it improves KL even more
-     (0.034).
-   - This is the prediction of Theorem 1 in learning form. Making separable count information easier to use pushes the learner
-     to a better-on-average separable discount, which has the wrong R1 sign.
-3. **Generic data balancing is not a selective substitute.**
+2. **The effect is specific to the precomputed conjunction m.**
+   - **Random injection** changes nothing (Δ ≈ 0). It is a weak control: its features take at most 7 distinct patterns per
+     episode (a mod-7 hash), so it controls only for an added pathway, not for information (reviews R2-5, R3-4, R5-1).
+   - **n-injection** (counts of all three groups) makes R1 worse in 7/8 parents (mean Δ −0.64) while improving KL. The
+     pre-review label "separable information" was imprecise. The other groups' count-5 indicators determine m in 95–97 % of
+     cells, so n *contains* the cross-group information. What it lacks is the conjunction with q-agreement in computed form
+     (reviews R3-1, R5-2).
+   - **Post-review generic task-relevant adapter `injna`** (development, 2 parents). It supplies every ingredient of m (all
+     counts plus every group's q-agreement), 21 inputs, but not the conjunction. Result: P80 **−2.26**, P81 −0.67 (originals
+     −0.90 / −0.72), with KL improved.
+
+   **Corrected reading.** What rescues R1 is the *precomputed conjunction* "number of other perfect groups that agree at q".
+   Giving the learner the ingredients, even linearly, does not help, and can make R1 worse. This fits the Theorem-1 picture: the
+   learner settles on a near-separable rule over whatever features are easiest. It is a statement about learnability of the
+   conjunction within this budget and architecture. It is not a statement about what is absent.
+3. **Generic data balancing is not a selective substitute.** W_bal is not fully "generic": its decision classes are defined by
+   the same relation, and its weights (×11.9, ×6.0) were untuned and had no development run before the freeze (reviews R3-5,
+   R4-4, R5-8).
    - W_bal fixes the R1 sign (+0.18) but over-credits perfect groups everywhere: R2 +1.46, R3 +1.24.
    - It roughly doubles KL and costs 3.4 points of accuracy.
    - Reweighting changes the trade-off along the same separable family. It does not supply the interaction. Mandate outcome F
      ("generic training explains") is therefore **not** supported for selective correction. W_bal *does* show that the R1 sign
      responds to the loss composition (LEARNING_DYNAMICS_AND_ERROR_ORIGIN.md).
-4. **What the rescue does not show.**
+4. **m is close to an oracle on the subset that decides R1 (review R3-2).**
+   - On two-perfect decisions (8 % of decisions; every R1 pair is one), weighting groups by [m > 0] matches the Bayes choice in
+     97.4 % of cases.
+   - m alone, without counts, gives KL 0.128, accuracy 0.693 and R1 ≈ 0. With counts, [m > 0]·RHO^n is essentially exact
+     (review R5-4).
+   - The repair therefore converts the task into a form the learner fits easily. It respects the no-oracle rule (m is a fixed
+     function of X, with labels-only training), but it is a hand-derived, generator-specific feature, valid for pc = 1 and ρ = 1.
+5. **What the rescue does not show.**
    - It is a behavioural rescue by supplying a computed relational feature. It does not identify an internal operation of the
      original models that computes m wrongly.
    - The original models' reconstruction is in FULL_LAYER2_CAUSAL_RECONSTRUCTION.md.
    - Supplying m is a hand-specified, generator-derived feature. The rescue therefore shows that *the missing piece is the
      cross-group eligibility relation*. It does not show that a learned network would find it unaided.
-5. **Failure case.** yP96 improved by only +0.146 (below the 0.20 success threshold) and stayed negative. Its original error
+6. **Failure case.** yP96 improved by only +0.146 (below the 0.20 success threshold) and stayed negative. Its original error
    was among the smallest (−0.45).
+
+## 5. Post-review development controls (not frozen)
+
+All runs: development, P80 unless stated. Source: `checkpoints/dev`.
+
+| control | E_R1 | KL | note |
+|---|---|---|---|
+| original transfer, 4000 steps | −0.895 | 0.104 | |
+| **extra training, 3× budget** (12,000 steps, same schedule shape) | −1.029 @4000, −0.698 @8000, **−0.682 @12,000** | 0.067 | wrong sign persists: Δm −0.45 |
+| generic task-relevant adapter injna | **−2.264** (P81: −0.668) | 0.049 (P81: 0.015) | |
+| m-injection on a **T1** parent (T70) | −0.115 (original −0.098) | 0.005 | no damage; R2/R3 E +0.04 / +0.07, original +0.24 / +0.26 |
+
+**Not run.** Low-rank (LoRA) layer-2 update, logit recalibration, natural R1 up-weighting (W_r1up; coded, never run), and a
+learned conjunction-capable adapter (for example an MLP on counts plus q-agreement). These remain open (OPEN_SCIENTIFIC_PROBLEMS.md).

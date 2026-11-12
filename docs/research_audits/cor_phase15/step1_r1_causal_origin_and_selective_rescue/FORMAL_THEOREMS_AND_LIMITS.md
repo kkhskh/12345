@@ -1,5 +1,8 @@
 # Formal theorems and limits
 
+> **Post-review [R1, R5].** Corollary 1 corrected; Theorem 2 extended (R2) and its empirical table corrected; elementary labels added. Pre-review text: commit 76a9d60.
+
+
 **Status labels.** [P] proved here; [N] exact numerical verification (script named); [E] empirical; [elementary] a standard
 identity, labelled as such.
 
@@ -39,10 +42,19 @@ sign(Δm_{c_g}) ∈ {sign(w(5) − w(4)), 0}.
 
 [N] 300 random w × all |H| = 1 pairs (`logs/formal_checks.json`): no violation.
 
-**Corollary 1.** Exact Bayes has R1 > 0 and R2, R3 < 0. No separable rule has both R1 > 0 and R3 < 0. Every rule in 𝕄 that
-reproduces the Bayes R1/R3 signs therefore has weights that depend on *other* groups' counts.
+**Corollary 1 (corrected) [P].**
+- No separable rule has R1 > 0 together with R2 < 0 or R3 < 0.
+- The full Bayes pattern therefore needs weights that depend on *other groups' information*: counts **or votes**.
 
-## Theorem 2 (the R1 sign in the eligibility family) [P; N]
+The pre-review form ("depends on other groups' counts", "R1 and R3") was false. The vote-matching rule of
+R1_INFORMATION_REQUIREMENTS.md §3 gets R1 > 0 and R3 < 0 without any other-group count, but gets R2 wrong (reviews R1-1, R5-3).
+
+**Generality.** Theorem 1 holds for all oriented F45 pairs, not just |H| = 1, and for the pairwise margin too. It assumes
+w > 0 and ε > 0. It is an elementary consequence of Lemma 1.
+
+## Theorem 2 (the R1 sign in the eligibility family) [P, elementary; N]
+
+R2 < 0 also holds in this family (proof in R1_INFORMATION_REQUIREMENTS.md §3, added after review). R3 does not.
 
 Let W_g = w(n_g) v(m_g) with v(0) = 0, so a lone perfect group is never reliable. On every |H_before| = 1 R1 pair:
 
@@ -65,18 +77,21 @@ The theorem predicts the R1/R2/R3 sign pattern under an identified computational
 - R1 fails when v(2)/(2v(1)) > w(5)/w(4);
 - R2/R3 stay negative whenever v(0) ≈ 0.
 
-**Empirical fit (exploratory, 4 development models; `logs/separability_fit_dev.json`).** The fitted values of log v(2) − log 2
-are:
+**Empirical fit (exploratory, 4 development models; corrected after review R1-3).** The pre-review text compared
+log v(2) − log 2 with the Bayes value log RHO. The correct boundary is each model's *own* fitted log(w5/w4).
 
-| model | log v(2) − log 2 |
+Fitted margins, log(w5/w4) − [log v(2) − log 2 v(1)]:
+
+| model | margin |
 |---|---|
-| T1 parent 70 | 0.14 |
-| T1 parent 73 | 0.73 |
-| P-count parent 80 | 1.44 |
-| P-count parent 81 | 1.29 |
+| T1 parent 70 | +0.91 |
+| T1 parent 73 | +0.56 |
+| P-count parent 80 | **−1.17** |
+| P-count parent 81 | **−0.30** |
 
-The P-count fits are on the wrong side of the Theorem-2 boundary or close to it. These are fitted parameters of a family that
-fits P-count models only moderately (R² 0.83–0.92). They are **not** used as evidence of the models' algorithm; the observables are.
+The predicted signs match the observed ones. P80, however, fails mainly because its fitted reliability gain log(w5/w4) is only
+0.27. Third-group inflation is not the main cause for P80. These are fitted parameters of a family that fits P-count models only
+moderately (R² 0.83–0.92). They are **not** evidence of the models' algorithm.
 
 ## Proposition 2 (sufficient information, different signs) [P, elementary]
 

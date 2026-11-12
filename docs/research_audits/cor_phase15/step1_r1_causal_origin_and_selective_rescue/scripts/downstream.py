@@ -22,11 +22,12 @@ import numpy as np, jax, jax.numpy as jnp
 import nnlib as NL, r1lib as L, evalrun as ER, ckpt as C
 N = NL.N
 parent, spec, rep = sys.argv[1], sys.argv[2], int(sys.argv[3]); STEPS = int(sys.argv[4]) if len(sys.argv) > 4 else 4000
-seed = int(parent[2:]); OUT = os.path.join(HERE, "..", "checkpoints", "dev"); os.makedirs(OUT, exist_ok=True); tag = f"{parent}_{spec}_r{rep}" + (f"_s{STEPS}" if STEPS != 4000 else "")
-ev = dict(np.load(os.path.join(HERE, "..", "logs", "eval_dev.npz"), allow_pickle=True))
-pf = NL.load(NL.dev_ckpt(parent, 0)); fresh = N.init("M", NL.ENV, seed + 7777 + 1000 * rep)
+PHASE = os.environ.get("PHASE", "dev")       # dev: Investigation VI parents (x...), eval_dev; conf: Stage-0 lineages (yP9x), eval_conf
+seed = int(parent[2:]); OUT = os.path.join(HERE, "..", "checkpoints", PHASE); os.makedirs(OUT, exist_ok=True); tag = f"{parent}_{spec}_r{rep}" + (f"_s{STEPS}" if STEPS != 4000 else "")
+ev = dict(np.load(os.path.join(HERE, "..", "logs", f"eval_{PHASE}.npz"), allow_pickle=True))
+pf = NL.load(NL.dev_ckpt(parent, 0) if PHASE == "dev" else os.path.join(HERE, "..", "checkpoints", parent, "pre.npz")); fresh = N.init("M", NL.ENV, seed + 7777 + 1000 * rep)
 stream = 1_000_003 * (seed + 1) + 7919 * 4 + 31 * 3 + 104729 * rep
-snaps = tuple(sorted(set([s for s in (250, 500, 1000, 2000, 4000, 8000, 12000) if s <= STEPS] + [STEPS]))); evals = {}
+snaps = tuple(sorted(set([s for s in ((250, 500, 1000, 2000, 4000, 8000, 12000) if PHASE == "dev" else (1000, 4000)) if s <= STEPS] + [STEPS]))); evals = {}
 def decision_class(d):
     X = d["X"]; n = L.E.loo(X); V = np.stack([L.votes(X, qq) for qq in range(6)], 1); perf = (n == 5) & (V >= 0); H = perf.sum(-1)
     agree2 = np.zeros(H.shape, bool)
@@ -91,4 +92,6 @@ if INJ:
     def logit_fn(t, X): return lf0(t, X)
 params, hist = NL.train(logit_fn, params, STEPS, stream, xfeat=inj_feats if INJ else None, target=target, weight_fn=wf, snaps=snaps if base_spec[0] in "CW" else (STEPS,), on_snap=on_snap)
 C.save(os.path.join(OUT, tag + ".npz"), jax.tree_util.tree_map(np.asarray, params))
+if base_spec in ("C1", "C2", "C3", "C5", "W_r1up", "W_bal") and not INJ and not RTEMB:      # full model for mechanism analyses
+    C.save(os.path.join(OUT, tag + "_full.npz"), jax.tree_util.tree_map(np.asarray, merge(params)))
 json.dump(dict(parent=parent, spec=spec, rep=rep, steps=STEPS, seconds=time.time() - t0, hist=hist, evals=evals), open(os.path.join(OUT, tag + ".json"), "w"), indent=1, default=float)

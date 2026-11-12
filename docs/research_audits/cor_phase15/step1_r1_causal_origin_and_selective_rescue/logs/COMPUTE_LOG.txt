@@ -35,3 +35,9 @@
 2026-11-11T23:25:27Z lane B start pretrain P97
 2026-11-11T23:27:17Z lane A4 end xP81 C1_injm 0 rc=0
 2026-11-11T23:27:17Z lane A4 start xP80 C1_injn 0
+2026-11-11T23:41:26Z lane A4 end xP80 C1_injn 0 rc=0
+2026-11-11T23:41:26Z lane A4 start xP80 C1_injrand 0
+2026-11-11T23:47:20Z lane B end pretrain P97 rc=0
+2026-11-11T23:47:39Z lane B4 start xP83 C1_injm 0
+2026-11-11T23:55:29Z lane A4 end xP80 C1_injrand 0 rc=0
+2026-11-11T23:55:29Z lane A4 start xP81 C1_injrand 0

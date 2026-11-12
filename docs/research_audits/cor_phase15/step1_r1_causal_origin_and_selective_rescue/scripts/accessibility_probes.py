@@ -33,7 +33,7 @@ def flat(T): return {k: v.reshape(-1, *v.shape[2:]) if v.ndim > 2 else v.reshape
 tf, tt = flat(Tf), flat(Tt)
 res = {}
 for mname in sys.argv[1:]:
-    p = NL.load(NL.dev_ckpt(mname)); Sf, St = sites(p, Xf), sites(p, Xt); r = {}
+    p = NL.load(mname if mname.endswith('.npz') else NL.dev_ckpt(mname)); Sf, St = sites(p, Xf), sites(p, Xt); r = {}
     for sn in Sf:
         sc = StandardScaler().fit(Sf[sn]); A, Bt = sc.transform(Sf[sn]), sc.transform(St[sn]); rr = {}
         sel_f = tf["H2"] == 1; sel_t = tt["H2"] == 1
@@ -54,4 +54,4 @@ for mname in sys.argv[1:]:
     res[mname] = r
     print(mname, {sn: dict(agree2=(round(v["agree2"]["linear"], 3), round(v["agree2"]["mlp"], 3)), H2=round(v["H2"]["linear"], 3), m=[round(x, 3) for x in v["m_linear_acc"]],
                           W=(round(v["W"]["linear_r2"], 3), round(v["W"]["mlp_r2"], 3)), post=(round(v["post"]["linear_r2"], 3), round(v["post"]["mlp_r2"], 3))) for sn, v in r.items()}, flush=True)
-    json.dump(res, open(os.path.join(HERE, "..", "logs", f"accessibility_probes_{sys.argv[1]}.json"), "w"), indent=1)
+    json.dump(res, open(os.path.join(HERE, "..", "logs", os.environ.get("PROBE_OUT", f"accessibility_probes_{sys.argv[1]}.json")), "w"), indent=1)

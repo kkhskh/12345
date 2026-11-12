@@ -26,7 +26,7 @@ for tag in ("yP90_C1_r0", "yP90_C1_injm_r0"):
     def logits(X):
         z = NL.frozen_z(pf, jnp.asarray(X))
         if "injm" in tag: z = z.at[:, 36:42].add(jnp.asarray(feats(X)) @ t["Wi"])
-        x = NL.block(t["l2"], z); return np.asarray(N.ln(x, t["gf"], t["bf"]) @ t["WA"])
+        x = NL.block(t["l2"], z); return np.asarray(N.ln(x, t["gf"], t["bf"])[:, 36:42] @ t["WA"])
     fn = lambda X: np.concatenate([logits(X[i:i + 2000]) for i in range(0, len(X), 2000)])
     r = ER.run(fn, ev); a, b = r["families"]["F45"]["R1"]["E"], committed["families"]["F45"]["R1"]["E"]; k1, k2 = r["quality"]["KL"], committed["quality"]["KL"]
     print("    %-18s E_R1 %.6f vs %.6f  KL %.6f vs %.6f  %s" % (tag, a, b, k1, k2, "OK" if abs(a - b) < 1e-5 and abs(k1 - k2) < 1e-5 else "DIFF"))

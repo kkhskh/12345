@@ -1,0 +1,9 @@
+python3 scripts/repair_train.py dev xP80 lora1
+python3 scripts/repair_train.py dev xP80 deep2
+python3 scripts/repair_train.py dev xP81 auxm
+python3 scripts/repair_train.py dev xP81 unfreeze1
+python3 scripts/repair_train.py dev xP81 gadapt
+python3 scripts/repair_train.py dev xP81 lora1
+python3 scripts/repair_train.py dev xP81 deep2
+python3 scripts/repair_train.py dev xP80 unfreeze1
+python3 scripts/repair_train.py dev xP81 lca

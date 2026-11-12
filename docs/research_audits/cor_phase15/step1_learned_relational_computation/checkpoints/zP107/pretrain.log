@@ -1,0 +1,10 @@
+pcount s107 step 300 loss 1.6602
+pcount s107 step 600 loss 1.6552
+pcount s107 step 900 loss 1.6502
+pcount s107 step 1200 loss 1.1027
+pcount s107 step 1500 loss 1.1049
+pcount s107 step 1800 loss 1.1019
+pcount s107 step 2100 loss 1.0907
+pcount s107 step 2400 loss 1.0923
+pcount s107 step 2700 loss 1.0869
+pcount s107 step 3000 loss 1.0769

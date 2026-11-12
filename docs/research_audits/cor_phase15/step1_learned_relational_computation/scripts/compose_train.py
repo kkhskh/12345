@@ -12,7 +12,7 @@ sys.path.insert(0, V.V7); import nnlib as NL, evalrun as ER, ckpt as C
 reader, cond, target, STEPS, seed = sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4]), int(sys.argv[5])
 kind, depth = ("attn", 2) if reader == "attn2" else (reader, 1)
 oracle, drop_id = cond == "O", cond == "Rnoid"
-tag = f"{reader}_{cond}_{target}_s{STEPS}_seed{seed}"; OUT = os.path.join(HERE, "..", "checkpoints", "compose"); os.makedirs(OUT, exist_ok=True)
+tag = f"{reader}_{cond}_{target}_s{STEPS}_seed{seed}"; OUT = os.path.join(HERE, "..", "checkpoints", "compose_conf" if os.environ.get("PHASE", "dev") == "conf" else "compose"); os.makedirs(OUT, exist_ok=True)
 F = 6 + 6 + (0 if drop_id else 3) + (3 if oracle else 0)
 p = RD.init(kind, F, seed, depth=depth, H={"relnet": 64}.get(kind, 128), d=40); npar = RD.count_params(p)
 opt = optax.adamw(optax.warmup_cosine_decay_schedule(0.0, 1e-3, min(200, STEPS // 10), STEPS), weight_decay=1e-4); st = opt.init(p)
@@ -23,7 +23,8 @@ def step(p, st, f, Y, P):
         return (-jnp.take_along_axis(lp, Y[..., None], -1)[..., 0]).mean() if target == "label" else -(P * lp).sum(-1).mean()
     l, g = jax.value_and_grad(loss)(p); up, st = opt.update(g, st, p); return optax.apply_updates(p, up), st, l
 rng = np.random.default_rng(19_000_000 + 1000 * seed); t0 = time.time(); hist = []
-ev = dict(np.load(os.path.join(V.V7, "..", "logs", "eval_dev.npz"), allow_pickle=True)); evals = {}
+CONF = os.environ.get("PHASE", "dev") == "conf"   # confirmation: eval_conf8 (stream 18_900_000), checkpoints/compose_conf
+ev = dict(np.load(os.path.join(HERE, "..", "logs", "eval_conf8.npz") if CONF else os.path.join(V.V7, "..", "logs", "eval_dev.npz"), allow_pickle=True)); evals = {}
 fwd = jax.jit(lambda p, f: RD.apply(kind, p, f))
 def fn_of(p): return lambda X: np.asarray(fwd(p, jnp.asarray(RD.features(X, oracle, drop_id))))
 snaps = sorted(set([s for s in (1000, 4000, 16000, 48000) if s <= STEPS] + [STEPS]))

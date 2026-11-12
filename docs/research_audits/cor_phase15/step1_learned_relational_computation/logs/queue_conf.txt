@@ -1,0 +1,33 @@
+PHASE=conf python3 scripts/compose_train.py attn R label 16000 10
+PHASE=conf python3 scripts/compose_train.py attn R label 16000 11
+PHASE=conf python3 scripts/compose_train.py attn R label 16000 12
+PHASE=conf python3 scripts/compose_train.py relnet R label 16000 10
+PHASE=conf python3 scripts/compose_train.py relnet R label 16000 11
+PHASE=conf python3 scripts/compose_train.py relnet R label 16000 12
+PHASE=conf python3 scripts/compose_train.py mlp R label 16000 10
+PHASE=conf python3 scripts/compose_train.py mlp R label 16000 11
+PHASE=conf python3 scripts/compose_train.py mlp R label 16000 12
+PHASE=conf python3 scripts/compose_train.py attn O label 16000 10
+PHASE=conf python3 scripts/mech_reader.py attn_R_label_s16000_seed10 attn_R_label_s16000_seed11 attn_R_label_s16000_seed12
+python3 scripts/repair_train.py conf zP100 orig
+python3 scripts/repair_train.py conf zP100 radapt
+python3 scripts/repair_train.py conf zP101 orig
+python3 scripts/repair_train.py conf zP101 radapt
+python3 scripts/repair_train.py conf zP102 orig
+python3 scripts/repair_train.py conf zP102 radapt
+python3 scripts/repair_train.py conf zP103 orig
+python3 scripts/repair_train.py conf zP103 radapt
+python3 scripts/repair_train.py conf zP104 orig
+python3 scripts/repair_train.py conf zP104 radapt
+python3 scripts/repair_train.py conf zP105 orig
+python3 scripts/repair_train.py conf zP105 radapt
+python3 scripts/repair_train.py conf zP106 orig
+python3 scripts/repair_train.py conf zP106 radapt
+python3 scripts/repair_train.py conf zP107 orig
+python3 scripts/repair_train.py conf zP107 radapt
+python3 scripts/repair_train.py conf zP100 gadapt
+python3 scripts/repair_train.py conf zP101 gadapt
+python3 scripts/repair_train.py conf zP102 gadapt
+python3 scripts/repair_train.py conf zP103 gadapt
+python3 scripts/repair_train.py conf zP100 injm
+python3 scripts/repair_train.py conf zP101 injm

@@ -1,0 +1,3 @@
+[relnet_R_label_s16000_seed1] params 19779 step 1000 KL +0.021 acc +0.739 R1 -1.464 R2 -0.944 R3 -0.642 dm_R1 -1.231 F34R1 -0.095 S45R1 -1.329 S34R1 -0.109 F54o +1.221 F54oE +1.460 F0abs +0.000 FLOCabs +0.000 FIDabs +0.000
+[relnet_R_label_s16000_seed1] params 19779 step 4000 KL +0.006 acc +0.747 R1 -0.055 R2 +0.089 R3 -0.066 dm_R1 +0.178 F34R1 +0.078 S45R1 +0.012 S34R1 +0.075 F54o -0.143 F54oE +0.095 F0abs +0.000 FLOCabs +0.000 FIDabs +0.000
+[relnet_R_label_s16000_seed1] params 19779 step 16000 KL +0.001 acc +0.747 R1 +0.139 R2 +0.032 R3 -0.140 dm_R1 +0.373 F34R1 +0.030 S45R1 +0.224 S34R1 +0.031 F54o -0.346 F54oE -0.107 F0abs +0.000 FLOCabs +0.000 FIDabs +0.000

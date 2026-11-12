@@ -17,3 +17,58 @@
 2026-11-12T16:14:23Z lane A start [6bc2a4455b42] python3 scripts/compose_train.py attn O label 16000 0
 2026-11-12T16:21:16Z lane A end [6bc2a4455b42] rc=0
 2026-11-12T16:21:16Z lane A start [8e13321e79b8] python3 scripts/compose_train.py relnet O label 16000 0
+2026-11-12T16:26:26Z lane A end [8e13321e79b8] rc=0
+2026-11-12T16:26:26Z lane A start [90de9a3558a0] python3 scripts/compose_train.py linear O label 16000 0
+2026-11-12T16:27:37Z lane A end [90de9a3558a0] rc=0
+2026-11-12T16:27:37Z lane A start [b045f7f55845] python3 scripts/compose_train.py attn2 O label 16000 0
+2026-11-12T16:39:52Z lane B end pretrain P101 rc=0
+2026-11-12T16:39:52Z lane B start pretrain P102
+2026-11-12T16:41:04Z lane A end [b045f7f55845] rc=0
+2026-11-12T16:41:04Z lane A start [12563c0043d2] python3 scripts/compose_train.py mlp R label 16000 1
+2026-11-12T16:43:26Z lane A end [12563c0043d2] rc=0
+2026-11-12T16:43:26Z lane A start [b70fcc761bd2] python3 scripts/compose_train.py attn R label 16000 1
+2026-11-12T16:50:11Z lane A end [b70fcc761bd2] rc=0
+2026-11-12T16:50:12Z lane A start [0762376136d4] python3 scripts/compose_train.py relnet R label 16000 1
+2026-11-12T16:55:08Z lane A end [0762376136d4] rc=0
+2026-11-12T16:55:09Z lane A start [d6b929ede252] python3 scripts/compose_train.py mlp O label 16000 1
+2026-11-12T16:57:35Z lane A end [d6b929ede252] rc=0
+2026-11-12T16:57:35Z lane A start [f493d3650db5] python3 scripts/compose_train.py attn O label 16000 1
+2026-11-12T17:04:08Z lane A end [f493d3650db5] rc=0
+2026-11-12T17:04:08Z lane A start [f0501d149b09] python3 scripts/compose_train.py relnet O label 16000 1
+2026-11-12T17:04:52Z dropped from queue_dev2 (pre-claimed, never run) for compute: bayes P80/P81 (Inv VII Asoft covers it), xP80 orig (Inv VI checkpoint), xT70 lca/auxm
+2026-11-12T17:09:33Z lane A end [f0501d149b09] rc=0
+2026-11-12T17:09:33Z lane A start [4f8630d222cf] python3 scripts/compose_train.py mlp R bayes 16000 0
+2026-11-12T17:09:49Z lane B end pretrain P102 rc=0
+2026-11-12T17:09:49Z lane B start pretrain P103
+2026-11-12T17:11:54Z lane A end [4f8630d222cf] rc=0
+2026-11-12T17:11:54Z lane A start [76be5ce7c6d3] python3 scripts/compose_train.py attn R bayes 16000 0
+2026-11-12T17:18:30Z lane A end [76be5ce7c6d3] rc=0
+2026-11-12T17:18:30Z lane A start [fb067b774cb9] python3 scripts/compose_train.py relnet R bayes 16000 0
+2026-11-12T17:23:52Z lane A end [fb067b774cb9] rc=0
+2026-11-12T17:23:53Z lane A start [0ac519c615a9] python3 scripts/compose_train.py mlp R label 48000 0
+2026-11-12T17:30:55Z lane A end [0ac519c615a9] rc=0
+2026-11-12T17:30:55Z lane A start [60fbf7b38e3d] python3 scripts/compose_train.py attn R label 48000 0
+2026-11-12T17:40:11Z lane B end pretrain P103 rc=0
+2026-11-12T17:40:11Z lane B start pretrain P104
+2026-11-12T17:50:29Z lane A end [60fbf7b38e3d] rc=0
+2026-11-12T17:50:29Z lane A start [983778ddb40d] python3 scripts/compose_train.py relnet R label 48000 0
+2026-11-12T18:05:39Z lane A end [983778ddb40d] rc=0
+2026-11-12T18:06:09Z lane A2 start [a736a021f937] python3 scripts/repair_train.py dev xP80 lca
+2026-11-12T18:09:52Z lane B end pretrain P104 rc=0
+2026-11-12T18:09:52Z lane B start pretrain P105
+2026-11-12T18:25:04Z lane A2 end [a736a021f937] rc=0
+2026-11-12T18:25:04Z lane A2 start [0d193a321afd] python3 scripts/repair_train.py dev xP80 radapt
+2026-11-12T18:41:33Z lane B end pretrain P105 rc=0
+2026-11-12T18:41:33Z lane B start pretrain P106
+2026-11-12T18:45:44Z lane A2 end [0d193a321afd] rc=0
+2026-11-12T18:45:44Z lane A2 start [27cbd133252c] python3 scripts/repair_train.py dev xP80 auxm
+2026-11-12T19:02:49Z lane A2 end [27cbd133252c] rc=0
+2026-11-12T19:02:49Z lane A2 start [8173db74814c] python3 scripts/repair_train.py dev xP80 gadapt
+2026-11-12T19:11:40Z lane B end pretrain P106 rc=0
+2026-11-12T19:11:40Z lane B start pretrain P107
+2026-11-12T19:21:22Z lane A2 end [8173db74814c] rc=0
+2026-11-12T19:21:22Z lane A2 start [0021cbcff765] python3 scripts/repair_train.py dev xP81 radapt
+2026-11-12T19:40:57Z lane A2 end [0021cbcff765] rc=0
+2026-11-12T19:40:57Z lane A2 start [2eba7727ec73] python3 scripts/repair_train.py dev xP80 orig
+2026-11-12T19:42:02Z lane B end pretrain P107 rc=0
+2026-11-12T19:42:02Z lane B start pretrain T1110

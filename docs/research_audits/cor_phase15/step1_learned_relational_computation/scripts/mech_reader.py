@@ -16,7 +16,8 @@ from sklearn.linear_model import LogisticRegression
 import v8lib as V, readers as RD
 sys.path.insert(0, V.V7); import ckpt as C
 L, E, B = V.L, V.E, V.B
-ev = dict(np.load(os.path.join(V.V7, "..", "logs", "eval_dev.npz"), allow_pickle=True)); out = {}
+CONF = os.environ.get("PHASE", "dev") == "conf"   # confirmation: eval_conf8 (stream 18_900_000), checkpoints/compose_conf
+ev = dict(np.load(os.path.join(HERE, "..", "logs", "eval_conf8.npz") if CONF else os.path.join(V.V7, "..", "logs", "eval_dev.npz"), allow_pickle=True)); out = {}
 def run(p, f, mode="base", elig=None, patch=None):
     """f (n,3,F).  mode: base|selfonly|noperf|noother.  elig (n,3) bool eligibility (perfect & agree at q).  patch: (states_after, proj) to
     substitute after the first block's attention: x_patched = x_b + P(x_a - x_b)."""
@@ -40,7 +41,7 @@ def elig_of(X, q):
     idx = np.arange(len(X)); n = E.loo(X)[idx, q]; return jnp.asarray((n == 5) & (L.votes(X, q) >= 0))
 def feats_q(X, q): return jnp.asarray(RD.features(X)[np.arange(len(X)), q])
 for tag in sys.argv[1:]:
-    p = jax.tree_util.tree_map(jnp.asarray, V.load_tree(os.path.join(HERE, "..", "checkpoints", "compose", tag + ".npz"))); res = {}
+    p = jax.tree_util.tree_map(jnp.asarray, V.load_tree(os.path.join(HERE, "..", "checkpoints", "compose_conf" if CONF else "compose", tag + ".npz"))); res = {}
     sets = {}
     for f_ in ("F45", "F34"):
         for rg in (("R1", "R2", "R3") if f_ == "F45" else ("R1",)):
@@ -72,4 +73,4 @@ for tag in sys.argv[1:]:
         Pm = jnp.asarray(Qx @ Qx.T); lp = run(p, fb, patch=(jnp.asarray(xa), Pm))[0]; ic[nm] = dict(share=float(((om(lp) - om(lb)) * full).sum() / (full ** 2).sum()), mean_dm=float((om(lp) - om(lb)).mean()))
     ic["full_mean_dm"] = float(full.mean()); res["interchange_R1"] = ic
     out[tag] = res; print(tag, {m_: {k: round(v_["dmM"], 3) for k, v_ in r.items()} for m_, r in res.items() if m_ in ("base", "selfonly", "noperf", "noother")}, res["probes"], ic, flush=True)
-json.dump(out, open(os.path.join(HERE, "..", "logs", "mech_reader.json"), "w"), indent=1)
+json.dump(out, open(os.path.join(HERE, "..", "logs", "mech_reader_conf.json" if CONF else "mech_reader.json"), "w"), indent=1)

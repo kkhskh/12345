@@ -41,3 +41,92 @@
 2026-11-11T23:47:39Z lane B4 start xP83 C1_injm 0
 2026-11-11T23:55:29Z lane A4 end xP80 C1_injrand 0 rc=0
 2026-11-11T23:55:29Z lane A4 start xP81 C1_injrand 0
+2026-11-12T00:00:56Z FREEZE7 commit be4a0da; stopping dev lanes after current jobs; launching confirmation lanes
+2026-11-12T00:02:42Z lane CA start CONF yP90 C1 0
+2026-11-12T00:10:02Z lane CB start CONF yP90 C1_injm 0
+2026-11-12T00:15:11Z lane CA end CONF yP90 C1 0 rc=0
+2026-11-12T00:15:11Z lane CA start CONF yP90 C1_injn 0
+2026-11-12T00:18:03Z post-confirmation development queue devqueue5.txt scheduled (factorial, readers, balance, budget)
+2026-11-12T00:22:53Z lane CB end CONF yP90 C1_injm 0 rc=0
+2026-11-12T00:22:53Z lane CB start CONF yP90 C1_injrand 0
+2026-11-12T00:28:12Z lane CA end CONF yP90 C1_injn 0 rc=0
+2026-11-12T00:28:12Z lane CA start CONF yP90 W_bal 0
+2026-11-12T00:35:51Z lane CB end CONF yP90 C1_injrand 0 rc=0
+2026-11-12T00:35:51Z lane CB start CONF yP91 C1 0
+2026-11-12T00:40:51Z lane CA end CONF yP90 W_bal 0 rc=0
+2026-11-12T00:40:51Z lane CA start CONF yP91 C1_injm 0
+2026-11-12T00:48:43Z lane CB end CONF yP91 C1 0 rc=0
+2026-11-12T00:48:43Z lane CB start CONF yP91 C1_injn 0
+2026-11-12T00:54:07Z lane CA end CONF yP91 C1_injm 0 rc=0
+2026-11-12T00:54:07Z lane CA start CONF yP91 C1_injrand 0
+2026-11-12T01:02:01Z lane CB end CONF yP91 C1_injn 0 rc=0
+2026-11-12T01:02:01Z lane CB start CONF yP91 W_bal 0
+2026-11-12T01:07:22Z lane CA end CONF yP91 C1_injrand 0 rc=0
+2026-11-12T01:07:22Z lane CA start CONF yP92 C1 0
+2026-11-12T01:14:44Z lane CB end CONF yP91 W_bal 0 rc=0
+2026-11-12T01:14:44Z lane CB start CONF yP92 C1_injm 0
+2026-11-12T01:19:55Z lane CA end CONF yP92 C1 0 rc=0
+2026-11-12T01:19:55Z lane CA start CONF yP92 C1_injn 0
+2026-11-12T01:27:37Z lane CB end CONF yP92 C1_injm 0 rc=0
+2026-11-12T01:27:37Z lane CB start CONF yP92 C1_injrand 0
+2026-11-12T01:32:52Z lane CA end CONF yP92 C1_injn 0 rc=0
+2026-11-12T01:32:52Z lane CA start CONF yP92 W_bal 0
+2026-11-12T01:40:31Z lane CB end CONF yP92 C1_injrand 0 rc=0
+2026-11-12T01:40:31Z lane CB start CONF yP93 C1 0
+2026-11-12T01:45:39Z lane CA end CONF yP92 W_bal 0 rc=0
+2026-11-12T01:45:39Z lane CA start CONF yP93 C1_injm 0
+2026-11-12T01:53:21Z lane CB end CONF yP93 C1 0 rc=0
+2026-11-12T01:53:21Z lane CB start CONF yP93 C1_injn 0
+2026-11-12T01:58:35Z lane CA end CONF yP93 C1_injm 0 rc=0
+2026-11-12T01:58:35Z lane CA start CONF yP93 C1_injrand 0
+2026-11-12T02:06:17Z lane CB end CONF yP93 C1_injn 0 rc=0
+2026-11-12T02:06:17Z lane CB start CONF yP93 W_bal 0
+2026-11-12T02:11:18Z lane CA end CONF yP93 C1_injrand 0 rc=0
+2026-11-12T02:11:18Z lane CA start CONF yP94 C1 0
+2026-11-12T02:18:50Z lane CB end CONF yP93 W_bal 0 rc=0
+2026-11-12T02:18:50Z lane CB start CONF yP94 C1_injm 0
+2026-11-12T02:23:56Z lane CA end CONF yP94 C1 0 rc=0
+2026-11-12T02:23:56Z lane CA start CONF yP94 C1_injn 0
+2026-11-12T02:31:45Z lane CB end CONF yP94 C1_injm 0 rc=0
+2026-11-12T02:31:45Z lane CB start CONF yP94 C1_injrand 0
+2026-11-12T02:37:05Z lane CA end CONF yP94 C1_injn 0 rc=0
+2026-11-12T02:37:05Z lane CA start CONF yP94 W_bal 0
+2026-11-12T02:45:16Z lane CB end CONF yP94 C1_injrand 0 rc=0
+2026-11-12T02:45:16Z lane CB start CONF yP95 C1 0
+2026-11-12T02:50:41Z lane CA end CONF yP94 W_bal 0 rc=0
+2026-11-12T02:50:41Z lane CA start CONF yP95 C1_injm 0
+2026-11-12T02:58:57Z lane CB end CONF yP95 C1 0 rc=0
+2026-11-12T02:58:57Z lane CB start CONF yP95 C1_injn 0
+2026-11-12T03:04:17Z lane CA end CONF yP95 C1_injm 0 rc=0
+2026-11-12T03:04:17Z lane CA start CONF yP95 C1_injrand 0
+2026-11-12T03:12:20Z lane CB end CONF yP95 C1_injn 0 rc=0
+2026-11-12T03:12:20Z lane CB start CONF yP95 W_bal 0
+2026-11-12T03:17:40Z lane CA end CONF yP95 C1_injrand 0 rc=0
+2026-11-12T03:17:40Z lane CA start CONF yP96 C1 0
+2026-11-12T03:26:03Z lane CB end CONF yP95 W_bal 0 rc=0
+2026-11-12T03:26:03Z lane CB start CONF yP96 C1_injm 0
+2026-11-12T03:31:11Z lane CA end CONF yP96 C1 0 rc=0
+2026-11-12T03:31:11Z lane CA start CONF yP96 C1_injn 0
+2026-11-12T03:39:04Z lane CB end CONF yP96 C1_injm 0 rc=0
+2026-11-12T03:39:04Z lane CB start CONF yP96 C1_injrand 0
+2026-11-12T03:44:13Z lane CA end CONF yP96 C1_injn 0 rc=0
+2026-11-12T03:44:13Z lane CA start CONF yP96 W_bal 0
+2026-11-12T03:52:09Z lane CB end CONF yP96 C1_injrand 0 rc=0
+2026-11-12T03:52:09Z lane CB start CONF yP97 C1 0
+2026-11-12T03:57:13Z lane CA end CONF yP96 W_bal 0 rc=0
+2026-11-12T03:57:13Z lane CA start CONF yP97 C1_injm 0
+2026-11-12T04:05:26Z lane CB end CONF yP97 C1 0 rc=0
+2026-11-12T04:05:26Z lane CB start CONF yP97 C1_injn 0
+2026-11-12T04:10:38Z lane CA end CONF yP97 C1_injm 0 rc=0
+2026-11-12T04:10:38Z lane CA start CONF yP97 C1_injrand 0
+2026-11-12T04:18:46Z lane CB end CONF yP97 C1_injn 0 rc=0
+2026-11-12T04:18:46Z lane CB start CONF yP97 W_bal 0
+2026-11-12T04:23:47Z lane CA end CONF yP97 C1_injrand 0 rc=0
+2026-11-12T04:27:57Z lane CB end CONF yP97 W_bal 0 rc=0
+2026-11-12T04:28:05Z lane D5a start xT70 Csoft 0
+2026-11-12T04:28:05Z lane D5b start xT70 Esrcsoft 0
+2026-11-12T04:31:14Z all 40 confirmation runs finished (rc=0); running frozen conf_mech, conf_probes, confirm7_analysis
+2026-11-12T04:34:06Z lane D5b end xT70 Esrcsoft 0 rc=0
+2026-11-12T04:34:06Z lane D5b start xP80 C2 0
+2026-11-12T04:37:02Z lane D5a end xT70 Csoft 0 rc=0
+2026-11-12T04:37:02Z lane D5a start xP80 C3 0

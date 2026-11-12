@@ -1,0 +1,15 @@
+xT70 Csoft 0
+xT70 Esrcsoft 0
+xP80 C2 0
+xP80 C3 0
+xP80 W_bal 0
+xP81 W_bal 0
+xP81 C5 0
+xP81 C2 0
+xP81 C3 0
+xT70 C5 0
+xT70 C2 0
+xT70 C3 0
+xP81 Csoft 0
+xP80 C1 0 12000
+xP80 Asoft 0 12000

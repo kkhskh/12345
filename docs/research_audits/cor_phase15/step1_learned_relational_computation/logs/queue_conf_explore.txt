@@ -1,0 +1,8 @@
+python3 scripts/repair_ablate.py conf zP100 radapt
+python3 scripts/repair_ablate.py conf zP101 radapt
+python3 scripts/repair_ablate.py conf zP102 radapt
+python3 scripts/repair_ablate.py conf zP103 radapt
+python3 scripts/repair_ablate.py conf zP104 radapt
+python3 scripts/repair_ablate.py conf zP105 radapt
+python3 scripts/repair_ablate.py conf zP106 radapt
+python3 scripts/repair_ablate.py conf zP107 radapt

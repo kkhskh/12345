@@ -72,3 +72,17 @@
 2026-11-12T19:40:57Z lane A2 start [2eba7727ec73] python3 scripts/repair_train.py dev xP80 orig
 2026-11-12T19:42:02Z lane B end pretrain P107 rc=0
 2026-11-12T19:42:02Z lane B start pretrain T1110
+2026-11-12T19:58:08Z lane A2 end [2eba7727ec73] rc=0
+2026-11-12T19:58:08Z lane A2 start [f94fd614ecc8] python3 scripts/repair_train.py dev xT70 radapt
+2026-11-12T20:17:49Z lane A2 end [f94fd614ecc8] rc=0
+2026-11-12T20:17:49Z lane A2 start [518ef37262c0] python3 scripts/x_train.py 3 label 16000 0
+2026-11-12T20:25:29Z lane B4 start [1e4afddd5bca] PHASE=conf python3 scripts/predictor_probe.py attn_R_label_s16000_seed10 attn_R_label_s16000_seed11 attn_R_label_s16000_seed12 relnet_R_label_s16000_seed10 relnet_R_label_s16000_seed11 relnet_R_label_s16000_seed12 mlp_R_label_s16000_seed10 mlp_R_label_s16000_seed11 mlp_R_label_s16000_seed12
+2026-11-12T20:25:29Z lane A4 start [fc2d8c9e4ac3] cd . && python3 scripts/x_train.py 1 label 16000 0
+2026-11-12T20:25:49Z NOTE: chains A4/B4 started prematurely by a scheduling error and were killed within seconds; the predictor_probe run crashed on a missing checkpoint (no confirmation output existed or was produced); the x_train 1-block dev run was killed at ~2s and will be rerun. Claims removed.
+2026-11-12T20:34:48Z lane B end pretrain T1110 rc=0
+2026-11-12T20:34:48Z lane B start pretrain T1111
+2026-11-12T20:36:17Z lane A2 end [518ef37262c0] rc=0
+2026-11-12T20:36:20Z NOTE: x_train 3-block 16k dev run killed after 28 min (projected >2 h, blocking confirmation); replaced by 6000-step 1- and 3-block runs in queue_dev3.
+2026-11-12T20:36:23Z lane A3 start [9f99ff7072d4] PHASE=conf python3 scripts/compose_train.py attn R label 16000 10
+2026-11-12T20:43:05Z lane A3 end [9f99ff7072d4] rc=0
+2026-11-12T20:43:05Z lane A3 start [b416d572e3aa] PHASE=conf python3 scripts/compose_train.py attn R label 16000 11

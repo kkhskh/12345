@@ -98,6 +98,22 @@ acting as a hard gate*. Two common neural primitives cannot express it on their 
 - an additive contribution to a log-weight (Proposition A);
 - a pointwise function of g's own features (Theorem 1).
 
+**Proposition C (rules that are additive over groups give a regime-independent response) [P, elementary].** Let the logit
+of a reader be ℓ(y) = c + Σ_g φ(u_g, y), where u_g is group g's own ingredient vector (its count, q-reports and id) and φ is
+arbitrary. A 4→5 edit in group g changes only u_g, so Δℓ(y) = φ(u_g′, y) − φ(u_g, y), whatever the other groups contain. R1,
+R2 and R3 pairs with the same (u_g, u_g′) therefore get identical responses. Bayes gives R1 > 0 and R2, R3 < 0, so no such
+rule can match it on all three regimes. *Consequences:*
+- a linear reader on R features;
+- any per-group network followed by sum or mean pooling and a linear readout, including an attention reader with
+  attention restricted to self.
+
+[N] The self-only attention ablation of the trained attn R reader gives dm = +0.17 / +0.16 / +0.17 on R1 / R2 / R3
+(`LEARNED_INTERNAL_MECHANISMS.md`). This is regime independence, as predicted.
+
+*The proposition does not cover O features.* There, the edit also changes the other groups' m_h, so it gives no
+impossibility. The linear O reader still fails empirically (KL 0.335), because a function linear in one-hot (n_g, m_g)
+cannot form the product RHO^{n_g}·m_g inside the normaliser.
+
 It needs a multiplicative interaction between g's term and an aggregate over the other groups, or an equivalent nonlinear
 re-encoding. This is a restricted statement about mixture-form rules. It is **not** a statement about what a Transformer can
 represent.

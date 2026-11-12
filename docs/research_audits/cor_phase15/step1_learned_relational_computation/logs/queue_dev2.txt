@@ -24,3 +24,6 @@ python3 scripts/gen_holdout.py attn 16000 0
 python3 scripts/gen_holdout.py relnet 16000 0
 python3 scripts/gen_holdout.py mlp 16000 0
 python3 scripts/gen_holdout.py lookup 4000 0
+python3 scripts/repair_ablate.py dev xP80 radapt
+python3 scripts/repair_ablate.py dev xP81 radapt
+python3 scripts/repair_ablate.py dev xP80 lca

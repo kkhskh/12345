@@ -1,0 +1,26 @@
+python3 scripts/repair_train.py dev xP80 lca
+python3 scripts/repair_train.py dev xP80 radapt
+python3 scripts/repair_train.py dev xP80 auxm
+python3 scripts/repair_train.py dev xP80 unfreeze1
+python3 scripts/repair_train.py dev xP80 gadapt
+python3 scripts/repair_train.py dev xP80 lora1
+python3 scripts/repair_train.py dev xP80 deep2
+python3 scripts/repair_train.py dev xP80 bayes
+python3 scripts/repair_train.py dev xP81 lca
+python3 scripts/repair_train.py dev xP81 radapt
+python3 scripts/repair_train.py dev xP81 auxm
+python3 scripts/repair_train.py dev xP81 unfreeze1
+python3 scripts/repair_train.py dev xP81 gadapt
+python3 scripts/repair_train.py dev xP81 lora1
+python3 scripts/repair_train.py dev xP81 deep2
+python3 scripts/repair_train.py dev xP81 bayes
+python3 scripts/repair_train.py dev xP80 orig
+python3 scripts/repair_train.py dev xT70 lca
+python3 scripts/repair_train.py dev xT70 radapt
+python3 scripts/repair_train.py dev xT70 auxm
+python3 scripts/x_train.py 3 label 16000 0
+python3 scripts/x_train.py 1 label 16000 0
+python3 scripts/gen_holdout.py attn 16000 0
+python3 scripts/gen_holdout.py relnet 16000 0
+python3 scripts/gen_holdout.py mlp 16000 0
+python3 scripts/gen_holdout.py lookup 4000 0

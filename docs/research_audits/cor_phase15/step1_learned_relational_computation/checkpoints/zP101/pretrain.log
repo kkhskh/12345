@@ -1,0 +1,5 @@
+pcount s101 step 300 loss 1.6422
+pcount s101 step 600 loss 1.6556
+pcount s101 step 900 loss 1.6236
+pcount s101 step 1200 loss 0.4954
+pcount s101 step 1500 loss 0.0115

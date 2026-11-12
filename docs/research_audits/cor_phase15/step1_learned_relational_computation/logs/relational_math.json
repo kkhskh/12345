@@ -1,0 +1,82 @@
+{
+ "m_agreement_rate": 0.42267916666666666,
+ "m_disagree_cases": {
+  "m7_gt_mm": 0.5773208333333333,
+  "m7_lt_mm": 0.0
+ },
+ "bayes_with_m": {
+  "inv7_m": {
+   "F45_R1": 0.23306979098682842,
+   "F45_R2": -2.383917280967975,
+   "F45_R3": -2.067451413520765,
+   "F34_R1": 0.4357748391647681,
+   "F34_R2": 0.0,
+   "F34_R3": 0.4949656006175787,
+   "max_abs_diff_from_exact_base": 1.3322676295501878e-15,
+   "frac_nonfinite": 0.0
+  },
+  "mandate_m": {
+   "F45_R1": 9.468853088487476e-18,
+   "F45_R2": 1.9432041943452671,
+   "F45_R3": 0.0,
+   "F34_R1": -9.468853088487476e-18,
+   "F34_R2": 0.0,
+   "F34_R3": 0.0,
+   "max_abs_diff_from_exact_base": 4.074733608682594,
+   "frac_nonfinite": 0.0
+  }
+ },
+ "sufficiency_max_posterior_spread": {
+  "counts+qreports": {
+   "max_spread": 0.0,
+   "n_classes": 22001
+  },
+  "perfectset+qreports": {
+   "max_spread": 0.9461790450769401,
+   "n_classes": 985
+  },
+  "m+qreports (no counts)": {
+   "max_spread": 0.9461790450769401,
+   "n_classes": 985
+  },
+  "RHO^n*m (as n,m) + qreports": {
+   "max_spread": 0.0,
+   "n_classes": 22001
+  },
+  "counts only": {
+   "max_spread": 0.9545454545454547,
+   "n_classes": 91
+  },
+  "qreports only": {
+   "max_spread": 0.9534644452410808,
+   "n_classes": 513
+  }
+ },
+ "log_additive_theorem": {
+  "n_rules": 300,
+  "rules_with_R1_R3_opposite_signs": 0
+ },
+ "ties": {
+  "R1": {
+   "n": 469,
+   "exact_tie_before": 0.008528784648187633,
+   "exact_tie_after": 0.0,
+   "near_tie_before": 0.008528784648187633,
+   "near_tie_after": 0.0
+  },
+  "R2": {
+   "n": 98,
+   "exact_tie_before": 0.0,
+   "exact_tie_after": 0.0,
+   "near_tie_before": 0.0,
+   "near_tie_after": 0.7959183673469388
+  },
+  "R3": {
+   "n": 793,
+   "exact_tie_before": 0.007566204287515763,
+   "exact_tie_after": 0.39470365699873894,
+   "near_tie_before": 0.007566204287515763,
+   "near_tie_after": 0.9520807061790668
+  }
+ }
+}

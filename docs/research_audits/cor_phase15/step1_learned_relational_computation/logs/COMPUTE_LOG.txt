@@ -1,0 +1,19 @@
+2026-11-12T15:36:49Z stage-0 commit d218577; launching pretraining lane (one lane; the other lane is for development)
+2026-11-12T15:36:49Z lane B start pretrain P100
+2026-11-12T15:41:10Z lane A start [11cdb551872e] python3 scripts/compose_train.py mlp R label 16000 0
+2026-11-12T15:43:46Z lane A end [11cdb551872e] rc=0
+2026-11-12T15:43:46Z lane A start [0ccc3a84262c] python3 scripts/compose_train.py attn R label 16000 0
+2026-11-12T15:50:59Z lane A end [0ccc3a84262c] rc=0
+2026-11-12T15:50:59Z lane A start [f47dcf419504] python3 scripts/compose_train.py relnet R label 16000 0
+2026-11-12T15:58:23Z lane A end [f47dcf419504] rc=0
+2026-11-12T15:58:23Z lane A start [4636b078788d] python3 scripts/compose_train.py linear R label 16000 0
+2026-11-12T15:59:53Z lane A end [4636b078788d] rc=0
+2026-11-12T15:59:53Z lane A start [aaa5a0e6ee44] python3 scripts/compose_train.py attn2 R label 16000 0
+2026-11-12T16:09:57Z lane B end pretrain P100 rc=0
+2026-11-12T16:09:57Z lane B start pretrain P101
+2026-11-12T16:11:58Z lane A end [aaa5a0e6ee44] rc=0
+2026-11-12T16:11:58Z lane A start [313c27bf73ca] python3 scripts/compose_train.py mlp O label 16000 0
+2026-11-12T16:14:23Z lane A end [313c27bf73ca] rc=0
+2026-11-12T16:14:23Z lane A start [6bc2a4455b42] python3 scripts/compose_train.py attn O label 16000 0
+2026-11-12T16:21:16Z lane A end [6bc2a4455b42] rc=0
+2026-11-12T16:21:16Z lane A start [8e13321e79b8] python3 scripts/compose_train.py relnet O label 16000 0

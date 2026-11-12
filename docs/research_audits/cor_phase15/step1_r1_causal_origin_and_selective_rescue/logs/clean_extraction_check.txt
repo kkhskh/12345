@@ -1,0 +1,10 @@
+Thu Nov 12 07:06:04 UTC 2026
+commit 1e6f703
+[1] manifest
+    manifest OK
+[2] forward-pass reproduction
+    yP90_C1_r0         E_R1 -0.636066 vs -0.636066  KL 0.103142 vs 0.103142  OK
+    yP90_C1_injm_r0    E_R1 0.315792 vs 0.315792  KL 0.053622 vs 0.053622  OK
+[3] replay of frozen confirmatory analysis
+    OK
+done

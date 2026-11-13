@@ -86,3 +86,139 @@
 2026-11-12T20:36:23Z lane A3 start [9f99ff7072d4] PHASE=conf python3 scripts/compose_train.py attn R label 16000 10
 2026-11-12T20:43:05Z lane A3 end [9f99ff7072d4] rc=0
 2026-11-12T20:43:05Z lane A3 start [b416d572e3aa] PHASE=conf python3 scripts/compose_train.py attn R label 16000 11
+2026-11-12T20:49:36Z lane A3 end [b416d572e3aa] rc=0
+2026-11-12T20:49:36Z lane A3 start [6c39f66e3378] PHASE=conf python3 scripts/compose_train.py attn R label 16000 12
+2026-11-12T20:56:17Z lane A3 end [6c39f66e3378] rc=0
+2026-11-12T20:56:17Z lane A3 start [e24ebf10c6ea] PHASE=conf python3 scripts/compose_train.py relnet R label 16000 10
+2026-11-12T21:01:23Z lane A3 end [e24ebf10c6ea] rc=0
+2026-11-12T21:01:23Z lane A3 start [97b397ff2e3b] PHASE=conf python3 scripts/compose_train.py relnet R label 16000 11
+2026-11-12T21:06:35Z lane A3 end [97b397ff2e3b] rc=0
+2026-11-12T21:06:35Z lane A3 start [113ae7a81958] PHASE=conf python3 scripts/compose_train.py relnet R label 16000 12
+2026-11-12T21:11:28Z lane A3 end [113ae7a81958] rc=0
+2026-11-12T21:11:28Z lane A3 start [b28a4bebe52a] PHASE=conf python3 scripts/compose_train.py mlp R label 16000 10
+2026-11-12T21:13:45Z lane A3 end [b28a4bebe52a] rc=0
+2026-11-12T21:13:45Z lane A3 start [99b51111e4ae] PHASE=conf python3 scripts/compose_train.py mlp R label 16000 11
+2026-11-12T21:16:00Z lane A3 end [99b51111e4ae] rc=0
+2026-11-12T21:16:00Z lane A3 start [9c76b88d5f8f] PHASE=conf python3 scripts/compose_train.py mlp R label 16000 12
+2026-11-12T21:18:21Z lane A3 end [9c76b88d5f8f] rc=0
+2026-11-12T21:18:21Z lane A3 start [645a4a68f66f] PHASE=conf python3 scripts/compose_train.py attn O label 16000 10
+2026-11-12T21:24:50Z lane A3 end [645a4a68f66f] rc=0
+2026-11-12T21:24:50Z lane A3 start [014cc9d50a2a] PHASE=conf python3 scripts/mech_reader.py attn_R_label_s16000_seed10 attn_R_label_s16000_seed11 attn_R_label_s16000_seed12
+2026-11-12T21:25:00Z lane A3 end [014cc9d50a2a] rc=0
+2026-11-12T21:25:00Z lane A3 start [7eca2214e191] python3 scripts/repair_train.py conf zP100 orig
+2026-11-12T21:26:10Z lane B end pretrain T1111 rc=0
+2026-11-12T21:26:10Z lane B start pretrain T1112
+2026-11-12T21:33:27Z lane M start [1e4afddd5bca] PHASE=conf python3 scripts/predictor_probe.py attn_R_label_s16000_seed10 attn_R_label_s16000_seed11 attn_R_label_s16000_seed12 relnet_R_label_s16000_seed10 relnet_R_label_s16000_seed11 relnet_R_label_s16000_seed12 mlp_R_label_s16000_seed10 mlp_R_label_s16000_seed11 mlp_R_label_s16000_seed12
+2026-11-12T21:33:36Z lane M end [1e4afddd5bca] rc=0
+2026-11-12T21:41:34Z lane A3 end [7eca2214e191] rc=0
+2026-11-12T21:41:34Z lane A3 start [aa0ff611291b] python3 scripts/repair_train.py conf zP100 radapt
+2026-11-12T22:00:29Z lane A3 end [aa0ff611291b] rc=0
+2026-11-12T22:00:29Z lane A3 start [5faf833876f2] python3 scripts/repair_train.py conf zP101 orig
+2026-11-12T22:17:12Z lane A3 end [5faf833876f2] rc=0
+2026-11-12T22:17:12Z lane A3 start [c1e8dde9cf54] python3 scripts/repair_train.py conf zP101 radapt
+2026-11-12T22:17:20Z lane B end pretrain T1112 rc=0
+2026-11-12T22:17:20Z lane B start pretrain T1113
+2026-11-12T22:36:26Z lane A3 end [c1e8dde9cf54] rc=0
+2026-11-12T22:36:26Z lane A3 start [e8ffd63f7465] python3 scripts/repair_train.py conf zP102 orig
+2026-11-12T22:52:54Z lane A3 end [e8ffd63f7465] rc=0
+2026-11-12T22:52:54Z lane A3 start [e987d89ec0ee] python3 scripts/repair_train.py conf zP102 radapt
+2026-11-12T23:08:16Z lane B end pretrain T1113 rc=0
+2026-11-12T23:08:30Z lane B3 start [2f7e12ab038f] python3 scripts/repair_train.py conf zT1110 orig
+2026-11-12T23:11:32Z lane A3 end [e987d89ec0ee] rc=0
+2026-11-12T23:11:32Z lane A3 start [6cad5d840aee] python3 scripts/repair_train.py conf zP103 orig
+2026-11-12T23:24:46Z lane B3 end [2f7e12ab038f] rc=0
+2026-11-12T23:24:46Z lane B3 start [ceab6428b9d2] python3 scripts/repair_train.py conf zT1110 radapt
+2026-11-12T23:27:50Z lane A3 end [6cad5d840aee] rc=0
+2026-11-12T23:27:50Z lane A3 start [1e2c947f11e7] python3 scripts/repair_train.py conf zP103 radapt
+2026-11-12T23:43:51Z lane B3 end [ceab6428b9d2] rc=0
+2026-11-12T23:43:51Z lane B3 start [91f3866d9838] python3 scripts/repair_train.py conf zT1111 orig
+2026-11-12T23:46:53Z lane A3 end [1e2c947f11e7] rc=0
+2026-11-12T23:46:53Z lane A3 start [e4e2c6cc4c68] python3 scripts/repair_train.py conf zP104 orig
+2026-11-13T00:00:13Z lane B3 end [91f3866d9838] rc=0
+2026-11-13T00:00:13Z lane B3 start [21d354e6c4e8] python3 scripts/repair_train.py conf zT1111 radapt
+2026-11-13T00:03:18Z lane A3 end [e4e2c6cc4c68] rc=0
+2026-11-13T00:03:18Z lane A3 start [64d6538df25c] python3 scripts/repair_train.py conf zP104 radapt
+2026-11-13T00:19:02Z lane B3 end [21d354e6c4e8] rc=0
+2026-11-13T00:19:02Z lane B3 start [9e157b0882cf] python3 scripts/repair_train.py conf zT1112 orig
+2026-11-13T00:21:59Z lane A3 end [64d6538df25c] rc=0
+2026-11-13T00:21:59Z lane A3 start [a75be9cee5fe] python3 scripts/repair_train.py conf zP105 orig
+2026-11-13T00:36:48Z NOTE: cloud environment restarted ~00:35; in-flight runs zT1112 orig and zP105 orig were lost (no output written); claims removed and lanes restarted; the runs are repeated with identical commands (protocol I.5 rerun rule).
+2026-11-13T00:36:48Z lane B5 start [9e157b0882cf] python3 scripts/repair_train.py conf zT1112 orig
+2026-11-13T00:36:48Z lane A5 start [a75be9cee5fe] python3 scripts/repair_train.py conf zP105 orig
+2026-11-13T00:51:29Z lane B5 end [9e157b0882cf] rc=0
+2026-11-13T00:51:29Z lane B5 start [903d4b23d57c] python3 scripts/repair_train.py conf zT1112 radapt
+2026-11-13T00:51:29Z lane A5 end [a75be9cee5fe] rc=0
+2026-11-13T00:51:29Z lane A5 start [a3478a663cc8] python3 scripts/repair_train.py conf zP105 radapt
+2026-11-13T01:08:17Z lane B5 end [903d4b23d57c] rc=0
+2026-11-13T01:08:17Z lane B5 start [b87990907e6b] python3 scripts/repair_train.py conf zT1113 orig
+2026-11-13T01:08:18Z lane A5 end [a3478a663cc8] rc=0
+2026-11-13T01:08:18Z lane A5 start [f4ff1dcee0da] python3 scripts/repair_train.py conf zP106 orig
+2026-11-13T01:21:53Z lane B5 end [b87990907e6b] rc=0
+2026-11-13T01:21:53Z lane B5 start [b9f21ac5079f] python3 scripts/repair_train.py conf zT1113 radapt
+2026-11-13T01:21:54Z lane A5 end [f4ff1dcee0da] rc=0
+2026-11-13T01:21:54Z lane A5 start [83898b57b37b] python3 scripts/repair_train.py conf zP106 radapt
+2026-11-13T01:36:38Z lane B5 end [b9f21ac5079f] rc=0
+2026-11-13T01:36:38Z lane B5 start [648d331089e2] python3 scripts/repair_train.py conf zP107 orig
+2026-11-13T01:36:40Z lane A5 end [83898b57b37b] rc=0
+2026-11-13T01:36:40Z lane A5 start [05c18fdfdbbf] python3 scripts/repair_train.py conf zP107 radapt
+2026-11-13T01:49:11Z lane B5 end [648d331089e2] rc=0
+2026-11-13T01:49:11Z lane B5 start [b926a2878d50] python3 scripts/repair_train.py conf zP100 gadapt
+2026-11-13T01:51:13Z lane A5 end [05c18fdfdbbf] rc=0
+2026-11-13T01:51:13Z lane A5 start [3397dd852618] python3 scripts/repair_train.py conf zP101 gadapt
+2026-11-13T02:02:34Z lane B5 end [b926a2878d50] rc=0
+2026-11-13T02:02:34Z lane B5 start [c768f802e9f9] python3 scripts/repair_train.py conf zP102 gadapt
+2026-11-13T02:04:35Z lane A5 end [3397dd852618] rc=0
+2026-11-13T02:04:35Z lane A5 start [dec601caf14b] python3 scripts/repair_train.py conf zP103 gadapt
+2026-11-13T02:15:54Z lane B5 end [c768f802e9f9] rc=0
+2026-11-13T02:15:54Z lane B5 start [f884cea929b2] python3 scripts/repair_train.py conf zP100 injm
+2026-11-13T02:17:50Z lane A5 end [dec601caf14b] rc=0
+2026-11-13T02:17:50Z lane A5 start [8940d912b78f] python3 scripts/repair_train.py conf zP101 injm
+2026-11-13T02:28:22Z lane B5 end [f884cea929b2] rc=0
+2026-11-13T02:28:22Z lane B6 start [c3b016cc8ced] cd . && python3 scripts/x_train.py 1 label 6000 0
+2026-11-13T02:30:15Z lane A5 end [8940d912b78f] rc=0
+2026-11-13T02:30:15Z lane A6 start [5d6cad45521c] cd . && python3 scripts/gen_holdout.py attn 16000 0
+2026-11-13T02:34:04Z lane A6 end [5d6cad45521c] rc=0
+2026-11-13T02:34:04Z lane A6 start [65dfea003ed2] cd . && python3 scripts/gen_holdout.py relnet 16000 0
+2026-11-13T02:36:40Z lane A6 end [65dfea003ed2] rc=0
+2026-11-13T02:36:40Z lane A6 start [a6270683cfc8] cd . && python3 scripts/gen_holdout.py mlp 16000 0
+2026-11-13T02:38:02Z lane A6 end [a6270683cfc8] rc=0
+2026-11-13T02:38:02Z lane A6 start [491a1286d67f] cd . && python3 scripts/gen_holdout.py lookup 4000 0
+2026-11-13T02:38:22Z lane A6 end [491a1286d67f] rc=0
+2026-11-13T02:38:22Z lane A6 start [2b0ff9ab50be] cd . && python3 scripts/repair_ablate.py dev xP80 radapt
+2026-11-13T02:39:25Z lane A6 end [2b0ff9ab50be] rc=0
+2026-11-13T02:39:25Z lane A6 start [c260ffb395b3] cd . && python3 scripts/repair_ablate.py dev xP81 radapt
+2026-11-13T02:40:29Z lane A6 end [c260ffb395b3] rc=0
+2026-11-13T02:40:29Z lane A6 start [0f4d26391f83] cd . && python3 scripts/repair_ablate.py dev xP80 lca
+2026-11-13T02:41:30Z lane A6 end [0f4d26391f83] rc=0
+2026-11-13T02:41:30Z lane A6 start [258811e01163] cd . && python3 scripts/x_train.py 3 label 6000 0
+2026-11-13T02:42:58Z lane B6 end [c3b016cc8ced] rc=0
+2026-11-13T02:42:58Z lane B6 start [676333e74f11] python3 scripts/repair_ablate.py conf zP100 radapt
+2026-11-13T02:43:59Z lane B6 end [676333e74f11] rc=0
+2026-11-13T02:43:59Z lane B6 start [92938e427fc2] python3 scripts/repair_ablate.py conf zP101 radapt
+2026-11-13T02:45:02Z lane B6 end [92938e427fc2] rc=0
+2026-11-13T02:45:02Z lane B6 start [c0517b18aba4] python3 scripts/repair_ablate.py conf zP102 radapt
+2026-11-13T02:46:04Z lane B6 end [c0517b18aba4] rc=0
+2026-11-13T02:46:04Z lane B6 start [84584be4732f] python3 scripts/repair_ablate.py conf zP103 radapt
+2026-11-13T02:47:06Z lane B6 end [84584be4732f] rc=0
+2026-11-13T02:47:06Z lane B6 start [b10dec3d6148] python3 scripts/repair_ablate.py conf zP104 radapt
+2026-11-13T02:48:09Z lane B6 end [b10dec3d6148] rc=0
+2026-11-13T02:48:09Z lane B6 start [88c78bff23fc] python3 scripts/repair_ablate.py conf zP105 radapt
+2026-11-13T02:49:10Z lane B6 end [88c78bff23fc] rc=0
+2026-11-13T02:49:10Z lane B6 start [d43a81cd68e5] python3 scripts/repair_ablate.py conf zP106 radapt
+2026-11-13T02:50:10Z lane B6 end [d43a81cd68e5] rc=0
+2026-11-13T02:50:10Z lane B6 start [e3bd99bca86a] python3 scripts/repair_ablate.py conf zP107 radapt
+2026-11-13T02:51:12Z lane B6 end [e3bd99bca86a] rc=0
+2026-11-13T02:51:38Z lane B7 start [1df384feb203] python3 scripts/repair_zablate.py dev xP80 radapt
+2026-11-13T02:52:12Z lane B7 end [1df384feb203] rc=0
+2026-11-13T02:52:12Z lane B7 start [45369a777b0b] python3 scripts/repair_zablate.py dev xP81 radapt
+2026-11-13T02:52:46Z lane B7 end [45369a777b0b] rc=0
+2026-11-13T02:52:46Z lane B7 start [3e08db368405] python3 scripts/repair_zablate.py conf zP100 radapt
+2026-11-13T02:53:20Z lane B7 end [3e08db368405] rc=0
+2026-11-13T02:53:20Z lane B7 start [08257e02a926] python3 scripts/repair_zablate.py conf zP101 radapt
+2026-11-13T02:53:54Z lane B7 end [08257e02a926] rc=0
+2026-11-13T02:53:54Z lane B7 start [47ba4ffc4135] python3 scripts/repair_zablate.py conf zP102 radapt
+2026-11-13T02:54:28Z lane B7 end [47ba4ffc4135] rc=0
+2026-11-13T02:54:28Z lane B7 start [3b54ec3bd553] python3 scripts/repair_zablate.py conf zP103 radapt
+2026-11-13T02:55:05Z NOTE: second cloud-environment restart ~02:54; in-flight dev X3 (6000) and exploratory zablate zP103 lost without output; claims removed and rerun.
+2026-11-13T02:55:05Z lane B9 start [3b54ec3bd553] python3 scripts/repair_zablate.py conf zP103 radapt
+2026-11-13T02:55:05Z lane A7 start [258811e01163] cd . && python3 scripts/x_train.py 3 label 6000 0

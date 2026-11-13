@@ -1,0 +1,3 @@
+cd . && python3 scripts/repair_train.py dev xP80 unfreeze1
+cd . && python3 scripts/repair_train.py dev xP80 lora1
+cd . && python3 scripts/repair_train.py dev xP80 deep2

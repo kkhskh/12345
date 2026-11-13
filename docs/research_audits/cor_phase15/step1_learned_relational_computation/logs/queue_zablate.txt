@@ -1,0 +1,6 @@
+python3 scripts/repair_zablate.py dev xP80 radapt
+python3 scripts/repair_zablate.py dev xP81 radapt
+python3 scripts/repair_zablate.py conf zP100 radapt
+python3 scripts/repair_zablate.py conf zP101 radapt
+python3 scripts/repair_zablate.py conf zP102 radapt
+python3 scripts/repair_zablate.py conf zP103 radapt

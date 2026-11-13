@@ -67,14 +67,32 @@ RHO^{n_g}·m_g that the posterior requires. This agrees with the separable phase
 (`LEARNABLE_COMPOSITION_EXPERIMENTS.md`, finding 2). It repeats in a learned setting Investigation VII's lesson about
 frozen P-count states, which were also decodable but not usable by a one-block reader.
 
-## 4. Mechanism of the learned repair (Condition Z, radapt)
+## 4. Mechanism of the learned repair (Condition Z, radapt): an adapter ablation shows a bypass
 
-The repair adds the output of a group-attention reader over raw ingredients at the readout token. Its parameters have the
-same form as the composition attn reader. Its internal mechanism was not dissected separately: it is a copy of the reader
-architecture of §1, trained jointly with a fresh downstream block. What it contributes to the frozen P-count model is
-measured behaviourally in `SELECTIVE_LEARNED_REPAIR.md`. **Open:** whether the downstream block uses the adapter as a
-correction (an "m-like" term) or as a parallel posterior estimate. Ablating the adapter after training would distinguish
-the two. This was not run.
+`scripts/repair_ablate.py` was written after the freeze; it is exploratory and does not modify the frozen code. It takes a
+trained repair and zeroes the adapter's output projection, then re-evaluates.
+
+| model | trained: KL / acc / E_R1 | adapter ablated: KL / acc / dm_R1 / dm_R2 / dm_R3 |
+|---|---|---|
+| xP80 radapt | 0.002 / 0.746 / −0.02 | **0.561 / 0.335** / +0.00 / +0.00 / +0.00 (E = −dm_B) |
+| xP81 radapt | 0.002 / 0.746 / −0.29 | 0.562 / 0.335 / +0.00 / … |
+| xP80 lca | 0.006 / 0.744 / −0.28 | 0.560 / 0.353 / +0.00 / … |
+
+Confirmation lineages: `checkpoints/conf/*_ablate.json` (exploratory; summarised in `SELECTIVE_LEARNED_REPAIR.md`).
+
+**Reading.** With the adapter removed, the repaired model is at chance (accuracy 0.335 over 3 candidates) and responds
+to no edit. The fresh downstream block was trained jointly with the adapter. It has learned to read its decision almost
+entirely from the adapter's contribution, and it has not learned to read the frozen P-count state. The "repair" is
+therefore a **bypass**: a learned relational module computes the decision from the raw evidence, and the downstream
+block passes it through. Three consequences follow:
+
+- the open question of §4 in the earlier draft is answered: the adapter is a parallel posterior estimate, not an
+  m-like correction to Z;
+- the result belongs with Condition R (a learned reader on raw ingredients) more than with "repairing a representation";
+- equal KL (0.002) across all P and T1 parents, whatever the parent's own failure, is what a bypass predicts.
+
+What is *not* shown: whether the trained downstream uses Z *at all* in the presence of the adapter. That would need a
+Z-ablation with the adapter kept (for example, Z replaced by its mean), which was not run.
 
 ## 5. Confirmation (P3)
 

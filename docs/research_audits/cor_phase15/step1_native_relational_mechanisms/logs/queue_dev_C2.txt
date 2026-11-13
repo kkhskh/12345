@@ -1,3 +1,11 @@
+python3 scripts/native_train.py yP130 full_c1 4000 0 label logs/eval_conf9.npz
+python3 scripts/native_train.py yP131 full_c1 4000 0 label logs/eval_conf9.npz
+python3 scripts/native_train.py yP132 full_c1 4000 0 label logs/eval_conf9.npz
+python3 scripts/native_train.py yP134 full_c1 4000 0 label logs/eval_conf9.npz
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP130 full_c1 4000 0 _eval_conf9
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP131 full_c1 4000 0 _eval_conf9
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP132 full_c1 4000 0 _eval_conf9
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP134 full_c1 4000 0 _eval_conf9
 cd . && python3 scripts/native_train.py xP81 keep3x2 4000 0
 cd . && python3 scripts/native_train.py xP81 lora_both1 4000 0
 cd . && python3 scripts/native_train.py xP81 lora_attn1 4000 0

@@ -188,3 +188,7 @@
 2026-11-13T10:54:30Z lane An start [f38019bc1d9a] python3 scripts/native_train.py yP130 c1 4000 0 label logs/eval_conf9.npz
 2026-11-13T10:58:16Z lane Bf end [77dfabde8240] rc=0
 2026-11-13T10:58:16Z lane Bn start [a7f57b9600f6] python3 scripts/native_train.py yP131 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T11:09:41Z lane An end [f38019bc1d9a] rc=0
+2026-11-13T11:09:41Z lane An start [77e7e8f75201] python3 scripts/native_train.py yP132 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T11:13:27Z lane Bn end [a7f57b9600f6] rc=0
+2026-11-13T11:13:27Z lane Bn start [9e9cf5c942f3] python3 scripts/native_train.py yP133 c1 4000 0 label logs/eval_conf9.npz

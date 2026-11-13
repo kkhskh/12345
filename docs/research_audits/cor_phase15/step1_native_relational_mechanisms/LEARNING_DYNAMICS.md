@@ -19,7 +19,21 @@ claimed.
 
 At step 50, E_R1 ≈ −0.23 = −dm_B: the model has no R1 response yet.
 
-## Findings (development; NP4 confirms the full_c1 shape on new parents)
+## Confirmation (NP4: falsified, 1/4)
+
+E_R1 trajectories of full_c1 on the independent parents, as (step, E_R1, KL); the endpoints are the full eval:
+
+- **yP130**: minimum −0.77 at step 546, then −0.09. This is the development shape.
+- **yP131**: minimum −0.47 at step **1803**, then −0.17. The correction comes late.
+- **yP132**: shallow minimum −0.30 at step 111, final +0.14.
+- **yP134**: minimum −0.24 at step 74, final +0.26 (overshoot).
+
+The "separable first, then cross-group" order is therefore **not** a reliable property of native fine-tuning. It is
+strong on 2 of 5 parents (xP81, yP130), late on one, and essentially absent on two. Those two move to a positive R1
+response without first deepening the discount. The small-reader result of Investigation VIII does not transfer as a
+universal native trajectory.
+
+## Findings (development; see the confirmation above for which survive)
 
 1. **Separable first, in the native Transformer too.**
    - Every native run first moves R1 in the *wrong* direction while KL falls, that is, while the model learns the

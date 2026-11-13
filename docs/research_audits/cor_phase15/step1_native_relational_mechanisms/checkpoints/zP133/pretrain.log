@@ -1,0 +1,10 @@
+pcount s133 step 300 loss 1.6607
+pcount s133 step 600 loss 1.6415
+pcount s133 step 900 loss 1.3394
+pcount s133 step 1200 loss 1.4448
+pcount s133 step 1500 loss 1.0949
+pcount s133 step 1800 loss 1.0852
+pcount s133 step 2100 loss 1.0818
+pcount s133 step 2400 loss 1.0888
+pcount s133 step 2700 loss 1.0852
+pcount s133 step 3000 loss 1.0868

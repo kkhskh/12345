@@ -1,0 +1,4 @@
+[xP80_mlp_q_s8000_seed0] pool states (50000, 43, 64) in 14s
+[xP80_mlp_q_s8000_seed0] step 1000 KL +0.175 acc +0.692 absE_R1 +0.369 E_R1 -0.154 dm_R1 +0.079 absE_R2 +1.601 E_R2 +1.510 absE_R3 +1.446 E_R3 +1.194 absE_R23 +1.463 absE_F34 +0.425 absE_F54o +0.387 absE_F0 +0.112 absE_FLOC +0.404 absE_FID +0.109
+[xP80_mlp_q_s8000_seed0] step 2000 KL +0.137 acc +0.705 absE_R1 +0.419 E_R1 -0.185 dm_R1 +0.048 absE_R2 +1.399 E_R2 +1.214 absE_R3 +1.459 E_R3 +0.961 absE_R23 +1.452 absE_F34 +0.402 absE_F54o +0.408 absE_F0 +0.123 absE_FLOC +0.457 absE_FID +0.122
+[xP80_mlp_q_s8000_seed0] step 8000 KL +0.103 acc +0.718 absE_R1 +0.443 E_R1 -0.168 dm_R1 +0.065 absE_R2 +1.256 E_R2 +1.033 absE_R3 +1.478 E_R3 +0.746 absE_R23 +1.453 absE_F34 +0.386 absE_F54o +0.456 absE_F0 +0.140 absE_FLOC +0.494 absE_FID +0.140

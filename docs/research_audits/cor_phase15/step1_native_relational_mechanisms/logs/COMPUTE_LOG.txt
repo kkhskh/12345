@@ -192,3 +192,43 @@
 2026-11-13T11:09:41Z lane An start [77e7e8f75201] python3 scripts/native_train.py yP132 c1 4000 0 label logs/eval_conf9.npz
 2026-11-13T11:13:27Z lane Bn end [a7f57b9600f6] rc=0
 2026-11-13T11:13:27Z lane Bn start [9e9cf5c942f3] python3 scripts/native_train.py yP133 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T11:24:11Z lane An end [77e7e8f75201] rc=0
+2026-11-13T11:24:11Z lane An start [11f6171ea089] python3 scripts/native_train.py yP134 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T11:27:55Z lane Bn end [9e9cf5c942f3] rc=0
+2026-11-13T11:27:55Z lane Bn start [8b375e7baa0d] python3 scripts/native_train.py yP135 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T16:04:28Z NOTE: environment restart ~11:30 killed yP134 c1 and yP135 c1 (partial dirs removed, no final output); idle until 16:04; both rerun with identical commands (rule I.3).
+2026-11-13T16:04:28Z lane Bn2 start [11f6171ea089] python3 scripts/native_train.py yP134 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T16:04:28Z lane An2 start [8b375e7baa0d] python3 scripts/native_train.py yP135 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T16:09:26Z NOTE: runs started 16:04 were stopped at step ~246 after the assistant's reply ended (background jobs are stopped a few minutes after a reply; this, not an environment fault, explains the earlier mid-run losses). Rerun with identical commands while the session is kept active.
+2026-11-13T16:09:26Z lane Bn3 start [11f6171ea089] python3 scripts/native_train.py yP134 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T16:09:26Z lane An3 start [8b375e7baa0d] python3 scripts/native_train.py yP135 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T16:24:41Z lane Bn3 end [11f6171ea089] rc=0
+2026-11-13T16:24:41Z lane Bn3 start [a710b94b50a4] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP130 c1 4000 0 _eval_conf9
+2026-11-13T16:24:42Z lane An3 end [8b375e7baa0d] rc=0
+2026-11-13T16:24:42Z lane An3 start [4d9b1f2a156b] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP131 c1 4000 0 _eval_conf9
+2026-11-13T16:25:08Z lane Bn3 end [a710b94b50a4] rc=0
+2026-11-13T16:25:08Z lane Bn3 start [7492a4c7590f] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP132 c1 4000 0 _eval_conf9
+2026-11-13T16:25:09Z lane An3 end [4d9b1f2a156b] rc=0
+2026-11-13T16:25:09Z lane An3 start [680fe93aceff] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP133 c1 4000 0 _eval_conf9
+2026-11-13T16:25:35Z lane An3 end [680fe93aceff] rc=0
+2026-11-13T16:25:35Z lane An3 start [5f8849772a02] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP134 c1 4000 0 _eval_conf9
+2026-11-13T16:25:36Z lane Bn3 end [7492a4c7590f] rc=0
+2026-11-13T16:25:36Z lane Bn3 start [efa8c29149b3] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP135 c1 4000 0 _eval_conf9
+2026-11-13T16:26:02Z lane An3 end [5f8849772a02] rc=0
+2026-11-13T16:26:02Z lane Af3 start [6ac8afd54981] python3 scripts/native_train.py yP130 full_c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T16:26:03Z lane Bn3 end [efa8c29149b3] rc=0
+2026-11-13T16:26:03Z lane Bf3 start [9222314ba6b8] python3 scripts/native_train.py yP131 full_c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T17:02:11Z lane Af3 end [6ac8afd54981] rc=0
+2026-11-13T17:02:11Z lane Af3 start [6a39ad2f4a70] python3 scripts/native_train.py yP132 full_c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T17:02:28Z lane Bf3 end [9222314ba6b8] rc=0
+2026-11-13T17:02:28Z lane Bf3 start [aec65ab8f72f] python3 scripts/native_train.py yP134 full_c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T17:37:25Z lane Af3 end [6a39ad2f4a70] rc=0
+2026-11-13T17:37:25Z lane Af3 start [50351398aa1f] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP130 full_c1 4000 0 _eval_conf9
+2026-11-13T17:37:41Z lane Bf3 end [aec65ab8f72f] rc=0
+2026-11-13T17:37:41Z lane Bf3 start [ffab15a3c1df] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP131 full_c1 4000 0 _eval_conf9
+2026-11-13T17:37:52Z lane Af3 end [50351398aa1f] rc=0
+2026-11-13T17:37:52Z lane Af3 start [5d5b4078ecd4] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP132 full_c1 4000 0 _eval_conf9
+2026-11-13T17:38:08Z lane Bf3 end [ffab15a3c1df] rc=0
+2026-11-13T17:38:08Z lane Bf3 start [9354b1cd9d26] MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP134 full_c1 4000 0 _eval_conf9
+2026-11-13T17:38:18Z lane Af3 end [5d5b4078ecd4] rc=0
+2026-11-13T17:38:29Z lane Bf3 end [9354b1cd9d26] rc=0

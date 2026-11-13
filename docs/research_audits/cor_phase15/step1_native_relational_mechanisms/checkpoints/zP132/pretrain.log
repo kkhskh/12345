@@ -1,0 +1,10 @@
+pcount s132 step 300 loss 1.6499
+pcount s132 step 600 loss 1.6511
+pcount s132 step 900 loss 1.6381
+pcount s132 step 1200 loss 1.4373
+pcount s132 step 1500 loss 0.5371
+pcount s132 step 1800 loss 0.0309
+pcount s132 step 2100 loss 0.0077
+pcount s132 step 2400 loss 0.0047
+pcount s132 step 2700 loss 0.0040
+pcount s132 step 3000 loss 0.0040

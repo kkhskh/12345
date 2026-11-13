@@ -85,6 +85,7 @@ On C1 trained on xP81, `scripts/mech_native.py`:
 
   The block implements reliability routing that rises with count, and then a **collapse for perfect groups**, applied
   to each group independently. On xP80 it is the same: flat at 0.36–0.40, then 0.20 at n = 5.
+- **Confirmation (CP5, 6 independent parents).** Routing carries ≥ 50 % of the R2/R3 response in 6/6, and the freeze makes the R1 response less negative in 5/6. The frozen ratio criterion (perfect-group mass < 0.6 × n=4 mass) held in only 3/6, so CP5 as frozen is falsified.
 - **Attention freeze.** Run the post-edit episode with the block's attention pattern frozen to its pre-edit value. The R2
   and R3 responses shrink by 83–91 % (−2.87 → −0.50, −2.62 → −0.24), so they are carried by routing. The wrong-signed R1
   response only halves (−0.21 → −0.12; on xP80 −0.59 → −0.30), and the rest flows through the value/MLP pathways.
@@ -92,8 +93,12 @@ On C1 trained on xP81, `scripts/mech_native.py`:
   and about 2/3 of R2/R3. Patching the edited group's source tokens at q alone overshoots the R1 response (share 2.2).
   The pathways are therefore non-additive.
 
-**Reading.** The original block learned a *separable* rule, "a perfect group is the colluder, so de-attend it". It is
-applied per group and does not consult whether another group is also perfect. That rule is correct in the 91.6 % of
+**Correction (`scripts/mech_routing2.py`).** The routing is not purely per-group.
+- A perfect group receives 0.135 when it is the only perfect group and 0.326 when another is.
+- But on the F45 edits, the edited group's mass falls 0.54 → 0.32 *identically in R1, R2 and R3*.
+
+**Reading.** The original block learned a rule that is **regime-blind**: "a newly perfect group loses attention", by
+the same amount whatever the regime. The R1 regime requires the opposite sign. That rule is correct in the 91.6 % of
 decisions with a single perfect group, and it gives the right sign on R2/R3. It gives the wrong sign on R1. By Theorem 1
 of Investigation VII and Proposition A, any such per-group rule must give R1 and R3 the same sign. This is **H7 (a
 competing shortcut)**, implemented in native attention: a mechanism-level localization, not only an output-level one.

@@ -1,0 +1,72 @@
+{
+ "V1_max_abs_diff_vs_bayes_episode_posterior": 3.4416913763379853e-15,
+ "V2_group_agreement_rates_sorted": {
+  "genlib": [
+   0.6613666666666667,
+   0.664925,
+   0.66955
+  ],
+  "bayes_sample_fast": [
+   0.6637166666666666,
+   0.6658916666666667,
+   0.6668916666666667
+  ]
+ },
+ "V2_number_of_all_agreeing_groups_dist": {
+  "genlib": [
+   0.0,
+   0.91695,
+   0.083,
+   5e-05
+  ],
+  "bayes_sample_fast": [
+   0.0,
+   0.9152,
+   0.0847,
+   0.0001
+  ]
+ },
+ "V3_G3": {
+  "closed_vs_brute": 2.0539125955565396e-15,
+  "deepsets_vs_brute": 5.029310301551959e-14,
+  "vote_matching_vs_brute": 0.9696969696969701,
+  "agree_m_vs_mprime": 0.6345555555555555,
+  "frac_two_or_more_eligible": 0.09133333333333334
+ },
+ "V3_G4": {
+  "closed_vs_brute": 1.7208456881689926e-15,
+  "deepsets_vs_brute": 2.2912227670701668e-14,
+  "vote_matching_vs_brute": 0.96969696969697,
+  "agree_m_vs_mprime": 0.6155,
+  "frac_two_or_more_eligible": 0.08066666666666666
+ },
+ "V3_G5": {
+  "closed_vs_brute": 3.6637359812630166e-15,
+  "deepsets_vs_brute": 1.27675647831893e-14,
+  "vote_matching_vs_brute": 0.9692699122886494,
+  "agree_m_vs_mprime": 0.6081333333333333,
+  "frac_two_or_more_eligible": 0.084
+ },
+ "V3_G6": {
+  "closed_vs_brute": 3.608224830031759e-15,
+  "deepsets_vs_brute": 1.5210055437364645e-14,
+  "vote_matching_vs_brute": 0.9685914850509867,
+  "agree_m_vs_mprime": 0.5872222222222222,
+  "frac_two_or_more_eligible": 0.09766666666666667
+ },
+ "V5_interaction_order_G4_C1": {
+  "1": 0.9622274303414059,
+  "2": 0.32041240080588773,
+  "3": 1.975955248111607e-16,
+  "4": 2.449071293434104e-16
+ },
+ "V5_interaction_order_G4_C2": {
+  "1": 0.8302588825316098,
+  "2": 0.6598773280591462,
+  "3": 0.32976854795036625,
+  "4": 2.779419993154508e-16
+ },
+ "V6_partial_copy_beta0.7_softgate_deepsets_vs_brute": 2.7977620220553945e-14,
+ "V6_hard_gate_closed_form_vs_brute_beta0.7": 0.9696969696969698,
+ "V6_frac_no_eligible_group_beta0.7": 0.6793333333333333
+}

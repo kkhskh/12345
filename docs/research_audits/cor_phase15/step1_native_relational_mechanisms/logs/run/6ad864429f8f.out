@@ -1,0 +1,4 @@
+[xP80_mlp_q_s32000_seed0_bayes] pool states (50000, 43, 64) in 17s
+[xP80_mlp_q_s32000_seed0_bayes] step 1000 KL +0.138 acc +0.705 absE_R1 +0.376 E_R1 -0.195 dm_R1 +0.038 absE_R2 +1.501 E_R2 +1.213 absE_R3 +1.467 E_R3 +1.008 absE_R23 +1.471 absE_F34 +0.398 absE_F54o +0.360 absE_F0 +0.125 absE_FLOC +0.462 absE_FID +0.116
+[xP80_mlp_q_s32000_seed0_bayes] step 8000 KL +0.081 acc +0.726 absE_R1 +0.396 E_R1 -0.107 dm_R1 +0.126 absE_R2 +1.337 E_R2 +0.816 absE_R3 +1.421 E_R3 +0.593 absE_R23 +1.412 absE_F34 +0.341 absE_F54o +0.412 absE_F0 +0.122 absE_FLOC +0.415 absE_FID +0.124
+[xP80_mlp_q_s32000_seed0_bayes] step 32000 KL +0.066 acc +0.733 absE_R1 +0.410 E_R1 -0.108 dm_R1 +0.125 absE_R2 +1.136 E_R2 +0.696 absE_R3 +1.350 E_R3 +0.433 absE_R23 +1.326 absE_F34 +0.356 absE_F54o +0.420 absE_F0 +0.117 absE_FLOC +0.385 absE_FID +0.127

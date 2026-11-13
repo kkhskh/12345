@@ -1,0 +1,10 @@
+pcount s135 step 300 loss 1.6888
+pcount s135 step 600 loss 1.6685
+pcount s135 step 900 loss 1.6068
+pcount s135 step 1200 loss 1.6083
+pcount s135 step 1500 loss 1.4237
+pcount s135 step 1800 loss 1.0947
+pcount s135 step 2100 loss 1.0889
+pcount s135 step 2400 loss 1.0906
+pcount s135 step 2700 loss 1.0063
+pcount s135 step 3000 loss 1.0117

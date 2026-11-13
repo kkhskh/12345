@@ -94,8 +94,41 @@ says the hard gate stops being the Bayes rule, and readers trained at β = 1 are
 
 ## Part II — Results
 
-(Filled in after the runs.)
+**Integrity.**
+- Part I is byte-identical to its freeze commit `1ee69c2`, and Addendum A1 to commit `55eae73`. Verify with `git show`.
+- Verdicts are computed by `scripts/conf9_evaluate.py` and `scripts/conf9_evaluate_A1.py`. Their outputs are
+  `logs/confirmation_results.json` and `logs/confirmation_results_A1.json`.
+- **Deviations** (`logs/COMPUTE_LOG.txt`):
+  - background runs were stopped several times when a reply ended (first misread as environment restarts);
+  - each lost run was rerun once with its identical command, and none was dropped;
+  - `scripts/mech_native.py` gained post-freeze additions (disclosed in A1). The c1 path is unchanged.
+
+| prediction | verdict | evidence |
+|---|---|---|
+| **CP1** native information is linearly sufficient in complete parents, insufficient in incomplete ones | **confirmed** | decode-then-compose KL 0.0001 / 0.0000 / 0.0000 / 0.0001 with absE_R1 0.000 (complete); KL 0.326 and 0.184 (incomplete); count decoding 1.000 vs 0.62–0.68 |
+| **CP2** completeness separates C1 KL | **confirmed** | complete 0.043 / 0.076 / 0.032 / 0.074 < incomplete 0.192 / 0.170 |
+| **CP3** C1 fails R1 even with the information present | **confirmed** (4/4) | E_R1 −1.02 / −0.91 / −0.76 / −0.97; incomplete −0.85 / −0.82 |
+| **CP4** a native-state MLP reader uses the relation | **falsified** | mean-E criterion met in 1/4 (E_R1 −0.42 / −0.34 / +0.00 / −0.44). Paired improvement over C1 holds in 4/4 (absE 0.44–0.52 vs 0.81–1.05). The development success on xP81 did not replicate at 8k label steps |
+| **CP5** per-group de-attention mechanism of C1 | **falsified as frozen** (2/6 meet all three) | (a) perfect/n=4 mass ratio < 0.6: 3/6 (0.42, 0.33, 0.43; the misses are 0.61, 0.63, 0.67). (b) attention freeze removes ≥ 50 % of the R2∪R3 response: **6/6** (53–89 %). (c) the frozen R1 response is less negative: **5/6** |
+| **GP1** identity-free readers generalize to the unseen eligible pair | **confirmed** (6/6) | KL_pair01 0.0009–0.0027 |
+| **GP2** the concatenation MLP does not | **confirmed** (3/3) | 0.37–0.40 vs 0.005 on seen pairs |
+| **GP3** no size extrapolation | **confirmed** (6/6) | KL at G = 4: 0.025–0.053 |
+| **GP4** partial copying breaks every reader | **confirmed** (9/9) | KL 0.20–0.37 |
+| **NP1** native fine-tuning repairs R1 | **confirmed** | paired absE_R1 better 4/4 (0.21 / 0.30 / 0.21 / 0.35 vs 1.05 / 1.01 / 0.81 / 1.06). \|E_R1\| ≤ 0.2 in 3/4 (−0.09, −0.18, +0.14; +0.26 overshoot). KL ≤ 0.005 in 3/4 (0.002 / 0.003 / 0.003 / 0.007) |
+| **NP2** the development pathway (other groups' q-tokens) recurs | **falsified** (0/4) | others_q patch +0.01 to +0.08 (positive but small). The complement keeps the positive credit (+0.11 to +0.42), so these tokens are not necessary on new parents |
+| **NP3** the frozen prefix has no cross-group propagation | **confirmed** (4/4) | others_src share −0.02 to −0.04 |
+| **NP4** separable first, then cross-group, in native fine-tuning | **falsified** (1/4) | yP130 min −0.77 at step 546 → −0.09. yP131 min −0.47 at 1803 → −0.17. yP132 / yP134 shallow early minima (−0.30, −0.24) |
+
+**Exploratory (after unblinding, not a confirmation).** Per-parent R1 credit in the fine-tuned models is located
+differently on each parent:
+- yP134: through the other groups' source tokens at all questions (0.35 of 0.54);
+- yP132: split between readout tokens (0.24) and source tokens (0.21);
+- yP130/yP131: no tested token set carries it, and the parts sum to far less than the whole, so it is distributed.
+
+**What does recur, 4/4, is attention dependence:** freezing the first downstream block's attention removes the R1 credit
+(0.22 → −0.37, 0.17 → −0.26, 0.43 → 0.07, 0.54 → 0.06).
 
 ## Part III — Addenda
 
-(None yet.)
+- `PROSPECTIVE_PREDICTIONS_ADDENDUM_A1.md`: native fine-tuning predictions NP1–NP4, frozen before their runs.
+- Disclosure: `scripts/mech_native.py` post-freeze additions (A1). Added `scripts/mech_routing2.py` (exploratory).

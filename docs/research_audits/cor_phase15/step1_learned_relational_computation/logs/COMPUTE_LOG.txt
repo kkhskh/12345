@@ -222,3 +222,11 @@
 2026-11-13T02:55:05Z NOTE: second cloud-environment restart ~02:54; in-flight dev X3 (6000) and exploratory zablate zP103 lost without output; claims removed and rerun.
 2026-11-13T02:55:05Z lane B9 start [3b54ec3bd553] python3 scripts/repair_zablate.py conf zP103 radapt
 2026-11-13T02:55:05Z lane A7 start [258811e01163] cd . && python3 scripts/x_train.py 3 label 6000 0
+2026-11-13T02:55:52Z lane B9 end [3b54ec3bd553] rc=0
+2026-11-13T02:55:52Z lane B9 start [3cdec392595d] cd . && python3 scripts/repair_train.py dev xP80 unfreeze1
+2026-11-13T03:17:24Z lane B9 end [3cdec392595d] rc=0
+2026-11-13T03:17:24Z lane B9 start [0b31d511e93d] cd . && python3 scripts/repair_train.py dev xP80 lora1
+2026-11-13T03:37:53Z lane B9 end [0b31d511e93d] rc=0
+2026-11-13T03:37:53Z lane B9 start [d7498e5241ca] cd . && python3 scripts/repair_train.py dev xP80 deep2
+2026-11-13T03:39:01Z lane A7 end [258811e01163] rc=0
+2026-11-13T03:51:14Z lane B9 end [d7498e5241ca] rc=0

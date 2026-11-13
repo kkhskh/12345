@@ -62,6 +62,57 @@ access to the counts.
    were run. Without them, Investigation VIII cannot say whether the P-count *representation itself* can be made to
    support the relation by native modification.
 
-## Confirmation (P4–P6)
+## Confirmation (P4–P6; frozen; eval_conf8)
 
-See `FROZEN_PROTOCOL_AND_CONFIRMATION.md` Part II.
+Full table: `FROZEN_PROTOCOL_AND_CONFIRMATION.md` Part II.
+
+- **P4: confirmed.** The original transfer fails on 8/8 new P-count lineages (mean E_R1 −0.74).
+- **P5: confirmed.**
+  - radapt beats orig on |E_R1| in 8/8 lineages (sign p = 0.004).
+  - Mean |E_R1| is 0.057, and every preservation metric improves.
+  - The generic adapter does nothing (mean |E_R1| 0.49, vs orig 0.50 on the same four lineages).
+  - The oracle m-injection is erratic: +0.36 (overshoot) and −0.28.
+- **P6: confirmed by its criterion. On R1 itself, however, radapt is not better than T1's mild original error** (1 paired
+  win out of 4; zT1110 −0.34 vs −0.12).
+
+## How the learned repair works: it bypasses the parent (exploratory, post-freeze)
+
+Two ablations were applied to the trained radapt models.
+
+| ablation | what is removed | P-count conf lineages (KL / acc) | dev xP80 / xP81 |
+|---|---|---|---|
+| none | — | 0.002 / 0.74 | 0.002 / 0.746 |
+| adapter output zeroed (`repair_ablate.py`) | the learned relational module | **0.553–0.574 / 0.33–0.35** (all 8) | 0.561 / 0.335; 0.562 / 0.335 |
+| parent state replaced by its batch mean (`repair_zablate.py`) | all episode-specific information from the frozen parent | **0.002–0.003 / 0.74** (zP100–103: E_R1 moves from −0.04, −0.13, −0.03, −0.08 to +0.08, +0.00, +0.13, −0.03) | see json |
+
+The repaired model is at chance without the adapter, and **unchanged in quality without the parent's representation**.
+The only trace of the parent is a small R1 shift: removing Z moves E_R1 up by about +0.10 on average. The parent
+therefore still contributes a slight bias in the P-count (discount) direction, which the downstream block passes
+through. The
+downstream block reads the decision entirely from the adapter, which computes it from the raw ingredients. The
+"repair" therefore leaves the P-count representation unused: it is a learned relational reader placed next to it.
+
+**Consequences for the mandate's question.**
+
+1. *Can a learned module, with no hand-computed m, supply the relational computation the original transfer lacks?*
+   Yes, robustly (P5). It does so by computing the decision itself. "No m needed, and m injection is worse than learning"
+   still stands.
+2. *Can the frozen P-count representation be repaired, that is, made to support the relation?* **Not shown.** Every
+   successful repair here ignores it. This is decided by the native-modification family (unfreeze1, lora1, deep2). Those
+   were run on xP80 only, after the freeze, as exploratory development; see below.
+3. The "selective" label should not be applied to radapt. Preservation holds because the bypass is close to Bayes
+   everywhere, not because it edits R1 alone.
+
+## Native modification (exploratory, xP80, post-freeze)
+
+| spec | E_R1 | dm_R1 | E_R2 | E_R3 | F34 E | KL | FLOC \|E\| |
+|---|---|---|---|---|---|---|---|
+| orig | −0.895 | −0.66 | +0.93 | +0.20 | −0.12 | 0.104 | 0.47 |
+| unfreeze1 (train layer 1 + fresh layer 2) | **−0.312** | −0.08 | +0.53 | +0.17 | −0.03 | 0.056 | 0.14 |
+| lora1 (rank-8 on layer 1) | −0.439 | −0.21 | +0.57 | +0.11 | −0.07 | 0.066 | 0.20 |
+| deep2 (two fresh blocks) | −0.546 | −0.31 | +0.63 | +0.11 | +0.01 | 0.061 | 0.18 |
+
+Native modification of the pretrained network moves R1 about two thirds of the way from orig toward Bayes (unfreeze1),
+or about half (LoRA). A second fresh block helps less (−0.55). None of them reaches Bayes within 4000 steps. R2 is still +0.5 off. Unlike radapt, these models *do*
+use the parent's computation, because they modify it. They are the only evidence here that the P-count network can be
+pushed toward the relation, and the evidence is one development parent, one seed, after the freeze.

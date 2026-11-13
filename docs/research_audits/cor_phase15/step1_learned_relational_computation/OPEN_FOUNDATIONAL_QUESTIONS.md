@@ -4,14 +4,15 @@ Each entry gives the question, why it is still open after Investigation VIII, an
 would settle it.
 
 1. **Can the P-count representation itself be made to support the relation?** All successful repairs add a learned
-   relational module over the raw ingredients. The native modifications that would answer this (unfreeze layer 1, LoRA on
-   layer 1, two fresh blocks) were deferred for compute; any that did run are reported in `SELECTIVE_LEARNED_REPAIR.md`.
+   relational module over the raw ingredients. The native modifications were run only on xP80, after the freeze. Unfreezing layer 1 gives
+   −0.31, LoRA −0.44 and deep2 −0.55, against orig −0.90; none reaches Bayes. The adapter ablations show the successful
+   repair bypasses the parent.
    *Smallest test:* unfreeze1, lora1 and deep2 on 4 P lineages under the same 4000-step budget, with the same
    preservation rules.
 
-2. **Does the downstream block use the adapter as an m-like correction or as a parallel posterior?** *Test:* the
-   post-hoc adapter ablation (`scripts/repair_ablate.py`), and an interchange of the adapter's output between R1 pair
-   members. The ablation is in the exploratory queue.
+2. **Answered (exploratory):** the adapter acts as a parallel posterior. Ablating it leaves the model at chance;
+   mean-ablating the parent changes nothing. *Still open:* whether a repair constrained to read only Z (no raw
+   ingredients) can succeed. Is there a reader of the frozen states that reaches Bayes?
 
 3. **Why does the separable phase come first, and how long does it last?** No theorem; documented [N]. *Candidate
    analysis:* a linearised (NTK-style) or two-timescale argument in which the separable component has larger gradient

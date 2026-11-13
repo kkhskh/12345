@@ -51,4 +51,21 @@ distribution. Investigation VII's `W_bal` (reweighting, Condition Z) moved E_R1 
 
 ## X. Condition X: ordinary tokens, from scratch
 
-Results for `scripts/x_train.py` (1 and 3 blocks, labels, 16k steps) are below once available.
+`scripts/x_train.py` trains a Transformer from scratch on the full episode token sequence, with all parameters trainable
+and generator labels.
+
+| model | steps | KL | acc | dm on F45 R1 / R2 / R3 | F34 dm |
+|---|---|---|---|---|---|
+| 1 block | 6000 | 0.304 | 0.552 | 0.00 / 0.00 / 0.00 | 0.00 |
+| 3 blocks | 6000 | 0.279 | 0.577 | 0.00 / 0.00 / 0.00 | 0.00 |
+
+Both models respond to *no* edit: every family's E equals −dm_B. They have learned a coarse, edit-insensitive prior
+(accuracy above the 1/3 baseline from marginal structure) and none of the count-dependent evidence, separable or
+relational. **This is a budget-limited negative.**
+
+- The pretrained P-count and T1 models of Investigations VI–VII needed curricula or pretraining tasks to reach count
+  sensitivity at all.
+- A 16k-step 3-block run was started and stopped after 28 min for compute (`logs/COMPUTE_LOG.txt`).
+- Condition X therefore does not answer whether a raw-token Transformer would learn the relation at larger budgets. It
+  shows that the relational problem sits on top of a harder token-binding problem, which the ingredient conditions
+  (O/R) remove by construction.

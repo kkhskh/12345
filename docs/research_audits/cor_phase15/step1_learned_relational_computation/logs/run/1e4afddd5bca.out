@@ -1,0 +1,9 @@
+attn_R_label_s16000_seed10 {'probe_acc': 0.861, 'majority': 0.667, 'E_R1': -0.078, 'dm_R1': 0.155}
+attn_R_label_s16000_seed11 {'probe_acc': 0.827, 'majority': 0.667, 'E_R1': -0.12, 'dm_R1': 0.113}
+attn_R_label_s16000_seed12 {'probe_acc': 0.87, 'majority': 0.667, 'E_R1': -0.102, 'dm_R1': 0.131}
+relnet_R_label_s16000_seed10 {'probe_acc': 0.976, 'majority': 0.667, 'E_R1': 0.097, 'dm_R1': 0.329}
+relnet_R_label_s16000_seed11 {'probe_acc': 0.975, 'majority': 0.667, 'E_R1': 0.131, 'dm_R1': 0.364}
+relnet_R_label_s16000_seed12 {'probe_acc': 0.976, 'majority': 0.667, 'E_R1': 0.064, 'dm_R1': 0.297}
+mlp_R_label_s16000_seed10 {'probe_acc': 0.99, 'majority': 0.667, 'E_R1': -0.517, 'dm_R1': -0.285}
+mlp_R_label_s16000_seed11 {'probe_acc': 0.99, 'majority': 0.667, 'E_R1': -0.442, 'dm_R1': -0.209}
+mlp_R_label_s16000_seed12 {'probe_acc': 0.991, 'majority': 0.667, 'E_R1': -0.392, 'dm_R1': -0.159}

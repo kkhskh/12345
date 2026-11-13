@@ -1,0 +1,30 @@
+python3 scripts/decode_compose.py yP130 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP130 2 logs/eval_conf9.npz
+python3 scripts/native_reader.py yP130 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP131 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP131 2 logs/eval_conf9.npz
+python3 scripts/native_reader.py yP131 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP132 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP132 2 logs/eval_conf9.npz
+python3 scripts/native_reader.py yP132 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP133 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP133 2 logs/eval_conf9.npz
+python3 scripts/native_reader.py yP133 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP134 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP134 2 logs/eval_conf9.npz
+python3 scripts/native_reader.py yP134 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP135 3 logs/eval_conf9.npz
+python3 scripts/decode_compose.py yP135 2 logs/eval_conf9.npz
+python3 scripts/native_reader.py yP135 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+python3 scripts/native_train.py yP130 c1 4000 0 label logs/eval_conf9.npz
+python3 scripts/native_train.py yP131 c1 4000 0 label logs/eval_conf9.npz
+python3 scripts/native_train.py yP132 c1 4000 0 label logs/eval_conf9.npz
+python3 scripts/native_train.py yP133 c1 4000 0 label logs/eval_conf9.npz
+python3 scripts/native_train.py yP134 c1 4000 0 label logs/eval_conf9.npz
+python3 scripts/native_train.py yP135 c1 4000 0 label logs/eval_conf9.npz
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP130 c1 4000 0 _eval_conf9
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP131 c1 4000 0 _eval_conf9
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP132 c1 4000 0 _eval_conf9
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP133 c1 4000 0 _eval_conf9
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP134 c1 4000 0 _eval_conf9
+MECH_EVAL=logs/eval_conf9.npz python3 scripts/mech_native.py yP135 c1 4000 0 _eval_conf9

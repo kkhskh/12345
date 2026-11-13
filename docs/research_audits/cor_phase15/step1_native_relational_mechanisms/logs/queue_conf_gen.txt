@@ -1,0 +1,9 @@
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py ds_sum 0 1 12000 10
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py ds_sum 0 1 12000 11
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py ds_sum 0 1 12000 12
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py attn 0 1 12000 10
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py attn 0 1 12000 11
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py attn 0 1 12000 12
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py mlp 0 1 12000 10
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py mlp 0 1 12000 11
+GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py mlp 0 1 12000 12

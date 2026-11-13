@@ -1,0 +1,16 @@
+python3 scripts/native_reader.py xP80 mlp_q 32000 0 bayes 3
+python3 scripts/native_reader.py xP80 mlp_q 32000 0 bayes 2
+python3 scripts/native_reader.py xP80 ds_src 32000 0 bayes 3
+python3 scripts/native_reader.py xP80 mlp_q 32000 0 label 3
+python3 scripts/native_train.py xP80 c1 4000 0
+python3 scripts/native_train.py xP80 keep3 4000 0
+python3 scripts/native_train.py xP80 keep3x2 4000 0
+python3 scripts/native_train.py xP80 full_c1 4000 0
+python3 scripts/native_train.py xP80 full_keep3 4000 0
+python3 scripts/native_train.py xP80 lora_attn1 4000 0
+python3 scripts/native_train.py xP80 lora_mlp1 4000 0
+python3 scripts/native_train.py xP80 lora_both1 4000 0
+python3 scripts/native_train.py xP80 unf0 4000 0
+python3 scripts/native_train.py xP80 scratch3 4000 0
+python3 scripts/native_train.py xP80 full_c1 16000 0
+python3 scripts/probe_votes.py xP80

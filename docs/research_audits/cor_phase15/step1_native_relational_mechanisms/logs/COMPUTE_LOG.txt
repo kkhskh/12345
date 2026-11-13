@@ -1,0 +1,129 @@
+2026-11-13T05:03:06Z lane B start pretrain P130
+2026-11-13T05:16:46Z NOTE: smoke runs native_reader xP80 {ds_src 1000, ds_all 300, attn_all 300} seed 99 (dev parent, dev eval); outputs deleted.
+2026-11-13T05:16:46Z lane A start [9014da4d3167] python3 scripts/native_reader.py xP80 lin_ro 8000 0
+2026-11-13T05:18:29Z lane A end [9014da4d3167] rc=0
+2026-11-13T05:18:29Z lane A start [453b5a7c52e4] python3 scripts/native_reader.py xP80 mlp_ro 8000 0
+2026-11-13T05:20:23Z lane A end [453b5a7c52e4] rc=0
+2026-11-13T05:20:23Z lane A start [beb1ea400d7d] python3 scripts/native_reader.py xP80 mlp_q 8000 0
+2026-11-13T05:22:28Z lane A end [beb1ea400d7d] rc=0
+2026-11-13T05:22:28Z lane A start [e13a0fcd5457] python3 scripts/native_reader.py xP80 ds_src 8000 0
+2026-11-13T05:23:28Z lane B end pretrain P130 rc=0
+2026-11-13T05:23:28Z lane B start pretrain P131
+2026-11-13T05:25:53Z lane A end [e13a0fcd5457] rc=0
+2026-11-13T05:25:53Z lane A start [bbecc6ca39bb] python3 scripts/native_reader.py xP80 bilin_src 8000 0
+2026-11-13T05:28:40Z lane A end [bbecc6ca39bb] rc=0
+2026-11-13T05:28:40Z lane A start [c78530b6b1f9] python3 scripts/native_reader.py xP80 pair_src 8000 0
+2026-11-13T05:36:31Z lane A end [c78530b6b1f9] rc=0
+2026-11-13T05:36:31Z lane A start [09a6cd1273e3] python3 scripts/native_reader.py xP80 attn_q 8000 0
+2026-11-13T05:48:39Z lane B end pretrain P131 rc=0
+2026-11-13T05:48:39Z lane B start pretrain P132
+2026-11-13T05:49:57Z lane A end [09a6cd1273e3] rc=0
+2026-11-13T05:49:57Z lane A start [d9a2a3c76e55] python3 scripts/native_reader.py xP80 ds_all 8000 0
+2026-11-13T06:01:31Z lane A end [d9a2a3c76e55] rc=0
+2026-11-13T06:01:31Z lane A start [40eea33b7bff] python3 scripts/native_reader.py xP80 attn_all 8000 0
+2026-11-13T06:14:36Z lane B end pretrain P132 rc=0
+2026-11-13T06:14:36Z lane B start pretrain P133
+2026-11-13T06:40:37Z lane B end pretrain P133 rc=0
+2026-11-13T06:40:37Z lane B start pretrain P134
+2026-11-13T06:50:09Z lane A end [40eea33b7bff] rc=0
+2026-11-13T06:50:09Z lane A start [23d5a1426ec8] python3 scripts/probe_location.py xP80 dev/xP80_orig
+2026-11-13T07:02:16Z lane A end [23d5a1426ec8] rc=0
+2026-11-13T07:04:05Z lane A start [7edfc98a8a4c] python3 scripts/native_reader.py xP80 lin_ro 8000 0 label 3
+2026-11-13T07:05:38Z lane B end pretrain P134 rc=0
+2026-11-13T07:05:38Z lane B start pretrain P135
+2026-11-13T07:07:03Z lane A end [7edfc98a8a4c] rc=0
+2026-11-13T07:07:03Z lane A start [4bd5720b0847] python3 scripts/native_reader.py xP80 mlp_ro 8000 0 label 3
+2026-11-13T07:11:01Z lane A end [4bd5720b0847] rc=0
+2026-11-13T07:11:01Z lane A start [4d28bf3e56ff] python3 scripts/native_reader.py xP80 mlp_q 8000 0 label 3
+2026-11-13T07:16:01Z lane A end [4d28bf3e56ff] rc=0
+2026-11-13T07:16:01Z lane A start [47089f3f1714] python3 scripts/native_reader.py xP80 ds_src 8000 0 label 3
+2026-11-13T07:21:54Z lane A end [47089f3f1714] rc=0
+2026-11-13T07:21:54Z lane A start [3fd9c71b7255] python3 scripts/native_reader.py xP80 pair_src 8000 0 label 3
+2026-11-13T07:22:52Z NOTE: smoke runs native_train xP80 c1 200 / lora_both1 60 seed 99 (dev); outputs deleted.
+2026-11-13T07:31:11Z lane A end [3fd9c71b7255] rc=0
+2026-11-13T07:31:11Z lane A start [155c2248218a] python3 scripts/native_reader.py xP80 attn_q 8000 0 label 3
+2026-11-13T07:40:41Z lane B end pretrain P135 rc=0
+2026-11-13T07:40:44Z lane B2 start [d322520ad4ff] python3 scripts/native_reader.py xP80 mlp_q 32000 0 bayes 3
+2026-11-13T07:46:17Z lane A end [155c2248218a] rc=0
+2026-11-13T07:46:17Z lane A start [c6b0c4b5636b] python3 scripts/probe_location.py xP80 dev/xP80_orig #u3
+2026-11-13T07:47:53Z lane B2 end [d322520ad4ff] rc=0
+2026-11-13T07:47:53Z lane B2 start [6ad864429f8f] python3 scripts/native_reader.py xP80 mlp_q 32000 0 bayes 2
+2026-11-13T07:54:00Z lane B2 end [6ad864429f8f] rc=0
+2026-11-13T07:54:00Z lane B2 start [81fd17653742] python3 scripts/native_reader.py xP80 ds_src 32000 0 bayes 3
+2026-11-13T08:01:40Z lane A end [c6b0c4b5636b] rc=0
+2026-11-13T08:01:44Z lane A2 start [530b6701aabe] python3 scripts/native_reader.py xP80 mlp_q 32000 0 label 3
+2026-11-13T08:03:41Z lane M start [c02d088b3e26] python3 scripts/probe_votes.py xP80
+2026-11-13T08:04:05Z lane M end [c02d088b3e26] rc=0
+2026-11-13T08:04:49Z lane M start [ae5a36b15570] python3 scripts/decode_compose.py xP80 3
+2026-11-13T08:05:54Z lane M end [ae5a36b15570] rc=0
+2026-11-13T08:05:54Z lane M start [7431139cc6f2] python3 scripts/decode_compose.py xP80 2
+2026-11-13T08:07:12Z lane B2 end [81fd17653742] rc=0
+2026-11-13T08:07:12Z lane B2 start [87e7f4580002] python3 scripts/native_train.py xP80 c1 4000 0
+2026-11-13T08:09:07Z lane M end [7431139cc6f2] rc=0
+2026-11-13T08:13:19Z lane M decode_compose xP80 u3,u2 rerun with per-position probes + fallback (first version superseded; NaN on inconsistent decodes)
+2026-11-13T08:13:54Z lane A2 end [530b6701aabe] rc=0
+2026-11-13T08:13:54Z lane A2 start [807d25ce7f12] python3 scripts/native_train.py xP80 keep3 4000 0
+2026-11-13T08:26:10Z lane B2 end [87e7f4580002] rc=0
+2026-11-13T08:26:12Z lane B2c start [492ffdde3c7b] python3 scripts/decode_compose.py xP81 3
+2026-11-13T08:26:55Z lane B2c end [492ffdde3c7b] rc=0
+2026-11-13T08:26:55Z lane B2c start [a2c7420dff96] python3 scripts/decode_compose.py xP81 2
+2026-11-13T08:28:04Z lane B2c end [a2c7420dff96] rc=0
+2026-11-13T08:28:04Z lane B2c start [c1ff92f2dc45] python3 scripts/native_reader.py xP81 mlp_q 8000 0 label 2
+2026-11-13T08:30:18Z lane A2 end [807d25ce7f12] rc=0
+2026-11-13T08:30:30Z lane B2c end [c1ff92f2dc45] rc=0
+2026-11-13T08:30:30Z lane B2c start [de4dc4d2011b] python3 scripts/native_reader.py xP81 mlp_q 8000 0 label 3
+2026-11-13T08:30:32Z lane A2c start [597d4044e509] python3 scripts/native_reader.py xP81 mlp_q 32000 0 bayes 3
+2026-11-13T08:33:20Z lane B2c end [de4dc4d2011b] rc=0
+2026-11-13T08:33:20Z lane B2c start [f89b73fd43c2] python3 scripts/native_reader.py xP81 mlp_q 32000 0 bayes 2
+2026-11-13T08:37:20Z NOTE: smoke gen_readers ds_sum 300 steps seed 99; deleted
+2026-11-13T08:37:24Z lane A2c end [597d4044e509] rc=0
+2026-11-13T08:37:24Z lane A2c start [fb954d4e84ff] python3 scripts/native_reader.py xP81 pair_src 8000 0 label 3
+2026-11-13T08:37:30Z lane G start [4b6132e9d3f8] python3 scripts/gen_readers.py ds_sum 0 0 12000 0
+2026-11-13T08:39:27Z lane G end [4b6132e9d3f8] rc=0
+2026-11-13T08:39:27Z lane G start [452f4a35e672] python3 scripts/gen_readers.py ds_sum 0 1 12000 0
+2026-11-13T08:41:25Z lane G end [452f4a35e672] rc=0
+2026-11-13T08:41:25Z lane G start [7a746801b1ee] python3 scripts/gen_readers.py ds_sum 1 0 12000 0
+2026-11-13T08:42:31Z lane B2c end [f89b73fd43c2] rc=0
+2026-11-13T08:42:31Z lane B2c start [dcb0b681f136] python3 scripts/native_reader.py xP81 ds_src 8000 0 label 3
+2026-11-13T08:43:22Z lane G end [7a746801b1ee] rc=0
+2026-11-13T08:43:22Z lane G start [01337d4e9663] python3 scripts/gen_readers.py ds_sum 1 1 12000 0
+2026-11-13T08:45:29Z lane G end [01337d4e9663] rc=0
+2026-11-13T08:45:29Z lane G start [c24907a45d65] python3 scripts/gen_readers.py ds_mean 0 0 12000 0
+2026-11-13T08:47:33Z lane G end [c24907a45d65] rc=0
+2026-11-13T08:47:33Z lane G start [acec876574b9] python3 scripts/gen_readers.py ds_mean 0 1 12000 0
+2026-11-13T08:49:39Z lane G end [acec876574b9] rc=0
+2026-11-13T08:49:39Z lane G start [0164ba7e42fc] python3 scripts/gen_readers.py ds_mean 1 0 12000 0
+2026-11-13T08:51:09Z lane B2c end [dcb0b681f136] rc=0
+2026-11-13T08:51:09Z lane B2c start [d1a10e78c0a5] python3 scripts/native_train.py xP81 c1 4000 0
+2026-11-13T08:51:55Z lane G end [0164ba7e42fc] rc=0
+2026-11-13T08:51:55Z lane G start [346f17e6af19] python3 scripts/gen_readers.py ds_mean 1 1 12000 0
+2026-11-13T08:54:07Z lane G end [346f17e6af19] rc=0
+2026-11-13T08:54:07Z lane G start [3e7f8cb03e61] python3 scripts/gen_readers.py attn 0 0 12000 0
+2026-11-13T08:56:43Z lane A2c end [fb954d4e84ff] rc=0
+2026-11-13T08:56:43Z lane A2c start [7f2ebeee84cd] python3 scripts/native_train.py xP81 keep3 4000 0
+2026-11-13T09:02:22Z lane G end [3e7f8cb03e61] rc=0
+2026-11-13T09:02:22Z lane G start [3ca1a0fd7dce] python3 scripts/gen_readers.py attn 0 1 12000 0
+2026-11-13T09:10:30Z lane G end [3ca1a0fd7dce] rc=0
+2026-11-13T09:10:30Z lane G start [4f47b5531d3d] python3 scripts/gen_readers.py attn 1 0 12000 0
+2026-11-13T09:18:27Z lane G end [4f47b5531d3d] rc=0
+2026-11-13T09:18:27Z lane G start [a5eb363dad10] python3 scripts/gen_readers.py attn 1 1 12000 0
+2026-11-13T09:26:02Z lane B2c end [d1a10e78c0a5] rc=0
+2026-11-13T09:26:02Z lane B2c start [77dfabde8240] python3 scripts/native_train.py xP81 full_c1 4000 0
+2026-11-13T09:26:27Z lane G end [a5eb363dad10] rc=0
+2026-11-13T09:26:27Z lane G start [8da538477a09] python3 scripts/gen_readers.py relnet 0 0 12000 0
+2026-11-13T09:29:23Z lane G end [8da538477a09] rc=0
+2026-11-13T09:29:23Z lane G start [377d54703afb] python3 scripts/gen_readers.py relnet 0 1 12000 0
+2026-11-13T09:32:37Z lane A2c end [7f2ebeee84cd] rc=0
+2026-11-13T09:32:37Z lane A2c start [456d5024a727] python3 scripts/native_train.py xP81 full_keep3 4000 0
+2026-11-13T09:32:46Z lane G end [377d54703afb] rc=0
+2026-11-13T09:32:46Z lane G start [5331d3c84c81] python3 scripts/gen_readers.py relnet 1 0 12000 0
+2026-11-13T09:36:25Z lane G end [5331d3c84c81] rc=0
+2026-11-13T09:36:25Z lane G start [0787e11c1e4c] python3 scripts/gen_readers.py relnet 1 1 12000 0
+2026-11-13T09:39:45Z lane G end [0787e11c1e4c] rc=0
+2026-11-13T09:39:45Z lane G start [6edf861fa556] python3 scripts/gen_readers.py mlp 0 0 12000 0
+2026-11-13T09:41:22Z lane G end [6edf861fa556] rc=0
+2026-11-13T09:41:22Z lane G start [5c0f0f24a53c] python3 scripts/gen_readers.py mlp 0 1 12000 0
+2026-11-13T09:42:54Z lane G end [5c0f0f24a53c] rc=0
+2026-11-13T09:42:54Z lane G start [2b7b4bfe68bf] python3 scripts/gen_readers.py mlp 1 0 12000 0
+2026-11-13T09:44:34Z lane G end [2b7b4bfe68bf] rc=0
+2026-11-13T09:44:34Z lane G start [9742898de132] python3 scripts/gen_readers.py mlp 1 1 12000 0

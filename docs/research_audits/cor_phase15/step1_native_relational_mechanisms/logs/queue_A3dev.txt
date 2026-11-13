@@ -1,0 +1,10 @@
+python3 scripts/native_reader.py xP80 lin_ro 8000 0
+python3 scripts/native_reader.py xP80 mlp_ro 8000 0
+python3 scripts/native_reader.py xP80 mlp_q 8000 0
+python3 scripts/native_reader.py xP80 ds_src 8000 0
+python3 scripts/native_reader.py xP80 bilin_src 8000 0
+python3 scripts/native_reader.py xP80 pair_src 8000 0
+python3 scripts/native_reader.py xP80 attn_q 8000 0
+python3 scripts/native_reader.py xP80 ds_all 8000 0
+python3 scripts/native_reader.py xP80 attn_all 8000 0
+python3 scripts/probe_location.py xP80 dev/xP80_orig

@@ -1,0 +1,21 @@
+python3 scripts/decode_compose.py xP81 3
+python3 scripts/decode_compose.py xP81 2
+python3 scripts/native_reader.py xP81 mlp_q 8000 0 label 2
+python3 scripts/native_reader.py xP81 mlp_q 8000 0 label 3
+python3 scripts/native_reader.py xP81 mlp_q 32000 0 bayes 3
+python3 scripts/native_reader.py xP81 mlp_q 32000 0 bayes 2
+python3 scripts/native_reader.py xP81 pair_src 8000 0 label 3
+python3 scripts/native_reader.py xP81 ds_src 8000 0 label 3
+python3 scripts/native_train.py xP81 c1 4000 0
+python3 scripts/native_train.py xP81 keep3 4000 0
+python3 scripts/native_train.py xP81 full_c1 4000 0
+python3 scripts/native_train.py xP81 full_keep3 4000 0
+python3 scripts/native_train.py xP81 keep3x2 4000 0
+python3 scripts/native_train.py xP81 lora_both1 4000 0
+python3 scripts/native_train.py xP81 lora_attn1 4000 0
+python3 scripts/native_train.py xP81 lora_mlp1 4000 0
+python3 scripts/native_train.py xP81 unf0 4000 0
+python3 scripts/native_train.py xP81 scratch3 4000 0
+python3 scripts/native_train.py xP81 c1 16000 0
+python3 scripts/native_train.py xP81 c1 4000 0 bayes
+python3 scripts/native_train.py xP81 full_c1 16000 0

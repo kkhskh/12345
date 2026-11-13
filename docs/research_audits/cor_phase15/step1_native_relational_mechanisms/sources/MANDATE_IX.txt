@@ -1,0 +1,1136 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION IX
+
+## Native Relational Computation, Causal Mechanism Emergence, Compositional Generalization, and Mathematical Limits
+
+**Autonomous research mandate — continuation of the existing COR repository**
+
+You are continuing the COR research program from the completed Investigation VIII branch:
+
+`cor-phase15-step1-learned-relational-computation`
+
+The latest research package is:
+
+`cor_inv8_learned_relational_computation.zip`
+
+Use the complete repository, prior research packages, original experimental implementations, checkpoints, mathematical arguments, reviewer corrections, and failure records.
+
+**This is a substantial new foundational investigation, not a paper-writing task, a minor follow-up, or a narrow attempt to improve one model's accuracy.**
+
+---
+
+# 1. SCIENTIFIC MISSION AND CURRENT STAGE
+
+The COR program remains in **Phase 1.5, Step 1: Foundational Mathematical and Mechanistic Investigation**.
+
+We estimate that roughly 25% of the intended foundational research territory has been explored. This is an informal research-planning estimate, not a formal completion metric.
+
+We are not approaching closure.
+
+Do not:
+
+- Propose ending Step 1.
+- Initiate Step 2 or Phase 2.
+- Choose a final paper thesis.
+- Declare a universal COR law.
+- Assume the original obstruction/discrepancy formalism is correct.
+- Reduce COR to latent reliability, P-count, or the R1 boundary.
+- Treat improved accuracy as sufficient proof of a mechanism.
+- Force distinct relational computations into one theory.
+
+The central scientific objective is:
+
+**Determine under what mathematical, architectural, and learning conditions Transformers can construct, represent, combine, and causally use relationships among distributed evidence sources to make candidate-specific decisions—and explain when these capabilities fail despite the necessary information being available.**
+
+Investigation IX must deepen our understanding of the underlying computations while expanding the foundational landscape.
+
+The ultimate goal is not merely to demonstrate that relational computation can be learned.
+
+It is to discover:
+
+1. What information such computation requires.
+2. How that information becomes represented.
+3. Which operations transform it into decision-relevant information.
+4. How those operations are learned.
+5. Which internal mechanisms causally implement them.
+6. Why different implementations succeed or fail.
+7. What generalizes across models, tasks, architectures, and data distributions.
+8. Which mathematical properties remain invariant.
+9. What new prospective predictions follow.
+10. Which findings, if any, genuinely extend existing mathematical and mechanistic theories.
+
+Positive discoveries, negative findings, restricted impossibility results, and counterexamples are all valuable.
+
+Do not select the desired conclusion before the research.
+
+---
+
+# 2. ESTABLISHED RESEARCH RECORD
+
+Before conducting new experiments, inspect the complete relevant history.
+
+Pay particular attention to:
+
+- Original COR definitions and the Phase 1 fatality audit.
+- Phase 1.5 Steps 1A–1E.
+- Foundational causal-bridge investigations.
+- Learned mediator identification.
+- Latent reliability experiments.
+- Relational computation atlas.
+- Foundational Investigations I–VIII.
+- The T4 reliability-routing findings.
+- The GATE mechanism and its corrections.
+- The incomplete TRANS composition results.
+- Cross-implementation equivalence investigations.
+- Prospective extrapolation predictions and failures.
+- The R1/R2/R3 boundary investigations.
+- Investigation VII's exact Bayesian relational factor.
+- Investigation VIII's learned readers, native-model experiments, interventions, and bypass findings.
+
+Read actual experimental records and code rather than depending on executive summaries.
+
+Preserve established negative results and historical verdicts.
+
+Do not silently reinterpret a failed prediction as a success.
+
+## 2.1 What Investigation VIII established
+
+Investigation VIII provides evidence that purpose-built neural readers can learn decision-relevant cross-group relational computations without receiving the exact eligibility factor as an input.
+
+Across six new confirmation runs:
+
+- Three attention readers succeeded.
+- Three pairwise relational networks succeeded.
+- Training used ordinary candidate-label supervision.
+- The readers received exact precomputed leave-question agreement counts and current-question source reports.
+- Their mean per-episode absolute R1 response error was approximately 0.176.
+- Their overall KL divergence to exact Bayes was approximately 0.00079.
+
+The result demonstrates learning of the **cross-group combination step from already-extracted primitive evidence**.
+
+It does not establish end-to-end learning from the original raw token sequence.
+
+The experiment also showed that a feature can be highly decodable without being correctly used.
+
+Failed 16,000-step MLP readers had approximately 0.99 linear decoding accuracy for the eligibility factor, while successful attention readers had approximately 0.83–0.87.
+
+The MLP could succeed under a longer development training budget, so the 16,000-step result does not prove an architectural impossibility.
+
+Three independent attention-reader interventions demonstrated that cross-group communication pathways causally affected the relational candidate response.
+
+However, the intervention mask used mathematically known eligibility information to identify connections for removal.
+
+Therefore, the result is a restricted causal-pathway finding, not identification of a native Transformer relational circuit.
+
+## 2.2 The critical negative result: bypass rather than native repair
+
+A new relational adapter improved all eight tested P-count lineages.
+
+Per-episode R1 absolute error fell from approximately 0.8165 to 0.1822, and mean KL fell from approximately 0.09397 to 0.00216.
+
+But:
+
+- Removing the adapter reduced accuracy to approximately 33.7%.
+- Replacing the frozen original P-count representation with its mean left accuracy near 74% in four tested lineages.
+- The adapter received engineered primitive evidence and could construct the decision largely independently of the original model.
+
+The correct interpretation is a successful **parallel relational decision system**, not a verified repair of the original P-count computation.
+
+This distinction is fundamental to Investigation IX.
+
+## 2.3 Additional unresolved results
+
+The prior investigation also showed:
+
+- Partial improvement from last-layer unfreezing, rank-8 LoRA, and additional downstream blocks on a single development parent.
+- No established Bayes-level native repair.
+- Raw-token from-scratch Transformers that did not learn the relevant response by 6,000 steps.
+- An interrupted longer raw-token training run.
+- Limited held-out group-pair generalization, with only one seed per reader architecture.
+- A pairwise reader that retained the correct R1 sign on the tested held-out configuration.
+- Incomplete evidence about whether the original model represents the information necessary for the correct cross-group decision.
+- No established connection between these learned relational mechanisms and the original COR obstruction/discrepancy operators.
+
+Do not exaggerate any of these results.
+
+## 2.4 Mathematical correction that must be preserved
+
+Use the correct Bayesian eligibility definition:
+
+`m_g = Σ_(h≠g) 1[n_h = 5] · 1[the two sources in group h agree at target question q]`
+
+There is **no additional requirement** that group h's candidate vote match group g's vote.
+
+Verify this formula against the actual generator and exact Bayesian reference.
+
+Do not reintroduce the previously incorrect vote-matching factor.
+
+Also preserve the distinction between:
+
+- Mathematical source-role eligibility.
+- Represented agreement counts.
+- A decoded eligibility variable.
+- A learned computation using eligibility information.
+- The final candidate-specific Bayesian response.
+
+These objects must not be treated as interchangeable without evidence.
+
+---
+
+# 3. THE FIVE CENTRAL SCIENTIFIC PROBLEMS
+
+Investigation IX must address five interconnected problems.
+
+**Problem A — Native computation**
+
+Can the original P-count Transformer learn and use the necessary cross-group relational operation through its own representations?
+
+**Problem B — Causal integration**
+
+What differentiates a network that possesses decodable relational information from one that actually uses it correctly?
+
+**Problem C — Learning dynamics**
+
+What computational and optimization processes enable the emergence of relational operations, and why are some architectures or training regimes slower or unsuccessful?
+
+**Problem D — Generalization**
+
+Which learned relational computations survive changes in group identity, group structure, source statistics, and relational semantics?
+
+**Problem E — Mathematical unification and limits**
+
+Are there nontrivial, implementation-independent principles connecting T4, GATE, TRANS, adaptive-source inference, and the newer cross-group eligibility computation?
+
+These problems must interact.
+
+Do not submit five unrelated experiment summaries.
+
+---
+
+# 4. WORKSTREAM A — IDENTIFY THE ORIGINAL P-COUNT FAILURE
+
+This is the immediate mechanistic priority.
+
+The original P-count Transformer fails the R1 response despite having learned useful agreement-count representations.
+
+Determine precisely why.
+
+## A1. Separate competing explanations
+
+Investigate at least the following hypotheses.
+
+**H1 — Information insufficiency**
+
+The learned representation does not contain enough information to determine the correct Bayesian response.
+
+**H2 — Representation accessibility**
+
+The necessary information exists in the network, but it is not available in a usable form at the relevant decision stage.
+
+**H3 — Missing relational operation**
+
+The model represents the necessary ingredients but does not correctly combine information across groups.
+
+**H4 — Incorrect downstream integration**
+
+The model computes some relational information but fails to incorporate it into candidate-specific evidence weighting.
+
+**H5 — Optimization limitation**
+
+The architecture can implement the required operation, but its learned parameters remain in a suboptimal computational regime.
+
+**H6 — Architectural constraint**
+
+The tested architecture or computational depth creates a bottleneck that limits the relevant operation.
+
+**H7 — Competing shortcut**
+
+The model learns a simpler operation that works on most training-distribution episodes but fails at the R1 boundary.
+
+For each hypothesis:
+
+- Define its observable consequences.
+- Specify an experiment that distinguishes it from alternatives.
+- State which results would falsify it.
+- Avoid diagnosing the failure solely from output behavior.
+
+## A2. Information-location analysis
+
+Inspect the original model's:
+
+- Source-token residual states.
+- Candidate/readout representations.
+- Layerwise residual streams.
+- Attention queries, keys, and values.
+- Attention output projections.
+- MLP activations.
+- Distributed subspaces.
+- Intermediate decision information.
+
+Use independent generator labels to test the availability of:
+
+- Within-group agreement information.
+- Cross-group perfect-agreement configurations.
+- Eligibility-relevant relational information.
+- Candidate evidence.
+- Posterior-relevant information.
+
+Distinguish decodability from functional accessibility and causal use.
+
+Do not conclude that a feature is absent solely because a linear probe fails.
+
+Do not conclude that a feature is causally important solely because a probe succeeds.
+
+## A3. Sufficiency tests
+
+Investigate whether the frozen P-count representations contain enough information for a downstream computation to approximate Bayes.
+
+Train controlled readouts using **only native Transformer states**.
+
+No engineered source counts, group reports, eligibility factors, or raw-input side channels may enter these readouts at inference.
+
+Compare:
+
+- Linear readouts.
+- Small nonlinear readouts.
+- Attention-based state readers.
+- Pairwise state-interaction readers.
+- Larger-capacity matched controls.
+
+Separate the ability to extract information from the native states from successful repair of the original Transformer.
+
+A powerful downstream model that solves the task using frozen native states establishes representational sufficiency under that reader class.
+
+It does not, by itself, establish that the original model naturally uses the corresponding computation.
+
+---
+
+# 5. WORKSTREAM B — LEARN THE RELATIONAL OPERATION INSIDE THE ORIGINAL TRANSFORMER
+
+This is the principal experimental extension.
+
+The objective is to determine whether the existing Transformer can develop the relational computation without a parallel decision-making system bypassing it.
+
+## B1. Compare native learning strategies
+
+Evaluate:
+
+1. Selective unfreezing of late Transformer layers.
+2. Selective unfreezing of earlier layers.
+3. Full-model fine-tuning.
+4. Low-rank adaptation at attention Q/K/V/O projections.
+5. Low-rank adaptation at MLP components.
+6. Combined attention and MLP adaptation.
+7. Additional native Transformer blocks.
+8. A native-state-only downstream attention computation.
+9. Matched-capacity ordinary downstream readers.
+10. From-scratch raw-token Transformers.
+11. Curriculum-trained models with separately specified relational learning objectives.
+
+The native-only experimental conditions must not receive externally calculated counts, current-question group-report features, the eligibility factor, or other engineered relational side information at inference.
+
+If explicit supervision of a relational intermediate is explored, make it a separately labeled experimental condition.
+
+A model trained with an auxiliary eligibility target must not be described as discovering eligibility solely from ordinary candidate supervision.
+
+## B2. Prevent bypass
+
+Every successful native-repair claim must survive tests designed to expose alternative information pathways.
+
+Use:
+
+- Parent-state replacement.
+- Native-state resampling from appropriate comparison episodes.
+- Layer-specific interventions.
+- Full downstream recomputation.
+- Matched-state negative controls.
+- Candidate-evidence-preserving relational edits.
+- Relational-information-preserving evidence edits.
+- Comparisons against side-channel and bypass baselines.
+
+Determine whether changing the relevant parent representation changes the repaired decision in the predicted direction.
+
+A readout that ignores the parent representation is not a native repair.
+
+A reader that consumes native states but reconstructs the entire answer using an unrelated information pathway may establish state sufficiency without establishing repair of the intended mechanism.
+
+Report these categories separately.
+
+## B3. Separate types of successful learning
+
+Classify outcomes as:
+
+**Type I:** External bypass solves the task.
+
+**Type II:** Frozen native states contain sufficient information for a new downstream computation.
+
+**Type III:** Modified native network layers learn a useful new relational computation.
+
+**Type IV:** A causally identified native pathway computes and integrates the relational operation.
+
+**Type V:** The identified mechanism generalizes under independently specified changes and supports prospective predictions.
+
+Do not treat these categories as equivalent.
+
+Type IV or V would constitute especially valuable progress, but lower-level results remain scientifically useful.
+
+## B4. Use independent models
+
+Replicate the central findings across genuinely independent pretrained parents and training seeds.
+
+Use at least five independent parents or seeds for the principal comparison where resources permit, with a clear account of actual independence.
+
+If resources prevent this, prioritize a smaller, statistically interpretable design and explicitly restrict the conclusions.
+
+Do not count multiple fine-tunes of one parent as independent pretrained models.
+
+Use matched training budgets and capacity controls.
+
+Preserve all seeds and failed runs.
+
+---
+
+# 6. WORKSTREAM C — CAUSAL RECONSTRUCTION OF SUCCESSFUL NATIVE COMPUTATION
+
+If any native learning condition succeeds, the next question is what computation was actually learned.
+
+Do not stop at accuracy.
+
+## C1. Reconstruct the computational pathway
+
+Trace the relation's influence from source observations to candidate margins.
+
+Investigate:
+
+- Where within-group agreement information is created.
+- How information crosses source groups.
+- Whether a global eligibility-like variable is formed.
+- Whether eligibility is computed separately for each group.
+- Whether the network instead implements an equivalent distributed operation.
+- Where relational information combines with candidate evidence.
+- How the final candidate logits are produced.
+
+Include complete attention Q/K/V/O, MLP, LayerNorm, and residual pathways.
+
+Do not interpret attention visualizations as sufficient mechanistic explanations.
+
+## C2. Necessary and sufficient pathways
+
+Use carefully designed path-patching and activation-intervention experiments.
+
+Test:
+
+- Necessity of proposed pathways.
+- Restoration of decision-relevant effects.
+- Redundant and compensating pathways.
+- Alternative mediators.
+- Matched intervention controls.
+- Sensitivity to normalization and activation scale.
+- On-support input changes wherever possible.
+
+Distinguish natural interventions from surgical internal interventions.
+
+Do not claim that a mean-ablation effect identifies a naturally necessary variable.
+
+## C3. Mechanism emergence over training
+
+Save checkpoints throughout training, with dense sampling around periods of rapid learning.
+
+At each checkpoint, evaluate:
+
+- Candidate accuracy.
+- Overall KL to Bayes.
+- Per-episode R1 response error.
+- R2/R3 response behavior.
+- Availability of relevant information.
+- Causal sensitivity to cross-group relationships.
+- Apparent computational pathway structure.
+
+Determine whether the model first learns separable approximations and later develops cross-group computation.
+
+Investigation VIII suggests such a trajectory in small readers, but this remains to be established in native Transformers.
+
+Compare gradual development, abrupt transitions, and alternative learning trajectories.
+
+Do not infer a phase transition from sparse checkpoints or short fine-tuning plateaus.
+
+## C4. Why decodability can fail to support decisions
+
+Investigate the difference between:
+
+- Feature existence.
+- Feature accessibility.
+- Feature combination.
+- Feature readout.
+- Causal use.
+
+Construct controlled examples in which relational information is decodable but not correctly used.
+
+Compare them with models where the same information becomes causally decision-relevant.
+
+Attempt to derive restricted conditions under which a decodable representation can be converted into a correct decision with a specified computational resource or architecture.
+
+Do not assert that linear decodability implies a simple causal mechanism.
+
+---
+
+# 7. WORKSTREAM D — COMPOSITIONAL GENERALIZATION
+
+Investigation VIII's generalization evidence is too limited to support broad conclusions.
+
+Extend the study substantially.
+
+## D1. Hold out relational configurations
+
+Test multiple independently selected held-out settings, including:
+
+- Previously unseen pairs of perfectly agreeing groups.
+- Different group identity combinations.
+- Group permutations.
+- Different assignments of candidate evidence to groups.
+- Different eligible-group counts.
+- Changes in which groups carry informative evidence.
+- Context-length changes where the task permits.
+
+Make sure the held-out conditions distinguish relational computation from memorized group identities.
+
+Use the exact Bayesian reference for every setting.
+
+## D2. Architectural invariance
+
+Compare:
+
+- Identity-aware readers.
+- Group-identity-free readers.
+- Permutation-equivariant readers.
+- Pairwise relational architectures.
+- Standard Transformer mechanisms.
+
+Determine whether explicit architectural structure improves sample efficiency or generalization.
+
+Do not mistake an inductive bias for a learned universal principle.
+
+## D3. Expand relational complexity
+
+Investigate controlled environments with:
+
+- More than three source groups.
+- Different group sizes.
+- Partial copying.
+- Correlated errors.
+- Multiple simultaneous eligibility constraints.
+- Non-perfect agreement statistics.
+- Conflicting or ambiguous source roles.
+
+First derive the appropriate generative model and optimal decision rule.
+
+Determine whether the original R1 operation remains sufficient or whether additional information is required.
+
+## D4. Distribution shift
+
+Separate:
+
+- Within-support distribution shifts.
+- Previously rare but supported configurations.
+- Genuine off-support configurations.
+- Changes in relational semantics.
+- Changes in source reliability.
+
+Do not interpret performance on impossible input configurations as natural generalization.
+
+For each shift, calculate which competing computational hypotheses make meaningfully different predictions before testing them.
+
+## D5. Compositional generalization
+
+Investigate whether models can combine previously learned relational operations in new configurations.
+
+For example:
+
+- Learn pairwise relationships, then combine several.
+- Learn a relation with one group configuration, then apply it to another.
+- Learn local reliability information, then integrate cross-group role constraints.
+- Learn separate transformations, then combine them where the statistical problem requires it.
+
+Distinguish genuine compositional transfer from memorization of complete configurations.
+
+---
+
+# 8. WORKSTREAM E — MATHEMATICAL THEORY OF RELATIONAL COMPUTATION
+
+This is a major foundational workstream, not merely an explanation of successful experiments.
+
+Develop mathematically precise results concerning the information requirements, computational structure, and limits of relational decision mechanisms.
+
+## E1. Information sufficiency
+
+Determine which statistics are sufficient for the exact Bayesian decision in the relevant source-generating environments.
+
+Investigate whether:
+
+- Individual agreement counts suffice.
+- Joint group configurations are required.
+- Marginal source statistics lose relevant information.
+- Pairwise relations are sufficient.
+- Higher-order interactions are necessary.
+- Direct access to raw source evidence changes the computational requirements.
+
+Provide explicit assumptions and counterexamples.
+
+Distinguish statistical sufficiency from what a particular architecture can learn or efficiently implement.
+
+## E2. Limits of separable computation
+
+Extend the restricted additive/separable reader results.
+
+Characterize when a computation of the form
+
+`F(x₁, ..., x_G) = ρ(Σ_g φ_g(x_g))`
+
+can or cannot represent the required relational decision.
+
+State restrictions on:
+
+- The representation dimension.
+- The permitted functions.
+- The group variables.
+- The readout class.
+- The number of groups.
+- The candidate-decision semantics.
+
+Be careful: sufficiently expressive aggregation architectures may represent interaction functions.
+
+Do not claim a general impossibility merely from the failure of a restricted additive or linear class.
+
+Derive meaningful lower bounds or conditional separation results where possible.
+
+## E3. Computational resources
+
+Investigate whether relational decisions impose measurable requirements on:
+
+- Information accessibility.
+- Interaction depth.
+- Communication across groups.
+- Representation capacity.
+- Attention structure.
+- Nonlinear composition.
+- Intermediate state.
+
+Where possible, connect these requirements to controlled learned-model experiments.
+
+Do not mistake optimization failure for an architectural lower bound.
+
+## E4. Causal factorization
+
+Investigate whether successful relational computations admit a useful abstraction of the form:
+
+`Source evidence → relational operation → evidence transformation → candidate decision`
+
+This is a hypothesis, not an established COR law.
+
+Determine when such a factorization is identifiable and when multiple distinct causal decompositions explain the same behavior.
+
+Test alternatives involving:
+
+- Direct classification.
+- Distributed representations.
+- Redundant computation.
+- Direct rereading.
+- Context-conditioned evidence weighting.
+- Computation without an explicit relational mediator.
+
+Any proposed theorem must have independently specified assumptions and a falsifiable conclusion.
+
+## E5. Representation invariance
+
+Investigate whether relational computations can be compared across models without requiring identical neuron coordinates, head assignments, token locations, or activation representations.
+
+Distinguish:
+
+- Behavioral equivalence.
+- Information equivalence.
+- Functional interchangeability.
+- Causal abstraction equivalence.
+- Mechanistic implementation equivalence.
+
+Determine which claims survive invertible reparameterizations, head splitting, redundant pathways, or alternative circuit decompositions.
+
+A shared decoded variable alone does not establish causal equivalence.
+
+## E6. Predictive theorems
+
+Develop restricted theorems that predict candidate-specific responses under independently defined changes to relational evidence.
+
+Specify:
+
+- The model or computation class.
+- The generative assumptions.
+- The relational statistic.
+- The intervention.
+- The competing pathways.
+- The exact predicted response.
+- The domain where the conclusion holds.
+
+Avoid circular assumptions that already encode the desired response sign.
+
+An elementary theorem with broad empirical coverage can be useful, but its mathematical and experimental contributions must be distinguished.
+
+---
+
+# 9. WORKSTREAM F — EXPAND BEYOND P-COUNT
+
+This investigation must not spend its entire scientific budget optimizing one R1 mechanism.
+
+Compare the new findings against earlier COR mechanism families.
+
+## F1. T4 reliability routing
+
+Investigate whether the newly learned cross-group operation is a special case of a broader reliability-conditioned computation or whether it requires a genuinely different factorization.
+
+Examine what can be said about source-role uncertainty and candidate evidence weighting.
+
+## F2. GATE compatibility computation
+
+GATE demonstrated a relation-sensitive candidate decision using a different internal pathway.
+
+Compare:
+
+- Location of relational information.
+- Evidence-conditioning operations.
+- Causal mediation.
+- Redundant pathways.
+- Candidate-specific readout.
+- Implementation variability.
+
+Determine whether any shared mathematical abstraction survives explicit interventions.
+
+Do not equate shared behavioral sensitivity with identical internal algorithms.
+
+## F3. TRANS composition
+
+Preserve TRANS as a separate unresolved problem involving latent transformations σ and τ.
+
+Investigate targeted connections to the new findings, especially whether successful composition requires a different kind of cross-representation integration.
+
+If computational resources permit, execute one carefully controlled TRANS continuation resolving a specific representation, optimization, or composition hypothesis.
+
+Do not equate the intended Bayes algorithm with the learned Transformer algorithm.
+
+Do not treat an unfinished training run as proof that composition cannot be learned.
+
+## F4. Adaptive sources
+
+Explore at least one controlled adaptive-source setting in which source behavior changes with history or other observations.
+
+Derive its reference inference rule.
+
+Ask whether static agreement counts remain sufficient and whether a dynamic relational state is required.
+
+Where appropriate, test a small learned model and locate the relevant causal dependence.
+
+## F5. Multiple computational classes
+
+Consider three possible scientific outcomes:
+
+1. There exists a nontrivial common causal/computational abstraction.
+2. Several distinct mathematical classes are needed.
+3. The current mechanisms cannot be unified usefully beyond ordinary conditional computation.
+
+Investigate all three seriously.
+
+Do not force unification.
+
+Do not reject it without constructing appropriate comparisons and counterexamples.
+
+---
+
+# 10. WORKSTREAM G — THE ORIGINAL COR MATHEMATICAL QUESTION
+
+The original COR obstruction/discrepancy operators remain a separate scientific obligation.
+
+Investigation VIII did not validate them.
+
+Do not use successful relational reasoning as indirect proof that the original COR formalism works.
+
+Preserve historical failure records, including unjustified projection/map choices, outcome-dependent identification, unfavorable candidate-response cases, discrepancy/decision mismatches, and missing general causal bridges.
+
+Investigate whether any new mathematically identified relational computation provides:
+
+- A restricted consistency-to-decision theorem.
+- An independently identifiable relational variable.
+- A candidate-specific causal prediction.
+- A nontrivial comparison against exact Bayesian inference.
+- A result not already implied by generic nonlinear evidence aggregation.
+
+If no such connection exists, report that explicitly.
+
+Do not redefine the original O/D framework into a successful Bayesian inference method and declare COR validated.
+
+---
+
+# 11. PROSPECTIVE EXPERIMENTAL DESIGN
+
+Avoid another research cycle in which attractive mechanisms are identified after observing their favorable outcomes.
+
+## 11.1 Freeze primary predictions
+
+Before generating or evaluating confirmation models:
+
+1. State the primary hypotheses.
+2. Specify the exact training and evaluation distributions.
+3. Freeze model families and intervention definitions.
+4. Freeze principal metrics.
+5. Define success and failure criteria.
+6. Identify the intended held-out parents, seeds, and group configurations.
+7. Record code and protocol hashes.
+8. Define the statistical comparison procedure.
+
+Keep development exploration separate from confirmation.
+
+If a hypothesis changes after seeing evidence, label the revised test exploratory or preregister a genuinely new confirmation.
+
+## 11.2 Primary experimental outcomes
+
+Report at least:
+
+- Per-episode absolute R1 response error.
+- Signed mean R1 error, separately.
+- R2 and R3 response errors.
+- Other established boundary families, including F34 where applicable.
+- Overall KL divergence to exact Bayes.
+- Candidate accuracy.
+- Native-state causal dependence.
+- Held-out group-configuration performance.
+- Independent-parent and seed variation.
+- Training compute and convergence behavior.
+
+Do not substitute the absolute value of a model-level mean error for mean per-episode absolute error.
+
+Use consistent definitions across all models.
+
+## 11.3 Strong baselines
+
+Include where appropriate:
+
+- Exact Bayes.
+- Original P-count.
+- Original T1.
+- Existing learned bypass adapter.
+- Native-state-only readers.
+- Linear and nonlinear readouts.
+- Matched generic adapters.
+- Pairwise relational networks.
+- Group-attention readers.
+- From-scratch raw-token Transformers.
+- Explicitly engineered-statistic oracle conditions.
+- Matched-compute controls.
+- Simpler statistical models.
+
+The strongest baseline must match the information and compute legitimately available to the tested method.
+
+Do not compare models receiving different evidence without making that distinction explicit.
+
+## 11.4 Statistical independence
+
+Distinguish:
+
+- Independent pretrained parents.
+- Independent initialization seeds.
+- Fine-tunes sharing a parent.
+- Evaluation episodes.
+- Distinct data generators.
+
+Do not inflate population-level replication claims using repeated evaluations of the same model.
+
+Report uncertainty at the appropriate unit of independence.
+
+## 11.5 Compute constraints
+
+Use a dependency-ordered research plan.
+
+Resolve essential generator, Bayes, and representation questions before launching broad expensive training sweeps.
+
+Prioritize experiments that discriminate competing hypotheses.
+
+Use smaller controlled models where they answer the scientific question.
+
+Do not abandon the full investigation to one long training run.
+
+If compute is constrained, explicitly record:
+
+- What ran.
+- What did not run.
+- Which conclusions remain unsupported.
+- Whether the limitation was compute, memory, environment failure, or experimental design.
+
+Do not interpret a truncated learning trajectory as nonlearnability.
+
+---
+
+# 12. INDEPENDENT CRITICAL REVIEW
+
+Use separate adversarial reviews or subagents where the environment genuinely supports them.
+
+Assign different perspectives:
+
+**Mathematical reviewer**
+
+Check theorem quantifiers, counterexamples, sufficient statistics, identifiability, and architecture-dependent claims.
+
+**Mechanistic reviewer**
+
+Check the reconstructed pathways, redundant circuits, normalization artifacts, and whether interventions actually identify the proposed mechanism.
+
+**Experimental-design reviewer**
+
+Check seed independence, training budgets, comparisons, and statistical conclusions.
+
+**Representation reviewer**
+
+Challenge probe-based claims, feature localization, distributed coding, and causal interchange.
+
+**Generalization reviewer**
+
+Check held-out group identities, distribution support, compositional tests, and shortcuts.
+
+**Scientific-novelty reviewer**
+
+Compare candidate contributions against Bayesian inference, truth discovery, causal abstraction, mechanistic interpretability, compositional learning, and existing Transformer research.
+
+**Positive-theory reviewer**
+
+Challenge overly pessimistic interpretations and identify legitimate restricted mathematical advances that should not be discarded.
+
+Preserve disagreement.
+
+Require reviewers to inspect the final corrected results.
+
+If all reviews are conducted by one agent through separate passes, disclose that explicitly. Do not call them independent external reviews.
+
+If a significant claim is revised after review, subject the revised claim to new scrutiny.
+
+---
+
+# 13. REQUIRED RESEARCH DELIVERABLES
+
+Create a new research branch:
+
+`cor-phase15-step1-native-relational-mechanisms`
+
+And a new isolated directory:
+
+`docs/research_audits/cor_phase15/step1_native_relational_mechanisms/`
+
+Preserve all previous research archives.
+
+The package should contain at least:
+
+**MAIN_RESEARCH_SYNTHESIS.md**
+
+The central discoveries, corrected claims, major negative results, mathematical advances, and connections across workstreams.
+
+**PCOUNT_FAILURE_DIAGNOSIS.md**
+
+Competing failure hypotheses, representation sufficiency, native-state accessibility, missing operations, and causal evidence.
+
+**NATIVE_RELATIONAL_LEARNING.md**
+
+Native learning experiments, independent seeds, selective unfreezing, LoRA, downstream computation, full-model training, and bypass controls.
+
+**CAUSAL_MECHANISM_RECONSTRUCTION.md**
+
+Detailed computational pathways, interventions, restoration, redundant paths, and mechanism-level conclusions.
+
+**LEARNING_DYNAMICS.md**
+
+Checkpoint trajectories, representation emergence, causally effective computation, optimization dependencies, and failed training regimes.
+
+**RELATIONAL_GENERALIZATION.md**
+
+Held-out group configurations, permutations, altered source structures, distribution shifts, and compositional generalization.
+
+**MATHEMATICAL_STRUCTURE_AND_LIMITS.md**
+
+Sufficiency results, computation-class restrictions, conditional theorems, counterexamples, and formal limitations.
+
+**CROSS_MECHANISM_COMPARISON.md**
+
+Connections and differences between P-count, T4, GATE, TRANS, and adaptive-source mechanisms.
+
+**COR_ORIGINAL_FORMALISM.md**
+
+Actual new evidence relevant to the original obstruction/discrepancy theory and its unresolved failures.
+
+**PROSPECTIVE_PREDICTIONS.md**
+
+Frozen predictions, protocols, outcomes, failures, and post-freeze deviations.
+
+**BASELINES_AND_NOVELTY.md**
+
+Strong prior-method comparisons and distinctions among new findings, known mathematics, implementation discoveries, and methodological corrections.
+
+**OPEN_FOUNDATIONAL_RESEARCH_MAP.md**
+
+Major unresolved questions, newly discovered computational possibilities, mathematical dependencies, and the highest-leverage future investigations.
+
+Include:
+
+- Full runnable code.
+- Data generators.
+- Training configurations.
+- Saved checkpoints.
+- Evaluation scripts.
+- Exact mathematical verification scripts.
+- Intervention results.
+- Raw logs.
+- Compute records.
+- Reviewer reports and adjudications.
+- Integrity manifest.
+- Clean-extraction verification procedure.
+
+Do not create empty documents to satisfy the requested structure.
+
+Only claim reproducibility for procedures actually rerun or verified.
+
+---
+
+# 14. WHAT CONSTITUTES SCIENTIFIC PROGRESS
+
+A successful Investigation IX does not require every workstream to produce a positive result.
+
+Meaningful outcomes include:
+
+- Showing that original P-count states contain sufficient information for correct relational decisions.
+- Identifying the specific information missing from those states.
+- Demonstrating native relational computation after controlled adaptation.
+- Causally identifying the operation through which the original Transformer combines source groups.
+- Explaining why highly decodable relational information is not always used.
+- Identifying a reproducible learning or architectural bottleneck.
+- Finding a native mechanism that differs fundamentally from the small reader's implementation.
+- Demonstrating a generalizing relation computation on unseen source configurations.
+- Establishing mathematical limits on separable evidence processing.
+- Proving a restricted positive theorem about relational decision computation.
+- Finding a counterexample to a proposed common computational class.
+- Discovering connections between relational eligibility, reliability routing, compatibility gating, and transformation composition.
+- Explaining why a previously proposed generalization or causal inference fails.
+- Developing a new structural prediction that succeeds on genuinely independent models.
+
+A failed experiment is useful only when its design and controls establish something interpretable.
+
+Do not equate additional report length, more experiments, or higher accuracy with foundational progress.
+
+---
+
+# 15. FINAL QUESTIONS THAT MUST BE ANSWERED
+
+The final synthesis must answer these questions directly.
+
+## Native computation
+
+1. What causes the original P-count R1 failure?
+2. Does the native representation contain enough information for the correct decision?
+3. Is that information accessible to realistic downstream computations?
+4. Can the original Transformer learn the cross-group operation without external engineered inputs?
+5. Which native adaptation methods succeed or fail?
+6. How can a successful native computation be distinguished from a bypass?
+7. Which internal pathways causally transmit the relevant information?
+
+## Learning
+
+8. At what stage of training does relational information become available?
+9. When does that information begin affecting decisions correctly?
+10. Why can a highly decodable relational feature remain unused?
+11. What distinguishes successful attention, pairwise, and MLP implementations?
+12. Which architectural or optimization conditions change the outcome?
+13. Does the learned computation recur across independent parents and seeds?
+
+## Generalization
+
+14. Does the computation survive unseen group-pair identities?
+15. Is it invariant to group permutations?
+16. Does it generalize to more groups or different source structures?
+17. Does it survive changes in source reliability and dependence?
+18. Which findings hold within support and which fail off support?
+19. Can the learned operation compose with other relational computations?
+
+## Mathematics
+
+20. Which source statistics are sufficient for the correct decision?
+21. When do separable computations lose necessary information?
+22. Which interaction structures are sufficient under explicit assumptions?
+23. Are any resource or representation restrictions mathematically necessary?
+24. Which mathematical properties survive alternative implementations?
+25. Can native causal pathways be captured by a nontrivial common abstraction?
+26. What are the strongest counterexamples to that abstraction?
+27. Which conditional theorems make testable candidate-decision predictions?
+
+## Broader COR
+
+28. What does the new work reveal about T4 reliability routing?
+29. How does its causal computation compare with GATE?
+30. What does it imply, if anything, about TRANS composition?
+31. Which phenomena require distinct computational classes?
+32. Does any discovery justify a restricted connection to the original COR obstruction/discrepancy framework?
+33. Which findings are explained by existing mathematical methods?
+34. What genuinely new mathematical or mechanistic contribution remains after strong baselines?
+35. Which prospective predictions were independently confirmed?
+36. Which hypotheses were falsified?
+37. What important foundational territory remains unexplored?
+38. Which future experiments or proofs would eliminate the greatest remaining uncertainty?
+
+Answer with actual evidence.
+
+If a question remains unresolved, identify exactly why and what would distinguish the remaining possibilities.
+
+Do not fill gaps with speculation.
+
+---
+
+# 16. FINAL EXECUTION DIRECTIVE
+
+Investigation VIII demonstrated something scientifically meaningful:
+
+**Small neural systems can learn cross-group relational computations from already-extracted primitive evidence, and these computations can causally influence candidate decisions.**
+
+It also exposed the next central problem:
+
+**The original P-count Transformer has not been shown to learn or use that operation internally.**
+
+Investigation IX must investigate this gap rigorously.
+
+But the gap is an entry point into broader research, not the boundary of the entire scientific program.
+
+Study native relational learning, causal representation use, computational pathways, learning dynamics, compositional generalization, mathematical restrictions, and alternative implementations.
+
+Investigate whether successful relational mechanisms share meaningful computational structure or whether the evidence demands several distinct theories.
+
+Connect findings to earlier COR work without assuming that the original mathematical framework has been validated.
+
+Produce theorems and counterexamples.
+
+Make predictions that can fail.
+
+Preserve negative findings.
+
+Use genuinely independent confirmation where possible.
+
+Distinguish behavioral success, information sufficiency, causal mechanism identification, and generalization.
+
+**The priority is to discover what the networks actually compute, why they compute it, when the computation emerges, and what mathematics can reliably predict about it.**
+
+Do not settle for another externally supplied relational reader.
+
+Do not accept a bypass as a native repair.
+
+Do not call a probe a causal explanation.
+
+Do not call a truncated optimization failure a computational impossibility.
+
+Do not force positive conclusions.
+
+Do not force a common theory.
+
+Do not restrict the foundational research to the original R1 example.
+
+Execute a substantial, dependency-ordered investigation using the available computational resources, clearly identify unfinished obligations, preserve reproducible evidence, and integrate the results into the growing COR foundational map.
+
+**We are still discovering the foundations of the theory. The objective is to expand and strengthen those foundations, not to declare them complete.**

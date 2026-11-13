@@ -1,0 +1,9 @@
+python3 scripts/native_train.py xP80 keep3x2 4000 0
+python3 scripts/native_train.py xP80 full_c1 4000 0
+python3 scripts/native_train.py xP80 full_keep3 4000 0
+python3 scripts/native_train.py xP80 lora_attn1 4000 0
+python3 scripts/native_train.py xP80 lora_mlp1 4000 0
+python3 scripts/native_train.py xP80 lora_both1 4000 0
+python3 scripts/native_train.py xP80 unf0 4000 0
+python3 scripts/native_train.py xP80 scratch3 4000 0
+python3 scripts/native_train.py xP80 full_c1 16000 0

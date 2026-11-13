@@ -1,0 +1,70 @@
+{
+ "u0": {
+  "own_vote_src0": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "own_vote_src2": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "own_vote_src4": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "readout_vote_src0": {
+   "lin": 0.336
+  }
+ },
+ "u1": {
+  "own_vote_src0": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "own_vote_src2": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "own_vote_src4": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "readout_vote_src0": {
+   "lin": 0.756
+  }
+ },
+ "u2": {
+  "own_vote_src0": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "own_vote_src2": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "own_vote_src4": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "readout_vote_src0": {
+   "lin": 0.534
+  }
+ },
+ "u3": {
+  "own_vote_src0": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "own_vote_src2": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "own_vote_src4": {
+   "lin": 1.0,
+   "mlp": 1.0
+  },
+  "readout_vote_src0": {
+   "lin": 0.479
+  }
+ }
+}

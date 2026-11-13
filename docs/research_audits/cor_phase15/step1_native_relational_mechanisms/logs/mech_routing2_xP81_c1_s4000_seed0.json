@@ -1,0 +1,38 @@
+{
+ "tag": "xP81_c1_s4000_seed0",
+ "routing_by_own_and_other": {
+  "n4_otherperfect0": {
+   "mass": null,
+   "n": 0
+  },
+  "n4_otherperfect>=1": {
+   "mass": 0.5351547002792358,
+   "n": 2219
+  },
+  "n5_otherperfect0": {
+   "mass": 0.13549482822418213,
+   "n": 5222
+  },
+  "n5_otherperfect>=1": {
+   "mass": 0.32584208250045776,
+   "n": 1559
+  }
+ },
+ "edited_group_mass": {
+  "R1": {
+   "n": 469,
+   "edited_before": 0.5401005148887634,
+   "edited_after": 0.3195076584815979
+  },
+  "R2": {
+   "n": 98,
+   "edited_before": 0.5041226744651794,
+   "edited_after": 0.3088909983634949
+  },
+  "R3": {
+   "n": 793,
+   "edited_before": 0.5343670845031738,
+   "edited_after": 0.32113540172576904
+  }
+ }
+}

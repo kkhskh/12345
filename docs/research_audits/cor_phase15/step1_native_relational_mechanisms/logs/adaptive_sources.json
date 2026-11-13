@@ -1,0 +1,24 @@
+{
+ "gamma0.0": {
+  "spread_T_within": 3.4416913763379853e-15,
+  "cells_T_within": 22516,
+  "spread_T_cross": 3.4416913763379853e-15,
+  "cells_T_cross": 245079,
+  "acc_bayes": 0.7419466666666666
+ },
+ "gamma0.5": {
+  "spread_T_within": 0.9526829268292686,
+  "cells_T_within": 21732,
+  "spread_T_cross": 3.552713678800501e-15,
+  "cells_T_cross": 221296,
+  "acc_bayes": 0.7751933333333333
+ },
+ "gamma0.9": {
+  "spread_T_within": 0.9545453216564443,
+  "cells_T_within": 17860,
+  "spread_T_cross": 1.7763568394002505e-15,
+  "cells_T_cross": 110726,
+  "acc_bayes": 0.7975933333333334
+ },
+ "gamma0_matches_T4_brute": 1.7763568394002505e-15
+}

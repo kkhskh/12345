@@ -20,6 +20,8 @@ tag = f"{parent}_{spec}_s{STEPS}_seed{seed}{suffix}"; D = os.path.join(HERE, "..
 pf = NV.load_parent(parent); UPTO = 3 if spec.startswith("keep3") else 2
 fresh = lambda s: N.init("M", NL.ENV, s)
 tmpl = dict(gf=pf["gf"], bf=pf["bf"], WA=fresh(seed + 7777)["WA"], new=[fresh(seed + 7777)["layers"][2]] + ([fresh(seed + 8888)["layers"][2]] if spec in ("deep2", "keep3x2") else []))
+if spec in ("full_c1", "full_keep3"):                     # fine-tuned native prefix: states come from the TRAINED layers 0-1 (0-2)
+    tmpl["emb"] = {k: pf[k] for k in NL.FROZEN_KEYS}; tmpl["pre"] = [pf["layers"][l] for l in range(2 if spec == "full_c1" else 3)]
 z = np.load(os.path.join(D, f"step{STEPS}.npz")); leaves = [jnp.asarray(z[f"arr_{i}"]) for i in range(len(z.files))]
 t = jax.tree_util.tree_unflatten(jax.tree_util.tree_structure(tmpl), leaves)
 rec = {}
@@ -34,7 +36,15 @@ reg = ev["reg_F45"]; vote = ev["vote_F45"].astype(int); orient = ev["orient_F45"
 sys.path.insert(0, os.path.join(NV.ROOT, "step1_learned_relational_computation", "src")); import v8lib as V8
 # edited group = group whose count at q changed
 n0, n1 = V8.E.loo(X0)[idx, q], V8.E.loo(X1)[idx, q]; g = np.argmax(np.abs(n1 - n0), 1)
-Z0, Z1 = NV.states_np(pf, X0, UPTO), NV.states_np(pf, X1, UPTO)
+if spec in ("full_c1", "full_keep3"):
+    def _pre(X_):
+        x = N.embed(dict(t["emb"]), X_)
+        for l, lay in enumerate(t["pre"]): x = NL.block(lay, x, l=l)
+        return x
+    _prej = jax.jit(_pre); Zof = lambda X_: np.concatenate([np.asarray(_prej(jnp.asarray(X_[i:i + 1000]))) for i in range(0, len(X_), 1000)])
+    Z0, Z1 = Zof(X0), Zof(X1)
+else:
+    Z0, Z1 = NV.states_np(pf, X0, UPTO), NV.states_np(pf, X1, UPTO)
 def margin(Lg):
     c = Lg[idx, q]; c = c - c.mean(-1, keepdims=True); other = np.where(np.arange(3)[None] == vote[:, None], -np.inf, c).max(-1)
     return c[idx, vote] - other
@@ -52,6 +62,9 @@ sets["all"] = mask(lambda i: np.arange(43))
 sets["ro_q"] = mask(lambda i: [36 + q[i]]); sets["ro_all"] = mask(lambda i: np.arange(36, 42))
 sets["g_all"] = mask(lambda i: [qq * 6 + 2 * g[i] + s for qq in range(6) for s in (0, 1)]); sets["g_q"] = mask(lambda i: [q[i] * 6 + 2 * g[i], q[i] * 6 + 2 * g[i] + 1])
 sets["src_all"] = mask(lambda i: np.arange(36))
+sets["others_src"] = mask(lambda i: [qq * 6 + 2 * h + s_ for qq in range(6) for h in range(3) if h != g[i] for s_ in (0, 1)])   # post-freeze addition (Part III)
+sets["all_but_others_src_q"] = mask(lambda i: [t_ for t_ in range(43) if t_ not in [q[i] * 6 + 2 * h + s_ for h in range(3) if h != g[i] for s_ in (0, 1)]])
+sets["others_src_q"] = mask(lambda i: [q[i] * 6 + 2 * h + s_ for h in range(3) if h != g[i] for s_ in (0, 1)])
 res = {}
 for nm, M in sets.items():
     dm = patched(M); res[nm] = {}

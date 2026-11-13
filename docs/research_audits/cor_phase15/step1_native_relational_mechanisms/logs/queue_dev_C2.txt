@@ -1,0 +1,9 @@
+cd . && python3 scripts/native_train.py xP81 keep3x2 4000 0
+cd . && python3 scripts/native_train.py xP81 lora_both1 4000 0
+cd . && python3 scripts/native_train.py xP81 lora_attn1 4000 0
+cd . && python3 scripts/native_train.py xP81 lora_mlp1 4000 0
+cd . && python3 scripts/native_train.py xP81 unf0 4000 0
+cd . && python3 scripts/native_train.py xP81 scratch3 4000 0
+cd . && python3 scripts/native_train.py xP81 c1 16000 0
+cd . && python3 scripts/native_train.py xP81 c1 4000 0 bayes
+cd . && python3 scripts/native_train.py xP81 full_c1 16000 0

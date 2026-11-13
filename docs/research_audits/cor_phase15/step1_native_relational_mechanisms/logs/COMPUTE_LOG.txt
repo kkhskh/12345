@@ -127,3 +127,64 @@
 2026-11-13T09:42:54Z lane G start [2b7b4bfe68bf] python3 scripts/gen_readers.py mlp 1 0 12000 0
 2026-11-13T09:44:34Z lane G end [2b7b4bfe68bf] rc=0
 2026-11-13T09:44:34Z lane G start [9742898de132] python3 scripts/gen_readers.py mlp 1 1 12000 0
+2026-11-13T09:46:10Z lane G end [9742898de132] rc=0
+2026-11-13T09:46:19Z lane Gc start [ba06c2c01cc4] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py ds_sum 0 1 12000 10
+2026-11-13T09:48:12Z lane Gc end [ba06c2c01cc4] rc=0
+2026-11-13T09:48:12Z lane Gc start [70bc11008a05] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py ds_sum 0 1 12000 11
+2026-11-13T09:50:15Z lane Gc end [70bc11008a05] rc=0
+2026-11-13T09:50:15Z lane Gc start [fee36a7a8474] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py ds_sum 0 1 12000 12
+2026-11-13T09:52:22Z lane Gc end [fee36a7a8474] rc=0
+2026-11-13T09:52:22Z lane Gc start [9303ce938515] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py attn 0 1 12000 10
+2026-11-13T09:59:57Z lane Gc end [9303ce938515] rc=0
+2026-11-13T09:59:57Z lane Gc start [333d2ee669f3] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py attn 0 1 12000 11
+2026-11-13T10:07:37Z lane Gc end [333d2ee669f3] rc=0
+2026-11-13T10:07:37Z lane Gc start [192e1f60316e] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py attn 0 1 12000 12
+2026-11-13T10:14:57Z lane Gc end [192e1f60316e] rc=0
+2026-11-13T10:14:57Z lane Gc start [3e3e624d4e48] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py mlp 0 1 12000 10
+2026-11-13T10:16:22Z lane Gc end [3e3e624d4e48] rc=0
+2026-11-13T10:16:22Z lane Gc start [3262e4a0b080] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py mlp 0 1 12000 11
+2026-11-13T10:22:55Z NOTE: environment restart ~10:20 killed xP81 full_c1 4000 (reached step 1803, partial curve in logs/run), xP81 full_keep3 4000 (partial), and gen conf mlp seed 11 (no output). Partial dirs kept as _lost_*; gen run repeated; full_c1 repeated; full_keep3 deferred.
+2026-11-13T10:22:55Z lane An start [675e903a44a5] python3 scripts/decode_compose.py yP130 3 logs/eval_conf9.npz
+2026-11-13T10:22:55Z lane Bg start [3262e4a0b080] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py mlp 0 1 12000 11
+2026-11-13T10:23:35Z lane An end [675e903a44a5] rc=0
+2026-11-13T10:23:35Z lane An start [35af7e1aa3cc] python3 scripts/decode_compose.py yP130 2 logs/eval_conf9.npz
+2026-11-13T10:24:07Z lane Bg end [3262e4a0b080] rc=0
+2026-11-13T10:24:07Z lane Bg start [f12523518bc8] GEN_EVAL_OFFSET=5000000 python3 scripts/gen_readers.py mlp 0 1 12000 12
+2026-11-13T10:25:11Z lane An end [35af7e1aa3cc] rc=0
+2026-11-13T10:25:11Z lane An start [2c08aee9d778] python3 scripts/native_reader.py yP130 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+2026-11-13T10:25:21Z lane Bg end [f12523518bc8] rc=0
+2026-11-13T10:25:21Z lane Bf start [77dfabde8240] python3 scripts/native_train.py xP81 full_c1 4000 0
+2026-11-13T10:27:49Z lane An end [2c08aee9d778] rc=0
+2026-11-13T10:27:49Z lane An start [a3e15bfa7a24] python3 scripts/decode_compose.py yP131 3 logs/eval_conf9.npz
+2026-11-13T10:28:32Z lane An end [a3e15bfa7a24] rc=0
+2026-11-13T10:28:32Z lane An start [2c808fec9273] python3 scripts/decode_compose.py yP131 2 logs/eval_conf9.npz
+2026-11-13T10:30:26Z lane An end [2c808fec9273] rc=0
+2026-11-13T10:30:26Z lane An start [a762a88341ed] python3 scripts/native_reader.py yP131 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+2026-11-13T10:33:01Z lane An end [a762a88341ed] rc=0
+2026-11-13T10:33:01Z lane An start [0378e6fd7f45] python3 scripts/decode_compose.py yP132 3 logs/eval_conf9.npz
+2026-11-13T10:33:44Z lane An end [0378e6fd7f45] rc=0
+2026-11-13T10:33:44Z lane An start [e81acbf7e191] python3 scripts/decode_compose.py yP132 2 logs/eval_conf9.npz
+2026-11-13T10:34:58Z lane An end [e81acbf7e191] rc=0
+2026-11-13T10:34:58Z lane An start [34dc38e2ff7b] python3 scripts/native_reader.py yP132 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+2026-11-13T10:37:34Z lane An end [34dc38e2ff7b] rc=0
+2026-11-13T10:37:34Z lane An start [966f2f25dc8a] python3 scripts/decode_compose.py yP133 3 logs/eval_conf9.npz
+2026-11-13T10:39:28Z lane An end [966f2f25dc8a] rc=0
+2026-11-13T10:39:28Z lane An start [56227517dce8] python3 scripts/decode_compose.py yP133 2 logs/eval_conf9.npz
+2026-11-13T10:41:10Z lane An end [56227517dce8] rc=0
+2026-11-13T10:41:10Z lane An start [ccbc5f32761b] python3 scripts/native_reader.py yP133 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+2026-11-13T10:43:46Z lane An end [ccbc5f32761b] rc=0
+2026-11-13T10:43:46Z lane An start [c80fff009753] python3 scripts/decode_compose.py yP134 3 logs/eval_conf9.npz
+2026-11-13T10:44:27Z lane An end [c80fff009753] rc=0
+2026-11-13T10:44:27Z lane An start [34cdeb710bfd] python3 scripts/decode_compose.py yP134 2 logs/eval_conf9.npz
+2026-11-13T10:45:29Z lane An end [34cdeb710bfd] rc=0
+2026-11-13T10:45:29Z lane An start [d072b1d3f862] python3 scripts/native_reader.py yP134 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+2026-11-13T10:48:06Z lane An end [d072b1d3f862] rc=0
+2026-11-13T10:48:06Z lane An start [9936710ce2c2] python3 scripts/decode_compose.py yP135 3 logs/eval_conf9.npz
+2026-11-13T10:50:17Z lane An end [9936710ce2c2] rc=0
+2026-11-13T10:50:17Z lane An start [2979e4da44fa] python3 scripts/decode_compose.py yP135 2 logs/eval_conf9.npz
+2026-11-13T10:51:51Z lane An end [2979e4da44fa] rc=0
+2026-11-13T10:51:51Z lane An start [cee0f7abfc5d] python3 scripts/native_reader.py yP135 mlp_q 8000 0 label 3 logs/eval_conf9.npz
+2026-11-13T10:54:30Z lane An end [cee0f7abfc5d] rc=0
+2026-11-13T10:54:30Z lane An start [f38019bc1d9a] python3 scripts/native_train.py yP130 c1 4000 0 label logs/eval_conf9.npz
+2026-11-13T10:58:16Z lane Bf end [77dfabde8240] rc=0
+2026-11-13T10:58:16Z lane Bn start [a7f57b9600f6] python3 scripts/native_train.py yP131 c1 4000 0 label logs/eval_conf9.npz

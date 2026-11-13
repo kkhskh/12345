@@ -1,0 +1,1 @@
+python3 scripts/native_train.py xP81 full_c1 4000 0

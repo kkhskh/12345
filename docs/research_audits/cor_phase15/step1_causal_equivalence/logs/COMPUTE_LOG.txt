@@ -1,0 +1,46 @@
+2026-11-13T22:38:04Z lane B start pretrain P140
+2026-11-13T22:39:16Z lane A start [161123ae0f16] python3 scripts/native_train.py yP130 full_c1 4000 1
+2026-11-13T22:53:01Z lane C start [70fe967c3439] python3 scripts/das.py xP81 full_c1 0 - S 1 q7 2
+2026-11-13T23:00:45Z lane C end [70fe967c3439] rc=0
+2026-11-13T23:00:45Z lane C start [a0ce5e078353] python3 scripts/das.py xP81 full_c1 0 - S 1 all 2
+2026-11-13T23:04:52Z lane C end [a0ce5e078353] rc=0
+2026-11-13T23:04:52Z lane C start [4322f225178b] python3 scripts/das.py xP81 full_c1 0 - S 2 all 2
+2026-11-13T23:04:54Z NOTE: DAS grid pruned (S L1 all killed at start; E L1 q7/all and E L3 all not run) for compute; see logs/das_pruned.txt
+2026-11-13T23:09:46Z lane C end [4322f225178b] rc=0
+2026-11-13T23:09:46Z lane C start [727ccc2b3cf4] python3 scripts/das.py xP81 full_c1 0 - S 3 q7 2
+2026-11-13T23:13:05Z lane C end [727ccc2b3cf4] rc=0
+2026-11-13T23:13:05Z lane C start [68ef0289cae7] python3 scripts/das.py xP81 full_c1 0 - S 3 all 2
+2026-11-13T23:16:16Z lane C end [68ef0289cae7] rc=0
+2026-11-13T23:16:16Z lane C start [89ebde4692dc] python3 scripts/das.py xP81 full_c1 0 - E 2 q7 6
+2026-11-13T23:19:36Z lane B end pretrain P140 rc=0
+2026-11-13T23:19:36Z lane B start pretrain P141
+2026-11-13T23:20:49Z lane C end [89ebde4692dc] rc=0
+2026-11-13T23:20:49Z lane C start [4956fca4fa4f] python3 scripts/das.py xP81 full_c1 0 - E 2 all 6
+2026-11-13T23:25:36Z lane C end [4956fca4fa4f] rc=0
+2026-11-13T23:25:36Z lane C start [308bfcbd81f3] python3 scripts/das.py xP81 full_c1 0 - E 3 q7 6
+2026-11-13T23:28:54Z lane C end [308bfcbd81f3] rc=0
+2026-11-13T23:29:03Z lane C2 start [0a5f928afe03] python3 scripts/das.py yP130 full_c1 0 _eval_conf9 E 2 q7 6
+2026-11-13T23:31:22Z lane A end [161123ae0f16] rc=0
+2026-11-13T23:31:22Z lane A start [2d71d860d1c1] python3 scripts/native_train.py xP81 full_c1 4000 1
+2026-11-13T23:33:42Z lane C2 end [0a5f928afe03] rc=0
+2026-11-13T23:33:43Z lane C2 start [d7c4504e61a3] python3 scripts/das.py yP131 full_c1 0 _eval_conf9 E 2 q7 6
+2026-11-13T23:38:22Z lane C2 end [d7c4504e61a3] rc=0
+2026-11-13T23:38:22Z lane C2 start [ae435d1a49eb] python3 scripts/das.py yP132 full_c1 0 _eval_conf9 E 2 q7 6
+2026-11-13T23:42:53Z lane C2 end [ae435d1a49eb] rc=0
+2026-11-13T23:42:53Z lane C2 start [daf7f28e87fa] python3 scripts/das.py yP134 full_c1 0 _eval_conf9 E 2 q7 6
+2026-11-13T23:47:39Z lane C2 end [daf7f28e87fa] rc=0
+2026-11-13T23:47:39Z lane C2 start [7e7b0bbfd5b5] python3 scripts/das.py yP130 c1 0 _eval_conf9 E 2 q7 6
+2026-11-13T23:52:12Z lane C2 end [7e7b0bbfd5b5] rc=0
+2026-11-13T23:52:12Z lane C2 start [7a2873bd678d] python3 scripts/das.py yP131 c1 0 _eval_conf9 E 2 q7 6
+2026-11-13T23:56:41Z lane C2 end [7a2873bd678d] rc=0
+2026-11-13T23:56:41Z lane C2 start [c388362f9f40] python3 scripts/das.py xP81 c1 0 - E 2 q7 6
+2026-11-14T00:00:19Z lane B end pretrain P141 rc=0
+2026-11-14T00:00:19Z lane B start pretrain P142
+2026-11-14T00:01:09Z lane C2 end [c388362f9f40] rc=0
+2026-11-14T00:01:09Z lane C2 start [25296b35ee23] python3 scripts/das.py xP81 full_c1 0 - E 2 ro 6
+2026-11-14T00:06:47Z lane C2 end [25296b35ee23] rc=0
+2026-11-14T00:06:47Z lane C2 start [5e9e751e12cc] python3 scripts/das.py xP81 full_c1 0 - E 2 src6 6
+2026-11-14T00:11:36Z lane C2 end [5e9e751e12cc] rc=0
+2026-11-14T00:11:36Z lane C2 start [d4cb6afffb5d] python3 scripts/das.py yP130 full_c1 0 _eval_conf9 E 2 ro 6
+2026-11-14T00:16:06Z lane C2 end [d4cb6afffb5d] rc=0
+2026-11-14T00:16:06Z lane C2 start [d414cffa6608] python3 scripts/das.py yP130 full_c1 0 _eval_conf9 E 2 src6 6

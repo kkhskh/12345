@@ -1,0 +1,23 @@
+python3 scripts/das.py yP130 full_c1 0 _eval_conf9 E 2 q7 6
+python3 scripts/das.py yP131 full_c1 0 _eval_conf9 E 2 q7 6
+python3 scripts/das.py yP132 full_c1 0 _eval_conf9 E 2 q7 6
+python3 scripts/das.py yP134 full_c1 0 _eval_conf9 E 2 q7 6
+python3 scripts/das.py yP130 c1 0 _eval_conf9 E 2 q7 6
+python3 scripts/das.py yP131 c1 0 _eval_conf9 E 2 q7 6
+python3 scripts/das.py xP81 c1 0 - E 2 q7 6
+python3 scripts/das.py xP81 full_c1 0 - E 2 ro 6
+python3 scripts/das.py xP81 full_c1 0 - E 2 src6 6
+python3 scripts/das.py yP130 full_c1 0 _eval_conf9 E 2 ro 6
+python3 scripts/das.py yP130 full_c1 0 _eval_conf9 E 2 src6 6
+python3 scripts/das.py yP132 full_c1 0 _eval_conf9 E 2 ro 6
+python3 scripts/das.py yP132 full_c1 0 _eval_conf9 E 2 src6 6
+python3 scripts/das.py yP134 full_c1 0 _eval_conf9 E 2 ro 6
+python3 scripts/das.py yP134 full_c1 0 _eval_conf9 E 2 src6 6
+python3 scripts/das.py yP130 full_c1 0 _eval_conf9 S 2 q7 2
+python3 scripts/das.py yP132 full_c1 0 _eval_conf9 S 2 q7 2
+python3 scripts/native_reader.py yP130 mlp_q 32000 0 bayes 3
+python3 scripts/native_reader.py yP131 mlp_q 32000 0 bayes 3
+python3 scripts/native_reader.py yP132 mlp_q 32000 0 bayes 3
+python3 scripts/native_reader.py yP134 mlp_q 32000 0 bayes 3
+python3 scripts/native_reader.py yP130 mlp_q 32000 0 label 3
+python3 scripts/native_reader.py yP131 mlp_q 32000 0 label 3

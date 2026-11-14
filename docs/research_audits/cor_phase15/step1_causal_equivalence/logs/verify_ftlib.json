@@ -1,0 +1,14 @@
+{
+ "xP81_full_c1_s4000_seed0": {
+  "max_diff_vs_nnlib": 3.2186508178710938e-06,
+  "self_patch_diff": 0.0
+ },
+ "yP130_full_c1_s4000_seed0_eval_conf9": {
+  "max_diff_vs_nnlib": 4.0531158447265625e-06,
+  "self_patch_diff": 0.0
+ },
+ "xP81_c1_s4000_seed0": {
+  "max_diff_vs_nnlib": 9.5367431640625e-06,
+  "self_patch_diff": 0.0
+ }
+}

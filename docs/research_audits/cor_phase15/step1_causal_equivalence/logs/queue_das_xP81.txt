@@ -1,0 +1,11 @@
+python3 scripts/das.py xP81 full_c1 0 - S 1 q7 2
+python3 scripts/das.py xP81 full_c1 0 - S 1 all 2
+python3 scripts/das.py xP81 full_c1 0 - S 2 all 2
+python3 scripts/das.py xP81 full_c1 0 - S 3 q7 2
+python3 scripts/das.py xP81 full_c1 0 - S 3 all 2
+python3 scripts/das.py xP81 full_c1 0 - E 1 q7 6
+python3 scripts/das.py xP81 full_c1 0 - E 1 all 6
+python3 scripts/das.py xP81 full_c1 0 - E 2 q7 6
+python3 scripts/das.py xP81 full_c1 0 - E 2 all 6
+python3 scripts/das.py xP81 full_c1 0 - E 3 q7 6
+python3 scripts/das.py xP81 full_c1 0 - E 3 all 6

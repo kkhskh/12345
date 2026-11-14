@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/claude/12345/docs/research_audits/cor_phase15/step1_causal_equivalence/scripts/das_eval.py", line 18, in <module>
+    R = jnp.asarray(np.load(os.path.join(HERE, "..", "logs", "das", tag + "_R.npy")))
+                    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/numpy/lib/_npyio_impl.py", line 454, in load
+    fid = stack.enter_context(open(os.fspath(file), "rb"))
+                              ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/claude/12345/docs/research_audits/cor_phase15/step1_causal_equivalence/scripts/../logs/das/wP142_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy'

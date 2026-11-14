@@ -88,4 +88,52 @@ parents.
 
 ## Part II — Results
 
-(Filled in after the runs.)
+**Integrity.**
+- Part I was frozen at commit `aa12df6`, Addendum A1 (F6) at `827512f`, and Addendum A2 (F7) at `0073e39`. Each was
+  committed before the corresponding confirmation analyses ran. Verify with `git show`.
+- Verdicts are computed by `scripts/conf_evaluate.py` and written to `logs/confirmation_results.json`.
+
+**Completeness covariate (pre-specified).** wP140 = 1.0, wP141 = 1.0, wP142 = 1.0, **wP143 = 0.765 (incomplete)**.
+wP143 is excluded from the denominators, so n = 3 and each prediction needs ≥ 2 of 3. wP143 results are reported in
+brackets.
+
+**Deviations** (`logs/COMPUTE_LOG.txt`).
+1. An environment restart at about 00:37 killed P142 pretraining and the first wP140 fine-tunes, before any output was
+   read. All were rerun with identical commands.
+2. One intermediate training-log line of wP140 full_c1 (step-165 behavioural metrics) was displayed while monitoring. No
+   prediction uses it.
+3. The four C1 `das_eval.py` runs crashed. In a queue-ordering race, the other lane was still fitting the C1 subspace.
+   They were rerun once with identical commands, as rule I.3 provides.
+
+### Behaviour of the confirmation models (eval_conf10; per-episode absE primary)
+
+Each cell gives KL / absE R1 / E R1 / absE R2∪R3.
+
+| parent | full_c1 | C1 |
+|---|---|---|
+| wP140 | 0.002 / 0.23 / −0.21 / 0.18 | 0.036 / 0.56 / −0.48 / 0.62 |
+| wP141 | 0.004 / 0.31 / +0.28 / 0.21 | 0.035 / 0.94 / −0.93 / 0.65 |
+| wP142 | 0.007 / 0.20 / −0.07 / 0.25 | 0.065 / 0.79 / −0.65 / 1.03 |
+| [wP143, incomplete] | 0.002 / 0.18 / −0.05 / 0.17 | 0.096 / 0.66 / −0.62 / 1.84 |
+
+### Verdicts
+
+| prediction | verdict | evidence (complete parents wP140 / wP141 / wP142; [wP143]) |
+|---|---|---|
+| **F1** behavioural identification of the Bayes eligibility rule; C1 is a different rule | **confirmed** (3/3, 3/3) | full_c1 closest to B on D1, D2, R2, R3 everywhere. D1/D2 distances 0.11/0.12, 0.21/0.22, 0.27/0.23 [0.14/0.14]. C1 closest on D2: A2, A1, A2 [A1] |
+| **F2** shared E abstraction (IIA ≥ 0.85, KLcf ≤ 0.15, random ≤ 0.6) | **confirmed** (2/3) | IIA 0.967 / 0.937 / 0.853 [0.965]. KLcf 0.015 / 0.063 / **0.162** [0.020], so wP142 misses the KL bound. Random 0.50–0.52 |
+| **F3** per-group signature (S IIA ≤ E IIA − 0.20) | **confirmed** (3/3) | S 0.554 / 0.468 / 0.497 [0.527] vs E 0.967 / 0.937 / 0.853 [0.965]; S-random 0.33–0.36 |
+| **F4** discriminating counterfactuals separate repaired from original | **falsified** (1/3) | full vs C1 IIA_B: 0.960 vs 0.791 ✓; **0.844 vs 0.878 ✗; 0.694 vs 0.757 ✗**; [0.961 vs 0.649 ✓] |
+| **F5** distributed localization (readout alone and sources alone each < q7 − 0.05) | **confirmed** (3/3) | ro / src6 / q7: 0.768 / 0.893 / 0.967; 0.663 / 0.827 / 0.937; 0.722 / 0.646 / 0.853 [0.840 / 0.859 / 0.965] |
+| **F6** selectivity of the abstraction subspace: repaired selective, original not | **confirmed** (3/3, 3/3) | full D2c/D2 0.27 / 0.24 / 0.44 [0.22], CNTc/CNT 0.34 / 0.27 / 0.32 [0.33], D2/CNT 1.06 / 0.90 / 1.33 [0.98]. C1 D2c/D2 0.98 / 0.73 / 0.86 [0.88] |
+| **F7** algorithmic learning order (A1 at steps 50–111 → B at 4000, first B ≥ 246) | **confirmed** (3/3) [also wP143] | first B-closest step on D2: 1211 / 1211 / 813 [546]. Every trajectory starts A1, passes through A2 briefly (3/4), then becomes B |
+
+**Summary: 6 of 7 frozen predictions confirmed; F4 falsified.**
+
+**Reading of F4.** Interchange accuracy on discriminating counterfactuals did **not** reliably separate repaired from
+original models. Two repaired models (wP141, wP142) had weaker abstraction fits than their C1 counterparts, although
+they are behaviourally Bayes-like (F1). wP142 also has the weakest E fit (KLcf 0.162).
+
+So behavioural algorithm identity (F1) and subspace selectivity (F6) separated repaired from unrepaired models on every
+parent, but interchange accuracy alone did not. This confirms the warning in Mathematical results §2: interchange
+accuracy is not a reliable mechanistic marker on its own.

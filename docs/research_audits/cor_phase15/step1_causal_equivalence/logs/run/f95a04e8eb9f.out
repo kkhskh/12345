@@ -1,0 +1,4 @@
+[yP130_mlp_q_s32000_seed0_u3] pool states (50000, 43, 64) in 16s
+[yP130_mlp_q_s32000_seed0_u3] step 1000 KL +0.065 acc +0.739 absE_R1 +0.801 E_R1 -0.735 dm_R1 -0.502 absE_R2 +0.593 E_R2 +0.270 absE_R3 +0.507 E_R3 -0.156 absE_R23 +0.517 absE_F34 +0.363 absE_F54o +0.805 absE_F0 +0.099 absE_FLOC +0.224 absE_FID +0.118
+[yP130_mlp_q_s32000_seed0_u3] step 8000 KL +0.035 acc +0.743 absE_R1 +0.599 E_R1 -0.431 dm_R1 -0.198 absE_R2 +0.490 E_R2 -0.033 absE_R3 +0.520 E_R3 -0.208 absE_R23 +0.516 absE_F34 +0.343 absE_F54o +0.629 absE_F0 +0.097 absE_FLOC +0.210 absE_FID +0.106
+[yP130_mlp_q_s32000_seed0_u3] step 32000 KL +0.056 acc +0.740 absE_R1 +0.750 E_R1 -0.008 dm_R1 +0.225 absE_R2 +0.880 E_R2 -0.406 absE_R3 +0.805 E_R3 -0.260 absE_R23 +0.813 absE_F34 +0.530 absE_F54o +0.750 absE_F0 +0.148 absE_FLOC +0.358 absE_FID +0.185

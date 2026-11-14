@@ -53,3 +53,126 @@
 2026-11-14T00:36:50Z lane D start [7f8d3575c2f4] while [ ! -f checkpoints/zP140/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP140 full_c1 4000 0 label logs/eval_conf10.npz
 2026-11-14T00:37:03Z lane E start [b53841554583] while [ ! -f checkpoints/zP140/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP140 c1 4000 0 label logs/eval_conf10.npz
 2026-11-14T00:41:57Z DISCLOSURE: while monitoring, one intermediate training-log line of wP140 full_c1 (step 165 behavioural metrics) was displayed. No frozen prediction uses step-165 behaviour; F7 uses traj_alg outputs only. Further monitoring uses COMPUTE_LOG only.
+2026-11-14T00:49:30Z lane E end [b53841554583] rc=0
+2026-11-14T00:49:30Z lane E start [b3fe12bf6d65] while [ ! -f checkpoints/zP141/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP141 full_c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T01:18:04Z lane E end [b3fe12bf6d65] rc=0
+2026-11-14T01:18:04Z lane E start [e806bbf80d3d] while [ ! -f checkpoints/zP141/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP141 c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T01:26:02Z lane B2 end pretrain P142 rc=0
+2026-11-14T01:26:02Z lane B2 start pretrain P143
+2026-11-14T01:29:45Z lane E end [e806bbf80d3d] rc=0
+2026-11-14T01:29:45Z lane E start [425facc0da9a] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP140_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; ALG_TAG=_wP140 python3 scripts/algorithm_discrimination.py logs/eval_conf10.npz wP140:full_c1:0:_eval_conf10 wP140:c1:0:_eval_conf10
+2026-11-14T01:33:08Z lane D end [7f8d3575c2f4] rc=0
+2026-11-14T01:33:08Z lane D start [0af64c6333e4] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP140_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP140 full_c1 0 _eval_conf10 E 2 q7 6
+2026-11-14T01:33:31Z lane E end [425facc0da9a] rc=0
+2026-11-14T01:33:31Z lane E start [ef8659303dab] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP140_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP140 full_c1 0 _eval_conf10 S 2 q7 2
+2026-11-14T01:35:58Z lane E end [ef8659303dab] rc=0
+2026-11-14T01:35:58Z lane E start [9cb03253c846] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP140_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP140 full_c1 0 _eval_conf10 E 2 ro 6
+2026-11-14T01:38:23Z lane E end [9cb03253c846] rc=0
+2026-11-14T01:38:23Z lane E start [4c33440b5835] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP140_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP140 full_c1 0 _eval_conf10 E 2 src6 6
+2026-11-14T01:38:28Z lane D end [0af64c6333e4] rc=0
+2026-11-14T01:38:28Z lane D start [fac94d6a30d2] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP140_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP140 c1 0 _eval_conf10 E 2 q7 6
+2026-11-14T01:40:56Z lane E end [4c33440b5835] rc=0
+2026-11-14T01:40:56Z lane E start [f765ba4c1f11] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP140_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das_eval.py wP140 full_c1 0 _eval_conf10 2 q7 6
+2026-11-14T01:41:16Z lane E end [f765ba4c1f11] rc=0
+2026-11-14T01:41:16Z lane E start [2a098d52fe7a] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP140_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das_eval.py wP140 c1 0 _eval_conf10 2 q7 6
+2026-11-14T01:41:21Z lane E end [2a098d52fe7a] rc=0
+2026-11-14T01:41:21Z lane E start [2e065c15040d] while [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; ALG_TAG=_wP141 python3 scripts/algorithm_discrimination.py logs/eval_conf10.npz wP141:full_c1:0:_eval_conf10 wP141:c1:0:_eval_conf10
+2026-11-14T01:41:37Z lane E end [2e065c15040d] rc=0
+2026-11-14T01:41:37Z lane E start [51fe9b594465] while [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP141 full_c1 0 _eval_conf10 E 2 q7 6
+2026-11-14T01:44:02Z lane D end [fac94d6a30d2] rc=0
+2026-11-14T01:44:02Z lane D start [035d498a4ea6] while [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP141 full_c1 0 _eval_conf10 S 2 q7 2
+2026-11-14T01:44:09Z lane E end [51fe9b594465] rc=0
+2026-11-14T01:44:09Z lane E start [f8374f2ebc59] while [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP141 full_c1 0 _eval_conf10 E 2 ro 6
+2026-11-14T01:46:48Z lane E end [f8374f2ebc59] rc=0
+2026-11-14T01:46:48Z lane E start [ef4c58b4b0f2] while [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP141 full_c1 0 _eval_conf10 E 2 src6 6
+2026-11-14T01:49:24Z lane E end [ef4c58b4b0f2] rc=0
+2026-11-14T01:49:24Z lane E start [9a4be35e62cb] while [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP141 c1 0 _eval_conf10 E 2 q7 6
+2026-11-14T01:49:34Z lane D end [035d498a4ea6] rc=0
+2026-11-14T01:49:34Z lane D start [9ac9acbfd0b1] while [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das_eval.py wP141 full_c1 0 _eval_conf10 2 q7 6
+2026-11-14T01:50:13Z lane D end [9ac9acbfd0b1] rc=0
+2026-11-14T01:50:13Z lane D start [1fede8d5f0c8] while [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das_eval.py wP141 c1 0 _eval_conf10 2 q7 6
+2026-11-14T01:50:25Z lane D end [1fede8d5f0c8] rc=0
+2026-11-14T01:50:25Z lane D start [41464070abde] while [ ! -f checkpoints/zP142/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP142 full_c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T01:51:54Z lane E end [9a4be35e62cb] rc=0
+2026-11-14T01:51:54Z lane E start [bb9f815d9933] while [ ! -f checkpoints/zP142/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP142 c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T02:04:07Z lane E end [bb9f815d9933] rc=0
+2026-11-14T02:04:07Z lane E start [88e8f0cfdaab] while [ ! -f checkpoints/zP143/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP143 full_c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T02:07:13Z lane B2 end pretrain P143 rc=0
+2026-11-14T02:07:13Z lane F start [bc498fd36c6f] while [ ! -f checkpoints/zP143/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP143 c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T02:30:58Z lane F end [bc498fd36c6f] rc=0
+2026-11-14T02:30:58Z lane F start [99a9d2c2093b] while [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; ALG_TAG=_wP142 python3 scripts/algorithm_discrimination.py logs/eval_conf10.npz wP142:full_c1:0:_eval_conf10 wP142:c1:0:_eval_conf10
+2026-11-14T02:35:57Z lane E end [88e8f0cfdaab] rc=0
+2026-11-14T02:35:57Z lane E start [b59847132f85] while [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP142 full_c1 0 _eval_conf10 E 2 q7 6
+2026-11-14T02:37:07Z lane D end [41464070abde] rc=0
+2026-11-14T02:37:07Z lane D start [e9ce5a509aea] while [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP142 full_c1 0 _eval_conf10 S 2 q7 2
+2026-11-14T02:38:06Z lane F end [99a9d2c2093b] rc=0
+2026-11-14T02:38:06Z lane F start [b4971be937b8] while [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP142 full_c1 0 _eval_conf10 E 2 ro 6
+2026-11-14T02:39:55Z lane E end [b59847132f85] rc=0
+2026-11-14T02:39:55Z lane E start [3cb2be7123da] while [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP142 full_c1 0 _eval_conf10 E 2 src6 6
+2026-11-14T02:41:26Z lane D end [e9ce5a509aea] rc=0
+2026-11-14T02:41:26Z lane D start [c778e710b5be] while [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP142 c1 0 _eval_conf10 E 2 q7 6
+2026-11-14T02:42:30Z lane E end [3cb2be7123da] rc=0
+2026-11-14T02:42:30Z lane E start [3e85a2f7c58b] while [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das_eval.py wP142 full_c1 0 _eval_conf10 2 q7 6
+2026-11-14T02:42:50Z lane E end [3e85a2f7c58b] rc=0
+2026-11-14T02:42:50Z lane E start [7d137e1ea8e6] while [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das_eval.py wP142 c1 0 _eval_conf10 2 q7 6
+2026-11-14T02:42:54Z lane E end [7d137e1ea8e6] rc=0
+2026-11-14T02:42:54Z lane E start [ccff123809e9] while [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; ALG_TAG=_wP143 python3 scripts/algorithm_discrimination.py logs/eval_conf10.npz wP143:full_c1:0:_eval_conf10 wP143:c1:0:_eval_conf10
+2026-11-14T02:43:12Z lane E end [ccff123809e9] rc=0
+2026-11-14T02:43:12Z lane E start [afe4c57dd9af] while [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP143 full_c1 0 _eval_conf10 E 2 q7 6
+2026-11-14T02:43:16Z lane F end [b4971be937b8] rc=0
+2026-11-14T02:43:16Z lane F start [b83f8546fc67] while [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP143 full_c1 0 _eval_conf10 S 2 q7 2
+2026-11-14T02:45:49Z lane E end [afe4c57dd9af] rc=0
+2026-11-14T02:45:49Z lane E start [f27f7257e1ae] while [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP143 full_c1 0 _eval_conf10 E 2 ro 6
+2026-11-14T02:46:55Z lane D end [c778e710b5be] rc=0
+2026-11-14T02:46:55Z lane D start [9e3462b0b014] while [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP143 full_c1 0 _eval_conf10 E 2 src6 6
+2026-11-14T02:48:27Z lane E end [f27f7257e1ae] rc=0
+2026-11-14T02:48:27Z lane E start [3478b56df377] while [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das.py wP143 c1 0 _eval_conf10 E 2 q7 6
+2026-11-14T02:48:41Z lane F end [b83f8546fc67] rc=0
+2026-11-14T02:48:41Z lane F start [63a96b0f0af2] while [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das_eval.py wP143 full_c1 0 _eval_conf10 2 q7 6
+2026-11-14T02:49:20Z lane F end [63a96b0f0af2] rc=0
+2026-11-14T02:49:20Z lane F start [842af64cc4bf] while [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; DAS_EVAL_STREAM=62500000 python3 scripts/das_eval.py wP143 c1 0 _eval_conf10 2 q7 6
+2026-11-14T02:49:31Z lane F end [842af64cc4bf] rc=0
+2026-11-14T02:49:31Z lane F start [b99bf938aa19] while [ ! -f logs/das/wP140_full_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy ] || [ ! -f logs/das/wP140_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy ]; do sleep 30; done; SHIFT_EVAL=logs/eval_conf10.npz SHIFT_RSUFFIX=_ev62500000 SHIFT_TAG=_conf_wP140 python3 scripts/subspace_shift.py wP140:full_c1:0:_eval_conf10 wP140:c1:0:_eval_conf10
+2026-11-14T02:49:50Z lane F end [b99bf938aa19] rc=0
+2026-11-14T02:49:50Z lane F start [11e62e5ba2bc] while [ ! -f logs/das/wP141_full_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy ] || [ ! -f logs/das/wP141_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy ]; do sleep 30; done; SHIFT_EVAL=logs/eval_conf10.npz SHIFT_RSUFFIX=_ev62500000 SHIFT_TAG=_conf_wP141 python3 scripts/subspace_shift.py wP141:full_c1:0:_eval_conf10 wP141:c1:0:_eval_conf10
+2026-11-14T02:50:09Z lane F end [11e62e5ba2bc] rc=0
+2026-11-14T02:50:09Z lane F start [ab13cd836e7e] while [ ! -f logs/das/wP142_full_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy ] || [ ! -f logs/das/wP142_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy ]; do sleep 30; done; SHIFT_EVAL=logs/eval_conf10.npz SHIFT_RSUFFIX=_ev62500000 SHIFT_TAG=_conf_wP142 python3 scripts/subspace_shift.py wP142:full_c1:0:_eval_conf10 wP142:c1:0:_eval_conf10
+2026-11-14T02:50:28Z lane F end [ab13cd836e7e] rc=0
+2026-11-14T02:50:28Z lane F start [8a488ef67de2] while [ ! -f logs/das/wP143_full_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy ] || [ ! -f logs/das/wP143_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000_R.npy ]; do sleep 30; done; SHIFT_EVAL=logs/eval_conf10.npz SHIFT_RSUFFIX=_ev62500000 SHIFT_TAG=_conf_wP143 python3 scripts/subspace_shift.py wP143:full_c1:0:_eval_conf10 wP143:c1:0:_eval_conf10
+2026-11-14T02:51:01Z lane E end [3478b56df377] rc=0
+2026-11-14T02:51:01Z lane E start [4ddfebb1c447] while [ ! -f checkpoints/native_train/wP140_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP141_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP142_full_c1_s4000_seed0_eval_conf10/final.json ] || [ ! -f checkpoints/native_train/wP143_full_c1_s4000_seed0_eval_conf10/final.json ]; do sleep 30; done; TRAJ_EVAL=logs/eval_conf10.npz TRAJ_MODELS=wP140:full_c1:0:_eval_conf10,wP141:full_c1:0:_eval_conf10,wP142:full_c1:0:_eval_conf10,wP143:full_c1:0:_eval_conf10 TRAJ_TAG=_conf python3 scripts/traj_alg.py
+2026-11-14T02:51:13Z lane D end [9e3462b0b014] rc=0
+2026-11-14T02:51:13Z lane D3 start [be9036f94711] cd . && python3 scripts/das.py yP132 full_c1 0 _eval_conf9 E 2 ro 6
+2026-11-14T02:51:46Z lane F end [8a488ef67de2] rc=0
+2026-11-14T02:51:46Z lane F3 start [9d6b3412b0da] cd . && python3 scripts/das.py yP132 full_c1 0 _eval_conf9 E 2 src6 6
+2026-11-14T02:53:46Z lane E end [4ddfebb1c447] rc=0
+2026-11-14T02:53:46Z lane E3 start [1af42494c7c0] cd . && python3 scripts/das.py yP134 full_c1 0 _eval_conf9 E 2 ro 6
+2026-11-14T02:56:06Z lane D3 end [be9036f94711] rc=0
+2026-11-14T02:56:06Z lane D3 start [c2c0e1d89a49] cd . && python3 scripts/das.py yP134 full_c1 0 _eval_conf9 E 2 src6 6
+2026-11-14T02:56:19Z lane E3 end [1af42494c7c0] rc=0
+2026-11-14T02:56:19Z lane E3 start [462528efdec6] cd . && python3 scripts/das.py yP130 full_c1 0 _eval_conf9 S 2 q7 2
+2026-11-14T02:56:59Z lane F3 end [9d6b3412b0da] rc=0
+2026-11-14T02:56:59Z lane F3 start [43d918fa7df8] cd . && python3 scripts/das.py yP132 full_c1 0 _eval_conf9 S 2 q7 2
+2026-11-14T02:58:49Z lane E3 end [462528efdec6] rc=0
+2026-11-14T02:58:49Z lane E3 start [aa916332a42f] cd . && python3 scripts/native_reader.py yP130 mlp_q 32000 0 bayes 3
+2026-11-14T03:01:14Z lane D3 end [c2c0e1d89a49] rc=0
+2026-11-14T03:01:14Z lane D3 start [86d1af452a99] cd . && python3 scripts/native_reader.py yP131 mlp_q 32000 0 bayes 3
+2026-11-14T03:02:06Z lane F3 end [43d918fa7df8] rc=0
+2026-11-14T03:02:06Z lane F3 start [8e8891222328] cd . && python3 scripts/native_reader.py yP132 mlp_q 32000 0 bayes 3
+2026-11-14T03:03:12Z lane E3 end [aa916332a42f] rc=0
+2026-11-14T03:03:12Z lane E3 start [07046ceff4c2] cd . && python3 scripts/native_reader.py yP134 mlp_q 32000 0 bayes 3
+2026-11-14T03:03:14Z NOTE: das_eval.py for the four C1 confirmation models crashed (FileNotFoundError: the C1 DAS subspace was still being fitted by the other lane; queue-ordering race). Rerun once with identical commands (rule I.3).
+2026-11-14T03:06:31Z lane M reran das_eval c1 wP140-143
+2026-11-14T03:09:40Z lane E3 end [07046ceff4c2] rc=0
+2026-11-14T03:09:40Z lane E3 start [f95a04e8eb9f] cd . && python3 scripts/native_reader.py yP130 mlp_q 32000 0 label 3
+2026-11-14T03:10:03Z lane D3 end [86d1af452a99] rc=0
+2026-11-14T03:10:03Z lane D3 start [4a1f74c7e090] cd . && python3 scripts/native_reader.py yP131 mlp_q 32000 0 label 3
+2026-11-14T03:11:57Z lane F3 end [8e8891222328] rc=0
+2026-11-14T03:11:57Z lane F3 start [9371e449118a] cd . && python3 scripts/das.py yP130 full_c1 1 - E 2 q7 6
+2026-11-14T03:14:14Z lane E3 end [f95a04e8eb9f] rc=0
+2026-11-14T03:14:14Z lane E3 start [0542bf112ee8] cd . && python3 scripts/das.py xP81 full_c1 1 - E 2 q7 6
+2026-11-14T03:16:46Z lane E3 end [0542bf112ee8] rc=0
+2026-11-14T03:16:46Z lane E3 start [85efe720a52a] cd . && ALG_TAG=_seeds python3 scripts/algorithm_discrimination.py dev yP130:full_c1:1: xP81:full_c1:1:
+2026-11-14T03:17:01Z lane E3 end [85efe720a52a] rc=0
+2026-11-14T03:17:08Z lane F3 end [9371e449118a] rc=0
+2026-11-14T03:17:22Z lane D3 end [4a1f74c7e090] rc=0

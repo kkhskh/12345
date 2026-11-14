@@ -1,0 +1,10 @@
+pcount s140 step 300 loss 1.6559
+pcount s140 step 600 loss 1.6419
+pcount s140 step 900 loss 1.3011
+pcount s140 step 1200 loss 0.0360
+pcount s140 step 1500 loss 0.0056
+pcount s140 step 1800 loss 0.0028
+pcount s140 step 2100 loss 0.0020
+pcount s140 step 2400 loss 0.0017
+pcount s140 step 2700 loss 0.0015
+pcount s140 step 3000 loss 0.0016

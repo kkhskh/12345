@@ -1,0 +1,4 @@
+[yP132_mlp_q_s32000_seed0_bayes_u3] pool states (50000, 43, 64) in 34s
+[yP132_mlp_q_s32000_seed0_bayes_u3] step 1000 KL +0.023 acc +0.745 absE_R1 +0.488 E_R1 -0.128 dm_R1 +0.105 absE_R2 +0.389 E_R2 +0.025 absE_R3 +0.483 E_R3 -0.348 absE_R23 +0.472 absE_F34 +0.273 absE_F54o +0.498 absE_F0 +0.069 absE_FLOC +0.175 absE_FID +0.080
+[yP132_mlp_q_s32000_seed0_bayes_u3] step 8000 KL +0.002 acc +0.747 absE_R1 +0.200 E_R1 +0.060 dm_R1 +0.293 absE_R2 +0.167 E_R2 +0.044 absE_R3 +0.169 E_R3 -0.042 absE_R23 +0.169 absE_F34 +0.104 absE_F54o +0.192 absE_F0 +0.028 absE_FLOC +0.071 absE_FID +0.037
+[yP132_mlp_q_s32000_seed0_bayes_u3] step 32000 KL +0.000 acc +0.747 absE_R1 +0.084 E_R1 +0.018 dm_R1 +0.251 absE_R2 +0.082 E_R2 +0.017 absE_R3 +0.071 E_R3 -0.012 absE_R23 +0.072 absE_F34 +0.061 absE_F54o +0.088 absE_F0 +0.016 absE_FLOC +0.041 absE_FID +0.023

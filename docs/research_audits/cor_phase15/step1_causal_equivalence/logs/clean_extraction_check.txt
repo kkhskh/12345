@@ -1,0 +1,14 @@
+clean extraction check 2026-11-14T03:24:07Z in /tmp/clean_x (siblings symlinked read-only)
+MANIFEST: all 423 files OK
+F1 confirmed = True {'n_full': 3, 'n_c1': 3}
+F2 confirmed = True {'n_ok': 2}
+F3 confirmed = True {'n_ok': 3}
+F4 confirmed = False {'n_ok': 1}
+F5 confirmed = True {'n_ok': 3}
+F6 confirmed = True {'n_a': 3, 'n_b': 3}
+F7 confirmed = True {'n_ok': 3}
+confirmation_results identical after rerun: True
+  File "<string>", line 1, in <module>
+verify_ftlib forward replay (all earlier cor_phase15 packages linked read-only): {'xP81_full_c1_s4000_seed0': 3.2186508178710938e-06, 'yP130_full_c1_s4000_seed0_eval_conf9': 4.0531158447265625e-06, 'xP81_c1_s4000_seed0': 9.5367431640625e-06}
+NOTE: first attempt with only 6 sibling packages linked failed (ModuleNotFoundError eqv: step1_perfect_agreement_boundary imports step1_curriculum_response_identification and its dependencies); the package requires the full earlier cor_phase15 tree, as now stated in REPRODUCTION.md.
+algorithm_discrimination wP140 recomputed from clean extraction: max |diff| = 0.0 ; closest identical: True

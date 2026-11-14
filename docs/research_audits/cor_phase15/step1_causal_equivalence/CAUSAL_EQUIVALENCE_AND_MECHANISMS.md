@@ -155,6 +155,23 @@ The recurrent learning order is "**perfectness first, q-agreement integration la
 order (NP4, falsified) could not detect it, because A1 and B make identical R1 predictions. The timing differs widely
 across parents; the order does not.
 
+## 5b. Confirmation (`FROZEN_PREDICTIONS_AND_RESULTS.md` Part II)
+
+On the new parents wP140–142 (complete) and wP143 (incomplete, reported separately):
+
+| prediction | count |
+|---|---|
+| F1 behavioural Bayes rule; originals A1/A2 | 3/3 [4/4] |
+| F2 E abstraction | 2/3; wP142 KLcf 0.162 misses the 0.15 bound |
+| F3 per-group signature | 3/3 |
+| F5 distributed | 3/3 |
+| F6 selectivity | 3/3, and originals non-selective 3/3 |
+| F7 A1 → A2 → B order | 3/3 [4/4] |
+| **F4 discriminating-counterfactual IIA as a repair marker** | **falsified, 1/3** |
+
+The development conclusions of §2–§5 therefore hold prospectively, except the use of interchange accuracy alone as a
+marker.
+
 ## 6. What remains open
 
 - Head-internal and MLP-internal mechanisms of how E is computed: which components write agreement-at-q into the q7

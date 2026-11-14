@@ -1,0 +1,1 @@
+wP141_full_c1_s4000_seed0_eval_conf10_E_L2_q7_k6_ev62500000 {"all": {"n": 4990, "IIA_B": 0.931, "IIA_A3": 0.809, "KL_B": 0.065}, "disc": {"n": 841, "IIA_B": 0.844, "IIA_A3": 0.121, "KL_B": 0.155}, "rand_all": {"n": 4990, "IIA_B": 0.479, "IIA_A3": 0.548, "KL_B": 0.871}, "rand_disc": {"n": 841, "IIA_B": 0.194, "IIA_A3": 0.606, "KL_B": 1.677}, "base_disc_IIA_B": 0.1961950059453032}

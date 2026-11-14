@@ -1,0 +1,1 @@
+yP132_full_c1_s4000_seed0_eval_conf9_E_L2_src6_k6 {"trained": {"n": 2481, "IIA_argmax": 0.6086255542120113, "KLcf": 0.6245580785196064, "KLbase": 0.8661046049943587, "base_argmax_agree": 0.4840790004030633}, "rand": {"n": 2481, "IIA_argmax": 0.4844820636839984, "KLcf": 0.8654963346729949, "KLbase": 0.8661046049943587, "base_argmax_agree": 0.4840790004030633}} 302s

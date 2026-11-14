@@ -1,0 +1,548 @@
+{
+ "R1_crashed_runs": [],
+ "R3_merge_counts": {
+  "l2_scan": 20,
+  "l2_mix_causal": 5,
+  "l2_mediation": 5,
+  "score_contrast": 4,
+  "l1abl_mix": 4,
+  "decoy_disc": 2
+ },
+ "R3_units": [
+  "xP81:full_c1:0:",
+  "yP130:full_c1:0:_eval_conf9",
+  "vP155:full_c1:10:_eval_conf12",
+  "vP156:full_c1:10:_eval_conf12",
+  "vP150:full_c1:10:_eval_conf12"
+ ],
+ "R3_none_class": [],
+ "R2_head_definitions": {
+  "xP81:full_c1:0:": {
+   "scorer_mixture_class": true,
+   "script_head_lists": {
+    "l2_mix_causal": [
+     1,
+     3
+    ],
+    "l2_mediation": [
+     1,
+     3
+    ],
+    "score_contrast": [
+     1,
+     3
+    ],
+    "l1abl_mix": [
+     1,
+     3
+    ]
+   },
+   "mismatch": false
+  },
+  "yP130:full_c1:0:_eval_conf9": {
+   "scorer_mixture_class": true,
+   "script_head_lists": {
+    "l2_mix_causal": [
+     0
+    ],
+    "l2_mediation": [
+     0
+    ],
+    "score_contrast": [
+     0
+    ],
+    "l1abl_mix": [
+     0
+    ]
+   },
+   "mismatch": false
+  },
+  "vP155:full_c1:10:_eval_conf12": {
+   "scorer_mixture_class": true,
+   "script_head_lists": {
+    "l2_mix_causal": [
+     1,
+     2,
+     3
+    ],
+    "l2_mediation": [
+     1,
+     2,
+     3
+    ],
+    "score_contrast": [
+     1,
+     2,
+     3
+    ],
+    "l1abl_mix": [
+     1,
+     2,
+     3
+    ]
+   },
+   "mismatch": false
+  },
+  "vP156:full_c1:10:_eval_conf12": {
+   "scorer_mixture_class": true,
+   "script_head_lists": {
+    "l2_mix_causal": [
+     2
+    ],
+    "l2_mediation": [
+     2
+    ],
+    "score_contrast": [
+     2
+    ],
+    "l1abl_mix": [
+     2
+    ]
+   },
+   "mismatch": false
+  },
+  "vP150:full_c1:10:_eval_conf12": {
+   "scorer_mixture_class": false,
+   "script_head_lists": {
+    "l2_mix_causal": [],
+    "l2_mediation": [],
+    "score_contrast": null,
+    "l1abl_mix": null
+   },
+   "mismatch": false
+  }
+ },
+ "R4": {
+  "P1": {
+   "frozen_verdict": "inconclusive",
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    },
+    "c": {
+     "frozen_status": "inconclusive",
+     "k": 3,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9"
+     ],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": null,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": false
+    },
+    "d": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": []
+    }
+   },
+   "excluded_units": [
+    "vP150:full_c1:10:_eval_conf12"
+   ],
+   "any_failed_arm": []
+  },
+  "P2": {
+   "frozen_verdict": "confirmed",
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": []
+    },
+    "c": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": []
+    }
+   },
+   "excluded_units": [
+    "vP150:full_c1:10:_eval_conf12"
+   ],
+   "any_failed_arm": []
+  },
+  "P3": {
+   "frozen_verdict": "inconclusive",
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": []
+    },
+    "c": {
+     "frozen_status": "inconclusive",
+     "k": 2,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12"
+     ]
+    }
+   },
+   "excluded_units": [
+    "vP150:full_c1:10:_eval_conf12"
+   ],
+   "any_failed_arm": []
+  },
+  "P4": {
+   "frozen_verdict": "confirmed",
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    },
+    "c": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    }
+   },
+   "excluded_units": [
+    "vP150:full_c1:10:_eval_conf12"
+   ],
+   "any_failed_arm": []
+  },
+  "P5": {
+   "frozen_verdict": "inconclusive",
+   "arms": {
+    "a": {
+     "frozen_status": "inconclusive",
+     "k": 3,
+     "n": 5,
+     "failed_units": [],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12"
+     ],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": null,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": null,
+      "vP150:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": false
+    },
+    "b": {
+     "frozen_status": "inconclusive",
+     "k": 3,
+     "n": 5,
+     "failed_units": [],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12"
+     ],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": null,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": null,
+      "vP150:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": false
+    },
+    "c": {
+     "frozen_status": "inconclusive",
+     "k": 2,
+     "n": 5,
+     "failed_units": [
+      "vP150:full_c1:10:_eval_conf12"
+     ],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12"
+     ],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": null,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": null,
+      "vP150:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": false
+    },
+    "d": {
+     "frozen_status": "inconclusive",
+     "k": 2,
+     "n": 5,
+     "failed_units": [
+      "vP150:full_c1:10:_eval_conf12"
+     ],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12"
+     ],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": null,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": null,
+      "vP150:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": false
+    },
+    "e": {
+     "frozen_status": "inconclusive",
+     "k": 3,
+     "n": 5,
+     "failed_units": [],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12"
+     ]
+    }
+   },
+   "excluded_units": [],
+   "any_failed_arm": [
+    "c",
+    "d"
+   ]
+  },
+  "P6": {
+   "frozen_verdict": "inconclusive",
+   "arms": {
+    "a": {
+     "frozen_status": "inconclusive",
+     "k": 0,
+     "n": 0,
+     "failed_units": [],
+     "missing_units": []
+    }
+   },
+   "excluded_units": [
+    "xP81:full_c1:0:",
+    "yP130:full_c1:0:_eval_conf9",
+    "vP155:full_c1:10:_eval_conf12",
+    "vP156:full_c1:10:_eval_conf12",
+    "vP150:full_c1:10:_eval_conf12"
+   ],
+   "any_failed_arm": []
+  },
+  "P7": {
+   "frozen_verdict": "confirmed",
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 4,
+     "n": 4,
+     "failed_units": [],
+     "missing_units": [],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": false,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": false
+     },
+     "diagnostic_strict": true
+    }
+   },
+   "excluded_units": [
+    "vP150:full_c1:10:_eval_conf12"
+   ],
+   "any_failed_arm": []
+  },
+  "P8": {
+   "frozen_verdict": "inconclusive",
+   "arms": {
+    "a": {
+     "frozen_status": "inconclusive",
+     "k": 2,
+     "n": 5,
+     "failed_units": [],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12",
+      "vP150:full_c1:10:_eval_conf12"
+     ],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": null,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": null,
+      "vP150:full_c1:10:_eval_conf12": null
+     },
+     "diagnostic_strict": false
+    },
+    "b": {
+     "frozen_status": "inconclusive",
+     "k": 2,
+     "n": 5,
+     "failed_units": [],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12",
+      "vP150:full_c1:10:_eval_conf12"
+     ],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": null,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": null,
+      "vP150:full_c1:10:_eval_conf12": null
+     },
+     "diagnostic_strict": false
+    },
+    "c": {
+     "frozen_status": "inconclusive",
+     "k": 2,
+     "n": 5,
+     "failed_units": [],
+     "missing_units": [
+      "yP130:full_c1:0:_eval_conf9",
+      "vP156:full_c1:10:_eval_conf12",
+      "vP150:full_c1:10:_eval_conf12"
+     ],
+     "null_values": {
+      "xP81:full_c1:0:": false,
+      "yP130:full_c1:0:_eval_conf9": null,
+      "vP155:full_c1:10:_eval_conf12": false,
+      "vP156:full_c1:10:_eval_conf12": null,
+      "vP150:full_c1:10:_eval_conf12": null
+     },
+     "diagnostic_strict": false
+    }
+   },
+   "excluded_units": [],
+   "any_failed_arm": []
+  }
+ },
+ "P2_DiD_two_sample_bootstrap": {
+  "xP81:full_c1:0:": {
+   "est": 0.877432550325757,
+   "lo": 0.8067002130410401,
+   "hi": 0.9446754627171612,
+   "frozen_lo": 0.8079866014571744
+  },
+  "yP130:full_c1:0:_eval_conf9": {
+   "est": 0.44865067232167355,
+   "lo": 0.3873583030549344,
+   "hi": 0.5114442327668657,
+   "frozen_lo": 0.3889241035808809
+  },
+  "vP155:full_c1:10:_eval_conf12": {
+   "est": 0.8598189375118818,
+   "lo": 0.7928660588269703,
+   "hi": 0.9248689228912117,
+   "frozen_lo": 0.7920070130653912
+  },
+  "vP156:full_c1:10:_eval_conf12": {
+   "est": 0.31710682102013377,
+   "lo": 0.2755564377466799,
+   "hi": 0.35902808133556396,
+   "frozen_lo": 0.278133899122011
+  }
+ }
+}

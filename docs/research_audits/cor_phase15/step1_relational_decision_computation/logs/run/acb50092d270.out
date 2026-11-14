@@ -1,0 +1,9 @@
+P1 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2', 'c': 'pass 2/2', 'd': 'pass 2/2'}
+P2 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2', 'c': 'pass 2/2'}
+P3 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2', 'c': 'pass 2/2'}
+P4 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2', 'c': 'pass 2/2'}
+P5 falsified {'a': 'pass 5/5', 'b': 'pass 5/5', 'c': 'fail 2/5', 'd': 'fail 2/5', 'e': 'pass 5/5'}
+P6 confirmed {'a': 'pass 1/1'}
+P7 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2'}
+P8 falsified {'a': 'fail 1/5', 'b': 'pass 5/5', 'c': 'fail 3/5'}
+counts {'meets_thresholds': 6, 'discriminating': 6, 'non_diagnostic_pass': 0, 'falsified': 2, 'inconclusive': 0} | complete 5 incomplete 1 | mixture-class {'uP160:full_c1:20:_eval_conf13': False, 'uP161:full_c1:20:_eval_conf13': True, 'uP162:full_c1:20:_eval_conf13': True, 'uP163:full_c1:20:_eval_conf13': False, 'uP164:full_c1:20:_eval_conf13': False, 'uP165:full_c1:20:_eval_conf13': True}

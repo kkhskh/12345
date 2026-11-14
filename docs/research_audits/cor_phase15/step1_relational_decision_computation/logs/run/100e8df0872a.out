@@ -1,0 +1,8 @@
+uP161_full_c1_s4000_seed20_e bayes_acc 0.798 S3 0.973 S12 0.782
+   native   acc 0.335 KL 1.367 | S3 acc 0.323 KL 0.623 | S12 acc 0.336
+   readout  acc 0.648 KL 0.427 | S3 acc 0.905 KL 0.439 | S12 acc 0.625
+   attn     acc 0.798 KL 0.020 | S3 acc 0.973 KL 0.200 | S12 acc 0.782
+   mlp      acc 0.788 KL 0.070 | S3 acc 0.973 KL 0.048 | S12 acc 0.771
+   full     acc 0.795 KL 0.004 | S3 acc 0.973 KL 0.003 | S12 acc 0.780
+   fresh    acc 0.786 KL 0.027 | S3 acc 0.889 KL 0.256 | S12 acc 0.777
+   seconds 2678

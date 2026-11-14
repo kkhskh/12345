@@ -1,0 +1,6 @@
+pcount s153 block1 step 300 loss 0.8855
+pcount s153 block1 step 600 loss 0.6652
+pcount s153 block1 step 900 loss 0.5535
+pcount s153 block1 step 1200 loss 0.5372
+pcount s153 block1 step 1500 loss 0.5314
+pcount s153 block1 step 1800 loss 0.5226

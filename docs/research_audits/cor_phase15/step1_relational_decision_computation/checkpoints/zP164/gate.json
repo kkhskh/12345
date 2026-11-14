@@ -1,0 +1,14 @@
+{
+ "seed": 164,
+ "blocks": [
+  {
+   "block": "0",
+   "aux_acc": 1.0
+  }
+ ],
+ "final": {
+  "block": "0",
+  "aux_acc": 1.0
+ },
+ "complete": true
+}

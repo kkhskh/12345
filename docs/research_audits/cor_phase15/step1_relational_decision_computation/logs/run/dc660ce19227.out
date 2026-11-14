@@ -1,0 +1,13 @@
+uP160:full_c1:20:_eval 50 ALIGN 0.0 gap -0.009 KL 0.545
+uP160:full_c1:20:_eval 74 ALIGN 0.0 gap -0.009 KL 0.525
+uP160:full_c1:20:_eval 111 ALIGN 0.0 gap -0.012 KL 0.44
+uP160:full_c1:20:_eval 165 ALIGN 0.0 gap -0.017 KL 0.352
+uP160:full_c1:20:_eval 246 ALIGN 0.0 gap -0.018 KL 0.312
+uP160:full_c1:20:_eval 366 ALIGN 0.0 gap -0.009 KL 0.161
+uP160:full_c1:20:_eval 546 ALIGN 0.0 gap -0.0 KL 0.08
+uP160:full_c1:20:_eval 813 ALIGN 0.0 gap 0.008 KL 0.042
+uP160:full_c1:20:_eval 1211 ALIGN 0.0 gap 0.008 KL 0.027
+uP160:full_c1:20:_eval 1803 ALIGN 0.0 gap 0.009 KL 0.016
+uP160:full_c1:20:_eval 2686 ALIGN 0.0 gap 0.012 KL 0.008
+uP160:full_c1:20:_eval 4000 ALIGN 0.0 gap 0.015 KL 0.004
+uP160:full_c1:20:_eval_conf13 t50 align None t50 gap 813

@@ -3,6 +3,22 @@
 Investigation XIII, Phase 1.5 Step 1. Development (dev) numbers are labelled as such. Confirmation numbers are in §7 and
 `FROZEN_PROTOCOL_AND_CONFIRMATION.md`.
 
+> **Corrections after review 3** apply here as in NATIVE_DECISION_COMPUTATION (top box).
+> - The P2 "decoy" is the *lowest-mass* non-mixture head, not a size-matched head.
+> - The mixture-head sets differ between scripts. For example, uP165 uses {0,1,3} in `l2_mix_causal` vs {0,1} elsewhere, and uP161
+>   includes head 2. The R2 head-definition check compared only empty vs non-empty lists.
+> - "Each subspace follows its own rule" (§4, §6) is withdrawn; see correction 3 there.
+> - Exploratory E-vs-A1 interventional check in the TRUE factorial (`scripts/l2_mediation_A1.py`, `logs/l2_mediation_A1_conf_expl.json`):
+>
+>   | parent | observed TRUE \|NIE\| | E-mixture prediction | A1-mixture prediction | fidelity R², E | fidelity R², A1 |
+>   |---|---|---|---|---|---|
+>   | uP161 | 0.966 | 1.018 | 0.324 | 0.959 | 0.597 |
+>   | uP165 | 0.724 | 1.018 | 0.324 | 0.764 | 0.500 |
+>   | uP162 | 0.608 | 1.018 | 0.324 | 0.623 | 0.334 |
+>   | uP164 | 0.352 | 1.018 | 0.324 | 0.285 | 0.101 |
+>
+>   In CTRL, E and A1 predict the same thing, as they should.
+
 ## 1. Intervention classes (kept separate everywhere)
 
 | class | meaning | XIII instances |
@@ -63,8 +79,7 @@ is 0.12–0.38, because the eligibility edit also changes values, other heads an
 - **Matched decoys break the specificity of mean patching.** A1 and PERM subspaces, trained by the identical procedure and budget, also
   remove 88–143% of the score contrast (dev, xP81 and vP155). Mean-patch removal therefore cannot certify E. P3c freezes this
   non-specificity.
-- **DAS is non-identifying between E and A1.** On E≠A1 pairs, each trained subspace follows its own rule. DAS still rejects PERM; see
-  NATIVE_DECISION_COMPUTATION §6.
+- **DAS did not identify E** (development wording "each trained subspace follows its own rule" withdrawn after review 3; P8 falsified).
 - **The natural mediator discriminates.** On donors where E and A1 differ, the transplanted rows follow E (R² 0.97–0.99), not A1
   (0.17–0.19). This is P1c.
 
@@ -79,7 +94,7 @@ XII's KL-side restoration results are not re-used as evidence.
 
 | decoy | where | result (dev) |
 |---|---|---|
-| A1, PERM subspaces (das_decoy, same budget as E) | resid2, q-tokens | follow their own rule on discriminating strata (A1) or reject (PERM); not specific under mean patching |
+| A1, PERM subspaces (das_decoy, same budget as E) | resid2, q-tokens | overlap E in 4–5 of 6 directions; not rule-specific on E≠A1 pairs; not specific under mean patching |
 | random 6-dim subspace | resid2, q-tokens | ≤ 0.04 R² to any rule; ≤ 1.3% contrast removal |
 | non-mixture layer-2 head (lowest q-mass) | attention row | \|NIE\| 0.01–0.21 vs 0.47–1.04 |
 | shuffled prediction | any fidelity | R² ≤ 0.002 |
@@ -87,4 +102,21 @@ XII's KL-side restoration results are not re-used as evidence.
 
 ## 7. Confirmation
 
-(Filled from the fresh cohort.)
+Fresh cohort, frozen; FROZEN_PROTOCOL §6.
+
+| parent | TRUE \|NIE\| | decoy \|NIE\| | CTRL \|NIE\| | DiD [frozen CI] | two-sample bootstrap CI | ATT-MIX R² | NIE projection on TE |
+|---|---|---|---|---|---|---|---|
+| uP161 (mixture) | 0.966 | 0.013 | 0.208 | 0.758 [0.687, 0.822] | [0.689, 0.827] | 0.96 | 0.33 |
+| uP165 (mixture) | 0.724 | 0.018 | 0.118 | 0.606 [0.543, 0.668] | [0.543, 0.671] | 0.76 | 0.25 |
+| uP162 (incomplete, mixture) | 0.608 | 0.261 | 0.136 | 0.471 [0.418, 0.523] | [0.418, 0.523] | 0.62 | 0.23 |
+| uP164 (borderline, excluded) | 0.352 | 0.170 | 0.165 | 0.187 [0.150, 0.227] | [0.148, 0.226] | 0.29 | 0.13 |
+
+- **P2 is confirmed in 2/2** frozen units.
+- Mediation stays **partial**: the NIE projection on the total effect is 0.25–0.33.
+- **Effect strength tracks the mixture head's logit share.** Strong-share parents (uP161, uP165) show large, head-specific effects. The
+  borderline uP164 shows a small effect that is not head-specific; it would fail P2.
+- **Matched decoys** (P3c, P8b) met their frozen thresholds: mean patching is non-specific, and A1-trained subspaces fit A1 better than E on E≠A1 pairs. Given the overlap of the subspaces (review 3), P8b is not evidence of separate representation.
+- **E-trained DAS subspaces** were less E-specific than predicted, which falsifies P8a.
+- **E-vs-A1 evidence** comes only from the attention-row mediator:
+  - observationally (P1c): 2/2 fresh parents and 2/2 development models;
+  - interventionally in the TRUE factorial, as an exploratory check (box at top).

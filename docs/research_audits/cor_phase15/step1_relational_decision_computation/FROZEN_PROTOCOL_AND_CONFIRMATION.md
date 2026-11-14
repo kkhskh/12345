@@ -225,6 +225,107 @@ development model. Every available development unit passes every arm.
   - P5's title overstates the J_H dependence of the whole S = 3 slice. Only the not-all-agree part (about 2/3) depends on J_H (math review 1).
   - `stats_xiii.py`, `report_xiii.py` and `transition_predictor.py` were written after the freeze and are not frozen.
 
-## 6. Confirmation results
+## 6. Confirmation results (fresh cohort uP160–165; `logs/score_xiii.json`, produced by the frozen scorer via `conf_merge.sh` at 22:47Z)
 
-(Filled after the cohort finishes, from `logs/score_xiii.json`.)
+### 6.1 Cohort
+
+**Readiness (gate.json).** Five of six parents are complete.
+
+| parent | blocks (aux_acc) | complete | layer-2 class (frozen rule) | resid2 logit share |
+|---|---|---|---|---|
+| P160 | 1.000 | yes | pre-assembled | 0.52 |
+| P161 | 0.762 → **1.000** | yes | **mixture** | 0.00 |
+| P162 | 0.739 → 0.764 → 0.779 | **no** | mixture (incomplete parent) | 0.08 |
+| P163 | 0.537 → 0.765 → **1.000** | yes | pre-assembled | 0.61 |
+| P164 | 1.000 | yes | **borderline**: head 0 has mass 0.87 and corr(B) 0.94 but logit share 0.199 < 0.2, so not mixture-class | 0.27 |
+| P165 | 0.765 → **0.991** | yes | **mixture** | −0.01 |
+
+The gated continuation remedy rescued 3 of the 4 parents that were incomplete after block 0 (P161, P163, P165). It failed for P162.
+
+**Execution.**
+- No run crashed (R1: no Traceback, Killed or MemoryError in any lane output).
+- Every merged file has 6 units, and no class is None (R3).
+- There are no protocol deviations.
+- Four **scheduling-only** changes were made: identical command lines in extra lanes PREC, T3, T4 and C3, with the same claim keys, to shorten the serial tail. They are logged in COMPUTE_LOG.
+
+### 6.2 Frozen verdicts
+
+| prediction | units | verdict | arms (k/n) |
+|---|---|---|---|
+| P1 ATT-MIX donor fidelity, E beats A3 and A1 | mixture-class complete: uP161, uP165 | **confirmed** | a 2/2, b 2/2, c 2/2, d 2/2 |
+| P2 natural mediation (DiD, head-specific, ATT-MIX fidelity) | uP161, uP165 | **confirmed** | a 2/2, b 2/2, c 2/2 |
+| P3 E-coordinate use; matched decoys non-specific | uP161, uP165 | **confirmed** | a 2/2, b 2/2, c 2/2 |
+| P4 no reconstruction after layer-1 ablation; redundancy | uP161, uP165 | **confirmed** | a 2/2, b 2/2, c 2/2 |
+| P5 two-colluder repair local to layer 2; readout insufficient; readout supports S = 3 | all 5 complete | **FALSIFIED** | a 5/5, b 5/5, **c 2/5, d 2/5**, e 5/5 |
+| P6 (exploratory) incomplete parents are mixture-class | uP162 | passes (n = 1, exploratory) | a 1/1 |
+| P7 dominant mixture head corr with B > A3, M | uP161, uP165 | **confirmed** (correlational) | a 2/2, b 2/2 |
+| P8 DAS non-identifying E/A1; rejects PERM | all 5 complete | **FALSIFIED** | **a 1/5**, b 5/5, **c 3/5** |
+
+**Counts** (primary predictions P1–P5, P7, P8; P6 exploratory and counted separately):
+
+| count | value | predictions |
+|---|---|---|
+| numeric passes (thresholds met) | **5** | P1, P2, P3, P4, P7 |
+| discriminating passes | **3** | P1, P2, P4: every arm's matched null was computed and failed on every unit, and preflight shows no null unit confirms them |
+| qualified pass | 1 | P3: discriminating against random and complement subspaces, and by design **not** against matched decoys (arm c is a predicted non-specificity) |
+| non-diagnostic pass | 1 | P7: correlational; the preflight shows it would pass on intervention-null units |
+| falsifications | **2** | P5, P8 |
+| inconclusive | 0 | |
+| deviations | 0 | plus 4 scheduling-only changes |
+
+The frozen scorer's own `counts` field reports "meets_thresholds 6, discriminating 6" because it includes P6 and applies only the
+per-arm null rule. Both readings are given here.
+
+### 6.3 Qualifications that bear directly on the verdicts
+
+- **Wording after review 3.** "Confirmed" for P1–P4 and P7 means that they met the frozen criteria in the 2 strong-share mixture parents
+  (2/2, the frozen minimum). P1 and P2 are falsified if the borderline uP164 is included, and uP162 fails P2b.
+- **n = 2.** P1–P4 and P7 rest on only two mixture-class complete parents, the frozen `min_units`. Their parent-level 95% t-intervals
+  are very wide (`logs/stats_xiii_conf.md`).
+- **Sensitivity to the class threshold** (`logs/score_xiii_sensitivity_uP164_included.json`; not a verdict). uP164's mixture head
+  misses the frozen share threshold by 0.001. If it is counted as mixture-class (share ≥ 0.19):
+  - **P1 and P2 become falsified**: uP164 has donor-fidelity R² 0.325 and DiD lower bound 0.150;
+  - P3, P4 and P7 stay confirmed (3/3).
+
+  The ATT-MIX mediation result therefore holds for parents whose mixture head carries a substantial share of the logit. It is
+  **weak** where the head is weak. The class is better described as graded than binary.
+- **Incomplete parent uP162** (mixture-class, not a primary unit). Its values are intermediate:
+  - donor R² 0.715, slope 0.64;
+  - E≠A1 donor R² 0.76 vs 0.20 for A1;
+  - DiD lower bound 0.418;
+  - decoy/mixture NIE 0.43, which would fail P2b.
+
+### 6.4 What the falsifications show
+
+- **P5.** The two layer-2 arms hold in all 5 parents: attention-only and MLP-only adaptation reach Bayes (acc 0.79–0.80, S = 3 acc
+  0.93–0.97). This is **local repair**. The readout arms (c, d) fail in the pre-assembled and borderline parents (uP160, uP163, uP164):
+  - readout overall acc there is 0.73–0.77 and KL 0.20–0.29, so readout-only is not clearly insufficient;
+  - readout S = 3 acc there is 0.45–0.63;
+  - in the mixture parents readout overall acc is 0.61–0.65 and S = 3 acc 0.82–0.91.
+
+  The development observation on vP150, disclosed after the freeze, anticipated this. **What the frozen C = 1 representation supports
+  linearly depends on the layer-2 solution class.**
+- **P8.** Arm b holds 5/5: an A1-trained subspace follows A1 on E≠A1 pairs. Arm a fails 4/5: the E-trained subspace does **not**
+  reliably prefer E over A1 on those pairs (R² to E 0.02–0.44 vs to A1 0.19–0.44). Arm c fails 2/5: the E-subspace's overall
+  fidelity is below 0.8 in uP163 and uP164.
+
+  DAS therefore did not recover E: an E-trained subspace often fits A1-like counterfactuals at least as well. Together
+  with P1c, where the natural mediator follows E over A1 in 2/2, this supports the weaker methodological conclusion that matched-budget DAS
+  *did not* identify the variable used here. Review 3 found the E, A1 and PERM subspaces share 4–5 of 6 directions and a source-free
+  patch fits A1 as well, so "A1-trained subspaces follow A1" is not evidence that A1 is separately represented. It also falsifies the specific frozen claim that DAS recovers E-specificity on E≠A1 pairs.
+
+### 6.5 Statistics
+
+Per-unit values, means and 95% t-intervals for every arm metric are in `logs/stats_xiii_conf.{md,json}`.
+
+**Two-sample bootstrap DiD (P2)**, with TRUE and CTRL resampled independently:
+
+| parent | 95% CI |
+|---|---|
+| uP161 | [0.689, 0.827] |
+| uP165 | [0.543, 0.671] |
+| uP162 | [0.418, 0.523] |
+| uP164 | [0.148, 0.226] |
+
+These are nearly identical to the frozen one-sample CIs. Seed-level variation is available only in development (xP81 s0/s1,
+vP150 s10/s11, vP154 s10/s11; NATIVE_DECISION_COMPUTATION §3). Each cohort parent has one fine-tune seed, by protocol.

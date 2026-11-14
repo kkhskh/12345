@@ -1,0 +1,37 @@
+{
+ "uP162:full_c1:20:_eval_conf13": {
+  "mixture_heads": [
+   3
+  ],
+  "intact": {
+   "B": 0.9027450918012653,
+   "noelig": -0.4926525539379025
+  },
+  "layer1_mean_ablated": {
+   "B": -0.0013020908186764965,
+   "noelig": 0.19189414913367775
+  },
+  "decode": {
+   "e_g0": {
+    "E": 1.0,
+    "complement": 1.0,
+    "majority": 0.639
+   },
+   "e_g1": {
+    "E": 1.0,
+    "complement": 1.0,
+    "majority": 0.635
+   },
+   "bayes_decision": {
+    "E": 0.424,
+    "complement": 0.861,
+    "majority": 0.4
+   },
+   "agree_q_g0": {
+    "E": 0.865,
+    "complement": 1.0,
+    "majority": 0.65
+   }
+  }
+ }
+}

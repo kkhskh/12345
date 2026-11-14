@@ -1,0 +1,8 @@
+vP155_full_c1_s4000_seed10_e bayes_acc 0.794 S3 0.972 S12 0.779
+   native   acc 0.329 KL 1.451 | S3 acc 0.333 KL 0.693 | S12 acc 0.328
+   readout  acc 0.643 KL 0.447 | S3 acc 0.793 KL 0.529 | S12 acc 0.631
+   attn     acc 0.801 KL 0.008 | S3 acc 0.971 KL 0.062 | S12 acc 0.787
+   mlp      acc 0.794 KL 0.045 | S3 acc 0.923 KL 0.120 | S12 acc 0.783
+   full     acc 0.804 KL 0.003 | S3 acc 0.972 KL 0.003 | S12 acc 0.789
+   fresh    acc 0.800 KL 0.005 | S3 acc 0.972 KL 0.025 | S12 acc 0.785
+   seconds 656

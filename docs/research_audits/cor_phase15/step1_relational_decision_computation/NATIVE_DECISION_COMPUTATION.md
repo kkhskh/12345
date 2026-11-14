@@ -4,6 +4,21 @@ Investigation XIII, Phase 1.5 Step 1. Throughout, "development" (dev) means the 
 (Investigations X–XII). "Confirmation" means the fresh cohort uP160–165, whose results are in section 8 and in
 `FROZEN_PROTOCOL_AND_CONFIRMATION.md`. Every number below is labelled as one or the other.
 
+> **Corrections after independent review 3** (`reviews/REVIEW_3_MECH.md`, `reviews/ADJUDICATION.md`). The sections below keep their
+> original development text for the record. Where they conflict with these corrections, the corrections govern.
+> 1. The attention rows are *causally used as mixture weights*; a uniform row also fits, R² 0.86–0.88. Their match to Bayes
+>    responsibilities is observational: dominant head only, and flattened. For the donor's own attention mass, R² is 0.868 / 0.927.
+> 2. The E-vs-A1 separation on 93 donors (P1c) is observational and covers one configuration. An exploratory interventional check inside
+>    the 400-episode TRUE factorial favours E (fidelity 0.96 / 0.76 vs A1 0.60 / 0.50; `logs/l2_mediation_A1_conf_expl.json`).
+> 3. DAS did not recover E (P8a falsified). The trained E, A1 and PERM subspaces share 4–5 of 6 directions, and a source-free patch fits A1
+>    as well. The claim "each subspace implements its own rule" is withdrawn.
+> 4. Mean patching concerns a 6-dim region shared by the three subspaces, with overshoot and reversal (155–222%). It is not specific to
+>    "the E coordinates".
+> 5. "No reconstruction" means no layer-0-only route under full layer-1 mean ablation.
+> 6. P5 means that frozen C = 1 features suffice for an adapted or fresh layer 2. Necessity was not tested. The readout pattern is graded
+>    and described post hoc.
+> 7. §9 does not establish an internal predictor of the transition. KL reaches its halfway point at or before ALIGN in all 7 models.
+
 ## 1. The question
 
 Earlier investigations showed three things about the trained T4 models:
@@ -100,7 +115,7 @@ about 0, so layer 2 does not recompute eligibility from layer-0 features. Eligib
 and from the 442-dim complement. The Bayes decision is decodable from the complement (0.81–0.92) but not from E (0.41). Eligibility is
 represented redundantly. The head's score contrast depends on the E coordinates (above), which shows **use**, not exclusivity.
 
-## 6. Subspace interchange (DAS) is non-identifying between E and A1 (dev, `decoy_disc.py`)
+## 6. Subspace interchange (DAS) did not identify E (dev, `decoy_disc.py`; see correction 3)
 
 E, A1 and PERM subspaces were trained by `das_decoy.py` with an identical procedure and budget (L2, the 7 q-tokens, k = 6, 1200 steps).
 They were then evaluated on two disjoint strata of discriminating pairs:
@@ -112,10 +127,12 @@ They were then evaluated on two disjoint strata of discriminating pairs:
 | PERM-trained | 0.01 / 0.01 | 0.49 / 0.47 | 0.35 / 0.30 | 0.28 / 0.27 |
 | random 6-dim | 0.00 | 0.01 / 0.04 | 0.01 / 0.03 | 0.01 / 0.03 |
 
-Each of E and A1 can be found as a patchable subspace that implements its own counterfactuals. Interchange accuracy alone therefore
-cannot say which variable the network *uses*. It does reject the group-permuted rule. The natural mixture-row test of §4 is what
-separates E from A1. This is the clearest methodological result of XIII: **a natural mediator with a discriminating prediction
-identifies the variable where matched-budget DAS cannot.**
+[Withdrawn wording, see correction 3.] In development, the A1-trained subspace fit A1 better than E on E≠A1 pairs. The confirmation cohort
+and review 3 show the subspaces largely overlap and are not cleanly rule-specific. Interchange accuracy alone could not say which
+variable the network uses. The natural mixture-row test of §4 separates E from A1.
+That separation is observational on donors, and supported by one exploratory intervention (correction 2). The methodological lesson
+is the weaker one: **matched-budget DAS did not recover the used variable here; a natural-activation test with E/A1-discriminating
+predictions was needed.**
 
 ## 7. Two-colluder repair is local to layer 2 (dev, `adapt_sel.py`)
 
@@ -156,9 +173,51 @@ and is disclosed in FROZEN_PROTOCOL §2.
 
 ## 8. Confirmation on the fresh cohort
 
-(Filled from `logs/score_xiii.json` when the cohort finishes.)
+Full tables are in FROZEN_PROTOCOL §6 and `logs/stats_xiii_conf.md`.
 
-## 9. Dynamics: an internal predictor of the transition (exploratory)
+- **Class heterogeneity reappears in fresh parents.**
+  - Mixture class: uP161 and uP165 (complete), plus uP162 (incomplete).
+  - Pre-assembled class: uP160 and uP163 (resid2 share 0.52 and 0.61).
+  - Borderline: uP164. Its head has mass 0.87 and corr(B) 0.94, but logit share 0.199. Its MLP2 carries 0.44 of the logit variance.
+- **ATT-MIX in the two mixture-class complete parents (P1 confirmed, n = 2).**
+  - Donor fidelity R² 0.915 and 0.933, slopes 0.95 and 0.92.
+  - A3 alternative 0.78–0.80; shuffled 0.000.
+  - On E≠A1 donors, Bayes(E) R² 0.93–0.94 vs A1 0.19–0.21.
+
+  The borderline uP164 is much weaker: R² 0.33, and E≠A1 0.22 vs 0.09. **Sensitivity:** including uP164 would falsify P1.
+- **Score use of E and no reconstruction (P3, P4 confirmed, n = 2).**
+  - The E mean patch removes 155–161% of the S = 1 contrast; random removes ≤ 1.3%; the complement −141% to −177%.
+  - Matched A1 and PERM decoys also remove 88–150%, so they are non-specific, as predicted.
+  - Layer-1 ablation drops the alignment from 0.95 to about 0.
+  - The decision is decodable from the complement (0.82–0.85) but not from E (0.41–0.44). This holds in all six parents.
+- **Two-colluder repair (P5 falsified as a whole).** Repair by layer-2 attention alone or MLP alone reaches Bayes in **all five** complete
+  parents, so the "local to layer 2" part holds. What a frozen C = 1 readout supports is class-dependent, which falsifies arms c and d
+  (FROZEN_PROTOCOL §6.4).
+- **DAS (P8 falsified).** E-trained subspaces do not reliably prefer E on E≠A1 pairs; this held only in uP161. A1-trained subspaces
+  follow A1 in all five. Only the natural mediator (P1c) separates E from A1.
+
+**What XIII supports.** In parents whose layer-2 solution is an attention mixture with a substantial logit share, the final decision is
+computed by combining per-group candidate likelihoods with readout attention rows that act causally as mixture weights over "which
+group is reliable". Those weights resemble E-based Bayes responsibilities (observational; dominant head; flattened), and transplanted
+natural rows mediate the eligibility effect, partially. This holds in 2/2 such fresh parents and 4/4 development
+models.
+
+**What XIII does not support.** That this is *the* native algorithm of T4 models in general. Two of five complete fresh parents
+pre-assemble the decision before layer 2, and one is intermediate.
+
+## 9. Dynamics: onset of attention alignment versus the behavioural transition (exploratory; see correction 7)
+
+**Fresh cohort (exploratory, post-freeze; `logs/transition_predictor_conf_P*.json`).**
+
+| parent | lead (t50 behavioural gap − t50 ALIGN), steps |
+|---|---|
+| uP161 | +845 |
+| uP162 | +1475 |
+| uP164 | 0 |
+| uP165 | +267 |
+| uP160, uP163 (pre-assembled) | n/a: ALIGN stays 0 throughout, yet the transition occurs (t50 gap 813) |
+
+Across development and cohort, the lead is ≥ 0 in all 7 models that form a mixture, with the same caveats as above.
 
 `scripts/transition_predictor.py`. This analysis was not frozen.
 

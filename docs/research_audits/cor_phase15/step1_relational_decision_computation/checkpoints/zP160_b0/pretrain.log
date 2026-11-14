@@ -1,0 +1,10 @@
+pcount s160 step 300 loss 1.6624
+pcount s160 step 600 loss 1.6704
+pcount s160 step 900 loss 0.6491
+pcount s160 step 1200 loss 0.0075
+pcount s160 step 1500 loss 0.0025
+pcount s160 step 1800 loss 0.0016
+pcount s160 step 2100 loss 0.0012
+pcount s160 step 2400 loss 0.0010
+pcount s160 step 2700 loss 0.0009
+pcount s160 step 3000 loss 0.0010

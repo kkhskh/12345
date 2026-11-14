@@ -1,0 +1,8 @@
+xP81_full_c1_s4000_seed0 bayes_acc 0.794 S3 0.972 S12 0.779
+   native   acc 0.328 KL 1.498 | S3 acc 0.329 KL 0.730 | S12 acc 0.328
+   readout  acc 0.084 KL 0.714 | S3 acc 0.128 KL 0.957 | S12 acc 0.080
+   attn     acc 0.326 KL nan | S3 acc 0.341 KL nan | S12 acc 0.325
+   mlp      acc 0.326 KL nan | S3 acc 0.341 KL nan | S12 acc 0.325
+   full     acc 0.799 KL 0.003 | S3 acc 0.972 KL 0.002 | S12 acc 0.785
+   fresh    acc 0.799 KL 0.002 | S3 acc 0.972 KL 0.004 | S12 acc 0.784
+   seconds 2169

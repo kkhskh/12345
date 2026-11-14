@@ -1,0 +1,1 @@
+bash scripts/pretrain_gated.sh 165

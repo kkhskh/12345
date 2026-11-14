@@ -1,0 +1,1 @@
+vP155_full_c1_s4000_seed A1 {'IIA': 0.924, 'KL': 0.081, 'IIA_disc': 0.847, 'IIA_trueE': 0.946, 'preserve_KL': 0.208, 'preserve_flip': 0.283, 'sel_D2c_over_D2': 0.365, 'D2_over_CNT': 1.022} 479s

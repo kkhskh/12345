@@ -1,0 +1,22 @@
+{
+ "seed": 163,
+ "blocks": [
+  {
+   "block": "0",
+   "aux_acc": 0.5367962962962963
+  },
+  {
+   "block": "1",
+   "aux_acc": 0.7647407407407407
+  },
+  {
+   "block": "2",
+   "aux_acc": 1.0
+  }
+ ],
+ "final": {
+  "block": "2",
+  "aux_acc": 1.0
+ },
+ "complete": true
+}

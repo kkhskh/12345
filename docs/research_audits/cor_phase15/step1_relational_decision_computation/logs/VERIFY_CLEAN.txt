@@ -1,0 +1,49 @@
+== Investigation XIII clean extraction check 2026-11-14T23:07:39Z
+1. copy the cor_phase15 tree WITHOUT step1_relational_decision_computation to /tmp/tmp.nztpgalxY4/cor_phase15, extract the ZIP there
+   extracted OK
+2. integrity manifest
+   manifest OK (495 files)
+3. mathematics rerun (verify_shared_posterior.py exhaustive + MC; sufficiency_boundary.py)
+   verify_shared_posterior.json identical
+   sufficiency_boundary.json identical
+   max |posterior_shared - brute-force latent sum| over all regimes: 3.3306690738754696e-16
+4. frozen-prediction verdicts re-derived from archived raw outputs (score_xiii.py, frozen)
+   P1 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2', 'c': 'pass 2/2', 'd': 'pass 2/2'}
+   P2 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2', 'c': 'pass 2/2'}
+   P3 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2', 'c': 'pass 2/2'}
+   P4 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2', 'c': 'pass 2/2'}
+   P5 falsified {'a': 'pass 5/5', 'b': 'pass 5/5', 'c': 'fail 2/5', 'd': 'fail 2/5', 'e': 'pass 5/5'}
+   P6 confirmed {'a': 'pass 1/1'}
+   P7 confirmed {'a': 'pass 2/2', 'b': 'pass 2/2'}
+   P8 falsified {'a': 'fail 1/5', 'b': 'pass 5/5', 'c': 'fail 3/5'}
+   counts {'meets_thresholds': 6, 'discriminating': 6, 'non_diagnostic_pass': 0, 'falsified': 2, 'inconclusive': 0} | complete 5 incomplete 1 | mixture-class {'uP160:full_c1:20:_eval_conf13': False, 'uP161:full_c1:20:_eval_conf13': True, 'uP162:full_c1:20:_eval_conf13': True, 'uP163:full_c1:20:_eval_conf13': False, 'uP164:full_c1:20:_eval_conf13': False, 'uP165:full_c1:20:_eval_conf13': True}
+   verdicts identical: True | checks identical: True
+5. statistics recomputed (stats_xiii.py; report_xiii.py incl. two-sample DiD bootstrap, fixed seed)
+   stats identical: True | report identical: True
+6. replay of a causal intervention (decoy_disc on the first complete fresh parent, confirmation stream 74_200_000)
+   uP160:full_c1:20:_eval_conf13 decoy_disc max |R2 diff| vs archived: 0.0
+7. Bayes references: posterior_shared (C=1) vs closed form on the confirmation evaluation set; C=2 shared vs independent differ
+/tmp/tmp.nztpgalxY4/cor_phase15/step1_relational_decision_computation/src/xii_bayes.py:20: RuntimeWarning: divide by zero encountered in log
+  lq = np.log(relm[:, :, g]) + np.log(colH) + len(others) * np.log(noi)
+/tmp/tmp.nztpgalxY4/cor_phase15/step1_relational_decision_computation/src/xii_bayes.py:22: RuntimeWarning: divide by zero encountered in log
+  lyq = np.log(rel[idx, q, g, :]) + np.log(colH[idx, q])[:, None] + len(others) * np.log(noi)
+   C=1 max |shared - closed|: 1.8318679906315083e-15
+/tmp/tmp.nztpgalxY4/cor_phase15/step1_relational_decision_computation/src/genlib.py:71: RuntimeWarning: divide by zero encountered in log
+  lq = np.log(relm[:, :, g]) + sum(np.log(col[:, :, h]) for h in hs) + len(others) * np.log(noi)   # n,Q
+/tmp/tmp.nztpgalxY4/cor_phase15/step1_relational_decision_computation/src/genlib.py:74: RuntimeWarning: divide by zero encountered in log
+  lyq = np.log(rel[idx, q, g, :]) + sum(np.log(col[idx, q, h]) for h in hs)[:, None] + len(others) * np.log(noi)
+   C=2 mean |shared - independent|: 0.06809090909090917
+8. checkpoints: every cohort parent and fine-tune present and loadable
+   P160: parent True gate True fine-tune loadable True
+   P161: parent True gate True fine-tune loadable True
+   P162: parent True gate False fine-tune loadable True
+   P163: parent True gate True fine-tune loadable True
+   P164: parent True gate True fine-tune loadable True
+   P165: parent True gate True fine-tune loadable True
+9. adaptation result re-run (adapt_sel.py, readout+attn conditions, first complete parent; deterministic seeds)
+   readout/attn acc archived vs rerun: [('readout', 0.7246, 0.7246), ('attn', 0.7984, 0.7984)] | native identical: True
+10. dependency versions and hashes (deps_inventory13.py) + absolute-path scan
+   software: {'python': '3.13.18', 'jax': '0.12.0.1', 'jaxlib': '0.12.0.1', 'numpy': '2.5.3', 'optax': '0.2.8', 'scikit_learn': '1.9.1', 'scipy': '1.18.1', 'platform': 'Linux-6.18.44-fc-v470-x86_64-with-glibc2.39'}
+   external data files: 277 | hash mismatches: 0 | missing: [] | modules identical: True
+   scripts/src files containing absolute local paths: 0
+== done (any line marked FAILED / DIFFERENT / mismatches > 0 is a failure)

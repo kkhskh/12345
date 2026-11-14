@@ -1,0 +1,10 @@
+pcount s163 block1 step 300 loss 0.9954
+pcount s163 block1 step 600 loss 0.8797
+pcount s163 block1 step 900 loss 0.5487
+pcount s163 block1 step 1200 loss 0.5344
+pcount s163 block1 step 1500 loss 0.5390
+pcount s163 block1 step 1800 loss 0.5176
+pcount s163 block1 step 2100 loss 0.5437
+pcount s163 block1 step 2400 loss 0.5288
+pcount s163 block1 step 2700 loss 0.5290
+pcount s163 block1 step 3000 loss 0.5449

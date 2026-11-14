@@ -201,6 +201,30 @@ P2 and P7 meet thresholds. P1, P3, P4, P5 and P8 are inconclusive only because s
 development model. Every available development unit passes every arm.
 
 
+## 5b. Post-freeze notes (after the 18:04Z freeze; none changes a prediction or the scorer)
+
+- **The development statement above has been overtaken.** It said every available development unit passes every arm, and that was true
+  of the committed `logs/score_xiii_pre.json`. The development vP150 adaptation run finished at 18:14Z, after the freeze. vP150 is
+  pre-assembled class, and it **fails P5c** (readout KL 0.167 < 0.2) **and P5d** (readout S = 3 acc 0.541 < 0.7). Rescoring:
+  `logs/score_xiii_pre_postfreeze.json`. About 45% of complete development parents were pre-assembled, so P5 is at real risk of
+  falsification in the cohort.
+- **Independent review 2 (experimental integrity, `reviews/REVIEW_2_INTEGRITY.md`).**
+  - Confirmed: the hashes match commit 47506c3; no cohort T4 output existed before the freeze; scorer = spec; queues produce every input.
+  - Found: `lane.sh` logs rc=0 regardless of job status; the mixture-head definitions differ between the scripts and the scorer; the merge
+    can read partial files; the verdict rules can hide a failed arm and can call an arm diagnostic when its null is missing.
+  - Remedy: reporting and checking rules R1–R4, logged in COMPUTE_LOG **before any cohort confirmation output was opened** and implemented
+    in `scripts/report_xiii.py`. The frozen verdicts are reported verbatim next to them.
+- **Further disclosures from review 2.**
+  - `das_decoy` trains on reused streams 64M/64.5M. Evaluation streams are fresh, so the "74M+ only" statement applies to evaluation, not
+    to decoy training.
+  - The P2 "decoy" is a single head.
+  - The frozen DiD CI holds the CTRL mean fixed. A two-sample bootstrap is reported alongside; on development data it is nearly identical.
+  - The preflight is a plumbing check of the scorer. The ALTMECH values were set by hand, and for P3 they contradict P3c's own premise,
+    so P3 cannot be read as ruling out A1. The discriminating E-vs-A1 evidence is P1c.
+  - The Stage-0 commit contains an empty `eval_conf13.npz`; the real file is hashed in 47506c3.
+  - P5's title overstates the J_H dependence of the whole S = 3 slice. Only the not-all-agree part (about 2/3) depends on J_H (math review 1).
+  - `stats_xiii.py`, `report_xiii.py` and `transition_predictor.py` were written after the freeze and are not frozen.
+
 ## 6. Confirmation results
 
 (Filled after the cohort finishes, from `logs/score_xiii.json`.)

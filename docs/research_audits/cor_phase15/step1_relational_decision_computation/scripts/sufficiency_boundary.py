@@ -14,29 +14,43 @@ np.seterr(all="ignore"); N = 100000; out = {}
 def c1_rule(X, q, beta_rule):
     """C=1 rule with eligibility e_g (hard, beta_rule=1) or graded colluder factor (beta_rule<1), applied regardless of the true C."""
     env1 = GL.Env(3, 1, beta=beta_rule); return GL.posterior_brute(env1, X, q)
-def summ(P, Pt, y, S):
-    kl = (Pt * (np.log(Pt + 1e-12) - np.log(P + 1e-12))).sum(-1); hit = P.argmax(-1) == y; hitB = Pt.argmax(-1) == y
-    r = dict(KL=float(kl.mean()), acc=float(hit.mean()), bayes_acc=float(hitB.mean()), agree_bayes=float((P.argmax(-1) == Pt.argmax(-1)).mean()))
+def summ(P, Pt, y, S, allq=None):
+    """review 1: rows where a rule is undefined (NaN, e.g. hard rule with S = 0) are NOT scored as answers; accuracy is on defined rows."""
+    dfn = np.isfinite(P).all(-1) & (P.sum(-1) > 0); kl = (Pt * (np.log(Pt + 1e-12) - np.log(P + 1e-12))).sum(-1); hit = P.argmax(-1) == y; hitB = Pt.argmax(-1) == y
+    r = dict(undefined_frac=float(1 - dfn.mean()), KL_defined=float(kl[dfn].mean()) if dfn.any() else None, acc_defined=float(hit[dfn].mean()) if dfn.any() else None,
+             bayes_acc_on_defined=float(hitB[dfn].mean()) if dfn.any() else None, bayes_acc=float(hitB.mean()), decision_differs_from_bayes=float((P.argmax(-1) != Pt.argmax(-1))[dfn].mean()),
+             frac_KL_gt_0p01=float((kl[dfn] > 0.01).mean()))
+    if allq is not None:
+        for nm, m in (("S3_allagree_at_q", (S == 3) & allq), ("S3_not_allagree_at_q", (S == 3) & ~allq)):
+            m = m & dfn
+            if m.any(): r[nm] = dict(frac=float(m.mean()), acc=float(hit[m].mean()), bayes_acc=float(hitB[m].mean()))
+    kl = np.where(dfn, kl, np.nan); hit = np.where(dfn, hit, False)
     for nm, m in (("S3", S == 3), ("S12", (S >= 1) & (S <= 2)), ("S0", S == 0)):
-        if m.any(): r[nm] = dict(frac=float(m.mean()), KL=float(kl[m].mean()), acc=float(hit[m].mean()), bayes_acc=float(hitB[m].mean()))
+        m = m & dfn
+        if m.any(): r[nm] = dict(frac=float(m.mean()), KL=float(np.nanmean(kl[m])), acc=float(hit[m].mean()), bayes_acc=float(hitB[m].mean()))
     return r
 for C, beta in ((1, 1.0), (1, 0.6), (2, 1.0), (2, 0.6)):
     env = GL.Env(3, C, beta=beta); rng = np.random.default_rng(76_000_000 + 10 * C + int(10 * beta)); d = GL.sample(env, N, rng); X = d["X"]
     q = rng.integers(0, 6, N); y = d["Y"][np.arange(N), q]; Pt = XB.posterior_shared(env, X, q)
     a_ = X.reshape(N, 6, 3, 2); S = ((GL.counts(X, 3)[np.arange(N), q] == 5) & (a_[np.arange(N), q, :, 0] == a_[np.arange(N), q, :, 1])).sum(-1)
-    r = dict(hard_C1_rule=summ(c1_rule(X, q, 1.0), Pt, y, S))
-    if beta < 1: r["graded_C1_rule_true_beta"] = summ(c1_rule(X, q, beta), Pt, y, S)
-    if C == 2: r["independent_copy_product_rule"] = summ(GL.posterior_brute(env, X, q), Pt, y, S)
+    vq = a_[np.arange(N), q, :, 0]; allq = (vq[:, 0] == vq[:, 1]) & (vq[:, 1] == vq[:, 2])
+    r = dict(hard_C1_rule=summ(c1_rule(X, q, 1.0), Pt, y, S, allq))
+    if beta < 1: r["graded_C1_rule_true_beta"] = summ(c1_rule(X, q, beta), Pt, y, S, allq)
+    if C == 2: r["independent_copy_product_rule"] = summ(GL.posterior_brute(env, X, q), Pt, y, S, allq)
     out[f"C{C}_beta{beta}"] = r
-    print(f"C{C} beta{beta}", json.dumps({k: {kk: (round(vv, 4) if isinstance(vv, float) else {a: round(b, 3) for a, b in vv.items()}) for kk, vv in v.items()} for k, v in r.items()}), flush=True)
+    print(f"C{C} beta{beta}", json.dumps(r, default=lambda o: None)[:1500], flush=True)
 # rank argument + explicit counterexample (C=2, beta=1): chi restricted to self-agreeing colluder pairs (a,a),(b,b)
-K = 3; beta = 1.0; chi = np.array([[beta * (a == b) / K + (1 - beta) / K ** 4 for b in range(K)] for a in range(K)])
-out["rank_argument"] = dict(chi_selfagreeing=chi.tolist(), rank=int(np.linalg.matrix_rank(chi)), singular_values=np.linalg.svd(chi)[1].tolist())
+K = 3; out["rank_argument"] = {}
+for beta in (1.0, 0.6):
+    chi = np.array([[beta * (a == b) / K + (1 - beta) / K ** 4 for b in range(K)] for a in range(K)])
+    k6 = chi
+    for _ in range(5): k6 = np.kron(k6, chi)            # six-question kernel over full self-agreeing sequences = Kronecker power (review 1)
+    out["rank_argument"][f"beta{beta}"] = dict(chi_selfagreeing=chi.tolist(), rank_one_question=int(np.linalg.matrix_rank(chi)), rank_six_question_kernel=int(np.linalg.matrix_rank(k6)))
 # counterexample (beta < 1): two episodes with IDENTICAL per-group statistics for every group -- e_g = 1 (all groups self-agreeing at all six
 # questions, hence identical W_g) and identical values at q (hence identical L_g(y)) -- that differ ONLY in cross-group identity at q' != q.
 # Any rule of the form F({(e_g, W_g, L_g)}_g) must give them the same output; the exact posteriors differ.  (At beta = 1 the second episode
 # is off-support: there the cross-group equality AT q already fixes the colluder pair on the support -- see the document.)
-A = [0, 1, 2, 0, 1, 2]; B2 = [0, 2, 0, 1, 2, 0]; Cc = [1, 0, 0, 2, 0, 1]
+A = [0, 1, 2, 0, 1, 2]; B2 = [0, 2, 1, 1, 2, 0]; Cc = [1, 0, 0, 2, 0, 1]   # review 1: B2 differs from BOTH A and C at every q' != q
 mk = lambda a, b, c: np.array([[[a[t]] * 2 + [b[t]] * 2 + [c[t]] * 2 for t in range(6)]]).reshape(1, 6, 6)
 x1, x2 = mk(A, A, Cc), mk(A, B2, Cc)
 ce = {}
@@ -46,5 +60,5 @@ for beta in (0.6, 1.0):
     ce[f"beta{beta}"] = dict(exact_x1=p1[0].tolist(), exact_x2=p2[0].tolist(), indep_x1=pb1[0].tolist(), indep_x2=pb2[0].tolist())
     print("counterexample beta", beta, "exact", np.round(p1[0], 3), np.round(p2[0], 3), "| per-group-product", np.round(pb1[0], 3), np.round(pb2[0], 3))
 out["counterexample"] = dict(x1=x1[0].tolist(), x2=x2[0].tolist(), q=0, **ce)
-print("rank", out["rank_argument"]["rank"])
+print("rank", out["rank_argument"])
 json.dump(out, open(os.path.join(HERE, "..", "logs", "sufficiency_boundary.json"), "w"), indent=1)

@@ -41,3 +41,49 @@
 2026-11-14T17:49:02Z lane DAD3 start [8039830d2a41] AD_STEPS=1000 python3 scripts/adapt_sel.py - vP155:full_c1:10:_eval_conf12
 2026-11-14T17:59:59Z lane DAD3 end [8039830d2a41] rc=0
 2026-11-14T17:59:59Z lane DAD3 start [1b8bccd2eb5f] AD_STEPS=1000 python3 scripts/adapt_sel.py - vP150:full_c1:10:_eval_conf12
+2026-11-14T18:04:14Z PREDICTION FREEZE committed 47506c3; starting T1/T2 training lanes and C1/C2 confirmation lanes
+2026-11-14T18:04:14Z lane T1 start [ea296e8e6428] while [ ! -f checkpoints/zP160/gate.json ]; do sleep 30; done; python3 scripts/native_train.py uP160 full_c1 4000 20 label logs/eval_conf13.npz
+2026-11-14T18:04:14Z lane C1 start [d5f3250c9308] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; DD_EVAL=logs/eval_conf13.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py uP160:full_c1:20:_eval_conf13 E
+2026-11-14T18:04:14Z lane C2 start [b1b7296f3f6c] while [ ! -f checkpoints/native_train/uP161_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; DD_EVAL=logs/eval_conf13.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py uP161:full_c1:20:_eval_conf13 E
+2026-11-14T18:04:14Z lane T2 start [c16eaa09320b] while [ ! -f checkpoints/zP161/gate.json ]; do sleep 30; done; python3 scripts/native_train.py uP161 full_c1 4000 20 label logs/eval_conf13.npz
+2026-11-14T18:14:48Z lane DAD3 end [1b8bccd2eb5f] rc=0
+2026-11-14T18:14:48Z lane DAD3 start [9409014712d1] XII_RDIR=../step1_native_relational_algorithm_validation/logs/das LA_TAG=_devv python3 scripts/l1abl_mix.py _ev70500000 vP155:full_c1:10:_eval_conf12 vP156:full_c1:10:_eval_conf12
+2026-11-14T18:15:21Z lane DAD3 end [9409014712d1] rc=0
+2026-11-14T18:15:21Z lane DAD3 start [1ab32c56a940] MC_TAG=_dev3 python3 scripts/l2_mix_causal.py vP156:full_c1:10:_eval_conf12 vP150:full_c1:10:_eval_conf12
+2026-11-14T18:15:54Z lane DAD3 end [1ab32c56a940] rc=0
+2026-11-14T18:15:54Z lane DAD3 start [c1468ba4f1e0] TP_TAG=_dev TP_MODELS=xP81:full_c1:0:,vP155:full_c1:10:_eval_conf12,yP130:full_c1:0:_eval_conf9,vP150:full_c1:10:_eval_conf12 python3 scripts/transition_predictor.py
+2026-11-14T18:20:27Z lane DAD3 end [c1468ba4f1e0] rc=0
+2026-11-14T18:24:41Z EXPLORATORY (not frozen, post-freeze): transition_predictor on the fresh cohort queued (lane TPX)
+2026-11-14T18:24:41Z lane TPX start [dc660ce19227] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 60; done; TP_EVAL=logs/eval_conf13.npz TP_TAG=_conf_P160 TP_MODELS=uP160:full_c1:20:_eval_conf13 python3 scripts/transition_predictor.py
+2026-11-14T18:41:03Z lane T1 end [ea296e8e6428] rc=0
+2026-11-14T18:41:03Z lane T1 start [25a4025233dd] while [ ! -f checkpoints/zP162/gate.json ]; do sleep 30; done; python3 scripts/native_train.py uP162 full_c1 4000 20 label logs/eval_conf13.npz
+2026-11-14T18:42:54Z lane TPX end [dc660ce19227] rc=0
+2026-11-14T18:42:54Z lane TPX start [b5c27ba4c913] while [ ! -f checkpoints/native_train/uP161_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 60; done; TP_EVAL=logs/eval_conf13.npz TP_TAG=_conf_P161 TP_MODELS=uP161:full_c1:20:_eval_conf13 python3 scripts/transition_predictor.py
+2026-11-14T18:44:31Z lane C1 end [d5f3250c9308] rc=0
+2026-11-14T18:44:31Z lane C1 start [7dc4ca28e808] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; DD_EVAL=logs/eval_conf13.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py uP160:full_c1:20:_eval_conf13 A1
+2026-11-14T18:47:32Z lane C1 end [7dc4ca28e808] rc=0
+2026-11-14T18:47:32Z lane C1 start [ef1f13359267] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; DD_EVAL=logs/eval_conf13.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py uP160:full_c1:20:_eval_conf13 PERM
+2026-11-14T18:50:30Z lane C1 end [ef1f13359267] rc=0
+2026-11-14T18:50:30Z lane C1 start [cbfa728dd140] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; L2_STREAM=74000000 L2_TAG=_conf_P160 python3 scripts/l2_scan.py uP160:full_c1:20:_eval_conf13
+2026-11-14T18:50:41Z lane C1 end [cbfa728dd140] rc=0
+2026-11-14T18:50:41Z lane C1 start [dad3d6459435] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; MC_STREAM=74100000 MC_TAG=_conf_P160 python3 scripts/l2_mix_causal.py uP160:full_c1:20:_eval_conf13
+2026-11-14T18:50:53Z lane C1 end [dad3d6459435] rc=0
+2026-11-14T18:50:53Z lane C1 start [41e571dec79d] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; FA_EVAL=stream:74400000 MD_TAG=_conf_P160 python3 scripts/l2_mediation.py uP160:full_c1:20:_eval_conf13
+2026-11-14T18:51:01Z lane C1 end [41e571dec79d] rc=0
+2026-11-14T18:51:01Z lane C1 start [97e8fd45b079] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_E_R.npy ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_A1_R.npy ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_PERM_R.npy ]; do sleep 30; done; DECOY_DIR=logs/decoy_conf XII_RDIR=logs/none SCC_STREAM=74500000 SCC_TAG=_conf_P160 python3 scripts/score_contrast.py - uP160:full_c1:20:_eval_conf13
+2026-11-14T18:51:12Z lane C1 end [97e8fd45b079] rc=0
+2026-11-14T18:51:12Z lane C1 start [5bf6c898baa0] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_E_R.npy ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_A1_R.npy ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_PERM_R.npy ]; do sleep 30; done; DECOY_DIR=logs/decoy_conf XII_RDIR=logs/none LA_STREAM=74300000 LA_TAG=_conf_P160 python3 scripts/l1abl_mix.py - uP160:full_c1:20:_eval_conf13
+2026-11-14T18:51:26Z lane C1 end [5bf6c898baa0] rc=0
+2026-11-14T18:51:26Z lane C1 start [021d78ff0f53] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_E_R.npy ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_A1_R.npy ] || [ ! -f logs/decoy_conf/uP160_full_c1_s4000_seed20_eval_conf13_PERM_R.npy ]; do sleep 30; done; DD_STREAM=74200000 DD_TAG=_conf_P160 python3 scripts/decoy_disc.py logs/decoy_conf uP160:full_c1:20:_eval_conf13
+2026-11-14T18:51:57Z lane C1 end [021d78ff0f53] rc=0
+2026-11-14T18:51:57Z lane C1 start [80748c0acdf7] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; AD_OUT=adapt_sel_conf AD_STREAM=74600000 python3 scripts/adapt_sel.py - uP160:full_c1:20:_eval_conf13
+2026-11-14T18:56:52Z NOTE (review 2, integrity; written BEFORE any cohort confirmation analysis output (logs/*_conf_P*.json, decoy_conf, adapt_sel_conf) was opened by the author; the only cohort output seen so far is the EXPLORATORY transition_predictor log of uP160, which showed ALIGN = 0 at every checkpoint, i.e. no layer-2 head with q-mass >= 0.5):
+  R1 lane.sh logs rc=0 regardless of job status ($? after $(date)); rc values are meaningless. Before scoring, every logs/run/*.out of the C/T lanes is checked for Traceback/Killed; any crash/rerun is a DEVIATION.
+  R2 head-definition mismatch: scorer mixture class (l2_scan, mass>=0.8 & share>=0.2) vs each script's own mass>=0.8 head list; reported per parent; a prediction with a mismatch-induced missing value is labelled 'inconclusive (head-definition mismatch)'.
+  R3 merge completeness: each logs/<a>_conf.json must have 6 u-keys and score_xiii.json 6 units with no None class; otherwise the same merge is re-run (logged).
+  R4 reporting: failed arms are always listed even if the frozen verdict is 'inconclusive'; an arm is called diagnostic only if its null was computed for every unit; units dropped from mixture-only predictions are listed.
+  These are reporting/checking rules implemented in scripts/report_xiii.py (new, not frozen); the frozen scorer and its verdicts are unchanged and reported verbatim.
+  Retroactive log entries for pre-freeze fixes 4 (decoy_disc stratification, ~17:27Z) and 5 (P2b degenerate pass, ~17:45Z), both before the 18:04Z freeze, missing from this log until now.
+  Disclosures: das_decoy trains on reused streams 64M/64.5M (evaluation streams fresh); P2 decoy = one head; DiD CI holds CTRL mean fixed (too narrow; a two-sample bootstrap is reported additionally); Stage-0 commit 96c05e8 contains an empty eval_conf13.npz (real file hashed in 47506c3); score_xiii_pre.json restored to the committed version, post-freeze dev rescoring saved as score_xiii_pre_postfreeze.json.
+2026-11-14T19:03:02Z lane C1 end [80748c0acdf7] rc=0
+2026-11-14T19:03:02Z lane C1 start [a49fe2a222cc] while [ ! -f checkpoints/native_train/uP162_full_c1_s4000_seed20_eval_conf13/final.json ]; do sleep 30; done; DD_EVAL=logs/eval_conf13.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py uP162:full_c1:20:_eval_conf13 E

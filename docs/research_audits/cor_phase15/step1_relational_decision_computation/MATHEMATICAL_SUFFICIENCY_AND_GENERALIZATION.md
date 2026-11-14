@@ -31,6 +31,10 @@ definition: sum over y, the shared copy event, and the shared copied value, with
 `posterior_shared` is exact to machine precision in all four regimes, including partial copying and the shared copy event. The
 independent-copying posterior is exact only for C = 1.
 
+The exhaustive check uses q = 0 only, and it shares one assumption with `posterior_shared`: questions are independent given the role.
+Independent review 1 (`reviews/REVIEW_1_MATH.md`, `reviews/review1_math_checks.py`) closed both gaps. It ran the exhaustive test at q = 1,
+and it compared 10⁶ draws of `genlib.sample` with the exact Q = 2 likelihood (chi-square ≈ number of cells, no off-support draws).
+
 **Verification 2 (Monte-Carlo calibration at full size, Q=6, 200,000 episodes each, on `genlib.sample`).**
 
 | regime | ECE | accuracy | mean confidence | NLL, shared | NLL, independent |
@@ -49,17 +53,21 @@ K⁶·e_h, where e_h = 1[h self-agrees at all six questions]. Summing over the t
 
   p(y | X) ∝ Σ_g W_g L_g(y) (S − e_g),  S = Σ_h e_h.
 
-This is exact: KL to the exact posterior is 0.000 and decisions agree 100%. A per-group (deep-sets) statistic
-φ_g = (e_g, W_g L_g, e_g W_g L_g) with a pooled readout is therefore sufficient (Investigation VII, Theorem 1).
+This is exact. Monte-Carlo comparison with the exact posterior (100,000 episodes, via `posterior_brute`, which is exact for C = 1) gives
+KL 0.000 and 100% decision agreement. Review 1 also re-derived and re-implemented R1–R4 and matched the exact posterior to about 1e-14 at
+Q = 6. The **fixed, low-dimensional** per-group statistic φ_g = (e_g, W_g L_g, e_g W_g L_g) with a pooled readout is therefore
+sufficient (Investigation VII, Theorem 1).
 
 **(R2) C = 1, β < 1.** The colluder ratio becomes 1 − β + βK·1[agree], so e_h must be replaced by the graded per-group statistic
 c_h = Π_q (1 − β + βK·1[h self-agrees at q]):
 
   p(y | X) ∝ Σ_g W_g L_g (Σ_{h≠g} c_h).
 
-Per-group statistics are **still sufficient** (KL 0.000). The *hard* (S − e_g) rule fails: at β = 0.6 its accuracy is 0.397 against a
-Bayes accuracy of 0.616, and it is undefined whenever S = 0, which is 77% of episodes. So the (S − e_g) form is a β = 1 special case;
-per-group sufficiency is not.
+The fixed per-group statistic (c_g, W_g L_g, c_g W_g L_g) is **still sufficient** (KL 0.000). The *hard* (S − e_g) rule is undefined
+whenever S = 0, which is 77.4% of episodes at β = 0.6. On the 22.6% where it is defined, it reaches accuracy 0.612 against a Bayes
+accuracy of 0.643 on the same rows (KL 0.31; its decision differs from Bayes on 17.8%). An earlier draft scored the undefined rows as
+answers (NaN → argmax 0), which produced an artefactual 0.397; review 1 caught this. The (S − e_g) form is a β = 1 special case; per-group
+sufficiency is not.
 
 **(R3) C = 2, β = 1.** For colluder set H = {h₁, h₂}, χ_H/noi² = K³·1[all four sources equal at q]. Over six questions this gives
 K¹⁸·J_H, where
@@ -70,57 +78,73 @@ and so p(y | X) ∝ Σ_g W_g L_g(y) J_{−g}. J_H is a **joint** (cross-group) s
 J_H by e_{h₁} e_{h₂}.
 
 *Where the difference matters (proved, then checked numerically).* At β = 1 the colluders always self-agree everywhere, so e_H = 1 for
-the true H, and S ≥ 2 on the support.
+the true H, and S ≥ 2 on the support. S = 1 cannot occur, so the S ≤ 2 row below is exactly S = 2.
 - If **S = 2**, the reliable group has e = 0. Every other candidate colluder set then contains a group with e = 0, so J and the e-product
   agree on all three roles, and the product rule is exact.
 - If **S = 3**, every group self-agrees everywhere. The product rule gives all three roles equal weight, while J_H selects the identical
   pair.
 
-The joint statistic is therefore needed **exactly on S = 3**:
+The joint statistic can matter **only on S = 3**. Within S = 3 it matters only when the groups do *not* all report the same value at q.
+When all three agree at q, every role gives the same answer and the product rule is exact (review 1):
 
 | C = 2, β = 1 | fraction | Bayes accuracy | product-rule accuracy | product-rule KL |
 |---|---|---|---|---|
 | S ≤ 2 | 0.917 | 0.781 | 0.781 | **0.000** |
-| S = 3 | 0.083 | 0.973 | **0.336** | 0.649 |
+| S = 3, all agree at q | 0.028 | 0.973 | 0.973 | 0 |
+| S = 3, not all agree at q | **0.055** | 0.973 | **0.013** | large |
 
-On the support, cross-group equality *at q* already identifies the colluder pair when S = 3: the pair that agrees at q must be the
-identical pair. Any S = 3 input that would break this is off-support. This is why a pair-contrast design that breaks the colluders'
+On the support, cross-group equality *at q* already identifies the colluder pair whenever it is informative: if exactly two groups agree
+at q, they must be the identical pair. If all three agree, the answer does not depend on the pair. Any S = 3 input that would break this
+is off-support. This is why a pair-contrast design that breaks the colluders'
 identity at one question while keeping every e_g fixed produces inputs of probability 0 under β = 1. The exact posterior is undefined
 there (NaN), and the design was abandoned before any freeze (`logs/COMPUTE_LOG.txt`). The J_H-dependence test used in XIII is the
 S = 3 subset.
 
 **(R4) C = 2, β < 1.** The ratio becomes 1 − β + βK³·1[all four equal at q], and the sufficient statistic is the pairwise, cross-question
-quantity J_H^β = Π_q (1 − β + βK³·1[all four equal at q]). Neither the hard rule nor any per-group rule is sufficient here:
+quantity J_H^β = Π_q (1 − β + βK³·1[all four equal at q]). Neither the hard rule nor the fixed per-group statistics suffice here. At
+β = 0.6 the product rule's posterior is off (KL > 0.01) on 85% of episodes and its decision differs from Bayes on 37%:
 
 | C = 2, β = 0.6 | accuracy | KL |
 |---|---|---|
 | exact | 0.795 | 0 |
 | independent-copying product rule | 0.502 | 0.462 |
 | graded C = 1 rule | 0.446 | 0.723 |
-| hard C = 1 rule | 0.361 | undefined when S = 0 |
+| hard C = 1 rule | 0.428 on the 30% of rows where defined (Bayes on those rows: 0.832) | 1.17 (defined rows) |
 
-**Rank argument.** On self-agreeing colluder pairs with values (a, a) and (b, b), the shared colluder kernel is
-χ(a, b) = β·1[a = b]/K + (1 − β)/K⁴. That is βI_K/K plus a constant, which has rank K = 3 for β > 0 (numerical rank 3). A product
-ψ(a)ψ(b) has rank 1, so no per-group-product rule can equal the shared-copy posterior.
+**Rank argument.** On self-agreeing colluder pairs with values (a, a) and (b, b), the one-question shared colluder kernel is
+χ(a, b) = β·1[a = b]/K + (1 − β)/K⁴. That is βI_K/K plus a constant, with rank K = 3 for β > 0 (computed at β = 1 and 0.6). A single
+product ψ(a)ψ(b) has rank 1, so the colluder factor does not factorise across the two colluder groups. Over six questions the kernel on
+full self-agreeing sequences is the Kronecker power χ^{⊗6}, with rank 3⁶ = 729 (computed). Any sum-of-products (factorised) representation
+of it therefore needs at least 729 features per group (review 1). The rank argument shows non-factorisation of the factor. That the
+*posterior* differs is shown by the counterexample.
 
 **Explicit counterexample (β = 0.6).** Take q = 0 and two inputs in which **every group's own statistics are identical**:
 - all three groups self-agree at all six questions (e_g = 1, identical W_g);
 - the values at q are identical (identical L_g).
 
-The two inputs differ only in whether groups A and B report identical values at the other five questions.
-- Exact posteriors: x₁ → (0.015, 0.970, 0.015); x₂ → (0.498, 0.487, 0.015).
+In x₁, groups A and B report identical values at all six questions. In x₂, B differs from **both** A and C at every other question.
+(The first draft's x₂ also had B = C at one question, a coincidence that inflated the shift; review 1 caught it.) Review 1 recomputed
+W_g = 1.98⁵ and L_g for every group.
+- Exact posteriors: x₁ → (0.015, 0.970, 0.015); x₂ → (0.059, 0.926, 0.015).
 - Any rule F({(e_g, W_g, L_g)}_g) must output the same distribution for both. The product rule gives (0.652, 0.333, 0.015) for both.
 - At β = 1, x₂ is off-support, consistent with (R3).
 
 ## C3. Boundary statement (what is and is not claimed)
 
-1. **Per-group statistics with a pooled readout suffice** whenever there is at most one colluder group (C = 1), for every β. The
-   statistic is graded for β < 1 and reduces to the hard eligibility e_g only at β = 1. This is shown by exact enumeration and closed form.
-2. **A joint, cross-group statistic is required** as soon as colluders share copy events (C ≥ 2):
-   - at β = 1, only on the S = 3 slice, where a cross-group equality at q suffices on the support;
-   - at β < 1, on most of the input space, through a pairwise statistic across questions.
+The "per-group statistics" here are **fixed, low-dimensional** ones. A rich enough per-group encoding with a pooled readout can
+represent any group-symmetric posterior, so "per-group" alone is not a meaningful restriction.
+
+1. **A fixed three-component per-group statistic suffices** when there is at most one colluder group (C = 1), for every β. The
+   statistic is (c_g, W_g L_g, c_g W_g L_g), which reduces to the hard eligibility e_g at β = 1. Evidence: closed form; Monte-Carlo
+   agreement with the exact posterior; review 1's independent re-implementation. The exhaustive enumeration verifies the exact posterior
+   itself.
+2. **The fixed statistics (c_g, W_g, L_g) do not suffice once two colluder groups share copy events (C = 2, G = 3).** A cross-group
+   (pairwise) statistic is needed:
+   - at β = 1, only on the S = 3, not-all-agree-at-q slice (5.5% of episodes), where a cross-group equality at q suffices on the support;
+   - at β < 1, through the cross-question pairwise statistic J_H^β. A factorised representation of it needs ≥ 729 features per group.
+     The product-rule posterior is off on 85% of episodes; decisions differ on 37%.
 3. **The C = 1 rule fails** on C = 2 data (accuracy 0.334 at β = 1, which is chance) because colluders' high W_g dominates. The
-   independent-copying product rule fails on S = 3 at β = 1, and broadly at β < 1.
+   independent-copying product rule fails on the S = 3 not-all-agree slice at β = 1 (accuracy 0.013 there), and broadly at β < 1.
 4. Not claimed: that these regimes cover "relational inference" in general, that the T4 family is representative of other tasks, or any
    link to O/D.
 

@@ -1,10 +1,18 @@
 {
  "C1_beta1.0": {
   "hard_C1_rule": {
-   "KL": 0.0,
-   "acc": 0.74259,
+   "undefined_frac": 0.0,
+   "KL_defined": 0.0,
+   "acc_defined": 0.74259,
+   "bayes_acc_on_defined": 0.74259,
    "bayes_acc": 0.74259,
-   "agree_bayes": 1.0,
+   "decision_differs_from_bayes": 0.0,
+   "frac_KL_gt_0p01": 0.0,
+   "S3_not_allagree_at_q": {
+    "frac": 9e-05,
+    "acc": 0.6666666666666666,
+    "bayes_acc": 0.6666666666666666
+   },
    "S3": {
     "frac": 9e-05,
     "KL": 0.0,
@@ -21,10 +29,18 @@
  },
  "C1_beta0.6": {
   "hard_C1_rule": {
-   "KL": NaN,
-   "acc": 0.39662,
+   "undefined_frac": 0.7735,
+   "KL_defined": 0.31334304065090507,
+   "acc_defined": 0.612317880794702,
+   "bayes_acc_on_defined": 0.643355408388521,
    "bayes_acc": 0.6159,
-   "agree_bayes": 0.45446,
+   "decision_differs_from_bayes": 0.17805739514348787,
+   "frac_KL_gt_0p01": 0.7610154525386313,
+   "S3_not_allagree_at_q": {
+    "frac": 2e-05,
+    "acc": 0.5,
+    "bayes_acc": 0.5
+   },
    "S3": {
     "frac": 2e-05,
     "KL": 0.0,
@@ -36,19 +52,21 @@
     "KL": 0.3133707113538944,
     "acc": 0.6123277993641822,
     "bayes_acc": 0.6433680678205581
-   },
-   "S0": {
-    "frac": 0.7735,
-    "KL": NaN,
-    "acc": 0.3334583063994829,
-    "bayes_acc": 0.6078603749191984
    }
   },
   "graded_C1_rule_true_beta": {
-   "KL": 0.0,
-   "acc": 0.6159,
+   "undefined_frac": 0.0,
+   "KL_defined": 0.0,
+   "acc_defined": 0.6159,
+   "bayes_acc_on_defined": 0.6159,
    "bayes_acc": 0.6159,
-   "agree_bayes": 1.0,
+   "decision_differs_from_bayes": 0.0,
+   "frac_KL_gt_0p01": 0.0,
+   "S3_not_allagree_at_q": {
+    "frac": 2e-05,
+    "acc": 0.5,
+    "bayes_acc": 0.5
+   },
    "S3": {
     "frac": 2e-05,
     "KL": 0.0,
@@ -71,10 +89,23 @@
  },
  "C2_beta1.0": {
   "hard_C1_rule": {
-   "KL": 1.431648858397556,
-   "acc": 0.33425,
+   "undefined_frac": 0.0,
+   "KL_defined": 1.431648858397556,
+   "acc_defined": 0.33425,
+   "bayes_acc_on_defined": 0.79713,
    "bayes_acc": 0.79713,
-   "agree_bayes": 0.33597,
+   "decision_differs_from_bayes": 0.66403,
+   "frac_KL_gt_0p01": 0.77953,
+   "S3_allagree_at_q": {
+    "frac": 0.02784,
+    "acc": 0.9727011494252874,
+    "bayes_acc": 0.9727011494252874
+   },
+   "S3_not_allagree_at_q": {
+    "frac": 0.05479,
+    "acc": 0.013141084139441504,
+    "bayes_acc": 0.9733528016061325
+   },
    "S3": {
     "frac": 0.08263,
     "KL": 0.6488162060876221,
@@ -89,10 +120,23 @@
    }
   },
   "independent_copy_product_rule": {
-   "KL": 0.05361168310902022,
-   "acc": 0.74452,
+   "undefined_frac": 0.0,
+   "KL_defined": 0.05361168310902022,
+   "acc_defined": 0.74452,
+   "bayes_acc_on_defined": 0.79713,
    "bayes_acc": 0.79713,
-   "agree_bayes": 0.94521,
+   "decision_differs_from_bayes": 0.05479,
+   "frac_KL_gt_0p01": 0.05479,
+   "S3_allagree_at_q": {
+    "frac": 0.02784,
+    "acc": 0.9727011494252874,
+    "bayes_acc": 0.9727011494252874
+   },
+   "S3_not_allagree_at_q": {
+    "frac": 0.05479,
+    "acc": 0.013141084139441504,
+    "bayes_acc": 0.9733528016061325
+   },
    "S3": {
     "frac": 0.08263,
     "KL": 0.6488162060876221,
@@ -109,10 +153,23 @@
  },
  "C2_beta0.6": {
   "hard_C1_rule": {
-   "KL": NaN,
-   "acc": 0.36078,
+   "undefined_frac": 0.69655,
+   "KL_defined": 1.1727417975904053,
+   "acc_defined": 0.4275498434667985,
+   "bayes_acc_on_defined": 0.8316361838853188,
    "bayes_acc": 0.79532,
-   "agree_bayes": 0.41104,
+   "decision_differs_from_bayes": 0.4848904267589389,
+   "frac_KL_gt_0p01": 0.797890921074312,
+   "S3_allagree_at_q": {
+    "frac": 0.0019,
+    "acc": 0.9473684210526315,
+    "bayes_acc": 0.9473684210526315
+   },
+   "S3_not_allagree_at_q": {
+    "frac": 0.00403,
+    "acc": 0.04218362282878412,
+    "bayes_acc": 0.9751861042183623
+   },
    "S3": {
     "frac": 0.00593,
     "KL": 0.6462024234064063,
@@ -124,19 +181,26 @@
     "KL": 1.1832364819440997,
     "acc": 0.4294501210002689,
     "bayes_acc": 0.8289526754503899
-   },
-   "S0": {
-    "frac": 0.69655,
-    "KL": NaN,
-    "acc": 0.3316919101284904,
-    "bayes_acc": 0.7794989591558394
    }
   },
   "graded_C1_rule_true_beta": {
-   "KL": 0.7232470894538079,
-   "acc": 0.44619,
+   "undefined_frac": 0.0,
+   "KL_defined": 0.7232470894538079,
+   "acc_defined": 0.44619,
+   "bayes_acc_on_defined": 0.79532,
    "bayes_acc": 0.79532,
-   "agree_bayes": 0.5663,
+   "decision_differs_from_bayes": 0.4337,
+   "frac_KL_gt_0p01": 0.8468,
+   "S3_allagree_at_q": {
+    "frac": 0.0019,
+    "acc": 0.9473684210526315,
+    "bayes_acc": 0.9473684210526315
+   },
+   "S3_not_allagree_at_q": {
+    "frac": 0.00403,
+    "acc": 0.04218362282878412,
+    "bayes_acc": 0.9751861042183623
+   },
    "S3": {
     "frac": 0.00593,
     "KL": 0.6462024234064063,
@@ -157,10 +221,23 @@
    }
   },
   "independent_copy_product_rule": {
-   "KL": 0.4620426311041147,
-   "acc": 0.50178,
+   "undefined_frac": 0.0,
+   "KL_defined": 0.4620426311041147,
+   "acc_defined": 0.50178,
+   "bayes_acc_on_defined": 0.79532,
    "bayes_acc": 0.79532,
-   "agree_bayes": 0.62875,
+   "decision_differs_from_bayes": 0.37125,
+   "frac_KL_gt_0p01": 0.8488,
+   "S3_allagree_at_q": {
+    "frac": 0.0019,
+    "acc": 0.9473684210526315,
+    "bayes_acc": 0.9473684210526315
+   },
+   "S3_not_allagree_at_q": {
+    "frac": 0.00403,
+    "acc": 0.04218362282878412,
+    "bayes_acc": 0.9751861042183623
+   },
    "S3": {
     "frac": 0.00593,
     "KL": 0.6462024234064063,
@@ -182,29 +259,48 @@
   }
  },
  "rank_argument": {
-  "chi_selfagreeing": [
-   [
-    0.3333333333333333,
-    0.0,
-    0.0
+  "beta1.0": {
+   "chi_selfagreeing": [
+    [
+     0.3333333333333333,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.3333333333333333,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.3333333333333333
+    ]
    ],
-   [
-    0.0,
-    0.3333333333333333,
-    0.0
+   "rank_one_question": 3,
+   "rank_six_question_kernel": 729
+  },
+  "beta0.6": {
+   "chi_selfagreeing": [
+    [
+     0.20493827160493824,
+     0.0049382716049382715,
+     0.0049382716049382715
+    ],
+    [
+     0.0049382716049382715,
+     0.20493827160493824,
+     0.0049382716049382715
+    ],
+    [
+     0.0049382716049382715,
+     0.0049382716049382715,
+     0.20493827160493824
+    ]
    ],
-   [
-    0.0,
-    0.0,
-    0.3333333333333333
-   ]
-  ],
-  "rank": 3,
-  "singular_values": [
-   0.3333333333333333,
-   0.3333333333333333,
-   0.3333333333333333
-  ]
+   "rank_one_question": 3,
+   "rank_six_question_kernel": 729
+  }
  },
  "counterexample": {
   "x1": [
@@ -277,8 +373,8 @@
    [
     2,
     2,
-    0,
-    0,
+    1,
+    1,
     0,
     0
    ],
@@ -315,9 +411,9 @@
     0.015151515151515195
    ],
    "exact_x2": [
-    0.49810606060606216,
-    0.48674242424242264,
-    0.015151515151515091
+    0.05903866248693815,
+    0.9258098223615469,
+    0.0151515151515151
    ],
    "indep_x1": [
     0.6515151515151515,

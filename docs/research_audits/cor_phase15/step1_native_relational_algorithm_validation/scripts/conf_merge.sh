@@ -1,6 +1,11 @@
 #!/bin/bash
 # Merge per-parent confirmation outputs into logs/<analysis>_conf.json and run the component comparison.
 cd "$(dirname "$0")/.."
+# Amendment 1: wait until every pretrained parent's per-parent outputs exist
+for P in P150 P151 P152 P153 P154 P155 P156; do [ -f checkpoints/z$P/pre.json ] || continue
+  for a in factorial alt_ablation circuit_l1 restore disc_ident vs_linear dyn_mech; do while [ ! -f logs/${a}_conf_$P.json ]; do sleep 30; done; done
+  while [ ! -f logs/traj_alg_xii_$P.json ]; do sleep 30; done
+done
 python3 - <<'PY'
 import json, glob, os
 for a in ("factorial", "alt_ablation", "circuit_l1", "restore", "disc_ident", "vs_linear", "dyn_mech"):

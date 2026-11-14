@@ -4,7 +4,7 @@ cd "$(dirname "$0")/.."; [ -f logs/replicates.txt ] || python3 scripts/pick_repl
 S=_eval_conf12; RS=_ev70500000; export XII_RDIR=logs/das XI_OUT=cross_conf
 COMP=$(python3 -c "
 import json,os
-print(' '.join(p for p in ['P150','P151','P152','P153','P154'] if os.path.exists(f'checkpoints/z{p}/pre.json') and json.load(open(f'checkpoints/z{p}/pre.json'))['eval']['aux_acc']>=0.99))")
+print(' '.join(p for p in ['P150','P151','P152','P153','P154','P155','P156'] if os.path.exists(f'checkpoints/z{p}/pre.json') and json.load(open(f'checkpoints/z{p}/pre.json'))['eval']['aux_acc']>=0.99))")
 R() { echo logs/das/v$1_$2_s4000_seed$3${S}_E_L2_q7_k6${RS}_R.npy; }
 for P in $(cat logs/replicates.txt); do
   while [ ! -f $(R $P full_c1 11) ] || [ ! -f $(R $P full_c1 10) ]; do sleep 30; done

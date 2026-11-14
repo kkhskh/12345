@@ -8,7 +8,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import numpy as np, stats_xii as ST
 L = os.path.join(HERE, "..", "logs"); CK = os.path.join(HERE, "..", "checkpoints")
 J = lambda f: json.load(open(os.path.join(L, f)))
-PARENTS = [p for p in ("P150", "P151", "P152", "P153", "P154") if os.path.exists(os.path.join(CK, f"z{p}", "pre.json"))]
+PARENTS = [p for p in ("P150", "P151", "P152", "P153", "P154", "P155", "P156") if   # Amendment 1: P155, P156 added os.path.exists(os.path.join(CK, f"z{p}", "pre.json"))]
 complete = {p: json.load(open(os.path.join(CK, f"z{p}", "pre.json")))["eval"]["aux_acc"] >= 0.99 for p in PARENTS}
 COMP = [p for p in PARENTS if complete[p]]; INC = [p for p in PARENTS if not complete[p]]
 S = "_eval_conf12"; full = lambda p, s=10: f"v{p}:full_c1:{s}:{S}"; c1 = lambda p: f"v{p}:c1:10:{S}"
@@ -95,6 +95,7 @@ def score_group(units, group):
     return R
 res["complete"] = score_group(COMP, "complete")
 if INC: res["incomplete"] = safe(score_group, INC, "incomplete")
+res["all_parents"] = safe(score_group, PARENTS, "all")                     # Amendment 1: pre-declared secondary aggregate
 # P5: pairs (complete parents only)
 def cross(A, B):
     f = glob.glob(os.path.join(L, "cross_conf", f"{A}__{B}.json")); return json.load(open(f[0])) if f else None
@@ -124,8 +125,14 @@ verd = {}
 for P in ("P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8"):
     arms = res["P5"] if P == "P5" else res["complete"][P]; verd[P] = "confirmed" if all(v["passed"] for v in arms.values()) else "falsified"
 out["arms"] = res; out["verdicts"] = verd
+out["primary_label"] = "underpowered (fewer than 3 complete parents)" if len(COMP) < 3 else "adequate"
+verd_all = {}
+if res.get("all_parents"):
+    for P in ("P1", "P2", "P3", "P4", "P6", "P7", "P8"): verd_all[P] = "confirmed" if all(v["passed"] for v in res["all_parents"][P].values()) else "falsified"
+out["verdicts_all_parents"] = verd_all
 ch = [c for c in out["checks"] if c["group"] in ("complete", "pairs")]; out["check_count_complete_and_pairs"] = dict(passed=sum(c["passed"] for c in ch), total=len(ch))
 json.dump(out, open(os.path.join(L, "score_xii.json"), "w"), indent=1, default=float)
 for P, v in verd.items():
     arms = res["P5"] if P == "P5" else res["complete"][P]; print(P, v, {k: f"{x['k']}/{x['n']}" for k, x in arms.items()})
-print("individual checks (complete parents + pairs):", out["check_count_complete_and_pairs"], "| complete:", COMP, "incomplete:", INC)
+print("individual checks (complete parents + pairs):", out["check_count_complete_and_pairs"], "| complete:", COMP, "incomplete:", INC, "| primary:", out["primary_label"])
+print("all-parents (secondary) verdicts:", verd_all)

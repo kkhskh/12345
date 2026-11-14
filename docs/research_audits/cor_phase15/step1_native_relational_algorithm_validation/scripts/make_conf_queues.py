@@ -3,6 +3,7 @@ Every confirmation job waits for the files it needs (final.json of the fine-tune
 Same-parent replicates (seed 11): first two COMPLETE parents in seed order, decided by scripts/pick_replicates.py from pre.json only."""
 import os
 HERE = os.path.dirname(os.path.abspath(__file__)); L = os.path.join(HERE, "..", "logs")
+# (Amendment 1 adds P155/P156 via scripts/amend1_queues.py)
 P = ["P150", "P151", "P152", "P153", "P154"]; S = "_eval_conf12"; EV = "logs/eval_conf12.npz"; RS = "_ev70500000"
 FT = lambda p, spec, seed: f"checkpoints/native_train/v{p}_{spec}_s4000_seed{seed}{S}/final.json"
 waitpre = lambda p: f"while [ ! -f checkpoints/z{p}/pre.json ]; do sleep 30; done; "

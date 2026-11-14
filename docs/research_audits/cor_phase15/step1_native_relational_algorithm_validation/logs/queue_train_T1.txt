@@ -2,3 +2,5 @@ while [ ! -f checkpoints/zP150/pre.json ]; do sleep 30; done; python3 scripts/na
 while [ ! -f checkpoints/zP152/pre.json ]; do sleep 30; done; python3 scripts/native_train.py vP152 full_c1 4000 10 label logs/eval_conf12.npz
 while [ ! -f checkpoints/zP154/pre.json ]; do sleep 30; done; python3 scripts/native_train.py vP154 full_c1 4000 10 label logs/eval_conf12.npz
 bash scripts/rep_train.sh 0
+while [ ! -f checkpoints/zP155/pre.json ]; do sleep 30; done; python3 scripts/native_train.py vP155 full_c1 4000 10 label logs/eval_conf12.npz
+while [ ! -f checkpoints/zP155/pre.json ]; do sleep 30; done; python3 scripts/native_train.py vP155 c1 4000 10 label logs/eval_conf12.npz

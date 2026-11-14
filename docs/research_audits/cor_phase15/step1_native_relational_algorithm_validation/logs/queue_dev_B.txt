@@ -9,3 +9,6 @@ python3 scripts/adapt_c2.py _ev62500000 wP141:full_c1:0:_eval_conf10
 python3 scripts/adapt_c2.py _ev62500000 wP140:c1:0:_eval_conf10
 DI_TAG=_dev python3 scripts/disc_ident.py - xP81:full_c1:0: yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:c1:0: yP130:c1:0:_eval_conf9 yP131:c1:0:_eval_conf9
 DI_TAG=_devw python3 scripts/disc_ident.py _ev62500000 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10 wP140:c1:0:_eval_conf10 wP141:c1:0:_eval_conf10 wP142:c1:0:_eval_conf10 wP143:c1:0:_eval_conf10
+FA_TAG=_dev python3 scripts/restore_nat.py - xP81:full_c1:0: yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9
+FA_TAG=_devw python3 scripts/restore_nat.py _ev62500000 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10
+VS_RANDOM=1 VS_TAG=_dev_randomQ python3 scripts/vs_linear.py - xP81:full_c1:0: yP130:full_c1:0:_eval_conf9

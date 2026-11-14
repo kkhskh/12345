@@ -58,7 +58,9 @@ def _group_lik(env, X):
 
 
 def posterior_brute(env, X, q):
-    """Exact p(Y_q | X) for target question q (array of ints, one per episode), enumerating role assignments."""
+    """WARNING (Investigation XII): for C >= 2 this is the posterior of an INDEPENDENT-copying model; `sample` shares the copied value AND the
+    copy event across colluder groups.  Exact for C = 1 only.  Use xii_bayes.posterior_shared for the actual sampler.
+    Exact p(Y_q | X) for target question q (array of ints, one per episode), enumerating role assignments."""
     n = len(X); idx = np.arange(n); K = env.K
     rel, col, noi = _group_lik(env, X)                         # rel n,Q,G,K
     relm = rel.mean(-1)                                        # marginal over Y_{q'} (uniform prior)

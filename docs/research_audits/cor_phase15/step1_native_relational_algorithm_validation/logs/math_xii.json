@@ -48,38 +48,47 @@
  "M3_distinct_(W_g,L_g)_values": 36,
  "M3_collisions_e_not_determined_by_WL": 0,
  "M3_frac_informative_E_pairs_input_realizable": 0.0,
+ "M3_frac_noninformative_pairs_realizable": 1.0,
+ "M3_note": "requires alpha != 1/K (otherwise W, L carry no information about agreement)",
  "M3_frac_pairs_informative": 0.71735,
  "M4_false_positive_bound": {
   "A1": {
-   "P_argmax_differ_all": 0.0035,
-   "P_argmax_differ_on_informative": 0.0030006001200240046
+   "delta_on_rule_IIA_set": 0.0396746677246578,
+   "delta_all_pairs": 0.0465,
+   "n_IIA_set": 5041
   },
   "PERM": {
-   "P_argmax_differ_all": 0.31133333333333335,
-   "P_argmax_differ_on_informative": 0.28205641128225645
+   "delta_on_rule_IIA_set": 0.27884615384615385,
+   "delta_all_pairs": 0.31133333333333335,
+   "n_IIA_set": 4992
   },
   "RANDE": {
-   "P_argmax_differ_all": 0.2896666666666667,
-   "P_argmax_differ_on_informative": 0.27545509101820365
+   "delta_on_rule_IIA_set": 0.22531798909751666,
+   "delta_all_pairs": 0.2896666666666667,
+   "n_IIA_set": 4953
   }
  },
  "M5_preservation_power": {
   "A1": {
-   "n_pres": 1006,
-   "frac_E_changes": 0.03876739562624255,
-   "frac_bayes_decision_changes": 0.02485089463220676
+   "n_pres": 957,
+   "frac_E_changes": 0.3239289446185998,
+   "frac_bayes_decision_changes": 0.19017763845350052,
+   "ideal_E_mediator_preserve_KL": 0.22088315915736026
   },
   "PERM": {
    "n_pres": 1008,
    "frac_E_changes": 1.0,
-   "frac_bayes_decision_changes": 0.4722222222222222
+   "frac_bayes_decision_changes": 0.4722222222222222,
+   "ideal_E_mediator_preserve_KL": 0.7100248145558661
   },
   "RANDE": {
    "n_pres": 1047,
    "frac_E_changes": 0.87774594078319,
-   "frac_bayes_decision_changes": 0.5940783190066857
+   "frac_bayes_decision_changes": 0.5940783190066857,
+   "ideal_E_mediator_preserve_KL": 1.3144255705460102
   }
  },
+ "M4_M5_note": "XII-3 bound applies to IIA computed on the SAME pair set for both rules; rule-specific diff sets are reported separately",
  "M4_observed_full_model_decoy_IIA_range_XI": {
   "RANDE": [
    0.6943266707046235,

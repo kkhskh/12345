@@ -1,0 +1,42 @@
+{
+ "xP81:full_c1:0:": {
+  "ablated": 0.7591963025887953,
+  "restore_E": 0.07250634849148367,
+  "restore_random": 0.7558154219619232,
+  "restore_complement": 0.713473796886637,
+  "restore_all": 0.005377993218106429,
+  "rec_E": 0.910948892539612,
+  "rec_random": 0.00448500730858422,
+  "rec_complement": 0.06065454385199117
+ },
+ "yP130:full_c1:0:_eval_conf9": {
+  "ablated": 0.7496421379799483,
+  "restore_E": 0.08190748253606199,
+  "restore_random": 0.7502022854068301,
+  "restore_complement": 0.59986235526951,
+  "restore_all": 0.052693918876312355,
+  "rec_E": 0.9580835952241589,
+  "rec_random": -0.0008037145537185522,
+  "rec_complement": 0.21490804998838234
+ },
+ "yP131:full_c1:0:_eval_conf9": {
+  "ablated": 0.7408444254590247,
+  "restore_E": 0.10213007089664,
+  "restore_random": 0.7382047012307575,
+  "restore_complement": 0.6155058578677627,
+  "restore_all": 0.08364151663443124,
+  "rec_E": 0.9718678143173841,
+  "rec_random": 0.004016604602356882,
+  "rec_complement": 0.1907151747326102
+ },
+ "yP134:full_c1:0:_eval_conf9": {
+  "ablated": 0.708212164235492,
+  "restore_E": 0.13408706612959478,
+  "restore_random": 0.7024016702819229,
+  "restore_complement": 0.3899389901292396,
+  "restore_all": 0.21216169974890817,
+  "rec_E": 1.157392521948591,
+  "rec_random": 0.011713513784495791,
+  "rec_complement": 0.6416145067733535
+ }
+}

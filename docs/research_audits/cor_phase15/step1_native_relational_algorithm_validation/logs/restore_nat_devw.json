@@ -1,0 +1,42 @@
+{
+ "wP140:full_c1:0:_eval_conf10": {
+  "ablated": 0.7345152738816004,
+  "restore_E": 0.09095683172870865,
+  "restore_random": 0.7325657845854548,
+  "restore_complement": 0.612457855115641,
+  "restore_all": 0.018282651059526905,
+  "rec_E": 0.8985327135996213,
+  "rec_random": 0.002721866100519511,
+  "rec_complement": 0.1704158884651655
+ },
+ "wP141:full_c1:0:_eval_conf10": {
+  "ablated": 0.7009287211254693,
+  "restore_E": 0.11206099239844972,
+  "restore_random": 0.7087467953638493,
+  "restore_complement": 0.5778240178016604,
+  "restore_all": 0.3484302290339836,
+  "rec_E": 1.6705538943814482,
+  "rec_random": -0.022179028886032584,
+  "rec_complement": 0.349234694858947
+ },
+ "wP142:full_c1:0:_eval_conf10": {
+  "ablated": 0.6227716899363702,
+  "restore_E": 0.14279871961392326,
+  "restore_random": 0.6226019906284281,
+  "restore_complement": 0.49164774848964976,
+  "restore_all": 0.24290565549388982,
+  "rec_E": 1.2635322108408322,
+  "rec_random": 0.00044673461840605776,
+  "rec_complement": 0.34518469554449027
+ },
+ "wP143:full_c1:0:_eval_conf10": {
+  "ablated": 0.7758318546096215,
+  "restore_E": 0.15480771690406633,
+  "restore_random": 0.7695092215814215,
+  "restore_complement": 0.5802461658097179,
+  "restore_all": 0.05609335828005665,
+  "rec_E": 0.8628469101938813,
+  "rec_random": 0.008784625333288837,
+  "rec_complement": 0.2717454878366626
+ }
+}

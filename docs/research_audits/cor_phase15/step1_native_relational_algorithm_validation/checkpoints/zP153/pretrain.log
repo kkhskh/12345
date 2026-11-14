@@ -1,2 +1,10 @@
 pcount s153 step 300 loss 1.6499
 pcount s153 step 600 loss 1.6618
+pcount s153 step 900 loss 1.6804
+pcount s153 step 1200 loss 1.5611
+pcount s153 step 1500 loss 1.3970
+pcount s153 step 1800 loss 1.0309
+pcount s153 step 2100 loss 1.0016
+pcount s153 step 2400 loss 0.9808
+pcount s153 step 2700 loss 0.9974
+pcount s153 step 3000 loss 1.0002

@@ -1,0 +1,60 @@
+2026-11-14T04:58:04Z lane A start [0e8acb2cae28] MC_TAG=_dev python3 scripts/mech_construct.py - xP81:full_c1:0: yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:c1:0: yP130:full_c1:1:
+2026-11-14T05:00:10Z lane A end [0e8acb2cae28] rc=0
+2026-11-14T05:02:18Z lane B start [8aee300f121d] MC_TAG=_dev_s1 python3 scripts/mech_construct.py - yP130:full_c1:1: xP81:full_c1:1:
+2026-11-14T05:02:18Z lane A start [506b6ace529e] python3 scripts/cross_interchange.py yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 -
+2026-11-14T05:02:49Z lane A end [506b6ace529e] rc=0
+2026-11-14T05:02:49Z lane A start [2527c6fe54df] python3 scripts/cross_interchange.py yP131:full_c1:0:_eval_conf9 yP130:full_c1:0:_eval_conf9 -
+2026-11-14T05:03:20Z lane A end [2527c6fe54df] rc=0
+2026-11-14T05:03:20Z lane A start [09a63648598f] python3 scripts/cross_interchange.py xP81:full_c1:1: xP81:full_c1:0: -
+2026-11-14T05:03:31Z lane B end [8aee300f121d] rc=0
+2026-11-14T05:03:41Z lane A end [09a63648598f] rc=0
+2026-11-14T05:03:41Z lane A start [818d347b59e6] python3 scripts/cross_interchange.py xP81:full_c1:0: xP81:full_c1:1: -
+2026-11-14T05:03:45Z lane B start [5eeebda83b36] python3 scripts/das_decoy.py xP81:full_c1:0: E
+2026-11-14T05:04:10Z lane A end [818d347b59e6] rc=0
+2026-11-14T05:04:10Z lane A start [91b0535d2162] python3 scripts/cross_interchange.py yP130:full_c1:1: yP130:full_c1:0:_eval_conf9 -
+2026-11-14T05:04:38Z lane A end [91b0535d2162] rc=0
+2026-11-14T05:04:38Z lane A start [c742934080f6] python3 scripts/cross_interchange.py xP81:full_c1:0: yP130:full_c1:0:_eval_conf9 -
+2026-11-14T05:05:15Z lane A end [c742934080f6] rc=0
+2026-11-14T05:05:15Z lane A start [e9a30baa674c] python3 scripts/cross_interchange.py yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 -
+2026-11-14T05:05:43Z lane A end [e9a30baa674c] rc=0
+2026-11-14T05:05:43Z lane A start [228e56d7edb4] python3 scripts/cross_interchange.py xP81:c1:0: xP81:full_c1:0: -
+2026-11-14T05:06:11Z lane A end [228e56d7edb4] rc=0
+2026-11-14T05:06:11Z lane A start [7df9c3a161e7] python3 scripts/cross_interchange.py xP81:full_c1:0: xP81:c1:0: -
+2026-11-14T05:06:40Z lane A end [7df9c3a161e7] rc=0
+2026-11-14T05:06:40Z lane A start [10f2ceb75623] FA_TAG=_dev python3 scripts/factorial.py - yP130:full_c1:0:_eval_conf9 yP130:c1:0:_eval_conf9 xP81:full_c1:0: xP81:c1:0: yP131:full_c1:0:_eval_conf9 yP131:c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:full_c1:1: yP130:full_c1:1:
+2026-11-14T05:06:48Z lane B end [5eeebda83b36] rc=0
+2026-11-14T05:06:48Z lane B start [2030391154cc] python3 scripts/das_decoy.py xP81:full_c1:0: PERM
+2026-11-14T05:07:33Z lane A end [10f2ceb75623] rc=0
+2026-11-14T05:08:53Z lane A start [4c85646c655f] GE_TAG=_dev python3 scripts/generalize.py - yP130:full_c1:0:_eval_conf9 yP130:c1:0:_eval_conf9 xP81:full_c1:0: xP81:c1:0: yP131:full_c1:0:_eval_conf9 yP131:c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:full_c1:1: yP130:full_c1:1:
+2026-11-14T05:09:13Z lane B end [2030391154cc] rc=0
+2026-11-14T05:09:13Z lane B start [d548d63a68f4] python3 scripts/das_decoy.py xP81:full_c1:0: A1
+2026-11-14T05:10:35Z lane A end [4c85646c655f] rc=0
+2026-11-14T05:10:35Z lane A start [424a9e351aed] FA_TAG=_dev python3 scripts/factorial_ablate.py - yP130:full_c1:0:_eval_conf9 yP130:c1:0:_eval_conf9 xP81:full_c1:0: xP81:c1:0: yP131:full_c1:0:_eval_conf9 yP131:c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:full_c1:1: yP130:full_c1:1:
+2026-11-14T05:11:27Z lane A end [424a9e351aed] rc=0
+2026-11-14T05:12:31Z lane B end [d548d63a68f4] rc=0
+2026-11-14T05:12:31Z lane B start [04314bd94636] python3 scripts/das_decoy.py xP81:full_c1:0: RANDE
+2026-11-14T05:15:04Z lane B end [04314bd94636] rc=0
+2026-11-14T05:15:04Z lane B start [32bc1b4cb21d] python3 scripts/das_decoy.py xP81:c1:0: E
+2026-11-14T05:15:15Z lane C start [6cefaff11eb6] python3 scripts/das_decoy.py xP81:c1:0: PERM
+2026-11-14T05:17:29Z lane A start [173130b80d5b] FA_TAG=_dev python3 scripts/dyn_factorial.py xP81:full_c1:0: yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9
+2026-11-14T05:18:25Z lane B end [32bc1b4cb21d] rc=0
+2026-11-14T05:18:25Z lane B start [e81ddd438698] python3 scripts/das_decoy.py xP81:c1:0: A1
+2026-11-14T05:18:41Z lane C end [6cefaff11eb6] rc=0
+2026-11-14T05:18:41Z lane C start [bc5274ad8582] python3 scripts/das_decoy.py xP81:c1:0: RANDE
+2026-11-14T05:21:14Z lane A end [173130b80d5b] rc=0
+2026-11-14T05:22:36Z lane B end [e81ddd438698] rc=0
+2026-11-14T05:22:36Z lane B start [084eaa437d2e] python3 scripts/das_decoy.py yP130:full_c1:0:_eval_conf9 E
+2026-11-14T05:22:47Z lane C end [bc5274ad8582] rc=0
+2026-11-14T05:22:47Z lane C start [66a25f924c59] python3 scripts/das_decoy.py yP130:full_c1:0:_eval_conf9 PERM
+2026-11-14T05:25:29Z lane B end [084eaa437d2e] rc=0
+2026-11-14T05:25:29Z lane B start [761b7494e5c2] python3 scripts/das_decoy.py yP130:full_c1:0:_eval_conf9 A1
+2026-11-14T05:25:44Z lane C end [66a25f924c59] rc=0
+2026-11-14T05:25:44Z lane C start [166057986aea] python3 scripts/das_decoy.py yP130:full_c1:0:_eval_conf9 RANDE
+2026-11-14T05:28:29Z lane B end [761b7494e5c2] rc=0
+2026-11-14T05:28:29Z lane B start [3e715b206b50] python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 E
+2026-11-14T05:28:48Z lane C end [166057986aea] rc=0
+2026-11-14T05:28:48Z lane C start [dfd0e33d5ea7] python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 PERM
+2026-11-14T05:31:19Z lane B end [3e715b206b50] rc=0
+2026-11-14T05:31:19Z lane B start [f22474fad059] python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 A1
+2026-11-14T05:31:48Z lane C end [dfd0e33d5ea7] rc=0
+2026-11-14T05:31:48Z lane C start [cee5820e9db2] python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 RANDE

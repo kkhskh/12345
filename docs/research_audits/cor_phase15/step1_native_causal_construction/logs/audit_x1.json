@@ -1,0 +1,25 @@
+{
+ "C0_pairs_equal_m_different_S": 0,
+ "C0_identity_S_equals_half_sum_m": true,
+ "C1_I1_VS_projection_max_err": 3.3306690738754696e-16,
+ "C2_I2_VE_projection_max_err": 0.0,
+ "C3_I2_VS_linear_map_max_err": 0.0,
+ "C4_min_residual_over_projections_by_rank": {
+  "0": 1.4142135623730951,
+  "3": 1.4142135623730951,
+  "1": 0.47566004071959167,
+  "2": 1.3421137481509686,
+  "sym_111": 0.47140452079103173
+ },
+ "C5_I1_same_z1": true,
+ "C5_targets_differ_L1": 0.520153301135737,
+ "C6_I3_same_z3": true,
+ "C6_VE_targets_differ_L1": 0.19683508896033625,
+ "C6_VS_targets_differ_L1(S_src=2)": 0.09014093450492999,
+ "C7_natural_I1_witness": {
+  "n": 500,
+  "identical_z1": true,
+  "frac_targets_differ": 0.962,
+  "median_L1": 0.03207617972211392
+ }
+}

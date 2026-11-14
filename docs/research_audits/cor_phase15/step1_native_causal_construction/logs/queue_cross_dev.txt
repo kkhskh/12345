@@ -1,0 +1,13 @@
+python3 scripts/cross_interchange.py yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 -
+python3 scripts/cross_interchange.py yP131:full_c1:0:_eval_conf9 yP130:full_c1:0:_eval_conf9 -
+python3 scripts/cross_interchange.py xP81:full_c1:1: xP81:full_c1:0: -
+python3 scripts/cross_interchange.py xP81:full_c1:0: xP81:full_c1:1: -
+python3 scripts/cross_interchange.py yP130:full_c1:1: yP130:full_c1:0:_eval_conf9 -
+python3 scripts/cross_interchange.py xP81:full_c1:0: yP130:full_c1:0:_eval_conf9 -
+python3 scripts/cross_interchange.py yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 -
+python3 scripts/cross_interchange.py xP81:c1:0: xP81:full_c1:0: -
+python3 scripts/cross_interchange.py xP81:full_c1:0: xP81:c1:0: -
+FA_TAG=_dev python3 scripts/factorial.py - yP130:full_c1:0:_eval_conf9 yP130:c1:0:_eval_conf9 xP81:full_c1:0: xP81:c1:0: yP131:full_c1:0:_eval_conf9 yP131:c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:full_c1:1: yP130:full_c1:1:
+GE_TAG=_dev python3 scripts/generalize.py - yP130:full_c1:0:_eval_conf9 yP130:c1:0:_eval_conf9 xP81:full_c1:0: xP81:c1:0: yP131:full_c1:0:_eval_conf9 yP131:c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:full_c1:1: yP130:full_c1:1:
+FA_TAG=_dev python3 scripts/factorial_ablate.py - yP130:full_c1:0:_eval_conf9 yP130:c1:0:_eval_conf9 xP81:full_c1:0: xP81:c1:0: yP131:full_c1:0:_eval_conf9 yP131:c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:full_c1:1: yP130:full_c1:1:
+FA_TAG=_dev python3 scripts/dyn_factorial.py xP81:full_c1:0: yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9

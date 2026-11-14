@@ -1,0 +1,36 @@
+{
+ "E1_det_DeltaM": 2.0,
+ "E1_forced_P": [
+  [
+   0.5,
+   0.5,
+   0.5
+  ],
+  [
+   0.5,
+   0.5,
+   0.5
+  ],
+  [
+   0.5,
+   0.5,
+   0.5
+  ]
+ ],
+ "E1_P_idempotent": false,
+ "E1_P_equals_half_11T": true,
+ "E1_eig": [
+  1.5,
+  -0.0,
+  0.0
+ ],
+ "E1_half11T_realizes_VS_all_pairs": true,
+ "E2_note": "pairs with e_s = e_b, U_s != U_b: VS target = base, so P[:, U] (U - U_b) = 0 for all U -> P_mU = P_UU = 0; and U' = U_b for all pairs -> P_Um = 0",
+ "E3_frac_pairs_VS_off_image": 0.4897959183673469,
+ "E4_separable_oblique_projection_err": 1.1102230246251565e-16,
+ "E4_separable_best_linear_map_rel_residual": 8.080809165673542e-16,
+ "E4_cross_term_oblique_projection_err": 0.9794990392628109,
+ "E4_cross_term_best_linear_map_rel_residual": 0.3136756509973095,
+ "E4_linear_remix_conjugated_projection_err": 7.105427357601002e-15,
+ "E4_nonlinear_remix_best_linear_map_rel_residual": 0.4297798554468552
+}

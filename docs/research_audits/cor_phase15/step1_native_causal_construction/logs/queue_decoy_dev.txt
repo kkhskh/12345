@@ -1,0 +1,17 @@
+python3 scripts/das_decoy.py xP81:full_c1:0: E
+python3 scripts/das_decoy.py xP81:full_c1:0: PERM
+python3 scripts/das_decoy.py xP81:full_c1:0: A1
+python3 scripts/das_decoy.py xP81:full_c1:0: RANDE
+python3 scripts/das_decoy.py xP81:c1:0: E
+python3 scripts/das_decoy.py xP81:c1:0: PERM
+python3 scripts/das_decoy.py xP81:c1:0: A1
+python3 scripts/das_decoy.py xP81:c1:0: RANDE
+python3 scripts/das_decoy.py yP130:full_c1:0:_eval_conf9 E
+python3 scripts/das_decoy.py yP130:full_c1:0:_eval_conf9 PERM
+python3 scripts/das_decoy.py yP130:full_c1:0:_eval_conf9 A1
+python3 scripts/das_decoy.py yP130:full_c1:0:_eval_conf9 RANDE
+python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 E
+python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 PERM
+python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 A1
+python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 RANDE
+MC_TAG=_dev python3 scripts/mech_construct.py - xP81:full_c1:0: yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:c1:0:

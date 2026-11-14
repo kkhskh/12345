@@ -1,0 +1,1 @@
+yP130_full_c1_s4000_seed A1 {'IIA': 0.923, 'KL': 0.081, 'IIA_disc': 0.837, 'IIA_trueE': 0.935, 'preserve_KL': 0.158, 'preserve_flip': 0.274, 'sel_D2c_over_D2': 0.358, 'D2_over_CNT': 0.972} 179s

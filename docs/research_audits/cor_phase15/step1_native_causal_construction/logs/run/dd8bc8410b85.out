@@ -1,0 +1,4 @@
+wP140:full_c1:0:_eval_conf10 {'ablated': 0.527, 'restore_E': 0.036, 'restore_random': 0.524, 'restore_complement': 0.383, 'restore_all': 0.005, 'rec_E': 0.939, 'rec_random': 0.004, 'rec_complement': 0.276}
+wP141:full_c1:0:_eval_conf10 {'ablated': 0.567, 'restore_E': 0.076, 'restore_random': 0.576, 'restore_complement': 0.546, 'restore_all': 0.312, 'rec_E': 1.923, 'rec_random': -0.037, 'rec_complement': 0.08}
+wP142:full_c1:0:_eval_conf10 {'ablated': 0.554, 'restore_E': 0.157, 'restore_random': 0.551, 'restore_complement': 0.5, 'restore_all': 0.215, 'rec_E': 1.171, 'rec_random': 0.006, 'rec_complement': 0.158}
+wP143:full_c1:0:_eval_conf10 {'ablated': 0.582, 'restore_E': 0.052, 'restore_random': 0.572, 'restore_complement': 0.438, 'restore_all': 0.022, 'rec_E': 0.947, 'rec_random': 0.018, 'rec_complement': 0.258}

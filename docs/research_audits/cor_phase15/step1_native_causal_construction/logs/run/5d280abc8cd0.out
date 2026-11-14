@@ -1,0 +1,1 @@
+wP141_c1_s4000_seed0_eva A1 {'IIA': 0.922, 'KL': 0.062, 'IIA_disc': 0.886, 'IIA_trueE': 0.899, 'preserve_KL': 0.152, 'preserve_flip': 0.243, 'sel_D2c_over_D2': 0.799, 'D2_over_CNT': 0.881} 168s

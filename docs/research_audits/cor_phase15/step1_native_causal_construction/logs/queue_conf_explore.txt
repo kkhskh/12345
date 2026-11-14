@@ -1,0 +1,1 @@
+FA_EVAL=stream:66000000 FA_TAG=_conf_explore python3 scripts/restore.py _ev62500000 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10

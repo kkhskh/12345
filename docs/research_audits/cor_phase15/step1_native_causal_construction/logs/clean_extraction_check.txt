@@ -1,0 +1,23 @@
+== clean extraction check 2026-11-14T06:14:35Z
+1. copy cor_phase15 tree (without step1_native_causal_construction) to /tmp/tmp.8jALSAMiME/cor_phase15 and extract ZIP
+   extracted OK
+2. manifest
+   manifest OK (209 files)
+3. mathematics
+   logs/audit_x1.json identical
+   logs/audit_x1_extra.json identical
+4. verdicts
+   P1 confirmed {'full_ratio>=2': '4/4', 'full_mid0_relI<=0.05_and_|L0share|<=0.10': '4/4', 'c1_ratio<=1.75': '4/4'}
+   P2 confirmed {'full_L1_remaining<=0.05': '4/4', 'full_L1_KLe0<KLbayes_and_pref_e0>=0.5': '4/4', 'full_L0_remaining>=0.95_and_dKL<=0.01': '4/4', 'c1_L1_dKLbayes<=0.02': '3/4'}
+   P3 confirmed {'mapped_gain>=0.85': '4/4', 'shuffled_gain<=0.10_and_randsub_IIA<=0.60': '4/4', 'mean_patch_IIAdisc>=base+0.40': '3/4'}
+   P4 confirmed {'full_A1decoy_IIA>=0.85(false positive)': '3/4', 'full_E_presKL<=0.03_and_decoys>=3x': '3/4', 'c1_E_presKL>=0.05': '4/4'}
+   P5 confirmed {'C2_KL_C1B<=0.05_and_KL_TRUE>=1.0': '4/4', 'C2_acc<=0.40_and_e_readout>=0.95': '3/4', 'b07_S>0_KL_C1B<=0.2*KL_TRUE': '4/4', 'b07_S=0_min_beta_KL>=0.10': '4/4'}
+   P6 confirmed {'emergence<first_B_step': '4/4', 'final_ratio>=2': '4/4'}
+   score_conf.json identical
+5. forward-pass causal check (factorial_ablate wP140 full_c1, confirmation stream)
+   wP140:full_c1:0:_eval_conf10 {'none': (1.0, 0.003, 0.41, 0.03), 'L0': (1.0, 0.003, 0.41, 0.03), 'L1attn': (0.06, 0.474, 0.04, 0.69), 'mlp1': (0.59, 0.13, 0.204, 0.22), 'L1': (0.0, 0.527, 0.029, 0.72)} ref 0.892
+   max |diff| vs archived: 0.0
+6. dependency inventory
+   external data files: 247 | hash mismatches: 0 | missing: []
+   modules identical: True | software: {'python': '3.13.18', 'jax': '0.12.0.1', 'jaxlib': '0.12.0.1', 'numpy': '2.5.3', 'optax': '0.2.8', 'scikit_learn': '1.9.1', 'scipy': '1.18.1', 'platform': 'Linux-6.18.44-fc-v470-x86_64-with-glibc2.39'}
+== done

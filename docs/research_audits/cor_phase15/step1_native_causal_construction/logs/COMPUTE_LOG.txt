@@ -58,3 +58,73 @@
 2026-11-14T05:31:19Z lane B start [f22474fad059] python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 A1
 2026-11-14T05:31:48Z lane C end [dfd0e33d5ea7] rc=0
 2026-11-14T05:31:48Z lane C start [cee5820e9db2] python3 scripts/das_decoy.py yP130:c1:0:_eval_conf9 RANDE
+2026-11-14T05:32:52Z lane CA start [2af195260b30] FA_EVAL=stream:66000000 FA_TAG=_conf python3 scripts/factorial.py _ev62500000  wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10  wP140:c1:0:_eval_conf10 wP141:c1:0:_eval_conf10 wP142:c1:0:_eval_conf10 wP143:c1:0:_eval_conf10
+2026-11-14T05:34:02Z lane CA end [2af195260b30] rc=0
+2026-11-14T05:34:02Z lane CA start [4e21ffe27491] FA_EVAL=stream:66000000 FA_TAG=_conf python3 scripts/factorial_ablate.py _ev62500000  wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10  wP140:c1:0:_eval_conf10 wP141:c1:0:_eval_conf10 wP142:c1:0:_eval_conf10 wP143:c1:0:_eval_conf10
+2026-11-14T05:34:55Z lane CA end [4e21ffe27491] rc=0
+2026-11-14T05:34:55Z lane CA start [4c92e014b34a] GE_TAG=_conf python3 scripts/generalize.py _ev62500000  wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10
+2026-11-14T05:35:10Z lane B end [f22474fad059] rc=0
+2026-11-14T05:35:10Z lane B start [c6cefddf4b48] MC_TAG=_dev python3 scripts/mech_construct.py - xP81:full_c1:0: yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:c1:0:
+2026-11-14T05:36:00Z lane CA end [4c92e014b34a] rc=0
+2026-11-14T05:36:00Z lane CA start [3a546c53bf65] FA_EVAL=stream:66000000 FA_TAG=_conf python3 scripts/dyn_factorial.py  wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10
+2026-11-14T05:36:18Z lane C end [cee5820e9db2] rc=0
+2026-11-14T05:37:29Z lane CB start [89e1e18322a7] XI_OUT=cross_conf python3 scripts/cross_interchange.py wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 _ev62500000
+2026-11-14T05:38:11Z lane B end [c6cefddf4b48] rc=0
+2026-11-14T05:38:16Z lane CB end [89e1e18322a7] rc=0
+2026-11-14T05:38:16Z lane CB start [6a2c11ffdae2] XI_OUT=cross_conf python3 scripts/cross_interchange.py wP141:full_c1:0:_eval_conf10 wP140:full_c1:0:_eval_conf10 _ev62500000
+2026-11-14T05:38:36Z lane CA end [3a546c53bf65] rc=0
+2026-11-14T05:38:41Z lane CB end [6a2c11ffdae2] rc=0
+2026-11-14T05:38:41Z lane CB start [3f7b0765876d] XI_OUT=cross_conf python3 scripts/cross_interchange.py wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10 _ev62500000
+2026-11-14T05:38:58Z lane CB end [3f7b0765876d] rc=0
+2026-11-14T05:38:58Z lane CB start [346c8ff28bcc] XI_OUT=cross_conf python3 scripts/cross_interchange.py wP143:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 _ev62500000
+2026-11-14T05:39:15Z lane CB end [346c8ff28bcc] rc=0
+2026-11-14T05:39:15Z lane CB start [12c8b712b951] XI_OUT=cross_conf python3 scripts/cross_interchange.py wP140:c1:0:_eval_conf10 wP140:full_c1:0:_eval_conf10 _ev62500000
+2026-11-14T05:39:32Z lane CB end [12c8b712b951] rc=0
+2026-11-14T05:39:32Z lane CB start [c5b177bb941b] XI_OUT=cross_conf python3 scripts/cross_interchange.py wP140:full_c1:0:_eval_conf10 wP140:c1:0:_eval_conf10 _ev62500000
+2026-11-14T05:39:48Z lane CB end [c5b177bb941b] rc=0
+2026-11-14T05:39:48Z lane CB start [72ab395080dc] XI_OUT=cross_conf python3 scripts/cross_interchange.py wP141:c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 _ev62500000
+2026-11-14T05:40:05Z lane CB end [72ab395080dc] rc=0
+2026-11-14T05:40:05Z lane CB start [eb2e96a62772] XI_OUT=cross_conf python3 scripts/cross_interchange.py wP141:full_c1:0:_eval_conf10 wP141:c1:0:_eval_conf10 _ev62500000
+2026-11-14T05:40:20Z lane CB end [eb2e96a62772] rc=0
+2026-11-14T05:40:20Z lane CB start [64aa93588627] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP140:full_c1:0:_eval_conf10 E
+2026-11-14T05:40:51Z lane CX start [dd8bc8410b85] FA_EVAL=stream:66000000 FA_TAG=_conf_explore python3 scripts/restore.py _ev62500000 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10
+2026-11-14T05:40:51Z lane CB2 start [ad2ca153d033] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP140:full_c1:0:_eval_conf10 A1
+2026-11-14T05:41:26Z lane CX end [dd8bc8410b85] rc=0
+2026-11-14T05:42:41Z lane CB end [64aa93588627] rc=0
+2026-11-14T05:42:41Z lane CB start [bd8f28a305e1] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP140:full_c1:0:_eval_conf10 PERM
+2026-11-14T05:43:51Z lane CB2 end [ad2ca153d033] rc=0
+2026-11-14T05:43:51Z lane CB2 start [9d4cf0887e26] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP140:c1:0:_eval_conf10 E
+2026-11-14T05:45:25Z lane CB end [bd8f28a305e1] rc=0
+2026-11-14T05:45:25Z lane CB start [451b24495dfe] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP140:c1:0:_eval_conf10 A1
+2026-11-14T05:46:37Z lane CB2 end [9d4cf0887e26] rc=0
+2026-11-14T05:46:37Z lane CB2 start [8bde7aae0ab7] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP141:full_c1:0:_eval_conf10 E
+2026-11-14T05:48:13Z lane CB end [451b24495dfe] rc=0
+2026-11-14T05:48:13Z lane CB start [9be873f633f7] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP141:full_c1:0:_eval_conf10 A1
+2026-11-14T05:49:38Z lane CB2 end [8bde7aae0ab7] rc=0
+2026-11-14T05:49:38Z lane CB2 start [fcf7d8832e15] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP141:full_c1:0:_eval_conf10 PERM
+2026-11-14T05:51:01Z lane CB end [9be873f633f7] rc=0
+2026-11-14T05:51:01Z lane CB start [004c5ff16a64] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP141:c1:0:_eval_conf10 E
+2026-11-14T05:52:25Z lane CB2 end [fcf7d8832e15] rc=0
+2026-11-14T05:52:25Z lane CB2 start [5d280abc8cd0] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP141:c1:0:_eval_conf10 A1
+2026-11-14T05:53:44Z lane CB end [004c5ff16a64] rc=0
+2026-11-14T05:53:44Z lane CB start [1ef9618548e2] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP142:full_c1:0:_eval_conf10 E
+2026-11-14T05:55:14Z lane CB2 end [5d280abc8cd0] rc=0
+2026-11-14T05:55:14Z lane CB2 start [746b0c9871b3] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP142:full_c1:0:_eval_conf10 A1
+2026-11-14T05:56:31Z lane CB end [1ef9618548e2] rc=0
+2026-11-14T05:56:31Z lane CB start [9d03d75de62d] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP142:full_c1:0:_eval_conf10 PERM
+2026-11-14T05:58:13Z lane CB2 end [746b0c9871b3] rc=0
+2026-11-14T05:58:13Z lane CB2 start [8663c831d3f7] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP142:c1:0:_eval_conf10 E
+2026-11-14T05:59:24Z lane CB end [9d03d75de62d] rc=0
+2026-11-14T05:59:24Z lane CB start [ac25712e01eb] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP142:c1:0:_eval_conf10 A1
+2026-11-14T06:01:01Z lane CB2 end [8663c831d3f7] rc=0
+2026-11-14T06:01:01Z lane CB2 start [30cda7571130] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP143:full_c1:0:_eval_conf10 E
+2026-11-14T06:02:19Z lane CB end [ac25712e01eb] rc=0
+2026-11-14T06:02:19Z lane CB start [0bba41b88d37] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP143:full_c1:0:_eval_conf10 A1
+2026-11-14T06:03:53Z lane CB2 end [30cda7571130] rc=0
+2026-11-14T06:03:53Z lane CB2 start [0dcfdf41d980] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP143:full_c1:0:_eval_conf10 PERM
+2026-11-14T06:05:08Z lane CB end [0bba41b88d37] rc=0
+2026-11-14T06:05:08Z lane CB start [f9457418a102] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP143:c1:0:_eval_conf10 E
+2026-11-14T06:06:43Z lane CB2 end [0dcfdf41d980] rc=0
+2026-11-14T06:06:43Z lane CB2 start [55abb5238b49] DD_EVAL=../step1_causal_equivalence/logs/eval_conf10.npz XI_OUT=decoy_conf python3 scripts/das_decoy.py wP143:c1:0:_eval_conf10 A1
+2026-11-14T06:08:00Z lane CB end [f9457418a102] rc=0
+2026-11-14T06:08:50Z lane CB2 end [55abb5238b49] rc=0

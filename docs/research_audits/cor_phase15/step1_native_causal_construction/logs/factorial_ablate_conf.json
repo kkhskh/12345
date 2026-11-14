@@ -1,0 +1,314 @@
+{
+ "wP140:full_c1:0:_eval_conf10": {
+  "none": {
+   "E_interaction_remaining": 1.0,
+   "KL_bayes": 0.0033980549985106537,
+   "KL_e0": 0.41023430828164464,
+   "pref_e0": 0.026,
+   "argmax_bayes": 0.738
+  },
+  "L0": {
+   "E_interaction_remaining": 0.9994685649871826,
+   "KL_bayes": 0.003412915900495967,
+   "KL_e0": 0.41014843635056264,
+   "pref_e0": 0.03,
+   "argmax_bayes": 0.732
+  },
+  "L1attn": {
+   "E_interaction_remaining": 0.060043659061193466,
+   "KL_bayes": 0.4741567068437792,
+   "KL_e0": 0.03972636918290099,
+   "pref_e0": 0.692,
+   "argmax_bayes": 0.636
+  },
+  "mlp1": {
+   "E_interaction_remaining": 0.5880599021911621,
+   "KL_bayes": 0.12975749796276995,
+   "KL_e0": 0.2038396914673766,
+   "pref_e0": 0.222,
+   "argmax_bayes": 0.652
+  },
+  "L1": {
+   "E_interaction_remaining": 0.0031229143496602774,
+   "KL_bayes": 0.526615646214122,
+   "KL_e0": 0.028724168967413824,
+   "pref_e0": 0.718,
+   "argmax_bayes": 0.636
+  },
+  "ref_KL_bayes_e0": 0.8919445862978014,
+  "ref_disc_frac": 0.362
+ },
+ "wP141:full_c1:0:_eval_conf10": {
+  "none": {
+   "E_interaction_remaining": 1.0,
+   "KL_bayes": 0.007305839949594167,
+   "KL_e0": 0.41730718182111537,
+   "pref_e0": 0.052,
+   "argmax_bayes": 0.69
+  },
+  "L0": {
+   "E_interaction_remaining": 1.0000299215316772,
+   "KL_bayes": 0.007303659567725001,
+   "KL_e0": 0.4173453487105235,
+   "pref_e0": 0.052,
+   "argmax_bayes": 0.694
+  },
+  "L1attn": {
+   "E_interaction_remaining": 0.1235317811369896,
+   "KL_bayes": 0.4724715653171156,
+   "KL_e0": 0.06022115772130661,
+   "pref_e0": 0.664,
+   "argmax_bayes": 0.642
+  },
+  "mlp1": {
+   "E_interaction_remaining": 0.31132712960243225,
+   "KL_bayes": 0.3646684189197236,
+   "KL_e0": 0.06432957975924834,
+   "pref_e0": 0.664,
+   "argmax_bayes": 0.638
+  },
+  "L1": {
+   "E_interaction_remaining": 0.0008427527500316501,
+   "KL_bayes": 0.5665799978512814,
+   "KL_e0": 0.03256149737759507,
+   "pref_e0": 0.69,
+   "argmax_bayes": 0.64
+  },
+  "ref_KL_bayes_e0": 0.8919445862978014,
+  "ref_disc_frac": 0.362
+ },
+ "wP142:full_c1:0:_eval_conf10": {
+  "none": {
+   "E_interaction_remaining": 1.0,
+   "KL_bayes": 0.007629089380952393,
+   "KL_e0": 0.41902866838707853,
+   "pref_e0": 0.04,
+   "argmax_bayes": 0.68
+  },
+  "L0": {
+   "E_interaction_remaining": 1.0001096725463867,
+   "KL_bayes": 0.00763955591322323,
+   "KL_e0": 0.4192020188294677,
+   "pref_e0": 0.044,
+   "argmax_bayes": 0.678
+  },
+  "L1attn": {
+   "E_interaction_remaining": 0.09135112911462784,
+   "KL_bayes": 0.4773221484341224,
+   "KL_e0": 0.05634319200294124,
+   "pref_e0": 0.644,
+   "argmax_bayes": 0.642
+  },
+  "mlp1": {
+   "E_interaction_remaining": 0.5174902677536011,
+   "KL_bayes": 0.19911747611375083,
+   "KL_e0": 0.11728052448683197,
+   "pref_e0": 0.506,
+   "argmax_bayes": 0.642
+  },
+  "L1": {
+   "E_interaction_remaining": 0.003380126552656293,
+   "KL_bayes": 0.5535582459600416,
+   "KL_e0": 0.04231924922363262,
+   "pref_e0": 0.704,
+   "argmax_bayes": 0.638
+  },
+  "ref_KL_bayes_e0": 0.8919445862978014,
+  "ref_disc_frac": 0.362
+ },
+ "wP143:full_c1:0:_eval_conf10": {
+  "none": {
+   "E_interaction_remaining": 1.0,
+   "KL_bayes": 0.010268152395173438,
+   "KL_e0": 0.41727126041351525,
+   "pref_e0": 0.036,
+   "argmax_bayes": 0.726
+  },
+  "L0": {
+   "E_interaction_remaining": 0.9998840689659119,
+   "KL_bayes": 0.010259036756456648,
+   "KL_e0": 0.41729575249482087,
+   "pref_e0": 0.034,
+   "argmax_bayes": 0.724
+  },
+  "L1attn": {
+   "E_interaction_remaining": 0.06539128720760345,
+   "KL_bayes": 0.5453848982257643,
+   "KL_e0": 0.05240771273251569,
+   "pref_e0": 0.628,
+   "argmax_bayes": 0.636
+  },
+  "mlp1": {
+   "E_interaction_remaining": 0.6182876229286194,
+   "KL_bayes": 0.14725907700244165,
+   "KL_e0": 0.1888277606245547,
+   "pref_e0": 0.288,
+   "argmax_bayes": 0.634
+  },
+  "L1": {
+   "E_interaction_remaining": 0.001779245212674141,
+   "KL_bayes": 0.5824921351304359,
+   "KL_e0": 0.039060743758808227,
+   "pref_e0": 0.672,
+   "argmax_bayes": 0.636
+  },
+  "ref_KL_bayes_e0": 0.8919445862978014,
+  "ref_disc_frac": 0.362
+ },
+ "wP140:c1:0:_eval_conf10": {
+  "none": {
+   "E_interaction_remaining": 1.0,
+   "KL_bayes": 0.06395986573380014,
+   "KL_e0": 0.4782779387378619,
+   "pref_e0": 0.05,
+   "argmax_bayes": 0.632
+  },
+  "L0": {
+   "E_interaction_remaining": 0.9260937571525574,
+   "KL_bayes": 0.06435816639297252,
+   "KL_e0": 0.4779261878225727,
+   "pref_e0": 0.056,
+   "argmax_bayes": 0.632
+  },
+  "L1attn": {
+   "E_interaction_remaining": 0.41308483481407166,
+   "KL_bayes": 0.0666077996757754,
+   "KL_e0": 0.4749006637853938,
+   "pref_e0": 0.078,
+   "argmax_bayes": 0.636
+  },
+  "mlp1": {
+   "E_interaction_remaining": 0.708441972732544,
+   "KL_bayes": 0.06575480397463633,
+   "KL_e0": 0.48276176077043764,
+   "pref_e0": 0.064,
+   "argmax_bayes": 0.636
+  },
+  "L1": {
+   "E_interaction_remaining": 0.14894597232341766,
+   "KL_bayes": 0.06713519273527695,
+   "KL_e0": 0.47878671917558463,
+   "pref_e0": 0.07,
+   "argmax_bayes": 0.632
+  },
+  "ref_KL_bayes_e0": 0.8919445862978014,
+  "ref_disc_frac": 0.362
+ },
+ "wP141:c1:0:_eval_conf10": {
+  "none": {
+   "E_interaction_remaining": 1.0,
+   "KL_bayes": 0.09148599959914751,
+   "KL_e0": 0.49307657445615183,
+   "pref_e0": 0.082,
+   "argmax_bayes": 0.71
+  },
+  "L0": {
+   "E_interaction_remaining": 0.9939548373222351,
+   "KL_bayes": 0.09115386357464457,
+   "KL_e0": 0.49321326942914767,
+   "pref_e0": 0.086,
+   "argmax_bayes": 0.708
+  },
+  "L1attn": {
+   "E_interaction_remaining": 0.42425692081451416,
+   "KL_bayes": 0.09501506148330544,
+   "KL_e0": 0.4650594290336612,
+   "pref_e0": 0.104,
+   "argmax_bayes": 0.72
+  },
+  "mlp1": {
+   "E_interaction_remaining": 0.47770699858665466,
+   "KL_bayes": 0.09844343495997368,
+   "KL_e0": 0.48211110799454104,
+   "pref_e0": 0.098,
+   "argmax_bayes": 0.698
+  },
+  "L1": {
+   "E_interaction_remaining": 0.024508098140358925,
+   "KL_bayes": 0.09793775209931695,
+   "KL_e0": 0.49074584004877175,
+   "pref_e0": 0.096,
+   "argmax_bayes": 0.71
+  },
+  "ref_KL_bayes_e0": 0.8919445862978014,
+  "ref_disc_frac": 0.362
+ },
+ "wP142:c1:0:_eval_conf10": {
+  "none": {
+   "E_interaction_remaining": 1.0,
+   "KL_bayes": 0.1300849074925651,
+   "KL_e0": 0.5371647254939734,
+   "pref_e0": 0.124,
+   "argmax_bayes": 0.71
+  },
+  "L0": {
+   "E_interaction_remaining": 0.9531453847885132,
+   "KL_bayes": 0.13045317734248318,
+   "KL_e0": 0.5357210758030699,
+   "pref_e0": 0.118,
+   "argmax_bayes": 0.714
+  },
+  "L1attn": {
+   "E_interaction_remaining": 0.2906346917152405,
+   "KL_bayes": 0.15382590648083275,
+   "KL_e0": 0.4981827955501836,
+   "pref_e0": 0.182,
+   "argmax_bayes": 0.692
+  },
+  "mlp1": {
+   "E_interaction_remaining": 0.7233705520629883,
+   "KL_bayes": 0.13647599439021357,
+   "KL_e0": 0.5196158242208239,
+   "pref_e0": 0.146,
+   "argmax_bayes": 0.704
+  },
+  "L1": {
+   "E_interaction_remaining": 0.10993624478578568,
+   "KL_bayes": 0.15534467683381564,
+   "KL_e0": 0.4914530198172557,
+   "pref_e0": 0.194,
+   "argmax_bayes": 0.692
+  },
+  "ref_KL_bayes_e0": 0.8919445862978014,
+  "ref_disc_frac": 0.362
+ },
+ "wP143:c1:0:_eval_conf10": {
+  "none": {
+   "E_interaction_remaining": 1.0,
+   "KL_bayes": 0.3315811276554456,
+   "KL_e0": 0.7528011096613738,
+   "pref_e0": 0.268,
+   "argmax_bayes": 0.614
+  },
+  "L0": {
+   "E_interaction_remaining": 0.9919165968894958,
+   "KL_bayes": 0.3313900154643826,
+   "KL_e0": 0.7530391864549558,
+   "pref_e0": 0.272,
+   "argmax_bayes": 0.614
+  },
+  "L1attn": {
+   "E_interaction_remaining": 0.23619626462459564,
+   "KL_bayes": 0.31965931221715754,
+   "KL_e0": 0.651496143094329,
+   "pref_e0": 0.292,
+   "argmax_bayes": 0.624
+  },
+  "mlp1": {
+   "E_interaction_remaining": 0.7299745082855225,
+   "KL_bayes": 0.31752628981086684,
+   "KL_e0": 0.7162205595199463,
+   "pref_e0": 0.266,
+   "argmax_bayes": 0.614
+  },
+  "L1": {
+   "E_interaction_remaining": 0.04720883443951607,
+   "KL_bayes": 0.3124450257476193,
+   "KL_e0": 0.6282440687220547,
+   "pref_e0": 0.292,
+   "argmax_bayes": 0.618
+  },
+  "ref_KL_bayes_e0": 0.8919445862978014,
+  "ref_disc_frac": 0.362
+ }
+}

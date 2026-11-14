@@ -1,0 +1,1 @@
+wP143_full_c1_s4000_seed E {'IIA': 0.968, 'KL': 0.018, 'IIA_disc': 0.982, 'IIA_trueE': 0.968, 'preserve_KL': 0.006, 'preserve_flip': 0.141, 'sel_D2c_over_D2': 0.21, 'D2_over_CNT': 0.989} 171s

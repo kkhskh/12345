@@ -1,0 +1,1 @@
+wP140_full_c1_s4000_seed A1 {'IIA': 0.922, 'KL': 0.074, 'IIA_disc': 0.856, 'IIA_trueE': 0.942, 'preserve_KL': 0.173, 'preserve_flip': 0.263, 'sel_D2c_over_D2': 0.449, 'D2_over_CNT': 1.128} 178s

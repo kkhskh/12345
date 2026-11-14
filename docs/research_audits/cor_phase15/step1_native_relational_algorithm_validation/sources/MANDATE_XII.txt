@@ -1,0 +1,831 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XII
+
+## Native Relational Algorithms: Fresh Causal Replication, Circuit Reconstruction, Computational Identifiability, and Generalization
+
+**Full-depth autonomous mathematical and mechanistic research mandate**
+
+**Research execution budget: approximately 8–13 hours of active computational investigation on the available hardware.**
+
+---
+
+# 1. SCIENTIFIC MISSION AND CONTINUITY
+
+You are continuing the COR foundational research program after Investigation XI.
+
+Latest branch:
+
+`cor-phase15-step1-native-causal-construction`
+
+Latest completed package:
+
+`cor_inv11_native_causal_construction.zip`
+
+Latest research directory:
+
+`docs/research_audits/cor_phase15/step1_native_causal_construction/`
+
+Verify the actual repository state, HEAD commit, checkpoints, scripts, mathematical proofs, frozen predictions, and prior adjudications.
+
+Read the relevant research history, particularly Investigations VI–XI, and consult earlier COR investigations wherever necessary to understand the mathematical and causal context.
+
+**We remain in Phase 1.5, Step 1: Foundational Mathematical and Mechanistic Investigation.**
+
+Our approximate 25% progress estimate remains a provisional judgment about the foundational research territory explored. It is not a measured completion percentage.
+
+Do not close Step 1, propose moving to another phase, choose a paper thesis, or declare the original COR framework validated.
+
+COR investigates how relationships among information sources are represented, transformed, combined, and causally used in AI decisions.
+
+This investigation must continue developing those foundations through rigorous mathematics, neural experiments, independent confirmation, and adversarial criticism.
+
+**This is not merely a replication exercise.**
+
+The purpose is to determine whether the native relational algorithm identified in Investigation XI can survive stronger causal scrutiny, whether its apparent invariants are genuine, and which computational principles explain its construction, limitations, and generalization.
+
+---
+
+# 2. EXACT STARTING POINT: INVESTIGATION XI
+
+Investigation XI reported six confirmed frozen predictions across four pre-existing held-out models.
+
+The principal findings were:
+
+1. The fine-tuned Transformers form a representation of the conjunction between perfect leave-question agreement and target-question agreement primarily in layer 1.
+
+2. Layer 0 appears to transmit relevant agreement information without completing that conjunction.
+
+3. Removing the measured layer-1 interaction changes candidate decisions toward those expected when the affected group is ineligible.
+
+4. Restoring a six-dimensional eligibility-related subspace restores much of the decision effect.
+
+5. Learned mappings between independently pretrained models transfer source-specific intervention effects, recovering approximately 0.89–1.02 of the within-model reference gain.
+
+6. High interchange accuracy can be misleading. A subspace trained against an incorrect perfectness-only rule achieves high interchange scores, while preservation and selectivity tests expose important differences.
+
+7. The relational conjunction appears in intermediate representations before the model's behavior switches to the Bayesian decision rule.
+
+8. Under two colluders, the models retain the eligibility representation but continue applying the one-colluder decision rule, resulting in major generalization failure.
+
+9. Investigation X's Theorem X1 was corrected and partially retracted. Investigation XI established restricted mathematical results concerning projection-realizability, linear interventions, and intervention legitimacy.
+
+These results are important but have not yet received the level of confirmation needed for stronger claims.
+
+## 2.1 Unfinished scientific obligations
+
+Investigation XI explicitly left unresolved:
+
+- Fresh independent confirmation using newly pretrained models.
+- Same-parent versus cross-parent transfer controls on confirmation models.
+- Weight-level investigation of layer-1 attention and MLP computation.
+- Compensation, redundancy, and backup-pathway experiments.
+- Alternative ablation methods that challenge additive-completion interventions.
+- Bootstrap uncertainty estimates and systematic analysis of borderline results.
+- Direct tests for false negatives in the causal-abstraction identification procedure.
+- The precise reason the relational representation emerges before correct downstream behavior.
+- Broader mathematical identification conditions and constrained generalization.
+
+The archived record also contains a discrepancy between the reported 67/72 successful individual checks and counts obtainable from the listed frozen prediction arms. Re-derive the exact denominator and verdict accounting from the original scorer before making further aggregate claims.
+
+Also distinguish diagnostic alignment fit measured on training states from genuinely held-out alignment evaluation.
+
+**Do not carry these reporting or scientific ambiguities forward unexamined.**
+
+## 2.2 Why this investigation must go deeper
+
+Investigation XI finished while affordable, potentially decisive experiments remained undone.
+
+That is not an acceptable stopping standard for Investigation XII.
+
+A positive set of frozen predictions is not sufficient grounds to stop if important competing causal explanations remain cheaply testable.
+
+The goal is not to consume CPU time unnecessarily.
+
+The goal is to use the available research budget to resolve, falsify, or substantially constrain the scientific uncertainties that would otherwise weaken COR's eventual arguments.
+
+---
+
+# 3. CENTRAL RESEARCH QUESTION
+
+**What native neural operations construct the relational eligibility computation, how do those operations cause candidate-specific decisions, and which aspects of the computation remain invariant across independently trained models and changed source-generating conditions?**
+
+Investigate competing explanations rather than assuming Investigation XI's preferred interpretation is correct.
+
+### H1 — Shared causal relational algorithm
+
+The trained models implement equivalent relational operations through different neural components, and the identified eligibility representation is a genuine mediator of candidate-specific decisions.
+
+### H2 — Shared abstraction, different downstream algorithms
+
+The models construct an equivalent eligibility representation but differ in how they transform that information into candidate evidence.
+
+### H3 — Intervention-dependent apparent mechanism
+
+The identified pathway or subspace appears causal because of the particular intervention construction, alignment procedure, or restricted evaluation distribution.
+
+### H4 — Redundant or compensating implementations
+
+The measured pathway is important but is not the complete natural mechanism. Alternative pathways, redundant information, or compensating computation contribute to the same decision.
+
+### H5 — Restricted computation with limited structural generalization
+
+The learned relational operation is valid under the training generator but does not implement the appropriate decision transformation under changes in collusion, copying, or source dependence.
+
+These possibilities may overlap.
+
+Develop tests that distinguish them.
+
+---
+
+# 4. WORKSTREAM A — FRESH INDEPENDENT CAUSAL CONFIRMATION
+
+**Mandatory. High priority.**
+
+The primary empirical findings must be tested on genuinely new models.
+
+## A1. Train a new confirmation cohort
+
+Train at least four newly initialized, independently pretrained parent models, using the established generator and architecture unless a justified change is necessary.
+
+Use new seeds and new evaluation streams that have not influenced Investigations IX–XI.
+
+For each parent, preserve:
+
+- Initialization and training seed.
+- Pretraining checkpoints.
+- Agreement-count performance.
+- Complete versus incomplete pretraining status.
+- Native full-fine-tuning checkpoints.
+- Frozen-prefix comparison.
+- Training configurations.
+- Training and evaluation logs.
+
+Use a prospective readiness criterion for complete pretraining.
+
+Report incomplete parents separately rather than silently discarding them.
+
+Do not select only favorable parents after inspecting downstream outcomes.
+
+## A2. Freeze predictions before confirmation
+
+Use Investigation XI and existing models for development.
+
+Finalize and freeze the new predictions, intervention procedures, statistical tests, and success criteria before training or evaluating the new confirmation cohort.
+
+The freeze must be recorded with a Git commit and hashes of the relevant code and configuration.
+
+Do not tune interventions against the new confirmation parents.
+
+Do not relabel existing Investigation X or XI models as independent new confirmation.
+
+## A3. Replicate the causal findings
+
+On the new models, test whether:
+
+- Layer 1 forms the relational conjunction.
+- Removing the relevant computation causes the predicted candidate-specific decision change.
+- Restoring the proposed mediator restores the effect.
+- The mechanism remains selective across eligibility-defining and control edits.
+- Cross-model mapped transfer survives.
+- The measured learning progression recurs.
+
+Report individual parent results and failure patterns.
+
+A prediction may pass its preregistered aggregate criterion while still displaying important model-specific failures. Preserve both facts.
+
+## A4. Same-parent versus cross-parent transfer
+
+Train additional fine-tuning seeds on at least two of the new parents.
+
+Compare:
+
+- Same pretrained parent, different fine-tuning seeds.
+- Different pretrained parents.
+- Repaired versus frozen-prefix models.
+- Mappings fitted to natural states.
+- Matched random and shuffled controls.
+
+Determine whether shared pretraining produces systematically more similar mechanisms or causal alignments.
+
+Test both directions of transfer where possible.
+
+Distinguish source-specific intervention gain from source-free mean-patching effects.
+
+Fit mappings on one stream and evaluate alignment quality and counterfactual transfer on genuinely separate streams.
+
+**This comparison is mandatory because Investigation XI had the necessary development evidence but did not complete it prospectively.**
+
+---
+
+# 5. WORKSTREAM B — WEIGHT-LEVEL CAUSAL CIRCUIT RECONSTRUCTION
+
+**Mandatory primary scientific investigation.**
+
+Investigation XI located the conjunction in layer 1 but did not establish the actual weight-level computation.
+
+Go deeper.
+
+## B1. Identify the operations
+
+Examine selected attention heads and MLP components within layers 0–1, including:
+
+- Query and key features.
+- Attention-score formation.
+- Attention probability changes.
+- Value and output projections.
+- MLP input directions.
+- Nonlinear activation behavior.
+- Residual interactions.
+- Normalization effects.
+- Downstream readout contributions.
+
+Determine how the network combines perfectness information with target-question agreement.
+
+Is the relevant computation implemented through a thresholded operation, a smooth multiplicative interaction, attention selection, or another mechanism?
+
+Do not infer the answer from output correlations.
+
+## B2. Establish the actual causal pathway
+
+Use path-specific interventions to determine which components transmit, construct, or use relational information.
+
+Attempt to establish a mechanism of the form:
+
+**Source relationships → internal relational operation → eligibility representation → candidate-evidence weighting → final decision.**
+
+At each link distinguish:
+
+- Information availability.
+- Correlation.
+- Decodability.
+- Causal transmission.
+- Computation.
+- Mediation.
+- Downstream use.
+
+A component that carries an already computed interaction is not necessarily the component that constructs it.
+
+Seek both necessity and restoration evidence, while stating the assumptions required for those conclusions.
+
+## B3. Challenge the previous ablation
+
+Investigation XI removed the measured interaction using an additive-completion intervention.
+
+This can produce hybrid activations that are not naturally generated by the model.
+
+Repeat the mechanistic assessment using alternative intervention constructions, such as:
+
+- Matched activation resampling.
+- Mean-based interventions.
+- Path-specific patching.
+- Controlled component replacement.
+- Valid input-level counterfactuals.
+- Alternative mediation or causal-scrubbing controls.
+
+Determine whether the reported layer-1 mechanism survives reasonable changes in intervention methodology.
+
+An explanation that works only for one carefully engineered ablation is weaker than an explanation that survives multiple independent intervention designs.
+
+## B4. Compensation and redundancy
+
+Test whether the network possesses alternative routes that become apparent when individual components are removed.
+
+Use single-component and joint-component interventions.
+
+Check whether apparent restoration can be explained by residual information, redundant heads, alternate MLP directions, or downstream recomputation.
+
+Distinguish immediate compensatory routing within a fixed forward computation from adaptation that would require retraining.
+
+Do not infer that no backup exists merely because one ablation failed to reveal it.
+
+Where complete identification is impossible, establish quantitative bounds or meaningful restrictions.
+
+## B5. Explain learning dynamics
+
+Investigation XI observed that the relational representation appears before the model adopts the correct candidate-decision rule.
+
+Use saved checkpoints to investigate whether this delay results from:
+
+- Downstream readout learning.
+- Insufficient magnitude of the representation.
+- Competition with earlier heuristics.
+- Changes in attention routing.
+- Optimization dynamics.
+- Other mechanisms supported by the evidence.
+
+Try to predict the behavioral transition from an internal measurement that is not simply the final output.
+
+This would provide a stronger learning-mechanism result than observing the order alone.
+
+---
+
+# 6. WORKSTREAM C — MATHEMATICAL IDENTIFIABILITY AND CAUSAL ABSTRACTION
+
+**Mandatory mathematical investigation.**
+
+Build directly on the corrected Investigation XI results, particularly Proposition A2 and the distinction between projection, linear, and unrestricted interventions.
+
+## C1. Independent mathematical scrutiny
+
+Recheck the earlier mathematical corrections.
+
+Determine precisely which conclusions require:
+
+- Product support.
+- Restricted representation classes.
+- Linear intervention maps.
+- Projective interventions.
+- Deterministic relationships among abstract variables.
+- Particular forms of causal factorization.
+
+Do not generalize projection-realizability results to every notion of causal mediation or output-level interchange.
+
+## C2. What identifies a natural mediator?
+
+Investigation XI showed that interchange accuracy alone produces false positives.
+
+Investigate whether a stronger combination of conditions can identify a genuine relational mediator:
+
+- Interchange fidelity.
+- Preservation under equal-variable substitutions.
+- Selectivity to defining input edits.
+- Restoration after upstream intervention.
+- Cross-model mapped transfer.
+- Control against source-independent mean-patch effects.
+
+Seek mathematical conditions under which these tests are informative.
+
+Also construct counterexamples in which apparently strong identification criteria pass even though the proposed variable is not unique or does not capture the full computation.
+
+Test for false negatives as well as false positives.
+
+Do not presume that a particular diagnostic combination is universally sufficient.
+
+## C3. Admissible interventions
+
+Develop a principled distinction between:
+
+- Naturally realizable input edits.
+- Internal interventions that remain within the model's relevant support.
+- Soft causal interventions.
+- Structurally inconsistent high-level assignments.
+- Artificial but mathematically defined intervention targets.
+
+The Investigation X/XI pooled-\(S\) issue is a starting example.
+
+Determine when intervention failure can genuinely falsify a proposed abstraction and when the tested counterfactual lacks the appropriate semantics.
+
+## C4. Derive predictive mathematical results
+
+Prefer results that explain or predict an observable computational distinction.
+
+Possible targets include:
+
+- Conditions for equivalence across neural implementations.
+- Limits of identifying an intermediate variable.
+- Restricted interaction requirements.
+- Representation invariance.
+- Redundant causal pathways.
+- Structural generalization of relational evidence updates.
+
+A meaningful restricted theorem, explicit counterexample, or impossibility result is valuable.
+
+Do not produce a grand universal COR theorem without the assumptions and evidence needed to support it.
+
+---
+
+# 7. WORKSTREAM D — RELATIONAL COMPUTATION AND GENERALIZATION
+
+**One substantial, mathematically motivated generalization investigation is required.**
+
+Investigation XI demonstrated a crucial separation:
+
+**The learned eligibility variable may generalize while the rule that converts it into candidate evidence does not.**
+
+Under two colluders, the models retained useful eligibility information but continued applying the one-colluder decision rule.
+
+Investigate this distinction more deeply.
+
+## D1. Separate the computational stages
+
+Determine whether the generalization failure arises from:
+
+- The relational variable.
+- The aggregation operation.
+- The candidate-evidence readout.
+- Model training support.
+- Representation accessibility.
+- A combination of these factors.
+
+Use exact Bayesian reference computations under each tested generator.
+
+## D2. Test a discriminating extension
+
+Choose a controlled extension, such as:
+
+- Multiple colluders.
+- Partial copying.
+- A distinct but closely related reliability or compatibility environment.
+- A different group configuration.
+
+The test should have a mathematical motivation and distinguish competing mechanisms.
+
+Where feasible, compare a frozen native model, a selectively adapted model, and an appropriate baseline.
+
+Ask whether adapting only the downstream evidence-combination rule can correct the decision while preserving the learned relational representation.
+
+If selective adaptation succeeds, test whether the correction actually uses that representation rather than bypassing it.
+
+If it fails, determine whether the obstacle is informational, computational, architectural, or related to optimization.
+
+Do not assume the existing eligibility statistic is sufficient under every new source-generating process.
+
+## D3. Connect to wider COR foundations
+
+Compare the emerging principles with earlier T4 and GATE findings.
+
+Investigate whether there is a defensible common mathematical or causal abstraction, or whether the mechanisms belong to different classes.
+
+Maintain TRANS, adaptive sources, unknown groups, broader architectures, and the original obstruction/discrepancy framework in the open foundational map.
+
+Do not begin an enormous unrelated experimental program within this investigation.
+
+However, do not reduce COR's scientific significance to one Transformer circuit or one collusion generator.
+
+The broader mathematical implications should remain an active research concern.
+
+---
+
+# 8. PROSPECTIVE PREDICTIONS AND STATISTICAL STANDARDS
+
+Freeze a coherent set of approximately five to eight substantial predictions.
+
+Possible prediction domains include:
+
+1. Fresh-parent replication of layer-1 relational computation.
+2. Weight-level causal pathways and their effects on candidate decisions.
+3. Robustness or failure of the mechanism under alternative interventions.
+4. Same-parent versus cross-parent causal transfer.
+5. Identification diagnostics under false-positive and false-negative controls.
+6. Internal predictors of the learning transition.
+7. Relational variable versus downstream-rule generalization.
+8. A new mathematical prediction distinguishing computational implementations.
+
+Do not use the full number merely as a checklist.
+
+Each prediction must have:
+
+- A clear hypothesis.
+- Competing alternatives.
+- An explicit testing procedure.
+- Quantitative criteria.
+- Appropriate controls.
+- A defined failure condition.
+- A specified independent unit of analysis.
+- A clear interpretation of positive, negative, and inconclusive results.
+
+## Statistical requirements
+
+Compute uncertainty estimates for the major empirical results.
+
+At minimum:
+
+- Confidence intervals for episode-level quantities where appropriate.
+- Parent-level variability and uncertainty.
+- Paired comparisons where designs are paired.
+- Sensitivity analysis for borderline criteria.
+- Explicit accounting of all failed checks.
+- Effect sizes, not only pass/fail labels.
+
+Use bootstrap or other valid methods matched to the dependence structure.
+
+Do not treat thousands of episodes from the same parent as thousands of independent pretrained models.
+
+If the number of parents is too small for a strong population-level inference, say so.
+
+Reconcile Investigation XI's aggregate check-count discrepancy before reusing its statistics.
+
+All frozen predictions must be evaluated using the original criteria.
+
+Do not move thresholds after inspecting confirmation results.
+
+---
+
+# 9. COMPUTE MANAGEMENT — FULL RESEARCH DEPTH
+
+**Plan for approximately 8–13 hours of active computational research on two CPU cores.**
+
+This is the available investigation budget, not a requirement to burn CPU cycles without purpose.
+
+The previous investigation stopped before affordable, potentially decisive tests were performed.
+
+Do not repeat that mistake.
+
+## Recommended execution sequence
+
+**Stage 1 — Repository verification and prediction design**
+
+Audit prior evidence, correct the statistical bookkeeping, identify essential controls, and design the new confirmation protocol.
+
+**Stage 2 — Fresh pretraining**
+
+Freeze the necessary pretraining and confirmation protocol, then launch the new independent parent cohort early so training does not become the final bottleneck.
+
+While jobs run, perform independent development analyses where supported by the execution environment.
+
+Do not inspect fresh-parent outcomes to tune frozen hypotheses.
+
+**Stage 3 — Circuit reconstruction**
+
+Investigate the layer-1 weight-level computation using existing development models.
+
+Perform alternative ablations, pathway analysis, and redundancy controls.
+
+**Stage 4 — Independent confirmation**
+
+Run the frozen tests on the fresh cohort.
+
+Complete the additional fine-tuning seeds required for same-parent versus cross-parent comparisons.
+
+**Stage 5 — Generalization and mathematics**
+
+Test the selected structural extension, derive or falsify mathematical predictions, and investigate important unexpected results.
+
+**Stage 6 — Statistical analysis and adversarial validation**
+
+Compute uncertainty estimates, examine failed checks, investigate discrepancies, and challenge the strongest causal claims.
+
+**Stage 7 — Reproducibility and archive**
+
+Verify the complete results, generate the research documents, and produce the ZIP archive.
+
+Adapt the execution order if scientific dependencies demand it.
+
+## 9.1 Mandatory completion standard
+
+Do not declare the investigation scientifically complete merely because:
+
+- The frozen predictions pass.
+- The main hypothesis receives supporting evidence.
+- A synthesis document has been written.
+- The ZIP can be created.
+- The experiment queue happens to be empty.
+
+Before declaring completion, verify that the following scientific obligations have been addressed:
+
+- Fresh independent models.
+- Same-parent versus cross-parent comparisons.
+- Weight-level mechanism analysis.
+- Alternative intervention controls.
+- Compensation or redundancy testing.
+- Statistical uncertainty and borderline-result analysis.
+- A meaningful generalization experiment.
+- Adversarial review.
+
+If an obligation cannot be completed, document a specific technical, computational, or mathematical blocker, the attempts made, and the effect on the scientific conclusions.
+
+Do not use generic language such as "not feasible" without evidence.
+
+If an affordable experiment could materially overturn the leading interpretation, run it before finalizing the strongest claim.
+
+## 9.2 Execution persistence
+
+Previous investigations lost background jobs when execution sessions ended.
+
+Do not assume detached jobs will survive.
+
+Use:
+
+- Persistent checkpoints.
+- Resumable commands.
+- Explicit per-run completion records.
+- Saved random seeds and configurations.
+- Regular output verification.
+- Safe recovery procedures after interruption.
+
+Keep sustained computations within an active working session where possible.
+
+Provide concise progress updates without unnecessarily terminating active experiments.
+
+Do not promise that computation will continue after execution has stopped.
+
+---
+
+# 10. INDEPENDENT AND ADVERSARIAL REVIEW
+
+The earlier investigations relied heavily on separate adversarial passes conducted by the same research agent.
+
+That is useful but does not constitute independent review.
+
+For Investigation XII, make a serious attempt to use an independently initialized reviewer or separate agent if the environment supports it.
+
+Provide that reviewer with the actual code, mathematical arguments, saved results, and claims.
+
+Ask it to identify errors without requiring agreement with the primary researcher.
+
+At minimum, review the following areas:
+
+### Mathematical review
+
+Check definitions, proofs, generality, hidden assumptions, and counterexamples.
+
+### Mechanistic review
+
+Challenge weight-level attribution, restoration results, pathway completeness, and compensating computations.
+
+### Causal identification review
+
+Check whether the learned mediator is genuinely identified or merely supports the chosen intervention procedure.
+
+### Experimental and statistical review
+
+Check independence, preregistration, controls, uncertainty, cohort selection, and the interpretation of failed checks.
+
+### Novelty and alternative-explanation review
+
+Examine whether the findings are explained by existing causal abstraction, neural representation, or Bayesian learning principles.
+
+Do not claim scientific novelty solely because a mathematical result is new to this repository.
+
+The reviewer must examine the final corrected results.
+
+If an external reviewer or independent agent is unavailable, state that explicitly and conduct rigorous separate adversarial passes. Never misrepresent self-review as independent validation.
+
+Preserve criticism, disagreement, corrections, and negative results.
+
+---
+
+# 11. REQUIRED RESEARCH PACKAGE
+
+Create a new branch:
+
+`cor-phase15-step1-native-relational-algorithm-validation`
+
+Create a new isolated directory:
+
+`docs/research_audits/cor_phase15/step1_native_relational_algorithm_validation/`
+
+Preserve the previous research record.
+
+Produce substantive documentation addressing the following.
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+The scientific findings, major confirmations, falsifications, new mathematical results, generalization conclusions, limitations, and implications for COR.
+
+### NATIVE_CIRCUIT_AND_CAUSAL_MECHANISMS.md
+
+Weight-level and component-level results, circuit reconstruction, alternative ablations, compensation testing, and evidence for or against natural causal mediation.
+
+### CAUSAL_ABSTRACTION_AND_MATHEMATICS.md
+
+Formal results, counterexamples, identification limits, intervention semantics, and mathematical connections to neural implementations.
+
+### FRESH_CONFIRMATION_AND_STATISTICS.md
+
+The complete fresh-cohort protocol, freeze record, training independence, predictions, outcomes, confidence intervals, failed checks, and adjudicated statistical conclusions.
+
+### GENERALIZATION_AND_LEARNING.md
+
+The structural generalization investigation, candidate-evidence computation, representation-versus-rule comparisons, and learning-dynamics results.
+
+### OPEN_COR_FOUNDATIONAL_QUESTIONS.md
+
+The remaining mathematical and mechanistic questions across COR, including T4, GATE, TRANS, adaptive sources, representation accessibility, and the original obstruction/discrepancy framework.
+
+Do not create empty documents merely to satisfy filenames.
+
+## Required experimental artifacts
+
+Include:
+
+- Original experiment code.
+- Training and intervention scripts.
+- Fresh model checkpoints.
+- Fine-tuning seed replicates.
+- Raw results and evaluation records.
+- Complete available training logs.
+- Mathematical verification scripts.
+- Frozen prediction records.
+- Statistical analysis code.
+- Critical reviews and adjudications.
+- Integrity manifest.
+- Dependency inventory.
+- Clean-extraction reproduction instructions.
+
+The previous packages have dependencies on the larger `cor_phase15` research tree.
+
+Either bundle the dependencies necessary for the new investigation's verification or provide a precise, hash-checked dependency manifest and reconstruction procedure.
+
+Do not describe the archive as fully standalone unless it genuinely is.
+
+---
+
+# 12. MANDATORY ZIP DELIVERY AND VERIFICATION
+
+Produce:
+
+`cor_inv12_native_relational_algorithm_validation.zip`
+
+The archive must contain the actual Investigation XII research package, including source code, new checkpoints, frozen predictions, raw results, mathematical work, statistical analyses, reviews, and logs.
+
+After creating it:
+
+1. Extract the ZIP into a clean directory.
+2. Verify all integrity-manifest entries.
+3. Re-run representative mathematical verification scripts.
+4. Re-derive the frozen-prediction verdicts from archived raw results.
+5. Recompute key statistics and confidence intervals.
+6. Replay at least one representative causal intervention using the documented dependencies.
+7. Check that the research can be reproduced without access to undocumented local files.
+8. Record actual verification failures, if any.
+
+The final response must identify the branch, HEAD commit, ZIP path, main research directory, major findings, confirmed and falsified predictions, unresolved limitations, and reproducibility status.
+
+**Deliver the actual ZIP archive**, not only its filename or repository branch.
+
+Also provide the main synthesis document separately.
+
+Do not state that a verification succeeded unless it actually ran.
+
+---
+
+# 13. FINAL SCIENTIFIC QUESTIONS
+
+Answer the following with evidence:
+
+1. Does the layer-1 relational mechanism replicate in genuinely new independently pretrained Transformers?
+
+2. What weight-level operations actually combine perfectness and target-question agreement?
+
+3. Does the mechanism survive alternative ablation methods and valid causal controls?
+
+4. Are the identified pathways necessary, redundant, compensating, or only partially characterized?
+
+5. Do same-parent and cross-parent models differ meaningfully in causal organization?
+
+6. Can the eligibility abstraction transfer across new models without learning from the confirmation outcomes?
+
+7. When do preservation, selectivity, restoration, and mapped transfer genuinely identify a causal mediator, and when can these tests mislead?
+
+8. Why does the internal relational representation emerge before the final decision rule?
+
+9. Does the eligibility representation generalize independently of the downstream evidence-combination operation?
+
+10. Which mathematical invariants, restricted theorems, counterexamples, or identifiability limits survive the strongest tests?
+
+11. Which findings plausibly extend to other COR relational-computation families, and which remain specific to the present generator?
+
+12. What important foundational questions remain unresolved, and what evidence would be necessary to address them?
+
+Be precise about what was proved, what was replicated, what was only observed in development, and what remains speculative.
+
+---
+
+# 14. SCIENTIFIC COMPLETION AND FINAL DIRECTIVE
+
+Investigation XII is intended to provide substantially stronger scientific evidence than Investigation XI.
+
+Its objective is not to produce more positive predictions for their own sake.
+
+It is to challenge the emerging explanation of relational computation until we understand which parts survive independent training, different intervention methods, weight-level analysis, mathematical scrutiny, and controlled distribution changes.
+
+**A strong result may confirm the shared relational mechanism.**
+
+An equally valuable result may reveal that the previous mechanism was incomplete, intervention-dependent, redundant, or restricted to a particular learning environment.
+
+A mathematical counterexample may weaken a proposed universal abstraction while establishing a more precise restricted principle.
+
+A generalization failure may reveal that the neural system represents the right relation but uses the wrong decision transformation.
+
+All of these are meaningful COR foundational outcomes.
+
+The investigation must not be designed to guarantee success.
+
+It must be designed to distinguish explanations.
+
+**Do not stop when the first promising result appears.**
+
+Continue with the remaining scientifically important tests while the allocated resources permit them.
+
+Do not spend time generating excessive documentation instead of resolving open causal questions.
+
+Do not confuse the number of experiments with mathematical depth.
+
+Do not confuse an elegant theoretical interpretation with a demonstrated neural mechanism.
+
+Preserve all counterexamples, failed predictions, corrections, and negative results.
+
+Connect findings to the growing COR foundational research map without forcing every relational system into the same theory.
+
+**The program remains in Phase 1.5, Step 1, at approximately 25% of the provisional foundational exploration.**
+
+No stage closure, no final thesis selection, and no premature general COR theorem.
+
+Use the available **8–13-hour active research budget** to pursue the strongest feasible mathematical, experimental, and mechanistic investigation.
+
+Before ending, ensure that the affordable, potentially decisive tests have been completed or that concrete blockers and their consequences have been documented.
+
+Deliver a scientifically critical synthesis and a complete, verified ZIP archive.
+
+**The purpose is to build evidence strong enough to defend COR's arguments—not merely to demonstrate that they might be correct.**

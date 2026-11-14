@@ -10,3 +10,6 @@ cd . && python3 scripts/native_reader.py yP132 mlp_q 32000 0 bayes 3
 cd . && python3 scripts/native_reader.py yP134 mlp_q 32000 0 bayes 3
 cd . && python3 scripts/native_reader.py yP130 mlp_q 32000 0 label 3
 cd . && python3 scripts/native_reader.py yP131 mlp_q 32000 0 label 3
+cd . && python3 scripts/das.py yP130 full_c1 1 - E 2 q7 6
+cd . && python3 scripts/das.py xP81 full_c1 1 - E 2 q7 6
+cd . && ALG_TAG=_seeds python3 scripts/algorithm_discrimination.py dev yP130:full_c1:1: xP81:full_c1:1:

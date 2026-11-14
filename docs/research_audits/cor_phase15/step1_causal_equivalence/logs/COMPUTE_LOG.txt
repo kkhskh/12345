@@ -48,3 +48,8 @@
 2026-11-14T00:21:43Z lane D start [7f8d3575c2f4] while [ ! -f checkpoints/zP140/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP140 full_c1 4000 0 label logs/eval_conf10.npz
 2026-11-14T00:22:25Z lane A end [2d71d860d1c1] rc=0
 2026-11-14T00:22:28Z lane E start [b53841554583] while [ ! -f checkpoints/zP140/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP140 c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T00:36:50Z NOTE: environment restart ~00:37 killed pretrain P142 (partial dir removed), wP140 full_c1 and wP140 c1 (no output read; partial dirs removed). All rerun with identical commands.
+2026-11-14T00:36:50Z lane B2 start pretrain P142
+2026-11-14T00:36:50Z lane D start [7f8d3575c2f4] while [ ! -f checkpoints/zP140/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP140 full_c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T00:37:03Z lane E start [b53841554583] while [ ! -f checkpoints/zP140/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP140 c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T00:41:57Z DISCLOSURE: while monitoring, one intermediate training-log line of wP140 full_c1 (step 165 behavioural metrics) was displayed. No frozen prediction uses step-165 behaviour; F7 uses traj_alg outputs only. Further monitoring uses COMPUTE_LOG only.

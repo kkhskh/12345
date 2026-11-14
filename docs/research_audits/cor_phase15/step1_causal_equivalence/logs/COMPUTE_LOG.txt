@@ -44,3 +44,7 @@
 2026-11-14T00:11:36Z lane C2 start [d4cb6afffb5d] python3 scripts/das.py yP130 full_c1 0 _eval_conf9 E 2 ro 6
 2026-11-14T00:16:06Z lane C2 end [d4cb6afffb5d] rc=0
 2026-11-14T00:16:06Z lane C2 start [d414cffa6608] python3 scripts/das.py yP130 full_c1 0 _eval_conf9 E 2 src6 6
+2026-11-14T00:21:41Z lane C2 end [d414cffa6608] rc=0
+2026-11-14T00:21:43Z lane D start [7f8d3575c2f4] while [ ! -f checkpoints/zP140/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP140 full_c1 4000 0 label logs/eval_conf10.npz
+2026-11-14T00:22:25Z lane A end [2d71d860d1c1] rc=0
+2026-11-14T00:22:28Z lane E start [b53841554583] while [ ! -f checkpoints/zP140/pre.json ]; do sleep 30; done; python3 scripts/native_train.py wP140 c1 4000 0 label logs/eval_conf10.npz

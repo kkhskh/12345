@@ -1,0 +1,80 @@
+{
+ "complete": {
+  "a_IIA_E_inf>=0.70_IIA_A1<=base+0.10": {
+   "k": 3,
+   "n": 3,
+   "passed": true,
+   "units": {
+    "P150": true,
+    "P154": true,
+    "P155": true
+   }
+  },
+  "b_C1_IIA_A1>=base+0.15": {
+   "k": 3,
+   "n": 3,
+   "passed": true,
+   "units": {
+    "P150": true,
+    "P154": true,
+    "P155": true
+   }
+  },
+  "c_VS_LIN<=0.7xproj_eig>=1.2": {
+   "k": 3,
+   "n": 3,
+   "passed": true,
+   "units": {
+    "P150": true,
+    "P154": true,
+    "P155": true
+   }
+  }
+ },
+ "complete_verdict": "confirmed",
+ "all": {
+  "a_IIA_E_inf>=0.70_IIA_A1<=base+0.10": {
+   "k": 7,
+   "n": 7,
+   "passed": true,
+   "units": {
+    "P150": true,
+    "P151": true,
+    "P152": true,
+    "P153": true,
+    "P154": true,
+    "P155": true,
+    "P156": true
+   }
+  },
+  "b_C1_IIA_A1>=base+0.15": {
+   "k": 7,
+   "n": 7,
+   "passed": true,
+   "units": {
+    "P150": true,
+    "P151": true,
+    "P152": true,
+    "P153": true,
+    "P154": true,
+    "P155": true,
+    "P156": true
+   }
+  },
+  "c_VS_LIN<=0.7xproj_eig>=1.2": {
+   "k": 7,
+   "n": 7,
+   "passed": true,
+   "units": {
+    "P150": true,
+    "P151": true,
+    "P152": true,
+    "P153": true,
+    "P154": true,
+    "P155": true,
+    "P156": true
+   }
+  }
+ },
+ "all_verdict": "confirmed"
+}

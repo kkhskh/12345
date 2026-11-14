@@ -1,2 +1,10 @@
 pcount s154 step 300 loss 1.6578
 pcount s154 step 600 loss 1.6352
+pcount s154 step 900 loss 1.3412
+pcount s154 step 1200 loss 0.5496
+pcount s154 step 1500 loss 0.0326
+pcount s154 step 1800 loss 0.0071
+pcount s154 step 2100 loss 0.0034
+pcount s154 step 2400 loss 0.0030
+pcount s154 step 2700 loss 0.0025
+pcount s154 step 3000 loss 0.0025

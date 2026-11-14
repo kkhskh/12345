@@ -216,3 +216,155 @@ Arms, for complete parents (layers 0–1 frozen; 1500 steps; stream 71_100_000):
 
 - A prediction that **fails** is reported as falsified, with the failing units. Thresholds are never moved.
 - An arm with missing data (a job failure) is **inconclusive**, not passed, and the job failure is reported.
+
+---
+
+## Part II — confirmation results (appended after the runs; Part I unchanged since freeze `87e2a9f`, except as listed in "Deviations")
+
+### Cohort
+
+| parent | aux_acc | status | used for |
+|---|---|---|---|
+| P150 | 1.000 | **complete** | primary; same-parent replicate (seed 11) |
+| P151 | 0.762 | incomplete | secondary only |
+| P152 | 0.903 | incomplete | secondary only |
+| P153 | 0.555 | incomplete | secondary only |
+| P154 | 1.000 | **complete** | primary; same-parent replicate (seed 11) |
+| P155 | 0.999 | **complete** | primary (Amendment 1) |
+| P156 | 0.763 | incomplete | secondary only (Amendment 1) |
+
+Four of seven parents (57%) did not reach the readiness criterion with the unchanged 3000-step protocol. In
+Investigation X it was 1 of 4. **n = 3 complete parents**, so the primary pass rule requires 3/3 for every arm. This is
+the minimum the amendment labels "adequate". It is far too few for population-level inference.
+
+### Deviations from the frozen protocol (all disclosed in `logs/COMPUTE_LOG.txt`)
+
+1. **Amendment 1** (`STAGE0_AMENDMENT_1.md`, commit `5425317`). It added P155 and P156 and a secondary all-parents
+   aggregate. It was decided from pre.json only, before any fine-tune had finished.
+2. **Freeze defect 1.** The frozen scorer `score_xii.py` implements an *earlier draft* of P6:
+   - IIA_E ≥ 0.70 and IIA_A1 ≤ 0.30, plus the VS arm;
+   - **not** the P6 text above (informative-subset IIA_E, a C1 contrast, and the VS arm).
+
+   The defect was found in a dry run before the final merge. Both versions are scored (`scripts/score_p6_text.py`)
+   and neither is preferred.
+3. **Freeze defect 2.** The frozen queues ran `disc_ident.py` on full_c1 models only, so the text-P6 C1 arm had no
+   data. The frozen script was then run unchanged on the fresh C1 models (same stream). Those results are labelled
+   post hoc.
+4. A syntax error introduced by the Amendment-1 edit of `score_xii.py` was fixed. The logic is unchanged (git diff).
+5. The queued merge ran before the last P156 job (adapt_c2) had finished. Merge and score were rerun once all
+   outputs existed.
+6. **P6 rationale erratum.** The frozen P6 background sentence quoted δ(E, A1) = 0.35%. The independent review
+   showed this was computed on the wrong pair distribution; the correct value is 4.0%. No arm depends on it.
+
+### Verdicts (primary: complete parents P150, P154, P155; pairs for P5)
+
+Individual checks: **94 of 97 passed** (complete parents + pairs). The three failures are all P3(b).
+
+| prediction | verdict | arms (k/n) |
+|---|---|---|
+| **P1** layer-1 conjunction replicates | **confirmed** | a 3/3, b 3/3, c 3/3, d 3/3 |
+| **P2** necessity survives natural-activation designs | **confirmed** | a 3/3, b 3/3, c 3/3, d 3/3, e 3/3 |
+| **P3** weight-level routing | **FALSIFIED** | a 3/3, **b 0/3**, c 3/3, d 3/3 |
+| **P4** restoration via the E-subspace | **confirmed** | a 3/3, b 3/3 |
+| **P5** same- vs cross-parent transfer | **confirmed** | a 4/4 + 6/6, b 1/1, c 1/1, d 3/3, e 10/10 |
+| **P6** identification, *as coded* | confirmed | a 3/3, b 3/3 |
+| **P6** identification, *as written* | confirmed | a 3/3, b 3/3 (post hoc C1 runs), c 3/3 |
+| **P7** conjunction used at emergence | **confirmed** | a 3/3, b 3/3, c 3/3 |
+| **P8** C = 2: rule failure; readout-only repair bypasses E | **confirmed** | a 3/3, b 3/3, c 3/3, d 3/3 |
+
+**Secondary aggregate** (all 7 parents; pre-declared in Amendment 1):
+- P1, P2, P4, P6, P7 and P8 confirmed; P3 falsified;
+- the P6 text version is 7/7 on every arm.
+
+The incomplete parents behave like the complete ones on every mechanism arm.
+
+### Effect sizes (episode-bootstrap 95% CIs; per parent)
+
+**P1.**
+
+| parent | E-interaction ratio | full-space ratio | C1 ratio |
+|---|---|---|---|
+| P150 | 9.65 [9.19, 10.15] | 5.01 [4.87, 5.15] | 1.02 [0.89, 1.18] |
+| P154 | 4.84 [4.67, 5.02] | 3.14 [3.06, 3.23] | 1.67 [1.45, 1.94] |
+| P155 | 5.01 [4.83, 5.20] | 4.22 [4.08, 4.36] | 1.39 [1.24, 1.57] |
+| incomplete (P151, P152, P153, P156) | 6.79, 4.44, 4.94, 3.35 | — | — |
+
+P154's C1 value (1.67) is close to the 1.75 threshold. Its CI upper bound (1.94) crosses it, so P1(d) holds only
+narrowly there.
+
+**P2** (KL_Bayes / KL_e0 / pref_e0):
+
+| parent | path_inA | path_inP | scrub, same-e donor | scrub, e_h = 0 donor | mean-ablation (KL_e0) |
+|---|---|---|---|---|---|
+| P150 | 0.59 / 0.03 / 0.63 | 0.44 / 0.08 | KL_B 0.022 | 0.24 / 0.13 | 0.64 |
+| P154 | 0.68 / 0.02 / 0.69 | 0.45 / 0.16 | KL_B 0.015 | 0.57 / 0.02 | 0.59 |
+| P155 | 0.71 / 0.01 / 0.68 | 0.50 / 0.06 | KL_B 0.005 | 0.66 / 0.01 | 0.49 |
+
+**P3.**
+- (a) Queries are irrelevant (3/3).
+- (b) **Falsified.** Removing P's effect on the attention *patterns* alone (pattern_A) moves the decision substantially
+  toward cf_e0: KL_B 0.27–0.42 vs path_inA 0.58–0.71. That is, it falls on the cf_e0 side, 3/3. Removing it from the
+  *values* alone does nothing (KL_B 0.003–0.021).
+  - In the fresh cohort the perfectness signal reaches the conjunction **primarily through attention routing**. It is
+    not routed redundantly.
+  - The development majority (10/11 redundant) did not replicate. The development exception wP143 was the
+    fresh-cohort rule.
+- (c) MLP1 amplifies: total/direct KL_B = 0.49/0.23, 0.56/0.35, 0.57/0.12.
+- (d) Threshold-AND neurons carry 12–18% of the MLP1 interaction; LN2 factor 0.91–1.07.
+
+**P4.** Restored KL_B is 0.052 / 0.090 / 0.019 from an ablated 0.52–0.62. Random-subspace recovery is ≤ 0.016.
+
+**P5.**
+
+| quantity | value |
+|---|---|
+| same-parent gains | 0.97, 1.00, 0.99, 0.96 (mean 0.98) |
+| cross-parent gains | 0.97, 0.98, 0.86, 1.00, 0.87, 0.99 (mean 0.94) |
+| difference in means | 0.04 |
+| map R², in-sample / held-out tail / separate evaluation stream | 0.96–0.99 / 0.96–0.99 / 0.96–0.99 (in-sample inflation ≤ 0.01) |
+| head/MLP1 profile distance, same-parent vs cross-parent | **0.28 vs 0.62** (raw); 0.18 vs 0.52 (best permutation) |
+| C1 → full gain | 0.74, 0.33, **−0.56** |
+
+The C1 → full gain of −0.56 (P155) is a *negative* gain: the mapped C1 state is worse than a source-free mean patch.
+
+Readings:
+- Shared pretraining makes the *componentwise* organization more similar.
+- It does not change the *transferability* of the causal abstraction.
+
+**P6.**
+- Discriminating pairs, full models: IIA_E,inf 0.74 / 0.86 / 0.84, with IIA_A1 − base_A1 = +0.09 / +0.01 / +0.01.
+- C1 models (post hoc): IIA_A1 − base = +0.19 / +0.23 / +0.26; incomplete parents +0.24 to +0.39.
+- **The VS arm is not diagnostic.** The exploratory random-subspace control (`logs/vs_linear_explore_randQ_*.json`)
+  also satisfies the frozen VS criterion: a learned linear map on a random 6-dim subspace gets KL 0.69–0.82, against
+  ~1.25 for its projections, with eigenvalues > 1.
+  - The E-specific content is the *difference*: E-subspace linear KL 0.32–0.47 vs random-subspace linear KL
+    0.69–0.82.
+  - A pass of P6(VS) as frozen therefore carries **no** evidential weight. This is recorded as a design flaw of the
+    prediction.
+
+**P7.**
+
+| parent | use onset | emergence | first non-A1 | D2-B switch |
+|---|---|---|---|---|
+| P150 | 546 | 546 | 813 | 813 |
+| P154 | 366 | 246 | 813 | 1211 |
+| P155 | 366 | 366 | 813 | 813 |
+
+The incomplete parents fit the same pattern: use onset is within one checkpoint of emergence in 7/7, and always
+precedes the D2-B switch.
+
+**P8.**
+- Native accuracy 0.336–0.342; KL(C1 rule) ≤ 0.034.
+- Layer-2-only adaptation reaches 0.801–0.802 (exact Bayes 0.804). With E mean-patched it reaches 0.799–0.803.
+- E-dependence of the adapted readout is 0.23–0.80.
+- A fresh layer 2 also reaches 0.80.
+
+### Parent-level uncertainty
+
+With 3 complete parents, every primary arm needed 3/3. The parent-level ranges above are the honest summary.
+Bootstrap-over-parents intervals with n = 3 are reported in `logs/score_xii.json` for transparency only.
+
+**Population-level claims ("Transformers trained this way generally …") are not supported by n = 3.** What is
+supported:
+- replication in three new, independently pretrained complete parents;
+- the same pattern in four incomplete ones.

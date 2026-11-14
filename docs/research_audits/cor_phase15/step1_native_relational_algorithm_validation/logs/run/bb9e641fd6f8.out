@@ -1,0 +1,6 @@
+vP151_full_c1_s4000_seed10_e refs {'bayes_acc': 0.804, 'indep_acc': 0.752, 'KL_true_indep': 0.053, 'KL_indep_C2prod': -0.0, 'C2prod_acc': 0.752, 'C1rule_acc': 0.336, 'KL_true_C2prod': 0.053, 'KL_true_C1rule': 1.432, 'frac_S3': 0.081, 'KL_true_C2prod_S3': 0.648}
+   native {'acc': 0.336, 'KL_true': 1.606, 'KL_C2prod': 1.55, 'KL_C1rule': 0.011, 'KL_indep': 1.55, 'E_dependence': 0.014, 'acc_S2': 0.336, 'acc_S3': 0.337}
+   adapt_l2 {'acc': 0.802, 'KL_true': 0.004, 'KL_C2prod': 0.108, 'KL_C1rule': 1.764, 'KL_indep': 0.108, 'E_dependence': 0.16, 'acc_S2': 0.787, 'acc_S3': 0.973, 'final_loss': 0.418}
+   adapt_l2_noE {'acc': 0.802, 'KL_true': 0.004, 'KL_C2prod': 0.111, 'KL_C1rule': 1.763, 'KL_indep': 0.111, 'E_dependence': 0.0, 'acc_S2': 0.787, 'acc_S3': 0.973, 'final_loss': 0.416}
+   fresh_l2 {'acc': 0.802, 'KL_true': 0.003, 'KL_C2prod': 0.11, 'KL_C1rule': 1.793, 'KL_indep': 0.11, 'E_dependence': 0.08, 'acc_S2': 0.787, 'acc_S3': 0.973, 'final_loss': 0.417}
+   seconds 1650

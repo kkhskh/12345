@@ -8,7 +8,8 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import numpy as np, stats_xii as ST
 L = os.path.join(HERE, "..", "logs"); CK = os.path.join(HERE, "..", "checkpoints")
 J = lambda f: json.load(open(os.path.join(L, f)))
-PARENTS = [p for p in ("P150", "P151", "P152", "P153", "P154", "P155", "P156") if   # Amendment 1: P155, P156 added os.path.exists(os.path.join(CK, f"z{p}", "pre.json"))]
+# Amendment 1: P155, P156 added
+PARENTS = [p for p in ("P150", "P151", "P152", "P153", "P154", "P155", "P156") if os.path.exists(os.path.join(CK, f"z{p}", "pre.json"))]
 complete = {p: json.load(open(os.path.join(CK, f"z{p}", "pre.json")))["eval"]["aux_acc"] >= 0.99 for p in PARENTS}
 COMP = [p for p in PARENTS if complete[p]]; INC = [p for p in PARENTS if not complete[p]]
 S = "_eval_conf12"; full = lambda p, s=10: f"v{p}:full_c1:{s}:{S}"; c1 = lambda p: f"v{p}:c1:10:{S}"

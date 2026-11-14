@@ -20,3 +20,4 @@ json.dump(t, open("logs/traj_alg_xii.json", "w"), indent=1)
 PY
 cp logs/factorial_conf.json logs/factorial_permc.json; python3 scripts/perm_compare.py _permc && mv logs/perm_compare_permc.json logs/perm_compare_conf.json
 python3 scripts/score_xii.py
+python3 scripts/score_p6_text.py

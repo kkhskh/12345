@@ -49,6 +49,19 @@ Findings:
 - The 6-dim E-subspace therefore behaves as a mediator whose *value*, not its exact coordinates, determines the
   decision.
 
+**Restoration after a natural-activation removal.** This was added after the freeze (`restore_nat.py`,
+`logs/restore_nat_dev*.json`, 8 models). Layer 1's conjunction is removed by path_inA, a natural-activation design.
+Then only the 6 E coordinates of the intact xAP state are restored:
+
+| | KL(Bayes) |
+|---|---|
+| ablated | 0.62–0.78 |
+| **restore E (6 dims)** | **0.07–0.16** |
+| restore random 6 dims | recovers ≤ 0.012 of the gap |
+| restore the 442-dim complement | recovers 0.06–0.64 |
+
+XI's restoration result is therefore not an artifact of its hybrid ablation.
+
 ## 2. Weight-level operations in layer 1 (B1)
 
 ### 2.1 Queries are irrelevant; group h's keys and values carry the conjunction

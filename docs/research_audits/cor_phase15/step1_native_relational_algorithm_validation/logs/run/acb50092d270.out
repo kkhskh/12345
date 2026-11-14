@@ -1,0 +1,24 @@
+vP150:full_c1:10:_eval_conf1 [0.002, 0.289, 0.363, 0.002, 0.344]
+vP150:full_c1:11:_eval_conf1 [0.023, 0.395, 0.277, 0.001, 0.304]
+vP151:full_c1:10:_eval_conf1 [0.179, 0.004, 0.283, 0.004, 0.531]
+vP152:full_c1:10:_eval_conf1 [0.054, 0.125, 0.23, 0.028, 0.562]
+vP153:full_c1:10:_eval_conf1 [0.011, 0.223, 0.228, 0.091, 0.446]
+vP154:full_c1:10:_eval_conf1 [0.046, 0.257, 0.356, 0.044, 0.297]
+vP154:full_c1:11:_eval_conf1 [0.005, 0.303, 0.277, 0.008, 0.408]
+vP155:full_c1:10:_eval_conf1 [0.022, 0.29, 0.087, 0.115, 0.485]
+vP156:full_c1:10:_eval_conf1 [0.045, -0.002, 0.021, -0.017, 0.951]
+same-parent vP150:full_c1: vP150:full_c1: {'raw': 0.25, 'perm': 0.11, 'sorted': 0.11}
+same-parent vP154:full_c1: vP154:full_c1: {'raw': 0.31, 'perm': 0.26, 'sorted': 0.26}
+mean same {'raw': 0.28, 'perm': 0.18, 'sorted': 0.18} mean cross {'raw': 0.62, 'perm': 0.52, 'sorted': 0.52}
+P1 confirmed {'a_full_Eratio>=2_CIlo>=1.5': '3/3', 'b_full_mid0<=0.05_L0share<=0.10': '3/3', 'c_full_fullspace_ratio>=1.75': '3/3', 'd_c1_Eratio<=1.75': '3/3'}
+P2 confirmed {'a_addcomp_KLe0<KLB_pref>=0.5': '3/3', 'b_pathinA_KLe0<KLB_pref>=0.5_CIhi<0': '3/3', 'c_pathinP_KLe0<KLB': '3/3', 'd_scrub_match_KLB<=0.05_and_scrub_e0_KLe0<KLB': '3/3', 'e_meanL1_nonspecific_KLe0>=0.3': '3/3'}
+P3 falsified {'a_queries_irrelevant_KLB<=0.03_keysonly~pathinA': '3/3', 'b_subhead_redundancy_patternA_and_valuesA_stay_Bayes_side': '0/3', 'c_MLP1_amplifies_total>=1.5x_direct': '3/3', 'd_smooth_ANDshare<0.5_LN2in[0.7,1.3]': '3/3'}
+P4 confirmed {'a_restoreE_KLB<=0.25_and<=0.5xablated': '3/3', 'b_restore_random_rec<=0.1': '3/3'}
+P5 confirmed {'a_same_parent_gain>=0.85': '4/4', 'a_cross_parent_gain>=0.85': '6/6', 'b_|mean_same-mean_cross|<=0.10': '1/1', 'c_head_profile_same<cross(raw)': '1/1', 'd_c1_to_full_gain<=0.85': '3/3', 'e_meanpatch_IIAdisc>=base+0.30': '10/10'}
+P6 confirmed {'a_disc_pairs_IIA_E>=0.70_IIA_A1<=0.30': '3/3', 'b_VS_linear_beats_projections_KL<=0.7x_eig>=1.2': '3/3'}
+P7 confirmed {'a_|idx(use)-idx(emerge)|<=1': '3/3', 'b_use<=first_nonA1': '3/3', 'c_D2B_switch>use': '3/3'}
+P8 confirmed {'a_native_acc<=0.40_KL_C1rule<=0.05': '3/3', 'b_adapt_l2_acc>=bayes-0.03': '3/3', 'c_adapt_l2_noE_acc>=bayes-0.03(bypass)': '3/3', 'd_adapt_l2_E_dependence>=0.1': '3/3'}
+individual checks (complete parents + pairs): {'passed': 94, 'total': 97} | complete: ['P150', 'P154', 'P155'] incomplete: ['P151', 'P152', 'P153', 'P156'] | primary: adequate
+all-parents (secondary) verdicts: {}
+P6 (text) complete confirmed {'a_IIA_E_inf>=0.70_IIA_A1<=base+0.10': '3/3', 'b_C1_IIA_A1>=base+0.15': '3/3', 'c_VS_LIN<=0.7xproj_eig>=1.2': '3/3'}
+P6 (text) all confirmed {'a_IIA_E_inf>=0.70_IIA_A1<=base+0.10': '7/7', 'b_C1_IIA_A1>=base+0.15': '7/7', 'c_VS_LIN<=0.7xproj_eig>=1.2': '7/7'}

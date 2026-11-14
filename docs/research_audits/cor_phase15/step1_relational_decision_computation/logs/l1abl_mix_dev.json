@@ -1,0 +1,73 @@
+{
+ "xP81:full_c1:0:": {
+  "mixture_heads": [
+   1,
+   3
+  ],
+  "intact": {
+   "B": 0.9835869694775815,
+   "noelig": -0.5173140658124864
+  },
+  "layer1_mean_ablated": {
+   "B": -0.022856085926843427,
+   "noelig": 0.18839712387887664
+  },
+  "decode": {
+   "e_g0": {
+    "E": 1.0,
+    "complement": 1.0,
+    "majority": 0.642
+   },
+   "e_g1": {
+    "E": 1.0,
+    "complement": 1.0,
+    "majority": 0.643
+   },
+   "bayes_decision": {
+    "E": 0.41,
+    "complement": 0.811,
+    "majority": 0.387
+   },
+   "agree_q_g0": {
+    "E": 0.818,
+    "complement": 1.0,
+    "majority": 0.646
+   }
+  }
+ },
+ "yP130:full_c1:0:_eval_conf9": {
+  "mixture_heads": [
+   0
+  ],
+  "intact": {
+   "B": 0.953774329347797,
+   "noelig": -0.47886149738074923
+  },
+  "layer1_mean_ablated": {
+   "B": -0.00663190803486783,
+   "noelig": 0.1525576813886222
+  },
+  "decode": {
+   "e_g0": {
+    "E": 1.0,
+    "complement": 1.0,
+    "majority": 0.642
+   },
+   "e_g1": {
+    "E": 1.0,
+    "complement": 1.0,
+    "majority": 0.643
+   },
+   "bayes_decision": {
+    "E": 0.424,
+    "complement": 0.918,
+    "majority": 0.387
+   },
+   "agree_q_g0": {
+    "E": 0.876,
+    "complement": 1.0,
+    "majority": 0.646
+   }
+  }
+ }
+}

@@ -26,17 +26,23 @@ d = NV.Bm.sample_fast(NV.ENV, 3 * N_, rng); X = d["X"]; q = rng.integers(0, 6, l
 rel, col, noi = GL._group_lik(env, X); relm = rel.mean(-1); lr = np.log(relm / noi); W = np.exp(lr.sum(1) - lr[ii, q]); Lg = rel[ii, q] / noi
 a_ = X.reshape(len(X), 6, 3, 2)[ii, q]; e = ((GL.counts(X, 3)[ii, q] == 5) & (a_[..., 0] == a_[..., 1])).astype(float); S = e.sum(1, keepdims=True)
 rB = W * (S - e) * Lg.sum(-1); rB = rB / rB.sum(1, keepdims=True); Ln = Lg / Lg.sum(-1, keepdims=True)
+nrm = lambda w: w / np.maximum(w.sum(1, keepdims=True), 1e-300)
+pf = (GL.counts(X, 3)[ii, q] == 5).astype(float); rA1 = nrm(W * np.maximum(pf.sum(1, keepdims=True) - pf, 0) * Lg.sum(-1) + 1e-300)   # XIII: perfect-only (A1) eligibility
+rA3 = nrm(W * np.maximum(1 - e, 0) * Lg.sum(-1) + 1e-300); rA0 = nrm(W * Lg.sum(-1)); rA2 = None   # alternative responsibilities (A3 separable discount; A0 no eligibility)
 PB = GL.posterior_closed(env, X, q)
 base = np.arange(N_); donor = np.array([rng.choice(np.where(q == q[b])[0]) for b in base])          # same-q donor
 tq = lambda qq: qq[:, None] * 6 + np.arange(6)[None]
 cen = lambda P: np.log(P + 1e-12) - np.log(P + 1e-12).mean(-1, keepdims=True)
 def fid(obs, pred):
-    o, p = obs.ravel(), pred.ravel(); b = float((o * p).sum() / max((p * p).sum(), 1e-12)); r2 = float(1 - ((o - b * p) ** 2).sum() / max(((o - o.mean()) ** 2).sum(), 1e-12))
+    o, p = obs.ravel(), pred.ravel(); b = float((o * p).sum() / max((p * p).sum(), 1e-12)); r2 = float(((1 - ((o - b * p) ** 2).sum() / ((o - o.mean()) ** 2).sum()) if ((o - o.mean()) ** 2).sum() > 1e-10 else 0.0))
     return dict(slope=b, R2=r2, corr=float(np.corrcoef(o, p)[0, 1]) if p.std() > 0 and o.std() > 0 else 0.0)
 out = {}
 for sp in sys.argv[1:]:
     parent, spec, seed, suf = (sp.split(":") + ["", "", "0", ""])[:4]; M = F.load_model(parent, spec, seed=int(seed or 0), suffix=suf)
-    rec = {}; L0 = np.asarray(F.forward(M, jnp.asarray(X), rec=rec)); A2 = np.asarray(rec["pattern2"]); x2 = np.asarray(rec["resid2"])
+    def _chunk(Xc):
+        r = {}; Lc = np.asarray(F.forward(M, jnp.asarray(Xc), rec=r)); return Lc, np.asarray(r["pattern2"]).astype(np.float32), np.asarray(r["resid2"])
+    parts = [_chunk(X[i:i + 1000]) for i in range(0, len(X), 1000)]
+    L0 = np.concatenate([p_[0] for p_ in parts]); A2 = np.concatenate([p_[1] for p_ in parts]); x2 = np.concatenate([p_[2] for p_ in parts]); del parts
     mass = np.array([np.mean([A2[i, h, 36 + q[i], tq(q[i:i + 1])[0]].sum() for i in range(500)]) for h in range(4)])
     MH = [h for h in range(4) if mass[h] >= 0.8]; res = dict(mixture_heads=MH, mass=mass.round(3).tolist())
     if not MH: out[sp] = res; print(sp, "no mixture head; masses", mass.round(2), flush=True); continue
@@ -64,10 +70,11 @@ for sp in sys.argv[1:]:
     md = md / md.sum(1, keepdims=True); ru = np.full((N_, 3), 1 / 3)
     shuf = np.random.default_rng(3).permutation(N_)
     res.update(noop_max_abs_change=float(np.abs(cen(P0) - cen(np.exp(L0[base, q[base]] - L0[base, q[base]].max(-1, keepdims=True)) / np.exp(L0[base, q[base]] - L0[base, q[base]].max(-1, keepdims=True)).sum(-1, keepdims=True))).max()),
-               donor=dict(bayes_resp=fid(obs_d, pred_from(rB[donor])), mass_resp=fid(obs_d, pred_from(md)), shuffled_pred=fid(obs_d, pred_from(rB[donor])[shuf]),
+               donor=dict(bayes_resp=fid(obs_d, pred_from(rB[donor])), A3_resp=fid(obs_d, pred_from(rA3[donor])), A0_resp=fid(obs_d, pred_from(rA0[donor])), A1_resp=fid(obs_d, pred_from(rA1[donor])), mass_resp=fid(obs_d, pred_from(md)), shuffled_pred=fid(obs_d, pred_from(rB[donor])[shuf]),
                           mean_abs_obs=float(np.abs(obs_d).mean()), mean_abs_pred=float(np.abs(pred_from(rB[donor])).mean())),
+               donor_EneA1=(lambda m: dict(n=int(m.sum()), bayes_resp=fid(obs_d[m], pred_from(rB[donor])[m]), A1_resp=fid(obs_d[m], pred_from(rA1[donor])[m])))((pf[donor] != e[donor]).any(1)),
                uniform=dict(bayes_resp=fid(obs_u, pred_from(ru)), mean_abs_obs=float(np.abs(obs_u).mean())),
                per_episode_obs_donor=obs_d.astype(np.float32).tolist(), per_episode_pred_donor=pred_from(rB[donor]).astype(np.float32).tolist())
     out[sp] = res
-    print(sp, "MH", MH, "noop", round(res["noop_max_abs_change"], 4), "donor", {k: {kk: round(vv, 3) for kk, vv in v.items()} if isinstance(v, dict) else round(v, 3) for k, v in res["donor"].items()}, "uniform", {k: ({kk: round(vv, 3) for kk, vv in v.items()} if isinstance(v, dict) else round(v, 3)) for k, v in res["uniform"].items()}, flush=True)
+    print(sp, "MH", MH, "noop", round(res["noop_max_abs_change"], 4), "donor", {k: {kk: round(vv, 3) for kk, vv in v.items()} if isinstance(v, dict) else round(v, 3) for k, v in res["donor"].items()}, "EneA1", res["donor_EneA1"], "uniform", {k: ({kk: round(vv, 3) for kk, vv in v.items()} if isinstance(v, dict) else round(v, 3)) for k, v in res["uniform"].items()}, flush=True)
 json.dump(out, open(os.path.join(HERE, "..", "logs", "l2_mix_causal" + os.environ.get("MC_TAG", "") + ".json"), "w"))

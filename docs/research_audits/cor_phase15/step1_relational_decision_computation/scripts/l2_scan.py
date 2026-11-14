@@ -23,7 +23,8 @@ rel, col, noi = GL._group_lik(env, X); relm = rel.mean(-1); lr = np.log(relm / n
 a_ = X.reshape(N_, 6, 3, 2)[ii, q]; e = ((GL.counts(X, 3)[ii, q] == 5) & (a_[..., 0] == a_[..., 1])).astype(float); S = e.sum(1, keepdims=True)
 sL = Lg.sum(-1)
 def resp(w): w = np.maximum(w, 0); return w / np.maximum(w.sum(1, keepdims=True), 1e-300)
-R = {"B": resp(W * (S - e) * sL), "A3": resp(W * (1 - e) * sL), "A0": resp(W * sL), "M": resp(S - e + 1e-9), "W": resp(W)}
+pf = (GL.counts(X, 3)[ii, q] == 5).astype(float)
+R = {"B": resp(W * (S - e) * sL), "A1": resp(W * (pf.sum(1, keepdims=True) - pf) * sL), "A3": resp(W * (1 - e) * sL), "A0": resp(W * sL), "M": resp(S - e + 1e-9), "W": resp(W)}
 def rankcorr(a, b):
     ra = np.argsort(np.argsort(a)); rb = np.argsort(np.argsort(b)); return float(np.corrcoef(ra, rb)[0, 1])
 out = {}
@@ -41,7 +42,7 @@ for sp in sys.argv[1:]:
     res["KL_bayes_model"] = float((Pb * (np.log(Pb + 1e-12) - np.log(P + 1e-12))).sum(-1).mean())
     heads = {}
     for h in range(4):
-        A = rec["pattern2"][ii, h, t]                                                                # (N,43)
+        A = rec[f"pattern{os.environ.get('L2_LAYER', '2')}"][ii, h, t]                                                                # (N,43)
         mq = np.stack([A[ii, q * 6 + 2 * g] + A[ii, q * 6 + 2 * g + 1] for g in range(3)], 1)
         moth = np.stack([sum(A[ii, qp * 6 + 2 * g] + A[ii, qp * 6 + 2 * g + 1] for qp in range(6)) for g in range(3)], 1) - mq
         mn = mq / np.maximum(mq.sum(1, keepdims=True), 1e-12)

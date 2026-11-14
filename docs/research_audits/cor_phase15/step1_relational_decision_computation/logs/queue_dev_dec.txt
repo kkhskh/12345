@@ -1,0 +1,7 @@
+XI_OUT=decoy_dev python3 scripts/das_decoy.py xP81:full_c1:0: E
+XI_OUT=decoy_dev python3 scripts/das_decoy.py xP81:full_c1:0: A1
+XI_OUT=decoy_dev python3 scripts/das_decoy.py xP81:full_c1:0: PERM
+XI_OUT=decoy_dev python3 scripts/das_decoy.py vP155:full_c1:10:_eval_conf12 E
+XI_OUT=decoy_dev python3 scripts/das_decoy.py vP155:full_c1:10:_eval_conf12 A1
+XI_OUT=decoy_dev python3 scripts/das_decoy.py vP155:full_c1:10:_eval_conf12 PERM
+DD_TAG=_dev python3 scripts/decoy_disc.py logs/decoy_dev xP81:full_c1:0: vP155:full_c1:10:_eval_conf12

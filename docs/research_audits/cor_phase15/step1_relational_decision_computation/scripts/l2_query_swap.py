@@ -25,7 +25,7 @@ cen = lambda P: np.log(P + 1e-12) - np.log(P + 1e-12).mean(-1, keepdims=True)
 def mix(wts, b):
     P = (wts[..., None] * Lg[b]).sum(1); ok = P.sum(-1) > 0; P = P / np.maximum(P.sum(-1, keepdims=True), 1e-300); return P, ok
 def fid(obs, pred, ok):
-    o, p = obs[ok].ravel(), pred[ok].ravel(); b = float((o * p).sum() / max((p * p).sum(), 1e-12)); r2 = float(1 - ((o - b * p) ** 2).sum() / max(((o - o.mean()) ** 2).sum(), 1e-12))
+    o, p = obs[ok].ravel(), pred[ok].ravel(); b = float((o * p).sum() / max((p * p).sum(), 1e-12)); r2 = float(((1 - ((o - b * p) ** 2).sum() / ((o - o.mean()) ** 2).sum()) if ((o - o.mean()) ** 2).sum() > 1e-10 else 0.0))
     return dict(slope=b, R2=r2, n=int(ok.sum()))
 out = {}
 for sp in sys.argv[1:]:

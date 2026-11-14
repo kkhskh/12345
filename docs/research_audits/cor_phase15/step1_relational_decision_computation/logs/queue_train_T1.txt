@@ -1,0 +1,3 @@
+while [ ! -f checkpoints/zP160/gate.json ]; do sleep 30; done; python3 scripts/native_train.py uP160 full_c1 4000 20 label logs/eval_conf13.npz
+while [ ! -f checkpoints/zP162/gate.json ]; do sleep 30; done; python3 scripts/native_train.py uP162 full_c1 4000 20 label logs/eval_conf13.npz
+while [ ! -f checkpoints/zP164/gate.json ]; do sleep 30; done; python3 scripts/native_train.py uP164 full_c1 4000 20 label logs/eval_conf13.npz

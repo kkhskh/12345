@@ -1,0 +1,976 @@
+{
+ "units": [
+  "NULLNOOP:full_c1:0:",
+  "NULLUNIFORM:full_c1:0:",
+  "NULLRANDOM:full_c1:0:",
+  "NULLALTMECH:full_c1:0:"
+ ],
+ "complete": [
+  "NULLNOOP:full_c1:0:",
+  "NULLUNIFORM:full_c1:0:",
+  "NULLRANDOM:full_c1:0:",
+  "NULLALTMECH:full_c1:0:"
+ ],
+ "incomplete": [],
+ "mixture_class": {
+  "NULLNOOP:full_c1:0:": true,
+  "NULLUNIFORM:full_c1:0:": true,
+  "NULLRANDOM:full_c1:0:": true,
+  "NULLALTMECH:full_c1:0:": true
+ },
+ "predictions": {
+  "P1": {
+   "arms": {
+    "a": {
+     "text": "fidelity to donor Bayes responsibilities: R2 >= 0.6 and slope in [0.4, 1.25]",
+     "status": "fail",
+     "k": 1,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    },
+    "b": {
+     "text": "Bayes responsibilities beat the separable-discount alternative A3 by >= 0.05 R2",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "c": {
+     "text": "on donors with E != A1 eligibility, Bayes(E) responsibilities beat perfect-only (A1) responsibilities by >= 0.3 R2",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [
+      "NULLALTMECH:full_c1:0:"
+     ],
+     "diagnostic": false,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "d": {
+     "text": "validity: re-inserting the model's own rows changes nothing (noop <= 1e-4)",
+     "status": "pass",
+     "k": 4,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": null,
+     "units": {
+      "NULLNOOP:full_c1:0:": true,
+      "NULLUNIFORM:full_c1:0:": true,
+      "NULLRANDOM:full_c1:0:": true,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    }
+   },
+   "verdict": "falsified",
+   "non_diagnostic_arms": []
+  },
+  "P2": {
+   "arms": {
+    "a": {
+     "text": "difference-in-differences of |NIE| (TRUE - CTRL): 95% CI lower bound >= 0.2",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "b": {
+     "text": "mixture heads' TRUE |NIE| >= 0.2 and decoy (non-mixture) heads mediate <= 0.4 of it",
+     "status": "fail",
+     "k": 1,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": null,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    },
+    "c": {
+     "text": "the transplanted change follows ATT-MIX predictions: R2 >= 0.45",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": null,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    }
+   },
+   "verdict": "falsified",
+   "non_diagnostic_arms": []
+  },
+  "P3": {
+   "arms": {
+    "a": {
+     "text": "E-subspace mean patch removes >= 0.8 of the S=1 score contrast",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "b": {
+     "text": "complement (442-dim) mean patch removes <= 0.2 of it",
+     "status": "pass",
+     "k": 3,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": null,
+     "units": {
+      "NULLNOOP:full_c1:0:": true,
+      "NULLUNIFORM:full_c1:0:": true,
+      "NULLRANDOM:full_c1:0:": true,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "c": {
+     "text": "matched-budget decoys are not specific: both A1 and PERM subspace mean patches remove >= 0.5",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": null,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    }
+   },
+   "verdict": "falsified",
+   "non_diagnostic_arms": []
+  },
+  "P4": {
+   "arms": {
+    "a": {
+     "text": "intact corr(mixture mass, Bayes responsibility) >= 0.8 and after layer-1 mean ablation <= 0.3",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "b": {
+     "text": "redundancy: e_g0 decodable from the complement of E at >= 0.95",
+     "status": "fail",
+     "k": 1,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    },
+    "c": {
+     "text": "the Bayes decision is better decoded from the complement than from E by >= 0.2",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    }
+   },
+   "verdict": "falsified",
+   "non_diagnostic_arms": []
+  },
+  "P5": {
+   "arms": {
+    "a": {
+     "text": "the C=1-trained network fails on C=2: native acc <= Bayes acc - 0.2",
+     "status": "pass",
+     "k": 4,
+     "n": 4,
+     "null_passes_on": [
+      "NULLNOOP:full_c1:0:",
+      "NULLUNIFORM:full_c1:0:",
+      "NULLRANDOM:full_c1:0:"
+     ],
+     "diagnostic": false,
+     "units": {
+      "NULLNOOP:full_c1:0:": true,
+      "NULLUNIFORM:full_c1:0:": true,
+      "NULLRANDOM:full_c1:0:": true,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    },
+    "b": {
+     "text": "layer-2 attention-only AND layer-2 MLP-only adaptation each reach acc >= Bayes - 0.03 and S=3 acc >= Bayes(S=3) - 0.1",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "c": {
+     "text": "readout-only adaptation is insufficient overall: KL >= 0.2 and acc <= Bayes - 0.1",
+     "status": "pass",
+     "k": 3,
+     "n": 4,
+     "null_passes_on": [
+      "NULLNOOP:full_c1:0:",
+      "NULLUNIFORM:full_c1:0:",
+      "NULLRANDOM:full_c1:0:"
+     ],
+     "diagnostic": false,
+     "units": {
+      "NULLNOOP:full_c1:0:": true,
+      "NULLUNIFORM:full_c1:0:": true,
+      "NULLRANDOM:full_c1:0:": true,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "d": {
+     "text": "the frozen C=1 resid2 already supports the J_H-dependent slice linearly: readout-only S=3 acc >= 0.7",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "e": {
+     "text": "validity: parameters outside each condition are bit-identical after training",
+     "status": "pass",
+     "k": 4,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": null,
+     "units": {
+      "NULLNOOP:full_c1:0:": true,
+      "NULLUNIFORM:full_c1:0:": true,
+      "NULLRANDOM:full_c1:0:": true,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    }
+   },
+   "verdict": "falsified",
+   "non_diagnostic_arms": [
+    "a",
+    "c"
+   ]
+  },
+  "P6": {
+   "arms": {
+    "a": {
+     "text": "mixture-class rule holds",
+     "status": "inconclusive",
+     "k": 0,
+     "n": 0,
+     "null_passes_on": [],
+     "diagnostic": null,
+     "units": {}
+    }
+   },
+   "verdict": "inconclusive",
+   "non_diagnostic_arms": []
+  },
+  "P7": {
+   "arms": {
+    "a": {
+     "text": "corr(mass, B) >= 0.8",
+     "status": "pass",
+     "k": 4,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": true,
+      "NULLUNIFORM:full_c1:0:": true,
+      "NULLRANDOM:full_c1:0:": true,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    },
+    "b": {
+     "text": "corr B - corr A3 >= 0.08 and corr B - corr M >= 0.2",
+     "status": "pass",
+     "k": 4,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": true,
+      "NULLUNIFORM:full_c1:0:": true,
+      "NULLRANDOM:full_c1:0:": true,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    }
+   },
+   "verdict": "confirmed",
+   "non_diagnostic_arms": []
+  },
+  "P8": {
+   "arms": {
+    "a": {
+     "text": "E != A1 stratum: E-subspace R2(E) - R2(A1) >= 0.1",
+     "status": "fail",
+     "k": 0,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": false
+     }
+    },
+    "b": {
+     "text": "E != A1 stratum: A1-subspace R2(A1) - R2(E) >= 0.1 (non-identifiability)",
+     "status": "fail",
+     "k": 1,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    },
+    "c": {
+     "text": "all discriminating pairs: E-subspace R2(E) >= 0.8 and R2(E) - R2(PERM) >= 0.5",
+     "status": "fail",
+     "k": 1,
+     "n": 4,
+     "null_passes_on": [],
+     "diagnostic": true,
+     "units": {
+      "NULLNOOP:full_c1:0:": false,
+      "NULLUNIFORM:full_c1:0:": false,
+      "NULLRANDOM:full_c1:0:": false,
+      "NULLALTMECH:full_c1:0:": true
+     }
+    }
+   },
+   "verdict": "falsified",
+   "non_diagnostic_arms": []
+  }
+ },
+ "checks": [
+  {
+   "prediction": "P1",
+   "arm": "a",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "a",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "a",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "a",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P1",
+   "arm": "b",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "b",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "b",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "b",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "c",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "c",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "c",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "c",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P1",
+   "arm": "d",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P1",
+   "arm": "d",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P1",
+   "arm": "d",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P1",
+   "arm": "d",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P2",
+   "arm": "a",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "a",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "a",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "a",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "b",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "b",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "b",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "b",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P2",
+   "arm": "c",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "c",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "c",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P2",
+   "arm": "c",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "a",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "a",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "a",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "a",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "b",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P3",
+   "arm": "b",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P3",
+   "arm": "b",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P3",
+   "arm": "b",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "c",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "c",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "c",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P3",
+   "arm": "c",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "a",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "a",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "a",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "a",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "b",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "b",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "b",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "b",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P4",
+   "arm": "c",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "c",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "c",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P4",
+   "arm": "c",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "a",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "a",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "a",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "a",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "b",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "b",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "b",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "b",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "c",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "c",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "c",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "c",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "d",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "d",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "d",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "d",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P5",
+   "arm": "e",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "e",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "e",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P5",
+   "arm": "e",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P7",
+   "arm": "a",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P7",
+   "arm": "a",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P7",
+   "arm": "a",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P7",
+   "arm": "a",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P7",
+   "arm": "b",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P7",
+   "arm": "b",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P7",
+   "arm": "b",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P7",
+   "arm": "b",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P8",
+   "arm": "a",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "a",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "a",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "a",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "b",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "b",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "b",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "b",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  },
+  {
+   "prediction": "P8",
+   "arm": "c",
+   "unit": "NULLNOOP:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "c",
+   "unit": "NULLUNIFORM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "c",
+   "unit": "NULLRANDOM:full_c1:0:",
+   "passed": false
+  },
+  {
+   "prediction": "P8",
+   "arm": "c",
+   "unit": "NULLALTMECH:full_c1:0:",
+   "passed": true
+  }
+ ],
+ "counts": {
+  "meets_thresholds": 1,
+  "discriminating": 1,
+  "non_diagnostic_pass": 0,
+  "falsified": 6,
+  "inconclusive": 1
+ }
+}

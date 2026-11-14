@@ -1,2 +1,43 @@
 2026-11-14T16:22:43Z lane DC2 start [56623a2f10f7] python3 scripts/continue_pretrain.py ../step1_native_relational_algorithm_validation/checkpoints/zP153/pre.npz checkpoints/dev_cont/zP153_b1 153 1 3000
 2026-11-14T16:22:43Z lane DC1 start [121f7c9b9ed6] python3 scripts/continue_pretrain.py ../step1_native_relational_algorithm_validation/checkpoints/zP151/pre.npz checkpoints/dev_cont/zP151_b1 151 1 3000
+2026-11-14T16:36:11Z lane PREA start [b7cac1905e10] bash scripts/pretrain_gated.sh 160
+2026-11-14T16:36:11Z lane PREB start [64f81b280389] bash scripts/pretrain_gated.sh 161
+2026-11-14T16:41:20Z lane DAD start [c0d5c7306dad] python3 scripts/adapt_sel.py - xP81:full_c1:0:
+2026-11-14T16:42:57Z lane DDEC start [8619d0a43919] XI_OUT=decoy_dev python3 scripts/das_decoy.py xP81:full_c1:0: E
+2026-11-14T16:47:52Z lane DAD end [c0d5c7306dad] rc=0
+2026-11-14T16:47:52Z lane DAD start [6c8949c4ad33] python3 scripts/adapt_sel.py - vP155:full_c1:10:_eval_conf12
+2026-11-14T16:48:35Z lane DAD end [6c8949c4ad33] rc=0
+2026-11-14T16:48:35Z lane DAD start [44d405c4e310] python3 scripts/adapt_sel.py - vP150:full_c1:10:_eval_conf12
+2026-11-14T16:50:06Z lane DDEC end [8619d0a43919] rc=0
+2026-11-14T16:50:06Z lane DDEC start [7c671af952d0] XI_OUT=decoy_dev python3 scripts/das_decoy.py xP81:full_c1:0: A1
+2026-11-14T16:55:38Z lane DC1 end [121f7c9b9ed6] rc=0
+2026-11-14T16:55:38Z lane DC2 end [56623a2f10f7] rc=0
+2026-11-14T16:55:38Z lane DC1 start [34506dc93a4e] python3 scripts/continue_pretrain.py ../step1_native_relational_algorithm_validation/checkpoints/zP152/pre.npz checkpoints/dev_cont/zP152_b1 152 1 3000
+2026-11-14T16:55:39Z lane DC2 start [43800655d1e3] python3 scripts/continue_pretrain.py ../step1_native_relational_algorithm_validation/checkpoints/zP156/pre.npz checkpoints/dev_cont/zP156_b1 156 1 3000
+2026-11-14T16:55:39Z NOTE: dev continuation runs (P151, P153 block 1) stopped at step ~1500-1800 of 3000 to free CPU for the cohort; partial loss logs kept in checkpoints/dev_cont/*/pretrain.log (P151 0.54->0.47, P153 1.00->0.53); no final aux_acc
+2026-11-14T16:55:52Z NOTE: the lanes had already started the queued P152/P156 dev continuations; killed after 5 s
+2026-11-14T16:56:28Z lane DDEC end [7c671af952d0] rc=0
+2026-11-14T16:56:28Z lane DDEC start [8dfc7adf0979] XI_OUT=decoy_dev python3 scripts/das_decoy.py xP81:full_c1:0: PERM
+2026-11-14T16:58:15Z NOTE: adapt_sel J_H pair-contrast design found OFF-SUPPORT under beta=1 (exact posterior NaN); replaced by the S=3 (J_H-dependent) subset analysis before any freeze
+2026-11-14T16:59:27Z lane DAD2 start [c0d5c7306dad] python3 scripts/adapt_sel.py - xP81:full_c1:0:
+2026-11-14T17:01:28Z lane DDEC end [8dfc7adf0979] rc=0
+2026-11-14T17:01:28Z lane DDEC start [65d5cd872c72] XI_OUT=decoy_dev python3 scripts/das_decoy.py vP155:full_c1:10:_eval_conf12 E
+2026-11-14T17:04:42Z CPU: autogroup scheduling made renice ineffective; set autogroup nice pretrain=0, dev lanes=6 (pretraining is critical path)
+2026-11-14T17:09:45Z lane DDEC end [65d5cd872c72] rc=0
+2026-11-14T17:09:45Z lane DDEC start [3513269fe4ce] XI_OUT=decoy_dev python3 scripts/das_decoy.py vP155:full_c1:10:_eval_conf12 A1
+2026-11-14T17:17:46Z lane DDEC end [3513269fe4ce] rc=0
+2026-11-14T17:17:46Z lane DDEC start [7a46750e04a3] XI_OUT=decoy_dev python3 scripts/das_decoy.py vP155:full_c1:10:_eval_conf12 PERM
+2026-11-14T17:22:11Z lane DDEC end [7a46750e04a3] rc=0
+2026-11-14T17:22:11Z lane DDEC start [65f35e2027af] DD_TAG=_dev python3 scripts/decoy_disc.py logs/decoy_dev xP81:full_c1:0: vP155:full_c1:10:_eval_conf12
+2026-11-14T17:23:20Z lane DDEC end [65f35e2027af] rc=0
+2026-11-14T17:31:23Z PRE-FREEZE FIX: fidelity R2 returned 1.0 when the observed change is identically zero (noop-type null); now 0.0 (all fid() functions). Dev numbers unaffected (observed changes nonzero).
+2026-11-14T17:35:38Z lane DAD2 end [c0d5c7306dad] rc=0
+2026-11-14T17:35:38Z lane DAD2 start [44d405c4e310] python3 scripts/adapt_sel.py - vP150:full_c1:10:_eval_conf12
+2026-11-14T17:37:46Z PRE-FREEZE FIX: adapt_sel optax.masked let frozen params take raw-gradient steps (readout/attn/mlp diverged in dev run 1, xP81); replaced by multi_transform+set_to_zero, added frozen_params_unchanged check; AD_STEPS default 1500->1000 (compute: dev run 1 took 2169 s)
+2026-11-14T17:37:58Z lane PREA end [b7cac1905e10] rc=0
+2026-11-14T17:37:58Z lane PREA start [716e7195be1b] bash scripts/pretrain_gated.sh 162
+2026-11-14T17:38:23Z lane DAD3 start [aa155fe58ca9] AD_STEPS=1000 python3 scripts/adapt_sel.py - xP81:full_c1:0:
+2026-11-14T17:49:02Z lane DAD3 end [aa155fe58ca9] rc=0
+2026-11-14T17:49:02Z lane DAD3 start [8039830d2a41] AD_STEPS=1000 python3 scripts/adapt_sel.py - vP155:full_c1:10:_eval_conf12
+2026-11-14T17:59:59Z lane DAD3 end [8039830d2a41] rc=0
+2026-11-14T17:59:59Z lane DAD3 start [1b8bccd2eb5f] AD_STEPS=1000 python3 scripts/adapt_sel.py - vP150:full_c1:10:_eval_conf12

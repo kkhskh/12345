@@ -1,0 +1,5 @@
+python3 scripts/adapt_sel.py - xP81:full_c1:0:
+python3 scripts/adapt_sel.py - vP150:full_c1:10:_eval_conf12
+python3 scripts/adapt_sel.py - vP155:full_c1:10:_eval_conf12
+XII_RDIR=../step1_native_relational_algorithm_validation/logs/das LA_TAG=_devv python3 scripts/l1abl_mix.py _ev70500000 vP155:full_c1:10:_eval_conf12 vP156:full_c1:10:_eval_conf12
+MC_TAG=_dev3 python3 scripts/l2_mix_causal.py vP156:full_c1:10:_eval_conf12 vP150:full_c1:10:_eval_conf12

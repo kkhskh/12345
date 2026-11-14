@@ -1,0 +1,10 @@
+pcount s150 step 300 loss 1.6787
+pcount s150 step 600 loss 1.5791
+pcount s150 step 900 loss 0.5993
+pcount s150 step 1200 loss 0.5365
+pcount s150 step 1500 loss 0.5409
+pcount s150 step 1800 loss 0.2328
+pcount s150 step 2100 loss 0.0248
+pcount s150 step 2400 loss 0.0117
+pcount s150 step 2700 loss 0.0088
+pcount s150 step 3000 loss 0.0084

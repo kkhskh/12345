@@ -1,0 +1,2 @@
+python3 scripts/cohort12_pretrain.py P 151
+python3 scripts/cohort12_pretrain.py P 153

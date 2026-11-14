@@ -1,0 +1,101 @@
+{
+ "M1_independent_copy_esym_theorem_max_abs_err": {
+  "G3C1": 1.887379141862766e-15,
+  "G3C2": 2.220446049250313e-16,
+  "G4C1": 1.7208456881689926e-15,
+  "G4C2": 1.8318679906315083e-15,
+  "G5C2": 4.107825191113079e-15,
+  "G5C3": 1.8318679906315083e-15
+ },
+ "M2_shared_copy": {
+  "G3C1": {
+   "max_abs_shared_vs_jointrule": 1.887379141862766e-15,
+   "KL_shared_vs_esym": -1.3582463448510303e-17,
+   "acc_shared": 0.7583333333333333,
+   "acc_esym": 0.7576666666666667
+  },
+  "G3C2": {
+   "max_abs_shared_vs_jointrule": 2.220446049250313e-16,
+   "KL_shared_vs_esym": 0.048598532477043384,
+   "acc_shared": 0.7936666666666666,
+   "acc_esym": 0.7473333333333333
+  },
+  "G4C1": {
+   "max_abs_shared_vs_jointrule": 1.7208456881689926e-15,
+   "KL_shared_vs_esym": -8.279889438232954e-18,
+   "acc_shared": 0.717,
+   "acc_esym": 0.7163333333333334
+  },
+  "G4C2": {
+   "max_abs_shared_vs_jointrule": 1.8318679906315083e-15,
+   "KL_shared_vs_esym": 0.050134479165209786,
+   "acc_shared": 0.778,
+   "acc_esym": 0.7286666666666667
+  },
+  "G5C2": {
+   "max_abs_shared_vs_jointrule": 1.7208456881689926e-15,
+   "KL_shared_vs_esym": 0.04731410681984048,
+   "acc_shared": 0.741,
+   "acc_esym": 0.6966666666666667
+  },
+  "G5C3": {
+   "max_abs_shared_vs_jointrule": 2.1094237467877974e-15,
+   "KL_shared_vs_esym": 0.07563657105224614,
+   "acc_shared": 0.768,
+   "acc_esym": 0.7073333333333334
+  }
+ },
+ "M3_distinct_(W_g,L_g)_values": 36,
+ "M3_collisions_e_not_determined_by_WL": 0,
+ "M3_frac_informative_E_pairs_input_realizable": 0.0,
+ "M3_frac_pairs_informative": 0.71735,
+ "M4_false_positive_bound": {
+  "A1": {
+   "P_argmax_differ_all": 0.0035,
+   "P_argmax_differ_on_informative": 0.0030006001200240046
+  },
+  "PERM": {
+   "P_argmax_differ_all": 0.31133333333333335,
+   "P_argmax_differ_on_informative": 0.28205641128225645
+  },
+  "RANDE": {
+   "P_argmax_differ_all": 0.2896666666666667,
+   "P_argmax_differ_on_informative": 0.27545509101820365
+  }
+ },
+ "M5_preservation_power": {
+  "A1": {
+   "n_pres": 1006,
+   "frac_E_changes": 0.03876739562624255,
+   "frac_bayes_decision_changes": 0.02485089463220676
+  },
+  "PERM": {
+   "n_pres": 1008,
+   "frac_E_changes": 1.0,
+   "frac_bayes_decision_changes": 0.4722222222222222
+  },
+  "RANDE": {
+   "n_pres": 1047,
+   "frac_E_changes": 0.87774594078319,
+   "frac_bayes_decision_changes": 0.5940783190066857
+  }
+ },
+ "M4_observed_full_model_decoy_IIA_range_XI": {
+  "RANDE": [
+   0.6943266707046235,
+   0.7363214213607915
+  ],
+  "A1": [
+   0.8274151953977386,
+   0.9343384249156913
+  ],
+  "E": [
+   0.8529705941188238,
+   0.9691938387677536
+  ],
+  "PERM": [
+   0.7524038461538461,
+   0.8389423076923077
+  ]
+ }
+}

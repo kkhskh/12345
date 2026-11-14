@@ -1,0 +1,21 @@
+2026-11-14T06:49:43Z lane PRE1 start [0aba13463f36] python3 scripts/cohort12_pretrain.py P 150
+2026-11-14T06:49:43Z lane PRE2 start [04ab55208392] python3 scripts/cohort12_pretrain.py P 151
+2026-11-14T07:01:24Z lane DEVB start [482080eeb970] FA_TAG=_dev python3 scripts/alt_ablation.py - xP81:full_c1:0: yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 xP81:full_c1:1: yP130:full_c1:1:
+2026-11-14T07:02:25Z lane DEVB end [482080eeb970] rc=0
+2026-11-14T07:02:25Z lane DEVB start [8d3def6abe06] FA_TAG=_devw python3 scripts/alt_ablation.py _ev62500000 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10
+2026-11-14T07:03:21Z lane DEVB end [8d3def6abe06] rc=0
+2026-11-14T07:03:37Z lane DEVB start [761de0c964a8] FA_TAG=_dev python3 scripts/dyn_mech.py logs/traj_dev_all.json xP81:full_c1:0: yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10
+2026-11-14T07:07:29Z lane DEVB end [761de0c964a8] rc=0
+2026-11-14T07:13:12Z lane DEVB start [5b5838628626] python3 scripts/adapt_c2.py - xP81:full_c1:0:
+2026-11-14T07:31:31Z lane DEVB end [5b5838628626] rc=0
+2026-11-14T07:31:31Z lane DEVB start [81b24d735d7b] python3 scripts/adapt_c2.py _ev62500000 wP140:full_c1:0:_eval_conf10
+2026-11-14T07:34:05Z lane DEVC start [206d2bda7ccd] VS_TAG=_dev python3 scripts/vs_linear.py - xP81:full_c1:0: yP130:full_c1:0:_eval_conf9
+2026-11-14T07:38:09Z NOTE: dev adapt_c2 runs for yP131, wP141 full and wP140 c1 skipped (pre-claimed) to free CPU for fresh pretraining
+2026-11-14T07:41:01Z lane PRE2 end [04ab55208392] rc=0
+2026-11-14T07:41:01Z lane PRE2 start [371d519a36ff] python3 scripts/cohort12_pretrain.py P 153
+2026-11-14T07:41:20Z lane PRE1 end [0aba13463f36] rc=0
+2026-11-14T07:41:20Z lane PRE1 start [7d17bb942106] python3 scripts/cohort12_pretrain.py P 152
+2026-11-14T07:43:08Z foreground [3cadfeb4e9c4] disc_ident dev (claimed from queue_dev_B)
+2026-11-14T07:51:33Z lane DEVB end [81b24d735d7b] rc=0
+2026-11-14T07:51:33Z lane DEVB start [a2d3b3f016a6] python3 scripts/adapt_c2.py - xP81:c1:0:
+2026-11-14T08:01:27Z NOTE: dev vs_linear devw run pre-claimed (skipped) to free CPU for the fresh cohort

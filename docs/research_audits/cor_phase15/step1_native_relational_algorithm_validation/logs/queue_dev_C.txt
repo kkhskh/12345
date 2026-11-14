@@ -1,0 +1,2 @@
+VS_TAG=_dev python3 scripts/vs_linear.py - xP81:full_c1:0: yP130:full_c1:0:_eval_conf9
+VS_TAG=_devw python3 scripts/vs_linear.py _ev62500000 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP140:c1:0:_eval_conf10

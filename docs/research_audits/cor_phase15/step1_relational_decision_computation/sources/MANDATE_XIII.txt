@@ -1,0 +1,988 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XIII
+
+## From Relational Information to Candidate Decisions: Native Evidence-Combination Algorithms, Causal Mediation, Mathematical Sufficiency, and Structural Generalization
+
+**Full-depth autonomous foundational mathematical and mechanistic research mandate**
+
+**Target research budget: 8–13 hours of active computational investigation on approximately two CPU cores.**
+
+---
+
+# 0. SCIENTIFIC MISSION
+
+You are continuing the COR research program immediately after Foundational Investigation XII.
+
+Latest branch:
+
+`cor-phase15-step1-native-relational-algorithm-validation`
+
+Latest research package:
+
+`cor_inv12_native_relational_algorithm_validation.zip`
+
+Research directory:
+
+`docs/research_audits/cor_phase15/step1_native_relational_algorithm_validation/`
+
+Verify the repository's actual branch, HEAD commit, source code, checkpoints, prediction-freeze records, mathematical proofs, independent-agent reviews, and adjudications before beginning.
+
+**We remain in Phase 1.5, Step 1: Foundational Mathematical and Mechanistic Investigation.**
+
+The working estimate remains approximately 25% of the foundational research territory explored. This is a provisional planning judgment, not a quantitative completion metric.
+
+Do not propose closing Step 1, proceeding to another phase, selecting a paper thesis, or declaring the original COR theory validated.
+
+The scientific objective remains broader than any particular Transformer architecture or Bayesian source generator:
+
+**Understand how relationships among information sources become computationally meaningful, how AI systems transform those relationships into candidate-specific decisions, and which mathematical and causal principles govern this process.**
+
+Investigations VIII–XII have progressively separated:
+
+1. The presence of relational information.
+2. Its accessibility to downstream computation.
+3. Its neural construction.
+4. Its causal influence on decisions.
+5. The correctness of the decision-combination rule.
+6. Its generalization to new relational structures.
+
+Investigation XIII must now investigate the missing connections between these levels.
+
+Do not turn this investigation into an accuracy benchmark, another eligibility-decoding exercise, or a search for one convenient attention head.
+
+We are investigating **the actual computation of relational decisions and its mathematical limits**.
+
+---
+
+# 1. EXACT SCIENTIFIC STARTING POINT
+
+Read the original evidence from Investigations IX–XII, together with relevant earlier COR findings.
+
+Investigation XII achieved genuine progress:
+
+- Freshly pretrained Transformers replicated the layer-1 relational interaction.
+- Causal interventions showed that altering the layer-1 contribution can change candidate decisions in the predicted direction.
+- Different models implemented the interaction through heterogeneous attention and MLP pathways.
+- Cross-model mapped interventions supported a transferable eligibility-related abstraction.
+- The mathematically correct two-colluder posterior was derived for the actual shared-copying generator.
+- A full downstream Transformer block could be retrained to solve the two-colluder task using frozen early-layer representations.
+- Independent reviewing agents detected important errors, several of which were corrected.
+
+However, the following limitations are scientifically consequential.
+
+## 1.1 The decision-combination circuit remains unidentified
+
+We have increasingly detailed evidence about the construction of eligibility-related information in layers 0–1.
+
+But **layer 2, where this information affects candidate-specific evidence, has not received equivalent causal reconstruction**.
+
+The existing evidence does not show exactly how the network implements the trained weighting rule, how evidence is routed to the candidate readout, or how different relational statistics are combined.
+
+This is the leading unexplained mechanistic problem.
+
+## 1.2 The six-dimensional subspace is not yet a uniquely identified natural mediator
+
+The learned DAS subspace was optimized for counterfactual interchange.
+
+Several scrubbing and restoration experiments therefore partly retest the objective used to construct that subspace.
+
+Natural donor activations do not necessarily produce natural states after subspace replacement.
+
+The known possibility of interpretability illusions from learned activation subspaces remains relevant.
+
+Further, mean ablation of layer 1 leaves nontrivial eligibility-related decision behavior, and the complement of the six-dimensional subspace retains decision-relevant information.
+
+We must determine whether this represents redundant information, an alternative mechanism, downstream recomputation, or a limitation of the intervention method.
+
+## 1.3 The mechanistic description is not universal
+
+Investigation XII falsified its prediction of universally redundant perfectness routing.
+
+Complete confirmation parents were predominantly attention-pattern-dependent, but some incomplete parents were different, and P156 formed much of the interaction in MLP1.
+
+Pattern/value attribution also depended on the reference activation.
+
+Do not describe a particular pattern/value split or softmax computation as a universal COR mechanism.
+
+The correct research question is what computation survives these implementation differences.
+
+## 1.4 Some intervention metrics were weak or non-discriminating
+
+Investigation XII's independent review established that:
+
+- `path_inA` and `resamp_A` represented the same intervention.
+- `path_inA` was poorly suited to distinguishing the conjunction hypothesis from simple information relay.
+- The binary comparison of KL to Bayes versus KL to the ineligible-group counterfactual was biased by their different posterior entropies.
+- P6's coded criterion could pass under a null intervention.
+- The linear-versus-projection P6 test could also pass with a random subspace.
+- High interchange accuracy was not sufficient to identify the correct variable.
+
+These are not merely reporting concerns.
+
+They affect what causal conclusions can legitimately be drawn.
+
+## 1.5 The generalization interpretation remains incomplete
+
+For two colluders, the earlier independent-copying Bayesian reference was wrong for the actual generator.
+
+The corrected shared-copying model requires a joint between-group relation, denoted \(J_H\), that per-group eligibility alone cannot express.
+
+Retraining a full downstream block recovered near-Bayesian decisions, even when the six-dimensional eligibility subspace was patched.
+
+But that does **not** prove the repair avoids all eligibility information or that only the evidence-aggregation function changed.
+
+The full block has substantial computational capacity, and the larger residual representation still contains information.
+
+The repaired decision mechanism must be identified directly.
+
+## 1.6 Fresh confirmation and protocol integrity require improvement
+
+Four of seven new pretrained parents failed the readiness criterion.
+
+The protocol amendment added parents after training had started, reversed a frozen restriction, and inaccurately described what training outputs existed at the time.
+
+Although the main verdicts survived the restricted original-cohort analysis, this is not acceptable as a model for future prospective confirmation.
+
+The next investigation must implement a stronger, auditable protocol.
+
+---
+
+# 2. CENTRAL RESEARCH QUESTION
+
+**How do Transformers transform relational information into candidate-specific evidence, and what distinguishes an information representation that supports the correct decision from a learned algorithm that actually computes it?**
+
+Investigate the following competing explanations.
+
+**H1 — Shared relational evidence-combination algorithm**
+
+Different models implement an equivalent candidate-evidence transformation despite heterogeneous neural pathways.
+
+**H2 — Shared information, distinct downstream algorithms**
+
+Models contain similar relational representations but transform them into candidate decisions differently.
+
+**H3 — Redundant or distributed computation**
+
+The apparent mediator is only one of several routes carrying decision-relevant information.
+
+**H4 — Intervention-dependent explanation**
+
+Some apparent mechanisms are consequences of learned alignment, synthetic activation construction, or evaluation geometry rather than uniquely identified natural computation.
+
+**H5 — Source-model-dependent computation**
+
+The correct relational operation depends on the structure of the information-generating process. No single eligibility variable or evidence-combination rule is sufficient across all source models.
+
+These possibilities may coexist.
+
+Design experiments and mathematics that can distinguish them.
+
+---
+
+# 3. WORKSTREAM A — IDENTIFY THE NATIVE LAYER-2 DECISION ALGORITHM
+
+**Primary scientific priority. Mandatory.**
+
+Investigate how the final native Transformer block converts relational information into candidate-specific decisions.
+
+## A1. Reconstruct the evidence-combination circuit
+
+Examine:
+
+- Layer-2 attention heads.
+- Query, key, value, and output projections.
+- Attention-score and value contributions.
+- MLP operations.
+- Residual-stream pathways.
+- Candidate/readout-token interactions.
+- Layer normalization and nonlinear interactions.
+- Contributions from the identified eligibility subspace and its complement.
+
+Determine what computation the native model performs.
+
+For the original one-colluder setting, compare the learned computation with the generator-derived weighting rule involving:
+
+\[
+S-e_g.
+\]
+
+Do not conclude that the model literally computes this expression merely because its output matches the corresponding Bayesian posterior.
+
+Construct competing internal algorithms that could produce similar observed behavior.
+
+## A2. Test alternative computational factorizations
+
+Determine whether the model uses:
+
+- A pooled count \(S\).
+- Per-group eligibility information \(e_g\).
+- Group-specific weights \(m_g\).
+- Pairwise eligibility interactions.
+- Direct candidate-evidence lookup.
+- Distributed or redundant encodings.
+- An alternative computation not captured by these descriptions.
+
+Respect the mathematical dependence among these variables.
+
+Interventions setting \(S\) or \(e_g\) independently may not correspond to realizable input changes.
+
+Distinguish valid input-level comparisons from synthetic high-level interventions.
+
+Use mathematically discriminating configurations rather than merely fitting a preferred formula.
+
+## A3. Identify causal information flow
+
+Trace the path:
+
+**Relational source evidence → intermediate neural representation → evidence-combination computation → candidate-specific decision.**
+
+For each link establish whether the evidence demonstrates:
+
+- Representation.
+- Transmission.
+- Computation.
+- Causal mediation.
+- Downstream use.
+
+Use path-specific interventions, restoration, controlled component removal, and alternative explanations.
+
+A successful reconstruction should explain why particular source-relation changes cause specific candidate-margin changes.
+
+## A4. Investigate the learning transition
+
+Investigation XII found that the internal conjunction can influence decisions before the overall rule becomes Bayes-correct.
+
+The remaining A2-to-B calibration transition is unexplained.
+
+Test whether the transition reflects changes in:
+
+- Layer-2 attention weights.
+- Evidence aggregation.
+- Suppression of nearly perfect but ineligible groups.
+- Candidate readout calibration.
+- Competing heuristic pathways.
+
+Seek an internal measurement that prospectively predicts the behavioral transition without simply reusing the final decision metric.
+
+Do not mistake a relationship that holds by metric construction for a new learning mechanism.
+
+---
+
+# 4. WORKSTREAM B — NATURAL CAUSAL MEDIATION AND REDUNDANT PATHWAYS
+
+**Mandatory. This workstream must challenge the preferred mechanism rather than merely confirm it.**
+
+## B1. Test the subspace-patching interpretation
+
+Evaluate whether the existing six-dimensional eligibility-related subspace is a genuine mediator of the native decision or a useful learned steering representation.
+
+Compare the proposed E-subspace against:
+
+- Perfectness-only A1 subspaces.
+- Permuted or alternative relational variables.
+- Random and null subspaces.
+- Dimension-matched learned decoys.
+- Naturally occurring feature directions, where identifiable.
+- Candidate-output-related controls.
+
+Apply the **same training budget, intervention procedure, and evaluation protocol** to the proposed mediator and the decoys.
+
+Do not compare an optimized E-subspace against only unoptimized random directions and call the difference identification.
+
+Use evaluation pairs where competing variables imply demonstrably different decisions.
+
+## B2. Separate natural and synthetic interventions
+
+Distinguish:
+
+1. Valid input-level relational changes.
+2. Whole natural-activation replacement.
+3. Natural component activations combined into hybrid states.
+4. Learned-subspace patching.
+5. Completely synthetic interventions.
+
+Evaluate whether important causal conclusions survive across intervention classes.
+
+Do not call a projected donor-state patch a fully natural activation at the patched site.
+
+The natural-path result on `path_inP` is a useful starting point.
+
+Revisit `path_inA` only if a new control makes it discriminating.
+
+## B3. Replace biased decision criteria
+
+The earlier binary KL-side criterion can classify degraded predictions as closer to Bayes because the reference posteriors have different entropies.
+
+Use stronger measures, such as:
+
+- Signed changes in candidate log odds.
+- Predicted versus observed intervention-effect magnitude.
+- Calibration against explicit counterfactual mixtures.
+- Entropy-matched or otherwise appropriate null references.
+- Difference-in-differences with matched controls.
+- Full-distribution fidelity with uncertainty estimates.
+
+Preflight every planned criterion against a no-op intervention, random patch, uniform-output baseline, and suitable alternative mechanism.
+
+**A test that can pass when nothing causally informative happens must not be counted as positive confirmation.**
+
+## B4. Explain residual information
+
+The complement of the six-dimensional E-subspace and the network after layer-1 mean ablation retain nontrivial decision-relevant information.
+
+Investigate:
+
+- Whether this information encodes eligibility redundantly.
+- Whether it carries candidate votes or other source information.
+- Whether an alternative pathway computes the relation.
+- Whether layer 2 can reconstruct eligibility from rawer evidence.
+- Whether the apparent residual effect is an intervention artifact.
+
+Use joint interventions and restoration controls.
+
+Do not describe the original E-subspace as necessary for the whole decision unless redundant pathways have been adequately considered.
+
+## B5. Replicate restoration under genuinely different interventions
+
+Investigation XII confirmed six-dimensional restoration under its earlier hybrid ablation, while restoration following natural-path removal was tested only in development.
+
+Perform an independently frozen confirmation of restoration after a distinct, discriminating pathway intervention.
+
+A positive result should demonstrate that the identified component mediates the expected decision change beyond what a decoy subspace or source-free patch can achieve.
+
+A negative result should revise the mediator claim.
+
+---
+
+# 5. WORKSTREAM C — MATHEMATICAL SUFFICIENCY AND STRUCTURAL GENERALIZATION
+
+**Second principal scientific priority. Mandatory.**
+
+Investigation XII demonstrated that the mathematical information required for the correct decision changes when the source-generating process changes.
+
+Investigate that fact more deeply.
+
+## C1. Derive the source-model dependence precisely
+
+For independent-copying colluders, the exact rule contains an elementary symmetric polynomial of the per-group eligibility indicators:
+
+\[
+e_C(e_{-g}).
+\]
+
+For the actual shared-copying generator, the correct decision depends on a joint cross-group agreement relation \(J_H\).
+
+Use the exact definitions and proofs from Investigation XII.
+
+Independently verify the relevant Bayesian posteriors from the actual generator, including shared copied values and shared copy events.
+
+Do not use the previous incorrect independent-copying posterior as the reference for the shared-copying environment.
+
+Include relevant partial-copying cases where tractable.
+
+## C2. Locate the joint relation in neural representations
+
+The crucial question is now:
+
+**Where is the information required for \(J_H\), and how does a successful downstream model compute and use it?**
+
+Investigate whether the relation is:
+
+- Present in the frozen residual stream.
+- Linearly or nonlinearly decodable.
+- Causally used by the adapted model.
+- Computed anew by the downstream block.
+- Represented through explicit cross-group interactions.
+- Available through an alternative sufficient representation.
+
+Decodability alone is not enough.
+
+Use valid counterfactual episode pairs that agree on per-group eligibility but differ in the joint cross-group relation.
+
+Measure the corresponding candidate-specific decision effects.
+
+## C3. Dissect the two-colluder repair
+
+Investigation XII retrained a full downstream Transformer block.
+
+That established useful capacity and information results, but did not isolate the decision algorithm.
+
+Compare carefully chosen adaptation conditions, potentially including:
+
+- Readout-only changes.
+- Attention-only changes.
+- MLP-only changes.
+- Selective unfreezing of key components.
+- Full-block retraining.
+- A fresh downstream block.
+- Appropriate simple mathematical and learned baselines.
+
+Do not run every variant without justification.
+
+Prioritize comparisons that distinguish whether the correct joint relation is already represented or must be computed in layer 2.
+
+A successful repair must not automatically be interpreted as bypassing eligibility.
+
+Removing six identified dimensions does not remove every possible representation of the eligibility information.
+
+Use causal interventions to test what the adapted block actually depends on.
+
+## C4. Establish a mathematical boundary
+
+Investigate conditions under which:
+
+- Per-group relational statistics are sufficient.
+- A joint cross-group statistic is necessary.
+- The required interaction order changes.
+- Relational information remains sufficient but the decision-combination rule fails.
+- Neither the existing representation nor the existing rule is sufficient.
+
+Seek explicit proofs and counterexamples.
+
+A valuable result would characterize a restricted class of source-generating processes in which a particular relational abstraction supports correct candidate decisions, together with conditions under which that abstraction fails.
+
+This should connect naturally to the broader COR goal of understanding how relationships constrain decisions.
+
+Do not inflate a restricted Bayesian theorem into a universal claim about Transformers.
+
+---
+
+# 6. WORKSTREAM D — FRESH CONFIRMATION, PRETRAINING RELIABILITY, AND LEARNING VARIATION
+
+**Mandatory empirical validation.**
+
+Investigation XII trained seven new parents but only three reached the predefined pretraining-readiness criterion.
+
+That level of attrition limits the strength and efficiency of subsequent confirmation.
+
+## D1. Diagnose pretraining incompleteness
+
+Before freezing the new confirmation protocol, investigate why several parents fail to learn the agreement counts.
+
+Test limited, controlled development variants involving:
+
+- Training duration.
+- Learning rate or schedule.
+- Initialization.
+- Group-position asymmetry.
+- Objective formulation.
+- Available supervision.
+- Relevant architectural bottlenecks.
+
+Prefer improvements that raise the probability of complete pretraining without fundamentally changing the scientific task.
+
+If the protocol changes materially, treat it as a new training condition rather than silently pooling it with previous cohorts.
+
+## D2. Fresh independent confirmation
+
+Freeze a feasible new-parent protocol using the lessons from the pretraining diagnosis.
+
+Target **at least four complete, newly pretrained, independently initialized parents**, with the training allocation and stopping criteria fixed in advance.
+
+Account for attrition in the planned training pool and compute budget.
+
+If the complete-parent target cannot be achieved within the actual resource limit, report the achieved sample and restrict the claims. Never relabel an underpowered cohort as population-scale confirmation.
+
+Preserve all incomplete parents and analyze them separately.
+
+Distinguish confirmation conditional on complete pretraining from conclusions about the full training process.
+
+## D3. No compromised protocol amendments
+
+The prediction-freeze system must be auditable.
+
+Before training:
+
+- Freeze parent count and permitted replacement rules.
+- Freeze eligibility criteria.
+- Freeze development/confirmation boundaries.
+- Freeze primary tests and metrics.
+- Freeze the prediction scorer.
+- Freeze code and configuration hashes.
+- Run null controls against the scorer.
+- Preserve the exact Git commit.
+
+Do not alter a frozen protocol after outcomes become available and then describe it as unchanged.
+
+If a protocol amendment is scientifically necessary, record precisely which outputs already existed, which were accessible, and which were examined.
+
+Keep amended experiments distinct from the original confirmation set.
+
+Do not claim outcome blindness merely because the researcher says particular logs were not read.
+
+## D4. Investigate implementation heterogeneity
+
+Compare the complete and incomplete parents without assuming the same mechanism.
+
+Determine whether pretraining completeness predicts:
+
+- Attention-dominant versus MLP-dominant relational computation.
+- Mechanism location.
+- Availability of source-relation information.
+- Learning trajectory.
+- Downstream evidence-combination accuracy.
+- Reliance on redundant pathways.
+
+The P156 result is a particularly useful counterexample to a universal softmax-centered implementation.
+
+Do not force it into the majority mechanism.
+
+---
+
+# 7. MATHEMATICAL AND SCIENTIFIC INTEGRATION WITH COR
+
+This investigation should advance COR's foundations, not merely resolve engineering details in the T4 generator.
+
+## 7.1 Revisit causal-abstraction identifiability
+
+Build on the mathematical results and corrections from Investigations X–XII.
+
+Investigate:
+
+- Non-product-support representation spaces.
+- Restrictions on admissible interventions.
+- Projection versus unrestricted maps.
+- Mediator redundancy.
+- False-positive and false-negative identification.
+- Equivalence under alternative neural implementations.
+
+Correctly distinguish interventions that are valid in a high-level structural model from those realizable through the original inputs.
+
+Seek restricted positive results as well as counterexamples.
+
+The goal is to identify which causal claims are defensible and under what assumptions.
+
+## 7.2 Compare relational computation classes
+
+Use prior COR evidence from T4 and GATE to consider whether there is a broader relationship between:
+
+- Reliability-conditioned evidence weighting.
+- Compatibility-conditioned evidence selection.
+- Relational eligibility computation.
+- Joint cross-group dependence.
+- Candidate-specific evidence transformation.
+
+If resources and scientific dependencies permit, run **one carefully designed cross-family comparison** using an established GATE checkpoint and a transferred causal-analysis protocol.
+
+This comparison is secondary to the core T4 decision-computation investigation.
+
+Do not claim a shared abstraction based only on the fact that two systems use attention or process source relationships.
+
+A useful cross-family result must identify a nontrivial common mathematical property, discriminating intervention, or explicit difference.
+
+## 7.3 Preserve the wider foundational map
+
+TRANS composition, adaptive sources, unknown groups, broader architectures, and the original obstruction/discrepancy framework remain important unresolved areas.
+
+Do not silently remove them from COR's research agenda.
+
+Equally, do not open full unrelated training programs merely to mention them in the synthesis.
+
+**No connection to the original COR O/D framework should be claimed unless a specific mathematical or empirical connection is established.**
+
+---
+
+# 8. FROZEN PREDICTIONS AND EXPERIMENTAL DESIGN
+
+Develop approximately **six to eight substantial, falsifiable predictions**, grouped around the principal scientific questions.
+
+Potential prediction categories:
+
+**P1 — Native decision-combination mechanism**
+
+A specified layer-2 computation predicts candidate-margin changes under held-out relational edits.
+
+**P2 — Natural causal mediation**
+
+A proposed mediator survives a discriminating non-DAS-dependent intervention and outperforms matched decoy controls.
+
+**P3 — Residual and redundant information**
+
+A frozen prediction distinguishes redundant eligibility information from downstream reconstruction or intervention artifacts.
+
+**P4 — Cross-group joint relation**
+
+A causally meaningful feature of the adapted model predicts decision changes when \(J_H\) varies while per-group eligibility is held fixed.
+
+**P5 — Selective versus full adaptation**
+
+A specified restricted downstream adaptation succeeds or fails relative to full-block retraining in a way that distinguishes competing computational explanations.
+
+**P6 — Structural generalization**
+
+A mathematically derived source-model change produces a prospectively predicted behavior or failure pattern.
+
+**P7 — Mechanism heterogeneity**
+
+A pre-specified internal property predicts a meaningful implementation or learning difference across new parents.
+
+**P8 — Mathematical or causal identification**
+
+A corrected theorem or counterexample predicts the success or failure of a specified intervention class.
+
+These are candidate predictions, not mandatory positive outcomes.
+
+Select only those that can be tested rigorously within the available compute.
+
+## Mandatory preflight tests
+
+Before freezing confirmation:
+
+- Check that each predicted effect differs meaningfully from the no-op baseline.
+- Check that the controls distinguish the proposed mechanism from explicit alternatives.
+- Check evaluation-pair support and mathematical validity.
+- Test statistical sensitivity to reference entropy.
+- Check whether the metric favors one outcome without a causal intervention.
+- Verify that the intended scorer implements the written prediction.
+- Run all required arms on development models.
+- Verify the scorer's denominator and check accounting.
+
+**No prediction may be treated as positive evidence if a null intervention, random subspace, or irrelevant mechanism satisfies the same criterion.**
+
+A numerically passed but non-diagnostic prediction must be recorded separately.
+
+---
+
+# 9. STATISTICS AND SCIENTIFIC EVIDENCE
+
+Report more than prediction pass/fail counts.
+
+At minimum:
+
+- Parent-level effects.
+- Fine-tuning seed effects where relevant.
+- Episode-level uncertainty.
+- Confidence intervals with appropriate dependence handling.
+- Effect sizes relative to matched controls.
+- Results under alternative plausible metrics.
+- All failed individual checks.
+- Attrition and readiness rates.
+- Development versus confirmation outcomes.
+- Null and decoy intervention results.
+- Sensitivity to the selection of models and evaluation pairs.
+
+Do not treat episodes or fine-tuning seeds from one pretrained parent as independently pretrained parents.
+
+For small parent counts, report uncertainty honestly and avoid population-level claims.
+
+Keep separate counts for:
+
+1. Predictions that meet their numerical thresholds.
+2. Predictions providing discriminating evidence.
+3. Non-diagnostic passes.
+4. Falsifications.
+5. Inconclusive tests.
+6. Deviations from the frozen protocol.
+
+Never reduce the research outcome to an impressive aggregate such as "94/97" without explaining what the checks actually test.
+
+---
+
+# 10. EXECUTION STANDARD — FULL 8–13-HOUR INVESTIGATION
+
+The available environment is approximately two CPU cores with constrained memory.
+
+Plan for **8–13 hours of active investigation**, with scientific priorities guiding resource allocation.
+
+A recommended dependency order is:
+
+### Stage 1 — Audit and hypothesis development
+
+Read XII's final independent review and adjudication.
+
+Inspect its primary code, not only the corrected synthesis.
+
+Audit the existing Bayesian generator and layer-2 implementation.
+
+Identify competing mechanisms and discriminating experiments.
+
+### Stage 2 — Pretraining protocol and early training launch
+
+Investigate the cause of pretraining incompleteness using development runs.
+
+Freeze the fresh-confirmation protocol.
+
+Launch the independent training cohort early.
+
+Do not contaminate confirmation with interim outcome-dependent changes.
+
+### Stage 3 — Deep decision-circuit analysis
+
+Use existing checkpoints to dissect layer 2 and the candidate-evidence computation.
+
+Run valid path interventions, component tests, and alternative causal explanations.
+
+### Stage 4 — Natural-mediator and residual-pathway tests
+
+Challenge the E-subspace interpretation.
+
+Run decoy controls, alternative restoration experiments, and joint ablations.
+
+### Stage 5 — Mathematical generalization
+
+Derive and test the information requirements for the selected changed source-generating process.
+
+Investigate the actual repaired downstream algorithm.
+
+### Stage 6 — Fresh confirmation
+
+Evaluate the frozen predictions on the new cohort.
+
+Report all failures and uncertainty.
+
+### Stage 7 — Adversarial review and correction
+
+Submit the actual claims, code, and results to separate reviewing agents where supported.
+
+Correct substantive errors.
+
+Repeat any inexpensive experiment whose omission would materially change a principal claim.
+
+### Stage 8 — Reproducibility and delivery
+
+Complete the research documentation, integrity verification, clean-extraction replay, and ZIP package.
+
+## Research-depth requirement
+
+Do not terminate the investigation simply because the initial frozen predictions pass.
+
+Before claiming scientific completion, address the following:
+
+- Layer-2 native decision computation.
+- Natural versus synthetic mediator evidence.
+- Residual and redundant information.
+- Correct two-colluder and copying mathematics.
+- Selective versus full downstream repair.
+- Fresh independent confirmation.
+- Robust statistics and diagnostic controls.
+- Independent-agent adversarial review where available.
+
+If an obligation is not completed, document the actual attempts, constraints, and scientific consequences.
+
+Do not call a task infeasible without testing or estimating its resource requirements.
+
+Do not waste compute merely to reach a time target, but do not finish early while affordable, potentially conclusion-changing experiments remain undone.
+
+## Execution persistence
+
+Background jobs have previously been killed after execution sessions ended or restarted.
+
+Use active execution, resumable checkpoints, verified outputs, and recovery procedures.
+
+Provide concise progress updates while preserving running work.
+
+Do not assume computations continue after the execution session ends.
+
+---
+
+# 11. INDEPENDENT ADVERSARIAL REVIEW
+
+Use separate reviewers or independently initialized agents where supported.
+
+At least two substantive review perspectives are required.
+
+**Mathematical reviewer**
+
+Check the exact generator, Bayesian posteriors, sufficiency claims, identifiability propositions, proof assumptions, and counterexamples.
+
+**Mechanistic and causal reviewer**
+
+Check whether the identified pathways actually compute candidate evidence, whether patching produces synthetic artifacts, whether decoy controls are adequate, and whether alternative interpretations remain viable.
+
+**Experimental-integrity reviewer**, where available
+
+Audit freeze chronology, amendments, model selection, statistical accounting, and the distinction between confirmation and development.
+
+Reviewers must inspect the final results.
+
+They should be allowed to reject the leading interpretation.
+
+Preserve reviewer criticisms, corrections, retractions, and unresolved disputes.
+
+If only same-agent adversarial passes are available, disclose that they are not independent reviews.
+
+Do not claim external human validation.
+
+---
+
+# 12. REQUIRED RESEARCH PACKAGE
+
+Create a new isolated branch:
+
+`cor-phase15-step1-relational-decision-computation`
+
+Create a new directory:
+
+`docs/research_audits/cor_phase15/step1_relational_decision_computation/`
+
+Preserve previous branches, archives, frozen predictions, and corrections.
+
+Produce substantive documentation including:
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+Principal results, mathematical discoveries, native computational mechanisms, confirmed and falsified predictions, limitations, and implications for COR.
+
+### NATIVE_DECISION_COMPUTATION.md
+
+Layer-2 circuit reconstruction, evidence weighting, candidate readout, causal interventions, mechanism comparisons, and learning transitions.
+
+### CAUSAL_MEDIATORS_AND_CONTROLS.md
+
+Natural versus synthetic interventions, decoy subspaces, residual information, redundancy, restoration, false-positive tests, and remaining identification limits.
+
+### MATHEMATICAL_SUFFICIENCY_AND_GENERALIZATION.md
+
+Correct generator-derived Bayesian formulas, mathematical proofs, joint-source statistics, sufficiency and insufficiency results, selective adaptation, and counterexamples.
+
+### FROZEN_PROTOCOL_AND_CONFIRMATION.md
+
+Freeze chronology, development/confirmation separation, exact model cohorts, statistical analyses, non-diagnostic passes, failures, amendments, and independent outcomes.
+
+### OPEN_COR_FOUNDATIONAL_MAP.md
+
+The remaining mathematical and mechanistic questions, including their relation to T4, GATE, TRANS, adaptive sources, unknown groups, original O/D, and future causal-abstraction research.
+
+Also include:
+
+- Executable experimental code.
+- Training and evaluation configurations.
+- All newly trained checkpoints.
+- Raw results and intervention data.
+- Mathematical verification scripts.
+- Training and execution logs.
+- Statistical computation scripts.
+- Frozen prediction records and hashes.
+- Reviewer reports and adjudication.
+- Dependency inventory.
+- Integrity manifest.
+- Reproduction instructions.
+
+Do not create superficial documents merely to satisfy filenames.
+
+Preserve historical errors as part of the scientific record rather than silently rewriting their chronology.
+
+---
+
+# 13. MANDATORY COMPLETE ZIP ARCHIVE
+
+Produce:
+
+`cor_inv13_relational_decision_computation.zip`
+
+The ZIP must contain the actual Investigation XIII research artifacts, not merely written reports.
+
+Before reporting success:
+
+1. Extract it into a clean temporary directory.
+2. Verify all manifest hashes.
+3. Re-run mathematical verification scripts.
+4. Re-derive frozen verdicts from raw results.
+5. Recompute major statistics.
+6. Replay representative native causal interventions.
+7. Verify the corrected Bayesian reference calculations.
+8. Check that required checkpoints and source files exist.
+9. Test representative downstream adaptation results.
+10. Record external dependencies by exact version or hash.
+
+If the package requires earlier `cor_phase15` research archives, identify them precisely.
+
+Do not describe the ZIP as standalone unless it genuinely is.
+
+**Deliver the ZIP artifact itself through the available file-delivery mechanism.**
+
+Also provide the main synthesis separately.
+
+The final response must identify the branch, HEAD commit, archive location, major scientific results, confirmation status, falsifications, unresolved claims, and reproducibility results.
+
+---
+
+# 14. FINAL SCIENTIFIC QUESTIONS
+
+The synthesis must answer the following with actual evidence.
+
+1. What computation does layer 2 naturally perform when converting relational information into candidate-specific evidence?
+
+2. Does the native Transformer implement pooled, per-group, pairwise, or another form of relational evidence combination?
+
+3. Which internal operations are causally necessary, and which are redundant or replaceable?
+
+4. Does the six-dimensional eligibility-related subspace function as a genuine natural mediator, or does part of its apparent role arise from learned interchange interventions?
+
+5. What decision-relevant information remains outside that subspace and after layer-1 ablation?
+
+6. Can the correct shared-copying two-colluder decision be explained through a causally identified joint cross-group representation?
+
+7. What actually changes when a downstream block is retrained to solve the two-colluder problem?
+
+8. Which relational statistics are sufficient under different source-generating processes, and which become insufficient?
+
+9. Do new independently pretrained models replicate the principal causal mechanisms and mathematical predictions?
+
+10. Which mechanistic properties are invariant across models, and which depend on pretraining completeness or training history?
+
+11. Which mathematical, causal, and methodological principles generalize beyond the current T4 setting, and which remain task-specific?
+
+12. Which original COR arguments receive additional support, which remain untested, and what new foundational problems must be addressed next?
+
+Distinguish mathematical proof, numerical verification, development evidence, independent confirmation, and speculation.
+
+An unresolved question is acceptable.
+
+An unsupported answer is not.
+
+---
+
+# 15. FINAL DIRECTIVE — SCIENTIFIC DEPTH OVER CHECKLIST COMPLETION
+
+Investigations IX–XII established increasingly strong evidence that independently trained Transformers can construct relational information, use it in candidate decisions, and exhibit common high-level computational structure despite heterogeneous neural implementations.
+
+But Investigation XII also exposed a fundamental limitation.
+
+**Constructing the correct relational information is not equivalent to computing the correct decision from that information.**
+
+The downstream operation depends on the structure of the source-generating process.
+
+Under changed collusion or copying relationships, the required statistics and computations may change.
+
+The neural network may retain relevant information yet continue using an inappropriate decision algorithm.
+
+Investigation XIII must investigate that separation rigorously.
+
+Identify the native candidate-evidence computation.
+
+Determine what relational information it actually uses.
+
+Challenge the proposed mediator through independent causal controls.
+
+Explain residual and redundant pathways.
+
+Derive mathematical sufficiency boundaries.
+
+Test whether alternative source-generating processes require genuinely different computations.
+
+Confirm the resulting predictions on new independent models.
+
+Preserve unexpected results, mathematical corrections, failed predictions, negative experiments, and reviewer criticism.
+
+**Do not assume the goal is to confirm the existing mechanism.**
+
+A result showing that the previous causal interpretation was incomplete, that two purportedly shared operations are different, or that a proposed relational statistic is insufficient can be a major foundational contribution.
+
+Do not reduce COR to a single Bayesian formula, one attention circuit, or one learned subspace.
+
+Do not expand into disconnected experiments merely to produce more results.
+
+Follow the strongest mathematical and causal questions that emerge from the evidence.
+
+Use the 8–13-hour research budget to perform serious, discriminating investigation rather than stopping when a handful of predictions pass.
+
+Before finalizing, resolve affordable tests that could overturn the leading conclusions.
+
+**We remain in Phase 1.5, Step 1, at approximately 25% of the provisional foundational exploration.**
+
+There is no phase-closure decision, no final paper thesis, and no claim that the original COR obstruction/discrepancy theory has been validated.
+
+Continue building the mathematical, computational, experimental, and causal foundations necessary to determine which COR arguments can ultimately be defended.
+
+**Deliver a rigorously reviewed scientific investigation and the complete verified research ZIP.**

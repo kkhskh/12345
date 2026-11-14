@@ -1,0 +1,2 @@
+2026-11-14T16:22:43Z lane DC2 start [56623a2f10f7] python3 scripts/continue_pretrain.py ../step1_native_relational_algorithm_validation/checkpoints/zP153/pre.npz checkpoints/dev_cont/zP153_b1 153 1 3000
+2026-11-14T16:22:43Z lane DC1 start [121f7c9b9ed6] python3 scripts/continue_pretrain.py ../step1_native_relational_algorithm_validation/checkpoints/zP151/pre.npz checkpoints/dev_cont/zP151_b1 151 1 3000

@@ -1,0 +1,141 @@
+{
+ "xP81:full_c1:0:": {
+  "mixture_heads": [
+   1,
+   3
+  ],
+  "noop_max_abs": 0.0,
+  "diffS": {
+   "mean_abs_obs": 0.7967435121536255,
+   "QUERY_POOLED": {
+    "slope": 0.4371710376731291,
+    "R2": 0.3907956777376853,
+    "n": 2000
+   },
+   "QUERY_FULL": {
+    "slope": 0.44051140821297186,
+    "R2": 0.4368030998011575,
+    "n": 2000
+   },
+   "KEY_PERGROUP_pred0_meanabs": 0.7967435121536255,
+   "shuffled": {
+    "slope": 0.0070386966273248575,
+    "R2": 0.00010131138592683886,
+    "n": 2000
+   },
+   "n_excluded_undefined": 0
+  },
+  "sameS": {
+   "mean_abs_obs": 0.7775815725326538,
+   "QUERY_POOLED": {
+    "slope": 0.0,
+    "R2": 3.843271823011918e-08,
+    "n": 2000
+   },
+   "QUERY_FULL": {
+    "slope": 0.5364480050491576,
+    "R2": 0.518419403786097,
+    "n": 2000
+   },
+   "KEY_PERGROUP_pred0_meanabs": 0.7775815725326538,
+   "shuffled": {
+    "slope": 0.0,
+    "R2": 3.843271823011918e-08,
+    "n": 2000
+   },
+   "n_excluded_undefined": 0
+  }
+ },
+ "yP130:full_c1:0:_eval_conf9": {
+  "mixture_heads": [
+   0
+  ],
+  "noop_max_abs": 0.0,
+  "diffS": {
+   "mean_abs_obs": 0.7063781023025513,
+   "QUERY_POOLED": {
+    "slope": 0.37081229808248345,
+    "R2": 0.3814965313522608,
+    "n": 2000
+   },
+   "QUERY_FULL": {
+    "slope": 0.3605746097171208,
+    "R2": 0.3970973820571876,
+    "n": 2000
+   },
+   "KEY_PERGROUP_pred0_meanabs": 0.7063781023025513,
+   "shuffled": {
+    "slope": -0.00466511254570956,
+    "R2": 6.040440180921092e-05,
+    "n": 2000
+   },
+   "n_excluded_undefined": 0
+  },
+  "sameS": {
+   "mean_abs_obs": 0.5207242965698242,
+   "QUERY_POOLED": {
+    "slope": 0.0,
+    "R2": 2.985280489475883e-08,
+    "n": 2000
+   },
+   "QUERY_FULL": {
+    "slope": 0.30225320986724585,
+    "R2": 0.3759331809008921,
+    "n": 2000
+   },
+   "KEY_PERGROUP_pred0_meanabs": 0.5207242965698242,
+   "shuffled": {
+    "slope": 0.0,
+    "R2": 2.985280489475883e-08,
+    "n": 2000
+   },
+   "n_excluded_undefined": 0
+  }
+ },
+ "vP156:full_c1:10:_eval_conf12": {
+  "mixture_heads": [
+   2
+  ],
+  "noop_max_abs": 0.0,
+  "diffS": {
+   "mean_abs_obs": 0.5162299871444702,
+   "QUERY_POOLED": {
+    "slope": 0.22848317391796724,
+    "R2": 0.2912150282400987,
+    "n": 2000
+   },
+   "QUERY_FULL": {
+    "slope": 0.2182786845867019,
+    "R2": 0.2925852299051753,
+    "n": 2000
+   },
+   "KEY_PERGROUP_pred0_meanabs": 0.5162299871444702,
+   "shuffled": {
+    "slope": 0.0040645645238605,
+    "R2": 9.213055593748631e-05,
+    "n": 2000
+   },
+   "n_excluded_undefined": 0
+  },
+  "sameS": {
+   "mean_abs_obs": 0.5409491658210754,
+   "QUERY_POOLED": {
+    "slope": 0.0,
+    "R2": 3.030737150133689e-08,
+    "n": 2000
+   },
+   "QUERY_FULL": {
+    "slope": 0.31007590858693646,
+    "R2": 0.4257955555530515,
+    "n": 2000
+   },
+   "KEY_PERGROUP_pred0_meanabs": 0.5409491658210754,
+   "shuffled": {
+    "slope": 0.0,
+    "R2": 3.030737150133689e-08,
+    "n": 2000
+   },
+   "n_excluded_undefined": 0
+  }
+ }
+}

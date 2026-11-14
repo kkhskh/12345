@@ -1,0 +1,2 @@
+python3 scripts/continue_pretrain.py ../step1_native_relational_algorithm_validation/checkpoints/zP151/pre.npz checkpoints/dev_cont/zP151_b1 151 1 3000
+python3 scripts/continue_pretrain.py ../step1_native_relational_algorithm_validation/checkpoints/zP152/pre.npz checkpoints/dev_cont/zP152_b1 152 1 3000

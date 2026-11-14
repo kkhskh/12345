@@ -68,3 +68,14 @@ not a measurement. Nothing here closes Step 1, selects a thesis, or validates th
 | cross-group relation under C = 2 | a scrubbing test of the adapted readout with donors matched on e but differing in cross-group equality |
 | population-level claims | ≥ 10 fresh parents (≈ 10 h of pretraining at current speed) |
 | generality beyond T4 | the same factorial / natural-path / scrubbing protocol on GATE and TRANS models |
+
+## F. Added after the independent final review
+
+14. **The subspace-patching illusion.** Do the scrubbing and restoration results use a natural mediator or a
+    dormant steering direction? A test is needed that does not pass through the DAS-fitted subspace, for example
+    feature-level or input-level mediation.
+15. **Residual eligibility without layer 1.** Mean ablation of layer 1 leaves pref_e0 at 0.06–0.18. Is there an
+    eligibility route outside layer 1?
+16. **Heterogeneous allocation.** P156 forms the conjunction in MLP1, not in attention. What determines the
+    allocation, and is it related to pretraining completeness?
+17. **The calibration lag** (A1 → A2 → B, 1–5 checkpoints after sensitivity onset) is unexplained.

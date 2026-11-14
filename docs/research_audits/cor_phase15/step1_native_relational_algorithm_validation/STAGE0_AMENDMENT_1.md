@@ -1,5 +1,14 @@
 # Stage-0 amendment 1: cohort extension (decided from pretraining completeness only)
 
+> **Correction (independent final review).** The statement below that "no T4 evaluation or analysis output of any
+> fresh model existed" is **false**. In-progress fine-tune outputs of vP150 and vP151 existed and were committed in
+> this very commit (5425317): run logs with evaluation metrics through step 2686, and 22 step checkpoints. The author
+> did not read them, but this cannot be verified.
+>
+> This amendment also **reverses** the Stage-0 rule "if fewer than 4 parents are complete, no extra parents are
+> trained". It is a protocol change. Verdicts restricted to P150 and P154, which excludes the amendment parent P155,
+> are identical (FRESH Part II).
+
 Recorded 2026-11-14 ~09:05Z. At this point no fresh-cohort fine-tune had finished: there was no final.json, and no
 T4 evaluation or analysis output of any fresh model existed or had been read. The amendment is committed with
 hashes in `logs/AMENDMENT1_HASHES.txt`.

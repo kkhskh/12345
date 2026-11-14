@@ -244,3 +244,4 @@
 2026-11-14T14:38:02Z lane C1 end [acb50092d270] rc=0
 2026-11-14T14:45:13Z lane C2 end [85953917294f] rc=0
 2026-11-14T14:49:19Z FINAL merge+score rerun (the queued conf_merge ran before the last P156 job, adapt_c2, finished; adapt was not in its wait list)
+2026-11-14T15:10:11Z NOTE (review): post-hoc C1 disc_ident runs: _c1conf_A (P150,P154,P155,P151) at 14:31Z, _c1conf_B (P152,P153) at 14:35Z were foreground runs (only A was logged before); _c1conf_C (P156) via lane EXP2. ref_dependence_check.py archived.

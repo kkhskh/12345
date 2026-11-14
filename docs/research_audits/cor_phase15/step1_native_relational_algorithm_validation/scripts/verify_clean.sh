@@ -36,7 +36,7 @@ mm = [k for k in a["external_data_files"] if b["external_data_files"].get(k) != 
 print("   external data files:", len(b["external_data_files"]), "| hash mismatches:", len(mm), "| missing:", b["missing"], "| modules identical:", a["external_python_modules"] == b["external_python_modules"])
 PY
 cp /tmp/xii_d.json logs/DEPENDENCIES.json
-n=$(grep -rl "/home/claude\|/mnt/user-data" scripts src 2>/dev/null | wc -l); echo "   scripts/src files containing absolute local paths: $n"
+n=$(grep -rl --exclude=verify_clean.sh "/home/claude\|/mnt/user-data" scripts src 2>/dev/null | wc -l); echo "   scripts/src files containing absolute local paths: $n"
 echo "8. failures recorded above (any line marked FAILED / DIFFERENT / mismatches > 0)"
 echo "== done"; rm -rf $T
 } 2>&1 | tee $LOG

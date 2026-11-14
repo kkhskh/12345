@@ -48,10 +48,13 @@ readout are re-trained, on C = 2 data: 1500 AdamW steps from a pool of 40k C = 2
 Exact-Bayes accuracy is 0.799 on this evaluation set.
 
 Findings:
-1. **The failure is entirely downstream of layer 1.** Re-training the evidence-combination stage alone recovers
-   exact-Bayes behaviour (accuracy 0.80, KL ≤ 0.004), while the frozen relational representation is kept.
-2. **The repair does not need the eligibility subspace.** With the E coordinates mean-patched, the same adaptation
-   reaches the same accuracy. When E is available, the adapted readout *does* use it (E-dependence 0.67–1.10). Use is
+1. **One transformer block on top of the frozen layers 0–1 can compute the exact C = 2 posterior.** Re-training layer 2
+   recovers exact-Bayes behaviour: accuracy 0.80, KL ≤ 0.004. (After review: this re-trains a *full* block, not a
+   readout, and a freshly initialised block does as well. It shows that the information is present in resid2 and that
+   one block suffices. It does **not** localize the native failure "entirely downstream of layer 1".)
+2. **The repair does not need the 6-dim E-subspace.** With the E coordinates mean-patched, the same adaptation reaches
+   the same accuracy. Only 6 of 448 dimensions per block are removed, and eligibility remains decodable elsewhere, so
+   this does not show that the repair avoids eligibility *information*. When E is available, the adapted readout *does* use it (E-dependence 0.67–1.10). Use is
    not necessity.
 3. **Repairing does not require the fine-tuned conjunction.** Pretrained, unrepaired layers 0–1 (C1) support the same
    repair when layer 2 is adapted from its trained state. A *fresh* layer 2 on the C1 prefix is worse at S = 3
@@ -63,9 +66,9 @@ Findings:
 **Interpretation.** Under the real two-colluder generator, the relevant relation is between groups, not within a
 group. The repaired readout uses residual-stream information that the 6-dim eligibility subspace does not contain.
 The XI framing, "the variable generalizes, the rule does not", is right for the *trained* rule. But the variable is
-not sufficient for the new generator, and the repair bypasses it. The obstacle in the native model is
-**computational, in the aggregation stage**: degree-1 versus joint aggregation. It is not informational, because the
-required information is linearly available in resid2.
+not sufficient for the new generator, and the repair bypasses it. The native model applies degree-1 aggregation. Whether the obstacle is purely in aggregation is not established,
+because the repair re-learns a whole block. The claim that the information is "linearly available" is withdrawn:
+nothing tested linearity.
 
 The fresh-cohort test is frozen prediction P8 (§3).
 
@@ -106,6 +109,37 @@ Findings:
 
 The fresh-cohort test is frozen prediction P7 (§3).
 
-## 3. Fresh-cohort results
+## 3. Fresh-cohort results (P7, P8 confirmed 3/3 complete parents; secondary 7/7)
 
-See `FRESH_CONFIRMATION_AND_STATISTICS.md` Part II; filled after the confirmation.
+**P8: two colluders.** Exact Bayes accuracy on this set is 0.804.
+
+| condition | accuracy |
+|---|---|
+| native | 0.336–0.342 (KL(C1 rule) ≤ 0.034) |
+| layer-2-only adaptation | 0.801–0.802 |
+| adaptation with E mean-patched | 0.799–0.803 |
+| fresh layer 2 | 0.801–0.802 |
+
+The adapted readouts depend on E when it is available (0.23–0.80), but do not need it.
+
+Caveat: P8 shows that the *information* for the C = 2 rule is in resid2 and that layer-2 capacity suffices. It does
+not show what the native representation would do under C = 2 without retraining, beyond native failure.
+
+**P7: learning.**
+
+| parent | emergence | use onset | first non-A1 | D2-B switch |
+|---|---|---|---|---|
+| P150 | 546 | 546 | 813 | 813 |
+| P154 | 246 | 366 | 813 | 1211 |
+| P155 | 366 | 366 | 813 | 813 |
+
+The incomplete parents give the same pattern (7/7 within one checkpoint).
+
+Conclusion, revised after review:
+- The decision becomes *sensitive* to the conjunction at the checkpoint at which it first exists.
+- But "use" (use_hyb) and "emergence" are computed from the same resid2 double difference, so their coincidence is
+  partly built into the measures.
+- At use onset every fresh model is still A1-closest on D2. Bayes-correct *use* comes 1–5 checkpoints later.
+- Under the natural meaning of "readout lag" (correct use of the representation), **a lag is present**.
+- What is established is narrower. The decision responds to the representation as soon as it exists; what lags is
+  the calibration of that response (A1 → A2 → B).

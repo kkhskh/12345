@@ -1,0 +1,4 @@
+0 recon err 2.861023e-06 tot 0.278 pat_u00 0.265 pat_uAP 0.015
+1 recon err 3.33786e-06 tot 0.235 pat_u00 0.201 pat_uAP -0.011
+2 recon err 3.5762787e-06 tot 0.111 pat_u00 0.097 pat_uAP -0.003
+3 recon err 4.3213367e-07 tot 0.0 pat_u00 0.0 pat_uAP 0.0

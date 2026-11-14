@@ -193,7 +193,9 @@ C1 models' "E" subspace moves the decision **toward A1** (+0.26–0.39 over base
   ½11ᵀ, so "exactly the theorem's class" would overstate it.
 - Control: for VE, where a projection (the full E swap) already works (KL 0.015), the free linear map gains nothing
   (0.013). So the linear class does not simply fit any target better.
-- A linear-map control on a *random* 6-dim subspace was not run.
+- The linear-map control on a *random* 6-dim subspace **was** run (development, commit 5425317; fresh, exploratory).
+  It **also** beats every projection (KL 0.69–0.85 vs ~1.25–1.30). The "linear beats projection" criterion is
+  therefore **not diagnostic**. Only the E-vs-random gap (0.24–0.47 vs 0.69–0.85) is E-specific.
 - DAS-patched states are themselves class III (synthetic).
 - It is not complete: IIA 0.62.
 - Frozen as P6c.

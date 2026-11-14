@@ -29,7 +29,7 @@ Outcomes at xAP:
 |---|---|---|---|---|---|---|---|---|---|---|
 | intact | — | 0.00/0.40 | 0.00/0.40 | 0.01/0.40 | 0.01/0.40 | 0.01/0.41 | 0.00/0.40 | 0.01/0.40 | 0.01/0.40 | 0.01/0.40 |
 | XI additive completion of layer 1 | III | 0.53/0.02 | 0.63/0.01 | 0.59/0.01 | 0.42/0.10 | 0.66/0.02 | 0.53/0.02 | 0.55/0.03 | 0.48/0.05 | 0.54/0.04 |
-| **path_inA**: layer 1 fed the natural xA residual | II | 0.77/0.01 | 0.76/0.01 | 0.75/0.01 | 0.58/0.05 | 0.72/0.02 | 0.74/0.01 | 0.71/0.02 | 0.62/0.03 | 0.78/0.02 |
+| **path_inA**: layer 1 fed the natural xA residual (*non-discriminating: cf_e0(xAP) ≈ Bayes(xA), KL 0.018; identical to the resampling row*) | II | 0.77/0.01 | 0.76/0.01 | 0.75/0.01 | 0.58/0.05 | 0.72/0.02 | 0.74/0.01 | 0.71/0.02 | 0.62/0.03 | 0.78/0.02 |
 | **path_inP**: natural xP residual | II | 0.48/0.08 | 0.43/0.18 | 0.47/0.14 | 0.40/0.11 | 0.54/0.06 | 0.46/0.11 | 0.49/0.06 | 0.39/0.11 | 0.52/0.07 |
 | resample layer-1 outputs from the natural xA run | II | 0.77/0.01 | 0.76/0.01 | 0.75/0.01 | 0.58/0.05 | 0.72/0.02 | 0.74/0.01 | 0.71/0.02 | 0.62/0.03 | 0.78/0.02 |
 | **scrub**: E coordinates from a natural donor with the *same* e | II | 0.00/0.40 | 0.01/0.40 | 0.01/0.40 | 0.01/0.42 | 0.03/0.41 | 0.01/0.40 | 0.02/0.40 | 0.03/0.44 | 0.01/0.41 |
@@ -48,6 +48,11 @@ Findings:
   wP142 is borderline, 0.23 vs 0.19.
 - The 6-dim E-subspace therefore behaves as a mediator whose *value*, not its exact coordinates, determines the
   decision.
+- **Caveat (review).** Scrubbing, restoration and the identification tests patch the DAS-fitted subspace. They
+  partly re-test the DAS objective on new episodes, so they are not fully independent evidence of natural mediation.
+  The known subspace-patching illusion (a subspace can steer outputs through a dormant direction) is not excluded.
+  The patched state is synthetic at the patched site, so "natural-activation" applies only to the upstream path
+  interventions (path_inA/P), not to scrubbing.
 
 **Restoration after a natural-activation removal.** This was added after the freeze (`restore_nat.py`,
 `logs/restore_nat_dev*.json`, 8 models). Layer 1's conjunction is removed by path_inA, a natural-activation design.
@@ -64,7 +69,10 @@ XI's restoration result is therefore not an artifact of its hybrid ablation.
 
 ## 2. Weight-level operations in layer 1 (B1)
 
-### 2.1 Queries are irrelevant; group h's keys and values carry the conjunction
+### 2.1 The q7 queries are irrelevant; group h's keys and values carry the conjunction
+
+(Review: the "keys/values only" variant also feeds MLP1, and the queries at the non-q7 tokens, from xA. The precise
+claim is that the **q7-token queries** are irrelevant.)
 
 These rows use path interventions that feed xA input only to some attention inputs:
 
@@ -95,6 +103,10 @@ Findings:
 
 ### 2.3 "Pattern vs value" attribution inside a head is not identifiable
 
+(Review: the softmax-coupling conclusion of §2.2 is drawn from the x00-reference split, where the value term is ≈ 0 by
+construction. It is a *description in that reference*, not a reference-free fact. The reference-dependence numbers are
+reproduced by `scripts/ref_dependence_check.py` → `logs/ref_dependence_check.txt`.)
+
 The head output is o = Σ_s a_s u_s. Its double difference splits exactly into pattern, value and cross terms. That
 split depends on the reference cell. For xP81's heads 0–2:
 - with values fixed at x00, the pattern term carries the whole interaction (0.27 / 0.20 / 0.10 of the E-interaction);
@@ -111,7 +123,7 @@ The **intervention-level** facts are invariant:
 | remove P's effect on the layer-1 **values** only | decision stays Bayes-side in 11/11 |
 | remove both (keys/values from xA) | full cf_e0 shift in 11/11 |
 
-**The perfectness signal reaches the conjunction redundantly**, through both the routing (patterns) and the content
+**[dev only, not replicated in the fresh cohort; see §7]** The perfectness signal reaches the conjunction redundantly, through both the routing (patterns) and the content
 (values). Either route alone suffices. The exception is wP143, where the pattern route is dominant: removing it gives
 KL 0.49 / 0.11. This is redundancy *inside* attention (H4 at the sub-head level). It is invisible to XI's whole-layer
 ablation.
@@ -197,4 +209,32 @@ See `GENERALIZATION_AND_LEARNING.md` §2. Summary [dev, 9 models]:
 
 ## 7. Fresh-cohort confirmation
 
-Filled from `logs/score_xii.json` after the confirmation; see the end of this file.
+Complete parents P150, P154, P155; full details in `FRESH_CONFIRMATION_AND_STATISTICS.md` Part II.
+
+| claim | fresh cohort |
+|---|---|
+| conjunction formed in layer 1, absent in C1 (P1) | **replicated** 3/3; E-ratio 4.8–9.7, full-space 3.1–5.0, C1 1.0–1.7. Also in 4/4 incomplete parents |
+| necessity under natural-activation designs (P2) | **replicated** 3/3: path_inA KL_B 0.59–0.71 vs KL_e0 0.01–0.03; same-e scrub KL_B ≤ 0.022 |
+| queries irrelevant; MLP1 amplifies; smooth (P3 a, c, d) | **replicated** 3/3 |
+| **sub-head redundancy (P3 b)** | **FALSIFIED** 0/3 complete parents. Removing P's effect on patterns moves the decision 40–60% of the way to the full path_inA shift; removing it from values does almost nothing. This is **asymmetric partial redundancy** (patterns dominant), not a single route. Incomplete parents vary: P151/P152 redundant, P153 pattern-dominant, P156 value-route-dominant with the conjunction formed in MLP1 |
+| restoration via E (P4) | **replicated** 3/3; restored KL_B 0.02–0.09; random ≤ 0.016 |
+| same- vs cross-parent (P5) | transfer equal (0.98 vs 0.94); componentwise profiles more similar within parent (0.28 vs 0.62) |
+
+**Corrected mechanistic account (revised after the independent final review).**
+- In the complete fresh models, layer-1 attention reads group h's tokens.
+- P, the agreement at the other questions, changes *which tokens are attended*. A, agreement at q, changes the
+  hq scores.
+- Softmax normalisation couples the two shifts, producing the conjunction.
+- MLP1 amplifies it. Removing it changes the decision about twice as much as removing attention's contribution
+  alone.
+
+**What is invariant and what is not.**
+- **Layer locus (layer 1, not layer 0) and C1 absence**: 18/18 models.
+- **Allocation within layer 1**: *not* invariant. Attention share ranges 0.05–0.71. P156 forms the conjunction almost
+  entirely in MLP1 (own nonlinearity 0.33), so "softmax coupling" is the majority mechanism, not a universal one.
+- **Routing of perfectness**: pattern-dominant in the complete parents, redundant in P151/P152 and most development
+  models, value-dominant in P156.
+- **"MLP1 amplifies"**: the test (total ≥ 1.5 × direct) shows only that MLP1 *passes on and enlarges the decision
+  effect of* the attention interaction. It does not separate amplification from transmission.
+- **"Keys/values only" also feeds MLP1, and the non-q7 queries, from xA**, so it is not a pure key/value
+  intervention.

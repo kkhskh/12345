@@ -240,7 +240,15 @@ the minimum the amendment labels "adequate". It is far too few for population-le
 ### Deviations from the frozen protocol (all disclosed in `logs/COMPUTE_LOG.txt`)
 
 1. **Amendment 1** (`STAGE0_AMENDMENT_1.md`, commit `5425317`). It added P155 and P156 and a secondary all-parents
-   aggregate. It was decided from pre.json only, before any fine-tune had finished.
+   aggregate.
+   - **Correction after the independent final review.** The amendment says no T4 outcome had been "produced or read".
+     The "produced" part is false. Commit 5425317 itself contains in-progress fine-tune outputs of vP150 and vP151:
+     22 step checkpoints, plus run logs with evaluation metrics through step 2686.
+   - The author did not open those logs. This cannot be verified independently.
+   - The amendment also **reverses** Stage 0's explicit rule that "no extra parents are trained". It is therefore a
+     protocol change, not a clarification.
+   - P155 and P156 enter the primary aggregate only through readiness (P155). The verdicts on P150 and P154 alone are
+     also given below.
 2. **Freeze defect 1.** The frozen scorer `score_xii.py` implements an *earlier draft* of P6:
    - IIA_E ≥ 0.70 and IIA_A1 ≤ 0.30, plus the VS arm;
    - **not** the P6 text above (informative-subset IIA_E, a C1 contrast, and the VS arm).
@@ -260,6 +268,25 @@ the minimum the amendment labels "adequate". It is far too few for population-le
 
 Individual checks: **94 of 97 passed** (complete parents + pairs). The three failures are all P3(b).
 
+Read this count with care (review):
+- 16 of the 94 passes are non-evidential: P6-as-coded (a), P6 VS, and P5(e) mean-patch inflation, which is a
+  property of the metric.
+- The checks are not independent of each other.
+
+**Conceptual reframing (review).** e_h = 1[n_h(q) = 5 and agreement at q] is the indicator that group h agrees at
+**all six** questions; it does not depend on q.
+- In the TRUE factorial, the all-question agreement count goes 4 → 5 → 6. In CTRL it goes 3 → 4 → 5.
+- The measured "conjunction" is therefore the network's **nonlinearity in the all-question agreement count at
+  count 6**.
+- That is equivalent to the conjunction, but the "relational conjunction of two features" language should be read
+  that way.
+
+**Bootstrap caveat (review).** Episode-bootstrap CIs exclude variance from the DAS fit, the fine-tuning seed and
+the parent. They are lower bounds on the uncertainty.
+- Reused generators: the donor pool (77_000_000) and the factorial episode sampler (seed 1104) are reused from
+  development.
+- New streams were used for the base episodes.
+
 | prediction | verdict | arms (k/n) |
 |---|---|---|
 | **P1** layer-1 conjunction replicates | **confirmed** | a 3/3, b 3/3, c 3/3, d 3/3 |
@@ -276,7 +303,26 @@ Individual checks: **94 of 97 passed** (complete parents + pairs). The three fai
 - P1, P2, P4, P6, P7 and P8 confirmed; P3 falsified;
 - the P6 text version is 7/7 on every arm.
 
-The incomplete parents behave like the complete ones on every mechanism arm.
+**Correction (review).** The incomplete parents do **not** behave like the complete ones on every arm:
+- P3(b) passes in P151 and P152, which show development-style redundancy, and fails in P153 and P156;
+- **P156's conjunction is formed almost entirely in MLP1**: attention share 0.05, MLP1 own nonlinearity 0.33;
+- P8(d) fails in P156.
+
+**Without P155 (P150 and P154 only):** every verdict is the same.
+
+**Diagnosticity of individual arms (review).**
+- **P6 as coded** is passed by a null intervention: the unpatched models already score base_E 0.85–0.89 and base_A1
+  0.08–0.10. It carries no evidential weight.
+- **P6(VS)** was already known to be non-diagnostic before confirmation, from the development random-subspace control
+  in commit 5425317. That control was in the repository but not acted on.
+- **P2(b) path_inA does not discriminate**: cf_e0(xAP) is almost Bayes on the xA input (KL 0.018), so "acts as
+  ineligible" and "acts as if the input were xA" coincide. path_inA and resamp_A are the *same* intervention. The
+  discriminating evidence is path_inP, the e_h = 0 scrub, and the TRUE-vs-CTRL contrast.
+- **The pref_e0 / "KL_B < KL_e0" criterion leans towards the Bayes side**, because cf_e0 is much sharper (entropy
+  0.21 vs 0.58 nats). A 50/50 mixture scores pref_e0 ≈ 0.02. "Stays Bayes-side" readings are therefore weak: P3(b)
+  development redundancy, P2(e).
+- **Layer-1 mean ablation leaves pref_e0 at 0.06–0.18**, unexplained. Eligibility may partly survive without
+  layer 1.
 
 ### Effect sizes (episode-bootstrap 95% CIs; per parent)
 

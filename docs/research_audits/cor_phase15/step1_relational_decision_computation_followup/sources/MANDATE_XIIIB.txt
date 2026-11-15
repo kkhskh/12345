@@ -1,0 +1,807 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XIII-B
+
+## Completing the Unresolved Native Decision Mechanisms: Alternative Neural Algorithms, Causal Identification, Relational Sufficiency, and Independent Replication
+
+**Full-depth autonomous mathematical and mechanistic research mandate**
+
+**Target execution budget: 8–13 hours of active research on approximately two CPU cores.**
+
+---
+
+# 1. SCIENTIFIC MISSION
+
+You are continuing the COR foundational research program from Investigation XIII.
+
+Latest branch:
+
+`cor-phase15-step1-relational-decision-computation`
+
+Latest research package:
+
+`cor_inv13_relational_decision_computation.zip`
+
+Latest research directory:
+
+`docs/research_audits/cor_phase15/step1_relational_decision_computation/`
+
+Verify the repository's actual branch, HEAD commit, source code, checkpoints, mathematical results, prediction records, reviewer reports, and adjudications before beginning.
+
+Read the primary evidence from Investigations IX–XIII as necessary.
+
+**We remain in Phase 1.5, Step 1 — Foundational Mathematical and Mechanistic Investigation.**
+
+The provisional estimate remains approximately 25% of the foundational territory explored. This is not a measured completion percentage.
+
+Do not propose phase closure, advancement to another research phase, or a final COR thesis.
+
+This is not an exercise in defending the results of Investigation XIII.
+
+It is an investigation of the scientific problems XIII exposed but did not adequately resolve.
+
+The overarching COR objective remains understanding how neural systems represent, transform, and causally use relationships among information sources to make candidate-specific decisions.
+
+**The principal question is whether the apparently different native decision implementations perform equivalent relational computations, and what evidence would establish or falsify that equivalence.**
+
+A successful investigation may identify a shared algorithm, multiple genuinely distinct algorithms, a more complex computational classification, or a failure of the current causal-identification methods.
+
+Do not privilege a favorable explanation.
+
+---
+
+# 2. WHAT INVESTIGATION XIII ESTABLISHED — AND WHAT IT DID NOT
+
+Investigation XIII produced several important results.
+
+### Established within the tested generator and models
+
+1. The exact Bayesian posterior for the shared-copying generator was derived and verified against brute-force latent-variable enumeration.
+
+2. For one colluder, a compact per-group summary is sufficient across the investigated copying probabilities.
+
+3. For two shared-copying colluders, joint between-group relational information can become necessary. At exact copying, this distinction matters on a restricted subset; at partial copying, it becomes more widespread.
+
+4. Independently trained Transformers exhibited heterogeneous decision organizations.
+
+5. Two fresh complete models, uP161 and uP165, showed a strong final-layer attention-mixture mechanism.
+
+6. Two other complete models, uP160 and uP163, were classified as pre-assembled: much of the decision appeared to be formed before the final layer.
+
+7. uP164 lay near the mixture-class threshold and missed it by approximately 0.001.
+
+8. Attention-row transplants demonstrated partial causal use of mixture weights in the strong-mixture models.
+
+9. Attention-only and MLP-only adaptation of the final block recovered near-Bayesian two-colluder decisions across all five complete parents.
+
+10. Matched-budget DAS training did not reliably distinguish the correct eligibility variable E from the perfectness-only alternative A1.
+
+### Important falsifications and weaknesses
+
+- P5 was falsified: predicted readout-only adaptation behavior did not generalize across solution classes.
+- P8 was falsified: E-trained DAS subspaces failed to acquire the expected E-specificity.
+- P1 and P2 passed on only two complete parents and would be falsified if borderline uP164 were included.
+- P3 was qualified rather than fully discriminating.
+- P7 was correlational and did not identify a causal learning mechanism.
+- The main attention-mixture pathway mediated only about 25–33% of the total measured effect.
+- Attention similarity to Bayesian responsibilities was mainly observational.
+- The pre-assembled solution class was not causally reconstructed.
+- The joint cross-group statistic required for the two-colluder problem was not causally identified inside repaired networks.
+- No substantial same-parent fine-tuning-seed replication was performed.
+- Several affordable experiments recommended by the third reviewer were not run.
+
+These limitations are not merely paperwork.
+
+They determine whether the emerging interpretation of COR's relational computations is scientifically defensible.
+
+**The objective of XIII-B is to investigate these unresolved mechanisms, repair weak experimental identification, and produce stronger mathematical and causal conclusions.**
+
+Do not rerun XIII's successful tests without explaining what new hypothesis they distinguish.
+
+---
+
+# 3. CENTRAL RESEARCH QUESTIONS
+
+Investigate four connected questions.
+
+**Question A — Computational heterogeneity**
+
+Do attention-mixture and pre-assembled Transformers implement the same candidate-evidence computation at different neural locations, or do they learn different algorithms?
+
+**Question B — Natural causal mediation**
+
+Which pathways genuinely mediate relational evidence updates, and which apparent mediators are products of learned subspace alignment, synthetic activation interventions, or weak controls?
+
+**Question C — Structural adaptation**
+
+When a model learns the correct two-colluder rule, does it construct and use the required joint cross-group relation, or does it exploit some different sufficient computation?
+
+**Question D — Learning and replication**
+
+Are the observed solution classes stable across fine-tuning seeds and pretrained lineages, or are they artifacts of thresholds, small sample sizes, or optimization variability?
+
+These questions should guide the experiments.
+
+They are not independent research programs. They are different ways of examining the relationship between relational information, internal computation, and candidate decisions.
+
+---
+
+# 4. WORKSTREAM A — CAUSALLY RECONSTRUCT THE PRE-ASSEMBLED SOLUTION CLASS
+
+**Highest priority. Mandatory.**
+
+Investigation XIII devoted substantial attention to the mixture models but did not explain how the pre-assembled models make their decisions.
+
+That asymmetry must be corrected.
+
+Use uP160 and uP163 as the main development systems, while retaining uP161, uP165, and uP164 for comparison.
+
+## A1. Locate the candidate-decision calculation
+
+Identify where the candidate-specific decision becomes available and where it becomes causally operative.
+
+Examine:
+
+- Layer-0 and layer-1 attention.
+- Layer-1 MLP operations.
+- Intermediate residual streams.
+- Source-token and readout-token contributions.
+- Evidence aggregation.
+- Candidate-likelihood transformations.
+- Final-layer attention and MLP effects.
+
+Do not infer that a computation is complete merely because its result is linearly decodable before layer 2.
+
+Test whether the relevant state actually causes the downstream candidate decision.
+
+## A2. Identify the algorithm
+
+Compare the pre-assembled model against explicit alternatives:
+
+- Per-group evidence weighting.
+- Pooled reliability weighting.
+- Pairwise relational combination.
+- Candidate-specific lookup or shortcut.
+- Distributed mixture computation.
+- A computation different from the attention-mixture model.
+
+Use mathematically valid input edits that produce different predictions under these alternatives.
+
+The goal is not simply to discover which layer contains an answer-like feature.
+
+The goal is to identify **what operation is performed**.
+
+## A3. Causal reconstruction
+
+Use controlled path interventions, source edits, component removal, and restoration.
+
+Attempt to establish:
+
+**Source relationships → relational computation → candidate-evidence combination → decision.**
+
+Distinguish computation, transmission, mediation, and downstream readout.
+
+Examine whether the apparent pre-assembled decision can be transferred or restored through its actual causal pathway.
+
+## A4. Compare directly against mixture models
+
+After reconstructing the pre-assembled implementation, compare the two solution classes at an abstract computational level.
+
+Determine whether:
+
+- They use the same sufficient relational information.
+- They produce equivalent intervention-response laws.
+- They implement equivalent candidate-evidence transformations.
+- They differ only in computational location.
+- They implement distinct approximation strategies.
+
+Do not describe them as the same algorithm based solely on matching outputs.
+
+Do not describe them as different algorithms merely because their attention patterns differ.
+
+**A complete answer to this workstream is more valuable than another positive attention-mixture correlation.**
+
+---
+
+# 5. WORKSTREAM B — COMPLETE THE MISSING CAUSAL CONTROLS
+
+**Mandatory. These tests were specifically recommended by Investigation XIII's reviewer and left unfinished.**
+
+## B1. Proper attention-head decoys
+
+Investigation XIII compared mixture heads against the lowest-q-mass head.
+
+That is not a size-matched or contribution-matched control.
+
+Construct stronger controls matched where feasible for:
+
+- Attention mass.
+- Head dimension.
+- Baseline output contribution.
+- Activation magnitude.
+- Intervention magnitude.
+- Relevant token positions.
+
+Apply the same transplantation procedure to the real and decoy heads.
+
+Determine whether the mixture-head effect remains specific under the stronger controls.
+
+Use exact, consistent head-selection rules across every analysis script.
+
+The earlier mismatch in selected mixture-head sets must be resolved before confirmation.
+
+## B2. Balanced E-versus-A1 identification
+
+The previous DAS training distribution rarely separated E from A1.
+
+The E-, A1-, and PERM-trained subspaces largely overlapped.
+
+Repeat the identification experiment using a mathematically valid, balanced collection of relational configurations in which the competing variables make different predictions.
+
+Match:
+
+- Training sample counts.
+- Architecture and subspace dimensions.
+- Optimization steps.
+- Training objectives.
+- Evaluation distributions.
+- Control intervention strengths.
+
+Include source-independent patches and appropriate null representations.
+
+Ask whether a variable-specific causal abstraction can actually be learned.
+
+A failed result should distinguish insufficient identification from failure of the target variable to mediate the natural computation.
+
+Do not equate successful supervised subspace fitting with unique mediator identification.
+
+## B3. Restoration through an independent pathway
+
+Investigation XIII did not perform a frozen restoration experiment through a pathway distinct from the attention-row transplantation.
+
+Design and execute one.
+
+The experiment must have a discriminating prediction about E versus A1 or another well-defined competing relational computation.
+
+Use a pathway whose intervention effect is not guaranteed by the training objective of the learned subspace.
+
+Require:
+
+- A meaningful causal removal.
+- A separate restoration route.
+- Candidate-specific effect recovery.
+- Matched decoy restoration.
+- Preservation of unrelated decision effects.
+- No-op and source-free controls.
+
+A restoration that is equally successful with an arbitrary trained decoy is not evidence for the proposed relational mediator.
+
+## B4. Partial and resampling ablations
+
+Investigation XIII used a broad layer-1 mean ablation but did not measure important downstream consequences.
+
+Run graded and resampling interventions.
+
+Measure:
+
+- Residual candidate-margin effects.
+- Attention mass.
+- Attention entropy.
+- Mixture-weight changes.
+- Candidate-response calibration.
+- The effect of removing individual pathways.
+- The effect of removing combinations of pathways.
+
+Determine whether the remaining behavior reflects redundancy, alternative computation, or the side effects of a large ablation.
+
+The behavioural residual must be computed, not merely promised in documentation.
+
+## B5. Decompose the unexplained decision effect
+
+The principal attention-row pathway explained only about 25–33% of the measured effect.
+
+Investigate the remainder through:
+
+- Attention values.
+- Other attention heads.
+- MLP pathways.
+- Residual-state contributions.
+- Earlier pre-assembled information.
+- Interactions between these components.
+
+Do not assume the individual contributions add linearly.
+
+Measure interactions and redundancy where appropriate.
+
+A causal explanation of a partial pathway should not be presented as an explanation of the entire decision.
+
+---
+
+# 6. WORKSTREAM C — DISSECT THE TWO-COLLUDER REPAIR
+
+**Mandatory mathematical and mechanistic investigation.**
+
+Investigation XIII demonstrated that frozen early-layer representations can support near-optimal two-colluder decisions after adapting attention or MLP components in layer 2.
+
+However, it did not identify the computation learned during that adaptation.
+
+This is one of the most valuable unresolved COR questions.
+
+## C1. Identify the required joint relation
+
+Use the exact shared-copying posterior derived in Investigation XIII.
+
+Determine the necessary between-group statistic \(J_H\), or an explicitly equivalent sufficient representation.
+
+Construct valid pairs of episodes in which per-group summaries match but the joint relation differs.
+
+Verify that the exact Bayesian candidate decision changes.
+
+Do not import the earlier incorrect independent-copying posterior.
+
+## C2. Locate the neural information
+
+Investigate whether information about \(J_H\):
+
+- Is present in frozen layers 0–1.
+- Is decodable from the layer-2 input.
+- Is assembled inside layer 2.
+- Appears only after adaptation.
+- Is distributed across attention and MLP pathways.
+- Is used causally by the repaired decision.
+
+A decodable joint statistic is not automatically a causally used statistic.
+
+## C3. Identify what adaptation changes
+
+Compare existing:
+
+- Attention-only repairs.
+- MLP-only repairs.
+- Full-block repairs.
+- Fresh-block repairs.
+
+Dissect the successful adapted models.
+
+Test whether they reuse the one-colluder computation, construct a new cross-group relation, or compute an alternative sufficient decision rule.
+
+Use valid counterfactual interventions and matched component controls.
+
+## C4. Test necessity, not only sufficiency
+
+Investigation XIII showed that adapting layer 2 is sufficient.
+
+It did not test whether adapting earlier layers while keeping layer 2 frozen could also solve the changed task.
+
+Run a controlled layers-0–1-only adaptation arm with the final layer frozen.
+
+Compare against the existing layer-2 repair results under matched budgets.
+
+If earlier-layer adaptation succeeds, determine how it changes the information presented to the frozen final layer.
+
+If it fails, do not immediately infer mathematical necessity; distinguish optimization limitations from architectural or informational limitations.
+
+## C5. Connect the mechanism to the sufficiency theorem
+
+The central mathematical question is:
+
+**How does a change in source-dependence structure change the relational computation required for a correct candidate decision?**
+
+Determine whether the observed neural repairs follow the predicted sufficiency boundary.
+
+Derive restricted mathematical results or explicit counterexamples where supported.
+
+Do not claim that any one intermediate statistic is universally necessary when an alternative sufficient representation may exist.
+
+---
+
+# 7. WORKSTREAM D — REPLICATION, CLASS BOUNDARIES, AND LEARNING VARIATION
+
+**Mandatory confirmation work.**
+
+The primary mixture results rested on two fresh complete parents.
+
+The classification of uP164 was unstable at a threshold difference of approximately 0.001.
+
+This must be addressed scientifically.
+
+## D1. Analyze solution classes continuously
+
+Do not rely exclusively on a binary "mixture" versus "pre-assembled" threshold.
+
+Measure continuous properties such as:
+
+- Direct-logit contribution.
+- Attention-mixture causal fidelity.
+- Candidate-decision assembly before layer 2.
+- Source-specific intervention effects.
+- MLP contribution.
+- Causal pathway dependence.
+
+Determine whether there are genuinely distinct clusters, a continuum of implementations, or a mixture of both.
+
+Include uP164 rather than treating it as scientifically irrelevant because of a frozen threshold.
+
+Preserve the original prediction verdicts, but separately evaluate sensitivity to reasonable classification changes.
+
+## D2. Multiple fine-tuning seeds
+
+Train at least one additional fine-tuning seed on each of the key previously pretrained complete parents, prioritizing:
+
+- uP160 and uP163.
+- uP161 and uP165.
+- uP164.
+
+Where resources permit, include additional lineages from earlier investigations.
+
+Determine whether the apparent solution class is:
+
+- Predominantly inherited from pretraining.
+- Sensitive to fine-tuning initialization.
+- Sensitive to training duration or optimization.
+- Stable only under certain representational conditions.
+
+Do not count different fine-tunes of the same parent as independently pretrained parents.
+
+## D3. Prospective independent evaluation
+
+Freeze the new causal and mechanistic predictions after development but before evaluating the new fine-tuning replicates.
+
+Use new evaluation streams.
+
+Existing XIII models are development evidence.
+
+New fine-tuning seeds provide prospective replication of fine-tuning variability, not independent pretraining replication.
+
+If the available compute allows a small additional independently pretrained confirmation cohort, use one under a separately frozen protocol.
+
+However, do not replace the essential unfinished causal experiments with another broad pretraining sweep.
+
+## D4. Revisit the learning transition
+
+Investigation XIII did not establish an internal predictor of the A2-to-B transition.
+
+Do not repeat the earlier correlational claim.
+
+Investigate whether the emergence of correct candidate-evidence weighting, rather than the appearance of an attention pattern, predicts the behavioral transition.
+
+Use checkpoint-level interventions or targeted experiments where feasible.
+
+If the relevant predictor does not exist, preserve that negative result.
+
+---
+
+# 8. OPTIONAL CROSS-FAMILY TEST — ONLY IF SCIENTIFICALLY JUSTIFIED
+
+The wider COR program is not limited to the T4 generator.
+
+Earlier research investigated GATE, TRANS, reliability-conditioned computation, and other relational decision settings.
+
+Investigation XIII did not run the proposed GATE comparison.
+
+If the core unfinished obligations above have been addressed and sufficient resources remain, run one carefully designed GATE comparison using an established checkpoint.
+
+The comparison should ask a nontrivial question, such as whether the same abstract evidence-selection or evidence-combination property appears under a different relational task.
+
+Do not claim a shared mechanism merely because both models use attention.
+
+Do not launch a broad new TRANS or adaptive-source training program within this follow-up.
+
+Record which broader COR questions remain open.
+
+The original obstruction/discrepancy operators must not be declared validated without specific mathematical and empirical evidence.
+
+---
+
+# 9. FROZEN PREDICTIONS AND STATISTICAL STANDARDS
+
+Freeze approximately five to seven high-value predictions, chosen from the unresolved hypotheses.
+
+Prioritize:
+
+1. Causal mechanism of the pre-assembled models.
+2. Mixture-head specificity under properly matched decoys.
+3. E-versus-A1 identification on balanced discriminating configurations.
+4. Restoration through an independent pathway.
+5. Causal implementation of the two-colluder joint relation.
+6. Necessity versus sufficiency of layer-2 adaptation.
+7. Stability of neural solution classes across fine-tuning seeds.
+
+Each prediction must specify:
+
+- Competing explanations.
+- Exact experimental procedure.
+- Quantitative outcome criteria.
+- Null and decoy controls.
+- Evaluation cohort.
+- Statistical unit of independence.
+- Failure criterion.
+- Interpretation of positive, negative, or inconclusive outcomes.
+
+## Mandatory scorer preflight
+
+Before freezing any confirmation test, verify:
+
+- The written prediction matches the implemented scorer.
+- The no-op intervention cannot satisfy a supposedly causal criterion.
+- Random or irrelevant representations do not pass the same criterion.
+- The metric discriminates the intended hypotheses.
+- Evaluation configurations are supported by the generator.
+- Decision differences are not artifacts of reference entropy.
+- No duplicated intervention is counted as independent evidence.
+- All required experimental arms are scheduled.
+- The scorer produces correct denominators and reports missing data.
+
+Store the freeze in a committed, hashed record before confirmation outcomes exist.
+
+Do not change success thresholds after inspection.
+
+Report non-diagnostic passes separately.
+
+---
+
+# 10. FULL RESEARCH EXECUTION — 8–13 HOURS
+
+This investigation must not finish prematurely while affordable, potentially decisive controls remain undone.
+
+Use the available compute to investigate the unresolved science deeply.
+
+Recommended order:
+
+**Stage 1 — Audit and experimental design**
+
+Read the XIII reviewer findings and all unresolved items. Confirm which existing code and checkpoints can be reused. Develop the main competing hypotheses.
+
+**Stage 2 — Launch fine-tuning replicates**
+
+Start the required additional fine-tuning seeds early. Save checkpoints and training logs.
+
+**Stage 3 — Pre-assembled mechanism reconstruction**
+
+Identify where and how the candidate decision is assembled before layer 2.
+
+**Stage 4 — Causal identification controls**
+
+Run matched decoys, balanced E/A1 experiments, partial ablations, and independent-pathway restoration.
+
+**Stage 5 — Two-colluder computation**
+
+Dissect the repaired layer-2 models, locate the joint relational information, and run the layers-0–1-only adaptation comparison.
+
+**Stage 6 — Prospective confirmation**
+
+Evaluate frozen predictions on the new fine-tuning replicates and untouched evaluation streams.
+
+**Stage 7 — Mathematical synthesis and adversarial review**
+
+Verify mathematical claims, investigate important falsifications, and correct the scientific interpretation.
+
+**Stage 8 — Archive and reproduction**
+
+Complete all scripts, results, reviews, statistics, integrity checks, and ZIP delivery.
+
+Adapt the order when scientific dependencies require it.
+
+## Minimum completion standard
+
+Do not call the investigation complete solely because a prediction set passes or a ZIP exists.
+
+Before declaring completion, explicitly account for:
+
+- The previously unexplained pre-assembled class.
+- Properly matched head controls.
+- Balanced E/A1 causal identification.
+- Independent-pathway restoration.
+- Partial-ablation behavioral residuals.
+- The unexplained fraction of the attention-mixture effect.
+- The learned two-colluder computation.
+- Earlier-layer adaptation with layer 2 frozen.
+- Fine-tuning-seed variability and the uP164 boundary.
+- Frozen confirmation, uncertainty, and critical review.
+
+These are scientific obligations, not merely suggested future directions.
+
+If a task is genuinely blocked, document the actual attempted experiment, measured resource cost, technical failure, and implications for the claims.
+
+Do not substitute an assertion of infeasibility for evidence.
+
+Do not burn computation merely to reach a time target.
+
+But do not stop early while important, affordable experiments could overturn the interpretation.
+
+### Execution persistence
+
+Previous COR training jobs have been lost when execution sessions ended.
+
+Use active execution, resumable checkpoints, verified output files, and explicit recovery procedures.
+
+Provide concise progress messages where supported while continuing the research.
+
+Do not claim an unfinished process will continue after execution has stopped.
+
+---
+
+# 11. INDEPENDENT SCIENTIFIC REVIEW
+
+Use at least two separately initialized reviewing agents where supported.
+
+Their assignments should be independent of the primary researcher's preferred conclusion.
+
+**Mathematics reviewer**
+
+Audit the source generator, Bayesian posteriors, rank arguments, sufficiency limits, high-level interventions, and new theorems or counterexamples.
+
+**Mechanism and causality reviewer**
+
+Examine the pre-assembled mechanism, mixture-head controls, restoration tests, learned subspaces, joint-statistic identification, and adaptation claims.
+
+**Experimental-integrity reviewer**, where available
+
+Examine frozen predictions, class thresholds, fine-tuning independence, statistical interpretation, experiment completeness, and the chronology of any amendments.
+
+Reviewers must inspect final results rather than only preliminary summaries.
+
+Allow them to reject the primary interpretation.
+
+Preserve their criticisms and the actual changes made in response.
+
+Do not describe independent-agent review as external human peer review.
+
+---
+
+# 12. REQUIRED RESEARCH PACKAGE
+
+Create a continuation branch:
+
+`cor-phase15-step1-relational-decision-computation-followup`
+
+Create an isolated directory:
+
+`docs/research_audits/cor_phase15/step1_relational_decision_computation_followup/`
+
+Preserve all earlier archives, original prediction verdicts, errors, corrections, and reviewer findings.
+
+Produce substantive research documents:
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+Central findings, confirmed and falsified predictions, revised mechanistic interpretation, mathematical results, limitations, and implications for COR.
+
+### ALTERNATIVE_NATIVE_DECISION_ALGORITHMS.md
+
+Causal reconstruction of pre-assembled and attention-mixture implementations, computational comparisons, and evidence for or against abstract equivalence.
+
+### CAUSAL_IDENTIFICATION_AND_RESTORATION.md
+
+Matched-head controls, balanced-variable tests, alternative-pathway restoration, residual effects, partial ablations, and identification limitations.
+
+### JOINT_RELATIONAL_COMPUTATION_AND_ADAPTATION.md
+
+Two-colluder sufficiency mathematics, neural representation of joint relations, causal adaptation mechanisms, and necessity-versus-sufficiency findings.
+
+### FROZEN_CONFIRMATION_AND_STATISTICS.md
+
+Original frozen protocol, new fine-tuning replicates, predictions, failures, borderline analyses, statistical results, and deviations.
+
+### OPEN_COR_FOUNDATIONAL_QUESTIONS.md
+
+Remaining mathematical and mechanistic questions, including broader COR families and the original O/D research obligations.
+
+Do not create ceremonial documents.
+
+Include executable code, training checkpoints, intervention scripts, raw outputs, logs, mathematical verification, statistical scripts, independent reviews, integrity manifest, and precise reproduction instructions.
+
+Distinguish findings that are proved, development-only, newly confirmed, exploratory, or speculative.
+
+---
+
+# 13. MANDATORY ZIP ARCHIVE
+
+Produce:
+
+`cor_inv13b_unresolved_mechanisms_and_validation.zip`
+
+The ZIP must contain the complete new research package, not merely written documents.
+
+Before delivery:
+
+1. Extract it into a clean directory.
+2. Verify the integrity manifest.
+3. Re-run representative mathematical tests.
+4. Re-derive frozen prediction verdicts.
+5. Recompute principal statistics.
+6. Replay at least one pre-assembled causal intervention.
+7. Replay at least one mixture-head control or restoration test.
+8. Verify a representative two-colluder adaptation result.
+9. Verify training checkpoint integrity.
+10. Audit the required dependencies on earlier `cor_phase15` packages.
+
+If previous packages are necessary, pin them by exact identifiers and hashes.
+
+Do not claim that the archive is standalone if it depends on earlier repository artifacts.
+
+The final response must identify:
+
+- Branch and HEAD commit.
+- New research directory.
+- Main scientific findings.
+- Confirmed, falsified, and non-diagnostic predictions.
+- Remaining unfinished obligations.
+- Review findings and corrections.
+- Reproducibility results.
+- Exact ZIP location.
+
+**Deliver the actual ZIP artifact and the principal research synthesis.**
+
+---
+
+# 14. REQUIRED FINAL SCIENTIFIC ANSWERS
+
+Answer these questions directly, using the strongest available evidence.
+
+1. How do pre-assembled Transformers compute candidate-specific relational decisions?
+
+2. Do pre-assembled and attention-mixture models implement equivalent abstract computations, or genuinely distinct algorithms?
+
+3. Does the attention-mixture mediator survive size-matched and contribution-matched causal controls?
+
+4. Does balanced E/A1 testing recover a variable-specific natural mediator, or further weaken the previous DAS interpretation?
+
+5. Can a distinct causal pathway restore the relational effect after the original pathway is removed?
+
+6. What accounts for the remaining decision effect outside the attention-row mediator?
+
+7. What joint cross-group relation is needed for the correct two-colluder decision, and where is that relation computed or causally used in adapted models?
+
+8. Can adapting layers 0–1 alone, with layer 2 frozen, repair the two-colluder behavior?
+
+9. Are neural solution classes stable across fine-tuning seeds, and is the mixture/pre-assembled distinction categorical or continuous?
+
+10. What new mathematical theorems, counterexamples, or restrictions on causal identification follow from the results?
+
+11. Which findings can be connected defensibly to the wider COR research landscape, and which remain specific to T4?
+
+12. Which unanswered questions have the greatest foundational scientific value after this follow-up?
+
+Do not answer unsupported questions with confident speculation.
+
+A genuine negative result is preferable to an invented mechanism.
+
+---
+
+# 15. FINAL DIRECTIVE
+
+Investigation XIII revealed that independently trained Transformers can produce similar relational decisions through apparently different computational organizations.
+
+It also revealed that several favored causal-identification techniques were less discriminating than previously believed.
+
+The next scientific obligation is not to obtain another positive accuracy result.
+
+It is to determine whether the observed neural implementations share a meaningful computation, to identify the mechanisms that remain unexplained, and to establish which relational information is mathematically and causally necessary for correct decisions.
+
+**Investigate the pre-assembled models as seriously as the attention-mixture models.**
+
+**Challenge the six-dimensional mediator interpretation instead of protecting it.**
+
+**Identify the computation learned during two-colluder adaptation rather than merely demonstrating that adaptation works.**
+
+**Test implementation variability instead of hiding it behind a binary threshold.**
+
+Preserve positive results, failed predictions, mathematical corrections, reviewer criticism, and unexpected computational pathways.
+
+Do not force the evidence into a common-mechanism theory.
+
+Do not retreat into vague statements that every Transformer is different.
+
+Seek precise mathematical and causal explanations capable of distinguishing these alternatives.
+
+Use the available 8–13-hour budget to complete the affordable, consequential experiments that Investigation XIII did not finish.
+
+Do not terminate simply because the prediction checklist has been satisfied.
+
+**We remain in COR Phase 1.5, Step 1, at approximately 25% of the provisional foundational exploration.**
+
+There is no closure decision or thesis selection.
+
+The objective is to strengthen the mathematical and mechanistic foundations necessary to determine which COR arguments can ultimately be defended.
+
+**Conduct the investigation rigorously and deliver the complete verified research ZIP.**

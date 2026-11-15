@@ -1,0 +1,75 @@
+2026-11-14T23:29:20Z XIII-B start. Branch cor-phase15-step1-relational-decision-computation-followup from 4f220b0. D2: fine-tune seed 21 (new) for uP160,uP161,uP163,uP164,uP165 launched first (identical protocol to XIII seed 20). Their outputs are NOT opened until the XIII-B prediction freeze.
+2026-11-14T23:29:20Z lane FTA start [a9c5d4ff6dfb] python3 scripts/native_train.py uP160 full_c1 4000 21 label logs/eval_conf13.npz
+2026-11-14T23:29:20Z lane FTB start [b6f02414519d] python3 scripts/native_train.py uP163 full_c1 4000 21 label logs/eval_conf13.npz
+2026-11-14T23:41:10Z lane CA start [36fb39e3d5e7] AD_BETA=0.6 python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13
+2026-11-14T23:46:16Z lane DV1 start [96932e5dd74a] L2C_TAG=_dev2 python3 scripts/l2_components.py uP165:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13
+2026-11-14T23:47:33Z lane DV1 end [96932e5dd74a] rc=137
+2026-11-14T23:50:44Z DV1 l2_components (3 models in one process) OOM-killed rc=137; split into one process per model (lane DV2)
+2026-11-14T23:50:44Z lane DV2 start [2e21ce2a2af5] L2C_TAG=_dev_P165 python3 scripts/l2_components.py uP165:full_c1:20:_eval_conf13
+2026-11-14T23:52:01Z lane DB start [5e158e219501] DB_TAG=_dev python3 scripts/das_bal.py uP161:full_c1:20:_eval_conf13
+2026-11-14T23:52:10Z lane DV2 end [2e21ce2a2af5] rc=0
+2026-11-14T23:52:10Z lane DV2 start [38e2bdfa76bf] L2C_TAG=_dev_P164 python3 scripts/l2_components.py uP164:full_c1:20:_eval_conf13
+2026-11-14T23:54:37Z lane DV2 end [38e2bdfa76bf] rc=0
+2026-11-14T23:54:37Z lane DV2 start [d23d35593581] L2C_TAG=_dev_P162 python3 scripts/l2_components.py uP162:full_c1:20:_eval_conf13
+2026-11-14T23:56:50Z lane DV2 end [d23d35593581] rc=0
+2026-11-14T23:56:50Z lane DV2 start [94928346122b] LG_TAG=_dev_P160 python3 scripts/l1_graded.py uP160:full_c1:20:_eval_conf13
+2026-11-15T00:01:05Z lane DV2 end [94928346122b] rc=0
+2026-11-15T00:01:05Z lane DV2 start [41488b080372] LG_TAG=_dev_P163 python3 scripts/l1_graded.py uP163:full_c1:20:_eval_conf13
+2026-11-15T00:03:48Z lane EV start [dfc3318dd624] python3 scripts/build_eval_13b.py
+2026-11-15T00:03:52Z lane EV end [dfc3318dd624] rc=0
+2026-11-15T00:05:10Z lane DV2 end [41488b080372] rc=0
+2026-11-15T00:05:10Z lane DV2 start [9a7bd95e4cd1] LG_TAG=_dev_P165 python3 scripts/l1_graded.py uP165:full_c1:20:_eval_conf13
+2026-11-15T00:09:11Z lane DV2 end [9a7bd95e4cd1] rc=0
+2026-11-15T00:09:11Z lane DV2 start [daece3a73bdf] LG_TAG=_dev_P164 python3 scripts/l1_graded.py uP164:full_c1:20:_eval_conf13
+2026-11-15T00:09:58Z lane DV2 end [daece3a73bdf] rc=137
+2026-11-15T00:09:58Z lane DV2 start [920a1b1603db] LOC_FAM=rel LOC_N=1000 LOC_TAG=_dev_rel python3 scripts/locate.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13
+2026-11-15T00:11:07Z lane DB end [5e158e219501] rc=0
+2026-11-15T00:11:07Z lane DB start [2a77d0d908ae] DB_TAG=_dev python3 scripts/das_bal.py uP160:full_c1:20:_eval_conf13
+2026-11-15T00:12:51Z l1_graded uP164 OOM-killed (rc=137, memory pressure from 5 concurrent jobs); requeued as _dev_P164b
+2026-11-15T00:24:47Z lane DV2 end [920a1b1603db] rc=0
+2026-11-15T00:24:47Z lane DV2 start [da4f521ad2e8] LOC_FAM=lik LOC_N=1000 LOC_TAG=_dev_lik python3 scripts/locate.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13
+2026-11-15T00:29:00Z lane DB end [2a77d0d908ae] rc=137
+2026-11-15T00:29:00Z lane DB start [c1ec3843603e] DB_TAG=_dev python3 scripts/das_bal.py uP165:full_c1:20:_eval_conf13
+2026-11-15T00:31:34Z das_bal uP160 OOM rc=137, requeued at end of DB; C4 optimisation control queued: layer-2 full/fresh at 4x steps (4000) on uP161 beta=0.6
+2026-11-15T00:37:19Z lane CA end [36fb39e3d5e7] rc=0
+2026-11-15T00:37:20Z lane CA start [8acd55afd4ff] AD_BETA=0.6 python3 scripts/adapt2.py uP160:full_c1:20:_eval_conf13
+2026-11-15T00:40:11Z lane DV2 end [da4f521ad2e8] rc=0
+2026-11-15T00:40:11Z lane DV2 start [81299b401a99] PC_TAG=_devpool python3 scripts/path_chain.py xP81:full_c1:0: xP81:full_c1:1: yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10 vP150:full_c1:10:_eval_conf12 vP150:full_c1:11:_eval_conf12 vP151:full_c1:10:_eval_conf12 vP154:full_c1:10:_eval_conf12 vP154:full_c1:11:_eval_conf12 vP155:full_c1:10:_eval_conf12 vP156:full_c1:10:_eval_conf12 uP162:full_c1:20:_eval_conf13
+2026-11-15T00:42:03Z lane DV3 start [bb0f92c4cf25] CF_TAG=_dev python3 scripts/class_features.py uP160:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 xP81:full_c1:0: xP81:full_c1:1: yP130:full_c1:0:_eval_conf9 yP130:full_c1:1: yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10 vP150:full_c1:10:_eval_conf12 vP150:full_c1:11:_eval_conf12 vP151:full_c1:10:_eval_conf12 vP152:full_c1:10:_eval_conf12 vP153:full_c1:10:_eval_conf12 vP154:full_c1:10:_eval_conf12 vP154:full_c1:11:_eval_conf12 vP155:full_c1:10:_eval_conf12 vP156:full_c1:10:_eval_conf12
+2026-11-15T00:43:17Z MEMORY: stopped lane DV2 (path_chain devpool; superseded by class_features route measures) to avoid OOM; remaining DV2 jobs (traj_resp, l1_graded uP164) requeued in queue_dev4
+2026-11-15T00:47:26Z lane DB end [c1ec3843603e] rc=0
+2026-11-15T00:47:26Z lane DB start [80a46cff7c89] DB_TAG=_dev python3 scripts/das_bal.py uP163:full_c1:20:_eval_conf13
+2026-11-15T00:53:02Z lane DV3 end [bb0f92c4cf25] rc=0
+2026-11-15T00:59:50Z lane DV4 start [97891a6021a7] TR_TAG=_dev python3 scripts/traj_resp.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13
+2026-11-15T01:00:10Z SCOPE (compute): adapt2 beta=1.0 runs for uP165/uP163/uP164 skipped (claims pre-created); beta=1 necessity arm kept for uP161 and uP160; beta=0.6 for all five.
+2026-11-15T01:00:10Z lane DV5 start [e35b19f4a23b] DJ_TAG=_dev_P160 python3 scripts/decode_J.py uP160:full_c1:20:_eval_conf13
+2026-11-15T01:00:55Z lane CA end [8acd55afd4ff] rc=137
+2026-11-15T01:00:55Z lane CA start [a895e9785ae9] AD_BETA=1.0 python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13
+2026-11-15T01:02:09Z lane DV5 end [e35b19f4a23b] rc=0
+2026-11-15T01:02:09Z lane DV5 start [cf6c9492c6f6] DJ_TAG=_dev_P161_early01 python3 scripts/decode_J.py uP161:full_c1:20:_eval_conf13 checkpoints/adapt2/uP161_full_c1_s4000_seed20_eval_conf13_early01_b0.6.npz
+2026-11-15T01:03:20Z lane DV5 end [cf6c9492c6f6] rc=137
+2026-11-15T01:03:20Z lane DV5 start [918e06eae288] DJ_TAG=_dev_P163 python3 scripts/decode_J.py uP163:full_c1:20:_eval_conf13
+2026-11-15T01:03:20Z lane DB end [80a46cff7c89] rc=137
+2026-11-15T01:03:20Z lane DB start [7175f54bdfba] DB_TAG=_dev python3 scripts/das_bal.py uP164:full_c1:20:_eval_conf13
+2026-11-15T01:05:20Z lane DV5 end [918e06eae288] rc=0
+2026-11-15T01:05:31Z lane FTE start [a60dd606ee7e] python3 scripts/native_train.py uP164 full_c1 4000 21 label logs/eval_conf13.npz
+2026-11-15T01:05:31Z lane FTD start [d100faa4d497] python3 scripts/native_train.py uP165 full_c1 4000 21 label logs/eval_conf13.npz
+2026-11-15T01:05:31Z lane FTC start [689d0ffe3a8a] python3 scripts/native_train.py uP161 full_c1 4000 21 label logs/eval_conf13.npz
+2026-11-15T01:05:34Z SCHEDULING: seed-21 FTs of uP161/uP165/uP164 started now in parallel lanes FTC/FTD/FTE (same lines/claims as FTA/FTB); autogroup priority FT -5, dev jobs 8
+2026-11-15T01:05:49Z MEMORY: paused DV4 (traj_resp) and DV5 (decode_J) while 5 FTs run; to be resumed
+2026-11-15T01:11:03Z lane FTB end [b6f02414519d] rc=0
+2026-11-15T01:11:19Z lane FTA end [a9c5d4ff6dfb] rc=0
+2026-11-15T01:16:44Z lane DV4 start [97891a6021a7] TR_TAG=_dev python3 scripts/traj_resp.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13
+2026-11-15T01:16:44Z lane DV5 start [cf6c9492c6f6] DJ_TAG=_dev_P161_early01 python3 scripts/decode_J.py uP161:full_c1:20:_eval_conf13 checkpoints/adapt2/uP161_full_c1_s4000_seed20_eval_conf13_early01_b0.6.npz
+2026-11-15T01:17:08Z adapt2 uP160 beta=0.6 OOM-killed (rc=137) during early01 after readout/attn/mlp/full/fresh had printed (results in logs/run/8acd55afd4ff.out; checkpoints saved); early01/early01ro rerun queued in DV5 (AD_OUT=_p160early)
+2026-11-15T01:17:37Z SCOPE: adapt2 dev for uP165/uP163 reduced to conds full,early01 (lane CB, AD_OUT=_dev2); uP164 beta0.6 and uP160 beta1.0 dev skipped for time
+2026-11-15T01:17:37Z lane CB start [6b17a989618a] AD_BETA=0.6 AD_CONDS=full,early01 AD_OUT=_dev2 python3 scripts/adapt2.py uP165:full_c1:20:_eval_conf13
+2026-11-15T01:17:49Z das_bal uP163 OOM rc=137 (01:03, during FT launches); retry queued
+2026-11-15T01:18:08Z lane CA end [a895e9785ae9] rc=137
+2026-11-15T01:18:08Z lane CA start [17c59533075d] AD_BETA=0.6 AD_STEPS=4000 AD_CONDS=full,fresh AD_OUT=_long python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13
+2026-11-15T01:19:05Z lane CB end [6b17a989618a] rc=137
+2026-11-15T01:19:05Z lane CB start [608c4ab769f7] AD_BETA=0.6 AD_CONDS=full,early01 AD_OUT=_dev2 python3 scripts/adapt2.py uP163:full_c1:20:_eval_conf13
+2026-11-15T01:19:05Z lane DV5 end [cf6c9492c6f6] rc=137
+2026-11-15T01:19:05Z lane DV5 start [3c86a9c666b7] AD_BETA=0.6 AD_CONDS=early01,early01ro AD_OUT=_p160early python3 scripts/adapt2.py uP160:full_c1:20:_eval_conf13
+2026-11-15T01:19:21Z MEMORY: decode_J early01 OOM again; paused DV4 traj_resp again (8 concurrent jobs)
+2026-11-15T01:19:36Z MEMORY: OOM killed adapt2 uP165 dev (CB) at 01:19; stopped lane CA (uP161 beta1, to be rerun in queue_adapt2c later); max 6 concurrent heavy jobs from now

@@ -10,3 +10,8 @@ Addendum prediction AQ1 (exploratory status: registered post-freeze, before the 
     lik_RO1 >= 0.7  ->  rho <= 0.70 ;    lik_RO1 <= 0.2  ->  rho >= 0.85 ;   (units in between: reported only)
   and across the five units corr(lik_RO1, rho) <= -0.7.
 Procedure: scripts/fit_powermean.py on the seed-21 specs with FP_STREAM=79_600_000, FP_TAG=_conf13b_addendum.
+
+## Aggregation rule for AQ1 (added after integrity review 2, BEFORE the AQ1 output was opened)
+AQ1 holds iff (i) every unit with lik_RO1 >= 0.7 has rho <= 0.70, (ii) every unit with lik_RO1 <= 0.2 has rho >= 0.85, (iii) at least one unit
+in each of (i) and (ii), and (iv) corr(lik_RO1, rho) over all units with both values <= -0.7.  A unit with a missing value makes AQ1
+inconclusive.  Hybrid units are reported only.

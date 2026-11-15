@@ -101,3 +101,36 @@
 2026-11-15T02:33:22Z POST-FREEZE EXPLORATORY (math review 1): fit_powermean.py (normalised power-mean family; rho=1 mixture, rho->0 normalised log-linear pooling) on dev pool; will also be run on seed-21 units, labelled exploratory
 2026-11-15T02:33:22Z lane DV6 start [583aeaafae32] FP_TAG=_dev python3 scripts/fit_powermean.py uP160:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 xP81:full_c1:0: yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 vP150:full_c1:10:_eval_conf12 vP151:full_c1:10:_eval_conf12 vP153:full_c1:10:_eval_conf12 vP155:full_c1:10:_eval_conf12 vP156:full_c1:10:_eval_conf12 yP131:full_c1:0:_eval_conf9
 2026-11-15T02:38:06Z lane DV6 end [583aeaafae32] rc=0
+2026-11-15T02:39:20Z ADDENDUM AQ1 registered (commit above) before running fit_powermean on seed-21 units (queued in DV6)
+2026-11-15T02:39:26Z lane DV6 start [b51aeb4005d5] FP_STREAM=79600000 FP_TAG=_conf13b_addendum python3 scripts/fit_powermean.py uP160:full_c1:21:_eval_conf13 uP161:full_c1:21:_eval_conf13 uP163:full_c1:21:_eval_conf13 uP164:full_c1:21:_eval_conf13 uP165:full_c1:21:_eval_conf13
+2026-11-15T02:39:48Z lane DV4 start [97891a6021a7] TR_TAG=_dev python3 scripts/traj_resp.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13
+2026-11-15T02:41:17Z lane DV6 end [b51aeb4005d5] rc=0
+2026-11-15T02:43:12Z lane K1 end [2ab13c930b49] rc=0
+2026-11-15T02:43:12Z lane K1 start [270160972a93] while [ ! -f checkpoints/native_train/uP163_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; CF_STREAM=79000000 CF_TAG=_conf13b_P163 python3 scripts/class_features.py uP163:full_c1:21:_eval_conf13
+2026-11-15T02:43:23Z lane K3 end [6c6f4aa31e69] rc=0
+2026-11-15T02:43:23Z lane K3 start [0484943bf195] while [ ! -f checkpoints/native_train/uP163_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; FF_STREAM=79100000 FF_TAG=_conf13b_P163 python3 scripts/fit_family.py uP163:full_c1:21:_eval_conf13
+2026-11-15T02:43:44Z lane K3 end [0484943bf195] rc=0
+2026-11-15T02:43:44Z lane K3 start [bd07d4d4eb4a] while [ ! -f checkpoints/native_train/uP163_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; L2C_STREAM=79200000 L2C_TAG=_conf13b_P163 python3 scripts/l2_components.py uP163:full_c1:21:_eval_conf13
+2026-11-15T02:44:33Z lane K1 end [270160972a93] rc=0
+2026-11-15T02:44:33Z lane K1 start [6988c9cccc32] while [ ! -f checkpoints/native_train/uP163_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_conf13b python3 scripts/das_bal.py uP163:full_c1:21:_eval_conf13
+2026-11-15T02:45:26Z lane K3 end [bd07d4d4eb4a] rc=0
+2026-11-15T02:45:26Z lane K3 start [b1933b9fafd6] while [ ! -f checkpoints/native_train/uP163_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; AD_BETA=0.6 AD_CONDS=full,early01 AD_STREAM=79500000 AD_OUT=_conf13b python3 scripts/adapt2.py uP163:full_c1:21:_eval_conf13
+2026-11-15T02:52:42Z lane DV4 end [97891a6021a7] rc=0
+2026-11-15T02:52:42Z lane DV4 start [8c63c91dba20] LG_TAG=_dev_P164b python3 scripts/l1_graded.py uP164:full_c1:20:_eval_conf13
+2026-11-15T02:54:08Z lane CB end [a895e9785ae9] rc=137
+2026-11-15T02:54:08Z lane CB start [4a05210aa4c2] AD_STEPS=4000 AD_BETA=0.6 AD_CONDS=full,fresh AD_OUT=_long python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13
+2026-11-15T02:54:09Z lane DV4 end [8c63c91dba20] rc=137
+2026-11-15T02:56:21Z lane K2 end [c2d7b20c1094] rc=0
+2026-11-15T02:56:21Z lane K2 start [36e6219e460c] while [ ! -f checkpoints/native_train/uP161_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; AD_BETA=0.6 AD_CONDS=full,early01 AD_STREAM=79500000 AD_OUT=_conf13b python3 scripts/adapt2.py uP161:full_c1:21:_eval_conf13
+2026-11-15T03:00:25Z NOTE (integrity review 2; written BEFORE any *_conf13b* output or seed-21 training output was opened): reporting rules for XIII-B
+  RB1 a prediction with ANY failed arm is reported 'not confirmed (arm X falsified)' even if another arm is inconclusive (frozen verdict also shown);
+  RB2 units dropped by a unit_filter because filter inputs are missing are listed explicitly and make the prediction inconclusive;
+  RB3 an arm is called diagnostic only if (a) its null was computed on every unit and failed, AND (b) it did not pass on any null scenario unit
+      in the preflight; Q1a is NON-DIAGNOSTIC against normalised log-linear pooling (handicapped POE family; math review 1);
+  RB4 Q4: PERM and MEAN decoy restorations reported alongside (sensitivity: Q4c recomputed with them included);
+  RB5 disclosures: class_features.py measures mix_mass on fixed-seed episodes (75_700_001/2) also used in development; dev jpath.py used seed
+      79_100_000 = confirmation fit_family stream seed (different sampler, but the same RNG seed); Q5 thresholds set on late-readout models only;
+      Q6 dev rests on uP161/uP160/uP163 (+uP165 after freeze); the predictions are not independent (shared lik_RO1 measurement, three bear on E vs A1);
+      preflight null units are author-written numbers (scorer-logic check only).
+  AQ1 aggregation rule appended to logs/ADDENDUM_A1.md now, before its output is opened.
+  Also: dev adapt2 uP161 beta=1.0 OOM-killed again (rc=137, 02:54); traj_resp OOM (rc=137) -- both to be retried after confirmation.

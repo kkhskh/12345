@@ -1,0 +1,6 @@
+DD_TAG=2_f2 DD_STREAM=92700000 DD_STEPS=200 DD_SITES=ALLX2 DD_KS=8 python3 scripts/d_das2.py uP164:s:21 uP165:s:20
+DR_TAG=_f2 DR_STREAM=92600000 DR_NSTREAMS=1 python3 scripts/d_rows.py uP161:s:20 uP165:s:23
+E4_TAG=_f2 E4_STREAM=92800000 python3 scripts/e4_noninv.py uP164:s:22 uP163:s:20 uP160:s:20
+DT2_TAG=_f2 DT2_STREAM=92900000 python3 scripts/d_routes2.py uP165:s:20 uP163:s:22 uP164:s:21
+bash scripts/when_file.sh checkpoints/adapt4_carrier/uP160_s_23_early01_b0.6_lr0.001.npz checkpoints/adapt4_carrier/uP165_s_21_early01_b0.6_lr0.001.npz -- 'CA_TAG=_f2 CA_STREAM=92200000 CA_CKDIR=adapt4_carrier python3 scripts/c_carrier.py uP160:s:23 && CA_TAG=_f2 CA_STREAM=92200000 CA_CKDIR=adapt4_carrier python3 scripts/c_carrier.py uP165:s:21'
+bash scripts/when_ready.sh uP161_fx_L21_W22_D21 uP161_fx_L22_W21_D22 uP160_fx_L21_W23_D21 uP160_fx_L23_W21_D23 -- UM_RHO=0 UM_STREAM=92100000 UM_TAG=_f2 UM_STEPS=final python3 scripts/unit_metrics.py uP161:fx:21:22:21 uP161:fx:22:21:22 uP160:fx:21:23:21 uP160:fx:23:21:23

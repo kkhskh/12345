@@ -8,3 +8,31 @@
 2026-11-15T17:44:58Z DESCOPED (dev, compute): python3 scripts/ft_factorial.py uP161 21 22 22 -- the W-only contrasts (21,22,21) vs 21/21/21 and (22,21,22) vs 22/22/22 are kept
 2026-11-15T17:44:58Z DESCOPED (dev, compute): python3 scripts/ft_factorial.py uP161 22 21 21 -- the W-only contrasts (21,22,21) vs 21/21/21 and (22,21,22) vs 22/22/22 are kept
 2026-11-15T17:44:58Z DEV readout-map transform SCREEN queued (1211-step runs with the 4000-step schedule): perm120 / rot1 / scale1.5 / neg on uP161 22/22/22 (early), rot1 / scale0.6 on uP161 21/21/21 (mixture). Step-0 feature screen (logs/w_features_dev.jsonl, n = 19 initialisations): S_RO0 r = +0.50, ||WA|| r = -0.51, sv1 r = -0.49 with final lik_RO1; R2 of the parents' readout-token candidate evidence at step 0 is ~0 (no pre-existing early-readout feature).
+2026-11-15T17:54:42Z freeze-1 8a116e4 pushed; launching F1 training lane and F1 analysis lane
+2026-11-15T17:54:42Z lane FA start [ecf704568051] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T100 uP160_fx_L23_W23_D23_l2qT100 uP160_fx_L21_W21_D21_ro0T250 uP160_fx_L23_W23_D23_l2qT250 -- UM_RHO=0 UM_STREAM=91100000 UM_TAG=_f1 UM_STEPS=246,546,1211,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:21:ro0T100 uP160:fx:21:21:21:ro0T250 uP160:fx:23:23:23:l2qT100 uP160:fx:23:23:23:l2qT250
+2026-11-15T17:54:42Z lane F1 start [e18e23f2b308] FX_INTERV=ro0:100 python3 scripts/ft_factorial.py uP160 21 21 21
+2026-11-15T17:56:59Z lane DB start [b9581d435c0c] E4_TAG=_dev python3 scripts/e4_noninv.py uP161:s:22 uP160:s:21 uP161:s:21
+2026-11-15T17:59:52Z lane DA end [8c8ae33e538b] rc=0
+2026-11-15T17:59:52Z lane DA start [93fed75acf2a] AD_OUT=_dev AD_ARMS=supRO,supQS,supL2,supG python3 scripts/adapt4.py uP161:s:21
+2026-11-15T18:00:29Z lane DB end [b9581d435c0c] rc=0
+2026-11-15T18:00:29Z lane DB start [9845b5d7eb42] DR_TAG=_dev DR_NSTREAMS=1 python3 scripts/d_rows.py uP161:s:21 uP160:s:23
+2026-11-15T18:02:32Z lane DB end [9845b5d7eb42] rc=0
+2026-11-15T18:02:32Z lane DB start [4295322b9876] DD_TAG=_dev DD_STEPS=200 DD_SITES=ALL2,ALLX2,ALLXQ2 DD_KS=8 python3 scripts/d_das2.py uP161:s:22 uP161:s:21
+2026-11-15T18:08:22Z REORDER: uP161 W-only cells moved after the readout-map transform screen (re-queued with FX_ORDER=2 prefix; same command otherwise).
+2026-11-15T18:08:41Z lane CAD start [7c6089cb2d8b] AD_OUT=_carrier AD_ARMS=early01 python3 scripts/adapt4.py uP160:s:23
+2026-11-15T18:08:42Z adaptation (early01, beta 0.6) of two NEW late units uP160 s23 and uP165 s21 for the freeze-2 carrier confirmation (outputs not to be analysed before freeze 2)
+2026-11-15T18:14:08Z lane DB end [4295322b9876] rc=0
+2026-11-15T18:14:08Z lane DB start [2afb7b81b480] DT2_TAG=_dev python3 scripts/d_routes2.py uP161:s:21 uP161:s:22
+2026-11-15T18:18:30Z lane DB end [2afb7b81b480] rc=0
+2026-11-15T18:18:45Z lane F2 start [6f8018ca9d3f] FX_INTERV=l2q:100 python3 scripts/ft_factorial.py uP160 23 23 23
+2026-11-15T18:29:20Z freeze-2 population part 1 committed (a931af7); uP161 W-only dev lines withdrawn (re-designated confirmation, never started).
+2026-11-15T18:29:29Z lane AC start [64532203ce23] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_base -- python3 scripts/ft_factorial.py uP161 21 22 21
+2026-11-15T18:29:38Z queue_f2A_train.txt line 1 prefixed with a when_ready gate on the uP160 21 base rerun (scheduling only; commands unchanged); lane AC started.
+2026-11-15T18:38:36Z lane CAD end [7c6089cb2d8b] rc=0
+2026-11-15T18:38:36Z lane CAD start [e465fb9f86ea] AD_OUT=_carrier AD_ARMS=early01 python3 scripts/adapt4.py uP165:s:21
+2026-11-15T18:43:32Z CLAIM-COLLISION FIX: queue_f2A_train.txt line 3 (A-C2 uP161 22 21 22) had the same md5 key as the withdrawn dev line (claim pre-created at withdrawal) and would have been silently skipped; prefixed with inert FX_CONF=1 (in-place edit, lane AC still on line 1). Command otherwise unchanged.
+2026-11-15T18:44:32Z lane DA end [93fed75acf2a] rc=0
+2026-11-15T18:44:32Z lane DA start [56de80431989] AD_OUT=_dev_lr3 AD_LR=0.003 AD_ARMS=supRO,supQS,supL2,supG,L2,L1only python3 scripts/adapt4.py uP161:s:21
+2026-11-15T18:44:55Z DEVIATION (exposure): the 18:42Z monitoring grep of logs/run/*.out printed the C-C1 adaptation summary line (uP160 s23 early01: acc 0.791, KL 0.008, J_DM slope 0.996, R2 0.92, D0/DM 0.08, DEC/DM 0.03). This is the adaptation's training outcome (competence precondition), not any carrier measurement; no c_carrier output for C-C1/C-C2 exists. Recorded before freeze 2; monitoring greps now exclude confirmation lanes.
+2026-11-15T18:47:06Z lane B1 end [9d3ca556eb75] rc=0
+2026-11-15T18:47:06Z lane B1 start [c614e77c4df3] FX_SAVEOPT=1 FX_TAGSUF=_base python3 scripts/ft_factorial.py uP160 21 21 21

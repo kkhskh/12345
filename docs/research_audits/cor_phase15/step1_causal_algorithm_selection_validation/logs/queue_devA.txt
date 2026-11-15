@@ -10,3 +10,5 @@ FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
 FX_STOP=1211 FX_WA=neg python3 scripts/ft_factorial.py uP161 22 22 22
 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 21 21 21
 FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+FX_ORDER=2 python3 scripts/ft_factorial.py uP161 21 22 21
+FX_ORDER=2 python3 scripts/ft_factorial.py uP161 22 21 22

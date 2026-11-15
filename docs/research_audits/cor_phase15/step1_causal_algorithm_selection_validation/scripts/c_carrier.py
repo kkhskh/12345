@@ -33,8 +33,8 @@ import numpy as np, jax, jax.numpy as jnp, optax
 import xc, ftlib as F, native as NV, genlib as GL, xii_bayes as XB, relpairs as RP
 np.seterr(all="ignore")
 sp = sys.argv[1]; UN = sp.replace(":", "_"); M0 = xc.load(sp); E2 = GL.Env(3, 2, beta=0.6); ST = int(os.environ.get("CA_STREAM", 90_200_000)); K = 3
-cands = glob.glob(os.path.join(HERE, "..", "checkpoints", "adapt3*", f"{UN}_early01_b0.6_lr0.001.npz")) + glob.glob(os.path.join(NV.X13C, "checkpoints", "adapt3", f"{UN}_early01_b0.6_lr0.001.npz"))
-z = np.load(cands[0]); MA = dict(M0); MA["layers"] = [dict(l) for l in M0["layers"]]
+cands = ([os.path.join(HERE, "..", "checkpoints", os.environ["CA_CKDIR"], f"{UN}_early01_b0.6_lr0.001.npz")] if os.environ.get("CA_CKDIR") else []) + glob.glob(os.path.join(HERE, "..", "checkpoints", "adapt3*", f"{UN}_early01_b0.6_lr0.001.npz")) + glob.glob(os.path.join(NV.X13C, "checkpoints", "adapt3", f"{UN}_early01_b0.6_lr0.001.npz"))
+print("checkpoint:", cands[0], flush=True); z = np.load(cands[0]); MA = dict(M0); MA["layers"] = [dict(l) for l in M0["layers"]]
 for k_, v in z.items():
     top, *rest = k_.split("/")
     if top in ("l0", "l1", "l2") and rest: MA["layers"][int(top[1])][rest[0]] = jnp.asarray(v)

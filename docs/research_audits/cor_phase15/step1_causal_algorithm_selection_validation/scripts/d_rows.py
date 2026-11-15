@@ -1,4 +1,5 @@
-"""XIII-C Workstream D1/D2/D3: the layer-2 attention-row mediator re-tested with REBUILT controls (mixture / hybrid units).
+"""XIII-D: XIII-C d_rows + E2 (decoys scored against the borrowed pair's own change; explicit no-op tolerance 1e-5).
+XIII-C Workstream D1/D2/D3: the layer-2 attention-row mediator re-tested with REBUILT controls (mixture / hybrid units).
 Pairs: purely relational pairs (relpairs.relational_pairs; values at q identical) on stream DR_STREAM.
 Mixture heads: relpairs.mixture_heads (the single XIII-B rule).  Intervention = replace the mixture heads' readout-token (36+q) attention rows
 by rows from some source, everything else from the base run; observed change = centred log-prob change at q.
@@ -46,8 +47,8 @@ for sp in sys.argv[1:]:
     rB, rD = {}, {}; L0 = np.asarray(F.forward(M, jnp.asarray(PR["Xb"]), rec=rB))[i, q]; LD = np.asarray(F.forward(M, jnp.asarray(PR["Xd"]), rec=rD))[i, q]
     AB = np.asarray(rB["pattern2"])[i, :, 36 + q]; AD = np.asarray(rD["pattern2"])[i, :, 36 + q]; own = RP.cen(RP.sm(LD)) - RP.cen(RP.sm(L0))
     r = dict(mixture_heads=MH, mass=mass.tolist(), share=list(map(float, share)), arms={})
-    def score(L, rows=None, heads=None):
-        d = RP.cen(RP.sm(L)) - RP.cen(RP.sm(L0)); f = RP.fid(d, dB)
+    def score(L, rows=None, heads=None, target=None):
+        d = RP.cen(RP.sm(L)) - RP.cen(RP.sm(L0)); f = RP.fid(d, dB if target is None else target)
         s = dict(slope=f["slope"], R2=f["R2"], own_share=float((d * own).sum() / max((own * own).sum(), 1e-12)), mean_abs=float(np.abs(d).mean()))
         if rows is not None: s["row_disp_L1"] = float(np.mean([np.abs(rows[h] - AB[:, h]).sum(-1).mean() for h in heads]))
         return s
@@ -59,7 +60,12 @@ for sp in sys.argv[1:]:
         dsp = np.clip(AB + (AD - AB)[perm_d], 0, None); dsp = dsp / dsp.sum(-1, keepdims=True); arms["SHUFD"] = {h: dsp[:, h] for h in MH}
         rBB = {}; F.forward(M, jnp.asarray(PR["Xb"][perm_b]), rec=rBB); ABB = np.asarray(rBB["pattern2"])[i, :, 36 + q]; arms["SHUFB"] = {h: ABB[:, h] for h in MH}
         for nm, rows in arms.items(): Lp = run_rows(M, MH, rows, PR["Xb"]); r["arms"][nm] = score(Lp, rows, MH)
+        # XIII-D E2: score the borrowed-displacement decoys against the BORROWED pair's own exact change (does a generic Bayes-shaped
+        # relational signal ride on the rows, independent of the base episode?), and SHUF against its donor pair's change
+        r["arms"]["SHUFD_vs_borrowed"] = score(run_rows(M, MH, arms["SHUFD"], PR["Xb"]), arms["SHUFD"], MH, target=dB[perm_d])
+        r["arms"]["SHUF_vs_borrowed"] = score(run_rows(M, MH, arms["SHUF"], PR["Xb"]), arms["SHUF"], MH, target=dB[perm_d])
         r["arms"]["NOOP"]["max_abs_dlogit_vs_unmodified"] = float(np.abs(run_rows(M, MH, arms["NOOP"], PR["Xb"]) - L0).max())
+        r["arms"]["NOOP"]["tolerance"] = 1e-5; r["arms"]["NOOP"]["within_tolerance"] = r["arms"]["NOOP"]["max_abs_dlogit_vs_unmodified"] <= 1e-5   # float32: |logit| ~ 10, eps 6e-8 x recompute depth
         oth = [h for h in range(4) if h not in MH]
         if oth:
             rows = {h: AD[:, h] for h in oth}; r["arms"]["OTHER"] = score(run_rows(M, oth, rows, PR["Xb"]), rows, oth)

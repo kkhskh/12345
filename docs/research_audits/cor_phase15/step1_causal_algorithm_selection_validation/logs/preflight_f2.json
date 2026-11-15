@@ -1,0 +1,123 @@
+{
+ "P0": {
+  "summary": {
+   "P1": "CONFIRMED",
+   "P3": "CONFIRMED",
+   "P4": "CONFIRMED",
+   "P6": "CONFIRMED",
+   "P7": "CONFIRMED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N1": {
+  "summary": {
+   "P1": "FALSIFIED",
+   "P3": "CONFIRMED",
+   "P4": "CONFIRMED",
+   "P6": "CONFIRMED",
+   "P7": "CONFIRMED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N2": {
+  "summary": {
+   "P1": "CONFIRMED",
+   "P3": "FALSIFIED",
+   "P4": "CONFIRMED",
+   "P6": "CONFIRMED",
+   "P7": "CONFIRMED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N3": {
+  "summary": {
+   "P1": "CONFIRMED",
+   "P3": "CONFIRMED",
+   "P4": "FALSIFIED",
+   "P6": "CONFIRMED",
+   "P7": "CONFIRMED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N4": {
+  "summary": {
+   "P1": "CONFIRMED",
+   "P3": "CONFIRMED",
+   "P4": "CONFIRMED",
+   "P6": "FALSIFIED",
+   "P7": "CONFIRMED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N5": {
+  "summary": {
+   "P1": "CONFIRMED",
+   "P3": "CONFIRMED",
+   "P4": "CONFIRMED",
+   "P6": "CONFIRMED",
+   "P7": "FALSIFIED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N6": {
+  "summary": {
+   "P1": "CONFIRMED",
+   "P3": "CONFIRMED",
+   "P4": "CONFIRMED",
+   "P6": "CONFIRMED",
+   "P7": "CONFIRMED",
+   "P8": "FALSIFIED"
+  },
+  "ok": true
+ },
+ "N7": {
+  "summary": {
+   "P1": "FALSIFIED",
+   "P3": "FALSIFIED",
+   "P4": "FALSIFIED",
+   "P6": "FALSIFIED",
+   "P7": "FALSIFIED",
+   "P8": "FALSIFIED"
+  },
+  "ok": true
+ },
+ "N8": {
+  "summary": {
+   "P1": "NON-DIAGNOSTIC",
+   "P3": "CONFIRMED",
+   "P4": "CONFIRMED",
+   "P6": "CONFIRMED",
+   "P7": "CONFIRMED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N9": {
+  "summary": {
+   "P1": "CONFIRMED",
+   "P3": "CONFIRMED",
+   "P4": "CONFIRMED",
+   "P6": "CONFIRMED",
+   "P7": "CONFIRMED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N10": {
+  "summary": {
+   "P1": "CONFIRMED",
+   "P3": "FALSIFIED",
+   "P4": "FALSIFIED",
+   "P6": "CONFIRMED",
+   "P7": "CONFIRMED",
+   "P8": "CONFIRMED"
+  },
+  "ok": true
+ }
+}

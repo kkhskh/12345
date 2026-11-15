@@ -1,4 +1,4 @@
-python3 scripts/ft_factorial.py uP161 21 22 21
+bash scripts/when_ready.sh uP160_fx_L21_W21_D21_base -- python3 scripts/ft_factorial.py uP161 21 22 21
 python3 scripts/ft_factorial.py uP160 21 23 21
-python3 scripts/ft_factorial.py uP161 22 21 22
+FX_CONF=1 python3 scripts/ft_factorial.py uP161 22 21 22
 python3 scripts/ft_factorial.py uP160 23 21 23

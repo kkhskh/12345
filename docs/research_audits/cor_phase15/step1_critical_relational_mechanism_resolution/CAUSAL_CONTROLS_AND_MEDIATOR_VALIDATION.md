@@ -46,7 +46,10 @@ below the selection rule also carries part of it (OTHER R² 0.40).
 - `d_rows` NOOP: the rows of the base itself;
 - `d_das` NOOP: donor := base.
 
-Both reproduce the unmodified forward with **max |Δlogit| = 0.0** in every unit tested (exact, not within tolerance).
+Both reproduce the unmodified forward.
+- The DAS no-op is exactly 0 in every unit.
+- The row-path no-op is exactly 0 in the development units, but 7e-7 to 9.5e-7 in the confirmation units: float32 reordering, because that
+  path recomputes attention. This difference is why R6 was falsified as written.
 
 **DAS controls, all reported separately:**
 - same-state replacement (NOOP, = 0);
@@ -177,6 +180,25 @@ against 0.39 for s21. The routing proportion therefore follows the initialisatio
 **Threshold sensitivity.** With a routing threshold anywhere in 0.40–0.55, uP161 s21 and its init-sibling fall below it and every other
 mixture unit stays above it. No single categorical routing law holds across initialisations.
 
-## Confirmation
+## Confirmation (frozen)
 
-R6 (rows), R7 (early-class E mediator) and R8 (route structure): see FROZEN_CONFIRMATION_AND_STATISTICS.md.
+**R7 confirmed, narrowed by review 3 (M6).** The model's own behaviour already shows the same E-over-A2 margins, and ALL2 includes the edited tokens, so the subspace may partly re-inject the input edit. The claim is that the model's E-following behaviour is carried by a low-dimensional subspace of the full layer-2 input, beyond the source-free and A2-decoy controls. It is not a localized mediator.
+
+ The new early unit uP163 L22/W22/D21, at ALL2 with k = 8, gives:
+- source-specific excess 0.36;
+- E beats A2 on E5 (0.89 vs 0.67), E3 (0.58 vs 0.00) and QF4 (0.94 vs 0.26);
+- E beats A1 on QF5 (0.91 vs 0.35);
+- the A2-trained decoy subspace fails (0.06 / 0.02);
+- no-op exactly 0.
+
+**R8 confirmed.** Parallel additive Q/R routes in the mixture unit (0.54 / 0.45, redundancy 0.00), and a direct O route in two early units
+(0.39, 0.50).
+
+**R6 falsified, on the strict no-op criterion only.**
+- In the single pure-mixture confirmation unit, TRUE R² is 0.97, SHUFD 0.010, SHUF/PMEAN/SHUFB ≤ 0.046 and OTHER 0.009.
+- The row-patch no-op reproduced the forward pass to 7.2e-7, not to exactly 0. The frozen text demanded exactly 0, which the development
+  units had happened to give. The cause is float32 summation order, because the row-patch path recomputes attention through a different
+  einsum. The DAS no-op is exactly 0.
+- Status: specificity survives in one confirmation unit, plus four development units. **The no-op is valid at tolerance 1e-6 and the frozen
+  prediction is falsified as written.**
+- In hybrid confirmation units the rows carry less (R² 0.24–0.81), and other heads more (0.13–0.33).

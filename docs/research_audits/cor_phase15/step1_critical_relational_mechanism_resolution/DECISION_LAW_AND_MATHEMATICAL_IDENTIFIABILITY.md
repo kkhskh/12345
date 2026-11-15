@@ -18,6 +18,22 @@ Scripts:
 
 Proof notes: `logs/NOTES_MATH_B1.md`.
 
+> **Corrections after math review 1** (accepted; `reviews/REVIEW_1_MATH.md`). The original text is kept where it is not wrong.
+> - **T3:** on-support, ρ never cancels exactly, because every episode has ≥ 2 groups with non-zero exact weight. The 6.3% figure is "one
+>   group above a 1% weight threshold".
+> - **T2** holds for any fixed weights. It needs equal source counts per group at q and uniform wrong answers. It does not cover γ ≠ 0
+>   (HYB/FULL).
+> - The **B5 "COMB ρ"** share is, by T2, equally a "q-evidence tempering" share. It is not a mechanism label.
+> - **B5 wording:** in uP161 s22, COMB (0.038) exceeds CAL (0.024). "Nearly all of the mixture models' error is non-invariance" means
+>   72–79%. "The families capture about half of the structured part" holds for the early units only (early ≈ 0.19–0.23 / 0.37–0.45;
+>   mixture ≈ 0.02–0.04 / 0.25–0.30).
+> - **Bootstrap intervals** use 8 resamples: they are rough 5–95% ranges, not calibrated intervals.
+> - The **lapse clip** in `fair_fits` creates flat regions (stored raw λ < 0), which is the likely cause of the one non-converged FULL fit.
+> - **NPOE** is a normalised weighted geometric mean (log-linear pooling).
+> - **b5** averages log-probabilities within a cell. The arithmetic-mean cell model would make the split exactly additive; the difference
+>   is a few points at model scale.
+> - **"E is the only rule"** is a statement against A1 and A2. Graded eligibility rules were not fitted.
+
 ## B1. What the power-mean exponent ρ can and cannot mean
 
 Setting: the C = 1, β = 1 T4 generator (G = 3, K = 3, Q = 6, α = 0.8). At the target question q every group has exactly two sources. Write
@@ -161,8 +177,8 @@ Readings:
 | uP161 s21 (mix) | 0.005 | 0.001 | 0.001 | −0.001 | 0.010 | 0.002 | 0.02 |
 | uP160 s23 (mix) | 0.004 | 0.003 | 0.004 | 0.023 | 0.005 | 0.001 | 0.04 |
 
-The combination exponent explains 1–4% of the early class's KL. That is less than reliability weighting (7–8%), the lapse floor (6–7%) or
-calibration (2–4%).
+The combination exponent (equivalently, q-evidence tempering, T2) explains 1–4% of the early class's KL. Reliability weighting (7–8%) and
+the lapse floor (6–7%) explain more, and calibration 2–4%.
 
 **(b) Non-parametric decomposition** (`b5_residual.py`; 60,000 episodes canonicalised by the exact sufficient statistics):
 - *structured* = KL(cell model ‖ Bayes): deviation that is a function of the sufficient statistics;
@@ -213,6 +229,31 @@ E is the only rule correct on all four. No single family separates all three rul
 Every class follows E. A1 fails on QF5 and A2 fails on E5, E3 and QF4. The earlier label "agreement-at-q-gated" (XIII-B) can now be
 sharpened to **E** at the behavioural level. Mediator-level identification is in CAUSAL_CONTROLS §D4.
 
-## B-confirmation
+## B-confirmation: changing the routing changes the decision law (R3 confirmed)
 
-See FROZEN_CONFIRMATION_AND_STATISTICS.md: R3 (routing → ρ, causal) and the ρ columns of R1/R2 units.
+> **Review 3 (M4), accepted and reproduced.**
+> - Over the 11 competent units, ρ_KL correlates −0.93 with log KL to Bayes. The partial correlation of lik_RO1 with ρ given log KL is
+>   −0.49.
+> - With the lapse fitted jointly (PML), the shifts are +0.118 (ro0) and −0.071 (uP160 l2q).
+> - R3 stays CONFIRMED as frozen, but its meaning is narrowed. Organisation changes move the fitted exponent *together with* overall
+>   accuracy. The data do not show that routing specifically changes the combination law; ρ behaves largely as a deviation-from-Bayes
+>   index.
+
+Training interventions that change the organisation, with the parent, initialisation and data held fixed, move ρ_KL as predicted:
+
+| intervention | ρ_KL | reference ρ_KL | organisation change |
+|---|---|---|---|
+| ro0 | 0.947 [0.93, 0.96] | 0.749 [0.73, 0.76] | early → mixture |
+| l2q, uP160 | 0.803 [0.79, 0.82] | 0.935 [0.93, 0.96] | mixture → early |
+| l2q, uP161 (badly trained) | 0.563 [0.47, 0.61] | 0.933 | mixture → early |
+
+corr(lik_RO1, ρ_KL) = −0.81 over 12 non-independent units.
+
+**Answer to Q4.** The early class has ρ < 1 *because of* its routing organisation, in the sense that intervening on the routing changes ρ.
+What ρ means internally is not identified:
+- by T1/T2 it is equally "q-evidence tempering + output sharpening";
+- the early readout state is group-resolved, not pooled (B3);
+- it explains only 1–4% of the early class's KL.
+
+So we can say that the routing organisation causally shifts the input–output law. We cannot say which internal operation implements the
+shift.

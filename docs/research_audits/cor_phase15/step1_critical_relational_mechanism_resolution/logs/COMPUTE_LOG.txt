@@ -65,3 +65,72 @@
 2026-11-15T10:13:45Z lane A1 end [24bc99109b9f] rc=0
 2026-11-15T10:14:03Z lane C2 start [6b56264596fa] python3 scripts/ft_factorial.py uP163 21 21 22
 2026-11-15T10:21:28Z PREDICTION FREEZE (R1-R8, scorer, preflight OK, analysis queue, hashes in logs/FREEZE_13C_HASHES.txt). Confirmation training outputs (C1 done; C3, C4 running) are excluded from this commit and have not been opened.
+2026-11-15T10:21:49Z freeze d6281c6 pushed; launching confirmation analysis lane CA (queue_conf_analysis.txt)
+2026-11-15T10:21:49Z lane CA start [5b06362d4d4d] UM_STREAM=88100000 UM_TAG=_conf UM_STEPS=546,4000 python3 scripts/unit_metrics.py uP161:s:20 uP161:s:23 uP161:s:21 uP163:s:21 uP163:s:22 uP160:s:21 uP160:s:23
+2026-11-15T10:23:42Z post-freeze DEV (exploratory) queued in lane AD: dense trajectories of the 5 development factorial/intervention cells (A3).
+2026-11-15T10:27:04Z lane CA end [5b06362d4d4d] rc=0
+2026-11-15T10:27:04Z lane CA start [727e118c22f4] bash scripts/when_ready.sh uP161_fx_L20_W20_D23 -- UM_STREAM=88100000 UM_TAG=_conf UM_STEPS=546,4000 python3 scripts/unit_metrics.py uP161:fx:20:20:23
+2026-11-15T10:28:03Z lane CA end [727e118c22f4] rc=0
+2026-11-15T10:28:03Z lane CA start [5ab8d0a12b26] bash scripts/when_ready.sh uP161_fx_L20_W20_D23 -- AD_STREAM=88000000 AD_OUT=_conf AD_ARMS=L2,L2plus,L1only,L0only,supL2,supG,early01 python3 scripts/adapt3.py uP161:fx:20:20:23
+2026-11-15T10:59:43Z lane C1 end [0b1499624279] rc=0
+2026-11-15T10:59:43Z lane C1 start [e1ec9973b300] python3 scripts/ft_factorial.py uP161 23 23 20
+2026-11-15T11:05:44Z lane C2 end [6b56264596fa] rc=0
+2026-11-15T11:05:44Z lane C2 start [b50a308d6994] FX_INTERV=ro0:600 python3 scripts/ft_factorial.py uP160 21 21 21
+2026-11-15T11:06:50Z lane AD stopped (exploratory dev adapt3 on uP161 s22 after its L2 arm; dense dev trajectories deferred) to give confirmation runs the CPU
+2026-11-15T11:29:40Z lane CA end [5ab8d0a12b26] rc=0
+2026-11-15T11:29:40Z lane CA start [f244963f040f] bash scripts/when_ready.sh uP161_fx_L20_W20_D23 -- CC_STREAM=88500000 CC_TAG=_conf python3 scripts/c_causal.py uP161:fx:20:20:23 early01
+2026-11-15T11:34:10Z lane CA end [f244963f040f] rc=0
+2026-11-15T11:34:10Z lane CA start [0d71c5dcee5a] bash scripts/when_ready.sh uP163_fx_L22_W22_D21 -- UM_STREAM=88100000 UM_TAG=_conf UM_STEPS=546,4000 python3 scripts/unit_metrics.py uP163:fx:22:22:21
+2026-11-15T11:35:17Z lane CA end [0d71c5dcee5a] rc=0
+2026-11-15T11:35:17Z lane CA start [b4957658ab6b] bash scripts/when_ready.sh uP163_fx_L22_W22_D21 -- AD_STREAM=88000000 AD_OUT=_conf AD_ARMS=L2,early01 python3 scripts/adapt3.py uP163:fx:22:22:21
+2026-11-15T11:49:59Z lane C1 end [e1ec9973b300] rc=0
+2026-11-15T11:49:59Z lane C1 start [12317f5607c9] python3 scripts/ft_factorial.py uP163 22 21 21
+2026-11-15T11:54:53Z lane CA end [b4957658ab6b] rc=0
+2026-11-15T11:54:53Z lane CA start [d375124bbcf7] bash scripts/when_ready.sh uP163_fx_L22_W22_D21 -- DD_STREAM=88800000 DD_TAG=_conf DD_STEPS=200 DD_SITES=ALL2 DD_KS=8 python3 scripts/d_das.py uP163:fx:22:22:21
+2026-11-15T11:55:36Z lane C2 end [b50a308d6994] rc=0
+2026-11-15T11:55:36Z lane C2 start [a00fe146d855] python3 scripts/ft_factorial.py uP163 21 22 22
+2026-11-15T11:56:47Z lane CA end [d375124bbcf7] rc=0
+2026-11-15T11:56:47Z lane CA start [e9108997e734] bash scripts/when_ready.sh uP163_fx_L21_W21_D22 -- UM_STREAM=88100000 UM_TAG=_conf UM_STEPS=546,4000 python3 scripts/unit_metrics.py uP163:fx:21:21:22
+2026-11-15T11:57:56Z lane CA end [e9108997e734] rc=0
+2026-11-15T11:57:56Z lane CA start [485456e9889d] bash scripts/when_ready.sh uP161_fx_L23_W23_D20 -- UM_STREAM=88100000 UM_TAG=_conf UM_STEPS=546,4000 python3 scripts/unit_metrics.py uP161:fx:23:23:20
+2026-11-15T11:59:01Z lane CA end [485456e9889d] rc=0
+2026-11-15T11:59:01Z lane CA start [8819f34a0793] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T600 uP161_fx_L21_W21_D21_l2qT600 -- UM_STREAM=88100000 UM_TAG=_conf UM_STEPS=546,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:21:ro0T600 uP161:fx:21:21:21:l2qT600
+2026-11-15T12:25:38Z lane C1 end [12317f5607c9] rc=0
+2026-11-15T12:25:38Z lane C1 start [a0f4dd4ef3b5] FX_INTERV=l2q:600 python3 scripts/ft_factorial.py uP160 23 23 23
+2026-11-15T12:29:07Z lane C2 end [a00fe146d855] rc=0
+2026-11-15T12:32:55Z INCIDENT: confirmation unit C8 (FX_INTERV=l2q:600 uP161 21 21 21) was silently skipped by lane C2 because its queue line is identical to the descoped development line whose claim (md5) had been pre-created at 08:55Z. Detected now; C8 launched directly (no output of C8 existed; nothing re-run or replaced).
+2026-11-15T12:32:55Z lane C3 start [manual] FX_INTERV=l2q:600 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T12:33:06Z lane CB start [3d22b74568c7] bash scripts/when_ready.sh uP163_fx_L22_W21_D21 uP163_fx_L21_W22_D22 -- UM_STREAM=88100000 UM_TAG=_conf UM_STEPS=546,4000 python3 scripts/unit_metrics.py uP163:fx:22:21:21 uP163:fx:21:22:22
+2026-11-15T12:34:46Z lane CB end [3d22b74568c7] rc=0
+2026-11-15T12:34:46Z lane CB start [b44045f1dd72] bash scripts/when_ready.sh uP163_fx_L22_W21_D21 -- DD_STREAM=88800000 DD_TAG=_conf DD_STEPS=200 DD_SITES=ALL2 DD_KS=8 python3 scripts/d_das.py uP163:fx:22:21:21
+2026-11-15T12:36:15Z lane CB end [b44045f1dd72] rc=0
+2026-11-15T12:36:15Z lane CB start [4efdc61c4d35] bash scripts/when_ready.sh uP160_fx_L23_W23_D23_l2qT600 -- UM_STREAM=88100000 UM_TAG=_conf UM_STEPS=546,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:23:l2qT600
+2026-11-15T12:43:09Z lane CC start [bfec30aa7dbf] bash scripts/when_ready.sh uP161_fx_L20_W20_D23 uP161_fx_L23_W23_D20 uP163_fx_L21_W21_D22 uP163_fx_L22_W22_D21 uP163_fx_L22_W21_D21 uP163_fx_L21_W22_D22 -- DR_STREAM=88600000 DR_TAG=_conf python3 scripts/d_rows.py uP161:fx:20:20:23 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:22:22:21 uP163:fx:22:21:21 uP163:fx:21:22:22
+2026-11-15T12:46:13Z lane CC end [bfec30aa7dbf] rc=0
+2026-11-15T12:46:13Z lane CC start [1e2ab478cafd] bash scripts/when_ready.sh uP161_fx_L20_W20_D23 uP161_fx_L23_W23_D20 uP163_fx_L21_W21_D22 uP163_fx_L22_W22_D21 uP163_fx_L22_W21_D21 uP163_fx_L21_W22_D22 -- DT_STREAM=88700000 DT_TAG=_conf python3 scripts/d_routes.py uP161:fx:20:20:23 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:22:22:21 uP163:fx:22:21:21 uP163:fx:21:22:22
+2026-11-15T12:47:42Z lane CC end [1e2ab478cafd] rc=0
+2026-11-15T12:47:42Z lane CC start [b8ea07a0d34b] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T600 uP161_fx_L21_W21_D21_l2qT600 uP160_fx_L23_W23_D23_l2qT600 uP161_fx_L20_W20_D23 uP161_fx_L23_W23_D20 uP163_fx_L21_W21_D22 uP163_fx_L22_W22_D21 uP163_fx_L22_W21_D21 uP163_fx_L21_W22_D22 -- FF_STREAM=88300000 FF_TAG=_conf FF_SHAPLEY=0 python3 scripts/fair_fits.py uP160:fx:21:21:21:ro0T600 uP160:s:21 uP161:fx:21:21:21:l2qT600 uP161:s:21 uP160:fx:23:23:23:l2qT600 uP160:s:23 uP161:fx:20:20:23 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:22:22:21 uP163:fx:22:21:21 uP163:fx:21:22:22
+2026-11-15T12:53:16Z POST-FREEZE EXPLORATORY (not scored): optimisation sensitivity of supG and L2 on confirmation unit C1 (3000 steps; lr 3e-3), motivated by supG = 0.28 (vs dev 0.80).
+2026-11-15T12:53:16Z lane EX start [7d17873de50a] AD_STREAM=88000000 AD_OUT=_expl_s3000 AD_STEPS=3000 AD_ARMS=supG,L2 python3 scripts/adapt3.py uP161:fx:20:20:23
+2026-11-15T12:53:29Z EX lane stopped before any arm finished (would have overwritten confirmation adapt3 checkpoints of the same name); rerun via adapt3_expl.py (identical except checkpoint dir suffixed by AD_OUT).
+2026-11-15T12:53:29Z lane EX start [063a5764de80] AD_STREAM=88000000 AD_OUT=_expl_s3000 AD_STEPS=3000 AD_ARMS=supG,L2 python3 scripts/adapt3_expl.py uP161:fx:20:20:23
+2026-11-15T12:56:44Z lane C1 end [a0f4dd4ef3b5] rc=0
+2026-11-15T12:57:24Z lane CB end [4efdc61c4d35] rc=0
+2026-11-15T13:03:09Z lane C3 end [manual] rc=0
+2026-11-15T13:04:38Z lane CA end [8819f34a0793] rc=0
+2026-11-15T13:21:22Z lane CC end [b8ea07a0d34b] rc=0
+2026-11-15T13:21:49Z lane EX end [063a5764de80] rc=0
+2026-11-15T13:21:49Z lane EX start [9b50ff39ebe9] AD_STREAM=88000000 AD_OUT=_expl_lr3e-3 AD_LR=0.003 AD_ARMS=supG,L2 python3 scripts/adapt3_expl.py uP161:fx:20:20:23
+2026-11-15T13:23:13Z all confirmation analyses complete; collect + score
+2026-11-15T13:23:28Z SCORED: R1 F, R2 F, R3 C, R4 F, R5 C, R6 F, R7 C, R8 C (logs/score_13c.json)
+2026-11-15T13:26:29Z lane EX end [9b50ff39ebe9] rc=0
+2026-11-15T13:32:59Z POST-FREEZE EXPLORATORY after review 3 (M1, M5): split cell uP163 L21/W22/D21 (WA differs from both L2 and data); supL2 at 3000 steps and at lr 3e-3.
+2026-11-15T13:32:59Z lane X2 start [2c8e61290d5e] python3 scripts/ft_factorial.py uP163 21 22 21
+2026-11-15T13:32:59Z lane X1 start [9d200dfbcdec] AD_STREAM=88000000 AD_OUT=_expl_s3000 AD_STEPS=3000 AD_ARMS=supL2 python3 scripts/adapt3_expl.py uP161:fx:20:20:23
+2026-11-15T13:42:42Z lane X1 end [9d200dfbcdec] rc=0
+2026-11-15T13:42:42Z lane X1 start [9a8b71b7c6ef] AD_STREAM=88000000 AD_OUT=_expl_lr3e-3 AD_LR=0.003 AD_ARMS=supL2 python3 scripts/adapt3_expl.py uP161:fx:20:20:23
+2026-11-15T13:46:10Z lane X1 end [9a8b71b7c6ef] rc=0
+2026-11-15T13:55:07Z lane X2 end [2c8e61290d5e] rc=0
+2026-11-15T13:56:05Z post-review exploratory done: M1 split cell follows WA; M5 supL2 succeeds at 3000 steps / lr 3e-3 (format claim withdrawn)
+2026-11-15T13:56:18Z packaging: resume.pkl removed from completed runs (optimizer state, not needed for any result); claims dirs removed
+2026-11-15T13:56:36Z ZIP built; starting 12-step clean-extraction verification

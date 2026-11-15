@@ -2,3 +2,4 @@ AD_OUT=_dev python3 scripts/adapt3.py uP161:s:21
 AD_OUT=_dev python3 scripts/adapt3.py uP161:s:22
 AD_OUT=_dev python3 scripts/adapt3.py uP160:s:23
 AD_OUT=_dev python3 scripts/adapt3.py uP160:s:21
+UM_RHO=0 UM_TAG=_traj_fx_dev UM_STEPS=25,50,100,150,200,246,300,400,546,800,1000,1500,2000,4000 python3 scripts/unit_metrics.py uP161:fx:21:21:22 uP161:fx:22:22:21 uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:22:22:22:ro0T600

@@ -1,0 +1,25 @@
+[uP161_fx_L20_W20_D23] step 25 loss 1.1062 33s
+[uP161_fx_L20_W20_D23] step 50 loss 1.0959 57s
+[uP161_fx_L20_W20_D23] step 74 loss 1.0723 83s
+[uP161_fx_L20_W20_D23] step 100 loss 0.9868 116s
+[uP161_fx_L20_W20_D23] step 111 loss 0.9657 130s
+[uP161_fx_L20_W20_D23] step 150 loss 0.9128 178s
+[uP161_fx_L20_W20_D23] step 165 loss 0.8959 196s
+[uP161_fx_L20_W20_D23] step 200 loss 0.8962 238s
+[uP161_fx_L20_W20_D23] step 246 loss 0.8345 284s
+[uP161_fx_L20_W20_D23] step 300 loss 0.7314 333s
+[uP161_fx_L20_W20_D23] step 366 loss 0.6659 397s
+[uP161_fx_L20_W20_D23] step 400 loss 0.5977 428s
+[uP161_fx_L20_W20_D23] step 546 loss 0.5755 563s
+[uP161_fx_L20_W20_D23] step 600 loss 0.6141 616s
+[uP161_fx_L20_W20_D23] step 800 loss 0.5772 802s
+[uP161_fx_L20_W20_D23] step 813 loss 0.5888 813s
+[uP161_fx_L20_W20_D23] step 1000 loss 0.5092 983s
+[uP161_fx_L20_W20_D23] step 1211 loss 0.5814 1156s
+[uP161_fx_L20_W20_D23] step 1500 loss 0.5699 1361s
+[uP161_fx_L20_W20_D23] step 1803 loss 0.5970 1571s
+[uP161_fx_L20_W20_D23] step 2000 loss 0.6332 1718s
+[uP161_fx_L20_W20_D23] step 2686 loss 0.5790 2235s
+[uP161_fx_L20_W20_D23] step 3000 loss 0.5445 2469s
+[uP161_fx_L20_W20_D23] step 4000 loss 0.5721 3264s
+[uP161_fx_L20_W20_D23] done acc 0.7477 KL 0.0014 3323s

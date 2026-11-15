@@ -1,0 +1,704 @@
+{
+ "scored": {
+  "R1": {
+   "arms": [
+    {
+     "arm": "a:uP161:fx:20:20:23",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "sep": 0.4217345442526729,
+      "d_init": 0.014460816093292366,
+      "d_data": 0.4240605654710479,
+      "v": [
+       0.001536513820047728,
+       0.9776319265365601
+      ],
+      "v_init": [
+       0.0019308793048398317,
+       0.9631764888763428
+      ],
+      "v_data": [
+       0.4207634995784648,
+       0.9137876033782959
+      ]
+     }
+    },
+    {
+     "arm": "a:uP161:fx:23:23:20",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "sep": 0.4217345442526729,
+      "d_init": 0.20166225969830895,
+      "d_data": 0.2787909187178918,
+      "v": [
+       0.24172877287854036,
+       0.8209747076034546
+      ],
+      "v_init": [
+       0.4207634995784648,
+       0.9137876033782959
+      ],
+      "v_data": [
+       0.0019308793048398317,
+       0.9631764888763428
+      ]
+     }
+    },
+    {
+     "arm": "a:uP163:fx:21:21:22",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "sep": 0.7965343520750726,
+      "d_init": 0.11723042127186831,
+      "d_data": 0.8925150003536826,
+      "v": [
+       0.26608013475026376,
+       0.9454231858253479
+      ],
+      "v_init": [
+       0.3770615859949211,
+       0.9076595902442932
+      ],
+      "v_data": [
+       0.8203299588146058,
+       0.24585892260074615
+      ]
+     }
+    },
+    {
+     "arm": "a:uP163:fx:22:22:21",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "sep": 0.7965343520750726,
+      "d_init": 0.044312085124516586,
+      "d_data": 0.8351116920449151,
+      "v": [
+       0.823085613250282,
+       0.20163260400295258
+      ],
+      "v_init": [
+       0.8203299588146058,
+       0.24585892260074615
+      ],
+      "v_data": [
+       0.3770615859949211,
+       0.9076595902442932
+      ]
+     }
+    },
+    {
+     "arm": "b:uP163:fx:22:21:21",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "sep": 0.7965343520750726,
+      "d_L2ref": 0.7019524760305088,
+      "d_otherref": 0.09834830766346336,
+      "v": [
+       0.4509716329000529,
+       0.8427774310112
+      ]
+     }
+    },
+    {
+     "arm": "b:uP163:fx:21:22:22",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "sep": 0.7965343520750726,
+      "d_L2ref": 0.8658450659702266,
+      "d_otherref": 0.08446350891070518,
+      "v": [
+       0.8162901417255957,
+       0.16149207949638367
+      ]
+     }
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "R2": {
+   "arms": [
+    {
+     "arm": "a:uP160:fx:21:21:21:ro0T600",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "mix": 0.9731369018554688,
+      "lik": -0.000889739719396539,
+      "ref_mix": 0.1734829545021057,
+      "ref_lik": 0.8298027976644211
+     }
+    },
+    {
+     "arm": "b:uP161:fx:21:21:21:l2qT600",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "mix": 0.16735142469406128,
+      "lik": 0.7081424305486367,
+      "ref_mix": 0.9652716517448425,
+      "ref_lik": 0.0065462650309574865
+     }
+    },
+    {
+     "arm": "b:uP160:fx:23:23:23:l2qT600",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "mix": 0.14775390923023224,
+      "lik": 0.8212667963856706,
+      "ref_mix": 0.971488356590271,
+      "ref_lik": 0.0344459957267272
+     }
+    },
+    {
+     "arm": "c:uP161:fx:20:20:23",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "mix546": 0.9491885304450989,
+      "lik_final": 0.001536513820047728,
+      "predicted": "mixture"
+     }
+    },
+    {
+     "arm": "c:uP161:fx:23:23:20",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "mix546": 0.7248943448066711,
+      "lik_final": 0.24172877287854036,
+      "predicted": "mixture"
+     }
+    },
+    {
+     "arm": "c:uP163:fx:21:21:22",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "mix546": 0.4011273980140686,
+      "lik_final": 0.26608013475026376,
+      "predicted": "none (intermediate)"
+     }
+    },
+    {
+     "arm": "c:uP163:fx:22:22:21",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "mix546": 0.209072083234787,
+      "lik_final": 0.823085613250282,
+      "predicted": "early"
+     }
+    },
+    {
+     "arm": "c:uP163:fx:22:21:21",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "mix546": 0.263990193605423,
+      "lik_final": 0.4509716329000529,
+      "predicted": "early"
+     }
+    },
+    {
+     "arm": "c:uP163:fx:21:22:22",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "mix546": 0.1524239033460617,
+      "lik_final": 0.8162901417255957,
+      "predicted": "early"
+     }
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "R3": {
+   "arms": [
+    {
+     "arm": "a:uP160:fx:21:21:21:ro0T600",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "rho": 0.9474616137240576,
+      "rho_ref": 0.7491769454546917,
+      "shift": 0.19828466826936586,
+      "lik": -0.000889739719396539,
+      "lik_ref": 0.8298027976644211
+     }
+    },
+    {
+     "arm": "a:uP161:fx:21:21:21:l2qT600",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "rho": 0.5634720945441796,
+      "rho_ref": 0.933071658522178,
+      "shift": -0.3695995639779984,
+      "lik": 0.7081424305486367,
+      "lik_ref": 0.0065462650309574865
+     }
+    },
+    {
+     "arm": "a:uP160:fx:23:23:23:l2qT600",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "rho": 0.8033853023975523,
+      "rho_ref": 0.9353284824373297,
+      "shift": -0.13194318003977734,
+      "lik": 0.8212667963856706,
+      "lik_ref": 0.0344459957267272
+     }
+    },
+    {
+     "arm": "b:corr(lik_RO1, rho_KL)",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "n": 12,
+      "corr": -0.8128918488040434
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "R4": {
+   "arms": [
+    {
+     "arm": "late:L2",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "J_slope": -0.001037018037153077,
+      "rule": "<0.2"
+     }
+    },
+    {
+     "arm": "late:L2plus",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "J_slope": 0.0175885304569647,
+      "rule": "<0.2"
+     }
+    },
+    {
+     "arm": "late:L1only",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "J_slope": 0.0030887150824022128,
+      "rule": "<0.2"
+     }
+    },
+    {
+     "arm": "late:L0only",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "J_slope": 0.9133332655855664,
+      "rule": ">=0.6"
+     }
+    },
+    {
+     "arm": "late:supL2",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "J_slope": 0.02755846591794725,
+      "rule": "<0.2"
+     }
+    },
+    {
+     "arm": "late:supG",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "J_slope": 0.27694037835467955,
+      "rule": ">=0.6"
+     }
+    },
+    {
+     "arm": "early:L2",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "J_slope": 0.3783976258406126,
+      "rule": ">=0.4"
+     }
+    },
+    {
+     "arm": "early:early01",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "J_slope": 0.832769081647844,
+      "rule": ">=0.6"
+     }
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "R5": {
+   "arms": [
+    {
+     "arm": "a:low-dim causal subspace",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "das3": 0.7964938147014985,
+      "das8": 0.8823551295631111
+     }
+    },
+    {
+     "arm": "b:probe directions not causal",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "m_probe": 0.009141459063759698,
+      "resp_probe": 0.008627630949848888
+     }
+    },
+    {
+     "arm": "c:frozen mixture rows carry it",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "rows": 0.8151201800511141,
+      "corr": [
+       0.8374188242597426,
+       0.8909192548039021
+      ]
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "R6": {
+   "arms": [
+    {
+     "arm": "uP161:fx:20:20:23",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "TRUE": 0.9705528694105088,
+      "NOOP": 0.0,
+      "SHUF": 0.028550343551284607,
+      "PMEAN": 0.04587146210728099,
+      "SHUFD": 0.010267487974333078,
+      "SHUFB": 0.036317135833939806,
+      "OTHER": 0.009099040610745845,
+      "WHOLE": 0.9773119613730198,
+      "noop": 7.152557373046875e-07
+     }
+    },
+    {
+     "arm": "uP161:fx:23:23:20",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "note": "not a pure mixture unit",
+      "mh": [
+       1
+      ]
+     }
+    },
+    {
+     "arm": "uP163:fx:21:21:22",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "note": "not a pure mixture unit",
+      "mh": [
+       1
+      ]
+     }
+    },
+    {
+     "arm": "uP163:fx:22:22:21",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "note": "not a pure mixture unit",
+      "mh": []
+     }
+    },
+    {
+     "arm": "uP163:fx:22:21:21",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "note": "not a pure mixture unit",
+      "mh": [
+       0
+      ]
+     }
+    },
+    {
+     "arm": "uP163:fx:21:22:22",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "note": "not a pure mixture unit",
+      "mh": []
+     }
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "R7": {
+   "arms": [
+    {
+     "arm": "uP163:fx:22:22:21:a source-specific transfer",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "excess": 0.3552491897717118
+     }
+    },
+    {
+     "arm": "uP163:fx:22:22:21:b E over A2 (E5, E3, QF4)",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "E5": [
+       0.886278756250133,
+       0.6696975594844441
+      ],
+      "E3": [
+       0.5763402382161511,
+       0.00372032900751762
+      ],
+      "QF5": [
+       0.9142648136543897,
+       0.908945223251216
+      ],
+      "QF4": [
+       0.9402482928471069,
+       0.25747782834407884
+      ]
+     }
+    },
+    {
+     "arm": "uP163:fx:22:22:21:c E over A1 (QF5)",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "QF5": [
+       0.9142648136543897,
+       0.3471069493027109
+      ]
+     }
+    },
+    {
+     "arm": "uP163:fx:22:22:21:d random subspaces small",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {}
+    },
+    {
+     "arm": "uP163:fx:22:21:21:a source-specific transfer",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "excess": 0.31864022836089134
+     }
+    },
+    {
+     "arm": "uP163:fx:22:21:21:b E over A2 (E5, E3, QF4)",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "E5": [
+       0.9210909231297157,
+       0.6828698282817708
+      ],
+      "E3": [
+       0.6246052670021087,
+       0.00484979199261959
+      ],
+      "QF5": [
+       0.9252166814502204,
+       0.9152965034430749
+      ],
+      "QF4": [
+       0.9465377727040464,
+       0.24852343981735814
+      ]
+     }
+    },
+    {
+     "arm": "uP163:fx:22:21:21:c E over A1 (QF5)",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "QF5": [
+       0.9252166814502204,
+       0.3029251034203645
+      ]
+     }
+    },
+    {
+     "arm": "uP163:fx:22:21:21:d random subspaces small",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {}
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "R8": {
+   "arms": [
+    {
+     "arm": "mix:uP161:fx:20:20:23",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "suff": {
+       "Q": 0.5352313066885337,
+       "R": 0.4458439551894432,
+       "O": 0.018632430964892383
+      },
+      "red": -0.000292307157130689
+     }
+    },
+    {
+     "arm": "other:uP161:fx:23:23:20",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "suff": {
+       "Q": 0.4593856683855053,
+       "R": 0.4985725536461208,
+       "O": 0.07277841216011581
+      },
+      "red": 0.030736634191741885,
+      "note": "hybrid/unclassified: not diagnostic"
+     }
+    },
+    {
+     "arm": "other:uP163:fx:21:21:22",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "suff": {
+       "Q": 0.4096074730676443,
+       "R": 0.42981548685559506,
+       "O": 0.15823891803160403
+      },
+      "red": -0.0023381220451565987,
+      "note": "hybrid/unclassified: not diagnostic"
+     }
+    },
+    {
+     "arm": "early:uP163:fx:22:22:21",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "suff": {
+       "Q": 0.1313274663127192,
+       "R": 0.5148363265290937,
+       "O": 0.3889842347218271
+      },
+      "red": 0.035148027563639994
+     }
+    },
+    {
+     "arm": "other:uP163:fx:22:21:21",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "suff": {
+       "Q": 0.23490198992365147,
+       "R": 0.5687032565782651,
+       "O": 0.2925521872518442
+      },
+      "red": 0.09615743375376073,
+      "note": "hybrid/unclassified: not diagnostic"
+     }
+    },
+    {
+     "arm": "early:uP163:fx:21:22:22",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "suff": {
+       "Q": 0.0709512965213733,
+       "R": 0.4253491542054227,
+       "O": 0.5021491623934592
+      },
+      "red": -0.0015503868797448472
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  }
+ },
+ "summary": {
+  "R1": "FALSIFIED",
+  "R2": "FALSIFIED",
+  "R3": "CONFIRMED",
+  "R4": "FALSIFIED",
+  "R5": "CONFIRMED",
+  "R6": "FALSIFIED",
+  "R7": "CONFIRMED",
+  "R8": "CONFIRMED"
+ }
+}

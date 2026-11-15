@@ -1,5 +1,17 @@
 # XIII-C B1: mathematical identifiability of the decision-law parametrisations (development notes; proofs)
 
+> **Corrections (math review 1, accepted).**
+> - **T3:** under the exact weights every on-support episode has ≥ 2 groups with non-zero weight. The exact cancellation of ρ never occurs
+>   on-support. The "6.3% single-weighted" figure uses a 1% weight threshold, and it is a statement about weak identification, not
+>   cancellation.
+> - **T2 scope:** T2 holds for ANY fixed weights w, not only the Bayes weights. It needs every group to have the same number of sources at
+>   q and wrong answers to be uniform. It does not hold for the HYB/FULL families when γ ≠ 0. By T2, the parameter labelled "COMB ρ" in the
+>   B5 Shapley can equally be read as "q-evidence tempering"; it does not identify a combination mechanism.
+> - **Misspecification:** ρ is a property of (model, family, loss, fitting distribution).
+> - **E/A1/A2:** "E is the only rule correct on all four families" is a statement against A1 and A2 only. Graded eligibility rules were not
+>   fitted, and rules that agree with E on every on-support input cannot be distinguished from it at all.
+
+
 Setting: the C = 1, β = 1 T4 generator (G = 3, K = 3, Q = 6, α = 0.8). At the target question q, each group has exactly two sources. Write
 b = (1 − α)/2 and r = α/b (= 8). For group g and candidate y let k_g(y) ∈ {0, 1, 2} be the number of g's sources reporting y at q.
 The candidate likelihood ratio used by Bayes is L_g(y) = c_{g1}(y) c_{g2}(y) / noi with c(y) = b · r^{[x = y]}, so L_g(y) = (b²/noi) r^{k_g(y)}.

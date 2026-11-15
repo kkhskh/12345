@@ -4,12 +4,13 @@ Factorial (2 x 2 per parent; init level = (L = W) seed, data level = D seed):  f
   (the four cells are four fine-tuning runs of ONE pretrained parent: n = 1 per cell, no replicate error; reported descriptively, not as tests).
 Trajectory events per run: t_mix = first checkpoint with mix_mass >= 0.5; t_ro = first with lik_RO1 >= 0.3; t_beh = first with slope_e >= 0.5;
   peak_ro = max lik_RO1 before t_mix; final values.
+Streams: development cells are measured on 86_100_000, confirmation cells and their diagonals on 88_100_000 (confirmation values override).
 Usage: analyze_A.py OUT_TAG  (reads every logs/unit_metrics*.jsonl) -> logs/analyze_A<OUT_TAG>.json"""
 import json, os, sys, glob
 HERE = os.path.dirname(os.path.abspath(__file__))
 import numpy as np
 rows = {}
-for f in glob.glob(os.path.join(HERE, "..", "logs", "unit_metrics*.jsonl")):
+for f in sorted(glob.glob(os.path.join(HERE, "..", "logs", "unit_metrics*.jsonl")), key=lambda p: ("_conf" in p, p)):   # confirmation stream loaded LAST: it overrides development-stream values of the same (unit, step)
     for l in open(f):
         r = json.loads(l); rows.setdefault(r["unit"].replace(":fx:", ":fx:"), {})[r["step"]] = r
 def canon(u):
@@ -46,7 +47,8 @@ for parent in sorted(set(k[0] for k in units)):
                     if not all(x in cells for x in need): continue
                     F_ = {x: final(cells[x]) for x in need}; res = {}
                     for m in MEAS:
-                        v = {x: F_[x][m] for x in need}
+                        v = {x: F_[x].get(m) for x in need}
+                        if None in v.values(): continue
                         res[m] = dict(cells={f"L{x[0]}D{x[1]}": v[x] for x in need}, init_effect=0.5 * ((v[(a, c)] - v[(b, c)]) + (v[(a, d)] - v[(b, d)])),
                                       data_effect=0.5 * ((v[(a, c)] - v[(a, d)]) + (v[(b, c)] - v[(b, d)])), interaction=v[(a, c)] - v[(a, d)] - v[(b, c)] + v[(b, d)])
                     out["factorial"][f"{parent}|init{a}v{b}|data{c}v{d}"] = res

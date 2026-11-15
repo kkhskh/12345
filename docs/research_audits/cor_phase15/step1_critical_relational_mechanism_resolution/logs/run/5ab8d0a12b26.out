@@ -1,0 +1,8 @@
+uP161_fx_L20_W20_D23@4000 beta 0.6 lr 0.001 bayes 0.795 native acc 0.472 pairs {'J_DM': {'n': 1738, 'exact_mean_abs': 0.8022212062904999}, 'J_D0': {'n': 262, 'exact_mean_abs': 2.5001205516368027e-17}, 'DECOY': {'n': 1200, 'exact_mean_abs': 0.0}}
+  L2        acc 0.721 KL 0.1886 J_DM slope -0.001 R2 +0.00 D0/DM 1.01 DEC/DM 0.57 n_train 50048 346s
+  L2plus    acc 0.728 KL 0.1794 J_DM slope +0.018 R2 +0.02 D0/DM 0.74 DEC/DM 0.29 n_train 99776 917s
+  L1only    acc 0.717 KL 0.2192 J_DM slope +0.003 R2 +0.00 D0/DM 0.88 DEC/DM 0.36 n_train 49728 1491s
+  L0only    acc 0.790 KL 0.0250 J_DM slope +0.913 R2 +0.82 D0/DM 0.17 DEC/DM 0.09 n_train 49728 2220s
+  supL2     acc 0.730 KL 0.1776 J_DM slope +0.028 R2 +0.10 D0/DM 0.56 DEC/DM 0.32 n_train 50240 2545s
+  supG      acc 0.753 KL 0.1322 J_DM slope +0.277 R2 +0.45 D0/DM 0.18 DEC/DM 0.10 n_train 50240 2876s
+  early01   acc 0.785 KL 0.0199 J_DM slope +0.927 R2 +0.84 D0/DM 0.15 DEC/DM 0.06 n_train 99456 3695s

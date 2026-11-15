@@ -61,7 +61,12 @@ transplant; fid_E is the R² against the E-mixture prediction.
   prediction is low (≤ 0.33), and their projection changes sign in the control families.
 - So "projection" alone is not a safe specificity metric; fidelity is reported with it.
 
-## B3. Restoration through an independent pathway [dev]
+## B3. Restoration through a distinct pathway [dev]
+
+Wording corrected after math review 1. The restoration route (layer-2 attention rows) is **distinct** from the removal site (layer-1
+attention output at the q tokens), and it is not defined by any trained subspace. But it lies **downstream on the same causal path**, so it is
+not an independent parallel pathway. Restoration therefore shows that the rows carry the removed relational content into the decision. It
+does not show a redundant second route.
 
 - **Removal.** Run the donor cell with the layer-1 attention output at the six q tokens (route Q) taken from the base cell.
 - **Restoration.** Insert the *intact* donor mixture-head rows at layer 2. This pathway is not set by any trained subspace: it uses natural

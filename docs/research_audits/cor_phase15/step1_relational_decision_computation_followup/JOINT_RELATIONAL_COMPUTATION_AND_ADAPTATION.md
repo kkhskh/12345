@@ -10,34 +10,55 @@ K = 3, α = 0.8. The exact posterior is `xii_bayes.posterior_shared`; XIII verif
 
 **Three observation granularities** (`scripts/censored_bayes.py`, exact Bayes for each censored observation, 200,000 episodes per β):
 
-| β | FULL (all reports) | LOCALQ: joint values at q + self-agreement bits elsewhere | PERGROUP: no cross-group comparison anywhere |
+| β | FULL (all reports) | LOCALQ: joint values at q + self-agreement bits elsewhere | PERGROUP: independent-copying product rule (see note) |
 |---|---|---|---|
 | 1.0 | acc 0.801 | acc 0.801; **KL to FULL 0.000; 0.00% decisions differ** | acc 0.749; KL 0.054; 5.5% differ |
 | 0.6 | acc 0.794 | acc 0.758; KL 0.106; **6.1% differ** | acc 0.500; KL 0.462; 37% differ |
 
-**Proposition (β = 1) [proof].** With G = 3 and C = 2, for every on-support input,
+**Note on PERGROUP (math review 1).** PERGROUP is numerically identical (to 4e-15) to the independent-copying product rule
+(`genlib.posterior_brute`). It is **not** the exact posterior of any censored observation under the true generator, and **not** "the best
+rule that never compares groups". A rule that keeps the shared copy event through *joint* self-agreement bits, while still comparing no
+values across groups, reaches 0.671 at β = 0.6 (0.747 at β = 1). Most of PERGROUP's deficit at β = 0.6 therefore comes from ignoring the
+shared copy event, not from the absence of value comparisons.
+
+**Proposition (β = 1; scope: G = 3, C = 2, on-support inputs) [proof, corrected after math review 1].**
 p(y | full reports) = p(y | LOCALQ observation).
 
-*Proof.* With G = 3 and C = 2 the role is fixed by the reliable group g. At β = 1 the colluder factor is K^{-6}·1[the other two groups
-report identically at all six questions]. That is the same constant for every admissible g. Hence
+*Proof.* With G = 3 and C = 2 the role is fixed by the reliable group g.
 
-  p(y | X) ∝ Σ_{g ∈ A(X)} W_g L_g(y),  where A(X) = {g : the two other groups are identical everywhere}.
+**FULL.** At β = 1 the colluder factor is K^{-6}·1[the other two groups report identically at all six questions]. That is the same
+constant for every admissible role, so
 
-Under the censored LOCALQ observation, an admissible role needs the other two groups to self-agree at every q' ≠ q (prob. 1 under
-copying) and to be equal at q. Again the factor is constant, so
+  p(y | X) ∝ Σ_{g ∈ A(X)} W_g L_g(y),  where A(X) = {g : the other two groups are identical everywhere}
 
-  p(y | O) ∝ Σ_{g ∈ A'(O)} W_g L_g(y),  with A(X) ⊆ A'(O).
+and W_g is the probability of g's reported values at q' ≠ q under "g reliable".
 
-Suppose g' ∈ A'(O) \ A(X). The true reliable group g* ≠ g', so the pair excluded from g' contains g* and a true colluder h. The definition
-of A' makes g* equal to h at q, and h equals the other colluder g' at q. So **all three groups report the same self-agreeing value v at
-q**. Then L_g(y) is the same function for every g, and both posteriors equal the normalised L(y). They coincide. ∎
+**LOCALQ.** An admissible role needs the other two groups to self-agree at every q' ≠ q, which has probability 1 under copying, and their
+**four sources to be equal at q**. Then
 
-So at β = 1 the cross-*question* identity J_H is never needed. A **local** cross-group relation (equality of groups at q) together with
-per-group self-agreement is exactly sufficient. This sharpens XIII's statement that "J_H is needed on the S = 3 slice": what that slice
+  p(y | O) ∝ Σ_{g ∈ A'(O)} W'_g L_g(y),  with A(X) ⊆ A'(O),
+
+where W'_g is the probability of g's *agreement bits* under "g reliable". In general W'_g ≠ W_g.
+
+**Case 1: |A'(O)| = 1.** Then A(X) = A'(O) = {g*}. Both posteriors equal the normalised L_{g*}(y), so the weights do not matter.
+
+**Case 2: |A'(O)| ≥ 2.** Let g' ∈ A'(O) with g' ≠ g*.
+- g' ∈ A' means the four sources of the pair excluded from g', which contains g* and a true colluder h, are equal at q. So g* reports
+  (v, v) at q, and so does h.
+- g* is admissible, so the two true colluders h and g' are identical at q. Hence g' also reports (v, v).
+- So all six reports at q equal v, L_g(y) is the same function for every g, and both posteriors equal that normalised function whatever the
+  weights W_g, W'_g. ∎
+
+Numerical check (review 1): max |FULL − LOCALQ| = 1e-16. Extra admissible roles occur in 2.8% of episodes, and all six reports at q are
+equal in every one of them.
+
+So, **for G = 3, C = 2, β = 1 and on-support inputs**, cross-group value equality at the *other* questions (the content of J_H beyond q)
+is never needed. A **local** cross-group relation (equality of the groups' values at q) together with per-group self-agreement bits is
+exactly sufficient. This sharpens XIII's statement that "J_H is needed on the S = 3 slice": what that slice
 needs is the local equality at q.
 
-At β = 0.6 the proposition fails (6.1% of decisions differ). The extra information is the cross-question identity between groups: the
-number of questions at which all four sources of a pair agree, n4. It enters J_H^β = Π_q (1 − β + βK³·1[all four equal at q]).
+At β = 0.6 the proposition fails (6.1% of decisions differ). The extra information is cross-group value equality at the questions other than q: the number of
+questions at which all four sources of a pair agree, n4. It enters J_H^β = Π_q (1 − β + βK³·1[all four equal at q]).
 
 **Valid isolating pairs (β < 1) [num].** Take x and form x' by relabelling one group's two sources with a non-identity permutation of the
 three values at every question except q. This leaves every per-group statistic unchanged (self-agreement pattern, hence e_g, c_g and W_g)
@@ -46,7 +67,9 @@ and the values at q unchanged (hence L_g). Only cross-question identities change
 - the exact decision changes on 21.5% of pairs;
 - the independent-copying (per-group product) rule predicts a change of exactly 0 (max |Δ| = 0.000).
 
-Both members of every pair are on the support at β = 0.6. At β = 1 they are off-support, as the proposition requires. The construction
+Both members of every pair are on the support at β = 0.6. At β = 1, 31.5% of pairs remain on the support, and in 99% of those the
+relabelled group was the reliable one. Their exact change is exactly 0, as the Proposition requires. The remaining pairs are off-support.
+So at β = 1, J-pairs are "off-support or zero exact change" (math review 1 corrected the earlier "all off-support"). The construction
 uses only the corrected shared-copy posterior.
 
 ## C2. Is the relation present in frozen layers 0–1? (`scripts/decode_J.py`, ridge probes, β = 0.6)
@@ -105,8 +128,8 @@ Development findings:
 ## C5. Connection to the sufficiency theorem
 
 The neural repairs follow the boundary.
-- At β = 0.6 the gap between the LOCALQ ceiling (0.758) and Bayes (0.792) is exactly the information that only the cross-question
-  relation provides.
+- At β = 0.6 the accuracy gap between the LOCALQ ceiling (0.758) and Bayes (0.794; 200,000 episodes, s.e. of each accuracy ≈ 0.001) is
+  attributable to cross-group equality at the other questions, which is the only information LOCALQ censors.
 - The late-readout layer-2 repairs land at 0.72, below that ceiling, with no J use. Only repairs that use J (early01 in both classes;
   layer 2 in the early-readout class) exceed it.
 - At β = 1 no cross-question relation is needed (Proposition). XIII's β = 1 adaptation results are consistent with that: layer-2

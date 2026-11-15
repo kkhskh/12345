@@ -1,0 +1,2 @@
+b6f8a86ee456ab8eefbff33b981fab6b88194088d30e14214041fb870ff34f5c  logs/ADDENDUM_A1.md
+f553e984d38e30722d113ccf506a003f6c26fad7c20d3d4e096a31d541ad9f19  scripts/fit_powermean.py

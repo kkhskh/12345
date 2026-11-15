@@ -75,3 +75,29 @@
 2026-11-15T01:19:36Z MEMORY: OOM killed adapt2 uP165 dev (CB) at 01:19; stopped lane CA (uP161 beta1, to be rerun in queue_adapt2c later); max 6 concurrent heavy jobs from now
 2026-11-15T01:56:52Z lane CB end [608c4ab769f7] rc=0
 2026-11-15T01:56:52Z lane CB start [6b17a989618a] AD_BETA=0.6 AD_CONDS=full,early01 AD_OUT=_dev2 python3 scripts/adapt2.py uP165:full_c1:20:_eval_conf13
+2026-11-15T02:12:54Z PREDICTION FREEZE committed d7e74a4 and pushed; starting confirmation lanes K1/K2
+2026-11-15T02:12:54Z lane K1 start [1dcc142b0ce2] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; CF_STREAM=79000000 CF_TAG=_conf13b_P160 python3 scripts/class_features.py uP160:full_c1:21:_eval_conf13
+2026-11-15T02:12:54Z lane K2 start [ede9389a0882] while [ ! -f checkpoints/native_train/uP161_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; CF_STREAM=79000000 CF_TAG=_conf13b_P161 python3 scripts/class_features.py uP161:full_c1:21:_eval_conf13
+2026-11-15T02:13:07Z MEMORY/PRIORITY: stopped dev lanes DV5 (uP160 early01ro; early01 result already printed in logs/run/3c86a9c666b7.out) and DB (dev das_bal uP164 + pre-assembled retries; never completed for early-readout models -- disclosed); confirmation lanes have priority
+2026-11-15T02:14:00Z lane K1 end [1dcc142b0ce2] rc=0
+2026-11-15T02:14:00Z lane K1 start [00b0ecfcba5b] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; FF_STREAM=79100000 FF_TAG=_conf13b_P160 python3 scripts/fit_family.py uP160:full_c1:21:_eval_conf13
+2026-11-15T02:14:34Z lane K1 end [00b0ecfcba5b] rc=0
+2026-11-15T02:14:34Z lane K1 start [e7f162f3f89c] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; L2C_STREAM=79200000 L2C_TAG=_conf13b_P160 python3 scripts/l2_components.py uP160:full_c1:21:_eval_conf13
+2026-11-15T02:15:06Z lane K1 end [e7f162f3f89c] rc=0
+2026-11-15T02:15:06Z lane K1 start [2ab13c930b49] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_conf13b python3 scripts/das_bal.py uP160:full_c1:21:_eval_conf13
+2026-11-15T02:21:22Z lane FTC end [689d0ffe3a8a] rc=0
+2026-11-15T02:21:23Z lane FTD end [d100faa4d497] rc=0
+2026-11-15T02:21:28Z lane FTE end [a60dd606ee7e] rc=0
+2026-11-15T02:22:11Z lane K2 end [ede9389a0882] rc=0
+2026-11-15T02:22:11Z lane K2 start [c26c1f2e9395] while [ ! -f checkpoints/native_train/uP161_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; FF_STREAM=79100000 FF_TAG=_conf13b_P161 python3 scripts/fit_family.py uP161:full_c1:21:_eval_conf13
+2026-11-15T02:22:36Z lane K2 end [c26c1f2e9395] rc=0
+2026-11-15T02:22:36Z lane K2 start [aa3f55418452] while [ ! -f checkpoints/native_train/uP161_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; L2C_STREAM=79200000 L2C_TAG=_conf13b_P161 python3 scripts/l2_components.py uP161:full_c1:21:_eval_conf13
+2026-11-15T02:22:44Z SCHEDULING: extra lane K3 on queue_conf13b_K1 (same lines, claims); dev lane CB will continue with uP161 beta=1 and the 4000-step layer-2 control
+2026-11-15T02:22:44Z lane K3 start [6c6f4aa31e69] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; AD_BETA=0.6 AD_CONDS=full,early01 AD_STREAM=79500000 AD_OUT=_conf13b python3 scripts/adapt2.py uP160:full_c1:21:_eval_conf13
+2026-11-15T02:24:36Z lane K2 end [aa3f55418452] rc=0
+2026-11-15T02:24:36Z lane K2 start [c2d7b20c1094] while [ ! -f checkpoints/native_train/uP161_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_conf13b python3 scripts/das_bal.py uP161:full_c1:21:_eval_conf13
+2026-11-15T02:26:48Z lane CB end [6b17a989618a] rc=0
+2026-11-15T02:26:48Z lane CB start [a895e9785ae9] AD_BETA=1.0 python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13
+2026-11-15T02:33:22Z POST-FREEZE EXPLORATORY (math review 1): fit_powermean.py (normalised power-mean family; rho=1 mixture, rho->0 normalised log-linear pooling) on dev pool; will also be run on seed-21 units, labelled exploratory
+2026-11-15T02:33:22Z lane DV6 start [583aeaafae32] FP_TAG=_dev python3 scripts/fit_powermean.py uP160:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 xP81:full_c1:0: yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 vP150:full_c1:10:_eval_conf12 vP151:full_c1:10:_eval_conf12 vP153:full_c1:10:_eval_conf12 vP155:full_c1:10:_eval_conf12 vP156:full_c1:10:_eval_conf12 yP131:full_c1:0:_eval_conf9
+2026-11-15T02:38:06Z lane DV6 end [583aeaafae32] rc=0

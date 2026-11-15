@@ -1,0 +1,1 @@
+FF_TAG=_dev python3 scripts/fair_fits.py uP161:s:22 uP161:s:21 uP160:s:21 uP160:s:23 uP161:s:23 uP161:s:20 uP160:s:20

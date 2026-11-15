@@ -1,0 +1,13 @@
+E1115 08:05:50.236821     942 slow_operation_alarm.cc:74] 
+********************************
+[Compiling module jit_unstack for CPU] Very slow compile? If you want to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+********************************
+E1115 08:08:09.993346     854 slow_operation_alarm.cc:141] The operation took 4m24.778420898s
+
+********************************
+[Compiling module jit_unstack for CPU] Very slow compile? If you want to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+********************************
+uP161_full_c1_s4000_seed21_eva beta 0.6 lr 0.001 bayes 0.792 native acc 0.469 pairs {'J_DM': {'n': 1767, 'exact_mean_abs': 0.8169726751838872}, 'J_D0': {'n': 233, 'exact_mean_abs': 3.87545662387036e-17}, 'DECOY': {'n': 1200, 'exact_mean_abs': 0.0}}
+  L2        acc 0.722 KL 0.1870 J_DM slope +0.000 R2 +0.00 D0/DM 0.84 DEC/DM 0.54 n_train 50048 2478s
+  early01   acc 0.783 KL 0.0233 J_DM slope +0.920 R2 +0.85 D0/DM 0.14 DEC/DM 0.08 n_train 99456 3366s
+  L1only    acc 0.701 KL 0.2238 J_DM slope -0.000 R2 +0.00 D0/DM 0.95 DEC/DM 0.43 n_train 49728 4148s

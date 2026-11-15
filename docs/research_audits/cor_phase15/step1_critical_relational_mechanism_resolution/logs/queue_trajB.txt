@@ -1,0 +1,1 @@
+UM_STEPS=50,111,246,546,1211,2686,4000 UM_TAG=_traj_xiiib python3 scripts/unit_metrics.py uP161:s:21 uP161:s:22 uP161:s:23 uP160:s:21 uP160:s:23 uP161:s:20 uP160:s:20

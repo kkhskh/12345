@@ -1,0 +1,5 @@
+DD_TAG=_dev DD_STEPS=200 DD_SITES=RO2,QS2,OS2,ROQS2,RO1 python3 scripts/d_das.py uP161:s:21 uP161:s:22 uP160:s:21 uP161:s:23
+B5_TAG=_dev python3 scripts/b5_residual.py uP161:s:22 uP160:s:21 uP161:s:21 uP160:s:23 uP161:s:23
+DT_TAG=_dev python3 scripts/d_routes.py uP161:s:21 uP161:s:20 uP160:s:23 uP161:s:23 uP161:s:22 uP160:s:21
+DR_TAG=_dev python3 scripts/d_rows.py uP161:s:21 uP160:s:23 uP161:s:20 uP161:s:23 uP165:s:21
+DD_TAG=_dev_sites DD_STEPS=200 DD_SITES=ROOS2,ALL2 python3 scripts/d_das.py uP160:s:21 uP161:s:22

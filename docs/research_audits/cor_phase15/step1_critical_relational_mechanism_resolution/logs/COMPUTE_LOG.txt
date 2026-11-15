@@ -1,0 +1,49 @@
+2026-11-15T06:52:09Z XIII-C start. Branch cor-phase15-step1-critical-relational-mechanism-resolution from 9364be6.
+2026-11-15T06:52:09Z A1 audit: fine-tuning seed s enters (1) fresh L2 init N.init(s+7777), (2) fresh WA init N.init(s+7777), (3) data rng default_rng(1000003(s+1)+31782); no other randomness. ft_factorial.py separates them.
+2026-11-15T06:52:09Z repro_check uP161 seed 22 K=50: bitwise identical to XIII-B checkpoint (44 leaves, max diff 0).
+2026-11-15T06:52:09Z DEVELOPMENT factorial launched (queue_devA): off-diagonal cells for uP161 (21x22) and uP160 (21x23) whose diagonal cells (XIII-B seeds) differ in class; L2-vs-WA split cells; full-run determinism control uP161 L22W22D22.
+2026-11-15T06:52:09Z lane A1 start [09f6efc29cf6] python3 scripts/ft_factorial.py uP161 21 21 22
+2026-11-15T06:52:09Z lane A3 start [a5e01b1d9518] python3 scripts/ft_factorial.py uP161 22 22 21
+2026-11-15T06:52:09Z lane A2 start [3d39647d5bd5] python3 scripts/ft_factorial.py uP160 21 21 23
+2026-11-15T06:55:25Z DEV: trajectory metrics on XIII-B seed units (uP161 s20-23, uP160 s20,21,23), 7 checkpoints each, stream 86_100_000
+2026-11-15T06:55:26Z lane TB start [f3759cdb6d62] UM_STEPS=50,111,246,546,1211,2686,4000 UM_TAG=_traj_xiiib python3 scripts/unit_metrics.py uP161:s:21 uP161:s:22 uP161:s:23 uP160:s:21 uP160:s:23 uP161:s:20 uP160:s:20
+2026-11-15T07:07:08Z DESCOPED (compute; pre-claimed, not run): python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T07:07:08Z DESCOPED (compute; pre-claimed, not run): python3 scripts/ft_factorial.py uP160 21 23 21
+2026-11-15T07:07:08Z DESCOPED (compute; pre-claimed, not run): python3 scripts/ft_factorial.py uP160 23 21 21
+2026-11-15T07:11:56Z lane TB end [f3759cdb6d62] rc=0
+2026-11-15T07:23:40Z ft_factorial.py: added training intervention l2q (layer-2 readout->own-q-source mask); non-intervention code path unchanged (masked=False).
+2026-11-15T07:23:58Z REORDER: L2/WA split cells moved after the two DEV training interventions (uP161: ro0 for 600 steps on the early-destined cell 22/22/22; l2q for 600 steps on the mixture-destined cell 21/21/21). Trajectories of XIII-B units show mixture-head formation (mix_mass) by step 246-546 in mixture runs, followed by suppression of early readout (lik_RO1 falls); hybrids form the head late (546-1211) after lik_RO1 ~0.45.
+2026-11-15T07:26:14Z DEV: b4_pooling (swap edits) on 7 XIII-B units -> pooling hypothesis rejected (RO1 own-transfer of SWAP 0.99 in early units). Launch fair_fits (KL objective, 9 families, bootstrap, 64-subset Shapley) on 7 dev units, stream 86_300_000.
+2026-11-15T07:26:14Z lane FF start [9dbd4135a40e] FF_TAG=_dev python3 scripts/fair_fits.py uP161:s:22 uP161:s:21 uP160:s:21 uP160:s:23 uP161:s:23 uP161:s:20 uP160:s:20
+2026-11-15T07:30:44Z lane IF start [0b55158ccdba] IF_TAG=_dev python3 scripts/init_features.py uP160:20:20 uP161:20:20 uP162:20:20 uP163:20:20 uP164:20:20 uP165:20:20 uP160:21:21 uP161:21:21 uP163:21:21 uP164:21:21 uP165:21:21 uP161:22:22 uP163:22:22 uP164:22:22 uP160:23:23 uP161:23:23 uP165:23:23 uP160:23:21
+2026-11-15T07:32:03Z lane IF end [0b55158ccdba] rc=0
+2026-11-15T07:38:19Z RECOVER: container restart at ~07:23Z killed lanes A1-A3 (no end record); released claim 09f6efc29cf6; ft_factorial now resumable (repro_resume bitwise OK); first-batch runs restart from step 0 (no optimiser state was saved before the fix)
+2026-11-15T07:38:19Z RECOVER: container restart at ~07:23Z killed lanes A1-A3 (no end record); released claim 3d39647d5bd5; ft_factorial now resumable (repro_resume bitwise OK); first-batch runs restart from step 0 (no optimiser state was saved before the fix)
+2026-11-15T07:38:19Z RECOVER: container restart at ~07:23Z killed lanes A1-A3 (no end record); released claim a5e01b1d9518; ft_factorial now resumable (repro_resume bitwise OK); first-batch runs restart from step 0 (no optimiser state was saved before the fix)
+2026-11-15T07:38:19Z lane A1 start [09f6efc29cf6] python3 scripts/ft_factorial.py uP161 21 21 22
+2026-11-15T07:38:19Z lane A2 start [a5e01b1d9518] python3 scripts/ft_factorial.py uP161 22 22 21
+2026-11-15T07:38:19Z lane A3 start [3d39647d5bd5] python3 scripts/ft_factorial.py uP160 21 21 23
+2026-11-15T07:45:20Z analysis lanes now run under nice -n 19 (NICE=1) so the training lanes keep CPU priority. DEV d_das queued (4 units).
+2026-11-15T07:45:20Z lane AN start [da6ffe290c57] DD_TAG=_dev DD_STEPS=200 DD_SITES=RO2,QS2,OS2,ROQS2,RO1 python3 scripts/d_das.py uP161:s:21 uP161:s:22 uP160:s:21 uP161:s:23
+2026-11-15T07:54:26Z SCHEDULING FIX: analysis lanes also set autogroup nice 19 (/proc/self/autogroup); measured trainer speed 0.7 s/step alone, 1.4-2 s/step with un-deprioritised analysis, ~0.8 s/step after the fix.
+2026-11-15T07:54:35Z DEV adapt3 (10 capacity/access-controlled arms, beta 0.6, 1000 steps, lr 1e-3) on class-switched same-parent pairs uP161 s21(late)/s22(early), uP160 s23(late)/s21(early).
+2026-11-15T07:54:36Z lane AD start [3b8c70051118] AD_OUT=_dev python3 scripts/adapt3.py uP161:s:21
+2026-11-15T08:01:32Z fair_fits.py: nested-start fix (dev run showed FULL KL > PML KL for uP161 s23 = non-converged); dev results before the fix are kept in logs/fair_fits_dev.json and flagged.
+2026-11-15T08:07:02Z lane A3 loop stopped (its current job uP160 21/21/23 continues to completion, end recorded manually): from batch 2 on, 2 training lanes (measured: 3 lanes give only ~5% more training throughput and starve analysis).
+2026-11-15T08:12:25Z priority: SIGSTOP fair_fits (215) and d_das (717) so that adapt3 (needed before the freeze) gets the spare CPU; resumed later.
+2026-11-15T08:32:04Z lane A2 end [a5e01b1d9518] rc=0
+2026-11-15T08:32:04Z lane A2 start [4db6432d95de] python3 scripts/ft_factorial.py uP160 23 23 21
+2026-11-15T08:32:15Z lane A1 end [09f6efc29cf6] rc=0
+2026-11-15T08:32:15Z lane A1 start [24bc99109b9f] FX_INTERV=ro0:600 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T08:32:25Z lane A3 end [3d39647d5bd5] rc=0 (recorded manually; lane loop had been stopped; final.json present)
+2026-11-15T08:37:50Z priority: adapt3 and d_das raised to normal priority (dev analyses are on the critical path to the freeze; 2 trainers alone saturate both cores at 0.47 s/step); fair_fits stays stopped.
+2026-11-15T08:51:46Z DESCOPED from development (critical path): FX_INTERV=l2q:600 python3 scripts/ft_factorial.py uP161 21 21 21 -- l2q is tested only in confirmation (prediction from the competition hypothesis and the trajectory/ro0 development evidence)
+2026-11-15T08:51:46Z DESCOPED from development (critical path): AD_OUT=_dev python3 scripts/adapt3.py uP160:s:23 -- l2q is tested only in confirmation (prediction from the competition hypothesis and the trajectory/ro0 development evidence)
+2026-11-15T08:51:46Z DESCOPED from development (critical path): AD_OUT=_dev python3 scripts/adapt3.py uP160:s:21 -- l2q is tested only in confirmation (prediction from the competition hypothesis and the trajectory/ro0 development evidence)
+2026-11-15T08:51:54Z lane FG start [3e3d3abec455] DT_TAG=_dev python3 scripts/d_routes.py uP161:s:21 uP161:s:20 uP160:s:23 uP161:s:23 uP161:s:22 uP160:s:21
+2026-11-15T08:53:35Z lane FG end [3e3d3abec455] rc=0
+2026-11-15T08:53:35Z lane FG start [df6a96f8ba19] DR_TAG=_dev python3 scripts/d_rows.py uP161:s:21 uP160:s:23 uP161:s:20 uP161:s:23 uP165:s:21
+2026-11-15T08:57:05Z lane FG end [df6a96f8ba19] rc=0
+2026-11-15T09:00:01Z FG c_causal dev uP161:s:21 early01
+2026-11-15T09:11:02Z fair_fits dev stopped after 5 units (uP161 s22/s21/s23, uP160 s21/s23 complete in logs/fair_fits_dev.json; s20 units not needed)
+2026-11-15T09:11:03Z lane FF end [9dbd4135a40e] rc=143

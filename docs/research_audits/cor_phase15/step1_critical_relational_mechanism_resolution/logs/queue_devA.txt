@@ -1,0 +1,13 @@
+python3 scripts/ft_factorial.py uP161 21 21 22
+python3 scripts/ft_factorial.py uP161 22 22 21
+python3 scripts/ft_factorial.py uP160 21 21 23
+python3 scripts/ft_factorial.py uP160 23 23 21
+python3 scripts/ft_factorial.py uP161 21 22 21
+python3 scripts/ft_factorial.py uP161 22 21 21
+python3 scripts/ft_factorial.py uP161 22 22 22
+python3 scripts/ft_factorial.py uP160 21 23 21
+python3 scripts/ft_factorial.py uP160 23 21 21
+FX_INTERV=ro0:600 python3 scripts/ft_factorial.py uP161 22 22 22
+FX_INTERV=l2q:600 python3 scripts/ft_factorial.py uP161 21 21 21
+FX_ORDER=2 python3 scripts/ft_factorial.py uP161 21 22 21
+FX_ORDER=2 python3 scripts/ft_factorial.py uP161 22 21 21

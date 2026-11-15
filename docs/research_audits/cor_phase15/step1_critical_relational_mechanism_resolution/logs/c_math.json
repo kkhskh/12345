@@ -1,0 +1,32 @@
+{
+ "V1_beta0.6": {
+  "max_abs_diff": 2.7755575615628914e-15,
+  "n": 400
+ },
+ "V1_beta1.0": {
+  "max_abs_diff": 1.3183898417423734e-16,
+  "n": 400
+ },
+ "V2_sufficiency_of_m": {
+  "n_m_kept": 2495,
+  "max_abs_diff_m_kept": 0.0,
+  "n_m_changed": 1505,
+  "mean_abs_diff_m_changed": 0.048215077052649866
+ },
+ "V3_beta1_local_sufficiency": {
+  "n_cells_multi": 3985,
+  "max_within_cell_spread": 0.0
+ },
+ "V4_localq_gap_beta0.6": {
+  "acc_full": 0.7916666666666666,
+  "acc_localq_mc": 0.7473333333333333,
+  "gap": 0.044333333333333336,
+  "note": "LOCALQ = posterior of the orbit of X under per-group, per-question value relabellings at q != q (self-agreement and values at q kept); importance-weighted Monte-Carlo over 48 relabellings (weights p(x'))"
+ },
+ "V5_Jpairs": {
+  "self_agreement_kept": true,
+  "values_at_q_kept": true,
+  "finite_posterior_frac": 1.0,
+  "frac_m_changed": 0.889
+ }
+}

@@ -1,0 +1,4 @@
+AD_OUT=_dev python3 scripts/adapt3.py uP161:s:21
+AD_OUT=_dev python3 scripts/adapt3.py uP161:s:22
+AD_OUT=_dev python3 scripts/adapt3.py uP160:s:23
+AD_OUT=_dev python3 scripts/adapt3.py uP160:s:21

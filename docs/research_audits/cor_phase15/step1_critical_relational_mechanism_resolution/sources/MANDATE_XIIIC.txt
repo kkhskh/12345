@@ -1,0 +1,1302 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XIII-C
+
+## Critical Resolution of Relational Decision Mechanisms: Training Causes, Mathematical Decision Laws, Joint-Information Computation, and Causal Identification
+
+**Mandatory deep mathematical, mechanistic, and experimental investigation**
+
+**Research budget: 8–13 hours of active investigation using approximately two CPU cores.**
+
+**This is a continuation of Investigation XIII-B, not a new research phase.**
+
+---
+
+# 0. MISSION AND SCIENTIFIC STANDARD
+
+You are continuing COR's foundational research immediately after Investigation XIII-B.
+
+Starting branch:
+
+`cor-phase15-step1-relational-decision-computation-followup`
+
+Reported HEAD:
+
+`9364be6`
+
+Latest archive:
+
+`cor_inv13b_unresolved_mechanisms_and_validation.zip`
+
+Research directory:
+
+`docs/research_audits/cor_phase15/step1_relational_decision_computation_followup/`
+
+Verify the actual repository state before starting.
+
+Read the Investigation XIII-B source documents, experiment scripts, raw outputs, frozen predictions, mathematical arguments, reviewer reports, and adjudication.
+
+In particular, read:
+
+- `MAIN_RESEARCH_SYNTHESIS.md`
+- `ALTERNATIVE_NATIVE_DECISION_ALGORITHMS.md`
+- `CAUSAL_IDENTIFICATION_AND_RESTORATION.md`
+- `JOINT_RELATIONAL_COMPUTATION_AND_ADAPTATION.md`
+- `FROZEN_CONFIRMATION_AND_STATISTICS.md`
+- `OPEN_COR_FOUNDATIONAL_QUESTIONS.md`
+- `reviews/REVIEW_1_MATH.md`
+- `reviews/REVIEW_2_INTEGRITY.md`
+- `reviews/REVIEW_3_MECH.md`
+- `reviews/ADJUDICATION.md`
+
+Consult Investigations IX–XIII when earlier claims or model dependencies are relevant.
+
+**The central requirement is to resolve the critical unfinished scientific problems, not to produce another collection of positive experiments.**
+
+The four mandatory research workstreams are:
+
+A. Identify what causes different neural decision implementations to emerge.
+
+B. Determine what is and is not identifiable about their mathematical decision-combination rules.
+
+C. Identify the actual computation and information pathways used in successful two-colluder repairs.
+
+D. Repair the deficiencies in causal identification, control design, and mediation evidence.
+
+**All four workstreams must receive substantial experimental treatment. None is optional.**
+
+The workstreams are connected. The aim is to understand how learning selects a computational arrangement, what mathematical behavior that arrangement produces, and how its representation of relational information constrains subsequent decisions.
+
+Do not assume the leading hypothesis is correct.
+
+Do not repeat prior successful tests simply to accumulate favorable results.
+
+Do not use scientific language stronger than the experiments justify.
+
+---
+
+# 1. NON-NEGOTIABLE SCIENTIFIC CONTEXT
+
+Investigation XIII-B established several important findings.
+
+### Finding 1 — Different implementations can arise from the same pretrained parent
+
+The original classification into early-readout and late-readout models is not fixed by pretraining.
+
+Additional fine-tuning seeds caused:
+
+- uP161 to move between late-readout, early-readout, and hybrid configurations.
+- uP160 to move from early-readout to late-readout.
+- uP163 and uP164 to change their readout organization.
+- uP165 to remain comparatively stable across the tested seeds.
+
+However, the fine-tuning seed changed both the initialization of fresh components and the training data stream.
+
+**We do not know which cause produces the different solutions.**
+
+This is a major unresolved causal question.
+
+### Finding 2 — Solution organization correlates with the mathematical decision law
+
+The fitted power-mean exponent, denoted ρ, is associated with the model's readout organization.
+
+Reported ranges were approximately:
+
+- Early-readout: ρ = 0.54–0.62.
+- Late-readout: ρ = 0.86–0.98.
+- Hybrid: intermediate values.
+
+Across 29 fine-tunes, the readout signature and fitted ρ had a strong negative correlation of approximately −0.93.
+
+But ρ is not uniquely identifiable as a distinct internal combination operator.
+
+The same mathematical expression can be interpreted as transformed or tempered evidence followed by output rescaling.
+
+A lapse floor also changes the fitted exponent.
+
+Moreover, this parameter explains only a limited portion of the early-readout models' overall approximation error.
+
+**We have not established why ρ differs, or what computational mechanism produces that difference.**
+
+### Finding 3 — The mathematical sufficiency boundary is clearer than the neural implementation
+
+For the specified three-group, two-colluder shared-copying generator:
+
+- At exact copying, β = 1, on-support decisions can be computed from per-group self-agreement and the joint values at the target question.
+- Additional cross-group comparisons at other questions are not required.
+- At partial copying, such as β = 0.6, those cross-question relationships provide additional decision-relevant information.
+- The restricted local-information decision falls approximately 3.6 percentage points below exact Bayes accuracy.
+
+The adapted networks show different outcomes.
+
+In late-readout models, adapting layers 0–1 while freezing layer 2 succeeds, whereas layer-2-only adaptation often fails to use the cross-question relationship.
+
+In early-readout models, layer-2 adaptation can use more of that information.
+
+But:
+
+- The exact feature constructed by early-layer adaptation is unknown.
+- Decodability does not prove causal use.
+- The adaptation conditions were not matched for trainable capacity.
+- Optimization failure has not been distinguished from an architectural accessibility constraint.
+- The exact way the frozen final layer uses the new information remains unresolved.
+
+### Finding 4 — Some causal controls remain defective or incomplete
+
+The independent review of XIII-B found:
+
+- The TOP decoy head was not genuinely matched for decision contribution.
+- The MEAN control averaged rows across different target-question positions and was off-distribution.
+- The alleged DAS no-op was actually an arbitrary subspace patch because QR decomposition of a tiny matrix still produces an orthonormal basis.
+- The claimed independent restoration pathway was downstream on the same causal path.
+- Balanced eligibility identification depended strongly on the chosen neural site.
+- Some edits separated E from A1 but not from the threshold-4 alternative A2.
+- Attention/MLP attribution was incomplete, especially in early-readout and hybrid models.
+- Some causal predictions were sensitive to borderline thresholds and evaluation-stream noise.
+
+**These must be addressed directly.**
+
+Do not carry the defective controls forward unchanged.
+
+---
+
+# 2. CENTRAL SCIENTIFIC QUESTIONS
+
+Investigation XIII-C must answer four questions.
+
+**A. Learning causes**
+
+What independently causes a model to develop an early-readout, late-readout, or hybrid implementation?
+
+**B. Mathematical decision mechanisms**
+
+Are the observed input-output differences caused by genuinely different evidence-combination computations, different evidence transformations, different calibration, or some combination of these?
+
+**C. Information accessibility and repair**
+
+What exact relational information is constructed or rerouted when a model adapts to two colluders, and why do different neural implementations have different repair capabilities?
+
+**D. Causal identifiability**
+
+Which identified components and relational variables genuinely mediate decisions under rigorous controls, and which previous explanations were partly artifacts of intervention design?
+
+The research must investigate how these questions relate to one another.
+
+For example:
+
+Does a training configuration cause a particular routing organization, which in turn constrains the decision rule and the model's ability to adapt when the relationships between sources change?
+
+This is a testable causal hypothesis, not an established fact.
+
+---
+
+# 3. WORKSTREAM A — CAUSALLY IDENTIFY WHY SOLUTION CLASSES CHANGE
+
+**Highest priority. Mandatory controlled training experiment.**
+
+Do not run additional seeds that change several factors simultaneously and then claim to have identified the cause.
+
+## A1. Separate initialization from training-data order
+
+Inspect `native_train.py` and the complete fine-tuning implementation.
+
+Identify every use of the fine-tuning seed.
+
+Separate at least:
+
+1. Fresh layer-2 initialization.
+2. Fresh readout initialization, where applicable.
+3. Training-example generation and ordering.
+4. Other stochastic behavior, if present.
+
+Record all additional sources of randomness.
+
+Modify the experimental harness so these factors can be controlled independently.
+
+Preserve the existing architecture, generator, and target task unless the experiment explicitly manipulates them.
+
+## A2. Run a factorial experiment
+
+Use at least two distinct pretrained parents representing different previously observed solution organizations.
+
+At minimum, use a controlled two-by-two comparison of:
+
+- Two fresh-component initialization conditions.
+- Two independent training-data-order conditions.
+
+Run every combination within each selected pretrained parent.
+
+This gives at least eight paired fine-tuning runs.
+
+Reuse identical initialization tensors when changing only data order.
+
+Reuse identical training streams when changing only initialization.
+
+Where feasible, separate layer-2 initialization from readout initialization through an additional targeted comparison.
+
+If computational limits prevent a larger factorial design, complete the core design before spending compute on additional exploratory models.
+
+Do not quietly substitute uncontrolled seeds for the factorial experiment.
+
+## A3. Measure the entire emergence process
+
+Track over checkpoints:
+
+- Early readout of candidate information.
+- Routing of relational information into readout and source tokens.
+- Layer-2 attention-row contributions.
+- Layer-2 MLP contributions.
+- Continuous readout organization.
+- Candidate-decision accuracy.
+- Fitted ρ.
+- The transition from early heuristic behavior to the more correct rule.
+
+Do not merely classify the final checkpoint.
+
+Determine when each implementation begins to emerge and whether competing pathways develop simultaneously.
+
+Investigate whether one pathway suppresses, replaces, or coexists with another.
+
+## A4. Test competing causal explanations
+
+At minimum:
+
+**H-A1:** Fresh layer-2 initialization determines the computational organization.
+
+**H-A2:** Training data order determines the organization.
+
+**H-A3:** Initialization and data order interact.
+
+**H-A4:** Early competition between readout and source-token routing pathways determines the organization.
+
+**H-A5:** The apparent class is not a discrete choice but a continuous optimization outcome.
+
+Use the factorial design to estimate main effects and interactions.
+
+Where a clear early trajectory difference appears, perform an affordable intervention designed to change that trajectory.
+
+Possible approaches include controlled freezing, delayed unfreezing, or selectively suppressing one competing route during early training.
+
+Do not claim a causal training mechanism from correlations between final models alone.
+
+## A5. Classify continuously
+
+Retain the continuous readout and routing measurements.
+
+Report early, late, and hybrid labels only as secondary descriptions.
+
+Avoid claiming discrete basins merely because a histogram appears to have clusters.
+
+Determine whether the results support:
+
+- Distinct stable solutions.
+- A continuous family.
+- Mixed or overlapping solutions.
+- Multiple attractors connected by intermediate states.
+
+Account for uP164's previous threshold sensitivity.
+
+**Required outcome:** An experimentally grounded explanation—or a precisely bounded failure to identify the cause—of why the same pretrained model can acquire different neural decision organizations.
+
+---
+
+# 4. WORKSTREAM B — RESOLVE THE MATHEMATICAL DECISION-LAW QUESTION
+
+**Mandatory mathematical and empirical investigation.**
+
+The strong correlation between readout organization and ρ is interesting but not a mechanistic explanation.
+
+This workstream must determine what that parameter actually establishes.
+
+## B1. Start with mathematical identifiability
+
+Use the corrected nested power-mean formulation from XIII-B.
+
+Explicitly derive the algebraic relationships between:
+
+- Power-mean evidence combination.
+- Tempered likelihoods.
+- Output rescaling or sharpening.
+- Reliability weighting.
+- Calibration and lapse-floor variants.
+
+Determine which descriptions are mathematically equivalent on the observed decision distribution.
+
+**If two proposed algorithms are mathematically identical as input-output functions, no observational input-output experiment can distinguish them.**
+
+Prove or explicitly demonstrate that non-identifiability.
+
+Do not manufacture an empirical distinction between equivalent formulas.
+
+Separate:
+
+1. Mathematical equivalence.
+2. Empirical differences between fitted decision families.
+3. Neural implementation differences.
+4. Causal differences under internal intervention.
+
+## B2. Fit genuinely fair competing models
+
+Compare the power-mean family against appropriately nested alternatives:
+
+- Exact Bayesian mixture.
+- Normalized product-style pooling.
+- Tempered evidence models.
+- Reliability reweighting.
+- Output calibration.
+- Lapse-floor and saturation variants.
+- Other parsimonious alternatives justified by observed residuals.
+
+Control model flexibility and parameter counts where possible.
+
+Use multi-start fitting, explicit convergence checks, and held-out evaluation.
+
+Report more than R².
+
+Include:
+
+- Held-out negative log-likelihood or an appropriate proper scoring rule.
+- Calibration.
+- Candidate-specific error.
+- Residual patterns.
+- Fit stability.
+- Parameter uncertainty.
+
+Do not use the earlier handicapped product-of-experts comparison.
+
+Do not infer mechanism from tiny improvements in a flexible function fit.
+
+## B3. Explain why the early class has ρ near 0.6
+
+Test competing explanations:
+
+- Architectural restriction.
+- MLP capacity.
+- Early readout pooling.
+- Optimization bias.
+- Evidence calibration.
+- An interaction between routing and readout.
+- A simpler approximation that happens to fit the training environment.
+
+Use the controlled training results from Workstream A.
+
+Run targeted architectural or causal interventions where feasible.
+
+For example, restrict an early-readout pathway or alter a relevant MLP capacity while preserving the task and properly controlling other changes.
+
+Determine whether changing the neural routing organization produces a predictable change in the fitted decision law.
+
+A mere correlation between ρ and routing is insufficient.
+
+## B4. Test whether ρ reflects a genuine computational difference
+
+Examine candidate decisions under carefully constructed on-support relational and likelihood edits.
+
+Where possible, use internal path interventions to determine whether the same effective mathematical weighting is implemented through different computations.
+
+Do not claim a distinct internal operator when an equivalent evidence-tempering interpretation remains viable.
+
+It is acceptable to conclude that the input-output law is distinguishable but the internal factorization is not.
+
+## B5. Quantify the actual explanatory value
+
+The earlier analysis found that ρ explained only about 15% of the early class's mismatch relative to the Bayesian mixture.
+
+Determine where the rest of the approximation error comes from.
+
+Investigate:
+
+- Reliability estimation errors.
+- Eligibility errors.
+- Candidate-likelihood errors.
+- Calibration.
+- Routing limitations.
+- Failure to combine information correctly.
+
+Use causal and mathematical decomposition where identifiable.
+
+Do not attribute all class-specific error to ρ.
+
+## B6. Strengthen eligibility-variable discrimination
+
+Previous edits distinguished E from A1, but not from A2, the threshold-4 alternative.
+
+Construct on-support evaluation cases that discriminate E, A1, and A2 whenever the generator permits them.
+
+If the relevant values cannot be separated under specific support constraints, state and prove those limitations.
+
+Do not relabel an agreement-at-target-question response as full identification of E when other candidate rules remain observationally equivalent on the test set.
+
+**Required outcome:** A defensible explanation of what the different decision laws mean, which mathematical interpretations are identifiable, and whether neural organization causally contributes to those differences.
+
+---
+
+# 5. WORKSTREAM C — IDENTIFY THE TWO-COLLUDER REPAIR COMPUTATION
+
+**Mandatory. Principal connection between the mathematical foundation and neural mechanism.**
+
+The corrected shared-copying mathematics must remain the reference.
+
+Do not revert to the old independent-copying posterior.
+
+## C1. Preserve the correct distinction between exact and partial copying
+
+Use the established settings:
+
+- Three groups.
+- Two colluding groups.
+- Exact copying, β = 1.
+- Partial copying, β = 0.6.
+
+Respect the on-support sufficiency theorem for exact copying.
+
+At β = 1, additional cross-question equality information is not required for the specified posterior.
+
+At β = 0.6, cross-group relationships at other questions can be decision-relevant.
+
+Reverify mathematical reference calculations and valid isolating episode pairs before new neural testing.
+
+Use the true generator distribution and an exact or independently checked posterior.
+
+## C2. Identify the feature built during early-layer adaptation
+
+Investigation XIII-B showed that successful adaptation of layers 0–1 makes the decision respond to cross-question relational information.
+
+But the precise constructed feature remains unknown.
+
+Investigate candidate features including:
+
+- Cross-group equality counts.
+- The n4 statistic.
+- Terms in the corrected joint-copying posterior.
+- Joint-source reliability information.
+- An alternative sufficient encoding.
+
+Determine whether an adapted model constructs an explicit recognizable statistic or a distributed transformation.
+
+Use probes only as an initial diagnostic.
+
+Probing must not be mistaken for proof that the network uses that statistic.
+
+## C3. Establish causal use, not just decodability
+
+Create valid pairs that preserve:
+
+- Per-group statistics.
+- Candidate evidence at the target question.
+- Other factors that should remain unchanged under the tested hypothesis.
+
+Vary the cross-question relation.
+
+Measure predicted and observed changes in candidate-specific decisions.
+
+Trace the causal path from the other-question source tokens into the adapted representation and then into the final decision.
+
+Use component and path interventions that distinguish alternative relational statistics.
+
+Test whether removing the proposed information destroys the predicted decision change and whether appropriate restoration recovers it.
+
+Compare against decoy features and source-independent patches.
+
+## C4. Explain how a frozen final layer uses the repaired representation
+
+In late-readout models, adapting layers 0–1 with layer 2 frozen can reach near-Bayesian performance.
+
+Determine whether the adapted earlier layers:
+
+- Change the eligibility weights seen by the frozen mixture.
+- Alter candidate-likelihood representations.
+- Supply a new joint-source feature.
+- Encode the corrected posterior in a representation that the frozen layer already knows how to use.
+- Exploit another pathway.
+
+Do not claim that the final layer “reuses the same mixture algorithm” solely because the output is correct.
+
+Test the frozen layer's causal response to the adapted features.
+
+## C5. Fairly distinguish information access, optimization, and capacity
+
+Previous comparisons used two trainable early blocks versus one trainable final block.
+
+That is a capacity and optimization confound.
+
+Design matched or carefully controlled experiments comparing:
+
+- Layers 0–1 adaptation.
+- Layer-2 adaptation.
+- Fresh layer-2 adaptation.
+- Selective attention or MLP adaptation.
+- Small adapters at relevant readout or source-token positions.
+- Explicitly supplied cross-question information to the otherwise frozen downstream computation.
+
+Control or report:
+
+- Trainable parameter count.
+- Training examples.
+- Optimization steps.
+- Learning-rate searches.
+- Initialization.
+- Evaluation stream.
+- Compute cost.
+
+Exact equality of capacity may not be possible, but do not ignore the mismatch.
+
+A failed layer-2 repair after four times the training steps is evidence against one simple optimization explanation, not proof of architectural impossibility.
+
+Where useful, perform a direct information-access intervention: make a properly defined joint statistic available at the downstream input and test whether the frozen or retrained final layer can use it.
+
+This may distinguish inaccessible information from inability to compute with accessible information.
+
+## C6. Compare repairs across solution organizations
+
+Use early-readout, late-readout, and hybrid models, including seeds that switched class.
+
+Ask whether repair success tracks:
+
+- Pretrained parent.
+- Fine-tuning seed.
+- Readout organization.
+- Location of relational information.
+- Fitted ρ.
+- Another directly measured property.
+
+The strongest result would show that changing the implementation changes the accessibility or use of the required information.
+
+Avoid claiming this unless the experiments genuinely establish it.
+
+**Required outcome:** Identify the neural operation that makes the two-colluder repair work, or sharply distinguish and eliminate the leading explanations with controlled negative results.
+
+---
+
+# 6. WORKSTREAM D — REPAIR CAUSAL IDENTIFICATION AND THE EXPERIMENTAL CONTROLS
+
+**Mandatory. Every listed deficiency must be explicitly addressed.**
+
+## D1. Rebuild the attention-head decoys correctly
+
+The previous TOP head was not genuinely matched for contribution.
+
+Build controls matched, to the extent feasible, for:
+
+- Head dimensionality.
+- Attention-row displacement magnitude.
+- Attention mass.
+- Baseline contribution to the candidate decision.
+- Intervention effect magnitude.
+- Token-position distribution.
+
+If no natural head can meet the matching criteria, construct a clearly labeled alternative control and disclose its limitations.
+
+Use consistent head-selection rules.
+
+Do not claim contribution matching when a control has almost zero baseline decision contribution.
+
+Evaluate specificity using the correct prediction of the relational change, not merely the size or projection of the output displacement.
+
+## D2. Correct the fake no-op
+
+The earlier DAS “NOOP” control was not a no-op.
+
+Replace it with a genuine no-intervention baseline, verified numerically against the original forward pass.
+
+Include separate controls for:
+
+- Same-state replacement.
+- Random subspace patching.
+- Source-independent patches.
+- Valid natural-donor replacements.
+- Appropriately matched decoys.
+
+The same-state replacement should reproduce the unmodified computation within declared numerical tolerance.
+
+Do not use tiny matrices followed by QR decomposition as a no-op.
+
+Test the controls before freezing confirmation.
+
+## D3. Handle off-distribution interventions
+
+The earlier MEAN control averaged attention rows across different target-question positions.
+
+That creates a potentially invalid comparison.
+
+Use position-matched, distribution-aware controls where possible.
+
+Distinguish:
+
+- Real-input edits.
+- Whole natural-activation replacements.
+- Component-level natural donor patches.
+- Hybrid states.
+- Synthetic or distribution-shifting patches.
+
+Report which causal conclusions survive under the less artificial intervention classes.
+
+A large decision change from an unnatural patch is not automatically evidence for the intended relational mechanism.
+
+## D4. Correct eligibility-subspace identification across sites
+
+The earlier low-dimensional E-subspace search worked better at q source-token sites in late-readout models than in early-readout models.
+
+That may reflect the chosen intervention site, not absence of E.
+
+Investigate the relevant sites in both implementations:
+
+- q source tokens.
+- Other-question source tokens.
+- Readout token.
+- Joint readout/source sites.
+- Earlier and later residual states, where justified.
+
+Use balanced, discriminating E/A1/A2 configurations.
+
+Train decoy representations under matched budgets.
+
+Separate the model's own approximation errors from the exact Bayesian counterfactual target.
+
+Do not infer E specificity from a training objective that makes that outcome automatic.
+
+Report subspace dimensionality sensitivity and the coverage of the intervention site.
+
+If a low-dimensional natural mediator cannot be identified in early-readout models, preserve that negative result.
+
+## D5. Reinterpret and strengthen restoration
+
+Investigation XIII-B restored a downstream signal along the same causal chain.
+
+That supports information transmission and sufficiency under the tested intervention.
+
+It does not demonstrate a redundant independent pathway.
+
+Determine whether genuinely parallel causal pathways exist.
+
+If they do, test them with distinct removals and restorations.
+
+If no parallel pathway is found, state that and limit the claim to the actual serial route.
+
+Do not rename a downstream part of the same pathway as an independent alternative.
+
+Use matched decoy restorations and unrelated-decision preservation controls.
+
+## D6. Finish decomposing the decision effects
+
+In late-readout mixture models, attention-row effects explained approximately 68–88% of purely relational interventions.
+
+The remainder includes MLP2 and other attention components.
+
+In hybrid and early-readout models, these other pathways matter substantially more.
+
+Investigate the residual effect directly.
+
+Include:
+
+- Layer-2 attention rows.
+- Attention values.
+- Other heads.
+- MLP2.
+- Residual skip connections.
+- Earlier readout-token information.
+- Interaction and redundancy between components.
+
+Use complete or suitably justified subset intervention analyses, including nonlinear interactions.
+
+Avoid treating Shapley shares as uniquely identified biological-like mechanisms.
+
+Report reference dependence and intervention assumptions.
+
+## D7. Resolve borderline routing claims
+
+Q3 and Q4 previously failed because of substantially the same route-Q effect in one model.
+
+That measurement was close to a threshold and changed across evaluation streams.
+
+Use repeated independent evaluation streams, confidence intervals, continuous effects, and threshold sensitivity.
+
+Do not count the same measurement twice as independent confirmation.
+
+Investigate whether the routing proportion is a stable causal property, a training-seed-dependent quantity, or a noisy classification artifact.
+
+**Required outcome:** A materially stronger causal-identification record, including corrected controls, explicit failed claims, and a clear separation between information transmission, partial mediation, restoration, and mechanism identification.
+
+---
+
+# 7. CONNECT THE FOUR WORKSTREAMS
+
+Do not write four isolated reports and claim the research is integrated.
+
+At the end, construct and test the following potential causal chain:
+
+**Fine-tuning conditions**
+
+↓
+
+**Internal routing organization**
+
+↓
+
+**Mathematical decision behavior**
+
+↓
+
+**Availability and use of relational information**
+
+↓
+
+**Success or failure under changed source dependence**
+
+The arrows are hypotheses.
+
+For each arrow, distinguish:
+
+- Causal evidence.
+- Correlational evidence.
+- Mathematical necessity.
+- Alternative explanations.
+- Untested assumptions.
+
+A particularly valuable result would use the factorial fine-tuning experiment to produce different internal organizations from the same pretrained parent and then determine whether those organizations differ predictably in:
+
+1. Their fitted ρ.
+2. Their attention/MLP causal organization.
+3. Their accessibility to the joint cross-group relation.
+4. Their success under different two-colluder adaptation conditions.
+
+If the relationships do not hold, report the failure.
+
+That result would be just as important for identifying COR's limits.
+
+---
+
+# 8. THE LEARNING-TRANSITION PROBLEM
+
+The earlier investigation did not identify an internal mechanism that prospectively predicts the transition to correct decision behavior.
+
+Checkpoint-level experiments were affected by memory failures.
+
+This remains an important connected question.
+
+Use the controlled fine-tuning trajectories from Workstream A to test whether an early internal event predicts later behavior.
+
+Candidate predictors include:
+
+- Emergence of a particular routing path.
+- Change in the readout organization.
+- Change in fitted ρ.
+- Increased causal use of reliability information.
+- Suppression of an earlier incorrect strategy.
+
+Predictions must be evaluated on checkpoints or runs not used to select the predictor.
+
+Avoid deriving a predictor from a measurement that shares the same mathematical quantity as the behavioral outcome.
+
+If no predictor survives, document the negative result.
+
+Do not spend the entire research budget on this workstream at the expense of A–D.
+
+---
+
+# 9. MATHEMATICAL REQUIREMENTS
+
+The user has independently checked the previous mathematics. Preserve the corrected results rather than needlessly rewriting them.
+
+However, independently verify every formula required for the new experiments.
+
+The mathematical investigation should emphasize:
+
+- Identifiability of decision-combination factorizations.
+- Conditions under which two decision algorithms are observationally equivalent.
+- Restricted sufficiency of relational statistics.
+- Changes in required information under exact and partial copying.
+- The distinction between representing information and making it accessible to downstream computation.
+- Causal identifiability in distributed or redundant representations.
+- Conditions under which internal interventions support or fail to support algorithmic equivalence.
+
+Prove theorems where the assumptions permit proof.
+
+Use counterexamples when a proposed general theorem is false.
+
+Use numerical verification for empirical or intractable cases.
+
+Do not present a fitted network behavior as a mathematical theorem.
+
+Do not generalize beyond the specified source-generator family without evidence.
+
+---
+
+# 10. PROSPECTIVE PREDICTIONS AND CONFIRMATION
+
+Freeze approximately six to eight substantial predictions after development analysis and before inspecting newly designated confirmation outcomes.
+
+These should cover all four mandatory workstreams.
+
+Recommended categories:
+
+**R1 — Initialization versus data-order causality**
+
+A specified change in initialization or data order has a predicted effect on internal routing, with the other factor held fixed.
+
+**R2 — Learning-pathway competition**
+
+An early intervention in a competing route predicts a later change in readout organization.
+
+**R3 — Mathematical decision-law explanation**
+
+A specific mechanistic or calibration hypothesis predicts held-out behavior that a matched alternative does not.
+
+**R4 — Adaptation accessibility**
+
+A controlled change in the accessibility of the cross-question relational information predicts whether a downstream repair can use it.
+
+**R5 — Constructed joint information**
+
+A proposed feature or causal pathway explains a defined fraction of the correct two-colluder intervention response and defeats relevant alternatives.
+
+**R6 — Attention-head causal specificity**
+
+The proposed attention-row pathway retains a discriminating effect under genuinely matched controls.
+
+**R7 — Early-readout causal identification**
+
+A properly located intervention distinguishes the intended relational variable from E/A1/A2 alternatives and source-independent effects.
+
+**R8 — Residual pathway or restoration**
+
+A specified distinct causal route accounts for otherwise unexplained decision effects, or a predicted redundancy is falsified.
+
+The exact predictions should be determined by the development evidence.
+
+### Mandatory preflight
+
+Before freezing, verify:
+
+1. The implemented scorer matches the written prediction.
+2. Each metric excludes a genuine no-op success.
+3. Random and source-independent controls behave as expected.
+4. Every prediction distinguishes at least two plausible explanations.
+5. Episode pairs are supported by the actual generator.
+6. Fitted models are compared fairly.
+7. All required training and intervention arms are scheduled.
+8. Prediction thresholds are justified using development data.
+9. Borderline cases are handled by a predeclared sensitivity procedure.
+10. Fine-tuning replicates are not counted as independently pretrained parents.
+
+Use frozen commits and hashes.
+
+Do not amend the confirmation population after inspecting outcomes.
+
+Report all falsifications and non-diagnostic passes.
+
+A numerical pass does not automatically constitute scientific confirmation.
+
+---
+
+# 11. STATISTICAL REQUIREMENTS
+
+Use paired designs wherever possible.
+
+Report:
+
+- Parent-specific effects.
+- Initialization-condition effects.
+- Data-order effects.
+- Their interaction.
+- Variation across fine-tuning replicates.
+- Continuous implementation measures.
+- Model-class sensitivity.
+- Held-out mathematical fit.
+- Intervention-effect confidence intervals.
+- Null and decoy distributions.
+- Multiple-stream variability.
+- Causal effect sizes.
+- Prediction-level verdicts.
+- All failed arms.
+
+Distinguish:
+
+- Episodes.
+- Training checkpoints.
+- Fine-tuning seeds.
+- Independently pretrained parents.
+
+These are not interchangeable independent samples.
+
+Do not compute a confidence interval that assumes independence where there is none.
+
+Do not declare equivalence from a nonsignificant difference.
+
+For causal effects near zero, report whether the experiment has enough sensitivity to rule out a scientifically meaningful effect.
+
+For small samples, restrict claims accordingly.
+
+---
+
+# 12. EXECUTION REQUIREMENTS — FULL-DEPTH RESEARCH
+
+Allocate the 8–13-hour research budget intelligently.
+
+Recommended priority order:
+
+### Stage 1 — Audit and design
+
+Inspect XIII-B's actual source code, frozen records, reviews, and archived artifacts.
+
+Identify all required fixes to the training harness and intervention controls.
+
+### Stage 2 — Factorial training launch
+
+Create the independently controlled initialization/data-order experiment.
+
+Freeze the confirmation design and launch training early.
+
+### Stage 3 — Mathematical identification
+
+Complete the power-mean, tempering, calibration, and equivalence analysis.
+
+Develop discriminating input and intervention tests.
+
+### Stage 4 — Causal-control reconstruction
+
+Correct the no-op, decoys, subspace sites, restoration interpretations, and borderline metrics.
+
+### Stage 5 — Two-colluder mechanistic investigation
+
+Identify the adapted relational feature, perform fair repair comparisons, and test information accessibility.
+
+### Stage 6 — Integrated learning analysis
+
+Use trajectories and controlled training outcomes to investigate the proposed causal chain.
+
+### Stage 7 — Confirmation and uncertainty
+
+Run the frozen scorer, report every arm, and test conclusions under reasonable sensitivity analyses.
+
+### Stage 8 — Independent review, correction, and reproduction
+
+Complete the reports, verify all results, and deliver the actual research archive.
+
+## Strict completion rules
+
+**Do not declare the investigation complete merely because the predictions have been scored.**
+
+Before completion, show what actual experiments addressed:
+
+- Initialization versus data order.
+- Their possible interaction.
+- Why models switch implementation.
+- The ρ identifiability problem.
+- The source of class-dependent approximation errors.
+- The specific two-colluder relational feature or competing sufficient features.
+- Causal use of that information.
+- Fair adaptation comparisons.
+- The previous unmatched decoy heads.
+- The defective DAS no-op.
+- Distribution-shifting controls.
+- E/A1/A2 discrimination.
+- The site-coverage problem in early-readout models.
+- The same-path restoration limitation.
+- The residual attention/MLP effects.
+- Borderline routing conclusions.
+- The learning transition.
+
+**Every item requires either a concrete result or a documented experiment that establishes why it remains unresolved.**
+
+A paragraph describing an item as future work is not sufficient when the experiment is affordable within this mandate.
+
+Do not run long, low-information training simply to consume time.
+
+Equally, do not stop after a few successful tests while inexpensive controls could overturn the leading conclusion.
+
+If compute resources prevent full completion, prioritize the most discriminating experiments and preserve exact evidence of the blocker.
+
+Do not misrepresent partial completion as fulfillment of the mandate.
+
+Do not assume background jobs survive the execution session.
+
+Use checkpoints, active monitoring, and verified recovery procedures.
+
+---
+
+# 13. INDEPENDENT ADVERSARIAL REVIEW
+
+Run at least two separately initialized reviews where available.
+
+Prefer three distinct perspectives.
+
+### Mathematics reviewer
+
+Audit:
+
+- Power-mean equivalences.
+- Calibration and tempering interpretations.
+- Bayesian source-model calculations.
+- Relational sufficiency claims.
+- Proposed generalization theorems.
+- On-support intervention constructions.
+
+### Mechanism and causality reviewer
+
+Audit:
+
+- Factorial-training interpretations.
+- Neural circuit explanations.
+- Attention-head matching.
+- Subspace-identification claims.
+- True no-op controls.
+- Restoration claims.
+- Joint-relation causal use.
+- Adaptation capacity comparisons.
+
+### Experimental-integrity reviewer
+
+Audit:
+
+- Prediction-freeze chronology.
+- Separation of development and confirmation.
+- Data leakage.
+- Repeated seeds.
+- Statistical units.
+- Scorer correctness.
+- Missing arms.
+- Undisclosed amendments.
+- Reproducibility.
+
+The reviews should be able to reject the main interpretation.
+
+Preserve criticisms, revisions, and unresolved disagreements.
+
+Do not describe agent review as human peer review.
+
+Do not silently revise mathematical statements after reviewer criticism without preserving the correction history.
+
+---
+
+# 14. REQUIRED RESEARCH REPOSITORY AND DOCUMENTATION
+
+Create a new branch:
+
+`cor-phase15-step1-critical-relational-mechanism-resolution`
+
+Create a new directory:
+
+`docs/research_audits/cor_phase15/step1_critical_relational_mechanism_resolution/`
+
+Preserve the XIII-B branch, checkpoints, and frozen prediction results.
+
+Required documents:
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+An evidence-weighted synthesis of the new scientific results, falsifications, mathematical progress, limitations, and implications for COR.
+
+### CAUSES_OF_NEURAL_SOLUTION_SELECTION.md
+
+Factorial fine-tuning results, separated randomness sources, causal effects, learning trajectories, class transitions, and competing explanations.
+
+### DECISION_LAW_AND_MATHEMATICAL_IDENTIFIABILITY.md
+
+Power-mean and tempering equivalences, fair alternative fits, interpretation of ρ, approximation errors, theorems, and counterexamples.
+
+### JOINT_RELATIONAL_FEATURE_AND_REPAIR.md
+
+Exact-copying and partial-copying mathematics, causal identification of joint information, repaired model mechanisms, and matched adaptation experiments.
+
+### CAUSAL_CONTROLS_AND_MEDIATOR_VALIDATION.md
+
+Corrected no-op controls, matched decoys, E/A1/A2 tests, intervention-site analysis, restoration, residual pathways, and identification limitations.
+
+### FROZEN_CONFIRMATION_AND_STATISTICS.md
+
+Frozen protocol, model and seed inventory, prediction results, control performance, confidence intervals, failures, deviations, and sensitivity tests.
+
+### OPEN_COR_FOUNDATIONAL_QUESTIONS.md
+
+Precisely identify what remains unknown, why it matters, what has already been tried, and which experiments would be needed next.
+
+Also preserve:
+
+- Experiment scripts.
+- Source-code changes.
+- Training checkpoints.
+- Configurations and exact seeds.
+- Raw evaluation data.
+- Mathematical verification.
+- Statistical calculations.
+- Training and execution logs.
+- Frozen commits and hashes.
+- Reviewer reports.
+- Adjudication.
+- Reproduction instructions.
+- Dependency inventory.
+- SHA-256 integrity manifest.
+
+The reports must contain the actual evidence, not ceremonial summaries.
+
+---
+
+# 15. MANDATORY COMPLETE ZIP PACKAGE
+
+Produce:
+
+`cor_inv13c_critical_relational_mechanism_resolution.zip`
+
+The archive must contain the complete new research artifacts.
+
+Before delivery:
+
+1. Extract into a clean directory.
+2. Verify the file manifest.
+3. Load all new checkpoints.
+4. Recompute factorial-training comparisons.
+5. Refit representative mathematical decision models.
+6. Re-run mathematical verification.
+7. Recompute frozen prediction verdicts.
+8. Replay a genuine no-op and matched causal-control test.
+9. Replay a representative joint-relation intervention.
+10. Replay a representative adaptation comparison.
+11. Recompute principal uncertainty estimates.
+12. Verify and document all external dependencies.
+
+If earlier `cor_phase15` packages are required, identify them exactly and pin their hashes.
+
+Do not claim standalone reproducibility unless the archive contains everything necessary.
+
+Deliver the actual ZIP and the main synthesis.
+
+The final report must identify:
+
+- Branch and HEAD.
+- Frozen-protocol commit.
+- Number and type of training replicates.
+- Major mathematical findings.
+- Confirmed and falsified predictions.
+- Scientific conclusions that changed.
+- Controls that failed.
+- Unfinished experiments.
+- Reviewer disagreements.
+- Reproducibility outcome.
+- Final ZIP location.
+
+---
+
+# 16. REQUIRED FINAL SCIENTIFIC ANSWERS
+
+The research synthesis must answer the following questions explicitly.
+
+**1.** Does fresh initialization, training-data order, or their interaction cause models to develop different decision-making implementations?
+
+**2.** Is there an identifiable early event during training that explains which implementation develops?
+
+**3.** Are the observed solution classes discrete, continuous, or a combination?
+
+**4.** Why do early-readout models tend to have ρ near 0.6, while late-readout models have values closer to 1?
+
+**5.** Which mathematical descriptions of those decision laws are genuinely distinguishable, and which are equivalent reparameterizations?
+
+**6.** How much of the class-specific decision error is explained by evidence combination, calibration, reliability estimation, or other causes?
+
+**7.** What exact relational information does successful early-layer adaptation construct in the partial-copying two-colluder environment?
+
+**8.** Where is that information located, and what evidence establishes its causal use rather than simple decodability?
+
+**9.** Why can an early-layer repair succeed when a final-layer repair fails? Is this information accessibility, optimization, trainable capacity, or another cause?
+
+**10.** Does changing the learned routing organization change the model's ability to perform the more complicated decision?
+
+**11.** Do attention-row mediation claims survive properly contribution-matched controls, valid no-ops, and distribution-aware interventions?
+
+**12.** Is a variable-specific eligibility mediator identifiable in early-readout models at the correct neural site?
+
+**13.** Can the experiments distinguish E from A1 and A2, rather than only ruling out one alternative?
+
+**14.** Do genuinely separate causal routes exist, or have previous restorations only demonstrated serial transmission?
+
+**15.** What explains the decision effect outside the dominant attention pathway, especially in hybrid and early-readout models?
+
+**16.** Which internal changes, if any, predict the transition to more correct decisions?
+
+**17.** What mathematical principles survive across different implementations, and which conclusions remain specific to this source generator?
+
+**18.** Which findings strengthen the broader COR foundations, which previous interpretations must be revised, and which critical questions remain open?
+
+Do not answer a question confidently if the evidence is inadequate.
+
+Distinguish mathematical proof, controlled causal evidence, independent confirmation, exploratory findings, and speculation.
+
+---
+
+# 17. CONNECTION TO THE BROADER COR PROGRAM
+
+The immediate experiments concern the T4 relational source environment.
+
+The broader COR research program also includes GATE, TRANS, adaptive source generation, unknown group structure, and the original obstruction/discrepancy framework.
+
+Do not treat success in one T4 environment as universal validation.
+
+However, the results may support broader mathematical questions:
+
+- When does the relationship among sources alter which information is sufficient for a decision?
+- When can two AI systems use different internal computations but satisfy the same abstract decision constraints?
+- When does information exist inside a model but remain inaccessible to the computation that needs it?
+- How does training select among different implementations of a relational decision?
+- Under what conditions can a previously learned relational computation adapt to a new source-dependence structure?
+
+These are the connections worth developing.
+
+After the mandatory workstreams are completed, a narrowly scoped comparison with an established GATE environment is encouraged if resources remain.
+
+Do not substitute a superficial cross-family experiment for completion of the core investigation.
+
+Keep the other COR families on the open foundational map.
+
+Do not claim any result concerning the original O/D operators without directly investigating and establishing it.
+
+---
+
+# 18. FINAL DIRECTIVE
+
+Investigation XIII-B produced an important discovery:
+
+**The same pretrained model can develop different internal ways of making relational decisions, and those ways are associated with different mathematical decision behavior and different abilities to use information under changed source relationships.**
+
+But we do not yet understand why those implementations arise, whether the mathematical differences represent fundamentally different computations, or exactly how new relational information is incorporated during successful adaptation.
+
+Several controls used to defend the causal explanation were also imperfect.
+
+These are not small remaining details.
+
+**They are central to whether COR can claim to understand the causal structure of these learned relational decisions.**
+
+Therefore:
+
+- Separate initialization and data-order effects through controlled experiments.
+- Investigate the training process that produces the different internal organizations.
+- Resolve the mathematical identifiability of the decision-law differences.
+- Explain the remaining class-specific decision errors.
+- Identify and causally test the information used by the successful two-colluder repairs.
+- Fairly distinguish information accessibility from trainable capacity and optimization.
+- Correct the defective causal controls.
+- Investigate the weakly identified early-readout mediator.
+- Distinguish E, A1, and A2 where mathematically possible.
+- Account for remaining attention/MLP pathways.
+- Preserve negative findings and falsifications.
+- Integrate the results into one coherent computational and mathematical explanation.
+
+**Do not stop at correlation. Do not stop at decodability. Do not stop at successful adaptation. Do not stop at passing frozen predictions.**
+
+Identify the causal mechanisms where the available evidence permits.
+
+Where they cannot be identified, establish precisely why.
+
+Do not protect the preferred interpretation from falsification.
+
+Do not pad the work with unrelated experiments.
+
+Use the 8–13-hour investigation budget to resolve the most consequential uncertainties.
+
+Do not close this investigation while affordable experiments capable of changing the principal conclusions remain undone.
+
+**COR remains in Phase 1.5, Step 1, at approximately 25% provisional foundational exploration.**
+
+This is not a phase-closure decision, a final thesis selection, or validation of the original COR obstruction/discrepancy framework.
+
+The purpose is to build the rigorous mathematical, computational, and causal foundation necessary for those decisions much later.
+
+**Execute the investigation, subject the results to adversarial review, verify the complete research archive, and deliver the ZIP and synthesis.**

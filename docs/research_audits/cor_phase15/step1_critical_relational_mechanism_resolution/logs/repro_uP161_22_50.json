@@ -1,0 +1,9 @@
+{
+ "parent": "uP161",
+ "seed": 22,
+ "K": 50,
+ "n_leaves": 44,
+ "n_ref": 44,
+ "max_abs_diff": 0.0,
+ "bitwise": true
+}

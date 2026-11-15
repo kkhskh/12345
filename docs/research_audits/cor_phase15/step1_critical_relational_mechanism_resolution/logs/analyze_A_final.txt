@@ -1,5 +1,36 @@
-Traceback (most recent call last):
-  File "/home/claude/12345/docs/research_audits/cor_phase15/step1_critical_relational_mechanism_resolution/scripts/analyze_A.py", line 49, in <module>
-    v = {x: F_[x][m] for x in need}
-            ~~~~~^^^
-KeyError: 'rho'
+uP160|init21v23|data21v23 {'lik_RO1': (0.788, 0.007, 0.032), 'mix_mass': (-0.8, 0.002, 0.01), 'rho': (-0.347, -0.056, -0.01), 'route_Q': (-0.631, 0.06, -0.02)}
+uP161|init20v23|data20v23 {'lik_RO1': (-0.33, -0.089, 0.179), 'mix_mass': (0.103, -0.054, 0.078), 'rho': (0.268, 0.032, -0.154), 'route_Q': (0.244, 0.014, -0.025)}
+uP161|init21v22|data21v22 {'lik_RO1': (-0.774, -0.002, 0.003), 'mix_mass': (0.758, 0.008, -0.017), 'rho': (0.295, -0.019, 0.018), 'route_Q': (0.245, -0.047, 0.184)}
+uP163|init21v22|data21v22 {'lik_RO1': (-0.5, 0.057, 0.108), 'mix_mass': (0.703, -0.041, 0.006), 'rho': (0.132, 0.003, 0.014), 'route_Q': (0.128, -0.016, -0.098)}
+uP160|20|20|20| {'t_mix': None, 't_ro': 246, 't_beh': 546, 'peak_ro_before_mix': 0.7987824609421164, 'n_ckpt': 7} {'lik_RO1': 0.799, 'mix_mass': 0.164, 'rho': 0.584}
+uP160|21|21|21| {'t_mix': None, 't_ro': 246, 't_beh': 546, 'peak_ro_before_mix': 0.8298027976644211, 'n_ckpt': 7} {'lik_RO1': 0.83, 'mix_mass': 0.173, 'rho': 0.559}
+uP160|21|21|21|ro0T600 {'t_mix': 546, 't_ro': None, 't_beh': 546, 'peak_ro_before_mix': -0.0024806920130410384, 'n_ckpt': 2} {'lik_RO1': -0.001, 'mix_mass': 0.973, 'rho': 0.978}
+uP160|21|21|23| {'t_mix': None, 't_ro': 246, 't_beh': 1000, 'peak_ro_before_mix': 0.8064298458760614, 'n_ckpt': 4} {'lik_RO1': 0.806, 'mix_mass': 0.167, 'rho': 0.62}
+uP160|23|23|21| {'t_mix': 4000, 't_ro': None, 't_beh': 4000, 'peak_ro_before_mix': 0.025494886756082552, 'n_ckpt': 1} {'lik_RO1': 0.025, 'mix_mass': 0.968, 'rho': 0.911}
+uP160|23|23|23| {'t_mix': 546, 't_ro': 246, 't_beh': 546, 'peak_ro_before_mix': 0.35425277805312244, 'n_ckpt': 7} {'lik_RO1': 0.034, 'mix_mass': 0.971, 'rho': 0.961}
+uP160|23|23|23|l2qT600 {'t_mix': None, 't_ro': 546, 't_beh': 546, 'peak_ro_before_mix': 0.8212667963856706, 'n_ckpt': 2} {'lik_RO1': 0.821, 'mix_mass': 0.148, 'rho': 0.585}
+uP161|20|20|20| {'t_mix': 246, 't_ro': None, 't_beh': 546, 'peak_ro_before_mix': 0.16313765722235832, 'n_ckpt': 7} {'lik_RO1': 0.002, 'mix_mass': 0.963, 'rho': 0.941}
+uP161|20|20|23| {'t_mix': 546, 't_ro': None, 't_beh': 546, 'peak_ro_before_mix': 0.02790640353078615, 'n_ckpt': 2} {'lik_RO1': 0.002, 'mix_mass': 0.978, 'rho': 0.986}
+uP161|21|21|21| {'t_mix': 246, 't_ro': None, 't_beh': 546, 'peak_ro_before_mix': 0.1582064243690339, 'n_ckpt': 7} {'lik_RO1': 0.007, 'mix_mass': 0.965, 'rho': 0.837}
+uP161|21|21|21|l2qT600 {'t_mix': None, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.7081424305486367, 'n_ckpt': 2} {'lik_RO1': 0.708, 'mix_mass': 0.167, 'rho': 0.396}
+uP161|21|21|22| {'t_mix': 246, 't_ro': None, 't_beh': 546, 'peak_ro_before_mix': 0.09519536564749811, 'n_ckpt': 4} {'lik_RO1': 0.007, 'mix_mass': 0.965, 'rho': 0.847}
+uP161|22|22|21| {'t_mix': None, 't_ro': 246, 't_beh': 4000, 'peak_ro_before_mix': 0.7793213720142755, 'n_ckpt': 4} {'lik_RO1': 0.779, 'mix_mass': 0.215, 'rho': 0.533}
+uP161|22|22|22| {'t_mix': None, 't_ro': 246, 't_beh': 2686, 'peak_ro_before_mix': 0.7827412152263603, 'n_ckpt': 7} {'lik_RO1': 0.783, 'mix_mass': 0.199, 'rho': 0.561}
+uP161|22|22|22|ro0T600 {'t_mix': 246, 't_ro': None, 't_beh': 546, 'peak_ro_before_mix': -0.0012173770681509796, 'n_ckpt': 5} {'lik_RO1': -0.001, 'mix_mass': 0.958, 'rho': 0.871}
+uP161|23|23|20| {'t_mix': 546, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.37581166256559095, 'n_ckpt': 2} {'lik_RO1': 0.242, 'mix_mass': 0.821, 'rho': 0.75}
+uP161|23|23|23| {'t_mix': 1211, 't_ro': 246, 't_beh': 1211, 'peak_ro_before_mix': 0.5238182852149247, 'n_ckpt': 7} {'lik_RO1': 0.421, 'mix_mass': 0.914, 'rho': 0.641}
+uP162|20|20|20| {'t_mix': 4000, 't_ro': None, 't_beh': 4000, 'peak_ro_before_mix': 0.2203768656409073, 'n_ckpt': 1} {'lik_RO1': 0.22, 'mix_mass': 0.953, 'rho': None}
+uP163|20|20|20| {'t_mix': None, 't_ro': 4000, 't_beh': 4000, 'peak_ro_before_mix': 0.7945620068913898, 'n_ckpt': 1} {'lik_RO1': 0.795, 'mix_mass': 0.169, 'rho': None}
+uP163|21|21|21| {'t_mix': 4000, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.4803356381041594, 'n_ckpt': 2} {'lik_RO1': 0.377, 'mix_mass': 0.908, 'rho': 0.688}
+uP163|21|21|22| {'t_mix': 4000, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.55115442104246, 'n_ckpt': 2} {'lik_RO1': 0.266, 'mix_mass': 0.945, 'rho': 0.678}
+uP163|21|22|21| {'t_mix': None, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.818149893944786, 'n_ckpt': 2} {'lik_RO1': 0.818, 'mix_mass': 0.168, 'rho': 0.528}
+uP163|21|22|22| {'t_mix': None, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.8162901417255957, 'n_ckpt': 2} {'lik_RO1': 0.816, 'mix_mass': 0.161, 'rho': 0.583}
+uP163|22|21|21| {'t_mix': 4000, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.541307824269433, 'n_ckpt': 2} {'lik_RO1': 0.451, 'mix_mass': 0.843, 'rho': 0.573}
+uP163|22|22|21| {'t_mix': None, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.823085613250282, 'n_ckpt': 2} {'lik_RO1': 0.823, 'mix_mass': 0.202, 'rho': 0.549}
+uP163|22|22|22| {'t_mix': None, 't_ro': 546, 't_beh': 4000, 'peak_ro_before_mix': 0.8203299588146058, 'n_ckpt': 2} {'lik_RO1': 0.82, 'mix_mass': 0.246, 'rho': 0.553}
+uP164|20|20|20| {'t_mix': 4000, 't_ro': 4000, 't_beh': 4000, 'peak_ro_before_mix': 0.5241031259800261, 'n_ckpt': 1} {'lik_RO1': 0.524, 'mix_mass': 0.871, 'rho': None}
+uP164|21|21|21| {'t_mix': None, 't_ro': 4000, 't_beh': 4000, 'peak_ro_before_mix': 0.7802738303624625, 'n_ckpt': 1} {'lik_RO1': 0.78, 'mix_mass': 0.285, 'rho': None}
+uP164|22|22|22| {'t_mix': None, 't_ro': 4000, 't_beh': 4000, 'peak_ro_before_mix': 0.7863101519930679, 'n_ckpt': 1} {'lik_RO1': 0.786, 'mix_mass': 0.173, 'rho': None}
+uP165|20|20|20| {'t_mix': 4000, 't_ro': None, 't_beh': 4000, 'peak_ro_before_mix': 0.001507090630573695, 'n_ckpt': 1} {'lik_RO1': 0.002, 'mix_mass': 0.903, 'rho': None}
+uP165|21|21|21| {'t_mix': 4000, 't_ro': None, 't_beh': 4000, 'peak_ro_before_mix': 0.049750241392995186, 'n_ckpt': 1} {'lik_RO1': 0.05, 'mix_mass': 0.968, 'rho': None}
+uP165|23|23|23| {'t_mix': 4000, 't_ro': None, 't_beh': 4000, 'peak_ro_before_mix': 0.13772997571404427, 'n_ckpt': 1} {'lik_RO1': 0.138, 'mix_mass': 0.953, 'rho': None}

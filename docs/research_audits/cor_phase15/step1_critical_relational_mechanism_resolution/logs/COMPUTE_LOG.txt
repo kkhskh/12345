@@ -134,3 +134,4 @@
 2026-11-15T13:56:05Z post-review exploratory done: M1 split cell follows WA; M5 supL2 succeeds at 3000 steps / lr 3e-3 (format claim withdrawn)
 2026-11-15T13:56:18Z packaging: resume.pkl removed from completed runs (optimizer state, not needed for any result); claims dirs removed
 2026-11-15T13:56:36Z ZIP built; starting 12-step clean-extraction verification
+2026-11-15T14:13:06Z verification run 1: all steps pass except step 4 'finals identical: False' (archived analyze_A_final.json predated the post-review split-cell measurement); regenerated; manifest/ZIP rebuilt; verification run 2

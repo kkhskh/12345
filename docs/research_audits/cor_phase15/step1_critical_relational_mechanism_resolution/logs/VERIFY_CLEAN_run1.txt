@@ -1,0 +1,46 @@
+== Investigation XIII-C clean extraction check 2026-11-15T13:56:36Z
+1. copy cor_phase15 WITHOUT step1_critical_relational_mechanism_resolution into a clean directory and extract the ZIP there
+   extracted OK
+2. integrity manifest
+   manifest OK (573 files)
+3. every new checkpoint loads and gives finite logits (ft_factorial runs: all saved steps of every run; adapt3 parameter files)
+   uP160_fx_L21_W21_D21_ro0T600: final.json True | 24 checkpoints
+   uP160_fx_L21_W21_D23: final.json True | 24 checkpoints
+   uP160_fx_L23_W23_D21: final.json True | 24 checkpoints
+   uP160_fx_L23_W23_D23_l2qT600: final.json True | 24 checkpoints
+   uP161_fx_L20_W20_D23: final.json True | 24 checkpoints
+   uP161_fx_L21_W21_D21_l2qT600: final.json True | 24 checkpoints
+   uP161_fx_L21_W21_D22: final.json True | 24 checkpoints
+   uP161_fx_L22_W22_D21: final.json True | 24 checkpoints
+   uP161_fx_L22_W22_D22_ro0T600: final.json True | 24 checkpoints
+   uP161_fx_L23_W23_D20: final.json True | 24 checkpoints
+   uP163_fx_L21_W21_D22: final.json True | 24 checkpoints
+   uP163_fx_L21_W22_D21: final.json True | 24 checkpoints
+   uP163_fx_L21_W22_D22: final.json True | 24 checkpoints
+   uP163_fx_L22_W21_D21: final.json True | 24 checkpoints
+   uP163_fx_L22_W22_D21: final.json True | 24 checkpoints
+   ft checkpoints loaded: 360, non-finite/failed: 0 | adapt3 parameter files: 22, non-finite: 0
+4. factorial-training comparisons recomputed (analyze_A.py) and compared with the archived table
+   factorial effects identical: True | finals identical: False
+5. representative decision-model refit (fair_fits.py on uP160 seed 23 and the ro0 confirmation run, confirmation stream)
+    uP160:s:23 rho_PM archived/refit 0.9353 0.9353 | KL_test 0.00123 0.00123
+    uP160:fx:21:21:21:ro0T600 rho_PM archived/refit 0.9475 0.9475 | KL_test 0.001394 0.001394
+6. mathematical verification rerun (math_identifiability.py, c_math.py, review-1 exact LOCALQ) and compared
+   math_identifiability identical: True | c_math identical: True
+   exact LOCALQ (3000 eps): acc_localq_exact 0.7633333333333333 gap_exact 0.02833333333333332
+7. frozen verdicts recomputed (collect_13c.py + score_13c.py) and compared; preflight rerun
+   verdicts identical: True {'R1': 'FALSIFIED', 'R2': 'FALSIFIED', 'R3': 'CONFIRMED', 'R4': 'FALSIFIED', 'R5': 'CONFIRMED', 'R6': 'FALSIFIED', 'R7': 'CONFIRMED', 'R8': 'CONFIRMED'} | arms identical: True
+   preflight OK
+8. genuine no-op and matched causal control replayed (d_rows.py on uP161 L20/D23, confirmation stream)
+   NOOP max|dlogit| 7.152557373046875e-07 | max |diff| over arms (R2, slope): 0.0
+9. representative joint-relation intervention replayed (c_causal.py, uP161 L20/D23 early01, confirmation stream)
+   DAS k3 archived/replay 0.7965 0.7965 | m-probe QS 0.0091 0.0091 | rows Shapley 0.8151 0.8151
+10. representative adaptation comparison replayed (adapt3.py arms L2 and supG on uP161 L20/D23, confirmation stream)
+   L2 acc/J archived 0.7211 -0.001 replay 0.7211 -0.001 | supG archived 0.7534 0.2769 replay 0.7534 0.2769
+11. principal uncertainty estimates recomputed (uncertainty_13c.py) and compared
+   bootstrap identical: True | R1 distance intervals identical: True
+12. external dependencies (deps_inventory13c.py) + absolute-path scan
+   software: {'python': '3.13.18', 'jax': '0.12.0.1', 'jaxlib': '0.12.0.1', 'numpy': '2.5.3', 'optax': '0.2.8', 'scipy': '1.18.1', 'platform': 'Linux-6.18.44-fc-v470-x86_64-with-glibc2.39'}
+   external files: 245 | hash mismatches: 0 | missing: [] | sibling packages: ['step1_cross_implementation_causal_equivalence', 'step1_curriculum_response_identification', 'step1_latent_reliability', 'step1_perfect_agreement_boundary', 'step1_r1_causal_origin_and_selective_rescue', 'step1_relational_computation_atlas', 'step1_relational_decision_computation', 'step1_relational_decision_computation_followup', 'step1_relational_mechanism_deepening']
+   scripts/src files with absolute local paths: 0
+== done (any FAILED / False / mismatches > 0 / non-finite > 0 is a failure)

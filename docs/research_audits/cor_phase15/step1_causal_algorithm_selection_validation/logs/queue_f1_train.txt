@@ -1,0 +1,6 @@
+FX_INTERV=ro0:100 python3 scripts/ft_factorial.py uP160 21 21 21
+FX_INTERV=l2q:100 python3 scripts/ft_factorial.py uP160 23 23 23
+FX_INTERV=ro0:250 python3 scripts/ft_factorial.py uP160 21 21 21
+FX_INTERV=l2q:250 python3 scripts/ft_factorial.py uP160 23 23 23
+bash scripts/when_ready.sh uP160_fx_L23_W23_D23_base -- FX_INTERV=l2q:0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 python3 scripts/ft_factorial.py uP160 23 23 23
+bash scripts/when_ready.sh uP160_fx_L21_W21_D21_base -- FX_INTERV=ro0:0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 python3 scripts/ft_factorial.py uP160 21 21 21

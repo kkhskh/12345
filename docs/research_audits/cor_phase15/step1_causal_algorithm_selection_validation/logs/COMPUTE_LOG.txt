@@ -1,0 +1,10 @@
+2026-11-15T17:21:56Z XIII-D start. Branch cor-phase15-step1-causal-algorithm-selection-validation from b88a312 (verified). Container uptime 0 min at start.
+2026-11-15T17:22:14Z lane A1 start [ff66787a1bb2] python3 scripts/ft_factorial.py uP163 22 21 22
+2026-11-15T17:22:14Z lane A2 start [a2c4932b1c6c] FX_TAGSUF=_rep python3 scripts/ft_factorial.py uP163 21 22 21
+2026-11-15T17:22:17Z DEV training: complete uP163 L/W/D 2^3 (one missing cell L22/W21/D22); full-length determinism replay of uP163 L21/W22/D21 (tag _rep); uP161 W-split cells (4).
+2026-11-15T17:35:34Z lane DA start [8c8ae33e538b] CA_TAG=_dev python3 scripts/c_carrier.py uP161:s:21
+2026-11-15T17:36:52Z lane B1 start [9d3ca556eb75] FX_SAVEOPT=1 FX_TAGSUF=_base python3 scripts/ft_factorial.py uP160 23 23 23
+2026-11-15T17:36:54Z DEV/VERIFICATION: base reruns uP160 23/23/23 and 21/21/21 with saved optimiser states (branch points for late-mask runs; also full-length determinism replays of XIII-B seeds 23 and 21).
+2026-11-15T17:44:58Z DESCOPED (dev, compute): python3 scripts/ft_factorial.py uP161 21 22 22 -- the W-only contrasts (21,22,21) vs 21/21/21 and (22,21,22) vs 22/22/22 are kept
+2026-11-15T17:44:58Z DESCOPED (dev, compute): python3 scripts/ft_factorial.py uP161 22 21 21 -- the W-only contrasts (21,22,21) vs 21/21/21 and (22,21,22) vs 22/22/22 are kept
+2026-11-15T17:44:58Z DEV readout-map transform SCREEN queued (1211-step runs with the 4000-step schedule): perm120 / rot1 / scale1.5 / neg on uP161 22/22/22 (early), rot1 / scale0.6 on uP161 21/21/21 (mixture). Step-0 feature screen (logs/w_features_dev.jsonl, n = 19 initialisations): S_RO0 r = +0.50, ||WA|| r = -0.51, sv1 r = -0.49 with final lik_RO1; R2 of the parents' readout-token candidate evidence at step 0 is ~0 (no pre-existing early-readout feature).

@@ -1,0 +1,51 @@
+{
+ "investigation": "COR Phase 1.5 Step 1, Investigation XIII-D -- FREEZE 1 (Workstream B: competition vs commitment; critical period)",
+ "status": "FROZEN",
+ "development_basis": "logs/route_status_dev.jsonl and logs/route_status_dev_react.jsonl (uP161 s21 mixture trajectory: candidate evidence decodable at the readout token after layer 0 (R2 0.60-0.85) at every checkpoint while its use lik_RO1 falls 0.135 -> 0.005; WA-only retraining with the mixture route blocked recovers acc 0.34 -> 0.57, abolished (0.34) when that information is mean-replaced; the ro0-flipped model's early route is NOT reactivatable (0.34 -> 0.35)); XIII-C: masks of 600 steps flip the organisation in both directions; natural head formation by step 246-546.",
+ "cohort": {
+  "F1a": "FX_INTERV=ro0:100  uP160 L21 W21 D21  (early-destined; release at step 100)",
+  "F1b": "FX_INTERV=ro0:250  uP160 L21 W21 D21",
+  "F1c": "FX_INTERV=l2q:100  uP160 L23 W23 D23  (mixture-destined)",
+  "F1d": "FX_INTERV=l2q:250  uP160 L23 W23 D23",
+  "F1e": "LATE ro0, window 546-1146, branched at step 546 from uP160 L21/W21/D21 (base rerun with saved optimiser state) -- exploratory, no directional prediction",
+  "F1f": "LATE l2q, window 546-1146, branched at step 546 from uP160 L23/W23/D23 base -- exploratory, no directional prediction"
+ },
+ "competence_rule": "a run is COMPETENT if its final KL(Bayes || model) on the measurement stream is <= 0.02 (natural units: 0.0013-0.008; the failed XIII-C l2q run: 0.21). Non-competent runs are reported and excluded from every diagnostic arm (never counted as an alternative solution).",
+ "class_rule": "mixture: mix_mass >= 0.8 and lik_RO1 <= 0.15; early: lik_RO1 >= 0.6 and mix_mass < 0.5; otherwise hybrid.",
+ "measurement": "unit_metrics.py on stream 91_100_000 (steps 246, 546, 1211, 4000); route_status.py at steps 246, 546 and 4000 with RS_STREAM=91_400_000, RS_SETS=91_500_000, RS_TRAIN=91_300_000 (RS_REACT=1 at step 4000 only).",
+ "predictions": [
+  {
+   "id": "P2a",
+   "title": "Commitment, not information loss or suppression, in competent mixture-class models",
+   "text": "In every competent mixture-class model among F1a-F1f, (i) the candidate evidence remains decodable at the readout token after layer 0 (present_pooled_RO1 >= 0.6) while it is not used (lik_RO1 <= 0.15); (ii) retraining WA (+ final LN) alone for 300 steps with the mixture route blocked raises accuracy by >= 0.10 over the blocked baseline; (iii) the same retraining with the readout token's layer-0 output mean-replaced raises it by <= 0.05 and by less than half of (ii). At least one such model must exist for the prediction to be diagnostic.",
+   "alternatives": "pathway loss (present < 0.6); information present but not usable without retraining deeper layers (gain < 0.10); reactivation not through the early route (gain survives mean-replacement)",
+   "thresholds": {
+    "min_present": 0.6,
+    "max_lik": 0.15,
+    "min_gain": 0.1,
+    "max_gain_removed": 0.05
+   }
+  },
+  {
+   "id": "P2b",
+   "title": "A critical period: a 100-step mask does not change the destined organisation",
+   "text": "F1a (ro0 for 100 steps on the early-destined init) ends EARLY and F1c (l2q for 100 steps on the mixture-destined init) ends MIXTURE (XIII-C: 600-step masks flip both). Each arm is diagnostic only if the run is competent. F1b/F1d (250 steps) are reported without a directional prediction (they locate the switch point).",
+   "alternatives": "no critical period / immediate lock-in (a 100-step mask already flips); masks act only while applied and never persist (would also make 600-step flips revert -- already excluded by XIII-C)",
+   "thresholds": {
+    "early": "lik_RO1 >= 0.6 and mix_mass < 0.5",
+    "mixture": "mix_mass >= 0.8 and lik_RO1 <= 0.15"
+   }
+  },
+  {
+   "id": "P2c",
+   "title": "No information suppression while the mixture head takes over",
+   "text": "In every competent run among F1a-F1d whose final class is mixture, present_pooled_RO1 at step 4000 is >= 0.9 x its maximum over steps 246 and 546, while lik_RO1 at step 4000 is <= 0.5 x its maximum over steps 246 and 546 (use falls, information does not). Diagnostic only if such a run exists and its max lik_RO1 over 246/546 is >= 0.05.",
+   "alternatives": "active suppression of the early route's representation (present falls with use)",
+   "thresholds": {
+    "present_ratio": 0.9,
+    "use_ratio": 0.5,
+    "min_peak_lik": 0.05
+   }
+  }
+ ]
+}

@@ -1,0 +1,2 @@
+FX_SAVEOPT=1 FX_TAGSUF=_base python3 scripts/ft_factorial.py uP160 23 23 23
+FX_SAVEOPT=1 FX_TAGSUF=_base python3 scripts/ft_factorial.py uP160 21 21 21

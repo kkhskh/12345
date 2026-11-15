@@ -15,6 +15,8 @@ These items are summarised. The evidence is in the four topic documents, and con
   - Candidate evidence reaches the readout token at layer 0, and relational evidence is pooled into it at layer 1. Layer 2 (mostly its MLP)
     then combines both.
   - Mixture models instead write relational evidence into the q source tokens, and combine by layer-2 attention.
+- **[dev; conf; expl] Class is set largely by fine-tuning randomness, not by the parent.** The readout-signature–ρ law holds across all
+  29 fine-tunes (corr −0.93).
 - **[dev] Same weighting variables, different combination exponent.** Both classes use E-based eligibility and reliability weighting. The
   early class combines per-group evidence with a power-mean exponent of about 0.6; mixture models stay close to the Bayes mixture
   (ρ ≈ 0.9). Addendum AQ1 tests this.
@@ -35,9 +37,15 @@ These items are summarised. The evidence is in the four topic documents, and con
    - Test with architecture-constrained training (e.g. forbidding layer-0 readout attention) and with MLP-width variation.
    - Mathematically: characterise the accuracy cost of a power-mean combination with ρ < 1 relative to the exact mixture, as a function of
      the reliability distribution. Is ρ ≈ 0.6 near a constrained optimum?
-2. **Is the class set by pretraining, and how?** All development seed pairs, and the seed-21 replicates (Q2), point to inheritance from
-   the parent. The parent's property that decides it is unknown; the P-count pretraining curriculum and group-level incompleteness are
-   candidates. Hybrids (uP164, uP162, vP156) are not explained.
+2. **What sets the class?** Exploratory seed-22 and seed-23 replicates showed that fine-tuning randomness moves parents between classes
+   **in both directions**: uP161 late → early; uP160 early → mixture.
+   - What in the fine-tuning trajectory decides the basin is open.
+   - Candidates: initialisation of the fresh layer 2, data order, and the race between layer-0 readout heads and layer-1 routing early in
+     training.
+   - The trajectory responses (D4) are a starting point.
+   - Note: in `native_train.py` the fine-tuning seed sets the fresh layer-2 and readout initialisation **and** the training data stream
+     together. These two causes are confounded and should be separated, e.g. a fixed initialisation with varied data order.
+
 3. **Late-readout repair failure: optimisation or capacity?** A 4000-step layer-2 control on uP161 was queued; see FROZEN_CONFIRMATION
    for whether it finished. A capacity answer would make the late-readout representation a genuine **constraint on downstream structural
    adaptation**: useful information present but not accessible to a one-layer repair. That would be an important COR-level phenomenon.

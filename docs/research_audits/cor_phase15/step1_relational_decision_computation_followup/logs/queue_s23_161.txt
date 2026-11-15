@@ -1,0 +1,1 @@
+python3 scripts/native_train.py uP161 full_c1 4000 23 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed23_P161 python3 scripts/class_features.py uP161:full_c1:23:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed23_P161 python3 scripts/fit_powermean.py uP161:full_c1:23:_eval_conf13

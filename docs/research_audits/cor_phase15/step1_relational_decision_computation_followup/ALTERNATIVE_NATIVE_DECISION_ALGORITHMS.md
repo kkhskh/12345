@@ -175,6 +175,12 @@ So the structure is **a discrete early-readout cluster plus a continuum of mixtu
 is partly read early and the mixture head carries less of the decision. uP164 (lik_RO1 0.52, route_Q 0.20) is a **hybrid**, not a
 thresholding accident.
 
+**Update from the confirmation and exploratory seeds.**
+- Seed 21: uP163 early → hybrid; uP164 hybrid → early.
+- Seed 22: **uP161 late → early** (lik_RO1 0.85, no mixture head); uP163 → early; uP164 → early.
+
+The class is fine-tuning-seed dependent (FROZEN §4.3b). The development seed pairs below happened to agree.
+
 Seed replication in development: both seeds of vP150 are early (0.83 / 0.82); both seeds of xP81 are late (0.01 / 0.00); yP130 0.15 / 0.01;
 vP154 0.08 / 0.25. Q2 freezes the prediction for new seeds.
 

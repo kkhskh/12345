@@ -44,8 +44,13 @@ about the O/D operators.
    - Over 26 development models, lik_RO1 forms a tight cluster at 0.82–0.83, a cluster near 0, and a band of hybrids.
    - New fine-tuning seeds kept the class in 3/4 predicted parents. **uP163 moved from early to hybrid**, and the unpredicted boundary
      parent uP164 moved from hybrid to early. So 2 of 5 parents moved by more than 0.3 in lik_RO1.
-   - **Class is partly inherited, and fine-tuning-seed dependent near the boundary.** Q2 passed at the frozen 75% rule; this is weak
-     evidence.
+   - **Exploratory seed 22** (post-freeze):
+     - uP161, a mixture model under seeds 20 and 21, became **early-readout**: lik_RO1 0.85, no mixture head, ρ 0.56;
+     - uP163 and uP164 also landed early.
+   - **Exploratory seed 23:** uP160 (early under two seeds) became a **mixture** model (ρ 0.94); uP161 a hybrid.
+   - So the class is **not** a property of the pretrained parent. It is set largely by fine-tuning randomness and moves in both
+     directions; only uP165 was stable across three seeds. Q2's frozen confirmation (3/4) overstates inheritance.
+   - Stable: the structural law relating readout signature to the power-mean exponent, corr(lik_RO1, ρ) = −0.93 over all 29 fine-tunes.
 4. **The attention-row mediator is specific relative to other heads, but routing proportions vary.** [dev; conf]
    - With purely relational edits the mixture rows carry 68–88% of the effect (Shapley), against 25–33% in XIII, whose design also
      changed candidate evidence.
@@ -151,8 +156,12 @@ The predictions share measurements, so they are not independent.
    - At β = 1 (uP161, development), both layers-0–1-only (0.801) and layer-2 (0.797) repairs reach Bayes (0.798), so neither is
      necessary.
 9. **Stable across seeds; categorical or continuous?**
-   - A discrete early-readout attractor plus a continuum.
-   - Mostly inherited (3/4); boundary and hybrid parents can move with the fine-tuning seed.
+   - A discrete early-readout attractor plus a continuum of mixture-head and hybrid models.
+   - **Not stable across fine-tuning seeds**, in both directions:
+     - uP161: late, late, early, hybrid;
+     - uP160: early, early, late;
+     - only uP165 was stable.
+   - Stable: the mapping from readout signature to power-mean exponent ρ (corr −0.93, 29 fine-tunes).
 10. **New theorems, counterexamples, restrictions.**
     - The β = 1 local-sufficiency proposition [proof].
     - The LOCALQ/FULL gap at β < 1 [num].

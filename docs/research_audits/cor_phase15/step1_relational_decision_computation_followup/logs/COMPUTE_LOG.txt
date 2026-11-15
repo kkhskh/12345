@@ -179,3 +179,16 @@
 2026-11-15T04:28:20Z lane S22_164 start [2402b4c02639] python3 scripts/native_train.py uP164 full_c1 4000 22 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed22_P164 python3 scripts/class_features.py uP164:full_c1:22:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed22_P164 python3 scripts/fit_powermean.py uP164:full_c1:22:_eval_conf13
 2026-11-15T04:28:20Z lane S22_161 start [3dc387b21b99] python3 scripts/native_train.py uP161 full_c1 4000 22 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed22_P161 python3 scripts/class_features.py uP161:full_c1:22:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed22_P161 python3 scripts/fit_powermean.py uP161:full_c1:22:_eval_conf13
 2026-11-15T04:28:20Z lane S22_163 start [ca856e8195f1] python3 scripts/native_train.py uP163 full_c1 4000 22 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed22_P163 python3 scripts/class_features.py uP163:full_c1:22:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed22_P163 python3 scripts/fit_powermean.py uP163:full_c1:22:_eval_conf13
+2026-11-15T04:28:55Z EXPLORATORY: traj_resp on seed-21 units (D4 replication)
+2026-11-15T04:28:55Z lane TR21 start [2851aa1b77e7] TR_TAG=_seed21 python3 scripts/traj_resp.py uP160:full_c1:21:_eval_conf13 uP161:full_c1:21:_eval_conf13 uP163:full_c1:21:_eval_conf13 uP164:full_c1:21:_eval_conf13 uP165:full_c1:21:_eval_conf13
+2026-11-15T04:33:57Z lane TR21 end [2851aa1b77e7] rc=0
+2026-11-15T05:20:09Z lane S22_161 end [3dc387b21b99] rc=0
+2026-11-15T05:20:10Z lane S22_164 end [2402b4c02639] rc=0
+2026-11-15T05:20:15Z lane S22_163 end [ca856e8195f1] rc=0
+2026-11-15T05:24:45Z EXPLORATORY: seed 22 showed uP161 (late under seeds 20 and 21) switching to early readout; launching seed 23 for uP165, uP160, uP161 to estimate seed dependence
+2026-11-15T05:24:45Z lane S23_161 start [e41aae4fc2f3] python3 scripts/native_train.py uP161 full_c1 4000 23 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed23_P161 python3 scripts/class_features.py uP161:full_c1:23:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed23_P161 python3 scripts/fit_powermean.py uP161:full_c1:23:_eval_conf13
+2026-11-15T05:24:45Z lane S23_160 start [17c6dc5584cb] python3 scripts/native_train.py uP160 full_c1 4000 23 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed23_P160 python3 scripts/class_features.py uP160:full_c1:23:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed23_P160 python3 scripts/fit_powermean.py uP160:full_c1:23:_eval_conf13
+2026-11-15T05:24:45Z lane S23_165 start [18a79f256f8b] python3 scripts/native_train.py uP165 full_c1 4000 23 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed23_P165 python3 scripts/class_features.py uP165:full_c1:23:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed23_P165 python3 scripts/fit_powermean.py uP165:full_c1:23:_eval_conf13
+2026-11-15T06:12:22Z lane S23_165 end [18a79f256f8b] rc=0
+2026-11-15T06:12:27Z lane S23_161 end [e41aae4fc2f3] rc=0
+2026-11-15T06:12:30Z lane S23_160 end [17c6dc5584cb] rc=0

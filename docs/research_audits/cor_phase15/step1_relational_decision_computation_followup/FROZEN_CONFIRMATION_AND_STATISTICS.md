@@ -216,6 +216,30 @@ noise. **Q5a reflects site coverage and target choice.** Neither is evidence aga
   - **The class is largely but not wholly inherited.** Hybrid and boundary parents can move with the fine-tuning seed.
   - This supports a continuum with an attracting early-readout cluster, not a fixed binary class.
 
+### 4.3b Exploratory: further fine-tuning seeds (post-freeze; new streams 79_800_000 and 79_900_000)
+
+Seed 22 was run for the three parents that had moved under seed 21 or shown a routing shift. Seed 23 was run for uP160, uP161 and uP165. Values are lik_RO1 (power-mean ρ):
+
+| parent | seed 20 (dev) | seed 21 (conf) | seed 22 (expl) | seed 23 (expl) |
+|---|---|---|---|---|
+| uP160 | 0.82 (0.59) | 0.85 (0.57) | – | **0.04 (0.94)**, mixture heads 2, 3 |
+| uP161 | 0.00 (0.94) | 0.01 (0.87) | **0.85 (0.56)**, no mixture head | 0.43 (0.67), hybrid |
+| uP163 | 0.82 (0.60) | 0.37 (0.69), hybrid | 0.85 (0.59) | – |
+| uP164 | 0.52 (0.75), hybrid | 0.82 (0.54) | 0.84 (0.56) | – |
+| uP165 | 0.00 (0.90) | 0.05 (0.87) | – | 0.13 (0.86) |
+
+**The solution class is not a fixed property of the pretrained parent.**
+- uP161 was a mixture model under two seeds, an early-readout model under a third, and a hybrid under a fourth.
+- uP160 was early-readout under two seeds and became a **mixture** model under seed 23.
+- Only uP165 kept its class across three seeds.
+
+What is stable is the **structural law** linking the readout signature to the power-mean exponent: corr(lik_RO1, ρ) = −0.93 over all 29
+fine-tunes measured (development, confirmation and exploratory). Early-readout replicates have ρ = 0.54–0.60 and mixture replicates
+ρ = 0.86–0.98, whatever their parent.
+
+Q2's frozen confirmation (3/4 at seed 21) therefore **overstates inheritance**. Read with these runs, the evidence shows the class is set
+largely by fine-tuning randomness, which here couples layer-2 initialisation and data order, and moves in both directions.
+
 ### 4.4 Statistics
 
 - Units are fine-tuning replicates, with n ≤ 5 per prediction and n = 2 for several filtered arms. No confidence intervals are claimed for
@@ -260,4 +284,6 @@ XIII-B does not re-score XIII. It tests new hypotheses that XIII's results raise
     transition already visible in the weighting responses.
   - These responses are behavioural (class I), not internal. **No internal predictor of the transition is established**, which preserves
     XIII's negative result.
+  - **Replication on the seed-21 units** (exploratory; `logs/traj_resp_seed21.json`). Order is KL t50 ≤ weighting-slope t50 ≤ gap t50 in
+    5/5. The e- and W-slopes are equal in 4/5; in uP160, e-change (546) precedes W-only (813).
 - **GATE cross-family comparison:** not run, for compute (OPEN_COR_FOUNDATIONAL_QUESTIONS).

@@ -1,0 +1,50 @@
+{
+ "P0": {
+  "summary": {
+   "P5a": "CONFIRMED",
+   "P5b": "CONFIRMED",
+   "P5c": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N1": {
+  "summary": {
+   "P5a": "FALSIFIED",
+   "P5b": "FALSIFIED",
+   "P5c": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N2": {
+  "summary": {
+   "P5a": "CONFIRMED",
+   "P5b": "FALSIFIED",
+   "P5c": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N3": {
+  "summary": {
+   "P5a": "CONFIRMED",
+   "P5b": "CONFIRMED",
+   "P5c": "FALSIFIED"
+  },
+  "ok": true
+ },
+ "N4": {
+  "summary": {
+   "P5a": "FALSIFIED",
+   "P5b": "FALSIFIED",
+   "P5c": "FALSIFIED"
+  },
+  "ok": true
+ },
+ "N5": {
+  "summary": {
+   "P5a": "FALSIFIED",
+   "P5b": "FALSIFIED",
+   "P5c": "FALSIFIED"
+  },
+  "ok": true
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "freeze": "XIII-D freeze 3a (Workstream D)",
+ "frozen_before": "Any adaptation of the confirmation unit uP165 s20 is run (none exists). Development basis: XIII-D adapt4 lr 1e-3 dev on uP161 s21 (supRO 0.055, supQS 0.007, supL2 0.024) and XIII-C adapt3 (L0only 0.85/0.91, L1only 0.00/0.003, L2 <= 0.07 at lr 1e-3; supL2 0.90 and supG 0.93 at lr 3e-3; L2 0.00 at lr 3e-3 and at 3000 steps). The planned XIII-D lr-3e-3 position development run (supRO/supQS on uP161 s21) was stopped before producing any arm (OOM pressure; COMPUTE_LOG 21:23Z); P5b is therefore a theory-driven prediction from the confirmed carrier trace (P3e: the carried relation acts through layer-2 keys AND/OR queries, with model-specific split), not a development-calibrated one.",
+ "decision_rules": "As freeze 2: missing/malformed input -> arm FAILS; CONFIRMED iff >= 1 diagnostic arm and all diagnostic arms pass; FALSIFIED if any diagnostic arm fails. Metric: J_DM slope of the adapted model (observed vs exact change on J_DM pairs), adapt4.py evaluation. An arm 'succeeds' iff slope >= 0.5 and 'fails' iff slope < 0.1. Every arm is diagnostic (no competence exclusion: failure to learn the relation is the measured outcome).",
+ "unit": "uP165:s:20",
+ "measurement": "adapt4.py, beta 0.6, 1000 steps, AD_STREAM default (identical training/evaluation episodes across arms), AD_OUT=_f3a, lr 1e-3 (arms supL2, L0only, L1only, plus descriptive L0attn, L0mlp) and lr 3e-3 (arms supRO, supQS, supL2, L2).",
+ "predictions": [
+  {"id": "P5a", "text": "Information access, not capacity, under matched stronger optimisation: at lr 3e-3 supplying the sufficient joint statistic m to the frozen-early model with layer 2 + readout trainable succeeds (supL2 slope >= 0.5), while training layer 2 + readout without the supplied information fails (L2 slope < 0.1). At lr 1e-3 the same supply fails (supL2 slope < 0.1): the supply result is optimisation-budget dependent.",
+   "rules": [["lr3", "supL2", ">=", 0.5], ["lr3", "L2", "<", 0.1], ["lr1", "supL2", "<", 0.1]]},
+  {"id": "P5b", "text": "Supply position: at lr 3e-3, supplying m only at the readout token (supRO, query side) and only at the six q-source tokens (supQS, key side) each succeed (slope >= 0.5), i.e. either side of the layer-2 key-query score suffices, as the model-specific key/query split of the carrier trace implies.",
+   "rules": [["lr3", "supRO", ">=", 0.5], ["lr3", "supQS", ">=", 0.5]]},
+  {"id": "P5c", "text": "Layer-0-specific repair at matched capacity and budget (lr 1e-3, one trainable block): training layer 0 alone repairs the relation (L0only slope >= 0.5) while training layer 1 alone does not (L1only slope < 0.1).",
+   "rules": [["lr1", "L0only", ">=", 0.5], ["lr1", "L1only", "<", 0.1]]}
+ ],
+ "descriptive_not_predicted": "L0attn and L0mlp (only the attention or only the MLP of layer 0 trainable, lr 1e-3) are reported without a prediction."
+}

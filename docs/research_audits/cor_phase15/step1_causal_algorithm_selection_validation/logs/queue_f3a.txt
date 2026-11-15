@@ -1,0 +1,2 @@
+AD_OUT=_f3a AD_LR=0.003 AD_ARMS=supRO,supQS,supL2,L2 python3 scripts/adapt4.py uP165:s:20
+AD_OUT=_f3a AD_LR=0.001 AD_ARMS=supL2,L0only,L1only,L0attn,L0mlp python3 scripts/adapt4.py uP165:s:20

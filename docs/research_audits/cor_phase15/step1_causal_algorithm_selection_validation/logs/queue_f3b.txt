@@ -1,0 +1,5 @@
+FX_STOP=1211 python3 scripts/ft_factorial.py uP164 20 21 21
+FX_STOP=1211 python3 scripts/ft_factorial.py uP164 21 20 21
+FX_STOP=1211 python3 scripts/ft_factorial.py uP164 21 21 20
+FX_STOP=1211 python3 scripts/ft_factorial.py uP163 21 20 21
+bash scripts/when_file.sh checkpoints/ft/uP164_fx_L20_W21_D21_stop1211/step1211.npz checkpoints/ft/uP164_fx_L21_W20_D21_stop1211/step1211.npz checkpoints/ft/uP164_fx_L21_W21_D20_stop1211/step1211.npz checkpoints/ft/uP163_fx_L21_W20_D21_stop1211/step1211.npz -- UM_RHO=0 UM_STREAM=94100000 UM_TAG=_f3b UM_STEPS=1211 python3 scripts/unit_metrics.py uP164:fx:20:21:21:stop1211 uP164:fx:21:20:21:stop1211 uP164:fx:21:21:20:stop1211 uP164:s:21 uP164:s:20 uP163:fx:21:20:21:stop1211

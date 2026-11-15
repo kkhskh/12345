@@ -1,0 +1,13 @@
+{
+ "freeze": "XIII-D freeze 3b (Workstream A, post-P1 follow-up)",
+ "frozen_before": "Any of the cells below is trained (none exists). Basis: freeze-2 P1 result (all four W-only cells ended in the mixture organisation; W-only moves early->mixture in both parents but never mixture->early), XIII-C factorial (uP161 L22/W22/D21 early, uP160 L21/W21/D23 early: D-only changes keep early), XIII-D development uP163 2^3 (W22 sufficient for early with L21 or L22). This is a hypothesis formed AFTER seeing the P1 confirmation outcome and is tested here on a new parent.",
+ "hypothesis": "H_req: the early organisation is not set by the readout-map initialisation alone; in parents other than uP163 it requires the early diagonal's layer-2 initialisation L together with its readout map W, and the mixture organisation is the default when either is changed; the data order D does not matter.",
+ "decision_rules": "Class at step 1211 (FX_STOP=1211; trajectories show the organisation is settled by 546-1211): EARLY iff mix_mass < 0.5 and lik_RO1 >= 0.4; NOT-EARLY iff mix_mass >= 0.5. Competent iff KL <= 0.05 at 1211 (development trajectories: KL at 1211 <= 0.03). Missing -> FAIL. CONFIRMED iff all diagnostic arms pass.",
+ "measurement": "unit_metrics.py UM_STEPS=1211 UM_RHO=0 UM_STREAM=94100000 UM_TAG=_f3b; also the uP164 21/21/21 and 20/20/20 references (natural seeds; the diagonal fine-tune with L=W=D=s reproduces the natural seed bit-for-bit, determinism_check.json) at 1211 on the same stream.",
+ "predictions": [
+  {"id": "P10", "text": "In parent uP164 (early diagonal 21/21/21, non-early diagonal 20/20/20): (a) the W-only cell L20/W21/D21 (early diagonal's W on the non-early L, D) is NOT-EARLY at 1211; (b) the L-only cell L21/W20/D21 is NOT-EARLY; (c) the D-only cell L21/W21/D20 is EARLY. Reference arms (diagnostic for the design): uP164 s21 EARLY and uP164 s20 NOT-EARLY at 1211 on the same stream; if a reference fails, P10 is NON-DIAGNOSTIC.",
+   "cells": {"a": ["uP164:fx:20:21:21:stop1211", "NOT-EARLY"], "b": ["uP164:fx:21:20:21:stop1211", "NOT-EARLY"], "c": ["uP164:fx:21:21:20:stop1211", "EARLY"]},
+   "refs": {"uP164:s:21": "EARLY", "uP164:s:20": "NOT-EARLY"}}
+ ],
+ "descriptive_not_predicted": "uP163 L21/W20/D21 at 1211 (uP163 early diagonal 20; in development W22 alone produced early in uP163, so H_req is not claimed for uP163)."
+}

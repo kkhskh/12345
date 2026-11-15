@@ -140,3 +140,68 @@
 2026-11-15T21:15:42Z lane DV2 end [70930e7568da] rc=143
 2026-11-15T21:15:42Z lane DV2 start [4a24c8066c07] B5_RETRY=4 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:20:20:23 uP161:fx:21:21:22 uP161:fx:22:22:21 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:21:22:21 uP163:fx:21:22:22 uP163:fx:22:21:21 uP163:fx:22:22:21 uP160:fx:23:23:23:base uP163:fx:22:21:22 uP160:s:21 uP160:s:23 uP161:s:21 uP161:s:22 uP161:s:23 uP161:s:20 uP160:s:20
 2026-11-15T21:16:38Z Dev lr-3e-3 position run (lane DV2 [70930e7568da], uP161 s21) stopped by hand before any arm finished (memory pressure; repeated OOM kills); replaced by a theory-driven frozen prediction (freeze 3a, P5b). The scale0.6 dev transform was OOM-killed again at 21:15Z (resumable).
+2026-11-15T21:16:42Z lane F3A start [db954e9f977c] AD_OUT=_f3a AD_LR=0.003 AD_ARMS=supRO,supQS,supL2,L2 python3 scripts/adapt4.py uP165:s:20
+2026-11-15T21:16:50Z ERRATUM (not changing the frozen file): predictions_13d_f3a.json cites 'COMPUTE_LOG 21:23Z' for the stopped dev run; the correct log entry is 21:16:31Z. Rules and thresholds unaffected.
+2026-11-15T21:16:55Z lane DV1 end [a54378e836c1] rc=137
+2026-11-15T21:16:55Z lane DV1 start [bea042d1139b] AD_RETRY=4 AD_OUT=_dev AD_ARMS=L0attn,L0mlp python3 scripts/adapt4.py uP161:s:21
+2026-11-15T21:16:55Z lane DV2 end [4a24c8066c07] rc=137
+2026-11-15T21:16:55Z lane DV2 start [5f9590c3bb05] FX_RETRY=4 FX_STOP=1211 FX_WA=neg python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T21:18:22Z lane DV1 end [bea042d1139b] rc=137
+2026-11-15T21:18:22Z lane DV1 start [a5d61f79f594] FX_RETRY=4 FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T21:19:12Z lane DV2 end [5f9590c3bb05] rc=137
+2026-11-15T21:19:12Z lane DV1 end [a5d61f79f594] rc=137
+2026-11-15T21:19:12Z lane DV2 start [3038192dcd59] FX_RETRY=4 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T21:19:12Z lane DV1 start [d6c233eae4e5] FX_RETRY=4 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T21:20:03Z lane DV1 end [d6c233eae4e5] rc=137
+2026-11-15T21:20:03Z lane DV2 end [3038192dcd59] rc=137
+2026-11-15T21:27:02Z queue_dev3 exhausted by rapid successive OOM kills of its dev jobs (21:19-21:20Z). Single dev lane DV4 on queue_dev4.txt (RETRY=5; MEMMIN 2600; subcomponents last, since freeze 3a measures L0attn/L0mlp descriptively on uP165 s20).
+2026-11-15T21:27:21Z lane DV4 start [4cb13af961f5] B5_RETRY=5 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:20:20:23 uP161:fx:21:21:22 uP161:fx:22:22:21 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:21:22:21 uP163:fx:21:22:22 uP163:fx:22:21:21 uP163:fx:22:22:21 uP160:fx:23:23:23:base uP163:fx:22:21:22 uP160:s:21 uP160:s:23 uP161:s:21 uP161:s:22 uP161:s:23 uP161:s:20 uP160:s:20
+2026-11-15T21:28:14Z lane F3A end [db954e9f977c] rc=137
+2026-11-15T21:28:15Z lane F3A start [ce15a231ce66] AD_OUT=_f3a AD_LR=0.001 AD_ARMS=supL2,L0only,L1only,L0attn,L0mlp python3 scripts/adapt4.py uP165:s:20
+2026-11-15T21:28:15Z lane DV4 end [4cb13af961f5] rc=137
+2026-11-15T21:28:15Z lane DV4 start [3229e31f8810] FX_RETRY=5 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T21:37:16Z F3A lr-3e-3 confirmation adaptation [db954e9f977c] OOM-killed (rc=137, no output) at 21:28Z together with dev B5 metrics; re-queued with inert AD_RETRY=1 at the end of queue_f3a.txt (lane F3A runs it after the lr-1e-3 job). All development work suspended (lane DV4 and its job stopped by hand) until the 4000-step confirmation trainers finish; dev resumes afterwards.
+2026-11-15T21:45:18Z lane F1 end [094e1cb00d34] rc=0
+2026-11-15T21:45:18Z lane F1 start [860474af5974] 
+2026-11-15T21:45:18Z lane F1 end [860474af5974] rc=0
+2026-11-15T21:47:16Z lane DV5 start [bee277b0dc83] FX_RETRY=6 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T21:47:17Z F1b finished (lane F1; its stray-line artefact truncated logs/run/860474af5974.out, the F1e stdout log). Dev resumed with one lane DV5 (scale transforms only, queue_dev5.txt).
+2026-11-15T22:08:54Z lane DV5 end [bee277b0dc83] rc=137
+2026-11-15T22:08:54Z lane DV5 start [fd168371bc36] FX_RETRY=6 FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T22:09:13Z lane DM start [4bde56816df8] UM_TAG=_tdev UM_RHO=0 UM_STREAM=93200000 UM_STEPS=246,546 python3 scripts/unit_metrics.py uP161:fx:22:22:22:stop1211_wascale1.5 uP161:s:22 uP161:s:21
+2026-11-15T22:10:02Z lane DM end [4bde56816df8] rc=137
+2026-11-15T22:19:34Z Dev transform lane DV5 and DM metrics OOM-killed again; all development suspended until the confirmation trainers finish (transform screen then runs at full speed).
+2026-11-15T22:21:06Z lane F2 end [b092bfb98dc4] rc=0
+2026-11-15T22:21:07Z lane F2 start [860474af5974] 
+2026-11-15T22:21:07Z lane F2 end [860474af5974] rc=0
+2026-11-15T22:36:04Z lane FA end [ecf704568051] rc=137
+2026-11-15T22:36:04Z lane FA start [8e318d247edd] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T100 uP160_fx_L23_W23_D23_l2qT100 uP160_fx_L21_W21_D21_ro0T250 uP160_fx_L23_W23_D23_l2qT250 -- RS_STREAM=91400000 RS_SETS=91500000 RS_TAG=_f1 python3 scripts/route_status.py uP160:fx:21:21:21:ro0T100@246 uP160:fx:21:21:21:ro0T100@546 uP160:fx:21:21:21:ro0T100@4000 uP160:fx:21:21:21:ro0T250@246 uP160:fx:21:21:21:ro0T250@546 uP160:fx:21:21:21:ro0T250@4000 uP160:fx:23:23:23:l2qT100@246 uP160:fx:23:23:23:l2qT100@546 uP160:fx:23:23:23:l2qT100@4000 uP160:fx:23:23:23:l2qT250@246 uP160:fx:23:23:23:l2qT250@546 uP160:fx:23:23:23:l2qT250@4000
+2026-11-15T22:36:43Z lane FA end [8e318d247edd] rc=137
+2026-11-15T22:36:43Z lane FA start [b8ee96d712ec] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T100 uP160_fx_L23_W23_D23_l2qT100 uP160_fx_L21_W21_D21_ro0T250 uP160_fx_L23_W23_D23_l2qT250 -- RS_REACT=1 RS_STREAM=91400000 RS_SETS=91500000 RS_TRAIN=91300000 RS_TAG=_f1_react python3 scripts/route_status.py uP160:fx:21:21:21:ro0T100 uP160:fx:21:21:21:ro0T250 uP160:fx:23:23:23:l2qT100 uP160:fx:23:23:23:l2qT250
+2026-11-15T22:37:18Z lane F3A end [ce15a231ce66] rc=137
+2026-11-15T22:37:18Z lane FA end [b8ee96d712ec] rc=137
+2026-11-15T22:37:18Z lane FA start [6ca447ee281f] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T0_br546_w546-1146 uP160_fx_L23_W23_D23_l2qT0_br546_w546-1146 -- UM_RHO=0 UM_STREAM=91100000 UM_TAG=_f1 UM_STEPS=1211,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:21:ro0T0_br546_w546-1146 uP160:fx:23:23:23:l2qT0_br546_w546-1146
+2026-11-15T22:37:18Z lane F3A start [98bd5b59fdae] AD_RETRY=1 AD_OUT=_f3a AD_LR=0.003 AD_ARMS=supRO,supQS,supL2,L2 python3 scripts/adapt4.py uP165:s:20
+2026-11-15T22:37:39Z lane F4 end [860474af5974] rc=0
+2026-11-15T22:37:45Z lane F3 end [f36b2a3d5e46] rc=0
+2026-11-15T22:37:51Z lane AC5 end [634aecd8422b] rc=0
+2026-11-15T22:37:51Z lane AC3 end [e16f584261df] rc=0
+2026-11-15T22:38:01Z lane AC4 end [44e05fb2e80e] rc=0
+2026-11-15T22:39:24Z lane FA end [6ca447ee281f] rc=0
+2026-11-15T22:39:24Z lane FA start [dc9f5e7c1cda] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T0_br546_w546-1146 uP160_fx_L23_W23_D23_l2qT0_br546_w546-1146 -- RS_REACT=1 RS_STREAM=91400000 RS_SETS=91500000 RS_TRAIN=91300000 RS_TAG=_f1_react python3 scripts/route_status.py uP160:fx:21:21:21:ro0T0_br546_w546-1146 uP160:fx:23:23:23:l2qT0_br546_w546-1146
+2026-11-15T22:39:53Z lane DV6 start [84c4e2c0c8a5] FX_RETRY=7 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T22:39:55Z lane DV7 start [e769995a38bf] FX_RETRY=7 FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T22:39:57Z A-C1..A-C4 finished (rc=0). Development resumed: lanes DV6/DV7 on queue_dev6.txt (RETRY=7).
+2026-11-15T22:40:15Z lane FA2 end [7fa9fdc58618] rc=0
+2026-11-15T22:40:15Z lane FA2 start [7fa9fdc58618] 
+2026-11-15T22:40:15Z lane FA2 end [7fa9fdc58618] rc=0
+2026-11-15T22:40:20Z lane FAR start [f1a09e15b4c3] F1_RETRY=1 bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T100 uP160_fx_L23_W23_D23_l2qT100 uP160_fx_L21_W21_D21_ro0T250 uP160_fx_L23_W23_D23_l2qT250 -- UM_RHO=0 UM_STREAM=91100000 UM_TAG=_f1 UM_STEPS=246,546,1211,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:21:ro0T100 uP160:fx:21:21:21:ro0T250 uP160:fx:23:23:23:l2qT100 uP160:fx:23:23:23:l2qT250
+2026-11-15T22:40:21Z F1 analysis lines 1-3 (unit metrics, route status, reactivation of F1a-F1d) OOM-killed at 22:36-22:37Z (rc=137); unit_metrics/route_status append per unit and skip completed units; re-queued with inert F1_RETRY=1 in queue_f1_analysis_retry.txt, lane FAR. Branch runs F1e/F1f finished.
+2026-11-15T22:40:44Z F3A lr-1e-3 job [ce15a231ce66] OOM-killed at 22:37Z after arms supL2 and L0only were written (adapt4 writes after each arm); remaining arms L1only, L0attn, L0mlp re-queued (same settings, merged into the same output file) at the end of queue_f3a.txt. Freeze-2 final score computed: P1 FALSIFIED, P3 CONFIRMED, P4 CONFIRMED, P6 FALSIFIED, P7 CONFIRMED, P8 CONFIRMED.
+2026-11-15T22:41:18Z lane DV6 end [84c4e2c0c8a5] rc=137
+2026-11-15T22:41:18Z lane DV6 start [6c932f55c416] FX_RETRY=7 FX_STOP=1211 FX_WA=neg python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T22:41:18Z lane DV7 end [e769995a38bf] rc=137
+2026-11-15T22:41:18Z lane DV7 start [bb728dea4eb1] B5_RETRY=7 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:20:20:23 uP161:fx:21:21:22 uP161:fx:22:22:21 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:21:22:21 uP163:fx:21:22:22 uP163:fx:22:21:21 uP163:fx:22:22:21 uP160:fx:23:23:23:base uP163:fx:22:21:22 uP160:s:21 uP160:s:23 uP161:s:21 uP161:s:22 uP161:s:23 uP161:s:20 uP160:s:20
+2026-11-15T22:41:47Z lane DV7 end [bb728dea4eb1] rc=137
+2026-11-15T22:41:47Z lane DV7 start [d909def76aa9] FX_RETRY=7 FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T22:42:03Z NOTE: ft_factorial.py with FX_STOP neither writes final.json nor resumes (resume is disabled for STOP runs), so every OOM-killed development transform restarted from step 0; this is why the transform screen never completed. Freeze-3b gates on step1211.npz via when_file.sh.

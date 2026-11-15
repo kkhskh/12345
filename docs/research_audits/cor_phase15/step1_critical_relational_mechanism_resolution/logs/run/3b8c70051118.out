@@ -11,3 +11,10 @@ uP161_full_c1_s4000_seed21_eva beta 0.6 lr 0.001 bayes 0.792 native acc 0.469 pa
   L2        acc 0.722 KL 0.1870 J_DM slope +0.000 R2 +0.00 D0/DM 0.84 DEC/DM 0.54 n_train 50048 2478s
   early01   acc 0.783 KL 0.0233 J_DM slope +0.920 R2 +0.85 D0/DM 0.14 DEC/DM 0.08 n_train 99456 3366s
   L1only    acc 0.701 KL 0.2238 J_DM slope -0.000 R2 +0.00 D0/DM 0.95 DEC/DM 0.43 n_train 49728 4148s
+  L0only    acc 0.786 KL 0.0304 J_DM slope +0.847 R2 +0.80 D0/DM 0.20 DEC/DM 0.11 n_train 49728 5154s
+  L2plus    acc 0.723 KL 0.1860 J_DM slope +0.001 R2 +0.00 D0/DM 0.83 DEC/DM 0.46 n_train 99776 5759s
+  preattn   acc 0.731 KL 0.1639 J_DM slope +0.142 R2 +0.16 D0/DM 0.62 DEC/DM 0.17 n_train 16512 6173s
+  pretok    acc 0.659 KL 0.2882 J_DM slope -0.001 R2 +0.00 D0/DM 0.82 DEC/DM 0.46 n_train 16640 6516s
+  supL2     acc 0.732 KL 0.1770 J_DM slope +0.024 R2 +0.09 D0/DM 0.54 DEC/DM 0.35 n_train 50240 6843s
+  supFrozen acc 0.504 KL 0.7025 J_DM slope +0.075 R2 +0.32 D0/DM 0.26 DEC/DM 0.16 n_train 192 7122s
+  supDecoy  acc 0.728 KL 0.1824 J_DM slope +0.013 R2 +0.04 D0/DM 0.74 DEC/DM 0.49 n_train 50240 7559s

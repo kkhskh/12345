@@ -1,0 +1,255 @@
+{
+ "ok": true,
+ "checks": {
+  "P0": {
+   "summary": {
+    "R1": "CONFIRMED",
+    "R2": "CONFIRMED",
+    "R3": "CONFIRMED",
+    "R4": "CONFIRMED",
+    "R5": "CONFIRMED",
+    "R6": "CONFIRMED",
+    "R7": "CONFIRMED",
+    "R8": "CONFIRMED"
+   },
+   "expected": {
+    "R1": [
+     "CONFIRMED"
+    ],
+    "R2": [
+     "CONFIRMED"
+    ],
+    "R3": [
+     "CONFIRMED"
+    ],
+    "R4": [
+     "CONFIRMED"
+    ],
+    "R5": [
+     "CONFIRMED"
+    ],
+    "R6": [
+     "CONFIRMED"
+    ],
+    "R7": [
+     "CONFIRMED"
+    ],
+    "R8": [
+     "CONFIRMED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R1": true,
+    "R2": true,
+    "R3": true,
+    "R4": true,
+    "R5": true,
+    "R6": true,
+    "R7": true,
+    "R8": true
+   }
+  },
+  "N1": {
+   "summary": {
+    "R1": "FALSIFIED",
+    "R2": "FALSIFIED",
+    "R3": "FALSIFIED",
+    "R4": "NON-DIAGNOSTIC",
+    "R5": "CONFIRMED",
+    "R6": "NON-DIAGNOSTIC",
+    "R7": "NON-DIAGNOSTIC",
+    "R8": "FALSIFIED"
+   },
+   "expected": {
+    "R1": [
+     "FALSIFIED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R1": true
+   }
+  },
+  "N2": {
+   "summary": {
+    "R1": "CONFIRMED",
+    "R2": "FALSIFIED",
+    "R3": "NON-DIAGNOSTIC",
+    "R4": "CONFIRMED",
+    "R5": "CONFIRMED",
+    "R6": "CONFIRMED",
+    "R7": "CONFIRMED",
+    "R8": "CONFIRMED"
+   },
+   "expected": {
+    "R2": [
+     "FALSIFIED"
+    ],
+    "R3": [
+     "NON-DIAGNOSTIC",
+     "FALSIFIED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R2": true,
+    "R3": true
+   }
+  },
+  "N3": {
+   "summary": {
+    "R1": "CONFIRMED",
+    "R2": "CONFIRMED",
+    "R3": "CONFIRMED",
+    "R4": "CONFIRMED",
+    "R5": "CONFIRMED",
+    "R6": "FALSIFIED",
+    "R7": "CONFIRMED",
+    "R8": "CONFIRMED"
+   },
+   "expected": {
+    "R6": [
+     "FALSIFIED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R6": true
+   }
+  },
+  "N4": {
+   "summary": {
+    "R1": "CONFIRMED",
+    "R2": "CONFIRMED",
+    "R3": "CONFIRMED",
+    "R4": "FALSIFIED",
+    "R5": "CONFIRMED",
+    "R6": "CONFIRMED",
+    "R7": "CONFIRMED",
+    "R8": "CONFIRMED"
+   },
+   "expected": {
+    "R4": [
+     "FALSIFIED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R4": true
+   }
+  },
+  "N5": {
+   "summary": {
+    "R1": "CONFIRMED",
+    "R2": "CONFIRMED",
+    "R3": "CONFIRMED",
+    "R4": "CONFIRMED",
+    "R5": "FALSIFIED",
+    "R6": "CONFIRMED",
+    "R7": "CONFIRMED",
+    "R8": "CONFIRMED"
+   },
+   "expected": {
+    "R5": [
+     "FALSIFIED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R5": true
+   }
+  },
+  "N6": {
+   "summary": {
+    "R1": "CONFIRMED",
+    "R2": "CONFIRMED",
+    "R3": "CONFIRMED",
+    "R4": "CONFIRMED",
+    "R5": "CONFIRMED",
+    "R6": "CONFIRMED",
+    "R7": "FALSIFIED",
+    "R8": "CONFIRMED"
+   },
+   "expected": {
+    "R7": [
+     "FALSIFIED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R7": true
+   }
+  },
+  "N7": {
+   "summary": {
+    "R1": "CONFIRMED",
+    "R2": "CONFIRMED",
+    "R3": "CONFIRMED",
+    "R4": "CONFIRMED",
+    "R5": "CONFIRMED",
+    "R6": "CONFIRMED",
+    "R7": "CONFIRMED",
+    "R8": "FALSIFIED"
+   },
+   "expected": {
+    "R8": [
+     "FALSIFIED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R8": true
+   }
+  },
+  "N8": {
+   "summary": {
+    "R1": "FALSIFIED",
+    "R2": "FALSIFIED",
+    "R3": "FALSIFIED",
+    "R4": "FALSIFIED",
+    "R5": "FALSIFIED",
+    "R6": "FALSIFIED",
+    "R7": "FALSIFIED",
+    "R8": "FALSIFIED"
+   },
+   "expected": {
+    "R1": [
+     "FALSIFIED"
+    ],
+    "R2": [
+     "FALSIFIED"
+    ],
+    "R3": [
+     "FALSIFIED"
+    ],
+    "R4": [
+     "FALSIFIED"
+    ],
+    "R5": [
+     "FALSIFIED"
+    ],
+    "R6": [
+     "FALSIFIED"
+    ],
+    "R7": [
+     "FALSIFIED"
+    ],
+    "R8": [
+     "FALSIFIED"
+    ]
+   },
+   "ok": true,
+   "detail": {
+    "R1": true,
+    "R2": true,
+    "R3": true,
+    "R4": true,
+    "R5": true,
+    "R6": true,
+    "R7": true,
+    "R8": true
+   }
+  }
+ }
+}

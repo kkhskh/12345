@@ -47,3 +47,21 @@
 2026-11-15T09:00:01Z FG c_causal dev uP161:s:21 early01
 2026-11-15T09:11:02Z fair_fits dev stopped after 5 units (uP161 s22/s21/s23, uP160 s21/s23 complete in logs/fair_fits_dev.json; s20 units not needed)
 2026-11-15T09:11:03Z lane FF end [9dbd4135a40e] rc=143
+2026-11-15T09:11:45Z CONFIRMATION POPULATION declared and committed (9ec86d6); launching confirmation lane C (outputs not to be opened before the freeze).
+2026-11-15T09:11:45Z lane C1 start [68a51b4d4ff5] python3 scripts/ft_factorial.py uP161 20 20 23
+2026-11-15T09:13:57Z lane AN end [da6ffe290c57] rc=0
+2026-11-15T09:13:57Z lane AN start [583e31348966] B5_TAG=_dev python3 scripts/b5_residual.py uP161:s:22 uP160:s:21 uP161:s:21 uP160:s:23 uP161:s:23
+2026-11-15T09:20:42Z lane AN end [583e31348966] rc=0
+2026-11-15T09:20:42Z lane AN start [c34d8b1855c2] DD_TAG=_dev_sites DD_STEPS=200 DD_SITES=ROOS2,ALL2 python3 scripts/d_das.py uP160:s:21 uP161:s:22
+2026-11-15T09:24:24Z DESCOPED from development: FX_ORDER=2 python3 scripts/ft_factorial.py uP161 21 22 21 (the L2-vs-WA split is tested directly by confirmation cells C5/C6 with an a-priori prediction: L2 init carries the effect)
+2026-11-15T09:24:24Z DESCOPED from development: FX_ORDER=2 python3 scripts/ft_factorial.py uP161 22 21 21 (the L2-vs-WA split is tested directly by confirmation cells C5/C6 with an a-priori prediction: L2 init carries the effect)
+2026-11-15T09:29:58Z lane AN end [c34d8b1855c2] rc=0
+2026-11-15T10:01:19Z adapt3.py: added arms supG / supGFrozen (per-group supplied statistic) after dev showed supL2 (group-agnostic supplied m) fails (J slope 0.02). FG dev run on uP161:s:21 into logs/adapt3_dev_supG.
+2026-11-15T10:07:19Z lane C1 end [68a51b4d4ff5] rc=0
+2026-11-15T10:07:19Z lane C1 start [0b1499624279] python3 scripts/ft_factorial.py uP163 22 22 21
+2026-11-15T10:08:00Z lane AD end [3b8c70051118] rc=0
+2026-11-15T10:08:00Z lane AD start [f4de42d02a1e] AD_OUT=_dev python3 scripts/adapt3.py uP161:s:22
+2026-11-15T10:13:20Z lane A2 end [4db6432d95de] rc=0
+2026-11-15T10:13:45Z lane A1 end [24bc99109b9f] rc=0
+2026-11-15T10:14:03Z lane C2 start [6b56264596fa] python3 scripts/ft_factorial.py uP163 21 21 22
+2026-11-15T10:21:28Z PREDICTION FREEZE (R1-R8, scorer, preflight OK, analysis queue, hashes in logs/FREEZE_13C_HASHES.txt). Confirmation training outputs (C1 done; C3, C4 running) are excluded from this commit and have not been opened.

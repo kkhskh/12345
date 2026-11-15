@@ -1,0 +1,89 @@
+{
+ "model": "uP161_full_c1_s4000_seed21_eval_conf13@4000",
+ "beta": 0.6,
+ "steps": 1000,
+ "lr": 0.001,
+ "pairs": {
+  "J_DM": {
+   "n": 1767,
+   "exact_mean_abs": 0.8169726751838872
+  },
+  "J_D0": {
+   "n": 233,
+   "exact_mean_abs": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "n": 1200,
+   "exact_mean_abs": 0.0
+  }
+ },
+ "bayes_acc": 0.7921111111111111,
+ "native": {
+  "acc": 0.4688888888888889,
+  "KL": 0.8918434935469594,
+  "J_DM": {
+   "slope": -0.00021717580990397028,
+   "R2": 2.5343427739632496e-05,
+   "mean_abs_obs": 0.03967940807342529,
+   "mean_abs_pred": 0.8169726751838872
+  },
+  "J_D0": {
+   "mean_abs_obs": 0.036989975720644,
+   "mean_abs_exact": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "mean_abs_obs": 0.02267487160861492,
+   "mean_abs_exact": 0.0
+  },
+  "J_D0_over_DM_response": 0.932220955821604,
+  "DECOY_over_DM_response": 0.571451861546319
+ },
+ "supGFrozen": {
+  "acc": 0.5485,
+  "KL": 0.6441669345629024,
+  "J_DM": {
+   "slope": 0.14433836347522822,
+   "R2": 0.45241389043767544,
+   "mean_abs_obs": 0.1905817985534668,
+   "mean_abs_pred": 0.8169726751838872
+  },
+  "J_D0": {
+   "mean_abs_obs": 0.03728175535798073,
+   "mean_abs_exact": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "mean_abs_obs": 0.022757086902856827,
+   "mean_abs_exact": 0.0
+  },
+  "J_D0_over_DM_response": 0.1956207551872878,
+  "DECOY_over_DM_response": 0.11940850110338547,
+  "final_loss": 1.0908221006393433,
+  "frozen_params_unchanged": true,
+  "n_trainable": 192,
+  "sec": 413.7621395587921
+ },
+ "supG": {
+  "acc": 0.7865555555555556,
+  "KL": 0.0350492137188017,
+  "J_DM": {
+   "slope": 0.8017966009473688,
+   "R2": 0.8119891721391204,
+   "mean_abs_obs": 0.8039001226425171,
+   "mean_abs_pred": 0.8169726751838872
+  },
+  "J_D0": {
+   "mean_abs_obs": 0.0517616830766201,
+   "mean_abs_exact": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "mean_abs_obs": 0.02885451354086399,
+   "mean_abs_exact": 0.0
+  },
+  "J_D0_over_DM_response": 0.0643882014925849,
+  "DECOY_over_DM_response": 0.03589315728179728,
+  "final_loss": 0.45436030626296997,
+  "frozen_params_unchanged": true,
+  "n_trainable": 50240,
+  "sec": 848.5935983657837
+ }
+}

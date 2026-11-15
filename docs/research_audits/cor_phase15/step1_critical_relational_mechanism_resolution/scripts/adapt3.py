@@ -12,6 +12,10 @@ AD_STREAM + 100 beta, as XIII-B adapt2) and identical evaluation episodes.  Trai
              equal}; a trainable linear map E (3 -> 64, zero-init) adds E m/5 to resid2 at the readout token and the 6 source tokens of each q;
              layer 2 + readout trainable                                                                 [information-access test]
   supFrozen: same supplied m; ONLY E trainable (layer 2, readout frozen)                                 [can the frozen mixture use it?]
+  supG     : the same information in PER-GROUP format (added after development showed supL2 fails): at the six q-source tokens of group g,
+             features (m_{H(-g)}, m_{g,h_a}, m_{g,h_b})/5 where H(-g) is the pair NOT containing g (the exact posterior's log-weight of
+             "g reliable" is linear in m_{H(-g)}); linear map E (3 -> 64, zero-init); layer 2 + readout trainable
+  supGFrozen: per-group supplied features; ONLY E trainable (layer 2 and readout frozen)
   supDecoy : supplies a DECOY statistic of the same shape (raw first-source cross-equality counts at q' != q); layer 2 + readout trainable
 Evaluation (3000 fresh episodes x 6 q): acc, KL(exact || model) with xii_bayes.posterior_shared; J-pairs (XIII-B construction) split by whether the
 relabelling changes m (DM) or not (D0; exact change 0 by sufficiency); DECOY pairs: one source of a NON-self-agreeing group at q' != q moved to
@@ -67,6 +71,14 @@ ATT = ("g1", "b1", "WQ", "WK", "WV", "WO"); MLPK = ("g2", "b2", "W1", "c1", "W2"
 def attn_only(lay, x):
     z = F.N.ln(x, lay["g1"], lay["b1"]); qh = jnp.einsum("ntd,hde->nhte", z, lay["WQ"]); kh = jnp.einsum("ntd,hde->nhte", z, lay["WK"]); vh = jnp.einsum("ntd,hde->nhte", z, lay["WV"])
     a = jax.nn.softmax(jnp.einsum("nhte,nhse->nhts", qh, kh) / jnp.sqrt(qh.shape[-1]), -1); return x + jnp.einsum("nhte,hed->ntd", jnp.einsum("nhts,nhse->nhte", a, vh), lay["WO"])
+COMP = np.array([2, 1, 0]); WITH = np.array([[0, 1], [0, 2], [1, 2]])       # pair index NOT containing g; pairs containing g
+def group_feats(m):
+    """m (n,6,3) pair statistics -> per-group relative features (n,6,3 groups,3)."""
+    return np.stack([np.stack([m[..., COMP[g]], m[..., WITH[g][0]], m[..., WITH[g][1]]], -1) for g in range(3)], 2).astype(np.float32)
+def supply_add_g(t, x, mg):
+    v = (mg / 5.0) @ t["E"]                                                   # n,6(q),3(g),64
+    src = jnp.repeat(v, 2, axis=2).reshape(x.shape[0], 36, 64)               # token q*6 + s, s//2 = g
+    return x + jnp.concatenate([src, jnp.zeros((x.shape[0], 7, 64))], 1)
 def supply_add(t, x, m):
     """m (n,6,3) -> add (m/5) @ E at readout token 36+q and at the six source tokens of q."""
     v = (m / 5.0) @ t["E"]                                                    # n,6,64
@@ -76,7 +88,8 @@ def head(t, z, arm, m=None):
     x = z
     if arm == "preattn": x = attn_only(t["pre"], x)
     if arm == "pretok": x = x + (jax.nn.gelu(F.N.ln(x, t["pre"]["g"], t["pre"]["b"]) @ t["pre"]["W1"] + t["pre"]["c1"], approximate=True) @ t["pre"]["W2"])
-    if arm.startswith("sup"): x = supply_add(t, x, m)
+    if arm in ("supG", "supGFrozen"): x = supply_add_g(t, x, m)
+    elif arm.startswith("sup"): x = supply_add(t, x, m)
     x = F.block_heads(t["l2"], x, None, 2, None, None)
     if arm == "L2plus": x = F.block_heads(t["l3"], x, None, 3, None, None)
     return F.N.ln(x, t["gf"], t["bf"])[:, 36:42] @ t["WA"]
@@ -97,7 +110,8 @@ def labels_for(arm, t):
     lab = jax.tree_util.tree_map(lambda a: "freeze", t)
     def setall(k): lab[k] = jax.tree_util.tree_map(lambda a: "train", t[k])
     if arm in ("L2", "supL2", "supDecoy"): [setall(k) for k in ("l2", "gf", "bf", "WA")]
-    if arm in ("supL2", "supDecoy", "supFrozen"): setall("E")
+    if arm in ("supL2", "supDecoy", "supFrozen", "supG", "supGFrozen"): setall("E")
+    if arm == "supG": [setall(k) for k in ("l2", "gf", "bf", "WA")]
     if arm == "early01": setall("l0"); setall("l1")
     if arm == "L1only": setall("l1")
     if arm == "L0only": setall("l0")
@@ -107,8 +121,8 @@ def labels_for(arm, t):
 def ntrain(t, lab): return int(sum(np.prod(x.shape) for x, m in zip(jax.tree_util.tree_leaves(t), jax.tree_util.tree_leaves(lab)) if m == "train"))
 def logits_fn(t, arm):
     if arm in EARLY: f = jax.jit(lambda X_: full_logits(t, X_)); return lambda X_: np.concatenate([np.asarray(f(jnp.asarray(X_[i:i + 500]))) for i in range(0, len(X_), 500)])
-    f = jax.jit(lambda z, m: head(t, z, arm, m)); dec = arm == "supDecoy"
-    return lambda X_: np.concatenate([np.asarray(f(jnp.asarray(Z_[i:i + 500], jnp.float32), jnp.asarray(mm[i:i + 500]))) for Z_, mm in [(resid2(X_), mstat(X_, dec))] for i in range(0, len(X_), 500)])
+    f = jax.jit(lambda z, m: head(t, z, arm, m)); dec = arm == "supDecoy"; gf_ = arm in ("supG", "supGFrozen")
+    return lambda X_: np.concatenate([np.asarray(f(jnp.asarray(Z_[i:i + 500], jnp.float32), jnp.asarray(mm[i:i + 500]))) for Z_, mm in [(resid2(X_), group_feats(mstat(X_)) if gf_ else mstat(X_, dec))] for i in range(0, len(X_), 500)])
 def evaluate(t, arm):
     lf = logits_fn(t, arm); P = RP.sm(lf(Xe)); hit = P.argmax(-1) == Ye; kl = (P_true * (np.log(P_true + 1e-12) - np.log(P + 1e-12))).sum(-1)
     r = dict(acc=float(hit.mean()), KL=float(np.nanmean(kl)))
@@ -126,7 +140,7 @@ def train(arm):
         def lossf(tt, a, m, Y): lp = jax.nn.log_softmax(head(tt, a, arm, m), -1); return (-jnp.take_along_axis(lp, Y[..., None], -1)[..., 0]).mean()
     @jax.jit
     def step(tt, st, a, m, Y): l, g = jax.value_and_grad(lossf)(tt, a, m, Y); up, st = opt.update(g, st, tt); return optax.apply_updates(tt, up), st, l
-    r = np.random.default_rng(5); l = None; Ms = Mdp if arm == "supDecoy" else Mp
+    r = np.random.default_rng(5); l = None; Ms = Mdp if arm == "supDecoy" else (group_feats(Mp) if arm in ("supG", "supGFrozen") else Mp)
     for i in range(STEPS):
         j = r.integers(0, len(Xp), 256); a = jnp.asarray(Xp[j]) if arm in EARLY else jnp.asarray(Zp[j], jnp.float32)
         t, st, l = step(t, st, a, jnp.asarray(Ms[j]), jnp.asarray(Yp[j]))

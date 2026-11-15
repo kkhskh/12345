@@ -27,5 +27,6 @@ for rep, orig, sr, so in PAIRS:
     out[rep] = dict(common_steps=steps, max_abs_param_diff_per_step=per, bitwise_all_steps=all(v == 0.0 for v in per.values()),
                     final_acc=(fa["acc"], fb["acc"]), final_KL=(fa["KL"], fb["KL"]), loss_hist_points_compared=len(common), loss_hist_max_diff=loss_diff,
                     mechanistic={k: (ma[k], mb[k]) for k in ("lik_RO1", "mix_mass", "route_Q", "KL", "acc")})
+    json.dump(out, open(os.path.join(PKG, "logs", "determinism_check.json"), "w"), indent=1, default=float)
     print(rep, "bitwise all", out[rep]["bitwise_all_steps"], "n steps", len(steps), "final acc", out[rep]["final_acc"], "loss pts", len(common), loss_diff, flush=True)
 json.dump(out, open(os.path.join(PKG, "logs", "determinism_check.json"), "w"), indent=1, default=float)

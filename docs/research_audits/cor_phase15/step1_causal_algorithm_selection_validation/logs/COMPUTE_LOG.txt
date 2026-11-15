@@ -36,3 +36,101 @@
 2026-11-15T18:44:55Z DEVIATION (exposure): the 18:42Z monitoring grep of logs/run/*.out printed the C-C1 adaptation summary line (uP160 s23 early01: acc 0.791, KL 0.008, J_DM slope 0.996, R2 0.92, D0/DM 0.08, DEC/DM 0.03). This is the adaptation's training outcome (competence precondition), not any carrier measurement; no c_carrier output for C-C1/C-C2 exists. Recorded before freeze 2; monitoring greps now exclude confirmation lanes.
 2026-11-15T18:47:06Z lane B1 end [9d3ca556eb75] rc=0
 2026-11-15T18:47:06Z lane B1 start [c614e77c4df3] FX_SAVEOPT=1 FX_TAGSUF=_base python3 scripts/ft_factorial.py uP160 21 21 21
+2026-11-15T18:49:18Z FREEZE 2 committed+pushed 971f07f. Lane AC2 started on queue_f2A_train.txt (parallel second confirmation lane; skips claimed line 1). Lane FA2 started on queue_f2_analysis.txt.
+2026-11-15T18:49:18Z lane FA2 start [10749945b702] DD_TAG=2_f2 DD_STREAM=92700000 DD_STEPS=200 DD_SITES=ALLX2 DD_KS=8 python3 scripts/d_das2.py uP164:s:21 uP165:s:20
+2026-11-15T18:49:18Z lane AC2 start [588e9c4bf46f] python3 scripts/ft_factorial.py uP160 21 23 21
+2026-11-15T18:49:50Z DISCLOSURE (post-freeze, before any freeze-2 output): P6 row unit uP161 s20 was analysed by d_rows in XIII-C development (old scoring, logs of step1_critical_relational_mechanism_resolution/d_rows_dev.json); its TRUE-arm R2 was therefore known before freeze 2. The new E2 arms (SHUFD_vs_borrowed, tolerance NOOP) were not. Reported as a limitation of P6-rows independence.
+2026-11-15T18:50:34Z lane CAD end [e465fb9f86ea] rc=137
+2026-11-15T18:57:37Z lane FA2 end [10749945b702] rc=0
+2026-11-15T18:57:38Z lane FA2 start [594f46029019] DR_TAG=_f2 DR_STREAM=92600000 DR_NSTREAMS=1 python3 scripts/d_rows.py uP161:s:20 uP165:s:23
+2026-11-15T18:58:21Z lane DA end [56de80431989] rc=137
+2026-11-15T18:58:21Z lane DA start [3af5c83d5600] AD_OUT=_dev AD_ARMS=L0attn,L0mlp,L1attn,L1mlp python3 scripts/adapt4.py uP161:s:21
+2026-11-15T18:58:21Z lane FA2 end [594f46029019] rc=137
+2026-11-15T18:58:21Z lane FA2 start [1b35ffc6764e] E4_TAG=_f2 E4_STREAM=92800000 python3 scripts/e4_noninv.py uP164:s:22 uP163:s:20 uP160:s:20
+2026-11-15T18:58:43Z C-C2 adaptation (uP165 s21 early01, lane CAD [e465fb9f86ea]) was OOM-killed (rc=137) at 18:50:34Z after two lanes were added; no checkpoint written. Re-queued with inert AD_RETRY=1 prefix (same command) in lane CAD2. Development processes set to oom_score_adj=1000 so that the kernel kills development work first.
+2026-11-15T18:58:43Z lane CAD2 start [28851bfac179] AD_RETRY=1 AD_OUT=_carrier AD_ARMS=early01 python3 scripts/adapt4.py uP165:s:21
+2026-11-15T18:58:51Z lane A1 end [ff66787a1bb2] rc=0
+2026-11-15T18:58:51Z lane A1 start [aa8f3bef0c34] FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T18:59:06Z lane A2 end [a2c4932b1c6c] rc=0
+2026-11-15T18:59:06Z lane A2 start [6d8ea2bf01c0] FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T19:00:19Z lane DA end [3af5c83d5600] rc=137
+2026-11-15T19:00:19Z lane DA start [ef6a913287de] AD_OUT=_dev_s3000 AD_STEPS=3000 AD_ARMS=L1only python3 scripts/adapt4.py uP161:s:21
+2026-11-15T19:01:05Z lane A1 end [aa8f3bef0c34] rc=137
+2026-11-15T19:01:05Z lane A1 start [6190670ea9a0] FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T19:01:10Z lane A2 end [6d8ea2bf01c0] rc=137
+2026-11-15T19:01:10Z lane A2 start [efb80adac959] FX_STOP=1211 FX_WA=neg python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T19:01:18Z lane CAD2 end [28851bfac179] rc=137
+2026-11-15T19:03:09Z lane DA end [ef6a913287de] rc=137
+2026-11-15T19:04:56Z lane FA2 end [1b35ffc6764e] rc=0
+2026-11-15T19:04:56Z lane FA2 start [73fc3cdddaef] DT2_TAG=_f2 DT2_STREAM=92900000 python3 scripts/d_routes2.py uP165:s:20 uP163:s:22 uP164:s:21
+2026-11-15T19:11:17Z lane FA2 end [73fc3cdddaef] rc=0
+2026-11-15T19:11:17Z lane FA2 start [56078c89e056] bash scripts/when_file.sh checkpoints/adapt4_carrier/uP160_s_23_early01_b0.6_lr0.001.npz checkpoints/adapt4_carrier/uP165_s_21_early01_b0.6_lr0.001.npz -- 'CA_TAG=_f2 CA_STREAM=92200000 CA_CKDIR=adapt4_carrier python3 scripts/c_carrier.py uP160:s:23 && CA_TAG=_f2 CA_STREAM=92200000 CA_CKDIR=adapt4_carrier python3 scripts/c_carrier.py uP165:s:21'
+2026-11-15T19:11:38Z OOM CASCADE 18:58-19:03Z: killed (rc=137) dev adapt4 lr3 [56de80431989], dev adapt4 subcomponents [3af5c83d5600], dev adapt4 L1only s3000 [ef6a913287de], dev transforms perm120 [aa8f3bef0c34] and rot1 [6d8ea2bf01c0], and CONFIRMATION d_rows f2 [594f46029019] (no output file written) and C-C2 retry [28851bfac179]. Fix: lane.sh gains OOMADJ (development lanes 1000; negative values are not permitted in this container) and MEMMIN (wait for MemAvailable). Re-queued with inert *_RETRY prefixes: logs/queue_f2_retry.txt (lane FR, MEMMIN 1800) and logs/queue_dev_retry.txt (lane DR, OOMADJ 1000, MEMMIN 2600). Dev s3000 L1only descoped. Running dev lanes A1/A2 set to oom_score_adj 1000.
+2026-11-15T19:11:38Z lane FR start [7d9d5c4e2211] AD_RETRY=2 AD_OUT=_carrier AD_ARMS=early01 python3 scripts/adapt4.py uP165:s:21
+2026-11-15T19:11:41Z lane DR start [ab139b1fe450] FX_RETRY=1 FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T19:31:33Z determinism_check (run outside a lane at 19:0xZ) printed pair 1 (uP163 L21/W22/D21 replay: bitwise identical at all 24 common checkpoints, loss history identical) and then died with no output file; script now writes after each pair; re-queued at the end of lane FR, gated on the uP160 21 base replay.
+2026-11-15T19:37:54Z lane F1 end [e18e23f2b308] rc=0
+2026-11-15T19:37:54Z lane F1 start [094e1cb00d34] FX_INTERV=ro0:250 python3 scripts/ft_factorial.py uP160 21 21 21
+2026-11-15T19:40:54Z lane FR end [7d9d5c4e2211] rc=0
+2026-11-15T19:40:54Z lane FR start [3b5dc6ef7084] DR_RETRY=1 DR_TAG=_f2 DR_STREAM=92600000 DR_NSTREAMS=1 python3 scripts/d_rows.py uP161:s:20 uP165:s:23
+2026-11-15T19:43:01Z lane A2 end [efb80adac959] rc=137
+2026-11-15T19:43:01Z lane A1 end [6190670ea9a0] rc=137
+2026-11-15T19:43:01Z lane A1 start [1253fbf41530] FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T19:43:01Z lane A2 start [71427a29dcbf] FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T19:43:54Z lane FR end [3b5dc6ef7084] rc=0
+2026-11-15T19:43:54Z lane FR start [3036d9b4d93d] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_base -- python3 scripts/determinism_check.py
+2026-11-15T19:51:57Z dev transforms scale1.5 [6190670ea9a0] and neg [efb80adac959] OOM-killed (dev, oom_score_adj 1000, as designed); appended to queue_devA.txt with FX_RETRY=2 (resume from resume.pkl).
+2026-11-15T19:57:45Z lane FA2 end [56078c89e056] rc=0
+2026-11-15T19:57:45Z lane FA2 start [7fa9fdc58618] bash scripts/when_ready.sh uP161_fx_L21_W22_D21 uP161_fx_L22_W21_D22 uP160_fx_L21_W23_D21 uP160_fx_L23_W21_D23 -- UM_RHO=0 UM_STREAM=92100000 UM_TAG=_f2 UM_STEPS=final python3 scripts/unit_metrics.py uP161:fx:21:22:21 uP161:fx:22:21:22 uP160:fx:21:23:21 uP160:fx:23:21:23
+2026-11-15T20:02:25Z Dev scope for P5 reduced (XIII-C already has supG/supL2/L2 at lr 3e-3 and 3000 steps): lr-3e-3 arms supRO,supQS,L1only; subcomponents L0attn,L0mlp (L1attn/L1mlp descoped). Lane DR autogroup nice set 19->0 (dev is now on the freeze-3 critical path).
+2026-11-15T20:05:37Z lane F2 end [6f8018ca9d3f] rc=0
+2026-11-15T20:05:37Z lane F2 start [b092bfb98dc4] FX_INTERV=l2q:250 python3 scripts/ft_factorial.py uP160 23 23 23
+2026-11-15T20:20:49Z lane AC3 start [e16f584261df] FX_CONF=1 python3 scripts/ft_factorial.py uP161 22 21 22
+2026-11-15T20:20:51Z lane AC4 start [44e05fb2e80e] python3 scripts/ft_factorial.py uP160 23 21 23
+2026-11-15T20:20:53Z lane AC end [64532203ce23] rc=143
+2026-11-15T20:20:53Z lane AC start [44e05fb2e80e] 
+2026-11-15T20:20:53Z lane AC end [44e05fb2e80e] rc=0
+2026-11-15T20:20:56Z lane AC5 start [634aecd8422b] FX_CONF=1 python3 scripts/ft_factorial.py uP161 21 22 21
+2026-11-15T20:20:59Z Parallelised A-C confirmation runs to shorten the makespan: lanes AC3, AC4 on queue_f2A_train.txt (lines 3, 4); the when_ready gate of lane AC line 1 (A-C1) was killed (lane AC ends; A-C1 never started) and A-C1 re-queued as FX_CONF=1 (inert) in queue_f2A_train2.txt, lane AC5. Commands otherwise unchanged.
+2026-11-15T20:21:17Z ANOMALY: after its gate was killed, lane AC logged a start/end (rc=0, empty command text) with A-C4's claim key 44e05fb2e80e; no second process ran (verified with ps: one uP160 23 21 23 trainer, lane AC4). Side effect: logs/run/44e05fb2e80e.out (A-C4 stdout) was truncated once at 20:20:53Z; checkpoints/final.json of the run are unaffected.
+2026-11-15T20:30:50Z lane DU start [2c342636215d] UM_TAG=_fx_dev13d UM_RHO=0 UM_STEPS=final python3 scripts/unit_metrics.py uP163:fx:22:21:22 uP163:fx:21:22:21:rep
+2026-11-15T20:31:34Z lane A2 end [71427a29dcbf] rc=137
+2026-11-15T20:31:34Z lane A1 end [1253fbf41530] rc=137
+2026-11-15T20:31:34Z lane A2 start [644d2dd66d1c] FX_RETRY=2 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T20:31:34Z lane A1 start [c55bf7ca5fe7] FX_RETRY=2 FX_STOP=1211 FX_WA=neg python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T20:32:11Z lane DU end [2c342636215d] rc=137
+2026-11-15T20:38:21Z lane DR end [ab139b1fe450] rc=137
+2026-11-15T20:38:21Z lane DR start [b35b4119daf6] FX_RETRY=1 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T20:38:21Z lane A2 end [644d2dd66d1c] rc=137
+2026-11-15T20:38:22Z lane A2 start [c55bf7ca5fe7] 
+2026-11-15T20:38:22Z lane A2 end [c55bf7ca5fe7] rc=0
+2026-11-15T20:40:35Z lane B1 end [c614e77c4df3] rc=0
+2026-11-15T20:40:35Z lane B1 start [c614e77c4df3] 
+2026-11-15T20:40:35Z lane B1 end [c614e77c4df3] rc=0
+2026-11-15T20:41:36Z lane F3 start [f36b2a3d5e46] bash scripts/when_ready.sh uP160_fx_L23_W23_D23_base -- FX_INTERV=l2q:0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 python3 scripts/ft_factorial.py uP160 23 23 23
+2026-11-15T20:41:39Z lane F4 start [860474af5974] bash scripts/when_ready.sh uP160_fx_L21_W21_D21_base -- FX_INTERV=ro0:0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 python3 scripts/ft_factorial.py uP160 21 21 21
+2026-11-15T20:41:42Z lane DT start [e6f2a59de72b] FX_RETRY=3 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T20:41:44Z (1) OOM wave 20:31-20:38Z killed only development jobs (oom_score_adj 1000 as designed): transforms rot1/scale0.6 on uP161 21 (at step ~813), scale1.5 and perm120 on uP161 22, DU metrics. Re-queued (resumable) in queue_dev_transform2.txt, single dev lane DT. (2) ARTEFACT EXPLAINED: editing scripts/lane.sh at 19:11Z while lanes ran made each pre-existing lane, after its queue was exhausted, continue reading the edited file at a stale offset and execute one stray 'start/end' line with the previous key and an empty command (bash -c ''), truncating logs/run/<key>.out of the last job (A-C4 at 20:20:53Z, neg at 20:38:22Z, base-21 at 20:40:35Z). No job was run twice; only stdout logs were truncated; checkpoints unaffected. (3) uP160 21 base replay finished; lanes F3/F4 started on queue_f1_train.txt so that F1e/F1f (branches at 546) start now rather than after F1b/F1d.
+2026-11-15T20:41:47Z lane DR end [b35b4119daf6] rc=137
+2026-11-15T20:41:48Z lane DR start [3aee58e1f9ec] AD_RETRY=1 AD_OUT=_dev_lr3 AD_LR=0.003 AD_ARMS=supRO,supQS,L1only python3 scripts/adapt4.py uP161:s:21
+2026-11-15T20:41:48Z lane A1 end [c55bf7ca5fe7] rc=137
+2026-11-15T20:41:48Z lane A1 start [c55bf7ca5fe7] 
+2026-11-15T20:41:48Z lane A1 end [c55bf7ca5fe7] rc=0
+2026-11-15T20:41:53Z lane DT2 start [28575ddb612f] FX_RETRY=3 FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T20:42:32Z lane DT end [e6f2a59de72b] rc=137
+2026-11-15T20:42:33Z lane DT start [78d65e5a981f] FX_RETRY=3 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T20:42:42Z lane DT2 end [28575ddb612f] rc=137
+2026-11-15T20:42:42Z lane DR end [3aee58e1f9ec] rc=137
+2026-11-15T20:42:42Z lane DT2 start [bc6d0b43f694] FX_RETRY=3 FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T20:42:46Z lane DT end [78d65e5a981f] rc=137
+2026-11-15T20:43:10Z lane FR end [3036d9b4d93d] rc=137
+2026-11-15T20:44:13Z lane AC2 end [588e9c4bf46f] rc=0
+2026-11-15T20:44:13Z lane AC2 start [44e05fb2e80e] 
+2026-11-15T20:44:13Z lane AC2 end [44e05fb2e80e] rc=0
+2026-11-15T20:52:21Z lane DET start [dcdd15c9a762] DET_RETRY=2 python3 scripts/determinism_check.py
+2026-11-15T20:52:23Z determinism_check in lane FR OOM-killed (rc=137) before writing; re-run in lane DET (MEMMIN 2500). Lane AC2 stray-line artefact (see 20:41:44Z) truncated logs/run/588e9c4bf46f.out (A-C3 stdout) at 20:44:13Z; A-C3 finished rc=0 before that.
+2026-11-15T20:52:30Z lane DB5 start [33dccf73c8e0] B5_EARLY=1 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:20:20:23 uP161:fx:21:21:22 uP161:fx:22:22:21 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:21:22:21 uP163:fx:21:22:22 uP163:fx:22:21:21 uP163:fx:22:22:21 uP160:fx:23:23:23:base uP163:fx:22:21:22 uP160:s:21 uP160:s:23 uP161:s:21 uP161:s:22 uP161:s:23 uP161:s:20 uP160:s:20
+2026-11-15T20:58:48Z lane DET end [dcdd15c9a762] rc=0
+2026-11-15T21:03:17Z lane DV1 start [a54378e836c1] FX_RETRY=4 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T21:03:19Z lane DV2 start [da85fc58aea0] FX_RETRY=4 FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T21:03:21Z DEVELOPMENT LANES LOST: lanes with oom_score_adj 1000 (A1, DR, DT, DT2, DB5) were themselves OOM-killed together with their jobs between 20:58 and 21:02Z (no end lines). Full-length determinism finished (lane DET rc=0): all three 4000-step replays bitwise identical at every common checkpoint (24, 12, 12), loss history identical, final acc/KL and lik_RO1/mix_mass/route_Q identical. New scripts/lane2.sh applies OOMADJ to each job only; remaining development re-queued (resumable, RETRY=4 prefixes) in logs/queue_dev3.txt, lanes DV1/DV2.

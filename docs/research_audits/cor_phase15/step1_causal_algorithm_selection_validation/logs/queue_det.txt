@@ -1,0 +1,1 @@
+DET_RETRY=2 python3 scripts/determinism_check.py

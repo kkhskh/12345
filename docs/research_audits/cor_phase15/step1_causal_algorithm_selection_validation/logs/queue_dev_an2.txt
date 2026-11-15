@@ -1,0 +1,4 @@
+E4_TAG=_dev python3 scripts/e4_noninv.py uP161:s:22 uP160:s:21 uP161:s:21
+DR_TAG=_dev DR_NSTREAMS=1 python3 scripts/d_rows.py uP161:s:21 uP160:s:23
+DD_TAG=_dev DD_STEPS=200 DD_SITES=ALL2,ALLX2,ALLXQ2 DD_KS=8 python3 scripts/d_das2.py uP161:s:22 uP161:s:21
+DT2_TAG=_dev python3 scripts/d_routes2.py uP161:s:21 uP161:s:22

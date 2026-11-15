@@ -1,0 +1,4 @@
+FX_RETRY=3 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+FX_RETRY=3 FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+FX_RETRY=3 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 21 21 21
+FX_RETRY=3 FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22

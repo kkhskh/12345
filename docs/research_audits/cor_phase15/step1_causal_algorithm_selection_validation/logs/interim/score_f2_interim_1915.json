@@ -1,0 +1,275 @@
+{
+ "scored": {
+  "P1": {
+   "arms": [
+    {
+     "arm": "a:uP161:fx:21:22:21",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "a:uP161:fx:22:21:22",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "a:uP160:fx:21:23:21",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "a:uP160:fx:23:21:23",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P3": {
+   "arms": [
+    {
+     "arm": "uP160:s:23",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "uP165:s:21",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P4": {
+   "arms": [
+    {
+     "arm": "uP160:s:23",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "uP165:s:21",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P6": {
+   "arms": [
+    {
+     "arm": "elig:uP164:s:21",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "excess": 0.2253320962190628,
+      "R2": {
+       "E5": {
+        "E": 0.8726142743416165,
+        "A1": 0.86834963682205,
+        "A2": 0.6863577970541741,
+        "G": 0.46778045227391796
+       },
+       "E3": {
+        "E": 0.30227037852590966,
+        "A1": 0.30227037852590966,
+        "A2": 0.0007015452919836296,
+        "G": 0.3147801800092429
+       },
+       "QF5": {
+        "E": 0.912175129481648,
+        "A1": 0.38126598346312934,
+        "A2": 0.9049646105882753,
+        "G": 0.9037444150202516
+       },
+       "QF4": {
+        "E": 0.9374620675134899,
+        "A1": 0.9376410383352918,
+        "A2": 0.20753403778180268,
+        "G": 0.36764456057074846
+       }
+      }
+     }
+    },
+    {
+     "arm": "elig:uP165:s:20",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "excess": 0.131664477288723,
+      "R2": {
+       "E5": {
+        "E": 0.9607861168465648,
+        "A1": 0.9549977497464722,
+        "A2": 0.5861869942661551,
+        "G": 0.3683968859787158
+       },
+       "E3": {
+        "E": 0.7865933085395921,
+        "A1": 0.7865933085395921,
+        "A2": 8.768189027019702e-05,
+        "G": 0.5777390576041519
+       },
+       "QF5": {
+        "E": 0.8535627547764952,
+        "A1": 0.28640300333510116,
+        "A2": 0.8464547403771561,
+        "G": 0.8440457347418007
+       },
+       "QF4": {
+        "E": 0.6731668523142935,
+        "A1": 0.6730008405786254,
+        "A2": 0.13681788509195758,
+        "G": 0.24747421668457192
+       }
+      }
+     }
+    },
+    {
+     "arm": "uP161:s:20",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "uP165:s:23",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P7": {
+   "arms": [
+    {
+     "arm": "uP164:s:22",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "red": -0.06421271440216358,
+      "KL": [
+       0.00404859704019997,
+       0.0469168109614407
+      ]
+     }
+    },
+    {
+     "arm": "uP163:s:20",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "red": -1.5990983059181563,
+      "KL": [
+       0.004855346313445753,
+       0.10566779006451991
+      ]
+     }
+    },
+    {
+     "arm": "uP160:s:20",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "red": -0.07934370716816974,
+      "KL": [
+       0.004007275573342413,
+       0.02318869023911689
+      ]
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "P8": {
+   "arms": [
+    {
+     "arm": "mixture:uP165:s:20",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "interactions": {
+       "QR": 0.0379739833158767,
+       "QO": -0.002378495719697302,
+       "RO": -0.0044158242510827245
+      },
+      "single_open": {
+       "Q": 0.39007550834667204,
+       "R": 0.18440388326523074,
+       "O": 0.030896014431601428
+      }
+     }
+    },
+    {
+     "arm": "early:uP163:s:22",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "interactions": {
+       "QR": -0.011952760401312249,
+       "QO": -0.06827012558474022,
+       "RO": -0.007935421593432659
+      },
+      "single_open": {
+       "Q": 0.3910700658949175,
+       "R": 0.304591853537194,
+       "O": 0.37960500200683306
+      }
+     }
+    },
+    {
+     "arm": "early:uP164:s:21",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "interactions": {
+       "QR": 0.0006134018962424887,
+       "QO": -0.03586490009205322,
+       "RO": 0.007769629462406823
+      },
+      "single_open": {
+       "Q": 0.15549835258650074,
+       "R": 0.5053820264636586,
+       "O": 0.3186370157134666
+      }
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  }
+ },
+ "summary": {
+  "P1": "FALSIFIED",
+  "P3": "FALSIFIED",
+  "P4": "FALSIFIED",
+  "P6": "FALSIFIED",
+  "P7": "CONFIRMED",
+  "P8": "CONFIRMED"
+ }
+}

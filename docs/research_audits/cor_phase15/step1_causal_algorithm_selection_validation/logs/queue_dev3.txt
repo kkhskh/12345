@@ -1,0 +1,9 @@
+FX_RETRY=4 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+FX_RETRY=4 FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+FX_RETRY=4 FX_STOP=1211 FX_WA=neg python3 scripts/ft_factorial.py uP161 22 22 22
+FX_RETRY=4 FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22
+B5_RETRY=4 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:20:20:23 uP161:fx:21:21:22 uP161:fx:22:22:21 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:21:22:21 uP163:fx:21:22:22 uP163:fx:22:21:21 uP163:fx:22:22:21 uP160:fx:23:23:23:base uP163:fx:22:21:22 uP160:s:21 uP160:s:23 uP161:s:21 uP161:s:22 uP161:s:23 uP161:s:20 uP160:s:20
+AD_RETRY=4 AD_OUT=_dev_lr3 AD_LR=0.003 AD_ARMS=supRO,supQS,L1only python3 scripts/adapt4.py uP161:s:21
+AD_RETRY=4 AD_OUT=_dev AD_ARMS=L0attn,L0mlp python3 scripts/adapt4.py uP161:s:21
+FX_RETRY=4 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 21 21 21
+FX_RETRY=4 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 22 22 22

@@ -1,1 +1,5 @@
 CA_TAG=_dev python3 scripts/c_carrier.py uP161:s:21
+AD_OUT=_dev AD_ARMS=supRO,supQS,supL2,supG python3 scripts/adapt4.py uP161:s:21
+AD_OUT=_dev_lr3 AD_LR=0.003 AD_ARMS=supRO,supQS,supL2,supG,L2,L1only python3 scripts/adapt4.py uP161:s:21
+AD_OUT=_dev AD_ARMS=L0attn,L0mlp,L1attn,L1mlp python3 scripts/adapt4.py uP161:s:21
+AD_OUT=_dev_s3000 AD_STEPS=3000 AD_ARMS=L1only python3 scripts/adapt4.py uP161:s:21

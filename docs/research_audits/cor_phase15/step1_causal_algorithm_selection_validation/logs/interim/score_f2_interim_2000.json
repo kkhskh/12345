@@ -1,0 +1,403 @@
+{
+ "scored": {
+  "P1": {
+   "arms": [
+    {
+     "arm": "a:uP161:fx:21:22:21",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "a:uP161:fx:22:21:22",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "a:uP160:fx:21:23:21",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    },
+    {
+     "arm": "a:uP160:fx:23:21:23",
+     "diagnostic": true,
+     "passed": null,
+     "missing": true,
+     "detail": "missing"
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P3": {
+   "arms": [
+    {
+     "arm": "uP160:s:23:a sufficiency beyond source-free",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "suff": 0.9026470706560339,
+      "srcf": 0.5874300815290515
+     }
+    },
+    {
+     "arm": "uP160:s:23:b null preservation",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "D0": 0.05626378580927849,
+      "DEC": 0.026368239894509315
+     }
+    },
+    {
+     "arm": "uP160:s:23:c encoding vs decoding",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "enc": 0.845758322584378,
+      "dec": -0.001270065565596179
+     }
+    },
+    {
+     "arm": "uP160:s:23:d content",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "m": 0.7644611278956026,
+      "logr": 0.800425683666037
+     }
+    },
+    {
+     "arm": "uP160:s:23:e trace",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "qk": 0.9636101722717285,
+      "values": 0.03024142049252987,
+      "corr": [
+       0.9293074717545999,
+       0.9320604115271768
+      ]
+     }
+    },
+    {
+     "arm": "uP165:s:21:a sufficiency beyond source-free",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "suff": 0.8210497019786578,
+      "srcf": 0.5863620914613519
+     }
+    },
+    {
+     "arm": "uP165:s:21:b null preservation",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "D0": 0.0895187109708786,
+      "DEC": 0.05702557414770126
+     }
+    },
+    {
+     "arm": "uP165:s:21:c encoding vs decoding",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "enc": 0.7636343002394544,
+      "dec": 0.03322459372801448
+     }
+    },
+    {
+     "arm": "uP165:s:21:d content",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "m": 0.6981497867735844,
+      "logr": 0.6789951888222557
+     }
+    },
+    {
+     "arm": "uP165:s:21:e trace",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "qk": 0.9384024739265442,
+      "values": 0.001499408739618957,
+      "corr": [
+       0.8177523443764968,
+       0.8303519228505912
+      ]
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "P4": {
+   "arms": [
+    {
+     "arm": "uP160:s:23:a natural-donor necessity",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "das": 0.05904355644137893,
+      "rand": 0.9666597216712367
+     }
+    },
+    {
+     "arm": "uP160:s:23:b synthetic ablation is not specific",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "damage": 0.5692322254180908
+     }
+    },
+    {
+     "arm": "uP165:s:21:a natural-donor necessity",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "das": 0.03820419060320599,
+      "rand": 0.7903377681794881
+     }
+    },
+    {
+     "arm": "uP165:s:21:b synthetic ablation is not specific",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "damage": 0.5091304183006287
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "P6": {
+   "arms": [
+    {
+     "arm": "elig:uP164:s:21",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "excess": 0.2253320962190628,
+      "R2": {
+       "E5": {
+        "E": 0.8726142743416165,
+        "A1": 0.86834963682205,
+        "A2": 0.6863577970541741,
+        "G": 0.46778045227391796
+       },
+       "E3": {
+        "E": 0.30227037852590966,
+        "A1": 0.30227037852590966,
+        "A2": 0.0007015452919836296,
+        "G": 0.3147801800092429
+       },
+       "QF5": {
+        "E": 0.912175129481648,
+        "A1": 0.38126598346312934,
+        "A2": 0.9049646105882753,
+        "G": 0.9037444150202516
+       },
+       "QF4": {
+        "E": 0.9374620675134899,
+        "A1": 0.9376410383352918,
+        "A2": 0.20753403778180268,
+        "G": 0.36764456057074846
+       }
+      }
+     }
+    },
+    {
+     "arm": "elig:uP165:s:20",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "excess": 0.131664477288723,
+      "R2": {
+       "E5": {
+        "E": 0.9607861168465648,
+        "A1": 0.9549977497464722,
+        "A2": 0.5861869942661551,
+        "G": 0.3683968859787158
+       },
+       "E3": {
+        "E": 0.7865933085395921,
+        "A1": 0.7865933085395921,
+        "A2": 8.768189027019702e-05,
+        "G": 0.5777390576041519
+       },
+       "QF5": {
+        "E": 0.8535627547764952,
+        "A1": 0.28640300333510116,
+        "A2": 0.8464547403771561,
+        "G": 0.8440457347418007
+       },
+       "QF4": {
+        "E": 0.6731668523142935,
+        "A1": 0.6730008405786254,
+        "A2": 0.13681788509195758,
+        "G": 0.24747421668457192
+       }
+      }
+     }
+    },
+    {
+     "arm": "rows:uP161:s:20",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "TRUE": 0.8983717545295072,
+      "SHUFD": 0.013855501448623353,
+      "borrowed": 0.002629017957888724,
+      "noop": 9.5367431640625e-07
+     }
+    },
+    {
+     "arm": "rows:uP165:s:23",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "TRUE": 0.9105795360490687,
+      "SHUFD": 0.014025277808236147,
+      "borrowed": 0.001369524833143676,
+      "noop": 7.152557373046875e-07
+     }
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P7": {
+   "arms": [
+    {
+     "arm": "uP164:s:22",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "red": -0.06421271440216358,
+      "KL": [
+       0.00404859704019997,
+       0.0469168109614407
+      ]
+     }
+    },
+    {
+     "arm": "uP163:s:20",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "red": -1.5990983059181563,
+      "KL": [
+       0.004855346313445753,
+       0.10566779006451991
+      ]
+     }
+    },
+    {
+     "arm": "uP160:s:20",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "red": -0.07934370716816974,
+      "KL": [
+       0.004007275573342413,
+       0.02318869023911689
+      ]
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "P8": {
+   "arms": [
+    {
+     "arm": "mixture:uP165:s:20",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "interactions": {
+       "QR": 0.0379739833158767,
+       "QO": -0.002378495719697302,
+       "RO": -0.0044158242510827245
+      },
+      "single_open": {
+       "Q": 0.39007550834667204,
+       "R": 0.18440388326523074,
+       "O": 0.030896014431601428
+      }
+     }
+    },
+    {
+     "arm": "early:uP163:s:22",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "interactions": {
+       "QR": -0.011952760401312249,
+       "QO": -0.06827012558474022,
+       "RO": -0.007935421593432659
+      },
+      "single_open": {
+       "Q": 0.3910700658949175,
+       "R": 0.304591853537194,
+       "O": 0.37960500200683306
+      }
+     }
+    },
+    {
+     "arm": "early:uP164:s:21",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "interactions": {
+       "QR": 0.0006134018962424887,
+       "QO": -0.03586490009205322,
+       "RO": 0.007769629462406823
+      },
+      "single_open": {
+       "Q": 0.15549835258650074,
+       "R": 0.5053820264636586,
+       "O": 0.3186370157134666
+      }
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  }
+ },
+ "summary": {
+  "P1": "FALSIFIED",
+  "P3": "CONFIRMED",
+  "P4": "CONFIRMED",
+  "P6": "FALSIFIED",
+  "P7": "CONFIRMED",
+  "P8": "CONFIRMED"
+ }
+}

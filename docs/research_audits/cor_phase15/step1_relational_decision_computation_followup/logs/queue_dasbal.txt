@@ -1,0 +1,7 @@
+DB_TAG=_dev python3 scripts/das_bal.py uP161:full_c1:20:_eval_conf13
+DB_TAG=_dev python3 scripts/das_bal.py uP160:full_c1:20:_eval_conf13
+DB_TAG=_dev python3 scripts/das_bal.py uP165:full_c1:20:_eval_conf13
+DB_TAG=_dev python3 scripts/das_bal.py uP163:full_c1:20:_eval_conf13
+DB_TAG=_dev python3 scripts/das_bal.py uP164:full_c1:20:_eval_conf13
+DB_TAG=_dev python3 scripts/das_bal.py uP160:full_c1:20:_eval_conf13 # retry
+DB_TAG=_dev python3 scripts/das_bal.py uP163:full_c1:20:_eval_conf13 # retry

@@ -134,3 +134,48 @@
       preflight null units are author-written numbers (scorer-logic check only).
   AQ1 aggregation rule appended to logs/ADDENDUM_A1.md now, before its output is opened.
   Also: dev adapt2 uP161 beta=1.0 OOM-killed again (rc=137, 02:54); traj_resp OOM (rc=137) -- both to be retried after confirmation.
+2026-11-15T03:05:59Z lane K3 end [b1933b9fafd6] rc=0
+2026-11-15T03:05:59Z lane K3 start [f63c4e7fda60] while [ ! -f checkpoints/native_train/uP165_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; CF_STREAM=79000000 CF_TAG=_conf13b_P165 python3 scripts/class_features.py uP165:full_c1:21:_eval_conf13
+2026-11-15T03:06:30Z lane K3 end [f63c4e7fda60] rc=0
+2026-11-15T03:06:30Z lane K3 start [f67902e2f3f5] while [ ! -f checkpoints/native_train/uP165_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; FF_STREAM=79100000 FF_TAG=_conf13b_P165 python3 scripts/fit_family.py uP165:full_c1:21:_eval_conf13
+2026-11-15T03:06:47Z lane K3 end [f67902e2f3f5] rc=0
+2026-11-15T03:06:47Z lane K3 start [2f40a18ead41] while [ ! -f checkpoints/native_train/uP165_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; L2C_STREAM=79200000 L2C_TAG=_conf13b_P165 python3 scripts/l2_components.py uP165:full_c1:21:_eval_conf13
+2026-11-15T03:08:03Z lane K3 end [2f40a18ead41] rc=0
+2026-11-15T03:08:03Z lane K3 start [a2a2781b6d95] while [ ! -f checkpoints/native_train/uP165_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_conf13b python3 scripts/das_bal.py uP165:full_c1:21:_eval_conf13
+2026-11-15T03:14:29Z lane K1 end [6988c9cccc32] rc=0
+2026-11-15T03:14:29Z lane K1 start [fa94c8f338cb] while [ ! -f checkpoints/native_train/uP165_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; AD_BETA=0.6 AD_CONDS=full,early01 AD_STREAM=79500000 AD_OUT=_conf13b python3 scripts/adapt2.py uP165:full_c1:21:_eval_conf13
+2026-11-15T03:20:56Z lane K3 end [a2a2781b6d95] rc=0
+2026-11-15T03:20:56Z lane K3 start [0ef89fd9b2b1] while [ ! -f checkpoints/native_train/uP160_full_c1_s4000_seed21_eval_conf13/final.json ] || [ ! -f checkpoints/native_train/uP161_full_c1_s4000_seed21_eval_conf13/final.json ] || [ ! -f checkpoints/native_train/uP163_full_c1_s4000_seed21_eval_conf13/final.json ] || [ ! -f checkpoints/native_train/uP164_full_c1_s4000_seed21_eval_conf13/final.json ] || [ ! -f checkpoints/native_train/uP165_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; python3 scripts/algorithm_discrimination.py logs/eval_13b.npz uP160:full_c1:21:_eval_conf13 uP161:full_c1:21:_eval_conf13 uP163:full_c1:21:_eval_conf13 uP164:full_c1:21:_eval_conf13 uP165:full_c1:21:_eval_conf13 && mv logs/algdisc_eval_13b.json logs/algdisc_conf13b.json
+2026-11-15T03:21:02Z SCHEDULING: extra lane K4 on queue_conf13b_K2
+2026-11-15T03:21:02Z lane K4 start [e591b8046fb0] while [ ! -f checkpoints/native_train/uP164_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; CF_STREAM=79000000 CF_TAG=_conf13b_P164 python3 scripts/class_features.py uP164:full_c1:21:_eval_conf13
+2026-11-15T03:21:45Z lane K4 end [e591b8046fb0] rc=0
+2026-11-15T03:21:45Z lane K4 start [f3551ed57532] while [ ! -f checkpoints/native_train/uP164_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; FF_STREAM=79100000 FF_TAG=_conf13b_P164 python3 scripts/fit_family.py uP164:full_c1:21:_eval_conf13
+2026-11-15T03:22:06Z lane K4 end [f3551ed57532] rc=0
+2026-11-15T03:22:06Z lane K4 start [1caecb5d68fc] while [ ! -f checkpoints/native_train/uP164_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; L2C_STREAM=79200000 L2C_TAG=_conf13b_P164 python3 scripts/l2_components.py uP164:full_c1:21:_eval_conf13
+2026-11-15T03:22:07Z lane K3 end [0ef89fd9b2b1] rc=0
+2026-11-15T03:22:21Z lane K4 end [1caecb5d68fc] rc=0
+2026-11-15T03:22:21Z lane K4 start [477053d27739] while [ ! -f checkpoints/native_train/uP164_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_conf13b python3 scripts/das_bal.py uP164:full_c1:21:_eval_conf13
+2026-11-15T03:31:53Z lane CB end [4a05210aa4c2] rc=0
+2026-11-15T03:33:39Z lane K2 end [36e6219e460c] rc=0
+2026-11-15T03:33:39Z lane K2 start [81f1d2da231e] while [ ! -f checkpoints/native_train/uP164_full_c1_s4000_seed21_eval_conf13/final.json ]; do sleep 30; done; AD_BETA=0.6 AD_CONDS=full,early01 AD_STREAM=79500000 AD_OUT=_conf13b python3 scripts/adapt2.py uP164:full_c1:21:_eval_conf13
+2026-11-15T03:33:46Z lane K4 end [477053d27739] rc=0
+2026-11-15T03:38:52Z lane K1 end [fa94c8f338cb] rc=0
+2026-11-15T03:40:32Z lane B1 start [a86522067416] AD_BETA=1.0 AD_CONDS=early01,full AD_OUT=_b1 python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13
+2026-11-15T03:40:32Z lane DV4 start [97891a6021a7] TR_TAG=_dev python3 scripts/traj_resp.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13
+2026-11-15T03:43:45Z lane K2 end [81f1d2da231e] rc=0
+2026-11-15T03:48:11Z lane DV4 end [97891a6021a7] rc=0
+2026-11-15T03:51:03Z lane B1 end [a86522067416] rc=0
+2026-11-15T03:51:03Z lane B1 start [f50caf999c78] AD_BETA=1.0 AD_CONDS=early01,full AD_OUT=_b1 python3 scripts/adapt2.py uP160:full_c1:20:_eval_conf13
+2026-11-15T03:58:57Z lane B1 end [f50caf999c78] rc=0
+2026-11-15T04:06:48Z POST-HOC (review 3, not frozen): das_bal_site.py at site ro_os (readout + all source tokens) for seed-21 uP160, uP164 (early) and uP161 (late)
+2026-11-15T04:06:48Z lane PH1 start [5c3003123213] DB_SITE=ro_os DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_posthoc python3 scripts/das_bal_site.py uP160:full_c1:21:_eval_conf13
+2026-11-15T04:07:15Z POST-HOC (review 3): l2_decomp_all.py (class-agnostic layer-2 Shapley: rows, values at RO/QS/OS, MLP, skip) on seed-20 and seed-21 models
+2026-11-15T04:12:21Z lane PH1 end [5c3003123213] rc=0
+2026-11-15T04:12:21Z lane PH1 start [7acbd061c7fa] DB_SITE=ro_os DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_posthoc python3 scripts/das_bal_site.py uP164:full_c1:21:_eval_conf13
+2026-11-15T04:17:29Z lane PH1 end [7acbd061c7fa] rc=0
+2026-11-15T04:17:29Z lane PH1 start [2a32843d5ba1] DB_SITE=ro_os DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_posthoc python3 scripts/das_bal_site.py uP161:full_c1:21:_eval_conf13
+2026-11-15T04:22:30Z lane PH1 end [2a32843d5ba1] rc=0
+2026-11-15T04:28:20Z EXPLORATORY (post-freeze): fine-tuning seed 22 for uP163, uP164 (the two parents that moved class under seed 21) and uP161 (routing shift), followed by class_features and fit_powermean on new streams
+2026-11-15T04:28:20Z lane S22_164 start [2402b4c02639] python3 scripts/native_train.py uP164 full_c1 4000 22 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed22_P164 python3 scripts/class_features.py uP164:full_c1:22:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed22_P164 python3 scripts/fit_powermean.py uP164:full_c1:22:_eval_conf13
+2026-11-15T04:28:20Z lane S22_161 start [3dc387b21b99] python3 scripts/native_train.py uP161 full_c1 4000 22 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed22_P161 python3 scripts/class_features.py uP161:full_c1:22:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed22_P161 python3 scripts/fit_powermean.py uP161:full_c1:22:_eval_conf13
+2026-11-15T04:28:20Z lane S22_163 start [ca856e8195f1] python3 scripts/native_train.py uP163 full_c1 4000 22 label logs/eval_conf13.npz && CF_STREAM=79800000 CF_TAG=_seed22_P163 python3 scripts/class_features.py uP163:full_c1:22:_eval_conf13 && FP_STREAM=79900000 FP_TAG=_seed22_P163 python3 scripts/fit_powermean.py uP163:full_c1:22:_eval_conf13

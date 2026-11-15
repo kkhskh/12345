@@ -12,6 +12,39 @@ Results under the strict rule:
 - uP164: {0}. With this script's share estimate uP164 passes (0.2); XIII's estimate was 0.199. Its own stream gives the difference.
   Predictions Q4–Q6 therefore condition on the *continuous* readout signature rather than on this threshold.
 
+
+> **Corrections after independent review 3** (`reviews/REVIEW_3_MECH.md`; see `reviews/ADJUDICATION.md`). Where the text below conflicts
+> with these, the corrections govern.
+> 1. **"E-based" means agreement-at-q-gated.** The D1/D2 edits separate E from A1 but not from the threshold-4 rule A2: distance
+>    differences are ≤ 0.011.
+> 2. **The ρ result is a robust class marker of the input-output law, but "a different combination operator" is one of several equivalent
+>    readings.**
+>    - The power mean is algebraically identical to tempered per-group evidence followed by output re-sharpening.
+>    - A lapse floor moves ρ from 0.57 to 0.67 in uP160.
+>    - ρ explains only about 15% of the early class's misfit relative to the mixture.
+>    - Pure temperature and output saturation are ruled out.
+>    - Bootstrap intervals for ρ exclude both 0 and 1 in the early class.
+> 3. **"Combined mostly by the layer-2 MLP" is not identified.** Freezing components shows only that they lie on the serial path. In early
+>    units, 40–54% of the relational effect at the layer-2 input sits on *other-question* source tokens and is read by layer-2 attention.
+>    That route is in addition to the readout-token route.
+> 4. **Class inheritance is partial.** Under one new seed, 2 of 5 parents moved by more than 0.3 in lik_RO1: uP163 early → hybrid, and uP164
+>    hybrid → early. "uP164 is a hybrid" holds only for seed 20.
+> 5. **Routing proportions vary with the fine-tuning seed within the mixture class** (uP161: route_R 0.28 → 0.61). The "categorical routing
+>    law" is withdrawn. Q3b and Q4c are one event: route-Q necessity in uP161 seed 21. The Q3b miss (0.38 vs 0.4) is within stream-to-stream
+>    noise (0.42 and 0.45 on two other streams).
+> 6. **Decoy limits.**
+>    - The "contribution-matched" TOP decoy had a direct-logit share of 0.01 or less in seed 21, and in uP161 seed 21 it is the same head as
+>      LOW. So in confirmation it is matched for row-change magnitude, not for contribution.
+>    - The MEAN decoy averages rows across different q positions, so it is off-distribution.
+>    - Restoration with the rows adds nothing beyond showing the rows are sufficient carriers.
+> 7. **Q5 site coverage.**
+>    - The 7-token DAS site carries only 0.49–0.57 of the relational effect in early-readout units, against 0.94–1.00 in late units.
+>    - The das_bal target includes the model's own deviation from Bayes on base episodes. Re-scored against the Bayes-to-Bayes change, the
+>      saved E subspaces give 0.49 (uP160) and 0.20 (uP164).
+>    - So **Q5a's falsification reflects site and target choice, not evidence against E** in early-readout models.
+> 8. **The "NOOP" row in das_bal is not a no-op.** QR of a 1e-9 matrix is an orthonormal basis, so that row patches an arbitrary subspace,
+>    in effect a second random control.
+
 ## B5. Why XIII's mediator explained only 25–33%
 
 XIII's TRUE factorial compared xP with xAP. Those cells differ **at q** (the edited group's agreement at q), so the measured total effect
@@ -112,6 +145,25 @@ discriminating pairs only. Each cell gives fid_E / fid_A1:
 - E/A1 subspace principal cosines are 0.77–0.80, 0.75–0.79, 0.45–0.50, 0.32, ≤ 0.12, so the subspaces still partially overlap.
 - Pre-assembled (early-readout) models: see FROZEN_CONFIRMATION, and the development rows added there once the OOM-killed runs were
   repeated.
+
+## B2-post. Post-hoc site test (`scripts/das_bal_site.py`, review 3)
+
+The balanced DAS was rerun with the subspace spanning the readout token **and all 36 source tokens** (site ro_os, k = 6, same budget,
+seed-21 units). Cells give fid_E / fid_A1:
+
+| unit | E-trained, q7 site (frozen) | E-trained, ro_os site | source-free E | A1-trained (fid_A1) | source-free A1 (fid_A1) |
+|---|---|---|---|---|---|
+| uP160 (early) | 0.38 / 0.06 | 0.42 / 0.04 | 0.01 | 0.67 | 0.87 |
+| uP164 (early) | 0.13 / 0.08 | 0.18 / 0.08 | 0.01 | 0.71 | 0.86 |
+| uP161 (late) | 0.77 / 0.01 | 0.59 / 0.07 | 0.01 | 0.64 | 0.92 |
+
+- Widening the site does **not** rescue E identification in early-readout models.
+- In the late model, the wider site is *harder* to fit at the same budget.
+- So in early-readout models a 6-dimensional linear E abstraction at the layer-2 input is weakly identifiable at either site. This fits
+  their distributed layer-2 combination (§2b of ALTERNATIVE).
+- Behaviourally these models still follow agreement-at-q-gated eligibility.
+- A1 is reproduced by source-free patches in all three units.
+- Status: post-hoc, exploratory.
 
 ## B4. Partial and resampling ablations
 

@@ -1,0 +1,445 @@
+{
+ "units": [
+  "uP160:NULLDECOYALL:21:_x"
+ ],
+ "sfx": "_null13b",
+ "predictions": {
+  "Q1": {
+   "units": [
+    "uP160:NULLDECOYALL:21:_x"
+   ],
+   "filter_values": {
+    "uP160:NULLDECOYALL:21:_x": true
+   },
+   "arms": {
+    "a": {
+     "text": "MIX test R^2 >= 0.97 and exceeds POE by >= 0.10",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "diagnostic": true,
+     "failed_units": []
+    },
+    "b": {
+     "text": "on D1 and D2 the response is closest to the E-based rule: distance to B <= 0.35 and to A1 >= 0.8",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "diagnostic": true,
+     "failed_units": []
+    }
+   },
+   "verdict": "confirmed",
+   "failed_arms": [],
+   "non_diagnostic_arms": []
+  },
+  "Q2": {
+   "units": [
+    "uP160:NULLDECOYALL:21:_x"
+   ],
+   "filter_values": {
+    "uP160:NULLDECOYALL:21:_x": true
+   },
+   "arms": {
+    "a": {
+     "text": "early parents (P160, P163): lik_RO1 >= 0.7 and mix_mass < 0.5; late parents (P161, P165): lik_RO1 <= 0.2 and mix_mass >= 0.8",
+     "status": "fail",
+     "k": 0,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "diagnostic": false,
+     "failed_units": [
+      "uP160:NULLDECOYALL:21:_x"
+     ]
+    }
+   },
+   "verdict": "falsified",
+   "failed_arms": [
+    "a"
+   ],
+   "non_diagnostic_arms": []
+  },
+  "Q3": {
+   "units": [
+    "uP160:NULLDECOYALL:21:_x"
+   ],
+   "filter_values": {
+    "uP160:NULLDECOYALL:21:_x": true
+   },
+   "arms": {
+    "a": {
+     "text": "relational transfer from the edited group's layer-0 outputs >= 0.8 (all units)",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "diagnostic": true,
+     "failed_units": []
+    },
+    "b": {
+     "text": "late-readout units (lik_RO1 <= 0.2): route_Q >= 0.4",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "diagnostic": true,
+     "failed_units": []
+    },
+    "c": {
+     "text": "early-readout units (lik_RO1 >= 0.7): route_Q <= 0.3 and route_R >= 0.2",
+     "status": "inconclusive",
+     "k": 0,
+     "n": 0,
+     "units": {},
+     "missing": [],
+     "null_values": {},
+     "diagnostic": true,
+     "failed_units": []
+    }
+   },
+   "verdict": "inconclusive",
+   "failed_arms": [],
+   "non_diagnostic_arms": []
+  },
+  "Q4": {
+   "units": [
+    "uP160:NULLDECOYALL:21:_x"
+   ],
+   "filter_values": {
+    "uP160:NULLDECOYALL:21:_x": true
+   },
+   "arms": {
+    "a": {
+     "text": "Shapley share of the mixture rows in the EA family >= 0.5",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": null,
+     "diagnostic": null,
+     "failed_units": []
+    },
+    "b": {
+     "text": "mixture rows alone proj >= 0.6 while the contribution-matched (TOP) and magnitude-matched (MAG) decoy rows give proj <= 0.3",
+     "status": "fail",
+     "k": 0,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "diagnostic": false,
+     "failed_units": [
+      "uP160:NULLDECOYALL:21:_x"
+     ]
+    },
+    "c": {
+     "text": "removal of the layer-1 route removes >= 0.4 of the effect; intact mixture rows restore proj >= 0.85 with fid_E R^2 >= 0.85; no decoy restoration (LOW/TOP/MAG) exceeds the removed level by > 0.15",
+     "status": "fail",
+     "k": 0,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "diagnostic": false,
+     "failed_units": [
+      "uP160:NULLDECOYALL:21:_x"
+     ]
+    },
+    "d": {
+     "text": "E vs A1 (P0 family): transplanted and restoring mixture rows follow E: fid_E - fid_A1 >= 0.5 for both",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "diagnostic": true,
+     "failed_units": []
+    },
+    "e": {
+     "text": "an unrelated likelihood-edit effect is preserved under removal + restoration (slope in [0.8, 1.2])",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": null,
+     "diagnostic": null,
+     "failed_units": []
+    }
+   },
+   "verdict": "falsified",
+   "failed_arms": [
+    "b",
+    "c"
+   ],
+   "non_diagnostic_arms": []
+  },
+  "Q5": {
+   "units": [
+    "uP160:NULLDECOYALL:21:_x"
+   ],
+   "filter_values": {
+    "uP160:NULLDECOYALL:21:_x": true
+   },
+   "arms": {
+    "a": {
+     "text": "E-trained subspace: fid_E R^2 >= 0.4 and fid_E - fid_A1 >= 0.3",
+     "status": "fail",
+     "k": 0,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "diagnostic": true,
+     "failed_units": [
+      "uP160:NULLDECOYALL:21:_x"
+     ]
+    },
+    "b": {
+     "text": "the E effect needs source information: source-free E-subspace patch fid_E R^2 <= 0.2",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": null,
+     "diagnostic": null,
+     "failed_units": []
+    },
+    "c": {
+     "text": "the A1-trained subspace fits A1 no better (<= +0.1 R^2) than the best source-free or decoy patch",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": null,
+     "diagnostic": null,
+     "failed_units": []
+    }
+   },
+   "verdict": "falsified",
+   "failed_arms": [
+    "a"
+   ],
+   "non_diagnostic_arms": []
+  },
+  "Q6": {
+   "units": [
+    "uP160:NULLDECOYALL:21:_x"
+   ],
+   "filter_values": {
+    "uP160:NULLDECOYALL:21:_x": true
+   },
+   "arms": {
+    "a": {
+     "text": "early01 (layer 2 frozen): acc >= exact-Bayes acc - 0.03 and J-pair slope >= 0.6 (all units)",
+     "status": "fail",
+     "k": 0,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": false
+     },
+     "diagnostic": true,
+     "failed_units": [
+      "uP160:NULLDECOYALL:21:_x"
+     ]
+    },
+    "b": {
+     "text": "early-readout units (lik_RO1 >= 0.7): layer-2 full repair uses J (slope >= 0.2)",
+     "status": "inconclusive",
+     "k": 0,
+     "n": 0,
+     "units": {},
+     "missing": [],
+     "null_values": {},
+     "diagnostic": true,
+     "failed_units": []
+    },
+    "c": {
+     "text": "late-readout units (lik_RO1 <= 0.2): layer-2 full repair does NOT use J (slope <= 0.1) and stays below the local-relation ceiling (acc <= 0.768)",
+     "status": "pass",
+     "k": 1,
+     "n": 1,
+     "units": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "missing": [],
+     "null_values": {
+      "uP160:NULLDECOYALL:21:_x": true
+     },
+     "diagnostic": false,
+     "failed_units": []
+    }
+   },
+   "verdict": "inconclusive",
+   "failed_arms": [
+    "a"
+   ],
+   "non_diagnostic_arms": [
+    "c"
+   ]
+  }
+ },
+ "checks": [
+  {
+   "prediction": "Q1",
+   "arm": "a",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q1",
+   "arm": "b",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q2",
+   "arm": "a",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": false
+  },
+  {
+   "prediction": "Q3",
+   "arm": "a",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q3",
+   "arm": "b",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q4",
+   "arm": "a",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q4",
+   "arm": "b",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": false
+  },
+  {
+   "prediction": "Q4",
+   "arm": "c",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": false
+  },
+  {
+   "prediction": "Q4",
+   "arm": "d",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q4",
+   "arm": "e",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q5",
+   "arm": "a",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": false
+  },
+  {
+   "prediction": "Q5",
+   "arm": "b",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q5",
+   "arm": "c",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  },
+  {
+   "prediction": "Q6",
+   "arm": "a",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": false
+  },
+  {
+   "prediction": "Q6",
+   "arm": "c",
+   "unit": "uP160:NULLDECOYALL:21:_x",
+   "passed": true
+  }
+ ],
+ "counts": {
+  "confirmed": 1,
+  "confirmed_all_arms_diagnostic": 1,
+  "confirmed_with_non_diagnostic_arm": 0,
+  "falsified": 3,
+  "inconclusive": 2
+ }
+}

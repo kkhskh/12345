@@ -1,0 +1,5 @@
+uP163:  resid1_src {'R2_n4': [0.963, 0.984, 0.974], 'R2_n4_beyond_pergroup': [0.947, 0.974, 0.962]}
+uP163:  resid2_src {'R2_n4': [0.941, 0.965, 0.954], 'R2_n4_beyond_pergroup': [0.921, 0.952, 0.938]}
+uP163:  resid2_ro {'R2_n4': [0.852, 0.88, 0.868], 'R2_n4_beyond_pergroup': [0.805, 0.837, 0.819]}
+uP163:  raw_onehot {'R2_n4': [-0.003, -0.004, 0.003], 'R2_n4_beyond_pergroup': [-0.003, -0.007, 0.0]}
+uP163:  pergroup_stats {'R2_n4': [0.241, 0.272, 0.26], 'R2_n4_beyond_pergroup': [-0.0, -0.0, 0.001]}

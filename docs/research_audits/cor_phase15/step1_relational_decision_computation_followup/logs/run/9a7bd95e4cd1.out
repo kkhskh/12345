@@ -1,0 +1,21 @@
+uP165: HU [0, 1, 3] intact {'agree_bayes': 0.895, 'KL_bayes': 0.002, 'ECE': 0.019, 'mix_mass': 0.882, 'mix_entropy': 1.55, 'mix_corr_B': 0.953} slope0 0.96
+   ATT|MEAN|0.5           agree 0.87 KLb 0.08 ECE 0.025 resid 0.53 mass 0.91 ent 1.62 corrB 0.72
+   ATT|MEAN|1.0           agree 0.61 KLb 0.54 ECE 0.144 resid -0.00 mass 0.92 ent 1.59 corrB -0.01
+   ATT|RESAMPLE|0.5       agree 0.70 KLb 0.39 ECE 0.131 resid 0.22 mass 0.90 ent 1.64 corrB 0.34
+   ATT|RESAMPLE|1.0       agree 0.61 KLb 0.72 ECE 0.226 resid 0.00 mass 0.88 ent 1.57 corrB 0.02
+   MLP|MEAN|0.5           agree 0.89 KLb 0.01 ECE 0.037 resid 0.83 mass 0.90 ent 1.55 corrB 0.93
+   MLP|MEAN|1.0           agree 0.82 KLb 0.11 ECE 0.039 resid 0.43 mass 0.88 ent 1.71 corrB 0.80
+   MLP|RESAMPLE|0.5       agree 0.84 KLb 0.06 ECE 0.030 resid 0.68 mass 0.88 ent 1.62 corrB 0.88
+   MLP|RESAMPLE|1.0       agree 0.68 KLb 0.33 ECE 0.033 resid 0.20 mass 0.81 ent 1.84 corrB 0.47
+   ATT+MLP|MEAN|0.5       agree 0.87 KLb 0.08 ECE 0.015 resid 0.54 mass 0.92 ent 1.60 corrB 0.78
+   ATT+MLP|MEAN|1.0       agree 0.57 KLb 0.55 ECE 0.218 resid -0.00 mass 0.92 ent 1.56 corrB -0.01
+   ATT+MLP|RESAMPLE|0.5   agree 0.70 KLb 0.36 ECE 0.118 resid 0.24 mass 0.90 ent 1.65 corrB 0.40
+   ATT+MLP|RESAMPLE|1.0   agree 0.57 KLb 0.64 ECE 0.163 resid -0.04 mass 0.87 ent 1.57 corrB 0.02
+   H0|MEAN|1.0            agree 0.88 KLb 0.03 ECE 0.013 resid 0.86 mass 0.88 ent 1.61 corrB 0.90
+   H0|RESAMPLE|1.0        agree 0.87 KLb 0.06 ECE 0.019 resid 0.77 mass 0.87 ent 1.64 corrB 0.87
+   H1|MEAN|1.0            agree 0.86 KLb 0.11 ECE 0.045 resid 0.65 mass 0.86 ent 1.63 corrB 0.74
+   H1|RESAMPLE|1.0        agree 0.81 KLb 0.17 ECE 0.038 resid 0.48 mass 0.86 ent 1.71 corrB 0.66
+   H2|MEAN|1.0            agree 0.89 KLb 0.01 ECE 0.022 resid 0.95 mass 0.88 ent 1.56 corrB 0.94
+   H2|RESAMPLE|1.0        agree 0.90 KLb 0.02 ECE 0.023 resid 0.90 mass 0.87 ent 1.58 corrB 0.93
+   H3|MEAN|1.0            agree 0.86 KLb 0.12 ECE 0.026 resid 0.41 mass 0.93 ent 1.60 corrB 0.71
+   H3|RESAMPLE|1.0        agree 0.75 KLb 0.28 ECE 0.057 resid 0.26 mass 0.87 ent 1.70 corrB 0.49

@@ -1,0 +1,4 @@
+/home/claude/12345/docs/research_audits/cor_phase15/step1_relational_decision_computation_followup/scripts/fit_family.py:40: OptimizeWarning: Unknown solver options: xatol, fatol
+  r = minimize(loss, start, method="Nelder-Mead" if len(x0) <= 3 else "Powell", options=dict(maxiter=4000, xatol=1e-4, fatol=1e-7))
+BAYES {'MIX': (0.9999, [1.01, 1.0, 1.6]), 'POE': (0.8252, [0.22, 0.53, -0.38]), 'MIXF': (1.0, [1.0, 1.0, 34.07])}
+uP160: {'MIX': (0.9836, 0.0042, [0.93, 0.97, 1.27]), 'POE': (0.8353, 0.0733, [0.21, 0.5, -0.41]), 'MIXF': (0.9836, 0.0043, [0.94, 0.98, 8.7])}

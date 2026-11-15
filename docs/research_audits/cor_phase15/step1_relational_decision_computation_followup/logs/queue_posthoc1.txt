@@ -1,0 +1,3 @@
+DB_SITE=ro_os DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_posthoc python3 scripts/das_bal_site.py uP160:full_c1:21:_eval_conf13
+DB_SITE=ro_os DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_posthoc python3 scripts/das_bal_site.py uP164:full_c1:21:_eval_conf13
+DB_SITE=ro_os DB_TRAIN=79300000 DB_EVAL=79400000 DB_TAG=_posthoc python3 scripts/das_bal_site.py uP161:full_c1:21:_eval_conf13

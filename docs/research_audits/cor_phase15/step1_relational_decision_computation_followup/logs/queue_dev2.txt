@@ -1,0 +1,12 @@
+L2C_TAG=_dev_P165 python3 scripts/l2_components.py uP165:full_c1:20:_eval_conf13
+L2C_TAG=_dev_P164 python3 scripts/l2_components.py uP164:full_c1:20:_eval_conf13
+L2C_TAG=_dev_P162 python3 scripts/l2_components.py uP162:full_c1:20:_eval_conf13
+LG_TAG=_dev_P160 python3 scripts/l1_graded.py uP160:full_c1:20:_eval_conf13
+LG_TAG=_dev_P163 python3 scripts/l1_graded.py uP163:full_c1:20:_eval_conf13
+LG_TAG=_dev_P165 python3 scripts/l1_graded.py uP165:full_c1:20:_eval_conf13
+LG_TAG=_dev_P164 python3 scripts/l1_graded.py uP164:full_c1:20:_eval_conf13
+LOC_FAM=rel LOC_N=1000 LOC_TAG=_dev_rel python3 scripts/locate.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13
+LOC_FAM=lik LOC_N=1000 LOC_TAG=_dev_lik python3 scripts/locate.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13
+PC_TAG=_devpool python3 scripts/path_chain.py xP81:full_c1:0: xP81:full_c1:1: yP130:full_c1:0:_eval_conf9 yP131:full_c1:0:_eval_conf9 yP132:full_c1:0:_eval_conf9 yP134:full_c1:0:_eval_conf9 wP140:full_c1:0:_eval_conf10 wP141:full_c1:0:_eval_conf10 wP142:full_c1:0:_eval_conf10 wP143:full_c1:0:_eval_conf10 vP150:full_c1:10:_eval_conf12 vP150:full_c1:11:_eval_conf12 vP151:full_c1:10:_eval_conf12 vP154:full_c1:10:_eval_conf12 vP154:full_c1:11:_eval_conf12 vP155:full_c1:10:_eval_conf12 vP156:full_c1:10:_eval_conf12 uP162:full_c1:20:_eval_conf13
+TR_TAG=_dev python3 scripts/traj_resp.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP161:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13
+LG_TAG=_dev_P164b python3 scripts/l1_graded.py uP164:full_c1:20:_eval_conf13

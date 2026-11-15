@@ -1,0 +1,2 @@
+L2C_TAG=_dev2 python3 scripts/l2_components.py uP165:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13 uP162:full_c1:20:_eval_conf13
+LG_TAG=_dev2 python3 scripts/l1_graded.py uP160:full_c1:20:_eval_conf13 uP163:full_c1:20:_eval_conf13 uP165:full_c1:20:_eval_conf13 uP164:full_c1:20:_eval_conf13

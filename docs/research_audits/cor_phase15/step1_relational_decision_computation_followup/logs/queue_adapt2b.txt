@@ -1,0 +1,5 @@
+AD_BETA=0.6 AD_CONDS=full,early01 AD_OUT=_dev2 python3 scripts/adapt2.py uP165:full_c1:20:_eval_conf13
+AD_BETA=0.6 AD_CONDS=full,early01 AD_OUT=_dev2 python3 scripts/adapt2.py uP163:full_c1:20:_eval_conf13
+AD_BETA=0.6 AD_CONDS=full,early01 AD_OUT=_dev2 python3 scripts/adapt2.py uP165:full_c1:20:_eval_conf13
+AD_BETA=1.0 python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13
+AD_STEPS=4000 AD_BETA=0.6 AD_CONDS=full,fresh AD_OUT=_long python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13

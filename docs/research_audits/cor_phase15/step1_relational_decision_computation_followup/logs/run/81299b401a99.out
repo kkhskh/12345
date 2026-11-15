@@ -1,0 +1,6 @@
+xP81:f full 0.97 {'none': (0.93, 0.0), 'L1ATT@RO': (0.55, 0.41), 'L1ATT@QS': (0.39, 0.59), 'L1ATT@OS': (0.94, -0.0), 'L1MLP@RO': (0.82, 0.13), 'L1ATT+MLP@RO': (0.55, 0.41), 'L2ATT@RO': (0.0, 1.0), 'L2MLP@RO': (0.69, 0.26), 'L2ATT+MLP@RO': (0.0, 1.0), 'L1ATT@notQP': (0.0, 1.0), 'L1ATT+MLP@all': (0.0, 1.0)}
+      group-only U: {'none': 0.93, 'L1ATT@RO': 0.55, 'L1ATT@QS': 0.39, 'L2ATT+MLP@RO': 0.0}
+xP81:f full 0.97 {'none': (0.94, 0.0), 'L1ATT@RO': (0.54, 0.42), 'L1ATT@QS': (0.41, 0.56), 'L1ATT@OS': (0.94, -0.0), 'L1MLP@RO': (0.86, 0.09), 'L1ATT+MLP@RO': (0.54, 0.42), 'L2ATT@RO': (0.0, 1.0), 'L2MLP@RO': (0.7, 0.25), 'L2ATT+MLP@RO': (0.01, 0.99), 'L1ATT@notQP': (0.0, 1.0), 'L1ATT+MLP@all': (0.0, 1.0)}
+      group-only U: {'none': 0.94, 'L1ATT@RO': 0.54, 'L1ATT@QS': 0.41, 'L2ATT+MLP@RO': 0.01}
+yP130: full 0.95 {'none': (0.91, 0.0), 'L1ATT@RO': (0.62, 0.32), 'L1ATT@QS': (0.41, 0.55), 'L1ATT@OS': (0.79, 0.14), 'L1MLP@RO': (0.7, 0.23), 'L1ATT+MLP@RO': (0.62, 0.32), 'L2ATT@RO': (0.02, 0.98), 'L2MLP@RO': (0.68, 0.26), 'L2ATT+MLP@RO': (0.01, 0.99), 'L1ATT@notQP': (0.08, 0.91), 'L1ATT+MLP@all': (0.08, 0.91)}
+      group-only U: {'none': 0.91, 'L1ATT@RO': 0.62, 'L1ATT@QS': 0.41, 'L2ATT+MLP@RO': 0.01}

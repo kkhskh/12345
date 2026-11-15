@@ -1,0 +1,50 @@
+{
+ "model": "uP161_full_c1_s4000_seed21_eval_conf13",
+ "beta": 0.6,
+ "steps": 1000,
+ "native": {
+  "acc": 0.4776111111111111,
+  "KL": 0.8652589692933824,
+  "Jpair": {
+   "slope": 0.00011234311790949097,
+   "R2": 5.3609359683681745e-06,
+   "mean_abs_obs": 0.0385909304022789,
+   "mean_abs_pred": 0.6670099672810096,
+   "decision_follows_exact": 0.6526666666666666
+  }
+ },
+ "bayes_acc": 0.7957222222222222,
+ "Jpairs": {
+  "ind_max_abs": 0.0,
+  "n": 1500,
+  "exact_mean_abs": 0.6670099672810096,
+  "frac_decision_change": 0.19066666666666668
+ },
+ "full": {
+  "acc": 0.7251666666666666,
+  "KL": 0.18728965309428092,
+  "Jpair": {
+   "slope": -0.002816995602564873,
+   "R2": 0.0021013765773753024,
+   "mean_abs_obs": 0.048457201570272446,
+   "mean_abs_pred": 0.6670099672810096,
+   "decision_follows_exact": 0.74
+  },
+  "final_loss": 0.5863263010978699,
+  "frozen_params_unchanged": true
+ },
+ "early01": {
+  "acc": 0.7912222222222223,
+  "KL": 0.022053173299216508,
+  "Jpair": {
+   "slope": 0.9517451119396715,
+   "R2": 0.8455898042312618,
+   "mean_abs_obs": 0.7586109638214111,
+   "mean_abs_pred": 0.6670099672810096,
+   "decision_follows_exact": 0.8313333333333334
+  },
+  "final_loss": 0.40932103991508484,
+  "frozen_params_unchanged": true
+ },
+ "seconds": 2233.6508238315582
+}

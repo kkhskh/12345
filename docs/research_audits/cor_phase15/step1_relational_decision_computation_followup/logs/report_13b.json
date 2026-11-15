@@ -1,0 +1,305 @@
+{
+ "frozen_counts": {
+  "confirmed": 3,
+  "confirmed_all_arms_diagnostic": 3,
+  "confirmed_with_non_diagnostic_arm": 0,
+  "falsified": 3,
+  "inconclusive": 0
+ },
+ "predictions": {
+  "Q1": {
+   "frozen_verdict": "confirmed",
+   "reported_verdict": "confirmed",
+   "units": [
+    "uP160:full_c1:21:_eval_conf13",
+    "uP161:full_c1:21:_eval_conf13",
+    "uP163:full_c1:21:_eval_conf13",
+    "uP164:full_c1:21:_eval_conf13",
+    "uP165:full_c1:21:_eval_conf13"
+   ],
+   "dropped_missing_filter": [],
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 5,
+     "n": 5,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 5,
+     "n": 5,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    }
+   },
+   "all_passing_arms_strictly_diagnostic": false
+  },
+  "Q2": {
+   "frozen_verdict": "confirmed",
+   "reported_verdict": "confirmed",
+   "units": [
+    "uP160:full_c1:21:_eval_conf13",
+    "uP161:full_c1:21:_eval_conf13",
+    "uP163:full_c1:21:_eval_conf13",
+    "uP165:full_c1:21:_eval_conf13"
+   ],
+   "dropped_missing_filter": [],
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 3,
+     "n": 4,
+     "failed_units": [
+      "uP163:full_c1:21:_eval_conf13"
+     ],
+     "missing": [],
+     "diagnostic_strict": true
+    }
+   },
+   "all_passing_arms_strictly_diagnostic": true
+  },
+  "Q3": {
+   "frozen_verdict": "falsified",
+   "reported_verdict": "not confirmed (arm(s) b falsified)",
+   "units": [
+    "uP160:full_c1:21:_eval_conf13",
+    "uP161:full_c1:21:_eval_conf13",
+    "uP163:full_c1:21:_eval_conf13",
+    "uP164:full_c1:21:_eval_conf13",
+    "uP165:full_c1:21:_eval_conf13"
+   ],
+   "dropped_missing_filter": [],
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 5,
+     "n": 5,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    },
+    "b": {
+     "frozen_status": "fail",
+     "k": 1,
+     "n": 2,
+     "failed_units": [
+      "uP161:full_c1:21:_eval_conf13"
+     ],
+     "missing": [],
+     "diagnostic_strict": null
+    },
+    "c": {
+     "frozen_status": "pass",
+     "k": 2,
+     "n": 2,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": true
+    }
+   },
+   "all_passing_arms_strictly_diagnostic": false
+  },
+  "Q4": {
+   "frozen_verdict": "falsified",
+   "reported_verdict": "not confirmed (arm(s) c falsified)",
+   "units": [
+    "uP161:full_c1:21:_eval_conf13",
+    "uP165:full_c1:21:_eval_conf13"
+   ],
+   "dropped_missing_filter": [],
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 2,
+     "n": 2,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 2,
+     "n": 2,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    },
+    "c": {
+     "frozen_status": "fail",
+     "k": 1,
+     "n": 2,
+     "failed_units": [
+      "uP161:full_c1:21:_eval_conf13"
+     ],
+     "missing": [],
+     "diagnostic_strict": null
+    },
+    "d": {
+     "frozen_status": "pass",
+     "k": 2,
+     "n": 2,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    },
+    "e": {
+     "frozen_status": "pass",
+     "k": 2,
+     "n": 2,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    }
+   },
+   "all_passing_arms_strictly_diagnostic": false
+  },
+  "Q5": {
+   "frozen_verdict": "falsified",
+   "reported_verdict": "not confirmed (arm(s) a falsified)",
+   "units": [
+    "uP160:full_c1:21:_eval_conf13",
+    "uP161:full_c1:21:_eval_conf13",
+    "uP163:full_c1:21:_eval_conf13",
+    "uP164:full_c1:21:_eval_conf13",
+    "uP165:full_c1:21:_eval_conf13"
+   ],
+   "dropped_missing_filter": [],
+   "arms": {
+    "a": {
+     "frozen_status": "fail",
+     "k": 3,
+     "n": 5,
+     "failed_units": [
+      "uP160:full_c1:21:_eval_conf13",
+      "uP164:full_c1:21:_eval_conf13"
+     ],
+     "missing": [],
+     "diagnostic_strict": null
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 5,
+     "n": 5,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    },
+    "c": {
+     "frozen_status": "pass",
+     "k": 5,
+     "n": 5,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    }
+   },
+   "all_passing_arms_strictly_diagnostic": false
+  },
+  "Q6": {
+   "frozen_verdict": "confirmed",
+   "reported_verdict": "confirmed",
+   "units": [
+    "uP160:full_c1:21:_eval_conf13",
+    "uP161:full_c1:21:_eval_conf13",
+    "uP163:full_c1:21:_eval_conf13",
+    "uP164:full_c1:21:_eval_conf13",
+    "uP165:full_c1:21:_eval_conf13"
+   ],
+   "dropped_missing_filter": [],
+   "arms": {
+    "a": {
+     "frozen_status": "pass",
+     "k": 5,
+     "n": 5,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": true
+    },
+    "b": {
+     "frozen_status": "pass",
+     "k": 2,
+     "n": 2,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": true
+    },
+    "c": {
+     "frozen_status": "pass",
+     "k": 2,
+     "n": 2,
+     "failed_units": [],
+     "missing": [],
+     "diagnostic_strict": false
+    }
+   },
+   "all_passing_arms_strictly_diagnostic": false
+  }
+ },
+ "crashed_runs": [],
+ "nonzero_rc": [],
+ "Q4_sensitivity_PERM_MEAN": {
+  "uP161:full_c1:21:_eval_conf13": {
+   "c_with_PERM_MEAN": false,
+   "fid_E_restore": {
+    "RESTORE_MIX": 0.9805027974568612,
+    "RESTORE_PERM": 0.3469863816948763,
+    "RESTORE_MEAN": 0.24081230372101425
+   },
+   "proj_restore": {
+    "REMOVED_only": 0.7710536122322083,
+    "RESTORE_MIX": 1.010115623474121,
+    "RESTORE_PERM": 0.6968493461608887,
+    "RESTORE_MEAN": 0.6895763278007507
+   }
+  },
+  "uP165:full_c1:21:_eval_conf13": {
+   "c_with_PERM_MEAN": false,
+   "fid_E_restore": {
+    "RESTORE_MIX": 0.9766524502069213,
+    "RESTORE_PERM": 0.30262876941489425,
+    "RESTORE_MEAN": 0.2219551317761026
+   },
+   "proj_restore": {
+    "REMOVED_only": 0.3753102719783783,
+    "RESTORE_MIX": 0.9684239625930786,
+    "RESTORE_PERM": 0.6271781921386719,
+    "RESTORE_MEAN": 0.6299823522567749
+   }
+  }
+ },
+ "AQ1": {
+  "rows": [
+   [
+    "uP160:full_c1:21:_eval_conf13",
+    0.8487215580908009,
+    0.5694874384475873
+   ],
+   [
+    "uP161:full_c1:21:_eval_conf13",
+    0.006076256118800732,
+    0.8652291991580128
+   ],
+   [
+    "uP163:full_c1:21:_eval_conf13",
+    0.3729752174698805,
+    0.6878553317298695
+   ],
+   [
+    "uP164:full_c1:21:_eval_conf13",
+    0.8210014538574908,
+    0.5402150467628853
+   ],
+   [
+    "uP165:full_c1:21:_eval_conf13",
+    0.04714638937213687,
+    0.8692275145270756
+   ]
+  ],
+  "corr": -0.986503702805524,
+  "verdict": "holds"
+ }
+}

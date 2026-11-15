@@ -1,0 +1,2 @@
+AD_BETA=1.0 AD_CONDS=early01,full AD_OUT=_b1 python3 scripts/adapt2.py uP161:full_c1:20:_eval_conf13
+AD_BETA=1.0 AD_CONDS=early01,full AD_OUT=_b1 python3 scripts/adapt2.py uP160:full_c1:20:_eval_conf13

@@ -3,6 +3,34 @@
 Investigation XIII-B, Phase 1.5 Step 1. Labels: **[proof]**, **[num]** (numerical verification), **[dev]** (XIII seed-20 models),
 **[conf]** (frozen seed-21 fine-tunes, see FROZEN_CONFIRMATION_AND_STATISTICS.md), **[expl]**.
 
+
+> **Corrections after independent review 3** (`reviews/REVIEW_3_MECH.md`; see `reviews/ADJUDICATION.md`). Where the text below conflicts
+> with these, the corrections govern.
+> 1. **"E-based" means agreement-at-q-gated.** The D1/D2 edits separate E from A1 but not from the threshold-4 rule A2: distance
+>    differences are ≤ 0.011.
+> 2. **The ρ result is a robust class marker of the input-output law, but "a different combination operator" is one of several equivalent
+>    readings.**
+>    - The power mean is algebraically identical to tempered per-group evidence followed by output re-sharpening.
+>    - A lapse floor moves ρ from 0.57 to 0.67 in uP160.
+>    - ρ explains only about 15% of the early class's misfit relative to the mixture.
+>    - Pure temperature and output saturation are ruled out.
+>    - Bootstrap intervals for ρ exclude both 0 and 1 in the early class.
+> 3. **"Combined mostly by the layer-2 MLP" is not identified.** Freezing components shows only that they lie on the serial path. In early
+>    units, 40–54% of the relational effect at the layer-2 input sits on *other-question* source tokens and is read by layer-2 attention.
+>    That route is in addition to the readout-token route.
+> 4. **Class inheritance is partial.** Under one new seed, 2 of 5 parents moved by more than 0.3 in lik_RO1: uP163 early → hybrid, and uP164
+>    hybrid → early. "uP164 is a hybrid" holds only for seed 20.
+> 5. **Routing proportions vary with the fine-tuning seed within the mixture class** (uP161: route_R 0.28 → 0.61). The "categorical routing
+>    law" is withdrawn. Q3b and Q4c are one event: route-Q necessity in uP161 seed 21. The Q3b miss (0.38 vs 0.4) is within stream-to-stream
+>    noise (0.42 and 0.45 on two other streams).
+> 6. **Adaptation caveats.**
+>    - Capacity is not matched: early01 trains two blocks, the layer-2 arm trains one.
+>    - "The frozen layer 2 reuses its mixture operation" is **untested** and is withdrawn as a claim.
+>    - "J enters at resid1 from other-question tokens" is true by construction of the J-pairs.
+>    - The decode_J ridge probe itself performs the cross-question sum, so it shows linearly accessible per-question cross-group equality,
+>      not that the network computes n4.
+>    - How much a layer-2-only repair uses J rises **graded** with lik_RO1 (review 3).
+
 ## C1. Which cross-group relation does the two-colluder decision need?
 
 Generator: G = 3 groups of 2 sources, C = 2 colluders sharing one copy event and one copied value per question (probability β), Q = 6,
@@ -122,8 +150,23 @@ Development findings:
      partly uses it (slope 0.49–0.64, acc 0.77–0.78 > the LOCALQ ceiling).
    - In the late-readout uP161 the readout token carries it only weakly (0.39–0.58), and no layer-2 repair uses it.
    - Q6 freezes this as a prediction.
-4. **Optimisation versus capacity.** A layer-2 repair of uP161 with 4× the steps was queued as a control for whether the late-readout
-   failure is an optimisation limit. Its result, or why it was not run, is in FROZEN_CONFIRMATION_AND_STATISTICS.md.
+4. **Optimisation versus capacity (control, dev).** With 4× the budget (4000 steps), the layer-2 repairs of uP161 reach 0.731 (full) and
+   0.733 (fresh), against 0.719/0.720 at 1000 steps. Their J-pair slope stays at −0.001. In the late-readout model, more layer-2
+   training does not unlock the cross-question relation. This is evidence against a simple optimisation-budget explanation. It is not a
+   proof of architectural impossibility: other learning rates, longer training or other initialisations were not tried.
+
+## C4 at β = 1 (dev, uP161; `logs/adapt2_b1/`)
+
+| arm | acc | S = 3 not-all-agree acc |
+|---|---|---|
+| exact Bayes | 0.798 | – |
+| layers 0–1 only, layer 2 + readout frozen | **0.801** (KL 0.008) | 0.973 |
+| layer 2 + readout | **0.797** (KL 0.004) | 0.973 |
+| uP160 (early readout): layers 0–1 only | **0.799** (KL 0.002) | 0.973 |
+| uP160: layer 2 + readout | **0.798** (KL 0.003) | 0.973 |
+
+At exact copying, both arms suffice. So a layer-2 change is **not necessary** at β = 1 either, and neither is an early-layer change. This
+fits the Proposition: only the local relation at q is needed, and it is available to both kinds of repair. This holds in both classes (uP161 late, uP160 early).
 
 ## C5. Connection to the sufficiency theorem
 

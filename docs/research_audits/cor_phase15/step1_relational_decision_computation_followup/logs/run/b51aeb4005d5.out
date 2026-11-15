@@ -1,0 +1,6 @@
+BAYES {'PM': (1.0, 1.0), 'MIX4': (1.0, nan), 'NPOE': (0.9713, nan)}
+uP160:full_c1:21:_eval_c {'PM': (0.9856, 0.57), 'MIX4': (0.983, nan), 'NPOE': (0.9693, nan)}
+uP161:full_c1:21:_eval_c {'PM': (0.9946, 0.87), 'MIX4': (0.9944, nan), 'NPOE': (0.9687, nan)}
+uP163:full_c1:21:_eval_c {'PM': (0.9909, 0.69), 'MIX4': (0.9896, nan), 'NPOE': (0.9706, nan)}
+uP164:full_c1:21:_eval_c {'PM': (0.9738, 0.54), 'MIX4': (0.9703, nan), 'NPOE': (0.959, nan)}
+uP165:full_c1:21:_eval_c {'PM': (0.9924, 0.87), 'MIX4': (0.9923, nan), 'NPOE': (0.9677, nan)}

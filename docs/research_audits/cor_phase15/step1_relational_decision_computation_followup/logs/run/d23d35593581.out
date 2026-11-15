@@ -1,0 +1,4 @@
+uP162: MH [3] mass-only [3] TE 0.95 shapley {'R': 0.53, 'V': 0.02, 'O': 0.17, 'M': 0.23, 'K': 0.05} all 1.0
+      decoys TRUE proj {'MIX': (0.58, 0.93), 'LOW': (0.25, 0.99), 'TOP': (0.06, 0.79), 'MAG': (0.07, 0.91), 'PERM': (0.56, 1.23), 'MEAN': (0.49, 1.66)} CTRL {'MIX': 0.54, 'LOW': 0.07, 'TOP': 0.01, 'MAG': 0.02, 'PERM': -0.29, 'MEAN': -0.38}
+      P0 (E vs A1 discriminating): TE 0.16 predE 0.14 predA1 1.07 MIX rows fidE/A1 0.69 0.03 restore MIX fidE/A1 0.82 0.05
+      restore EA {'REMOVED_only': (0.76, 0.77, 0.77), 'RESTORE_MIX': (0.96, 0.93, 0.92), 'RESTORE_LOW': (0.77, 0.78, 0.77), 'RESTORE_TOP': (0.76, 0.78, 0.77), 'RESTORE_MAG': (0.77, 0.78, 0.78), 'RESTORE_PERM': (0.83, 0.38, 0.38), 'RESTORE_MEAN': (0.86, 0.34, 0.34)} removed frac 0.24 preserve 0.98

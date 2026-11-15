@@ -1,0 +1,3 @@
+uP161_full_c1_s4000_seed21_eva beta 0.6 bayes 0.796 native {'acc': 0.478, 'KL': 0.865, 'Jpair': {'slope': 0.0, 'R2': 0.0, 'mean_abs_obs': 0.039, 'mean_abs_pred': 0.667, 'decision_follows_exact': 0.653}} Jpairs {'ind_max_abs': 0.0, 'n': 1500, 'exact_mean_abs': 0.6670099672810096, 'frac_decision_change': 0.19066666666666668}
+   full      {'acc': 0.725, 'KL': 0.187, 'Jpair': {'slope': -0.003, 'R2': 0.002, 'mean_abs_obs': 0.048, 'mean_abs_pred': 0.667, 'decision_follows_exact': 0.74}, 'final_loss': 0.586, 'frozen_params_unchanged': True} 656 s
+   early01   {'acc': 0.791, 'KL': 0.022, 'Jpair': {'slope': 0.952, 'R2': 0.846, 'mean_abs_obs': 0.759, 'mean_abs_pred': 0.667, 'decision_follows_exact': 0.831}, 'final_loss': 0.409, 'frozen_params_unchanged': True} 2234 s

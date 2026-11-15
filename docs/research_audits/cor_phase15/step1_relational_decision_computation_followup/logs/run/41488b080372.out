@@ -1,0 +1,21 @@
+uP163: HU [] intact {'agree_bayes': 0.849, 'KL_bayes': 0.005, 'ECE': 0.037} slope0 0.89
+   ATT|MEAN|0.5           agree 0.80 KLb 0.10 ECE 0.033 resid 0.61
+   ATT|MEAN|1.0           agree 0.61 KLb 0.57 ECE 0.212 resid 0.03
+   ATT|RESAMPLE|0.5       agree 0.69 KLb 0.34 ECE 0.136 resid 0.37
+   ATT|RESAMPLE|1.0       agree 0.59 KLb 0.64 ECE 0.230 resid 0.09
+   MLP|MEAN|0.5           agree 0.87 KLb 0.04 ECE 0.046 resid 0.73
+   MLP|MEAN|1.0           agree 0.77 KLb 0.21 ECE 0.017 resid 0.29
+   MLP|RESAMPLE|0.5       agree 0.82 KLb 0.09 ECE 0.049 resid 0.66
+   MLP|RESAMPLE|1.0       agree 0.67 KLb 0.37 ECE 0.109 resid 0.20
+   ATT+MLP|MEAN|0.5       agree 0.84 KLb 0.05 ECE 0.042 resid 0.68
+   ATT+MLP|MEAN|1.0       agree 0.63 KLb 0.47 ECE 0.165 resid 0.00
+   ATT+MLP|RESAMPLE|0.5   agree 0.75 KLb 0.20 ECE 0.082 resid 0.48
+   ATT+MLP|RESAMPLE|1.0   agree 0.60 KLb 0.58 ECE 0.198 resid 0.02
+   H0|MEAN|1.0            agree 0.75 KLb 0.22 ECE 0.108 resid 0.55
+   H0|RESAMPLE|1.0        agree 0.71 KLb 0.34 ECE 0.124 resid 0.41
+   H1|MEAN|1.0            agree 0.83 KLb 0.07 ECE 0.026 resid 0.80
+   H1|RESAMPLE|1.0        agree 0.81 KLb 0.11 ECE 0.039 resid 0.74
+   H2|MEAN|1.0            agree 0.74 KLb 0.23 ECE 0.111 resid 0.61
+   H2|RESAMPLE|1.0        agree 0.69 KLb 0.39 ECE 0.170 resid 0.52
+   H3|MEAN|1.0            agree 0.84 KLb 0.04 ECE 0.038 resid 0.85
+   H3|RESAMPLE|1.0        agree 0.79 KLb 0.12 ECE 0.044 resid 0.74

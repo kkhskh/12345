@@ -1,0 +1,4 @@
+DJ_TAG=_dev_P160 python3 scripts/decode_J.py uP160:full_c1:20:_eval_conf13
+DJ_TAG=_dev_P161_early01 python3 scripts/decode_J.py uP161:full_c1:20:_eval_conf13 checkpoints/adapt2/uP161_full_c1_s4000_seed20_eval_conf13_early01_b0.6.npz
+DJ_TAG=_dev_P163 python3 scripts/decode_J.py uP163:full_c1:20:_eval_conf13
+AD_BETA=0.6 AD_CONDS=early01,early01ro AD_OUT=_p160early python3 scripts/adapt2.py uP160:full_c1:20:_eval_conf13

@@ -4,6 +4,27 @@ Investigation XIII-B, Phase 1.5 Step 1. **[dev]** = XIII seed-20 models (uP160�
 replicates (FROZEN_CONFIRMATION_AND_STATISTICS.md). All interventions are natural interchanges (class II: activations of a real donor
 episode) unless stated otherwise.
 
+
+> **Corrections after independent review 3** (`reviews/REVIEW_3_MECH.md`; see `reviews/ADJUDICATION.md`). Where the text below conflicts
+> with these, the corrections govern.
+> 1. **"E-based" means agreement-at-q-gated.** The D1/D2 edits separate E from A1 but not from the threshold-4 rule A2: distance
+>    differences are ≤ 0.011.
+> 2. **The ρ result is a robust class marker of the input-output law, but "a different combination operator" is one of several equivalent
+>    readings.**
+>    - The power mean is algebraically identical to tempered per-group evidence followed by output re-sharpening.
+>    - A lapse floor moves ρ from 0.57 to 0.67 in uP160.
+>    - ρ explains only about 15% of the early class's misfit relative to the mixture.
+>    - Pure temperature and output saturation are ruled out.
+>    - Bootstrap intervals for ρ exclude both 0 and 1 in the early class.
+> 3. **"Combined mostly by the layer-2 MLP" is not identified.** Freezing components shows only that they lie on the serial path. In early
+>    units, 40–54% of the relational effect at the layer-2 input sits on *other-question* source tokens and is read by layer-2 attention.
+>    That route is in addition to the readout-token route.
+> 4. **Class inheritance is partial.** Under one new seed, 2 of 5 parents moved by more than 0.3 in lik_RO1: uP163 early → hybrid, and uP164
+>    hybrid → early. "uP164 is a hybrid" holds only for seed 20.
+> 5. **Routing proportions vary with the fine-tuning seed within the mixture class** (uP161: route_R 0.28 → 0.61). The "categorical routing
+>    law" is withdrawn. Q3b and Q4c are one event: route-Q necessity in uP161 seed 21. The Q3b miss (0.38 vs 0.4) is within stream-to-stream
+>    noise (0.42 and 0.45 on two other streams).
+
 ## 1. Two families of on-support edits
 
 - **Relational pairs** (`src/relpairs.relational_pairs`). The donor differs from the base only in one group's source pair at one question
@@ -55,6 +76,29 @@ freezing layer 2 at the readout token removes 91–97% of the relational effect.
   - Relational evidence is written by layer-1 attention *into the q source tokens* (route Q).
   - Layer-2 attention at the readout token reads the per-group candidate likelihoods (values) with relationally determined weights.
 
+### 2b. Post-hoc decomposition of layer 2 (`scripts/l2_decomp_all.py`, review 3; all four heads; EA relational pairs)
+
+Shapley shares of the relational effect at layer 2:
+
+| model | attention rows | values at other-question tokens | values at q / readout tokens | MLP2 | residual skip (state entering layer 2) | attention total |
+|---|---|---|---|---|---|---|
+| uP160 s20 (early) | 0.37 | 0.05 | 0.00 | 0.36 | 0.21 | 0.43 |
+| uP163 s20 (early) | 0.31 | 0.07 | 0.00 | 0.34 | 0.28 | 0.38 |
+| uP160 s21 (early) | 0.29 | 0.15 | 0.02 | 0.31 | 0.23 | 0.46 |
+| uP164 s21 (early) | 0.43 | 0.14 | 0.00 | 0.25 | 0.18 | 0.57 |
+| uP163 s21 (hybrid) | 0.63 | 0.01 | 0.00 | 0.18 | 0.18 | 0.64 |
+| uP161 s20 (late) | 0.83 | 0.00 | 0.03 | 0.15 | 0.00 | 0.85 |
+| uP165 s20 (late) | 0.82 | 0.00 | 0.02 | 0.16 | 0.00 | 0.83 |
+| uP161 s21 (late) | 0.88 | 0.00 | 0.02 | 0.09 | 0.02 | 0.90 |
+
+**Correction.** "Combined mostly by the layer-2 MLP" is wrong.
+- In early-readout models the layer-2 relational combination is split three ways:
+  - layer-2 attention: 0.38–0.57, including values read from other-question tokens;
+  - MLP2: 0.25–0.36;
+  - the readout-token state that layer 1 has already assembled: 0.18–0.28.
+- In late-readout models layer-2 attention rows dominate (0.82–0.88).
+- The hybrid sits between them.
+
 ## 3. What operation is performed (`scripts/fit_family.py`, `scripts/algorithm_discrimination.py`) [dev]
 
 Two explicit algorithm families were fitted to each model's centred log-probabilities, with held-out test R²:
@@ -80,17 +124,44 @@ Two explicit algorithm families were fitted to each model's centred log-probabil
 
 The incomplete-pretraining uP162 correlates 0.41–0.67 with the early models.
 
-**Answer to "same algorithm or different?"** At the level of the input-output map, both classes implement the **same** computation: a
-posterior mixture over "which group is reliable", with E-based eligibility, reliability weighting by W, and candidate likelihoods. Neither
-class implements log-linear pooling.
+### 3b. Correction after math review 1: the combination operator differs by class [dev; post-freeze]
 
-At the level of implementation they are **genuinely different**:
-- the location of candidate and relational evidence (readout token vs source tokens);
-- the operator that combines them (layer-2 MLP at the readout token vs layer-2 attention-softmax weighting of per-group values);
-- a class-shared approximation signature (softer exclusion, larger and correlated errors in the early class).
+**Why the POE comparison above was unfair.** The POE family has *unnormalised* exponents and cannot split weight between groups. Its R² of
+about 0.83 is the same for Bayes and for every model, so the comparison could not discriminate. A fair nested family is the
+**power mean** (`scripts/fit_powermean.py`):
 
-This is a statement about two implementations of one function family. It is **not** a claim that they compute the same intermediate
-variables: for example, no early-class layer carries attention weights that resemble responsibilities.
+  log p(y) = (τ/ρ)·log Σ_g w_g·exp(ρ·log L_g(y)) + const,  with w = softmax_g(α log W_g + κ log max(f_g, 1) + δ·[f_g = 0]).
+
+- ρ = 1 is the posterior mixture.
+- ρ → 0 is normalised log-linear pooling, a weighted product of experts.
+
+Held-out R² on 18 development models:
+
+| | Bayes | early-readout cluster (8 models, lik_RO1 ≥ 0.8) | late-readout cluster (6 models, lik_RO1 ≤ 0.06) | hybrids (4 models, lik_RO1 0.25–0.52) |
+|---|---|---|---|---|
+| fitted ρ | **1.00** | **0.58–0.62** | **0.87–0.98** | 0.62–0.75 |
+| PM vs MIX4 (ρ fixed at 1) R² gain | 0 | +0.0017–0.0026 | ≤ +0.0001 | +0.0008–0.0021 |
+| normalised POE R² | 0.973 | 0.963–0.974 | 0.968–0.971 | 0.958–0.970 |
+
+- corr(lik_RO1, ρ) = −0.90 across the 18 models.
+- The reviewer's κ = 1.62 on Bayes was an artefact of the ε floor: with a hard exclusion offset, κ is 1.00. Once exclusion and count are
+  parametrised separately, κ shows no class pattern. **Withdrawn:** the earlier statement that the early class has "softer exclusion".
+
+**Revised answer to "same algorithm or different?"**
+- **Same.** Both classes are well described by a reliability-weighted combination of per-group candidate likelihoods with E-based
+  eligibility (D1/D2 distances; all R² ≥ 0.98). They agree on the relational variables used.
+- **Different.**
+  - Early-readout models combine the per-group evidence with a **power-mean exponent of about 0.6**: between the Bayes mixture (sum of
+    likelihoods) and geometric pooling (product).
+  - Late-readout (mixture) models stay close to the Bayes mixture, ρ ≈ 0.9.
+  - This is a distinct **approximation strategy for the same posterior**, not only a different location.
+  - It matches the class-shared error pattern (error correlation 0.64–0.72 within the early class) and their larger distance to Bayes.
+  - It is consistent with the mechanism: summing likelihoods requires a softmax-weighted average of values, which attention provides
+    directly. Combining pooled evidence at the readout token with an MLP is free to settle on a different operator.
+- Status: development finding, found after the freeze. Addendum AQ1 (`logs/ADDENDUM_A1.md`), registered before evaluation, tests it on
+  the seed-21 replicates; see FROZEN_CONFIRMATION.
+- Caveat: the R² gains are small (≤ 0.003). The distinction rests on the consistent sign and clustering of ρ across 18 models, not on a
+  large fit improvement.
 
 ## 4. Continuous class structure (`scripts/class_features.py`; 26 development models) [dev]
 

@@ -1,0 +1,20 @@
+{
+ "beta1.0": {
+  "FULL_acc": 0.801275,
+  "LOCALQ_acc": 0.801275,
+  "LOCALQ_KL_to_full": 1.3344862944929904e-17,
+  "LOCALQ_decision_differs": 0.0,
+  "PERGROUP_acc": 0.749125,
+  "PERGROUP_KL_to_full": 0.05364103792729493,
+  "PERGROUP_decision_differs": 0.05482
+ },
+ "beta0.6": {
+  "FULL_acc": 0.79347,
+  "LOCALQ_acc": 0.757625,
+  "LOCALQ_KL_to_full": 0.10633725405294826,
+  "LOCALQ_decision_differs": 0.060825,
+  "PERGROUP_acc": 0.499955,
+  "PERGROUP_KL_to_full": 0.46200605110256193,
+  "PERGROUP_decision_differs": 0.370055
+ }
+}

@@ -1,0 +1,3 @@
+uP161_full_c1_s4000_seed20_eva beta 1.0 bayes 0.798 native {'acc': 0.335, 'KL': 1.356, 'acc_S3_notall': 0.018, 'KL_S3_notall': 0.898, 'acc_S3_all': 0.977, 'KL_S3_all': 0.002, 'acc_S12': 0.336, 'KL_S12': 1.423} Jpairs None
+   early01   {'acc': 0.801, 'KL': 0.008, 'acc_S3_notall': 0.973, 'KL_S3_notall': 0.099, 'acc_S3_all': 0.977, 'KL_S3_all': 0.022, 'acc_S12': 0.785, 'KL_S12': 0.002, 'final_loss': 0.43, 'frozen_params_unchanged': True} 535 s
+   full      {'acc': 0.797, 'KL': 0.004, 'acc_S3_notall': 0.973, 'KL_S3_notall': 0.004, 'acc_S3_all': 0.977, 'KL_S3_all': 0.001, 'acc_S12': 0.781, 'KL_S12': 0.004, 'final_loss': 0.425, 'frozen_params_unchanged': True} 629 s

@@ -1,0 +1,2 @@
+bash scripts/when_file.sh checkpoints/ft/uP161_fx_L22_W22_D22_stop1211_waperm120/step1211.npz -- UM_TAG=_tdev UM_RHO=0 UM_STREAM=93200000 UM_STEPS=1211 python3 scripts/unit_metrics.py uP161:s:21 uP161:s:22 uP161:fx:21:21:21:stop1211_wascale0.6 uP161:fx:22:22:22:stop1211_waneg uP161:fx:22:22:22:stop1211_waperm120
+bash scripts/when_file.sh checkpoints/ft/uP161_fx_L22_W22_D22_stop1211_wascale1.5/step1211.npz -- UM_TAG=_tdev UM_RHO=0 UM_STREAM=93200000 UM_STEPS=1211 python3 scripts/unit_metrics.py uP161:fx:22:22:22:stop1211_wascale1.5

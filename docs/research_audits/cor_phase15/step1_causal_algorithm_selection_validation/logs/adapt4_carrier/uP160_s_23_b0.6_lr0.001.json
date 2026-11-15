@@ -1,0 +1,65 @@
+{
+ "model": "uP160_full_c1_s4000_seed23_eval_conf13@4000",
+ "beta": 0.6,
+ "steps": 1000,
+ "lr": 0.001,
+ "pairs": {
+  "J_DM": {
+   "n": 1767,
+   "exact_mean_abs": 0.8169726751838872
+  },
+  "J_D0": {
+   "n": 233,
+   "exact_mean_abs": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "n": 1200,
+   "exact_mean_abs": 0.0
+  }
+ },
+ "bayes_acc": 0.7921111111111111,
+ "native": {
+  "acc": 0.4446111111111111,
+  "KL": 0.7983977167391028,
+  "J_DM": {
+   "slope": -0.0024866155339889865,
+   "R2": 0.00599584694133104,
+   "mean_abs_obs": 0.02993742749094963,
+   "mean_abs_pred": 0.8169726751838872
+  },
+  "J_D0": {
+   "mean_abs_obs": 0.026032572612166405,
+   "mean_abs_exact": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "mean_abs_obs": 0.01722259819507599,
+   "mean_abs_exact": 0.0
+  },
+  "J_D0_over_DM_response": 0.86956611819891,
+  "DECOY_over_DM_response": 0.5752865105153923
+ },
+ "early01": {
+  "acc": 0.7905555555555556,
+  "KL": 0.008027542645693324,
+  "J_DM": {
+   "slope": 0.995817263550514,
+   "R2": 0.9226102886633443,
+   "mean_abs_obs": 0.8786235451698303,
+   "mean_abs_pred": 0.8169726751838872
+  },
+  "J_D0": {
+   "mean_abs_obs": 0.06924480944871902,
+   "mean_abs_exact": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "mean_abs_obs": 0.026849111542105675,
+   "mean_abs_exact": 0.0
+  },
+  "J_D0_over_DM_response": 0.07881055524790723,
+  "DECOY_over_DM_response": 0.030558151656311434,
+  "final_loss": 0.43564939498901367,
+  "frozen_params_unchanged": true,
+  "n_trainable": 99456,
+  "sec": 1789.2136023044586
+ }
+}

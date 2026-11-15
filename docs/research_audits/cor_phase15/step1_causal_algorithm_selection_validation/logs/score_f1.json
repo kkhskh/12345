@@ -1,0 +1,216 @@
+{
+ "scored": {
+  "P2a": {
+   "arms": [
+    {
+     "arm": "F1a",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "present": 0.9342080865444166,
+      "lik": -0.002641166378496791,
+      "gain": 0.25899999999999995,
+      "gain_removed": 0.05399999999999999
+     }
+    },
+    {
+     "arm": "F1b",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "present": 0.7434673599277759,
+      "lik": -0.001090192144392576,
+      "gain": 0.063,
+      "gain_removed": 0.066
+     }
+    },
+    {
+     "arm": "F1c",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "early",
+      "competent": true
+     }
+    },
+    {
+     "arm": "F1d",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "early",
+      "competent": true
+     }
+    },
+    {
+     "arm": "F1e",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "present": 0.9788085853107936,
+      "lik": 0.0015273092431297073,
+      "gain": 0.27449999999999997,
+      "gain_removed": 0.05049999999999999
+     }
+    },
+    {
+     "arm": "F1f",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "hybrid",
+      "competent": true
+     }
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P2b": {
+   "arms": [
+    {
+     "arm": "F1a",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "cls": "mixture",
+      "want": "early",
+      "competent": true,
+      "lik": -0.003412635741680275,
+      "mix": 0.968393862247467,
+      "KL": 0.0014079583826870413
+     }
+    },
+    {
+     "arm": "F1c",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "detail": {
+      "cls": "early",
+      "want": "mixture",
+      "competent": true,
+      "lik": 0.8503193557943824,
+      "mix": 0.15841548144817352,
+      "KL": 0.0039742135543404085
+     }
+    },
+    {
+     "arm": "F1b",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "mixture",
+      "competent": true,
+      "lik": -0.0012453867508081574,
+      "mix": 0.9716755151748657,
+      "KL": 0.0015175212099342674,
+      "note": "reported, no prediction"
+     }
+    },
+    {
+     "arm": "F1d",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "early",
+      "competent": true,
+      "lik": 0.8557370041132002,
+      "mix": 0.16432778537273407,
+      "KL": 0.003740617704338483,
+      "note": "reported, no prediction"
+     }
+    },
+    {
+     "arm": "F1e",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "mixture",
+      "competent": true,
+      "lik": 0.0013197124543202882,
+      "mix": 0.976081371307373,
+      "KL": 0.0019715395907260167,
+      "note": "reported, no prediction"
+     }
+    },
+    {
+     "arm": "F1f",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "hybrid",
+      "competent": true,
+      "lik": 0.45985295256374137,
+      "mix": 0.9143915772438049,
+      "KL": 0.003321893969568831,
+      "note": "reported, no prediction"
+     }
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P2c": {
+   "arms": [
+    {
+     "arm": "F1a",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "peak_present": 0.9308344584723945,
+      "final_present": 0.9342080865444166,
+      "peak_lik": 0.1984166971098547,
+      "final_lik": -0.002641166378496791
+     }
+    },
+    {
+     "arm": "F1b",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "peak_lik": -0.0022861965570440874,
+      "note": "early route never used: not diagnostic"
+     }
+    },
+    {
+     "arm": "F1c",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "early",
+      "competent": true
+     }
+    },
+    {
+     "arm": "F1d",
+     "diagnostic": false,
+     "passed": true,
+     "missing": false,
+     "detail": {
+      "cls": "early",
+      "competent": true
+     }
+    }
+   ],
+   "verdict": "CONFIRMED"
+  }
+ },
+ "summary": {
+  "P2a": "FALSIFIED",
+  "P2b": "FALSIFIED",
+  "P2c": "CONFIRMED"
+ }
+}

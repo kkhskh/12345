@@ -205,3 +205,52 @@
 2026-11-15T22:41:47Z lane DV7 end [bb728dea4eb1] rc=137
 2026-11-15T22:41:47Z lane DV7 start [d909def76aa9] FX_RETRY=7 FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22
 2026-11-15T22:42:03Z NOTE: ft_factorial.py with FX_STOP neither writes final.json nor resumes (resume is disabled for STOP runs), so every OOM-killed development transform restarted from step 0; this is why the transform screen never completed. Freeze-3b gates on step1211.npz via when_file.sh.
+2026-11-15T22:42:06Z lane F3B1 start [2a9e95025e7e] FX_STOP=1211 python3 scripts/ft_factorial.py uP164 20 21 21
+2026-11-15T22:42:08Z lane F3B2 start [3d209687bc5a] FX_STOP=1211 python3 scripts/ft_factorial.py uP164 21 20 21
+2026-11-15T22:42:08Z lane FAR end [f1a09e15b4c3] rc=0
+2026-11-15T22:42:08Z lane FAR start [dec8c6cca075] F1_RETRY=1 bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T100 uP160_fx_L23_W23_D23_l2qT100 uP160_fx_L21_W21_D21_ro0T250 uP160_fx_L23_W23_D23_l2qT250 -- RS_STREAM=91400000 RS_SETS=91500000 RS_TAG=_f1 python3 scripts/route_status.py uP160:fx:21:21:21:ro0T100@246 uP160:fx:21:21:21:ro0T100@546 uP160:fx:21:21:21:ro0T100@4000 uP160:fx:21:21:21:ro0T250@246 uP160:fx:21:21:21:ro0T250@546 uP160:fx:21:21:21:ro0T250@4000 uP160:fx:23:23:23:l2qT100@246 uP160:fx:23:23:23:l2qT100@546 uP160:fx:23:23:23:l2qT100@4000 uP160:fx:23:23:23:l2qT250@246 uP160:fx:23:23:23:l2qT250@546 uP160:fx:23:23:23:l2qT250@4000
+2026-11-15T22:42:44Z lane DV6 end [6c932f55c416] rc=137
+2026-11-15T22:42:44Z lane DV6 start [129823dc27e9] FX_RETRY=7 FX_STOP=1211 FX_WA=rot1 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T22:42:44Z lane DV7 end [d909def76aa9] rc=137
+2026-11-15T22:42:46Z Dev lanes DV6/DV7 stopped (STOP runs cannot resume; restarting from 0 under OOM pressure wastes CPU). Transform screen deferred until memory is free.
+2026-11-15T22:42:46Z lane F3B3 start [7170eb465a7f] FX_STOP=1211 python3 scripts/ft_factorial.py uP164 21 21 20
+2026-11-15T22:42:56Z lane FA end [dc9f5e7c1cda] rc=137
+2026-11-15T22:42:56Z lane FA start [dc9f5e7c1cda] 
+2026-11-15T22:42:56Z lane FA end [dc9f5e7c1cda] rc=0
+2026-11-15T22:42:57Z lane FAR end [dec8c6cca075] rc=137
+2026-11-15T22:42:57Z lane FAR start [5e00cc81e4d3] F1_RETRY=1 bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T100 uP160_fx_L23_W23_D23_l2qT100 uP160_fx_L21_W21_D21_ro0T250 uP160_fx_L23_W23_D23_l2qT250 -- RS_REACT=1 RS_STREAM=91400000 RS_SETS=91500000 RS_TRAIN=91300000 RS_TAG=_f1_react python3 scripts/route_status.py uP160:fx:21:21:21:ro0T100 uP160:fx:21:21:21:ro0T250 uP160:fx:23:23:23:l2qT100 uP160:fx:23:23:23:l2qT250
+2026-11-15T22:52:26Z F1 route_status presence trajectories (F1a-d) [line 2] and branch reactivation (F1e written, F1f missing) [line 5] OOM-killed at 22:42Z (route_status uses ~2.5-2.8 GB). Re-queued with F1_RETRY=2 in queue_f1_analysis_retry2.txt, lane FAR2 with MEMMIN 3200 (runs when memory allows). Note: route_status does not skip completed units; duplicates in the react file are resolved by the scorer taking the last record per unit.
+2026-11-15T22:54:08Z lane FAR end [5e00cc81e4d3] rc=0
+2026-11-15T22:54:25Z lane FAR2 start [bc5eff7bdd1d] F1_RETRY=2 bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T100 uP160_fx_L23_W23_D23_l2qT100 uP160_fx_L21_W21_D21_ro0T250 uP160_fx_L23_W23_D23_l2qT250 -- RS_STREAM=91400000 RS_SETS=91500000 RS_TAG=_f1 python3 scripts/route_status.py uP160:fx:21:21:21:ro0T100@246 uP160:fx:21:21:21:ro0T100@546 uP160:fx:21:21:21:ro0T100@4000 uP160:fx:21:21:21:ro0T250@246 uP160:fx:21:21:21:ro0T250@546 uP160:fx:21:21:21:ro0T250@4000 uP160:fx:23:23:23:l2qT100@246 uP160:fx:23:23:23:l2qT100@546 uP160:fx:23:23:23:l2qT100@4000 uP160:fx:23:23:23:l2qT250@246 uP160:fx:23:23:23:l2qT250@546 uP160:fx:23:23:23:l2qT250@4000
+2026-11-15T22:59:40Z lane FAR2 end [bc5eff7bdd1d] rc=0
+2026-11-15T22:59:40Z lane FAR2 start [fda1590c0d5c] F1_RETRY=2 bash scripts/when_ready.sh uP160_fx_L21_W21_D21_ro0T0_br546_w546-1146 uP160_fx_L23_W23_D23_l2qT0_br546_w546-1146 -- RS_REACT=1 RS_STREAM=91400000 RS_SETS=91500000 RS_TRAIN=91300000 RS_TAG=_f1_react python3 scripts/route_status.py uP160:fx:21:21:21:ro0T0_br546_w546-1146 uP160:fx:23:23:23:l2qT0_br546_w546-1146
+2026-11-15T23:02:50Z Transform screen + B5 dev re-queued (queue_dev7.txt, RETRY=8), lanes DV8/DV9 with MEMMIN 2600.
+2026-11-15T23:03:26Z lane DV8 start [473923557c42] FX_RETRY=8 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T23:03:28Z lane DV9 start [70a0541ac19a] FX_RETRY=8 FX_STOP=1211 FX_WA=scale0.6 python3 scripts/ft_factorial.py uP161 21 21 21
+2026-11-15T23:04:14Z lane DV8 end [473923557c42] rc=137
+2026-11-15T23:06:41Z lane FAR2 end [fda1590c0d5c] rc=0
+2026-11-15T23:06:54Z lane DV8 start [e2ad46e3d43f] FX_RETRY=8 FX_STOP=1211 FX_WA=neg python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T23:08:01Z lane F3B2 end [3d209687bc5a] rc=0
+2026-11-15T23:08:01Z lane F3B2 start [eced8e81a32b] FX_STOP=1211 python3 scripts/ft_factorial.py uP163 21 20 21
+2026-11-15T23:08:04Z lane F3B1 end [2a9e95025e7e] rc=0
+2026-11-15T23:08:04Z lane F3B1 start [61915191adc1] bash scripts/when_file.sh checkpoints/ft/uP164_fx_L20_W21_D21_stop1211/step1211.npz checkpoints/ft/uP164_fx_L21_W20_D21_stop1211/step1211.npz checkpoints/ft/uP164_fx_L21_W21_D20_stop1211/step1211.npz checkpoints/ft/uP163_fx_L21_W20_D21_stop1211/step1211.npz -- UM_RHO=0 UM_STREAM=94100000 UM_TAG=_f3b UM_STEPS=1211 python3 scripts/unit_metrics.py uP164:fx:20:21:21:stop1211 uP164:fx:21:20:21:stop1211 uP164:fx:21:21:20:stop1211 uP164:s:21 uP164:s:20 uP163:fx:21:20:21:stop1211
+2026-11-15T23:08:30Z lane F3B3 end [7170eb465a7f] rc=0
+2026-11-15T23:09:13Z lane DV10 start [3ed55bbf9c1d] FX_RETRY=8 FX_STOP=1211 FX_WA=perm120 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T23:09:15Z Freeze-1 final score: P2a FALSIFIED, P2b FALSIFIED, P2c CONFIRMED. scale1.5 dev transform killed again at 23:04Z; re-queued RETRY=9; third dev lane DV10.
+2026-11-15T23:12:40Z lane F3A end [98bd5b59fdae] rc=0
+2026-11-15T23:12:40Z lane F3A start [e4666549b85d] AD_RETRY=1 AD_OUT=_f3a AD_LR=0.001 AD_ARMS=L1only,L0attn,L0mlp python3 scripts/adapt4.py uP165:s:20
+2026-11-15T23:28:54Z lane DV9 end [70a0541ac19a] rc=0
+2026-11-15T23:28:54Z lane DV9 start [ee4c0e0311e0] B5_RETRY=8 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:20:20:23 uP161:fx:21:21:22 uP161:fx:22:22:21 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:21:22:21 uP163:fx:21:22:22 uP163:fx:22:21:21 uP163:fx:22:22:21 uP160:fx:23:23:23:base uP163:fx:22:21:22 uP160:s:21 uP160:s:23 uP161:s:21 uP161:s:22 uP161:s:23 uP161:s:20 uP160:s:20
+2026-11-15T23:31:27Z lane DV8 end [e2ad46e3d43f] rc=0
+2026-11-15T23:31:27Z lane DV8 start [d0b439e061c5] UM_RETRY=8 UM_TAG=_fx_dev13d UM_RHO=0 UM_STEPS=final python3 scripts/unit_metrics.py uP163:fx:22:21:22
+2026-11-15T23:32:14Z lane F3B2 end [eced8e81a32b] rc=0
+2026-11-15T23:32:30Z lane DV8 end [d0b439e061c5] rc=0
+2026-11-15T23:32:30Z lane DV8 start [71f8ce039592] FX_RETRY=9 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T23:32:35Z lane DM2 start [e7af9656d3c9] bash scripts/when_file.sh checkpoints/ft/uP161_fx_L22_W22_D22_stop1211_waperm120/step1211.npz -- UM_TAG=_tdev UM_RHO=0 UM_STREAM=93200000 UM_STEPS=1211 python3 scripts/unit_metrics.py uP161:s:21 uP161:s:22 uP161:fx:21:21:21:stop1211_wascale0.6 uP161:fx:22:22:22:stop1211_waneg uP161:fx:22:22:22:stop1211_waperm120
+2026-11-15T23:33:22Z lane DV10 end [3ed55bbf9c1d] rc=0
+2026-11-15T23:35:29Z lane DV9 end [ee4c0e0311e0] rc=137
+2026-11-15T23:37:04Z lane F3B1 end [61915191adc1] rc=0
+2026-11-15T23:37:19Z lane DM2 end [e7af9656d3c9] rc=0
+2026-11-15T23:37:19Z lane DM2 start [ee8b86eed9ba] bash scripts/when_file.sh checkpoints/ft/uP161_fx_L22_W22_D22_stop1211_wascale1.5/step1211.npz -- UM_TAG=_tdev UM_RHO=0 UM_STREAM=93200000 UM_STEPS=1211 python3 scripts/unit_metrics.py uP161:fx:22:22:22:stop1211_wascale1.5
+2026-11-15T23:39:42Z lane B5X start [8dc86c7e745b] B5_RETRY=10 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:20:20:23 uP161:fx:21:21:22 uP161:fx:22:22:21 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:21:22:21 uP163:fx:21:22:22 uP163:fx:22:21:21 uP163:fx:22:22:21 uP160:fx:23:23:23:base uP163:fx:22:21:22 uP160:s:21 uP160:s:23 uP161:s:21 uP161:s:22 uP161:s:23 uP161:s:20 uP160:s:20 uP161:fx:21:22:21 uP161:fx:22:21:22 uP160:fx:21:23:21 uP160:fx:23:21:23 uP163:s:20 uP163:s:21 uP163:s:22 uP164:s:20 uP164:s:21 uP164:s:22 uP165:s:20 uP165:s:21 uP165:s:23 uP162:s:20
+2026-11-15T23:39:42Z Freeze-3b scored: P10 FALSIFIED (uP164 L-only cell L21/W20/D21 stayed EARLY; W-only cell NOT-EARLY; D-only EARLY; references as declared). Dev transform screen at 1211 (stream 93.2M): scale0.6 on mixture uP161 21 stays mixture; neg and perm120 on early uP161 22 both give mixture. B5 learning-transition analysis (not frozen, exploratory) extended to the confirmation runs A-C1..4 and ten natural seeds of uP162-uP165 (queue_b5x.txt, lane B5X; no OOM priority).

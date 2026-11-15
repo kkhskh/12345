@@ -1,0 +1,90 @@
+{
+ "scored": {
+  "P5a": {
+   "arms": [
+    {
+     "arm": "lr3:supL2>=0.5",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "slope": 0.9061808902272688,
+     "acc": 0.7905
+    },
+    {
+     "arm": "lr3:L2<0.1",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "slope": -0.0003374434012672825,
+     "acc": 0.7291111111111112
+    },
+    {
+     "arm": "lr1:supL2<0.1",
+     "diagnostic": true,
+     "passed": false,
+     "missing": false,
+     "slope": 0.16808260954801255,
+     "acc": 0.7528333333333334
+    }
+   ],
+   "verdict": "FALSIFIED"
+  },
+  "P5b": {
+   "arms": [
+    {
+     "arm": "lr3:supRO>=0.5",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "slope": 0.8938387168747887,
+     "acc": 0.7908333333333334
+    },
+    {
+     "arm": "lr3:supQS>=0.5",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "slope": 0.7271655851723139,
+     "acc": 0.7844444444444445
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "P5c": {
+   "arms": [
+    {
+     "arm": "lr1:L0only>=0.5",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "slope": 0.8316421457257512,
+     "acc": 0.7856111111111111
+    },
+    {
+     "arm": "lr1:L1only<0.1",
+     "diagnostic": true,
+     "passed": true,
+     "missing": false,
+     "slope": 0.0035310314617918418,
+     "acc": 0.7266666666666667
+    }
+   ],
+   "verdict": "CONFIRMED"
+  }
+ },
+ "summary": {
+  "P5a": "FALSIFIED",
+  "P5b": "CONFIRMED",
+  "P5c": "CONFIRMED"
+ },
+ "descriptive": {
+  "lr1:L0attn": [
+   null,
+   null
+  ],
+  "lr1:L0mlp": [
+   null,
+   null
+  ]
+ }
+}

@@ -1,0 +1,84 @@
+{
+ "scored": {
+  "P10": {
+   "arms": [
+    {
+     "arm": "a",
+     "unit": "uP164:fx:20:21:21:stop1211",
+     "want": "NOT-EARLY",
+     "got": "NOT-EARLY",
+     "detail": {
+      "lik": 0.5750120381706902,
+      "mix": 0.7804770469665527,
+      "KL": 0.021996296102302536,
+      "competent": true
+     },
+     "diagnostic": true,
+     "passed": true
+    },
+    {
+     "arm": "b",
+     "unit": "uP164:fx:21:20:21:stop1211",
+     "want": "NOT-EARLY",
+     "got": "EARLY",
+     "detail": {
+      "lik": 0.780728719311204,
+      "mix": 0.16210351884365082,
+      "KL": 0.029882655363782856,
+      "competent": true
+     },
+     "diagnostic": true,
+     "passed": false
+    },
+    {
+     "arm": "c",
+     "unit": "uP164:fx:21:21:20:stop1211",
+     "want": "EARLY",
+     "got": "EARLY",
+     "detail": {
+      "lik": 0.7453228820164971,
+      "mix": 0.25783610343933105,
+      "KL": 0.043719844894035124,
+      "competent": true
+     },
+     "diagnostic": true,
+     "passed": true
+    }
+   ],
+   "refs_ok": true,
+   "verdict": "FALSIFIED"
+  }
+ },
+ "summary": {
+  "P10": "FALSIFIED"
+ },
+ "descriptive": {
+  "uP163:fx:21:20:21:stop1211": [
+   "NOT-EARLY",
+   {
+    "lik": 0.6081688239039093,
+    "mix": 0.5528344511985779,
+    "KL": 0.038317379929518294,
+    "competent": true
+   }
+  ],
+  "uP164:s:21": [
+   "EARLY",
+   {
+    "lik": 0.7117838427480775,
+    "mix": 0.2789783179759979,
+    "KL": 0.04211792422314727,
+    "competent": true
+   }
+  ],
+  "uP164:s:20": [
+   "NOT-EARLY",
+   {
+    "lik": 0.6153464486809974,
+    "mix": 0.7004806399345398,
+    "KL": 0.032316213416104245,
+    "competent": true
+   }
+  ]
+ }
+}

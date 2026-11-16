@@ -1,0 +1,1 @@
+{'P0_refuse_incomplete': True, 'P1_runs_on_synthetic_dev': True, 'P1_detail': {'X1a_prime': 'CONFIRMED', 'X1b_prime': 'FALSIFIED'}, 'P1_dev_s1_traj_A_p_max_le400': 0.14680380711602334, 'P2_missing_refuse': True}

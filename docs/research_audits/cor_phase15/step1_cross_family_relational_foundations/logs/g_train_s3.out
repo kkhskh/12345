@@ -4,3 +4,7 @@ gate s3 step 1200 loss 0.1874 1783s
 gate s3 step 1600 loss 0.1682 2595s
 gate s3 step 2000 loss 0.1770 3337s
 gate s3 step 2400 loss 0.1897 4295s
+gate s3 step 2800 loss 0.1721 4975s
+gate s3 step 3200 loss 0.1646 5449s
+gate s3 step 3600 loss 0.1949 5905s
+gate s3 step 4000 loss 0.1807 6338s

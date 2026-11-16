@@ -1,0 +1,4 @@
+XIV compute log (UTC).  Machine: 2 CPU, 8 GB.  Benchmark (2026-11-16T17:07:44Z): ft_factorial_c.py, 2 concurrent lanes, 300 steps each in 145-147 s
+(2.05 steps/s per lane, 4.1 aggregate), peak RSS 0.80-0.81 GB per run (scripts/peakmem.sh).  Development (not confirmation):
+i_attn_dev.py (stream 97_000_000), i_sham_dev.py (97_100_000), i_calib.py (97_200_000); bitwise checks msk/ro0 == XIII-E ro0 run at
+step 25 and lnz sigma 0 == baseline at step 25 (max |diff| 0.0); benchmark and check runs deleted.

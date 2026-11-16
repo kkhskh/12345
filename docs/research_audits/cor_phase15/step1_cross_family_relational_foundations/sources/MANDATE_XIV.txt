@@ -1,0 +1,911 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XIV
+
+## Beyond a Single Environment: Final T4 Causal Verification, Cross-Family Relational Principles, and the Boundaries of Generalization
+
+**Autonomous foundational mathematical and mechanistic research mandate**
+
+**Research budget: approximately 8–13 hours of serious investigation on the available two-CPU environment, subject to measured feasibility.**
+
+**This is a change in research direction within Phase 1.5, Step 1, not a phase transition.**
+
+---
+
+# 0. CENTRAL SCIENTIFIC MISSION
+
+You are continuing the COR foundational research program after Investigation XIII-E.
+
+Starting branch:
+
+`cor-phase15-step1-reroll-and-critical-period-validation`
+
+Reported HEAD:
+
+`e399664`
+
+Latest archive:
+
+`cor_inv13e_reroll_critical_period_and_causal_audit.zip`
+
+Latest research directory:
+
+`docs/research_audits/cor_phase15/step1_reroll_and_critical_period_validation/`
+
+Verify the actual repository state before beginning.
+
+Read the XIII-E primary reports, experimental scripts, mathematical audit, frozen predictions, reviewer findings, and adjudications.
+
+Consult the earlier COR research packages, especially the investigations establishing the original GATE environment, its mathematical decision rule, trained models, and causal interventions.
+
+## Mission
+
+The COR research program has spent substantial effort investigating one particular family of relational information problems.
+
+Those investigations produced useful discoveries and equally important corrections.
+
+However, recent investigations have increasingly concentrated on refining the interpretation of the same small neural systems.
+
+**The next scientific question is whether our strongest surviving principles are properties of relational decision-making more broadly, or special features of the T4 environment.**
+
+Investigation XIV must therefore have three stages:
+
+1. **Complete the remaining essential T4 causal controls.**
+2. **Freeze an evidence-weighted record of what the T4 investigations actually establish.**
+3. **Conduct a substantial mathematical and causal investigation in a different established COR environment, beginning with GATE.**
+
+The first two stages are safeguards.
+
+The third is the principal new scientific territory.
+
+Do not transform the safeguards into another unlimited T4 investigation.
+
+Do not assume a principle is universal because it appears in two experiments using similar architectures.
+
+Do not demand that GATE implement T4's exact neural mechanism.
+
+We seek mathematical and causal principles capable of explaining both similarities and differences.
+
+---
+
+# 1. THE SCIENTIFIC STARTING POINT
+
+Investigations IX–XIII-E have established or suggested several distinctions:
+
+- A model may represent useful relational information without using it correctly.
+- Different training runs may reach similar decisions through different neural pathways.
+- The relational information sufficient for correct decisions depends on the source-generating process.
+- Changing the accessibility of information can change what a downstream computation learns.
+- Short pathway interventions can alter the organization ultimately learned by a model.
+- Neural activation subspaces can successfully transfer decision effects without uniquely identifying a natural internal variable.
+- Certain causal-intervention metrics previously used in COR were non-diagnostic, as demonstrated by ideal-mechanism reference calculations.
+
+These claims do not all have equal evidential status.
+
+Some are mathematical results under restricted assumptions.
+
+Some have substantial causal evidence in T4.
+
+Some remain weak, model-specific, or unidentified.
+
+Some previous interpretations have been falsified or withdrawn.
+
+Investigation XIV must preserve those distinctions.
+
+## Important corrections from XIII-E
+
+1. The claim that the readout-map initialization uniquely determines the learned implementation was falsified in XIII-D.
+
+2. XIII-E found a pooled, within-parent readout-draw effect, but no explanatory initialization statistic. The result is driven partly by graded variation in one parent, and cross-parent generality is unestablished.
+
+3. Blocking a route for 100 steps changed the learned organization in 6/6 tested conditions.
+
+4. Longer early blocks generally produced larger changes than shorter blocks.
+
+5. Late blocks also altered organization. The earlier theory of a critical period that closes was not supported.
+
+6. The off-route sham was not performed.
+
+7. The noise control was applied at a different neural location and was not a fully satisfactory comparator.
+
+8. Early and late interventions differed in persistence, but the strongest evidence was exploratory and relied on only a few runs.
+
+9. Several causal metrics failed ideal-reference checks and are now considered non-diagnostic.
+
+10. The proposed natural three-dimensional relational carrier was reinterpreted: one or two stable directions sufficed in the tested models, and successful subspaces were not unique.
+
+11. The best-supported causal findings concern relational signal transfer, reverse-swap sensitivity, and specific attention-row effects under properly interpreted interventions.
+
+12. The original obstruction/discrepancy framework has not been established.
+
+Do not restore stronger versions of these claims without new evidence.
+
+---
+
+# 2. STAGE I — FINAL BOUNDED T4 CAUSAL VERIFICATION
+
+**Mandatory. Strictly limited in scope.**
+
+This stage has two experimental obligations.
+
+It is not permission to start another general investigation of initialization or neural circuits.
+
+## I-A. Correct the missing off-route sham and location-matched noise controls
+
+XIII-E's masking result is promising, but its interpretation still depends on inadequate controls.
+
+Design three matched conditions:
+
+**Condition 1: True route intervention**
+
+Block the relevant early-readout or mixture pathway using the established XIII-E intervention.
+
+**Condition 2: Off-route sham**
+
+Apply the corresponding operation to an edge or pathway that does not belong to either proposed causal route.
+
+Ensure that the sham matches the real intervention's technical procedure as closely as possible.
+
+**Condition 3: Location-matched disturbance**
+
+Introduce a disturbance at the same relevant neural location as the real intervention, matched for a prespecified measure of perturbation severity.
+
+Do not compare a real route block at one site against unrelated noise at another site and call the comparison controlled.
+
+### Requirements
+
+- Use both established model organizations.
+- Use at least three paired data-order seeds per principal condition if feasible.
+- Use identical initialization tensors across matched conditions.
+- Retain the 100-step intervention as the primary comparison.
+- Include ordinary no-intervention baselines.
+- Verify that the sham does not unintentionally interrupt either proposed route.
+- Predefine how the disturbance magnitude is matched.
+- Measure training competence, not only organization.
+- Report continuous pathway measurements, not just early/mixture labels.
+
+Evaluate the final model and the persistence of the intervention effect.
+
+### Scientific question
+
+**Does blocking a particular information pathway alter the learned organization more reliably than a comparable intervention that does not block that pathway?**
+
+If both interventions produce similar changes, weaken the route-specific interpretation.
+
+If only the genuine route intervention produces the predicted change, strengthen the route-specific causal conclusion, while retaining other plausible explanations.
+
+A failed sham design cannot be treated as a successful control.
+
+---
+
+## I-B. Test whether early interventions produce more persistent changes
+
+XIII-E found that late interventions can also change a model's organization.
+
+The interesting remaining hypothesis is not that learning becomes completely insensitive later.
+
+It is that **changes induced earlier may be more persistent than equally strong changes induced later**.
+
+This must be tested correctly.
+
+### Experimental design
+
+Compare early and late interventions using:
+
+- The same intervention duration.
+- Comparable intervention severity.
+- The same two baseline model organizations.
+- Paired data-order seeds.
+- Identical starting initializations within each paired comparison.
+- Identical measurements of the resulting organization.
+
+A suitable design is an early 100-step block versus a late 100-step block, with exact start steps chosen and frozen after development calibration.
+
+### Crucial recovery-time control
+
+Do not compare one model immediately after its intervention with another model hundreds of steps after release.
+
+For each intervention, measure the organization at the same number of training updates after the block ends.
+
+Use multiple recovery checkpoints.
+
+Also evaluate the models at the same conventional final training step.
+
+Where possible, provide matched post-release learning-rate exposure, since an early intervention may leave more optimization opportunity than a late intervention.
+
+If exact matching is impossible, document what remains confounded.
+
+### Required measurements
+
+- Immediate organization change.
+- Organization after equal recovery updates.
+- Organization at final training.
+- Degree of recovery or reversal.
+- Training loss and decision accuracy.
+- Whether the original information route remains usable.
+- Whether any changed organization is stable.
+
+### Scientific question
+
+**Do early interventions produce more persistent changes than severity-matched late interventions, independently of their immediate magnitude?**
+
+Distinguish:
+
+- Initial change magnitude.
+- Persistence.
+- Recovery.
+- Continued task competence.
+
+Do not call this a critical period unless the data justify that terminology.
+
+---
+
+# 3. HARD BOUNDARY ON STAGE I
+
+Stage I should receive a bounded portion of the research budget.
+
+Reuse existing checkpoints and experiment infrastructure.
+
+Do not open new investigations of:
+
+- The unexplained W initialization property.
+- Additional W/L alignment searches.
+- The source of early-readout error.
+- Layer-1 depth versus access.
+- Further low-dimensional subspace optimizations.
+- More variations of the original copying generator.
+
+Those questions remain in the research record.
+
+They do not automatically justify prolonging Stage I.
+
+After the two mandatory control obligations are addressed, proceed to Stage II.
+
+A negative or inconclusive result is not a reason to launch another unrestricted local investigation.
+
+If a technical blocker prevents an essential control, document the actual attempted implementation, measured blocker, and its consequences for the causal claim.
+
+Do not silently declare the test completed.
+
+---
+
+# 4. STAGE II — FREEZE THE DEFENSIBLE T4 SCIENTIFIC RECORD
+
+**Mandatory. Primarily analysis and documentation.**
+
+Before moving into GATE, establish exactly which T4 findings are suitable for cross-family testing.
+
+Create an evidence ledger covering the research history from the relevant early COR investigations through XIII-E and the new Stage I controls.
+
+Classify each principal claim as:
+
+- **Mathematically proved under stated assumptions.**
+- **Independently numerically verified.**
+- **Causally supported in the tested neural systems.**
+- **Behaviorally or correlationally supported.**
+- **Confirmed only on a limited model cohort.**
+- **Exploratory.**
+- **Non-diagnostic after corrected controls.**
+- **Falsified or retracted.**
+- **Unresolved.**
+
+Include the actual evidence that supports each classification.
+
+Preserve:
+
+- The exact-copying versus partial-copying mathematical distinctions.
+- The limits of per-group relational summaries.
+- Information presence versus downstream use.
+- Heterogeneous neural implementations.
+- Corrected attention and activation-patching evidence.
+- The failure to identify a unique natural eligibility subspace.
+- Initialization and early-training sensitivity.
+- The revised critical-period interpretation.
+- The remaining uncertainty about algorithm-selection probabilities.
+- The distinction between mathematical equivalence and neural causal equivalence.
+
+## Important
+
+Do not copy the most favorable formulation of a claim from an earlier report when later work corrected it.
+
+Do not hide negative findings in appendices.
+
+Do not describe all investigations as a linear series of confirmations.
+
+The record must show how the explanations evolved and which ones failed.
+
+### Deliverable
+
+`T4_FOUNDATIONAL_EVIDENCE_LEDGER.md`
+
+This ledger becomes the reference against which cross-family claims are evaluated.
+
+---
+
+# 5. STAGE III — INVESTIGATION XIV: CROSS-FAMILY FOUNDATIONAL TESTING
+
+**Principal new research stage. Mandatory substantial work.**
+
+Begin with T4 and GATE.
+
+GATE is an established COR environment concerned with relational compatibility rather than merely replicating T4's reliability task.
+
+However, inspect its actual earlier definitions, source generator, target decision rule, training checkpoints, and mathematical results before specifying the comparison.
+
+**Do not invent GATE's formal structure from its name.**
+
+Read the primary earlier GATE research packages and establish the exact relevant variables.
+
+Use pre-existing trained checkpoints when suitable.
+
+If the existing checkpoints are inadequate, determine the minimum necessary new training and quantify its resource cost.
+
+Do not quietly replace the cross-family investigation with a large model-training sweep.
+
+---
+
+# 6. PRIMARY CROSS-FAMILY QUESTION
+
+**Which mathematical and computational principles governing relational information and decisions survive when the relationships between information sources are changed fundamentally?**
+
+This question has several competing possibilities.
+
+### H1 — Common abstract principle, different implementation
+
+T4 and GATE may instantiate a shared high-level principle, even if their required relational variables and neural circuits differ.
+
+### H2 — Shared information-access distinction
+
+Both environments may exhibit information that is present in the neural state but inaccessible to the downstream decision mechanism under a particular restriction.
+
+### H3 — Different relational algorithms
+
+The two environments may require fundamentally different mathematical computations, and attempts to force a shared abstraction may fail.
+
+### H4 — T4-specific phenomenon
+
+Some findings from T4 may be consequences of its source generator, supervision, representation format, or architecture rather than broader relational properties.
+
+### H5 — Shared methodological constraints
+
+Even when the neural computations differ, the same causal-identification limitations may arise: subspace ambiguity, redundant pathways, support restrictions, or non-diagnostic interventions.
+
+These hypotheses are not mutually exclusive.
+
+Design experiments capable of distinguishing them.
+
+---
+
+# 7. CROSS-FAMILY MATHEMATICAL INVESTIGATION
+
+**Mandatory.**
+
+Before comparing neural activations, derive the relevant mathematical structure of both environments.
+
+## 7.1 Define the relational objects
+
+For each environment identify:
+
+- Information sources.
+- Observed primitive inputs.
+- Latent relationships, where present.
+- Candidate decisions.
+- Correct decision rule.
+- Minimal or restricted sufficient statistics.
+- Conditions under which relevant information is lost.
+- Conditions under which a previously sufficient representation becomes insufficient.
+
+Use the actual generator and target definitions.
+
+Do not assume T4's eligibility indicator E, copying statistic m, or readout organization exists in GATE.
+
+## 7.2 Seek a common mathematical statement
+
+Investigate whether both environments support a restricted principle such as:
+
+**Correct relational decisions depend on information about relationships among sources that may not be recoverable from source-wise summaries alone.**
+
+This is a hypothesis, not a theorem.
+
+Determine exactly what it means in each environment.
+
+Construct proofs, counterexamples, or explicit sufficiency conditions.
+
+A meaningful common principle must make nontrivial predictions in both settings.
+
+It is not enough to observe that both tasks involve relationships.
+
+## 7.3 Investigate limits
+
+Seek cases where:
+
+- Source-wise summaries suffice.
+- Joint relations are necessary.
+- Different relational descriptions are observationally equivalent.
+- A representation carries relevant information but an allowed downstream computation cannot use it.
+- Changed relational structures require changed decisions.
+- A seemingly general principle fails.
+
+Document the assumptions precisely.
+
+A strong counterexample is a legitimate positive research outcome.
+
+Do not inflate a task-specific theorem into a universal claim about all AI systems.
+
+---
+
+# 8. CROSS-FAMILY NEURAL AND CAUSAL EXPERIMENTS
+
+**Mandatory.**
+
+Apply the corrected experimental toolkit from XIII-E.
+
+The aim is not to reproduce T4's preferred attention mechanism in GATE.
+
+The aim is to test mathematical predictions using the actual neural systems.
+
+## 8.1 Establish genuine relational learning
+
+Determine whether the existing GATE models use information about the relevant relationships among sources to make candidate decisions.
+
+Compare against explicit alternative strategies that could succeed without the proposed relational computation.
+
+Use the earlier GATE research results as historical evidence, but independently reproduce at least one decisive behavioral or mechanistic observation.
+
+Do not merely trust a previous summary.
+
+## 8.2 Test information accessibility
+
+Investigate whether the relevant relational information is:
+
+- Present in neural states.
+- Decodable under stated restrictions.
+- Available to downstream computation.
+- Actually used in the candidate decision.
+
+These are separate questions.
+
+A successful probe does not establish causal use.
+
+A failed linear probe does not prove absence.
+
+Use interventions and restricted downstream computations where scientifically appropriate.
+
+The comparison should determine whether the information-accessibility distinction observed in T4 has a meaningful analogue in GATE.
+
+## 8.3 Test causal mediation
+
+Identify candidate neural locations or pathways through which relational changes affect decisions.
+
+Use:
+
+- Valid input-level changes.
+- Natural-donor interventions where possible.
+- Matched counterfactual pairs.
+- Null and source-independent controls.
+- Decoy representations.
+- Appropriate restoration or removal tests.
+- Explicit ideal-model reference calculations.
+
+Before evaluating an intervention, establish whether its metric can distinguish the target explanation from plausible alternatives.
+
+Do not use the non-diagnostic metrics that earlier investigations corrected.
+
+## 8.4 Compare abstract computations
+
+Investigate whether a common causal abstraction can describe the two environments.
+
+Define the abstraction mathematically.
+
+Do not map arbitrary activation subspaces between tasks and then interpret a good transfer score as universal computation.
+
+A convincing comparison should demonstrate at least one of:
+
+- Shared mathematical constraints.
+- Corresponding causal intervention-response structures.
+- Similar limits on downstream information use.
+- Similar failure under a structurally relevant intervention.
+- A rigorously characterized difference that falsifies the proposed common explanation.
+
+## 8.5 Check neural implementation diversity
+
+Where existing checkpoints permit, examine more than one independently trained GATE model.
+
+Distinguish:
+
+- Shared behavior.
+- Shared abstract computation.
+- Shared neural architecture.
+- Shared individual circuit components.
+
+These are different levels of generality.
+
+Do not treat two fine-tuning seeds from the same pretrained parent as independent pretraining replications.
+
+---
+
+# 9. ONE PROSPECTIVE CROSS-FAMILY PREDICTION
+
+**Mandatory. High priority.**
+
+The central scientific achievement sought from XIV is a mathematically informed prediction that survives in a genuinely different relational environment.
+
+After inspecting GATE's exact task, construct a concrete prediction about how a defined change in relational information should affect candidate decisions or downstream information use.
+
+The prediction must:
+
+1. Follow from an explicit mathematical argument.
+2. Be fixed before its confirmation results are inspected.
+3. Have a plausible competing explanation.
+4. Use a control where that alternative predicts something different.
+5. Be evaluated on previously untouched data or models.
+6. Have a quantitative failure criterion.
+7. Include appropriate uncertainty.
+
+If the prediction is falsified, determine whether the failure comes from:
+
+- Incorrect mathematics.
+- A model failing to implement the correct rule.
+- An information-access restriction.
+- A flawed causal intervention.
+- An incorrect assumption of cross-family similarity.
+
+Do not reinterpret a falsification as confirmation after changing the abstraction.
+
+---
+
+# 10. EXPERIMENTAL FREEZING AND INTEGRITY
+
+Use separate freezes for the bounded T4 controls and cross-family confirmation.
+
+For each freeze record:
+
+- Exact hypotheses.
+- Competing predictions.
+- Mathematical reference.
+- Model inventory.
+- Evaluation streams.
+- Intervention definitions.
+- Numerical criteria.
+- Null controls.
+- Required output files.
+- Statistical unit of independence.
+- Scoring implementation.
+- Run configuration hashes.
+
+Commit before the corresponding confirmation outputs are inspected.
+
+## Fail-closed scoring
+
+Retain the XIII-E improvement.
+
+Every frozen scorer must refuse to produce a verdict until:
+
+- All required runs have finished.
+- Every expected output exists.
+- The outputs match the frozen configurations.
+- All required controls are present.
+- Integrity checks pass.
+
+Do not inspect partial confirmation verdicts.
+
+Post hoc findings must be labeled exploratory.
+
+Do not use a result from an earlier confirmation to construct a supposedly independent later prediction without disclosing that dependency.
+
+---
+
+# 11. STATISTICS AND EVIDENCE STANDARDS
+
+Report all relevant effect sizes and uncertainty.
+
+Distinguish:
+
+- Input episodes.
+- Neural checkpoints.
+- Training seeds.
+- Fine-tuning replicates.
+- Independently pretrained models.
+- Different source generators.
+
+Do not treat correlated observations as independent confirmation.
+
+For the T4 control closure, prioritize paired intervention effects and persistence across matched recovery checkpoints.
+
+For GATE, report results separately by model and task configuration.
+
+For cross-family comparisons, explicitly identify what is held constant and what differs.
+
+Avoid numerical comparisons that have no common interpretation.
+
+A larger attention effect in one task than another is not automatically evidence of a more relational computation.
+
+**A successful cross-family result requires a mathematical or causal comparison, not just two high accuracies.**
+
+---
+
+# 12. RESOURCE ALLOCATION AND RESEARCH DEPTH
+
+The environment is approximately two CPU cores with limited memory.
+
+Benchmark the available machine before starting.
+
+Use memory-safe scheduling and avoid the earlier out-of-memory failure pattern.
+
+The investigation should be substantial, but Stage I must remain bounded.
+
+Recommended allocation:
+
+**Stage I — T4 local verification**
+
+Complete the missing controls and persistence comparison using existing infrastructure.
+
+Do not prolong this stage for new speculative mechanisms.
+
+**Stage II — Evidence ledger**
+
+Consolidate the corrected T4 record efficiently.
+
+**Stage III — GATE mathematical and causal investigation**
+
+Allocate the largest remaining portion of the research effort to the actual new environment.
+
+Do not spend the entire session merely reading GATE's historical documentation.
+
+Run decisive new experiments.
+
+**Review and reproducibility**
+
+Reserve enough time to verify the mathematics, run independent-agent criticism, correct major errors, and produce the archive.
+
+The research budget is approximately 8–13 hours of active work where useful and feasible.
+
+Do not make elapsed hours a substitute for scientific completion.
+
+Do not finish early while essential, affordable experimental obligations remain unresolved.
+
+---
+
+# 13. REQUIRED SCIENTIFIC REVIEW
+
+Use at least two separately initialized reviewers where supported.
+
+Prefer three.
+
+### Mathematical reviewer
+
+Examine:
+
+- The exact T4 and GATE rules.
+- Proposed common mathematical abstractions.
+- Sufficiency and necessity claims.
+- Counterexamples.
+- On-support interventions.
+- Whether the prospective prediction follows from its assumptions.
+
+### Mechanistic reviewer
+
+Examine:
+
+- Off-route sham validity.
+- Location-matched disturbance.
+- Persistence measurements.
+- Natural versus synthetic interventions.
+- Source-free controls.
+- Causal mediation claims.
+- Cross-family mechanism comparisons.
+
+### Experimental-integrity reviewer
+
+Examine:
+
+- Freeze chronology.
+- Missing runs.
+- Statistical dependence.
+- Post hoc analyses.
+- Resource and execution logs.
+- Scorer completeness.
+- Reproducibility.
+
+Allow reviewers to reject the proposed common principle.
+
+Preserve substantive criticisms and corrections.
+
+These are agent reviews, not external human peer review.
+
+---
+
+# 14. REQUIRED REPOSITORY ARTIFACTS
+
+Create branch:
+
+`cor-phase15-step1-cross-family-relational-foundations`
+
+Create directory:
+
+`docs/research_audits/cor_phase15/step1_cross_family_relational_foundations/`
+
+Required documents:
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+Principal discoveries, falsifications, mathematical results, causal evidence, limitations, and implications for COR.
+
+### T4_FINAL_CAUSAL_CONTROLS.md
+
+Off-route sham, location-matched disturbance, early-versus-late persistence, controls, limitations, and final interpretations.
+
+### T4_FOUNDATIONAL_EVIDENCE_LEDGER.md
+
+An auditable record of established, qualified, falsified, non-diagnostic, and unresolved T4 findings.
+
+### CROSS_FAMILY_MATHEMATICAL_STRUCTURE.md
+
+Exact mathematical task definitions, sufficient statistics, relational principles, proofs, counterexamples, and limits of generality.
+
+### GATE_CAUSAL_MECHANISMS_AND_TESTS.md
+
+Verified prior findings, new neural experiments, causal interventions, decoy controls, and candidate decision mechanisms.
+
+### CROSS_FAMILY_CONFIRMATION.md
+
+Frozen predictions, model cohorts, numerical outcomes, uncertainty, null controls, falsifications, and statistical interpretation.
+
+### COR_FOUNDATIONAL_RESEARCH_MAP.md
+
+The scientific territory explored and the next directions.
+
+Include T4, GATE, TRANS, adaptive sources, unknown groups, alternative architectures, and the original obstruction/discrepancy questions.
+
+Do not claim those areas have been resolved merely because they are listed.
+
+Also include:
+
+- Executable experimental code.
+- Training and evaluation configurations.
+- New checkpoints.
+- Raw intervention results.
+- Mathematical verification scripts.
+- Statistical scripts.
+- Frozen commits and hashes.
+- Execution and resource logs.
+- Reviewer reports.
+- Adjudication.
+- Dependency inventory.
+- Integrity manifest.
+- Clean-extraction reproduction instructions.
+
+Preserve all negative results and corrections.
+
+---
+
+# 15. MANDATORY VERIFIED ZIP
+
+Produce:
+
+`cor_inv14_cross_family_relational_foundations.zip`
+
+Before delivery:
+
+1. Extract into a clean directory.
+2. Verify the SHA-256 manifest.
+3. Reproduce the T4 control results.
+4. Recompute the early-versus-late persistence comparison.
+5. Verify the evidence ledger against the historical source documents.
+6. Independently check the key mathematical derivations.
+7. Replay a representative GATE relational intervention.
+8. Recompute the frozen cross-family prediction.
+9. Verify null and decoy control results.
+10. Recompute the principal statistics.
+11. Verify every new checkpoint and required source file.
+12. Verify the fail-closed scorer behavior.
+13. Check all external package dependencies by exact hash.
+
+Do not claim standalone reproducibility if previous COR packages are required.
+
+Deliver the actual ZIP and the main synthesis separately.
+
+The final response must provide:
+
+- Branch and HEAD.
+- Freeze commit identifiers.
+- Completed training and experiment inventory.
+- Actual resource use.
+- T4 control verdict.
+- Main GATE results.
+- Mathematical conclusions.
+- Confirmed and falsified predictions.
+- Claims weakened or retracted.
+- Reviewer findings.
+- Remaining open questions.
+- Reproducibility outcome.
+- Exact ZIP location.
+
+---
+
+# 16. REQUIRED FINAL SCIENTIFIC QUESTIONS
+
+Answer each question explicitly.
+
+1. Does the T4 route-blocking effect survive an actual off-route sham?
+
+2. Does it survive a location-matched disturbance of comparable severity?
+
+3. Are early-induced changes more persistent than late-induced changes under equivalent recovery conditions?
+
+4. What final T4 causal claims survive after all corrections?
+
+5. Which earlier mechanistic claims must remain retracted or qualified?
+
+6. What exact relational information is necessary for correct decisions in the chosen GATE environment?
+
+7. How does this differ mathematically from the information required in T4?
+
+8. Does the GATE network actually compute or use the required relations?
+
+9. Is the relevant information present, accessible, and causally used?
+
+10. Do T4 and GATE support a nontrivial shared mathematical principle?
+
+11. Can that principle make a prospective prediction that survives new testing?
+
+12. Which proposed common mechanisms fail under direct comparison?
+
+13. Are the observed similarities genuinely mathematical or causal, rather than similarities in architecture or training?
+
+14. Which findings remain specific to T4?
+
+15. Which findings plausibly extend to multiple relational environments?
+
+16. What counterexamples limit the emerging explanations?
+
+17. What foundational directions now have the highest scientific value?
+
+18. Which claims about the original COR framework remain untested?
+
+Use explicit evidence labels: proof, numerical verification, development, frozen confirmation, exploratory, or speculation.
+
+Do not answer unsupported questions with confident interpretations.
+
+---
+
+# 17. FINAL SCIENTIFIC DIRECTIVE
+
+The XIII investigations have taught us something essential about scientific methodology.
+
+**A neural experiment can produce an impressive numerical effect without identifying the mechanism responsible for it.**
+
+Several earlier COR interpretations had to be corrected because the measurements did not distinguish the favored explanation from an alternative.
+
+That process was scientifically valuable.
+
+But COR must not remain indefinitely confined to correcting mechanisms in one small generator.
+
+The next major uncertainty concerns **generality**.
+
+We need to know whether the surviving mathematical and causal principles extend to genuinely different relational decision problems.
+
+Therefore:
+
+**First**, complete the missing T4 controls without opening another unlimited local investigation.
+
+**Second**, preserve an accurate scientific record of what the T4 experiments established, falsified, and left unresolved.
+
+**Third**, investigate GATE as a distinct relational environment, using mathematically appropriate definitions and the corrected causal toolkit.
+
+**Fourth**, make at least one prospective cross-family prediction and test it against a genuine competing explanation.
+
+**Fifth**, preserve failures and counterexamples. Do not force a common theory when the environments disagree.
+
+A finding that two environments require different relational information or different computational mechanisms is as valuable as a finding that they share a common principle, provided the difference is rigorously established.
+
+The research objective is not to accumulate confirmations.
+
+It is to determine **which mathematical and computational principles govern the use of relationships among information sources, and under what conditions those principles hold or fail**.
+
+This is the next multidimensional direction for COR.
+
+Remain in **Phase 1.5, Step 1**, with the provisional foundational-exploration estimate unchanged at approximately **25%**.
+
+Do not select a final paper thesis, close the stage, or claim validation of the original obstruction/discrepancy framework.
+
+**Execute Investigation XIV, complete the bounded local controls, investigate the new relational environment, obtain adversarial review, and deliver the verified research archive.**

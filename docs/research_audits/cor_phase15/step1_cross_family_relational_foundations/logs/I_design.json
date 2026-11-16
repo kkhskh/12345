@@ -1,0 +1,1101 @@
+{
+ "sigma": {
+  "E": 2.5,
+  "M": 1.25
+ },
+ "bases": {
+  "E": {
+   "LW": 21,
+   "real": "ro0",
+   "realtag": "ro0T100",
+   "sham": "oq0",
+   "noise_edges": "ro0",
+   "D": [
+    21,
+    801,
+    802
+   ]
+  },
+  "M": {
+   "LW": 23,
+   "real": "l2q",
+   "realtag": "l2qT100",
+   "sham": "rd2",
+   "noise_edges": "own2",
+   "D": [
+    23,
+    801,
+    802
+   ]
+  }
+ },
+ "runs": [
+  {
+   "group": "IA",
+   "base": "E",
+   "D": 21,
+   "cond": "sham",
+   "tag": "uP160_fx_L21_W21_D21_mskoq0T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=oq0 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 21",
+   "stop": 1211
+  },
+  {
+   "group": "IA",
+   "base": "E",
+   "D": 21,
+   "cond": "lnoise",
+   "tag": "uP160_fx_L21_W21_D21_lnzro0s2.5T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=ro0 FX_LSIG=2.5 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 21",
+   "stop": 1211
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 21,
+   "cond": "late",
+   "tag": "uP160_fx_L21_W21_D21_ro0T0_br546_w546-646_XIV",
+   "cmd": "FX_INTERV=ro0:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 21",
+   "stop": null
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 21,
+   "cond": "bref_late",
+   "tag": "uP160_fx_L21_W21_D21_stop1146_br546_XIVbref",
+   "cmd": "FX_STOP=1146 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 21",
+   "stop": 1146
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 21,
+   "cond": "bref_1757",
+   "tag": "uP160_fx_L21_W21_D21_stop1757_br1500_XIVbref",
+   "cmd": "FX_STOP=1757 FX_BRANCH=uP160_fx_L21_W21_D21_base:1500 FX_EXTRA_SNAPS=1757 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 21",
+   "stop": 1757
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 21,
+   "cond": "bref_2546",
+   "tag": "uP160_fx_L21_W21_D21_stop2546_br2000_XIVbref",
+   "cmd": "FX_STOP=2546 FX_BRANCH=uP160_fx_L21_W21_D21_base:2000 FX_EXTRA_SNAPS=2546 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 21",
+   "stop": 2546
+  },
+  {
+   "group": "IA",
+   "base": "E",
+   "D": 801,
+   "cond": "sham",
+   "tag": "uP160_fx_L21_W21_D801_mskoq0T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=oq0 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 801",
+   "stop": 1211
+  },
+  {
+   "group": "IA",
+   "base": "E",
+   "D": 801,
+   "cond": "lnoise",
+   "tag": "uP160_fx_L21_W21_D801_lnzro0s2.5T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=ro0 FX_LSIG=2.5 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 801",
+   "stop": 1211
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 801,
+   "cond": "late",
+   "tag": "uP160_fx_L21_W21_D801_ro0T0_br546_w546-646_XIV",
+   "cmd": "FX_INTERV=ro0:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 801",
+   "stop": null
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 801,
+   "cond": "bref_late",
+   "tag": "uP160_fx_L21_W21_D801_stop1146_br546_XIVbref",
+   "cmd": "FX_STOP=1146 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 801",
+   "stop": 1146
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 801,
+   "cond": "bref_tail",
+   "tag": "uP160_fx_L21_W21_D801_stop2546_br1211_XIVbref",
+   "cmd": "FX_STOP=2546 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:1211 FX_EXTRA_SNAPS=1757,2546 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 801",
+   "stop": 2546
+  },
+  {
+   "group": "IA",
+   "base": "E",
+   "D": 801,
+   "cond": "sham_cont",
+   "tag": "uP160_fx_L21_W21_D801_br1211_XIVsham",
+   "cmd": "FX_BRANCH=uP160_fx_L21_W21_D801_mskoq0T100_stop1211_XIV:1211 FX_TAGSUF=_XIVsham python3 scripts/ft_factorial_c.py uP160 21 21 801",
+   "stop": null
+  },
+  {
+   "group": "IA",
+   "base": "E",
+   "D": 801,
+   "cond": "lnoise_cont",
+   "tag": "uP160_fx_L21_W21_D801_br1211_XIVlnoise",
+   "cmd": "FX_BRANCH=uP160_fx_L21_W21_D801_lnzro0s2.5T100_stop1211_XIV:1211 FX_TAGSUF=_XIVlnoise python3 scripts/ft_factorial_c.py uP160 21 21 801",
+   "stop": null
+  },
+  {
+   "group": "IA",
+   "base": "E",
+   "D": 802,
+   "cond": "sham",
+   "tag": "uP160_fx_L21_W21_D802_mskoq0T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=oq0 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 802",
+   "stop": 1211
+  },
+  {
+   "group": "IA",
+   "base": "E",
+   "D": 802,
+   "cond": "lnoise",
+   "tag": "uP160_fx_L21_W21_D802_lnzro0s2.5T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=ro0 FX_LSIG=2.5 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 802",
+   "stop": 1211
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 802,
+   "cond": "late",
+   "tag": "uP160_fx_L21_W21_D802_ro0T0_br546_w546-646_XIV",
+   "cmd": "FX_INTERV=ro0:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L21_W21_D802_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 802",
+   "stop": null
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 802,
+   "cond": "bref_late",
+   "tag": "uP160_fx_L21_W21_D802_stop1146_br546_XIVbref",
+   "cmd": "FX_STOP=1146 FX_BRANCH=uP160_fx_L21_W21_D802_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 802",
+   "stop": 1146
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 802,
+   "cond": "base_cont",
+   "tag": "uP160_fx_L21_W21_D802_br1211_XIVbase",
+   "cmd": "FX_BRANCH=uP160_fx_L21_W21_D802_stop1211_B_base:1211 FX_EXTRA_SNAPS=1757,2546 FX_TAGSUF=_XIVbase python3 scripts/ft_factorial_c.py uP160 21 21 802",
+   "stop": null
+  },
+  {
+   "group": "IB",
+   "base": "E",
+   "D": 802,
+   "cond": "early_cont",
+   "tag": "uP160_fx_L21_W21_D802_br1211_XIVearly",
+   "cmd": "FX_BRANCH=uP160_fx_L21_W21_D802_ro0T100_stop1211_B_ro0100:1211 FX_TAGSUF=_XIVearly python3 scripts/ft_factorial_c.py uP160 21 21 802",
+   "stop": null
+  },
+  {
+   "group": "IA",
+   "base": "M",
+   "D": 23,
+   "cond": "sham",
+   "tag": "uP160_fx_L23_W23_D23_mskrd2T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=rd2 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 23",
+   "stop": 1211
+  },
+  {
+   "group": "IA",
+   "base": "M",
+   "D": 23,
+   "cond": "lnoise",
+   "tag": "uP160_fx_L23_W23_D23_lnzown2s1.25T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=own2 FX_LSIG=1.25 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 23",
+   "stop": 1211
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 23,
+   "cond": "late",
+   "tag": "uP160_fx_L23_W23_D23_l2qT0_br546_w546-646_XIV",
+   "cmd": "FX_INTERV=l2q:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 23",
+   "stop": null
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 23,
+   "cond": "bref_late",
+   "tag": "uP160_fx_L23_W23_D23_stop1146_br546_XIVbref",
+   "cmd": "FX_STOP=1146 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 23",
+   "stop": 1146
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 23,
+   "cond": "bref_1757",
+   "tag": "uP160_fx_L23_W23_D23_stop1757_br1500_XIVbref",
+   "cmd": "FX_STOP=1757 FX_BRANCH=uP160_fx_L23_W23_D23_base:1500 FX_EXTRA_SNAPS=1757 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 23",
+   "stop": 1757
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 23,
+   "cond": "bref_2546",
+   "tag": "uP160_fx_L23_W23_D23_stop2546_br2000_XIVbref",
+   "cmd": "FX_STOP=2546 FX_BRANCH=uP160_fx_L23_W23_D23_base:2000 FX_EXTRA_SNAPS=2546 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 23",
+   "stop": 2546
+  },
+  {
+   "group": "IA",
+   "base": "M",
+   "D": 801,
+   "cond": "sham",
+   "tag": "uP160_fx_L23_W23_D801_mskrd2T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=rd2 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 801",
+   "stop": 1211
+  },
+  {
+   "group": "IA",
+   "base": "M",
+   "D": 801,
+   "cond": "lnoise",
+   "tag": "uP160_fx_L23_W23_D801_lnzown2s1.25T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=own2 FX_LSIG=1.25 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 801",
+   "stop": 1211
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 801,
+   "cond": "late",
+   "tag": "uP160_fx_L23_W23_D801_l2qT0_br546_w546-646_XIV",
+   "cmd": "FX_INTERV=l2q:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 801",
+   "stop": null
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 801,
+   "cond": "bref_late",
+   "tag": "uP160_fx_L23_W23_D801_stop1146_br546_XIVbref",
+   "cmd": "FX_STOP=1146 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 801",
+   "stop": 1146
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 801,
+   "cond": "bref_tail",
+   "tag": "uP160_fx_L23_W23_D801_stop2546_br1211_XIVbref",
+   "cmd": "FX_STOP=2546 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:1211 FX_EXTRA_SNAPS=1757,2546 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 801",
+   "stop": 2546
+  },
+  {
+   "group": "IA",
+   "base": "M",
+   "D": 801,
+   "cond": "sham_cont",
+   "tag": "uP160_fx_L23_W23_D801_br1211_XIVsham",
+   "cmd": "FX_BRANCH=uP160_fx_L23_W23_D801_mskrd2T100_stop1211_XIV:1211 FX_TAGSUF=_XIVsham python3 scripts/ft_factorial_c.py uP160 23 23 801",
+   "stop": null
+  },
+  {
+   "group": "IA",
+   "base": "M",
+   "D": 801,
+   "cond": "lnoise_cont",
+   "tag": "uP160_fx_L23_W23_D801_br1211_XIVlnoise",
+   "cmd": "FX_BRANCH=uP160_fx_L23_W23_D801_lnzown2s1.25T100_stop1211_XIV:1211 FX_TAGSUF=_XIVlnoise python3 scripts/ft_factorial_c.py uP160 23 23 801",
+   "stop": null
+  },
+  {
+   "group": "IA",
+   "base": "M",
+   "D": 802,
+   "cond": "sham",
+   "tag": "uP160_fx_L23_W23_D802_mskrd2T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=rd2 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 802",
+   "stop": 1211
+  },
+  {
+   "group": "IA",
+   "base": "M",
+   "D": 802,
+   "cond": "lnoise",
+   "tag": "uP160_fx_L23_W23_D802_lnzown2s1.25T100_stop1211_XIV",
+   "cmd": "FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=own2 FX_LSIG=1.25 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 802",
+   "stop": 1211
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 802,
+   "cond": "late",
+   "tag": "uP160_fx_L23_W23_D802_l2qT0_br546_w546-646_XIV",
+   "cmd": "FX_INTERV=l2q:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L23_W23_D802_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 802",
+   "stop": null
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 802,
+   "cond": "bref_late",
+   "tag": "uP160_fx_L23_W23_D802_stop1146_br546_XIVbref",
+   "cmd": "FX_STOP=1146 FX_BRANCH=uP160_fx_L23_W23_D802_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 802",
+   "stop": 1146
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 802,
+   "cond": "base_cont",
+   "tag": "uP160_fx_L23_W23_D802_br1211_XIVbase",
+   "cmd": "FX_BRANCH=uP160_fx_L23_W23_D802_stop1211_B_base:1211 FX_EXTRA_SNAPS=1757,2546 FX_TAGSUF=_XIVbase python3 scripts/ft_factorial_c.py uP160 23 23 802",
+   "stop": null
+  },
+  {
+   "group": "IB",
+   "base": "M",
+   "D": 802,
+   "cond": "early_cont",
+   "tag": "uP160_fx_L23_W23_D802_br1211_XIVearly",
+   "cmd": "FX_BRANCH=uP160_fx_L23_W23_D802_l2qT100_stop1211_B_l2q100:1211 FX_TAGSUF=_XIVearly python3 scripts/ft_factorial_c.py uP160 23 23 802",
+   "stop": null
+  }
+ ],
+ "measurements": [
+  {
+   "unit": "uP160:fx:21:21:21:base",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T100",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:21:mskoq0T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:21:lnzro0s2.5T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T100",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:21:21:21:base",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T100",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:21:21:21:base",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T100",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:21:21:21:base",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T100",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:21:21:21:base",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T100",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:21:21:21:base",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T100",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:21:base",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T0_br546_w546-646_XIV",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T0_br546_w546-646_XIV",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T0_br546_w546-646_XIV",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T0_br546_w546-646_XIV",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T0_br546_w546-646_XIV",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T0_br546_w546-646_XIV",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:21:21:21:ro0T0_br546_w546-646_XIV",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:21:stop1146_br546_XIVbref",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:21:21:21:stop1146_br546_XIVbref",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:21:21:21:stop1146_br546_XIVbref",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:21:21:21:stop1146_br546_XIVbref",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:21:21:21:stop1757_br1500_XIVbref",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:21:21:21:stop2546_br2000_XIVbref",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1211_B_base",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T100_stop1211_B_ro0100",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:801:mskoq0T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:801:lnzro0s2.5T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:801:br1211_XIVsham",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:801:br1211_XIVlnoise",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:801:br1211_B_ro0100",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:801:br1211_B_base",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T100_stop1211_B_ro0100",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1211_B_base",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T100_stop1211_B_ro0100",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1211_B_base",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T100_stop1211_B_ro0100",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1211_B_base",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T100_stop1211_B_ro0100",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1211_B_base",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:21:21:801:br1211_B_ro0100",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:21:21:801:br1211_B_base",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T0_br546_w546-646_XIV",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T0_br546_w546-646_XIV",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T0_br546_w546-646_XIV",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T0_br546_w546-646_XIV",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T0_br546_w546-646_XIV",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T0_br546_w546-646_XIV",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:21:21:801:ro0T0_br546_w546-646_XIV",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1146_br546_XIVbref",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1146_br546_XIVbref",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1146_br546_XIVbref",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop1146_br546_XIVbref",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop2546_br1211_XIVbref",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:21:21:801:stop2546_br1211_XIVbref",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1211_B_base",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T100_stop1211_B_ro0100",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:802:mskoq0T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:802:lnzro0s2.5T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T100_stop1211_B_ro0100",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1211_B_base",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T100_stop1211_B_ro0100",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1211_B_base",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T100_stop1211_B_ro0100",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1211_B_base",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T100_stop1211_B_ro0100",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1211_B_base",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:21:21:802:br1211_XIVearly",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:21:21:802:br1211_XIVbase",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:21:21:802:br1211_XIVearly",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:802:br1211_XIVbase",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T0_br546_w546-646_XIV",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T0_br546_w546-646_XIV",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T0_br546_w546-646_XIV",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T0_br546_w546-646_XIV",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T0_br546_w546-646_XIV",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T0_br546_w546-646_XIV",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:21:21:802:ro0T0_br546_w546-646_XIV",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1146_br546_XIVbref",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1146_br546_XIVbref",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1146_br546_XIVbref",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:21:21:802:stop1146_br546_XIVbref",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:21:21:802:br1211_XIVbase",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:21:21:802:br1211_XIVbase",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:23:23:23:base",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT100",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:23:mskrd2T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:23:lnzown2s1.25T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT100",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:23:23:23:base",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT100",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:23:23:23:base",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT100",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:23:23:23:base",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT100",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:23:23:23:base",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT100",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:23:23:23:base",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT100",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:23:base",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT0_br546_w546-646_XIV",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT0_br546_w546-646_XIV",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT0_br546_w546-646_XIV",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT0_br546_w546-646_XIV",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT0_br546_w546-646_XIV",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT0_br546_w546-646_XIV",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:23:23:23:l2qT0_br546_w546-646_XIV",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:23:stop1146_br546_XIVbref",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:23:23:23:stop1146_br546_XIVbref",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:23:23:23:stop1146_br546_XIVbref",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:23:23:23:stop1146_br546_XIVbref",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:23:23:23:stop1757_br1500_XIVbref",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:23:23:23:stop2546_br2000_XIVbref",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1211_B_base",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT100_stop1211_B_l2q100",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:801:mskrd2T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:801:lnzown2s1.25T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:801:br1211_XIVsham",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:801:br1211_XIVlnoise",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:801:br1211_B_l2q100",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:801:br1211_B_base",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT100_stop1211_B_l2q100",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1211_B_base",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT100_stop1211_B_l2q100",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1211_B_base",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT100_stop1211_B_l2q100",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1211_B_base",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT100_stop1211_B_l2q100",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1211_B_base",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:23:23:801:br1211_B_l2q100",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:23:23:801:br1211_B_base",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT0_br546_w546-646_XIV",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT0_br546_w546-646_XIV",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT0_br546_w546-646_XIV",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT0_br546_w546-646_XIV",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT0_br546_w546-646_XIV",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT0_br546_w546-646_XIV",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:23:23:801:l2qT0_br546_w546-646_XIV",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1146_br546_XIVbref",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1146_br546_XIVbref",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1146_br546_XIVbref",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop1146_br546_XIVbref",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop2546_br1211_XIVbref",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:23:23:801:stop2546_br1211_XIVbref",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1211_B_base",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT100_stop1211_B_l2q100",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:802:mskrd2T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:802:lnzown2s1.25T100_stop1211_XIV",
+   "step": 1211
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT100_stop1211_B_l2q100",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1211_B_base",
+   "step": 100
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT100_stop1211_B_l2q100",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1211_B_base",
+   "step": 150
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT100_stop1211_B_l2q100",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1211_B_base",
+   "step": 300
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT100_stop1211_B_l2q100",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1211_B_base",
+   "step": 600
+  },
+  {
+   "unit": "uP160:fx:23:23:802:br1211_XIVearly",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:23:23:802:br1211_XIVbase",
+   "step": 2000
+  },
+  {
+   "unit": "uP160:fx:23:23:802:br1211_XIVearly",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:802:br1211_XIVbase",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT0_br546_w546-646_XIV",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT0_br546_w546-646_XIV",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT0_br546_w546-646_XIV",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT0_br546_w546-646_XIV",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT0_br546_w546-646_XIV",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT0_br546_w546-646_XIV",
+   "step": 2546
+  },
+  {
+   "unit": "uP160:fx:23:23:802:l2qT0_br546_w546-646_XIV",
+   "step": 4000
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1146_br546_XIVbref",
+   "step": 646
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1146_br546_XIVbref",
+   "step": 696
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1146_br546_XIVbref",
+   "step": 846
+  },
+  {
+   "unit": "uP160:fx:23:23:802:stop1146_br546_XIVbref",
+   "step": 1146
+  },
+  {
+   "unit": "uP160:fx:23:23:802:br1211_XIVbase",
+   "step": 1757
+  },
+  {
+   "unit": "uP160:fx:23:23:802:br1211_XIVbase",
+   "step": 2546
+  }
+ ],
+ "measure_env": "UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I",
+ "recovery_offsets": [
+  0,
+  50,
+  200,
+  500,
+  1111,
+  1900
+ ],
+ "early_release": 100,
+ "late_release": 646
+}

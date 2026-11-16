@@ -1,0 +1,8 @@
+{
+ "P0_refuse_real_state": true,
+ "P1_confirm": true,
+ "P2_controls_flip_falsify": true,
+ "P3_missing_refuse": true,
+ "P4_sham_invalid": true,
+ "P5_equal_persistence_falsify": true
+}

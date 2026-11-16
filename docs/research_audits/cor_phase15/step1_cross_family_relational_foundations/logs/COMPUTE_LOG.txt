@@ -12,3 +12,4 @@ step 25 and lnz sigma 0 == baseline at step 25 (max |diff| 0.0); benchmark and c
 2026-11-16T18:10:17Z lane TB end [f7554fbcade7] rc=0
 2026-11-16T18:10:17Z lane TB start [e0c9288d4c8e] FX_INTERV=l2q:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 23
 2026-11-16T18:41:42Z DEV/expl: g_rules_exact, g_order_ceilings, t4_order1, math_verify, g_traj_eval (dev s1 + dev finals), g_mech s0-s2 (stream 98_200_000), g_das s0-s2 (98_300_000). preflight_X OK. GATE s3/s4 checkpoint dirs listed by count only.
+2026-11-16T18:42:32Z NOTE: freeze-X commit 5d3c9dd also included in-progress checkpoint files (Stage I runs and GATE s3/s4 snapshots; not inspected); removed from the index in the next commit; checkpoints/ ignored until the final commit.

@@ -1,3 +1,4 @@
 resume.pkl
 logs/claims/
 __pycache__/
+checkpoints/

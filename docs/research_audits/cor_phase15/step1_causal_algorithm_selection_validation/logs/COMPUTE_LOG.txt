@@ -254,3 +254,24 @@
 2026-11-15T23:37:19Z lane DM2 start [ee8b86eed9ba] bash scripts/when_file.sh checkpoints/ft/uP161_fx_L22_W22_D22_stop1211_wascale1.5/step1211.npz -- UM_TAG=_tdev UM_RHO=0 UM_STREAM=93200000 UM_STEPS=1211 python3 scripts/unit_metrics.py uP161:fx:22:22:22:stop1211_wascale1.5
 2026-11-15T23:39:42Z lane B5X start [8dc86c7e745b] B5_RETRY=10 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP160:fx:21:21:23 uP160:fx:23:23:21 uP161:fx:20:20:23 uP161:fx:21:21:22 uP161:fx:22:22:21 uP161:fx:23:23:20 uP163:fx:21:21:22 uP163:fx:21:22:21 uP163:fx:21:22:22 uP163:fx:22:21:21 uP163:fx:22:22:21 uP160:fx:23:23:23:base uP163:fx:22:21:22 uP160:s:21 uP160:s:23 uP161:s:21 uP161:s:22 uP161:s:23 uP161:s:20 uP160:s:20 uP161:fx:21:22:21 uP161:fx:22:21:22 uP160:fx:21:23:21 uP160:fx:23:21:23 uP163:s:20 uP163:s:21 uP163:s:22 uP164:s:20 uP164:s:21 uP164:s:22 uP165:s:20 uP165:s:21 uP165:s:23 uP162:s:20
 2026-11-15T23:39:42Z Freeze-3b scored: P10 FALSIFIED (uP164 L-only cell L21/W20/D21 stayed EARLY; W-only cell NOT-EARLY; D-only EARLY; references as declared). Dev transform screen at 1211 (stream 93.2M): scale0.6 on mixture uP161 21 stays mixture; neg and perm120 on early uP161 22 both give mixture. B5 learning-transition analysis (not frozen, exploratory) extended to the confirmation runs A-C1..4 and ten natural seeds of uP162-uP165 (queue_b5x.txt, lane B5X; no OOM priority).
+2026-11-15T23:41:55Z lane B5a start [f1ce9cf488b5] B5_PART=0 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP163:fx:21:22:22 uP160:fx:23:23:23:base uP160:s:23 uP161:s:23 uP161:fx:21:22:21 uP160:fx:23:21:23 uP163:s:22 uP164:s:22 uP165:s:23
+2026-11-15T23:41:57Z lane B5b start [f81ac361d740] B5_PART=1 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP163:fx:22:21:21 uP163:fx:22:21:22 uP161:s:21 uP161:s:20 uP161:fx:22:21:22 uP163:s:20 uP164:s:20 uP165:s:20 uP162:s:20
+2026-11-15T23:41:59Z lane B5c start [393603d663f1] B5_PART=2 UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP163:fx:22:22:21 uP160:s:21 uP161:s:22 uP160:s:20 uP160:fx:21:23:21 uP163:s:21 uP164:s:21 uP165:s:21
+2026-11-15T23:42:01Z B5 exploratory metrics split into 3 parallel disjoint parts (queue_b5y.txt).
+2026-11-15T23:43:33Z lane DM2 end [ee8b86eed9ba] rc=137
+2026-11-15T23:43:33Z lane DV8 end [71f8ce039592] rc=137
+2026-11-15T23:44:35Z scale1.5 dev transform killed a fifth time (23:43Z); abandoned and reported as not completed.
+2026-11-15T23:47:11Z lane B5b end [f81ac361d740] rc=137
+2026-11-15T23:47:11Z lane B5c end [393603d663f1] rc=137
+2026-11-15T23:49:01Z lane B5a end [f1ce9cf488b5] rc=0
+2026-11-15T23:50:38Z lane F3A end [e4666549b85d] rc=0
+2026-11-15T23:53:46Z lane B5d start [ccc33e9fe90c] B5_PART=2r UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP163:fx:22:22:21 uP160:s:21 uP161:s:22 uP160:s:20 uP160:fx:21:23:21 uP163:s:21 uP164:s:21 uP165:s:21
+2026-11-15T23:53:54Z lane DV11 start [4675f2fd96ff] FX_RETRY=10 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+2026-11-15T23:53:55Z All confirmation work finished; memory free. scale1.5 dev transform retried once more (queue_dev8.txt) and B5 part 2 re-queued (queue_b5z.txt) after B5c OOM kill at 23:47Z.
+2026-11-15T23:54:00Z lane B5e start [cca6d1f5f54c] B5_PART=1r UM_TAG=_b5dev UM_RHO=0 UM_STREAM=93100000 UM_STEPS=111,246 python3 scripts/unit_metrics.py uP163:fx:22:21:21 uP163:fx:22:21:22 uP161:s:21 uP161:s:20 uP161:fx:22:21:22 uP163:s:20 uP164:s:20 uP165:s:20 uP162:s:20
+2026-11-15T23:54:01Z B5 part 1 (killed 23:47Z) re-queued (queue_b5w.txt).
+2026-11-15T23:54:22Z lane PR1 start [9871c3d03567] AD_OUT=_postrev AD_LR=0.003 AD_ARMS=L1only python3 scripts/adapt4.py uP165:s:20
+2026-11-15T23:54:23Z POST-REVIEW EXPLORATORY (review 2 F10): L1only at lr 3e-3 on uP165 s20 (queue_postrev.txt). Not frozen; reported as exploratory.
+2026-11-15T23:56:51Z lane B5d end [ccc33e9fe90c] rc=0
+2026-11-15T23:57:51Z lane B5e end [cca6d1f5f54c] rc=0
+2026-11-15T23:59:47Z DISCLOSURE (review 3, finding 1): the freeze-2 scorer was run on partial inputs at 19:15Z and 20:00Z (logs/interim/); the 20:00Z look showed P3 and P4 CONFIRMED while A-C1..A-C4 were training. Freeze 3a's P5b basis drew on that interim P3 result. Verdicts are unaffected (deterministic scorer, fixed queued runs). Post-freeze queue hashes recorded in logs/FREEZE_ADDENDUM_HASHES.txt. score_f3a re-scored after L0attn/L0mlp finished. uncertainty_13d.py fixed to work on a temporary copy of logs/ (review 3, finding 2).

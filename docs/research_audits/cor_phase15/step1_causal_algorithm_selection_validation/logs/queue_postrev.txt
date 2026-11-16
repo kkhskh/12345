@@ -1,0 +1,1 @@
+AD_OUT=_postrev AD_LR=0.003 AD_ARMS=L1only python3 scripts/adapt4.py uP165:s:20

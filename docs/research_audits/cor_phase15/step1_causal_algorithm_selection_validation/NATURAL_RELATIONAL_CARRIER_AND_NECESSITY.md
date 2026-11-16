@@ -49,12 +49,12 @@ Both confirmation models are new early01 adaptations, and their carrier analysis
 
 - **SUFF:** interchange on J_DM pairs. Slope and R² of the observed versus the exact Bayes change.
 - **NULL:** interchange on J_D0 / DECOY pairs, as a fraction of the J_DM patch response.
-- **SRCF:** source-free interchange; the q-source tokens are not patched.
+- **SRCF:** the same subspace and site, but with the donor taken from an *unrelated* episode with the same q. It is an unrelated-donor control, not a token-site ablation (corrected after review 1, F1). Its value for an ideal m-carrier is 0.72 (`reviews/review1_scripts/ideal_carrier.py`).
 - **NEC:**
   - ablate: zero the projection;
   - meanrep: replace the projection by its mean;
-  - reverse: replace the base projection by the matched null-partner's projection, a natural donor;
-  - restore: re-insert the true projection after meanrep.
+  - reverse: the donor run is evaluated with the same pair's *base* projection. The ideal value is 0 (corrected description, review 1, F19). Remaining slopes are divided by 1; the unpatched slope is ≈ 0.99 (C-C1) and ≈ 0.85 (C-C2).
+  - restore: re-insert the donor's projection after mean-replacement. The donor run is left unmodified, so the ideal value is 0.46, not 1 (review 1, F3).
 
   For ablate and meanrep, the KL damage on unrelated episodes is also reported.
 - **CONTENT:** decoding of m, log r and candidate evidence from the 3-d projection.
@@ -75,14 +75,37 @@ Both confirmation models are new early01 adaptations, and their carrier analysis
 | RAND0–4 | ≤ 0.02 | ≤ 0.043 | ≤ 0.030 | |
 | DAS source-free (SRCF) | 0.652 | 0.587 | 0.586 | |
 
-**The decoder–encoder dissociation is the central finding.** The ridge decoder directions of m and log r read the relation out well; the content section shows m R² ≈ 0.7–0.8 from the site. Yet interchanging along them moves behaviour by essentially nothing. Interchanging along the encoding (Haufe) directions moves it by 0.56–0.85 of the exact change.
+**Encoding patterns versus decoder filters (revised after review 2, F7).**
 
-So decodable is not the same as used: the model *writes* the relation along directions that differ from the best linear readout directions. This is replicated in two new models (P3c CONFIRMED).
+- Interchange along the ridge **decoder filters** of m and log r moves behaviour by essentially nothing.
+- Interchange along the **encoding (Haufe) patterns**, or along the class-mean differences (CCD, which are nearly identical), moves it by 0.56–0.85 of the exact change.
+- This is replicated in two new models, so the frozen P3c arm passes.
+
+**This is not evidence that the model "writes the relation along directions other than its readable directions."** That would be a property of the model; the result is expected for *any* linear code with correlated noise:
+
+- The decoder filters are fitted near-OLS on raw 64-d token states, so they are dominated by noise-cancelling directions.
+- The network is *less* sensitive to them than to random directions: ablation damage KL is 0.000–0.001, against 0.005–0.019 for random.
+- An interchange along a filter moves the state only by the donor–base difference projected onto that filter, which is small when the signal is written along the pattern.
+
+The decoders' own held-out decoding accuracy was never measured; the content R² below is from the DAS projection.
+
+What the arm does establish is narrower. The relation is transmitted along signal (pattern) directions, and the filter directions carry no causal effect.
 
 **Two limits on specificity:**
 
 - **DAS_DECOY is nearly as effective as DAS.** The subspace is the model's general relational channel at this site, not a channel specific to m.
-- **The source-free interchange already carries 0.59–0.65 of the effect.** The readout token alone holds much of it. DAS beats SRCF by 0.24–0.32, so the q-source tokens add to it.
+- **The carrier is not unique (review 2, F8).** Several differently built 3-d sets each pass the necessity test about equally. Reverse natural-donor remaining slope, C-C1 / C-C2:
+
+  | set | C-C1 | C-C2 |
+  |---|---|---|
+  | DAS | 0.059 | 0.038 |
+  | ENC_m | 0.072 | 0.067 |
+  | CCD_m | 0.072 | 0.069 |
+  | ENC_r | 0.087 | 0.069 |
+  | DAS_DECOY | 0.090 | 0.081 |
+
+  The supported claim is therefore: "a low-dimensional relational channel, shared by DAS, the Haufe patterns and DAS_DECOY, is sufficient and, by natural-donor reversal, necessary at this site". Principal angles between the sets, and necessity tests on their intersection or orthogonal complements, were not computed.
+- **The unrelated-donor control gives 0.59–0.65.** That is about what an ideal carrier gives (0.72), because the control shares the −B(X_a) term with the target. It is therefore not evidence that the readout token holds the effect. DAS − SRCF = 0.24–0.32, against an ideal 0.28 (review 1, F1). The site was not split into readout-only and source-only parts.
 
 ### Content
 
@@ -92,7 +115,7 @@ So decodable is not the same as used: the model *writes* the relation along dire
 | C-C1 | 0.764 / 0.846 | 0.800 / 0.936 | 0.653 / 0.866 |
 | C-C2 | 0.698 / 0.775 | 0.679 / 0.829 | 0.453 / 0.704 |
 
-**The projection carries m and log r.** On the full 192-d site, candidate evidence is decodable at R² ≈ 1. From the 3-d projection it is only partly decodable, and nonlinearly. So the subspace is a compressed relational code, not a copy of the candidate evidence.
+**The projection carries m and log r.** On the full site (448 features), candidate evidence is decodable at R² ≈ 1. That is trivial, since the site includes the source tokens themselves. From the 3-d projection it is only partly decodable, and nonlinearly. So the subspace is a compressed relational code, not a copy of the candidate evidence.
 
 ### Necessity: natural donor against synthetic ablation
 
@@ -102,11 +125,11 @@ So decodable is not the same as used: the model *writes* the relation along dire
 | C-C1 | 0.059 | 0.967 | 0.063 / 0.57 | 0.084 / 0.50 | 0.351 |
 | C-C2 | 0.038 | 0.790 | 0.013 / 0.51 | 0.012 / 0.45 | 0.239 |
 
-**The natural-donor test, which stays on-distribution, shows the DAS subspace is necessary.** Replacing the base projection with the projection of a matched pair in which m does not change removes 94–96% of the J_DM response. The same operation on a random subspace removes almost nothing (P4a CONFIRMED).
+**The reverse test shows the relational channel is necessary.** It is an on-distribution swap: the donor run is evaluated with the base pair's projection. The DAS subspace and the other high-sufficiency sets (above) all pass it. Replacing the base projection with the projection of a matched pair in which m does not change removes 94–96% of the J_DM response. The same operation on a random subspace removes almost nothing (P4a CONFIRMED).
 
-**Synthetic ablation is not specific.** Zero-ablation and mean-replacement also remove the effect, but they damage unrelated behaviour (KL 0.35–0.57), so they cannot show necessity on their own (P4b CONFIRMED).
+**Synthetic ablation (P4b, corrected after review 1, F2).** Zero-ablation and mean-replacement remove the effect and change behaviour on natural episodes by KL 0.35–0.57. Those episodes' decisions depend on m, so an ideal carrier would also change them, by KL 0.347. Only the excess, ≈ 0.0–0.2, is a candidate off-manifold artefact. **The frozen P4b arm passes, but it is non-informative:** the ideal carrier also meets its bound.
 
-**Restoring after mean-replacement recovers only 0.24–0.35 of the slope.** The subspace's contribution is not separable from the rest of the residual stream once that stream has been moved off-distribution.
+**Restore after mean-replacement: 0.24–0.35, against an ideal 0.46.** The shortfall is real but modest. The earlier claim of non-separability is withdrawn (review 1, F3).
 
 ### Downstream trace (layer-2 mixture heads)
 
@@ -126,7 +149,9 @@ The induced score change tracks the change in the exact log likelihood ratio (co
 - queries dominate in C-C2;
 - the two are balanced in development.
 
-The invariant is the joint key–query score, not which side carries it. This was not predicted. It is a new observation and is reported as one.
+The invariant is the joint key–query score, not which side carries it. This was not predicted and is reported as a new observation.
+
+Caveat (review 2, F9): the trace was run only for the DAS subspace, which is trained from one random initialisation. The key/query split may therefore belong to the particular sufficient subspace DAS found, rather than to the model. Only the joint share (0.94–0.96) is claimed as robust.
 
 ## Preservation of the XIII-C LOCALQ gap
 
@@ -139,12 +164,12 @@ The carrier result is consistent with that gap, but it does not test it. In this
 
 ## Verdicts (freeze 2)
 
-- **P3 CONFIRMED.** All five arms pass in both C-C1 and C-C2.
+- **P3 CONFIRMED.** All five arms pass in both C-C1 and C-C2. Arm (c) is to be read as "pattern ≠ filter", not as "decodable ≠ used" (see above).
 - **P4 CONFIRMED.** Both arms pass in both models.
 
 ## Limits
 
 - Two confirmation models, both early01-adapted at β = 0.6. The carrier in *naturally trained* two-colluder models is not tested; none exist in this population.
 - The subspace is not m-specific (DAS_DECOY). The claim is "the model's relational channel at this site", not "an m-detector".
-- The source-free control is strong. Much of the effect lives at the readout token.
+- k = 3 was fixed by design and never varied, so "3-dimensional" is a design choice, not a finding (review 1, F6). The posterior content row is NaN because of a code defect (a double log). The site has 448 features (7 tokens × 64), not 192 (review 1, F17).
 - A training-summary line for C-C1's adaptation (competence only) was seen before freeze 2. It is recorded in COMPUTE_LOG at 18:44:55Z. No carrier measurement was seen.

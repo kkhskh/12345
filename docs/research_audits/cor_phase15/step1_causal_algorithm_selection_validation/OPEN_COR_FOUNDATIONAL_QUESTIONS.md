@@ -6,19 +6,21 @@ Every item below follows from a specific XIII-D result. The mandate's completion
 
 ## Mechanistic questions
 
-1. **What makes an (L, W) pair "early-compatible"?**
+1. **Is there any low-order structure in which fresh initialisations lead to the early organisation?**
    - What is established:
-     - In uP160 and uP161 the early organisation needs the early diagonal's readout map together with its layer-2 initialisation (freeze-2 P1, falsified as stated).
-     - In uP163, the readout map alone is sufficient.
-     - P10 (freeze 3b) tests a third parent.
-   - What is open: no step-0 feature of W_A alone predicts the outcome across parents. That leaves the question of which joint property of the fresh layer-2 and readout-map initialisations, relative to the pretrained layers 0–1, makes the early route win the first ~100 steps.
-   - The natural next measurement is the step-0 alignment between the fresh layer-2 mixture-head query/key maps and W_A's input-side singular vectors, together with the early-route gradient that each produces. It was not measured in XIII-D.
+     - XIII-C's readout-map cause is falsified (P1, P10).
+     - D does not change the class.
+     - Single-factor changes away from an early diagonal were non-early in 4 of 4 cells in uP160/uP161, and in 1 of 2 cells in uP164.
+     - In uP163, W22 gives early with L21 and with L22, but W20 does not.
+   - What is open: the data fit "a strongly interacting function of parent × L × W" (review 2, F1). Base rates are 7 early, 6 mixture and 4 hybrid diagonals; off-diagonal cells are early in 3 of 11, against 7 of 17 diagonals (Fisher p = 0.69).
+   - Discriminating next step: several random re-draws of W (or L) on early and on mixture diagonals, to estimate P(early | change) on each side; then the step-0 alignment between the fresh layer-2 key/query maps and W_A.
 
-2. **Why is the mixture organisation an attractor and the early organisation fragile?**
-   - Observations:
-     - Blocking the early route for 100 steps, or for steps 546–1146 after it has formed, permanently gives mixture (F1a, F1e).
-     - Blocking the mixture route late gives early only while the block lasts (F1f).
-   - A quantitative account would compare the two routes' loss landscapes. One example is the loss reachable by retraining only the readout under each block; the reactivation measurement is one point of that comparison.
+2. **What is the sensitive window, and is the sensitivity route-specific?**
+   - What is established: a block of either route during steps 0–100 permanently redirects the organisation (n = 1 per direction).
+   - What is untested:
+     - blocks shorter than 100 steps;
+     - a sham-mask control;
+     - a severity-matched late block. The late ro0 block drove the loss to chance, while the late l2q block left a stable dual-route hybrid.
 
 3. **Source of the early-class Bayes-invariant (MOVE) error.**
    - What is excluded:
@@ -43,15 +45,13 @@ Every item below follows from a specific XIII-D result. The mandate's completion
 
 ## Implications for the wider COR programme (stated as limits, not claims)
 
-- **Why a decision algorithm emerges.** In this setting it is decided in the first ~1–3% of training. The decision depends on joint initialisation properties of the freshly initialised layers, and it is asymmetric:
-  - one organisation (mixture) is the default and absorbing;
-  - the other (early) is fragile.
-- **What information is used, versus what is present.** The two can differ: the early route's information stays present and unread (P2c). And the directions from which a relation is best decoded are not the ones the model uses (P3c).
+- **Why a decision algorithm emerges.** In this setting the choice depends on the fresh initialisation, interacting with the pretrained parent. It is sensitive to route availability in the first ~1% of the learning-rate schedule. No simple low-order law was found.
+- **What information is used, versus what is present.** The two can differ: the early route's information stays present and unread (P2c). Interchange along signal (pattern) directions transmits a relation, while interchange along decoder filters does not. That is expected under correlated noise and is not a model property (P3c, reread).
 - **Whether an algorithm can be changed or reused.** It can be changed by:
   - retraining a small downstream readout, if the unused representation is intact;
   - supplying the missing sufficient statistic, given enough optimisation;
   - retraining layer 0.
 
-  It cannot be changed by retraining layer 2 or layer 1 alone at matched capacity (P5).
+  At lr 3e-3 it cannot be changed by retraining layer 2 + readout. At lr 1e-3 it cannot be changed by retraining layer 1 alone at matched capacity (P5). For layer 1 at lr 3e-3, see the post-review result.
 
 All of this concerns a small synthetic generator family and 2- to 3-layer transformers fine-tuned from six pretrained parents. Nothing here is evidence about COR's operators.

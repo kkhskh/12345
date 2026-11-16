@@ -50,3 +50,16 @@ for k in (111, 246):
 json.dump(res, open(OUT, "w"), indent=1)
 for k, v in res["by_step"].items():
     print(k, v["n"], v["n_early"], {n: (round(r.get("spearman", np.nan), 2), None if r.get("loo_R2") is None else round(r["loo_R2"], 2), None if r.get("auc_early") is None else round(r["auc_early"], 2)) for n, r in v["predictors"].items()})
+# bootstrap (runs resampled, 5000 draws, seed 0): AUC of mix_mass(246) minus AUC of each baseline at 246
+k = 246; us = [u for u in sorted(FIN) if k in EARLY[u]]; y = np.array([FIN[u] for u in us]) >= 0.6; rng = np.random.default_rng(0); B = {}
+X = {n: np.array([EARLY[u][k][n] for u in us]) for n in ("mix_mass", "acc", "KL", "lik_RO1")}
+def auc2(x, c):
+    p, n_ = x[c], x[~c]; return np.mean([(a > b) + 0.5 * (a == b) for a in p for b in n_]) if len(p) and len(n_) else np.nan
+for base in ("acc", "KL", "lik_RO1"):
+    d = []
+    for _ in range(5000):
+        i = rng.integers(0, len(us), len(us)); c = y[i]
+        if c.all() or (~c).all(): continue
+        am = auc2(-X["mix_mass"][i], c); ab = auc2(X[base][i] * (1 if spearmanr(X[base], y)[0] >= 0 else -1), c); d.append(am - ab)
+    B[base] = dict(mean=float(np.mean(d)), lo=float(np.percentile(d, 2.5)), hi=float(np.percentile(d, 97.5)))
+res["bootstrap_auc_diff_mix_minus_baseline_at_246"] = B; json.dump(res, open(OUT, "w"), indent=1); print(B)

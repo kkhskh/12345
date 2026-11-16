@@ -71,12 +71,29 @@ The early class carries eligibility information on tokens of *other* questions. 
 
 The rule comparison replicates. E beats A2 on E5, E3 and QF4, beats A1 on QF5, and beats G on E5 and QF4, by ≥ 0.15 R² in both units. One weakness: in uP164 s21, E and G are tied on E3, at a low level (0.30 / 0.31).
 
+**Caveat (review 2, F11; the XIII-C M6 objection persists).** The DAS rule-discrimination R² values at ALLX2 are at or below the model's own *behavioural* R² in every family. For example, in uP164 s21:
+
+| family | DAS R²_E / R²_A2 | behaviour R²_E / R²_A2 |
+|---|---|---|
+| E5 | 0.87 / 0.69 | 0.914 / 0.685 |
+| E3 | 0.30 (E) | 0.606 (E) |
+
+So "E beats A2" restates the model's behaviour; it is not a property of the subspace. The supported statement is narrower: an 8-d subspace at sites free of edited tokens transmits the model's own eligibility response, with own-share 0.53–0.89. Patch-minus-behaviour margins are not reported.
+
+Also, R²_E = R²_A1 exactly in E3 and QF4, so E and A1 are discriminated only by QF5.
+
 **The pre-declared specificity criterion failed in the mixture unit.** The criterion was a mean excess of DAS own-share over the source-free control of ≥ 0.15:
 
 - uP164 s21: 0.23, pass.
 - uP165 s20: 0.13, fail. In this unit's E3 family the source-free interchange alone recovers 0.92 of the effect, more than DAS (0.71).
 
-**P6 is therefore FALSIFIED.** The eligibility rule is supported at sites without the edited tokens. But in one of two units, an eligibility-specific subspace is not distinguishable from a source-free interchange. For the E3 family of that unit, the effect is carried by tokens that the source-free control also patches. That family's mediation cannot be attributed to an eligibility subspace.
+**P6 is FALSIFIED as scored, but the specificity criterion is ill-posed (review 1, F4).**
+
+- **own_share is not a fraction of the effect.** It is a regression slope of the patched change on the model's own change, and it is not normalised by the size of the patched change. In uP165 s20 E3, the source-free patch moves the output about 9 times as much as DAS (|d| 1.70 vs 0.19) with weak alignment.
+- **The threshold is not anchored.** An ideal carrier already scores 0.40–0.50 on this control (`reviews/review1_scripts/srcfree_e1.py`), so the ≥ 0.15 excess threshold is not tied to anything.
+- **Both arms patch the same tokens.** The source-free arm uses an unrelated donor at the same site, so the earlier "token-location" reading is withdrawn.
+
+The falsification is therefore of an ill-posed criterion. It is not evidence against eligibility specificity.
 
 ## E2. Corrected decoy scoring and explicit NOOP tolerance
 
@@ -94,7 +111,9 @@ The rule comparison replicates. E beats A2 on E5, E3 and QF4, beats A1 on QF5, a
 | conf uP161 s20 | 3 | 0.898 (0.72) | 0.014 | 0.003 | 0.001 | 9.5e-7 |
 | conf uP165 s23 | 1 | 0.911 (0.79) | 0.014 | 0.001 | 0.001 | 7.2e-7 |
 
-**The true row interchange explains ≥ 0.90 of the change.** Shuffled rows explain nothing, whether scored against the base pair or against the borrowed pair. So no generic signal transfers with a row; the effect is specific to the correct row content. NOOP is within tolerance by more than an order of magnitude. The P6 rows arms pass in both confirmation units.
+**The true row interchange explains ≥ 0.90 of the change, and decoy-shuffled rows scored against the base pair explain ≤ 0.014.**
+
+**The borrowed-pair arm (SHUFD_vs_borrowed) has no power by construction (review 1, F7).** A perfect row carrier also scores R² 0.003 on it, because rows act through the base episode's values. Its passing therefore adds nothing; the corrected scoring did not produce a usable control. NOOP is within tolerance by more than an order of magnitude.
 
 ## E3. Parallel routes: independent, redundant or additive?
 
@@ -119,9 +138,15 @@ The rule comparison replicates. E beats A2 on E5, E3 and QF4, beats A1 on QF5, a
 - **Path patching looks additive:** the shares sum to the total and the interactions are ≤ 0.07.
 - **Blocking shows interdependence:** no single route, left open alone, supports more than 0.51 of the behaviour. Blocking R costs 0.6–0.7 of the slope even where path patching gives R only 0.27–0.43.
 
-The routes are additive in how a perturbation propagates. Functionally, they are not independent backups: each needs the others' normal operation. "Redundant" is ruled out in every unit. "Independent" is ruled out by the blocking.
+The routes are additive in how a perturbation propagates. Under functional blocking, no single route supports the behaviour.
 
-**Class difference.** Route O carries nothing in the mixture unit and about half of the effect in the early units. That replicates development (P8 CONFIRMED).
+**Caveat (review 2, F11).** The blocking uses −1e9 attention masks with renormalisation. These are off-distribution interventions, and the single-route-open arms block two routes at once. BLOCK_R also masks *all* 36 sources, including q's own, so it removes non-relational candidate evidence as well (KL 0.135–0.404).
+
+The discrepancy between path patching and blocking is therefore equally consistent with "blocking damages the substrate". P8's "interdependent" is a blocking-specific description. Resample-ablation of each route's attention output was not run.
+
+**Class difference.** Route O carries nothing in the mixture unit and about half of the effect in the early units. That replicates development (P8 CONFIRMED as scored).
+
+**Limit (review 1, F9).** The P8 criterion rules out *redundancy*: no single route suffices. It cannot distinguish "independent additive" from "interdependent" routes, because the single-open arms are off-distribution (KL up to 0.40).
 
 ## E4. Source of the early-class decision error
 
@@ -138,13 +163,18 @@ The routes are additive in how a perturbation propagates. Functionally, they are
 | conf uP163 s20 | 0.0359 | 0.0933 (−1.60; 0.106) | 0.095 | 0.174 | 0.48, 0.45 |
 | conf uP160 s20 | 0.0274 | 0.0295 (−0.08; 0.023) | 0.028 | 0.093 | 0.40, 0.39 |
 
-**H_pos is rejected (P7 CONFIRMED, as a predicted negative).**
+**P7 CONFIRMED as scored, but the test cannot exclude H_pos (review 1, F8; review 2, F11).**
 
-- Symmetrising never reduces MOVE; it leaves it unchanged or increases it.
-- Symmetrising always increases KL to the posterior.
-- Permuting the rows increases MOVE 2.4–5×.
+- The criterion requires SYM1 to raise KL, so the intervention's damage is part of the success condition. SYM1 raises KL 5.8–22×, and a damaging intervention can raise MOVE generically.
+- SYM equalises only the attention *weights*. The value vectors keep their positional content, so H_pos was tested only in a weights-only form.
+- **Number corrections:**
+  - SYM2 does reduce MOVE, by 7.2% (uP164 s22) and 4.8% (uP160 s20); SYM12 reduces it by 1.7% (uP164 s22).
+  - Development SYM2 on uP161 s21 leaves KL at base.
+  - PERM1 raises MOVE 3.4–5.0× in confirmation (3.8–7.8× in development).
 
-The asymmetric rows are part of the *correct* computation, not the source of its error.
+Supported statement: SYM1 did not reduce MOVE, at a KL cost of 0.02–0.10.
+
+The symmetrising interventions also damage the decision (SYM1 KL 0.023–0.106). The supported statement is therefore only that symmetrising the rows did not reduce MOVE and did damage accuracy (review 2, F11). It does not follow that the asymmetric rows are part of the correct computation.
 
 **The source of the early-class MOVE error remains unidentified** (see the open questions document). What has been excluded:
 
@@ -163,6 +193,6 @@ They are a dependency of this package, listed in `logs/DEPENDENCIES.json`, not r
 
 ## Verdicts (freeze 2, E workstream)
 
-- P6 FALSIFIED: the E1 source-free excess fails in uP165 s20; every other P6 arm passes.
-- P7 CONFIRMED: the predicted negative.
-- P8 CONFIRMED.
+- P6 FALSIFIED: the E1 source-free excess fails in uP165 s20, but that criterion is ill-posed (see above). The E2 borrowed-pair arm passes but has no power.
+- P7 CONFIRMED as scored. It cannot exclude H_pos.
+- P8 CONFIRMED as scored. It establishes non-redundancy only.

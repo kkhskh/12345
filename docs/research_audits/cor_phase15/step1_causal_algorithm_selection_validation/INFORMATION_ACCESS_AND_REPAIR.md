@@ -38,8 +38,8 @@ XIII-C reported that a frozen mixture model's failure on the two-colluder task i
 |---|---|---|
 | L2 | layer 2 + readout | none |
 | supL2 | layer 2 + readout + E | m (group-agnostic) at the readout token and the 6 q-source tokens |
-| supRO | same | m at the readout token only (query side of the layer-2 score) |
-| supQS | same | m at the 6 q-source tokens only (key side) |
+| supRO | same | m at the readout token only |
+| supQS | same | m at the 6 q-source tokens only |
 | L0only | layer 0 (one block) | none |
 | L1only | layer 1 (one block; capacity-matched) | none |
 | L0attn / L0mlp | only layer 0's attention / MLP | none (descriptive) |
@@ -56,7 +56,8 @@ XIII-C reported that a frozen mixture model's failure on the two-colluder task i
 | supL2 | 1e-3 | 0.753 | 0.130 | **0.168** | 0.25 | 0.17 |
 | L0only | 1e-3 | 0.786 | 0.030 | **0.832** | 0.18 | 0.07 |
 | L1only | 1e-3 | 0.727 | 0.188 | **0.004** | 0.93 | 0.48 |
-| L0attn, L0mlp | 1e-3 | see `logs/score_f3a.json` (descriptive) | | | | |
+| L0attn (descriptive) | 1e-3 | 0.786 | 0.030 | **0.818** | 0.17 | 0.07 |
+| L0mlp (descriptive) | 1e-3 | 0.721 | 0.207 | **0.008** | 0.82 | 0.29 |
 
 Exact Bayes accuracy is 0.792.
 
@@ -66,26 +67,34 @@ Exact Bayes accuracy is 0.792.
 - So supplied information is *partly* usable at the weaker budget in this model. The XIII-C statement "supply fails at lr 1e-3" (0.024–0.028 in two other models) does not hold as a categorical claim.
 
 **P5b (supply position): CONFIRMED.**
-- Supplying m only to the readout token (query side) gives 0.894.
-- Supplying it only to the q-source tokens (key side) gives 0.727.
-- Either side of the layer-2 key–query score suffices. This was predicted from the carrier trace (P3e), where the carried relation acts through keys and/or queries with a model-specific split. It was not calibrated on a development run, because that run was lost (COMPUTE_LOG 21:16Z).
+- Readout-token supply gives 0.894.
+- Source-token supply gives 0.727.
+- The prediction was motivated by the carrier trace (P3e), which was known from an interim look at freeze-2 outputs (see FROZEN, disclosed events). It was not calibrated on a development run, because that run was stopped before producing an arm.
+- **Interpretation limit (review 2, F10).** No trace was run on the supply arms. m added at the readout token enters the readout residual directly, so the trainable layer-2 MLP and readout could use it without m ever reaching the attention score. "Query side" and "key side" are therefore labels for *where m was supplied*, not demonstrated mechanisms.
 
 **P5c (layer-0-specific repair): CONFIRMED.**
-- At matched capacity (one block), the same budget and the same episodes, retraining layer 0 repairs the relation (0.832). Retraining layer 1 does not (0.004).
-- This replicates XIII-C (L0only 0.85 / 0.91, L1only 0.00) in a new parent.
+- At matched capacity (one block), the same budget (lr 1e-3) and the same episodes, retraining layer 0 repairs the relation (0.832). Retraining layer 1 does not (0.004).
+- This replicates XIII-C (L0only 0.85 / 0.91, L1only 0.00) in a new model (uP165 s20; the same parent supplied C-C2).
+- **Budget limit.** P5a shows that the learning rate changes outcomes qualitatively. A post-review exploratory arm, L1only at lr 3e-3, was run for this reason; its result is in "Post-review exploratory results" below.
+- **Descriptive:**
+  - layer 0's attention alone (16.5 k parameters) gives 0.818;
+  - layer 0's MLP alone gives 0.008.
 
 ## Interpretation
 
-**What a repair must do.** The relation m has to reach the layer-2 key–query score. Three routes achieve that in this model:
-- supply m directly, at either side of the score;
+**What a repair must do.** In the early01-repaired models (Workstream C), m reaches the decision through the layer-2 key–query score. Three interventions repair the relation in this model:
+- supply m directly, at the readout token or at the source tokens (the pathway by which supplied m acts was not traced);
 - retrain layer 0, which then writes m into the residual stream that layer 2 reads;
 - retrain layers 0–1 (early01, Workstream C).
 
-**What fails.** Layer 2 cannot compute m from what it receives, even with full retraining. Layer 1 alone cannot either.
+**What fails.** At lr 3e-3, layer 2 + readout cannot compute m from what they receive, even with full retraining. At lr 1e-3, layer 1 alone cannot either (for lr 3e-3, see the post-review result).
 
-**Why layer 0 and not layer 1.** In these models the computation of m needs layer 0's direct access to the token sources. Its attention reads the source tokens of all questions, and a fresh layer 0 can learn that cross-question agreement. Layer 1 reads a residual stream whose layer-0 contribution is already fixed.
+**Why layer 0 and not layer 1: two hypotheses, neither tested.**
 
-This "why" is a hypothesis consistent with the subcomponent arms (L0attn, L0mlp; descriptive results in `logs/score_f3a.json`). It is not a confirmed mechanism.
+- **(i) Access.** A retrained layer-0 *attention* is enough (0.818, while the MLP alone gives 0.008). That points to cross-token gathering as what is needed.
+- **(ii) Depth (review 2, F10).** A retrained layer 0 is followed by a frozen layer 1 that already pools across questions. A retrained layer 1 would have to do both steps in one block. "Layer 0 has direct access to the sources" does not discriminate between the two, because layer 1's residual also contains the source embeddings.
+
+The arm that would separate them, "layer 1 plus one extra fresh block", was not run.
 
 **Repair versus implementation.** The same parent can be repaired along different routes: supply, layer 0, or layers 0–1. The repaired model then carries m in a 3-d subspace that layer 2 uses through keys and queries (Workstream C). Which route the repair takes, and where m ends up, depends on what is trained. It does not depend on the parent's original organisation: all repair units were mixture models.
 

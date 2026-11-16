@@ -1,0 +1,2 @@
+FX_RETRY=10 FX_STOP=1211 FX_WA=scale1.5 python3 scripts/ft_factorial.py uP161 22 22 22
+bash scripts/when_file.sh checkpoints/ft/uP161_fx_L22_W22_D22_stop1211_wascale1.5/step1211.npz -- UM_TAG=_tdev UM_RHO=0 UM_STREAM=93200000 UM_STEPS=1211 python3 scripts/unit_metrics.py uP161:fx:22:22:22:stop1211_wascale1.5

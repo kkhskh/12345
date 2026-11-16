@@ -1,1 +1,12 @@
 2026-11-16T00:53:59Z XIII-E start. Branch cor-phase15-step1-reroll-and-critical-period-validation from 9f1bb83 (verified local and remote). Machine: 2 CPUs, 8 GB. Harness copied from XIII-D (src/, ft_factorial, unit_metrics, route_status, c_carrier, lane2, gates).
+2026-11-16T01:09:19Z FREEZE A-1 committed 2063085. Launching training lanes TA1, TA2 on queue_A.txt.
+2026-11-16T01:09:19Z lane TA1 start [41a1d1cb8d23] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 601 21
+2026-11-16T01:09:21Z lane TA2 start [f5b46e7abe92] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 601 23
+2026-11-16T01:22:39Z lane TA1 end [41a1d1cb8d23] rc=0
+2026-11-16T01:22:39Z lane TA1 start [20b691103434] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 22 601 22
+2026-11-16T01:22:40Z lane TA2 end [f5b46e7abe92] rc=0
+2026-11-16T01:22:40Z lane TA2 start [c72339042f63] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 601 21
+2026-11-16T01:37:10Z lane TA2 end [c72339042f63] rc=0
+2026-11-16T01:37:10Z lane TA2 start [9c2c28793002] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 602 21
+2026-11-16T01:37:11Z lane TA1 end [20b691103434] rc=0
+2026-11-16T01:37:11Z lane TA1 start [6f206bb35e28] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 602 23

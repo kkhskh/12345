@@ -1,0 +1,46 @@
+{
+ "P0": {
+  "rc": 0,
+  "summary": {
+   "R1-W": "CONFIRMED",
+   "R1-L": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "P1": {
+  "rc": 0,
+  "summary": {
+   "R1-W": "FALSIFIED",
+   "R1-L": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N1": {
+  "rc": 2,
+  "ok": true
+ },
+ "N2": {
+  "rc": 2,
+  "ok": true
+ },
+ "N3": {
+  "rc": 2,
+  "ok": true
+ },
+ "N4": {
+  "rc": 2,
+  "ok": true
+ },
+ "N5": {
+  "rc": 2,
+  "ok": true
+ },
+ "N6": {
+  "rc": 2,
+  "ok": true
+ },
+ "N7": {
+  "rc": 2,
+  "ok": true
+ }
+}

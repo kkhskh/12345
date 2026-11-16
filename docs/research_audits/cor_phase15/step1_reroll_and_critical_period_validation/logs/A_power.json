@@ -1,0 +1,22 @@
+{
+ "method": "Gaussian latent with correlation c shared by the two contexts of each seed; 8 seeds x 2 parents; 300 reps; 300 permutations and 300 bootstraps per rep (lighter than the scorer)",
+ "c=0.0": {
+  "p_transfer": 0.043,
+  "no_transfer_ub05": 0.513,
+  "no_transfer_ub06": 0.67,
+  "median_ub": 0.484
+ },
+ "c=0.3": {
+  "p_transfer": 0.2,
+  "no_transfer_ub05": 0.233,
+  "no_transfer_ub06": 0.393,
+  "median_ub": 0.664
+ },
+ "c=0.6": {
+  "p_transfer": 0.69,
+  "no_transfer_ub05": 0.02,
+  "no_transfer_ub06": 0.067,
+  "median_ub": 0.846
+ },
+ "decision": "upper-bound criterion 0.6: under the null 67% NO-TRANSFER, 4% TRANSFER, rest INCONCLUSIVE; under c=0.6, 69% TRANSFER and 7% NO-TRANSFER. A NO-TRANSFER verdict therefore bounds a transferable component below roughly c=0.6, not zero."
+}

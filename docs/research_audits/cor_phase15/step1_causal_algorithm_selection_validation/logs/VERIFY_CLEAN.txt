@@ -1,0 +1,69 @@
+== Investigation XIII-D clean extraction check 2026-11-16T00:15:19Z
+1. copy cor_phase15 WITHOUT step1_causal_algorithm_selection_validation into a clean directory and extract the ZIP there
+   extracted OK
+2. integrity manifest
+   manifest OK (829 files)
+3. every new checkpoint loads and gives finite logits (all saved steps of every ft run; every adapt4 parameter file)
+   uP160_fx_L21_W21_D21_base: final.json True | 24 checkpoints
+   uP160_fx_L21_W21_D21_ro0T0_br546_w546-1146: final.json True | 11 checkpoints
+   uP160_fx_L21_W21_D21_ro0T100: final.json True | 24 checkpoints
+   uP160_fx_L21_W21_D21_ro0T250: final.json True | 24 checkpoints
+   uP160_fx_L21_W23_D21: final.json True | 24 checkpoints
+   uP160_fx_L23_W21_D23: final.json True | 24 checkpoints
+   uP160_fx_L23_W23_D23_base: final.json True | 24 checkpoints
+   uP160_fx_L23_W23_D23_l2qT0_br546_w546-1146: final.json True | 11 checkpoints
+   uP160_fx_L23_W23_D23_l2qT100: final.json True | 24 checkpoints
+   uP160_fx_L23_W23_D23_l2qT250: final.json True | 24 checkpoints
+   uP161_fx_L21_W21_D21_stop1211_warot1: final.json False | 16 checkpoints
+   uP161_fx_L21_W21_D21_stop1211_wascale0.6: final.json False | 18 checkpoints
+   uP161_fx_L21_W22_D21: final.json True | 24 checkpoints
+   uP161_fx_L22_W21_D22: final.json True | 24 checkpoints
+   uP161_fx_L22_W22_D22_stop1211_waneg: final.json False | 18 checkpoints
+   uP161_fx_L22_W22_D22_stop1211_waperm120: final.json False | 18 checkpoints
+   uP161_fx_L22_W22_D22_stop1211_warot1: final.json False | 2 checkpoints
+   uP161_fx_L22_W22_D22_stop1211_wascale1.5: final.json False | 18 checkpoints
+   uP163_fx_L21_W20_D21_stop1211: final.json False | 18 checkpoints
+   uP163_fx_L21_W22_D21_rep: final.json True | 24 checkpoints
+   uP163_fx_L22_W21_D22: final.json True | 24 checkpoints
+   uP164_fx_L20_W21_D21_stop1211: final.json False | 18 checkpoints
+   uP164_fx_L21_W20_D21_stop1211: final.json False | 18 checkpoints
+   uP164_fx_L21_W21_D20_stop1211: final.json False | 18 checkpoints
+   ft checkpoints loaded: 472, non-finite/failed: 0 | adapt4 parameter files: 16, non-finite: 0
+4. frozen verdicts recomputed from the archived raw outputs and compared; all preflights rerun
+   f1 verdicts identical: True {'P2a': 'FALSIFIED', 'P2b': 'FALSIFIED', 'P2c': 'CONFIRMED'} | arms identical: True
+   f2 verdicts identical: True {'P1': 'FALSIFIED', 'P3': 'CONFIRMED', 'P4': 'CONFIRMED', 'P6': 'FALSIFIED', 'P7': 'CONFIRMED', 'P8': 'CONFIRMED'} | arms identical: True
+   f3a verdicts identical: True {'P5a': 'FALSIFIED', 'P5b': 'CONFIRMED', 'P5c': 'CONFIRMED'} | arms identical: True
+   f3b verdicts identical: True {'P10': 'FALSIFIED'} | arms identical: True
+   preflight f1 OK
+   preflight f2 OK
+   preflight f3a OK
+   preflight f3b OK
+5. principal statistics recomputed (uncertainty_13d.py) and compared
+   effects identical: True | sensitivity identical: True | factorial identical: True
+6. mathematical results: XIII-C posterior/sufficiency verification rerun from the sibling package and compared
+   c_math identical: True
+7. pathway-selection replay: F1c (uP160 23/23/23, l2q mask 0-100) retrained to step 246 and compared bit-for-bit with the archived checkpoints
+   step 25 max |diff| 0.0
+   step 50 max |diff| 0.0
+   step 100 max |diff| 0.0
+   step 111 max |diff| 0.0
+   step 246 max |diff| 0.0
+8+9. repair-carrier intervention, natural-donor necessity and null-pair test replayed (c_carrier.py on C-C1, confirmation stream)
+    DAS SUFF archived/replay 0.90265 0.90265
+    ENC_m SUFF archived/replay 0.84576 0.84576
+    DEC_m SUFF archived/replay -0.00127 -0.00127
+    DAS reverse archived/replay 0.05904 0.05904 | null D0 0.05626 0.05626
+10. supplied-information adaptation replayed (adapt4 arm supRO, lr 3e-3, uP165 s20)
+   supRO acc/J archived 0.79083 0.89384 replay 0.79083 0.89384
+11. corrected no-op and attention-row controls replayed (d_rows.py on uP165 s23, confirmation stream)
+   NOOP max|dlogit| 7.152557373046875e-07 within tol True | SHUFD_vs_borrowed R2 archived/replay 0.00137 0.00137 | max |diff| over arms 0.0
+12. full-length determinism test validated: archived result + direct re-comparison of every common checkpoint of the uP163 replay
+   archived: {'uP163_fx_L21_W22_D21_rep': (True, 24), 'uP160_fx_L23_W23_D23_base': (True, 12), 'uP160_fx_L21_W21_D21_base': (True, 12)}
+   recomputed: 24 common checkpoints, max |param diff| = 0.0
+13. external dependencies (deps_inventory13d.py) by exact hashes + absolute-path scan
+   software: {'python': '3.13.18', 'jax': '0.12.0.1', 'jaxlib': '0.12.0.1', 'numpy': '2.5.3', 'optax': '0.2.8', 'scipy': '1.18.1', 'platform': 'Linux-6.18.44-fc-v470-x86_64-with-glibc2.39'}
+   external files: 579 | hash mismatches: 0 | module mismatches: 0 | missing: []
+   sibling packages required: ['step1_critical_relational_mechanism_resolution', 'step1_cross_implementation_causal_equivalence', 'step1_curriculum_response_identification', 'step1_latent_reliability', 'step1_perfect_agreement_boundary', 'step1_r1_causal_origin_and_selective_rescue', 'step1_relational_computation_atlas', 'step1_relational_decision_computation', 'step1_relational_decision_computation_followup', 'step1_relational_mechanism_deepening']
+   scripts/src files with absolute local paths: 0
+== done (any FAILED / False / mismatches > 0 / non-finite > 0 / nonzero diff is a failure)
+NOTE: 'final.json False' in step 3 is expected for the 10 FX_STOP=1211 runs (by design they stop at 1211 and write no final.json); it is not a failure. Every other check passed.

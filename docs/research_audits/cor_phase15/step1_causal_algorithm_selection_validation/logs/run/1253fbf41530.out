@@ -1,0 +1,16 @@
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 25 loss 1.1146 99s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 50 loss 1.0905 175s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 74 loss 1.0785 246s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 100 loss 0.9908 330s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 111 loss 0.9704 365s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 150 loss 0.9224 496s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 165 loss 0.9068 545s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 200 loss 0.8739 657s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 246 loss 0.7813 806s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 300 loss 0.6509 946s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 366 loss 0.6251 1107s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 400 loss 0.6173 1205s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 546 loss 0.6033 1641s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 600 loss 0.6468 1805s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 800 loss 0.5881 2519s
+[uP161_fx_L21_W21_D21_stop1211_wascale0.6] step 813 loss 0.5551 2577s

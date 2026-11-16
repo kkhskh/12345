@@ -1,0 +1,32 @@
+checkpoint: /home/claude/12345/docs/research_audits/cor_phase15/step1_causal_algorithm_selection_validation/scripts/../checkpoints/adapt4_carrier/uP160_s_23_early01_b0.6_lr0.001.npz
+DEC_m SUFF -0.001 0.001 NULL_D0 0.194 NULL_DEC 0.074 SRCF 0.001 {'ablate': {'remaining_slope': 0.9747, 'damage_KL': 0.0004}, 'meanrep': {'remaining_slope': 0.9861, 'damage_KL': 0.0002}, 'reverse': {'remaining_slope': 0.9719}, 'restore': {'slope': 0.9875}}
+ENC_m SUFF 0.846 0.829 NULL_D0 0.062 NULL_DEC 0.028 SRCF 0.557 {'ablate': {'remaining_slope': 0.0692, 'damage_KL': 0.6439}, 'meanrep': {'remaining_slope': 0.1018, 'damage_KL': 0.5927}, 'reverse': {'remaining_slope': 0.0716}, 'restore': {'slope': 0.3951}}
+CCD_m SUFF 0.843 0.83 NULL_D0 0.062 NULL_DEC 0.028 SRCF 0.559 {'ablate': {'remaining_slope': 0.0712, 'damage_KL': 0.6217}, 'meanrep': {'remaining_slope': 0.0958, 'damage_KL': 0.5523}, 'reverse': {'remaining_slope': 0.0721}, 'restore': {'slope': 0.396}}
+DEC_r SUFF 0.001 0.0 NULL_D0 0.333 NULL_DEC 0.12 SRCF 0.001 {'ablate': {'remaining_slope': 0.9865, 'damage_KL': 0.0005}, 'meanrep': {'remaining_slope': 0.9859, 'damage_KL': 0.0002}, 'reverse': {'remaining_slope': 0.9732}, 'restore': {'slope': 0.9867}}
+ENC_r SUFF 0.806 0.803 NULL_D0 0.059 NULL_DEC 0.027 SRCF 0.553 {'ablate': {'remaining_slope': 0.0954, 'damage_KL': 0.5433}, 'meanrep': {'remaining_slope': 0.0937, 'damage_KL': 0.5634}, 'reverse': {'remaining_slope': 0.0869}, 'restore': {'slope': 0.4179}}
+CCD_r SUFF 0.806 0.804 NULL_D0 0.063 NULL_DEC 0.028 SRCF 0.553 {}
+RAND0 SUFF 0.005 0.008 NULL_D0 0.201 NULL_DEC 0.09 SRCF 0.038 {'ablate': {'remaining_slope': 0.9531, 'damage_KL': 0.0112}, 'meanrep': {'remaining_slope': 0.9328, 'damage_KL': 0.0076}, 'reverse': {'remaining_slope': 0.9667}, 'restore': {'slope': 0.948}}
+RAND1 SUFF 0.022 0.074 NULL_D0 0.217 NULL_DEC 0.086 SRCF 0.073 {}
+RAND2 SUFF 0.016 0.154 NULL_D0 0.248 NULL_DEC 0.093 SRCF 0.035 {}
+RAND3 SUFF 0.009 0.027 NULL_D0 0.198 NULL_DEC 0.075 SRCF 0.016 {}
+RAND4 SUFF 0.043 0.259 NULL_D0 0.174 NULL_DEC 0.068 SRCF 0.055 {}
+DAS SUFF 0.903 0.87 NULL_D0 0.056 NULL_DEC 0.026 SRCF 0.587 {'ablate': {'remaining_slope': 0.0629, 'damage_KL': 0.5692}, 'meanrep': {'remaining_slope': 0.0837, 'damage_KL': 0.4992}, 'reverse': {'remaining_slope': 0.059}, 'restore': {'slope': 0.351}}
+DAS_DECOY SUFF 0.783 0.803 NULL_D0 0.058 NULL_DEC 0.027 SRCF 0.537 {'ablate': {'remaining_slope': 0.1195, 'damage_KL': 0.4438}, 'meanrep': {'remaining_slope': 0.1372, 'damage_KL': 0.451}, 'reverse': {'remaining_slope': 0.0899}, 'restore': {'slope': 0.427}}
+CONTENT {'m': {'linear': 0.764, 'quadratic': 0.846, 'full_site_linear': 0.962}, 'logr': {'linear': 0.8, 'quadratic': 0.936, 'full_site_linear': 0.937}, 'posterior': {'linear': nan, 'quadratic': nan, 'full_site_linear': nan}, 'cand_evidence': {'linear': 0.653, 'quadratic': 0.866, 'full_site_linear': 0.999}}
+TRACE {'keys_only': 0.8863016366958618, 'queries_only': 0.02138167805969715, 'values_only': 0.03024142049252987, 'keys_and_queries': 0.9636101722717285, 'skip_only': -0.019254568964242935, 'full_check_vs_forward': 0.9026470334317349, 'mixture_heads': [2, 3], 'corr_dscore_dlogr': {'2': 0.9293074717545999, '3': 0.9320604115271768}}
+checkpoint: /home/claude/12345/docs/research_audits/cor_phase15/step1_causal_algorithm_selection_validation/scripts/../checkpoints/adapt4_carrier/uP165_s_21_early01_b0.6_lr0.001.npz
+DEC_m SUFF 0.033 0.077 NULL_D0 0.194 NULL_DEC 0.097 SRCF 0.01 {'ablate': {'remaining_slope': 0.8398, 'damage_KL': 0.0014}, 'meanrep': {'remaining_slope': 0.8438, 'damage_KL': 0.0011}, 'reverse': {'remaining_slope': 0.8067}, 'restore': {'slope': 0.8497}}
+ENC_m SUFF 0.764 0.646 NULL_D0 0.103 NULL_DEC 0.061 SRCF 0.543 {'ablate': {'remaining_slope': 0.0921, 'damage_KL': 0.4969}, 'meanrep': {'remaining_slope': 0.0872, 'damage_KL': 0.4672}, 'reverse': {'remaining_slope': 0.0667}, 'restore': {'slope': 0.2903}}
+CCD_m SUFF 0.765 0.647 NULL_D0 0.1 NULL_DEC 0.062 SRCF 0.54 {'ablate': {'remaining_slope': 0.1032, 'damage_KL': 0.5026}, 'meanrep': {'remaining_slope': 0.1017, 'damage_KL': 0.4323}, 'reverse': {'remaining_slope': 0.0687}, 'restore': {'slope': 0.2978}}
+DEC_r SUFF 0.032 0.082 NULL_D0 0.201 NULL_DEC 0.103 SRCF 0.013 {'ablate': {'remaining_slope': 0.8366, 'damage_KL': 0.0015}, 'meanrep': {'remaining_slope': 0.8416, 'damage_KL': 0.0011}, 'reverse': {'remaining_slope': 0.8044}, 'restore': {'slope': 0.847}}
+ENC_r SUFF 0.752 0.648 NULL_D0 0.097 NULL_DEC 0.061 SRCF 0.536 {'ablate': {'remaining_slope': 0.1229, 'damage_KL': 0.5281}, 'meanrep': {'remaining_slope': 0.124, 'damage_KL': 0.4262}, 'reverse': {'remaining_slope': 0.0694}, 'restore': {'slope': 0.2968}}
+CCD_r SUFF 0.751 0.649 NULL_D0 0.098 NULL_DEC 0.062 SRCF 0.534 {}
+RAND0 SUFF 0.029 0.056 NULL_D0 0.264 NULL_DEC 0.112 SRCF 0.047 {'ablate': {'remaining_slope': 0.7804, 'damage_KL': 0.0181}, 'meanrep': {'remaining_slope': 0.7796, 'damage_KL': 0.0185}, 'reverse': {'remaining_slope': 0.7903}, 'restore': {'slope': 0.8286}}
+RAND1 SUFF 0.005 0.014 NULL_D0 0.327 NULL_DEC 0.154 SRCF 0.027 {}
+RAND2 SUFF 0.002 0.004 NULL_D0 0.448 NULL_DEC 0.167 SRCF 0.006 {}
+RAND3 SUFF 0.02 0.063 NULL_D0 0.221 NULL_DEC 0.098 SRCF 0.016 {}
+RAND4 SUFF 0.03 0.061 NULL_D0 0.187 NULL_DEC 0.086 SRCF 0.024 {}
+DAS SUFF 0.821 0.669 NULL_D0 0.09 NULL_DEC 0.057 SRCF 0.586 {'ablate': {'remaining_slope': 0.0126, 'damage_KL': 0.5091}, 'meanrep': {'remaining_slope': 0.0119, 'damage_KL': 0.4468}, 'reverse': {'remaining_slope': 0.0382}, 'restore': {'slope': 0.2387}}
+DAS_DECOY SUFF 0.761 0.648 NULL_D0 0.085 NULL_DEC 0.058 SRCF 0.534 {'ablate': {'remaining_slope': 0.1138, 'damage_KL': 0.392}, 'meanrep': {'remaining_slope': 0.1086, 'damage_KL': 0.3529}, 'reverse': {'remaining_slope': 0.0806}, 'restore': {'slope': 0.3069}}
+CONTENT {'m': {'linear': 0.698, 'quadratic': 0.775, 'full_site_linear': 0.871}, 'logr': {'linear': 0.679, 'quadratic': 0.829, 'full_site_linear': 0.844}, 'posterior': {'linear': nan, 'quadratic': nan, 'full_site_linear': nan}, 'cand_evidence': {'linear': 0.453, 'quadratic': 0.704, 'full_site_linear': 0.999}}
+TRACE {'keys_only': 0.2186756283044815, 'queries_only': 0.7642127871513367, 'values_only': 0.001499408739618957, 'keys_and_queries': 0.9384024739265442, 'skip_only': -0.027401743456721306, 'full_check_vs_forward': 0.8210496754819587, 'mixture_heads': [1, 3], 'corr_dscore_dlogr': {'1': 0.8177523443764968, '3': 0.8303519228505912}}

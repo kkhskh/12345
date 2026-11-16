@@ -75,7 +75,7 @@ Exact Bayes accuracy is 0.792.
 **P5c (layer-0-specific repair): CONFIRMED.**
 - At matched capacity (one block), the same budget (lr 1e-3) and the same episodes, retraining layer 0 repairs the relation (0.832). Retraining layer 1 does not (0.004).
 - This replicates XIII-C (L0only 0.85 / 0.91, L1only 0.00) in a new model (uP165 s20; the same parent supplied C-C2).
-- **Budget limit.** P5a shows that the learning rate changes outcomes qualitatively. A post-review exploratory arm, L1only at lr 3e-3, was run for this reason; its result is in "Post-review exploratory results" below.
+- **Budget limit.** P5a shows that the learning rate changes outcomes qualitatively, so a post-review exploratory arm ran L1only at lr 3e-3. It also fails (0.021), as described below.
 - **Descriptive:**
   - layer 0's attention alone (16.5 k parameters) gives 0.818;
   - layer 0's MLP alone gives 0.008.
@@ -87,7 +87,7 @@ Exact Bayes accuracy is 0.792.
 - retrain layer 0, which then writes m into the residual stream that layer 2 reads;
 - retrain layers 0–1 (early01, Workstream C).
 
-**What fails.** At lr 3e-3, layer 2 + readout cannot compute m from what they receive, even with full retraining. At lr 1e-3, layer 1 alone cannot either (for lr 3e-3, see the post-review result).
+**What fails.** At lr 3e-3, layer 2 + readout cannot compute m from what they receive, even with full retraining. At lr 1e-3, layer 1 alone cannot either (and at lr 3e-3, in the post-review arm: 0.021).
 
 **Why layer 0 and not layer 1: two hypotheses, neither tested.**
 
@@ -109,3 +109,16 @@ The arm that would separate them, "layer 1 plus one extra fresh block", was not 
 So repairability by layer 2 depends on the implementation the model adopted. Plausibly this is because the early organisation's readout-token representation already contains part of what m needs, but that was not tested.
 
 XIII-D ran no new adaptation of an early model. These comparisons come from XIII-C's frozen runs (`adapt3_conf`, `adapt3_dev`), not from a new confirmation.
+
+## Post-review exploratory results (not frozen)
+
+**L1only at lr 3e-3 on uP165 s20** (review 2, F10). This used the same settings as the freeze-3a lr-3e-3 arms (`logs/adapt4_postrev/`):
+
+- acc 0.731
+- KL 0.169
+- J_DM slope **0.021**
+
+So layer-1 retraining fails at the stronger budget too. The "layer 1 cannot" statement therefore holds at both learning rates tested: 0.004 at lr 1e-3 and 0.021 at lr 3e-3.
+
+The depth alternative (layer 1 plus an extra fresh block) remains untested.
+

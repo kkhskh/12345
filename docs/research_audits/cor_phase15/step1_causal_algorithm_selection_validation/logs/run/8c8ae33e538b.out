@@ -1,0 +1,15 @@
+DEC_m SUFF 0.003 0.007 NULL_D0 0.355 NULL_DEC 0.164 SRCF 0.001 {'ablate': {'remaining_slope': 0.9292, 'damage_KL': 0.0004}, 'meanrep': {'remaining_slope': 0.9378, 'damage_KL': 0.0002}, 'reverse': {'remaining_slope': 0.9292}, 'restore': {'slope': 0.941}}
+ENC_m SUFF 0.556 0.688 NULL_D0 0.17 NULL_DEC 0.101 SRCF 0.496 {'ablate': {'remaining_slope': 0.3057, 'damage_KL': 0.3887}, 'meanrep': {'remaining_slope': 0.2228, 'damage_KL': 0.517}, 'reverse': {'remaining_slope': 0.1501}, 'restore': {'slope': 0.4184}}
+CCD_m SUFF 0.554 0.686 NULL_D0 0.178 NULL_DEC 0.103 SRCF 0.497 {'ablate': {'remaining_slope': 0.3389, 'damage_KL': 0.3679}, 'meanrep': {'remaining_slope': 0.2502, 'damage_KL': 0.471}, 'reverse': {'remaining_slope': 0.1487}, 'restore': {'slope': 0.4499}}
+DEC_r SUFF 0.002 0.003 NULL_D0 0.357 NULL_DEC 0.158 SRCF 0.001 {'ablate': {'remaining_slope': 0.9278, 'damage_KL': 0.0004}, 'meanrep': {'remaining_slope': 0.9385, 'damage_KL': 0.0002}, 'reverse': {'remaining_slope': 0.9293}, 'restore': {'slope': 0.9409}}
+ENC_r SUFF 0.471 0.598 NULL_D0 0.197 NULL_DEC 0.116 SRCF 0.444 {'ablate': {'remaining_slope': 0.4382, 'damage_KL': 0.2146}, 'meanrep': {'remaining_slope': 0.33, 'damage_KL': 0.2662}, 'reverse': {'remaining_slope': 0.1946}, 'restore': {'slope': 0.5181}}
+CCD_r SUFF 0.478 0.605 NULL_D0 0.194 NULL_DEC 0.112 SRCF 0.445 {}
+RAND0 SUFF 0.005 0.002 NULL_D0 0.279 NULL_DEC 0.166 SRCF 0.005 {'ablate': {'remaining_slope': 0.9252, 'damage_KL': 0.0046}, 'meanrep': {'remaining_slope': 0.9177, 'damage_KL': 0.0054}, 'reverse': {'remaining_slope': 0.9287}, 'restore': {'slope': 0.9271}}
+RAND1 SUFF 0.018 0.044 NULL_D0 0.336 NULL_DEC 0.175 SRCF 0.025 {}
+RAND2 SUFF 0.008 0.011 NULL_D0 0.328 NULL_DEC 0.175 SRCF 0.007 {}
+RAND3 SUFF 0.02 0.069 NULL_D0 0.334 NULL_DEC 0.169 SRCF 0.044 {}
+RAND4 SUFF 0.018 0.049 NULL_D0 0.27 NULL_DEC 0.14 SRCF 0.018 {}
+DAS SUFF 0.85 0.818 NULL_D0 0.14 NULL_DEC 0.077 SRCF 0.652 {'ablate': {'remaining_slope': 0.1243, 'damage_KL': 0.3509}, 'meanrep': {'remaining_slope': 0.1043, 'damage_KL': 0.5393}, 'reverse': {'remaining_slope': 0.0568}, 'restore': {'slope': 0.3194}}
+DAS_DECOY SUFF 0.727 0.728 NULL_D0 0.154 NULL_DEC 0.088 SRCF 0.578 {'ablate': {'remaining_slope': 0.2514, 'damage_KL': 0.4194}, 'meanrep': {'remaining_slope': 0.182, 'damage_KL': 0.5298}, 'reverse': {'remaining_slope': 0.0854}, 'restore': {'slope': 0.3953}}
+CONTENT {'m': {'linear': 0.759, 'quadratic': 0.789, 'full_site_linear': 0.879}, 'logr': {'linear': 0.731, 'quadratic': 0.875, 'full_site_linear': 0.875}, 'posterior': {'linear': nan, 'quadratic': nan, 'full_site_linear': nan}, 'cand_evidence': {'linear': 0.443, 'quadratic': 0.717, 'full_site_linear': 0.999}}
+TRACE {'keys_only': 0.3640095591545105, 'queries_only': 0.3031983971595764, 'values_only': 0.04892558604478836, 'keys_and_queries': 0.9398103952407837, 'skip_only': -0.013865994289517403, 'full_check_vs_forward': 0.849781490935326, 'mixture_heads': [1, 3], 'corr_dscore_dlogr': {'1': 0.8898451448143094, '3': 0.8875017758557738}}

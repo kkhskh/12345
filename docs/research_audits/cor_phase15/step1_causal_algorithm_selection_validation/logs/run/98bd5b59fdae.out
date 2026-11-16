@@ -1,0 +1,5 @@
+uP165_full_c1_s4000_seed20_eva beta 0.6 lr 0.003 bayes 0.792 native acc 0.458 pairs {'J_DM': {'n': 1767, 'exact_mean_abs': 0.8169726751838872}, 'J_D0': {'n': 233, 'exact_mean_abs': 3.87545662387036e-17}, 'DECOY': {'n': 1200, 'exact_mean_abs': 0.0}}
+  supRO     acc 0.791 KL 0.0130 J_DM slope +0.894 R2 +0.88 D0/DM 0.04 DEC/DM 0.03 n_train 50240 514s
+  supQS     acc 0.784 KL 0.0308 J_DM slope +0.727 R2 +0.76 D0/DM 0.06 DEC/DM 0.04 n_train 50240 1034s
+  supL2     acc 0.790 KL 0.0123 J_DM slope +0.906 R2 +0.88 D0/DM 0.04 DEC/DM 0.03 n_train 50240 1565s
+  L2        acc 0.729 KL 0.1779 J_DM slope -0.000 R2 +0.00 D0/DM 0.86 DEC/DM 0.63 n_train 50048 2116s

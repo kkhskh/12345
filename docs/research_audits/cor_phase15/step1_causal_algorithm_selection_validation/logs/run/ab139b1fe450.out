@@ -1,0 +1,26 @@
+E1115 19:19:28.541269    3092 slow_operation_alarm.cc:74] 
+********************************
+[Compiling module jit_unstack for CPU] Very slow compile? If you want to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+********************************
+E1115 19:20:14.452615    3011 slow_operation_alarm.cc:141] The operation took 2m46.339405452s
+
+********************************
+[Compiling module jit_unstack for CPU] Very slow compile? If you want to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+********************************
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 25 loss 1.1120 1625s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 50 loss 1.0984 1662s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 74 loss 1.0866 1696s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 100 loss 1.0257 1734s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 111 loss 0.9913 1750s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 150 loss 0.9094 1808s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 165 loss 0.9086 1831s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 200 loss 0.9152 1883s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 246 loss 0.8096 1950s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 300 loss 0.7521 2030s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 366 loss 0.6766 2130s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 400 loss 0.6227 2181s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 546 loss 0.6479 2402s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 600 loss 0.5916 2481s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 800 loss 0.5939 2837s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 813 loss 0.6339 2866s
+[uP161_fx_L22_W22_D22_stop1211_waperm120] step 1000 loss 0.5649 3292s

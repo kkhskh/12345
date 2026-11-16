@@ -52,6 +52,6 @@ Every item below follows from a specific XIII-D result. The mandate's completion
   - supplying the missing sufficient statistic, given enough optimisation;
   - retraining layer 0.
 
-  At lr 3e-3 it cannot be changed by retraining layer 2 + readout. At lr 1e-3 it cannot be changed by retraining layer 1 alone at matched capacity (P5). For layer 1 at lr 3e-3, see the post-review result.
+  At lr 3e-3 it cannot be changed by retraining layer 2 + readout. At lr 1e-3 it cannot be changed by retraining layer 1 alone at matched capacity (P5). The post-review arm shows it cannot at lr 3e-3 either (0.021).
 
 All of this concerns a small synthetic generator family and 2- to 3-layer transformers fine-tuned from six pretrained parents. Nothing here is evidence about COR's operators.

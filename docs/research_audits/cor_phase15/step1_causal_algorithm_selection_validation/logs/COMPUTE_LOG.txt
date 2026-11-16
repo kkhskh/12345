@@ -275,3 +275,8 @@
 2026-11-15T23:56:51Z lane B5d end [ccc33e9fe90c] rc=0
 2026-11-15T23:57:51Z lane B5e end [cca6d1f5f54c] rc=0
 2026-11-15T23:59:47Z DISCLOSURE (review 3, finding 1): the freeze-2 scorer was run on partial inputs at 19:15Z and 20:00Z (logs/interim/); the 20:00Z look showed P3 and P4 CONFIRMED while A-C1..A-C4 were training. Freeze 3a's P5b basis drew on that interim P3 result. Verdicts are unaffected (deterministic scorer, fixed queued runs). Post-freeze queue hashes recorded in logs/FREEZE_ADDENDUM_HASHES.txt. score_f3a re-scored after L0attn/L0mlp finished. uncertainty_13d.py fixed to work on a temporary copy of logs/ (review 3, finding 2).
+2026-11-16T00:02:53Z lane PR1 end [9871c3d03567] rc=0
+2026-11-16T00:04:09Z lane DV11 end [4675f2fd96ff] rc=0
+2026-11-16T00:09:46Z Post-review exploratory L1only lr 3e-3 on uP165 s20: J_DM slope 0.021 (acc 0.731).
+2026-11-16T00:14:35Z scale1.5 dev transform completed (attempt 6) and measured at 1211: lik 0.633, mix 0.179 (early; unchanged class).
+2026-11-16T00:23:40Z 13-step clean-extraction verification passed (logs/VERIFY_CLEAN.txt).

@@ -112,7 +112,7 @@ The pathway by which supplied m acts was not traced.
 | layer-0 MLP alone | 0.008 |
 | layer 1 alone | 0.004 |
 
-Layer 1 at lr 3e-3 was run as a post-review exploratory arm; its result is in the post-review section.
+A post-review exploratory arm ran layer 1 alone at lr 3e-3; it gave 0.021.
 
 **Why P5a failed.** Supply at lr 1e-3 gave 0.168, not < 0.1. Supply is partly usable at the weaker budget.
 
@@ -202,7 +202,7 @@ Details are in FROZEN_CONFIRMATION_AND_STATISTICS.md.
 
 It was not repaired by:
 - retraining layer 2 + readout without supply (lr 3e-3);
-- retraining layer 1 at lr 1e-3.
+- retraining layer 1 at lr 1e-3, or at lr 3e-3 (post-review exploratory arm).
 
 ## Mandatory completion gates
 
@@ -238,8 +238,20 @@ Each change below alters the scientific meaning of a first-draft statement. All 
 7. **The E2 borrowed-pair arm has no power, and "no generic signal transfers" is withdrawn** (review 1, F7).
 8. **P7 cannot exclude H_pos.** "Never reduces MOVE" was wrong: SYM2 reduces it by 5–7% (review 1, F8).
 9. **P8 shows non-redundancy only** (review 1, F9; review 2, F11).
-10. **"Layer 1 cannot repair" now holds at lr 1e-3 only. P5b's "query/key side" labels are now readout-token / source-token supply** (review 2, F10).
+10. **"Layer 1 cannot repair" was first supported at lr 1e-3 only. A post-review arm at lr 3e-3 also fails (0.021). P5b's "query/key side" labels are now readout-token / source-token supply** (review 2, F10).
 11. **Integrity.** Interim scoring of freeze 2 was disclosed; P5b's basis drew on it. The sensitivity script was fixed. F1b was re-described. Effect-size tables now use confirmation units only (review 3).
+
+## Post-review exploratory results (not frozen)
+
+**L1only at lr 3e-3 on uP165 s20** (review 2, F10). This used the same settings as the freeze-3a lr-3e-3 arms (`logs/adapt4_postrev/`):
+
+- acc 0.731
+- KL 0.169
+- J_DM slope **0.021**
+
+So layer-1 retraining fails at the stronger budget too. The "layer 1 cannot" statement therefore holds at both learning rates tested: 0.004 at lr 1e-3 and 0.021 at lr 3e-3.
+
+The depth alternative (layer 1 plus an extra fresh block) remains untested.
 
 ## Limitations
 

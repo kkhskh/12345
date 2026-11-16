@@ -20,3 +20,6 @@
 [uP163_fx_L22_W21_D22] step 1803 loss 0.5725 846s
 [uP163_fx_L22_W21_D22] step 2000 loss 0.5384 1016s
 [uP163_fx_L22_W21_D22] step 2686 loss 0.5468 1870s
+[uP163_fx_L22_W21_D22] step 3000 loss 0.5551 2516s
+[uP163_fx_L22_W21_D22] step 4000 loss 0.5359 5554s
+[uP163_fx_L22_W21_D22] done acc 0.7458 KL 0.0029 5778s

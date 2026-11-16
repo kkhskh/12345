@@ -1,0 +1,1 @@
+uP161_full_c1_s4000_seed21_eva beta 0.6 lr 0.003 bayes 0.792 native acc 0.469 pairs {'J_DM': {'n': 1767, 'exact_mean_abs': 0.8169726751838872}, 'J_D0': {'n': 233, 'exact_mean_abs': 3.87545662387036e-17}, 'DECOY': {'n': 1200, 'exact_mean_abs': 0.0}}

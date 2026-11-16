@@ -109,5 +109,53 @@
   "frozen_params_unchanged": true,
   "n_trainable": 49728,
   "sec": 1007.4332594871521
+ },
+ "L0attn": {
+  "acc": 0.7855555555555556,
+  "KL": 0.02954442745758106,
+  "J_DM": {
+   "slope": 0.8176153889562442,
+   "R2": 0.8264038840369949,
+   "mean_abs_obs": 0.8231778144836426,
+   "mean_abs_pred": 0.8169726751838872
+  },
+  "J_D0": {
+   "mean_abs_obs": 0.13760361075401306,
+   "mean_abs_exact": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "mean_abs_obs": 0.05873716250061989,
+   "mean_abs_exact": 0.0
+  },
+  "J_D0_over_DM_response": 0.16716146661499634,
+  "DECOY_over_DM_response": 0.07135416123606798,
+  "final_loss": 0.43872103095054626,
+  "frozen_params_unchanged": true,
+  "n_trainable": 16512,
+  "sec": 1821.7228951454163
+ },
+ "L0mlp": {
+  "acc": 0.7211666666666666,
+  "KL": 0.20709761888277173,
+  "J_DM": {
+   "slope": 0.008043825195898194,
+   "R2": 0.005689379025586527,
+   "mean_abs_obs": 0.09714008122682571,
+   "mean_abs_pred": 0.8169726751838872
+  },
+  "J_D0": {
+   "mean_abs_obs": 0.07985115051269531,
+   "mean_abs_exact": 3.87545662387036e-17
+  },
+  "DECOY": {
+   "mean_abs_obs": 0.028521697968244553,
+   "mean_abs_exact": 0.0
+  },
+  "J_D0_over_DM_response": 0.8220206273684278,
+  "DECOY_over_DM_response": 0.293614104580017,
+  "final_loss": 0.6216455698013306,
+  "frozen_params_unchanged": true,
+  "n_trainable": 33216,
+  "sec": 2274.4469015598297
  }
 }

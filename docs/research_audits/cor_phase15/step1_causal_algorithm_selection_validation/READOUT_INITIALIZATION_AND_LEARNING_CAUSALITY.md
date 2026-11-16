@@ -182,16 +182,16 @@ Results (development / exploratory, not frozen):
 | 21/21/21 | mixture | scale ×0.6 | 0.007 | 0.951 | 0.011 | mixture |
 | 22/22/22 | early | sign flip (neg) | 0.020 | 0.964 | 0.013 | **mixture** |
 | 22/22/22 | early | column permutation (perm120) | 0.049 | 0.937 | 0.020 | **mixture** |
-| 22/22/22 | early | scale ×1.5 | not completed: OOM-killed five times, and it cannot resume (`FX_STOP`) | | | |
+| 22/22/22 | early | scale ×1.5 | 0.633 | 0.179 | 0.162 (not competent at 1211) | early (completed after the confirmation phase, on its sixth attempt) |
 
-A sign flip or a permutation of the candidate columns of an early-producing W_A is enough to give the mixture organisation, even though both transforms preserve every spectral property of W_A. Rescaling a mixture W_A does not create early.
+A sign flip or a permutation of the candidate columns of an early-producing W_A gives the mixture organisation, even though both transforms preserve every spectral property of W_A. Rescaling does not change the class in either direction: early ×1.5 stays early, and mixture ×0.6 stays mixture.
 
 So in uP161 what matters is how W_A is aligned with the fixed layer 2 and the parent, not its norm or spectrum. This is consistent with the interaction-dependent description above. It is three runs in one parent, a development observation.
 
 Two limits on the comparison:
 
 - The untransformed early reference uP161 s22 is not competent at 1211 (KL 0.121).
-- A rot1 run exists without metrics.
+- A rot1 run exists without metrics. The scale1.5 run, like the untransformed early reference, is not competent at 1211 (KL 0.162).
 
 ## B. Competition versus commitment, critical periods, the unused route
 

@@ -204,6 +204,112 @@ It was not repaired by:
 - retraining layer 2 + readout without supply (lr 3e-3);
 - retraining layer 1 at lr 1e-3, or at lr 3e-3 (post-review exploratory arm).
 
+## Required final scientific answers (mandate §15)
+
+Evidence labels:
+
+| label | meaning |
+|---|---|
+| **[proof]** | mathematical proof |
+| **[num]** | independent numerical verification |
+| **[dev]** | development evidence |
+| **[frozen]** | frozen confirmation |
+| **[expl]** | exploratory |
+| **[spec]** | speculation |
+
+1. **What property of the readout-map initialisation influences the learned implementation?**
+   - No W-only property was identified.
+   - Changing W alone did not move the organisation as predicted (P1 FALSIFIED [frozen]). In uP164 W was irrelevant (P10 FALSIFIED [frozen]).
+   - W's orientation relative to layer 2 matters in uP161: a sign flip or column permutation gives mixture; scaling changes nothing [dev].
+   - No step-0 W_A statistic predicts the outcome across parents [dev].
+
+2. **Does the effect replicate under independent manipulation of W, L and D?**
+   - No. The outcome depends on parent × L × W interactions, and D never changes the class [frozen + dev].
+   - No low-order law was found (base-rate Fisher p = 0.69) [expl].
+
+3. **Active competition, or commitment of the downstream computation?**
+   - The unused route's information is retained in pooled form while unused [frozen, P2c, n = 1], and it is partially reactivatable by readout-only retraining [frozen data].
+   - The frozen commitment signature (P2a) was FALSIFIED.
+   - The locus of lock-in is not isolated. "Commitment" is a compatible reading, not an established one [spec].
+
+4. **Is there a critical period?**
+   - Blocking a route for 100 steps permanently redirects the organisation (P2b FALSIFIED, since recovery had been predicted [frozen]).
+   - There is no recovery window of ≥ 100 steps. Shorter windows and a sham mask were not tested.
+   - A late block on the early run also redirects it, but that block is confounded with severity [frozen data, review].
+
+5. **Does the unused pathway lose its information?**
+   - Pooled information is not lost [frozen, P2c].
+   - Group-resolved information is reduced, and more so after longer blocks (0.78 / 0.55 vs 0.99) [frozen data].
+
+6. **What does the repair carrier encode?**
+   - m and log r (R² 0.70–0.80) [frozen].
+   - Candidate evidence, only nonlinearly [frozen].
+   - The 3-dimensionality is a design choice.
+
+7. **Necessary, sufficient, or one of several?**
+   - Sufficient and necessary under the reverse swap [frozen, P3a / P4a].
+   - Not unique: Haufe patterns, class means and a decoy-trained DAS are equally sufficient and necessary. It is a shared low-dimensional channel [frozen data, review 2].
+
+8. **Do encoding-pattern controls remove the subspace-versus-decoder discrepancy?**
+   - Yes. Encoding patterns transmit (0.76–0.85) and decoder filters do not (≈ 0) [frozen].
+   - This is the expected filter-versus-pattern geometry, not a model property [num: review 1 ideal-carrier checks].
+
+9. **Does the carrier preserve decisions when the joint statistic is unchanged?**
+   - Yes: J_D0 and DECOY responses are ≤ 0.09 of the patch response [frozen, P3b].
+   - The metric is lax and was not compared with the model's own null error [review 1].
+
+10. **How does the frozen final layer use the repaired representation?**
+    - Through the joint layer-2 key–query attention score (0.94–0.96), not through values. The score change tracks Δ log r (corr 0.82–0.93) [frozen, P3e].
+    - The key/query split was traced only for DAS.
+
+11. **Why does early-layer repair succeed when final-layer repair fails?**
+    - Layer 2 + readout cannot compute m from its input (0.000 at lr 3e-3), but succeeds when m is supplied (0.906) [frozen].
+    - Layer 0, and its attention alone, can compute m. Layer 1 cannot (0.004 at lr 1e-3 [frozen]; 0.021 at lr 3e-3 [expl]).
+    - Cross-token access versus depth is not discriminated [spec].
+
+12. **Accessibility, optimisation speed, position, or capacity?**
+    - **Accessibility:** demonstrated (supply versus no supply at matched parameters) [frozen].
+    - **Optimisation speed:** matters for supply (0.168 at lr 1e-3 vs 0.906 at lr 3e-3; P5a FALSIFIED on the budget clause) [frozen].
+    - **Position:** readout-token and source-token supply both work (0.89 / 0.73) [frozen].
+    - **Capacity:** capacity-matched L0 versus L1 differ, so capacity alone is not the explanation [frozen].
+
+13. **Does changing internal organisation change the ability to use new relational information?**
+    - In XIII-C data, layer-2 repair reaches 0.38 in one early model, against 0.00 in mixture models [frozen in XIII-C; re-read here].
+    - Not newly tested in XIII-D.
+
+14. **Does eligibility mediation survive excluding the edited tokens?**
+    - An 8-d subspace at edited-token-free sites transmits the model's own eligibility response (own-share 0.53–0.89) [frozen].
+    - The specificity criterion was ill-posed (P6 FALSIFIED as scored) [review 1].
+
+15. **Are attention-row effects specific under matched controls?**
+    - True row interchange: R² 0.90–0.96. Decoy rows scored against the base: ≤ 0.014. NOOP ≤ 1e-6 [frozen].
+    - The borrowed-pair rescoring has no power [num: review 1].
+
+16. **Independent, redundant, or components of one mechanism?**
+    - Not redundant. Additive under path patching, and non-redundant under blocking [frozen, P8].
+    - "Components of one mechanism" is not established, because the blocking is off-distribution [review].
+
+17. **What causes the early class's larger deviation?**
+    - Unidentified.
+    - Symmetrising the readout rows did not reduce it, but the test cannot exclude the positional hypothesis [frozen, P7, as reinterpreted].
+
+18. **Which claims are non-identifiable from behaviour alone?**
+    - ρ (power-mean) versus modified target evidence plus sharpening [proof, XIII-C].
+    - Any implementation-level claim in this report, which needs interventions.
+    - Decoding-based claims about use (Q8).
+
+19. **What predicts the learning transition?**
+    - mix_mass at step 246 has AUC 0.86 against accuracy 0.71 and loss 0.64. Its advantage over behaviour is not established (+0.15 [−0.07, 0.37]) [expl].
+    - Training loss does not predict the transition.
+
+20. **What extends to COR and what is specific?**
+    - Possibly general, as methodological points:
+      - interventions need ideal-model reference values;
+      - decoders are not causal directions;
+      - which algorithm emerges can hinge on initial conditions of freshly added components, and on early route availability.
+    - Specific to this generator and architecture: every numerical result.
+    - Nothing here bears on the O/D operators [spec, for the general part].
+
 ## Mandatory completion gates
 
 | gate | result |

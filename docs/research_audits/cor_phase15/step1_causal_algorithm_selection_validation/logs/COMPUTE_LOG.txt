@@ -280,3 +280,4 @@
 2026-11-16T00:09:46Z Post-review exploratory L1only lr 3e-3 on uP165 s20: J_DM slope 0.021 (acc 0.731).
 2026-11-16T00:14:35Z scale1.5 dev transform completed (attempt 6) and measured at 1211: lik 0.633, mix 0.179 (early; unchanged class).
 2026-11-16T00:23:40Z 13-step clean-extraction verification passed (logs/VERIFY_CLEAN.txt).
+2026-11-16T00:25:42Z Added mandate §15 answers to MAIN_RESEARCH_SYNTHESIS.md after verification (documentation only); manifest regenerated, ZIP rebuilt; manifest re-verified on clean extraction.

@@ -1,0 +1,5 @@
+[uP160_fx_L21_W21_D21_noiseT0_br546_w546-1146_B_lnoise] branched from uP160_fx_L21_W21_D21_base step 546
+[uP160_fx_L21_W21_D21_noiseT0_br546_w546-1146_B_lnoise] step 600 loss 0.8485 83s
+[uP160_fx_L21_W21_D21_noiseT0_br546_w546-1146_B_lnoise] step 800 loss 0.6855 311s
+[uP160_fx_L21_W21_D21_noiseT0_br546_w546-1146_B_lnoise] step 813 loss 0.6507 324s
+[uP160_fx_L21_W21_D21_noiseT0_br546_w546-1146_B_lnoise] step 1000 loss 0.6576 519s

@@ -76,3 +76,35 @@
 2026-11-16T04:02:19Z lane TA1 start [6385b91cd25d] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 607 21
 2026-11-16T04:03:21Z lane TA2 end [784e00d34c42] rc=0
 2026-11-16T04:03:21Z lane TA2 start [2adf795c32f9] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 607 23
+2026-11-16T04:06:24Z FREEZE C committed 87177ad; flag written (C-C2 audit may start).
+2026-11-16T04:08:07Z NOTE: the freeze-C commit (87177ad) accidentally included in-progress training checkpoint files (not inspected); removed from the index in the next commit; checkpoints are committed at the end.
+2026-11-16T04:18:04Z lane TB1 end [0bb43d23ed6a] rc=0
+2026-11-16T04:18:04Z lane TB1 start [0aa117ae98b7] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:50 FX_TAGSUF=_B_ro050 python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T04:18:21Z lane TBL start [bef36762ba26] FX_INTERV=ro0p:0 FX_RO0P=2 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 FX_TAGSUF=_B_lro0p python3 scripts/ft_factorial_b.py uP160 21 21 21
+2026-11-16T04:18:23Z Lane TBL on queue_Blate.txt started (scheduling only; total work unchanged).
+2026-11-16T04:21:10Z lane TA1 end [6385b91cd25d] rc=0
+2026-11-16T04:21:10Z lane TA1 start [1143ffa9505f] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 22 607 22
+2026-11-16T04:22:43Z lane TA2 end [2adf795c32f9] rc=0
+2026-11-16T04:22:43Z lane TA2 start [ff4eb8daede6] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 607 21
+2026-11-16T04:39:16Z lane TB1 end [0aa117ae98b7] rc=0
+2026-11-16T04:39:16Z lane TB1 start [b9dc5be79c62] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:100 FX_TAGSUF=_B_ro0100 python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T04:42:39Z lane TA1 end [1143ffa9505f] rc=0
+2026-11-16T04:42:39Z lane TA1 start [4834d1aea1f7] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 608 21
+2026-11-16T04:44:03Z lane TA2 end [ff4eb8daede6] rc=0
+2026-11-16T04:44:03Z lane TA2 start [b10f9e4a7184] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 608 23
+2026-11-16T05:00:50Z lane TB1 end [b9dc5be79c62] rc=0
+2026-11-16T05:00:50Z lane TB1 start [1b3c3500b8db] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=sham:100 FX_TAGSUF=_B_sham100 python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T05:04:19Z lane TA1 end [4834d1aea1f7] rc=0
+2026-11-16T05:04:19Z lane TA1 start [d75e6abb0944] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 22 608 22
+2026-11-16T05:05:46Z lane TA2 end [b10f9e4a7184] rc=0
+2026-11-16T05:05:46Z lane TA2 start [43c3836c8bd0] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 608 21
+2026-11-16T05:20:48Z lane TBL end [bef36762ba26] rc=0
+2026-11-16T05:20:48Z lane TBL start [d568cb709a57] FX_INTERV=noise:0 FX_NOISE=4.0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 FX_TAGSUF=_B_lnoise python3 scripts/ft_factorial_b.py uP160 21 21 21
+2026-11-16T05:23:09Z lane CA1 end [6e299ff74930] rc=0
+2026-11-16T05:23:34Z lane TB1 end [1b3c3500b8db] rc=0
+2026-11-16T05:23:34Z lane TB1 start [70aac2bda24f] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=2.323 FX_TAGSUF=_B_noise100m python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T05:26:47Z lane TA1 end [d75e6abb0944] rc=0
+2026-11-16T05:26:47Z lane TA1 start [9d06d2ffda6b] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 701 21 21
+2026-11-16T05:28:00Z lane TA2 end [43c3836c8bd0] rc=0
+2026-11-16T05:28:00Z lane TA2 start [c5d18b15414b] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 701 23 23
+2026-11-16T05:31:43Z Freeze C scored: R5 FALSIFIED (C-C2 k=1 carries 0.67 of k=3; needs 2 dims: k2 0.80 vs k3 0.81), R6 CONFIRMED.

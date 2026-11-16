@@ -1,0 +1,22 @@
+{
+ "R5": {
+  "ratio": 0.6670860808321478,
+  "stab1": 0.9992601275444031,
+  "stab3": 0.7850836416085561,
+  "verdict": "FALSIFIED"
+ },
+ "R6": {
+  "dec_over_enc_R2": 1.1082535717378859,
+  "suff_dec": 0.02416515735298954,
+  "suff_enc": 0.751775391273065,
+  "suff_vmrand": 0.06790852787053492,
+  "signal_ratio": 7.700797565637617,
+  "ov_das_enc": 0.5805582471415592,
+  "ov_das_dec": 0.06607689014918224,
+  "verdict": "CONFIRMED"
+ },
+ "summary": {
+  "R5": "FALSIFIED",
+  "R6": "CONFIRMED"
+ }
+}

@@ -1,0 +1,40 @@
+== Investigation XIII-E clean extraction check 2026-11-16T15:02:34Z
+1. copy cor_phase15 WITHOUT step1_reroll_and_critical_period_validation into a clean directory and extract the ZIP there
+   extracted OK
+2. integrity manifest
+   manifest OK (832 files)
+3. full 64-run re-roll inventory + every new checkpoint loads with finite logits
+   re-roll runs in design: 64, complete: 64, missing: []
+   run directories: 119; checkpoints loaded: 365; non-finite/failed: 0
+4+5. re-roll probabilities and principal statistical comparisons recomputed by the frozen fail-closed scorer
+   cells identical: True | comparisons identical: True | R1 identical: True {'R1-W': 'FALSIFIED', 'R1-L': 'CONFIRMED'}
+6. step-1211 classifications recomputed from checkpoints (unit_metrics on 4 re-roll runs, frozen stream) and compared
+   max |diff| lik/mix over 4 runs: 0.0
+7. 4000-step continuations: all present; 2 re-measured at 4000 and compared; continuation set re-derived by the frozen rule
+   continuations finished: True 10
+   frozen rule reproduces the set: True
+   max |diff| lik/mix: 0.0
+8. representative real-mask and sham runs replayed to step 150 and compared bit-for-bit with the archived checkpoints
+    uP160_fx_L21_W21_D801_ro0T100_stop150_verify_ro0 vs uP160_fx_L21_W21_D801_ro0T100_stop1211_B_ro0100 max |diff| 0.0
+    uP160_fx_L23_W23_D801_shamT100_stop150_verify_sham vs uP160_fx_L23_W23_D801_shamT100_stop1211_B_sham100 max |diff| 0.0
+    uP160_fx_L23_W23_D801_shamT100_stop150_verify_sham vs uP160_fx_L23_W23_D801_stop1211_B_base max |diff| 0.0
+9. ideal-model metric references recomputed (c1_ideal_refs.py) and compared
+   identical: True
+10+11. decoder, principal-angle and k-sweep analyses recomputed on C-C2 (c_audit_v.py, k = 1, 2, 3) and compared
+   C2 decoding identical: True | C2 geometry identical: True | C3 identical: True
+   C4 k=1..3 identical: True
+12. frozen prediction verdicts reproduced (score_B, score_C; score_A in step 4) and all preflights rerun
+   score_B identical: True {'R3': 'CONFIRMED', 'R4': 'FALSIFIED'}
+   score_C identical: True {'R5': 'FALSIFIED', 'R6': 'CONFIRMED'}
+   preflight A OK
+   preflight B OK
+   preflight C OK
+13. incomplete scoring is refused (each scorer on a copy of logs/ with one required file removed)
+   score_A without unit_metrics_Acont.jsonl: refused (rc=2)
+   score_B without unit_metrics_Bfinal.jsonl: refused (rc=2)
+   score_C without c_audit.json: refused (rc=2)
+14. external dependencies by exact hash (deps_inventory13e.py) + absolute-path scan
+   external files: 105 | hash mismatches: 0 | module mismatches: 0 | missing: []
+   sibling packages required: ['step1_causal_algorithm_selection_validation', 'step1_cross_implementation_causal_equivalence', 'step1_curriculum_response_identification', 'step1_latent_reliability', 'step1_perfect_agreement_boundary', 'step1_r1_causal_origin_and_selective_rescue', 'step1_relational_computation_atlas', 'step1_relational_decision_computation', 'step1_relational_decision_computation_followup', 'step1_relational_mechanism_deepening']
+   scripts/src files with absolute local paths: 0
+== done (any FAILED / False / NOT REFUSED / mismatches > 0 / non-finite > 0 / nonzero diff is a failure)

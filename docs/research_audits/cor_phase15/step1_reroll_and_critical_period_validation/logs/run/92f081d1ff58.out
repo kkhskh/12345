@@ -1,0 +1,13 @@
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] branched from uP160_fx_L23_W23_D801_stop1211_B_base step 546
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 600 loss 0.6347 48s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 800 loss 0.5948 202s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 813 loss 0.5995 212s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 1000 loss 0.5591 355s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 1211 loss 0.5695 507s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 1500 loss 0.5561 755s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 1803 loss 0.5235 1124s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 2000 loss 0.5906 1367s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 2686 loss 0.5433 2204s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 3000 loss 0.5700 2591s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] step 4000 loss 0.5517 3834s
+[uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise] done acc 0.7479 KL 0.0016 3913s

@@ -5,3 +5,14 @@
 [uP160_fx_L701_W23_D23_stop1211] step 111 loss 0.9976 125s
 [uP160_fx_L701_W23_D23_stop1211] step 150 loss 0.9192 168s
 [uP160_fx_L701_W23_D23_stop1211] step 165 loss 0.8996 184s
+[uP160_fx_L701_W23_D23_stop1211] step 200 loss 0.8409 221s
+[uP160_fx_L701_W23_D23_stop1211] step 246 loss 0.7947 270s
+[uP160_fx_L701_W23_D23_stop1211] step 300 loss 0.7602 330s
+[uP160_fx_L701_W23_D23_stop1211] step 366 loss 0.6901 395s
+[uP160_fx_L701_W23_D23_stop1211] step 400 loss 0.5955 431s
+[uP160_fx_L701_W23_D23_stop1211] step 546 loss 0.6000 590s
+[uP160_fx_L701_W23_D23_stop1211] step 600 loss 0.6411 643s
+[uP160_fx_L701_W23_D23_stop1211] step 800 loss 0.6133 839s
+[uP160_fx_L701_W23_D23_stop1211] step 813 loss 0.5980 853s
+[uP160_fx_L701_W23_D23_stop1211] step 1000 loss 0.5326 1038s
+[uP160_fx_L701_W23_D23_stop1211] step 1211 loss 0.5947 1240s

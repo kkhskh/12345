@@ -1,0 +1,8 @@
+[uP160_fx_L708_W21_D21_br1211] branched from uP160_fx_L708_W21_D21_stop1211 step 1211
+[uP160_fx_L708_W21_D21_br1211] step 1500 loss 0.5958 161s
+[uP160_fx_L708_W21_D21_br1211] step 1803 loss 0.5268 390s
+[uP160_fx_L708_W21_D21_br1211] step 2000 loss 0.6193 486s
+[uP160_fx_L708_W21_D21_br1211] step 2686 loss 0.5483 808s
+[uP160_fx_L708_W21_D21_br1211] step 3000 loss 0.5672 953s
+[uP160_fx_L708_W21_D21_br1211] step 4000 loss 0.5160 1408s
+[uP160_fx_L708_W21_D21_br1211] done acc 0.7435 KL 0.0040 1438s

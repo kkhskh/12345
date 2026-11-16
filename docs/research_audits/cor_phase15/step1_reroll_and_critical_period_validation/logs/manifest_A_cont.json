@@ -1,0 +1,15 @@
+{
+ "continuation_final": [
+  "uP160_fx_L21_W601_D21_stop1211",
+  "uP160_fx_L701_W21_D21_stop1211",
+  "uP160_fx_L23_W601_D23_stop1211",
+  "uP160_fx_L701_W23_D23_stop1211",
+  "uP161_fx_L22_W601_D22_stop1211",
+  "uP161_fx_L701_W22_D22_stop1211",
+  "uP161_fx_L21_W601_D21_stop1211",
+  "uP161_fx_L701_W21_D21_stop1211",
+  "uP160_fx_L708_W21_D21_stop1211",
+  "uP160_fx_L704_W21_D21_stop1211"
+ ],
+ "rule": "After the screen, add the 2 runs (not already in the fixed set) whose mix_mass at 1211 is closest to 0.5 (borderline); ties by smaller |lik_RO1-0.4|; then continue all to 4000 with FX_BRANCH=<tag>:1211."
+}

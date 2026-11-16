@@ -1,0 +1,10 @@
+FX_BRANCH=uP160_fx_L21_W601_D21_stop1211:1211 python3 scripts/ft_factorial.py uP160 21 601 21
+FX_BRANCH=uP160_fx_L701_W21_D21_stop1211:1211 python3 scripts/ft_factorial.py uP160 701 21 21
+FX_BRANCH=uP160_fx_L23_W601_D23_stop1211:1211 python3 scripts/ft_factorial.py uP160 23 601 23
+FX_BRANCH=uP160_fx_L701_W23_D23_stop1211:1211 python3 scripts/ft_factorial.py uP160 701 23 23
+FX_BRANCH=uP161_fx_L22_W601_D22_stop1211:1211 python3 scripts/ft_factorial.py uP161 22 601 22
+FX_BRANCH=uP161_fx_L701_W22_D22_stop1211:1211 python3 scripts/ft_factorial.py uP161 701 22 22
+FX_BRANCH=uP161_fx_L21_W601_D21_stop1211:1211 python3 scripts/ft_factorial.py uP161 21 601 21
+FX_BRANCH=uP161_fx_L701_W21_D21_stop1211:1211 python3 scripts/ft_factorial.py uP161 701 21 21
+FX_BRANCH=uP160_fx_L708_W21_D21_stop1211:1211 python3 scripts/ft_factorial.py uP160 708 21 21
+FX_BRANCH=uP160_fx_L704_W21_D21_stop1211:1211 python3 scripts/ft_factorial.py uP160 704 21 21

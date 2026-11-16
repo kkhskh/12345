@@ -108,3 +108,161 @@
 2026-11-16T05:28:00Z lane TA2 end [43c3836c8bd0] rc=0
 2026-11-16T05:28:00Z lane TA2 start [c5d18b15414b] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 701 23 23
 2026-11-16T05:31:43Z Freeze C scored: R5 FALSIFIED (C-C2 k=1 carries 0.67 of k=3; needs 2 dims: k2 0.80 vs k3 0.81), R6 CONFIRMED.
+2026-11-16T05:44:49Z lane TB1 end [70aac2bda24f] rc=0
+2026-11-16T05:44:49Z lane TB1 start [0555d6748053] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:25 FX_TAGSUF=_B_ro025 python3 scripts/ft_factorial_b.py uP160 21 21 802
+2026-11-16T05:47:41Z lane TA1 end [9d06d2ffda6b] rc=0
+2026-11-16T05:47:42Z lane TA1 start [53c36fde7b09] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 701 22 22
+2026-11-16T05:48:54Z lane TA2 end [c5d18b15414b] rc=0
+2026-11-16T05:48:54Z lane TA2 start [966d1461deb3] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 701 21 21
+2026-11-16T06:05:42Z lane TB1 end [0555d6748053] rc=0
+2026-11-16T06:05:42Z lane TB1 start [6e3183189c2e] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:50 FX_TAGSUF=_B_ro050 python3 scripts/ft_factorial_b.py uP160 21 21 802
+2026-11-16T06:08:41Z lane TA1 end [53c36fde7b09] rc=0
+2026-11-16T06:08:41Z lane TA1 start [8a74d2ae510e] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 702 21 21
+2026-11-16T06:10:05Z lane TA2 end [966d1461deb3] rc=0
+2026-11-16T06:10:05Z lane TA2 start [5c699b736a31] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 702 23 23
+2026-11-16T06:22:10Z lane TBL end [d568cb709a57] rc=0
+2026-11-16T06:22:10Z lane TBL start [936a829c000a] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_stop1211_B_base/opt_step546.pkl -- FX_INTERV=ro0p:0 FX_RO0P=2 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:546 FX_TAGSUF=_B_lro0p python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T06:26:35Z lane TB1 end [6e3183189c2e] rc=0
+2026-11-16T06:26:35Z lane TB1 start [55f6679d5926] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:100 FX_TAGSUF=_B_ro0100 python3 scripts/ft_factorial_b.py uP160 21 21 802
+2026-11-16T06:29:24Z lane TA1 end [8a74d2ae510e] rc=0
+2026-11-16T06:29:24Z lane TA1 start [f8152da0d249] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 702 22 22
+2026-11-16T06:30:54Z lane TA2 end [5c699b736a31] rc=0
+2026-11-16T06:30:54Z lane TA2 start [118d9fc34ffb] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 702 21 21
+2026-11-16T06:48:59Z lane TB1 end [55f6679d5926] rc=0
+2026-11-16T06:48:59Z lane TB1 start [ddc05b495e8b] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=2.323 FX_TAGSUF=_B_noise100m python3 scripts/ft_factorial_b.py uP160 21 21 802
+2026-11-16T06:51:28Z lane TA1 end [f8152da0d249] rc=0
+2026-11-16T06:51:28Z lane TA1 start [128c2a97c190] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 703 21 21
+2026-11-16T06:52:46Z lane TA2 end [118d9fc34ffb] rc=0
+2026-11-16T06:52:46Z lane TA2 start [1f2858f89d9e] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 703 23 23
+2026-11-16T07:08:31Z lane TB1 end [ddc05b495e8b] rc=0
+2026-11-16T07:08:31Z lane TB1 start [6d6ecd9a1d00] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:25 FX_TAGSUF=_B_l2q25 python3 scripts/ft_factorial_b.py uP160 23 23 23
+2026-11-16T07:10:56Z lane TA1 end [128c2a97c190] rc=0
+2026-11-16T07:10:56Z lane TA1 start [804a4686ded7] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 703 22 22
+2026-11-16T07:12:30Z lane TA2 end [1f2858f89d9e] rc=0
+2026-11-16T07:12:30Z lane TA2 start [47cdced831cf] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 703 21 21
+2026-11-16T07:21:29Z lane TBL end [936a829c000a] rc=0
+2026-11-16T07:21:29Z lane TBL start [c929483ca184] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_stop1211_B_base/opt_step546.pkl -- FX_INTERV=noise:0 FX_NOISE=4.0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:546 FX_TAGSUF=_B_lnoise python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T07:28:31Z lane TB1 end [6d6ecd9a1d00] rc=0
+2026-11-16T07:28:31Z lane TB1 start [17b1a3de0027] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:50 FX_TAGSUF=_B_l2q50 python3 scripts/ft_factorial_b.py uP160 23 23 23
+2026-11-16T07:30:47Z lane TA1 end [804a4686ded7] rc=0
+2026-11-16T07:30:47Z lane TA1 start [33e76dabbc93] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 704 21 21
+2026-11-16T07:32:16Z lane TA2 end [47cdced831cf] rc=0
+2026-11-16T07:32:16Z lane TA2 start [2e6514751dfb] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 704 23 23
+2026-11-16T07:47:52Z lane TB1 end [17b1a3de0027] rc=0
+2026-11-16T07:47:52Z lane TB1 start [3184ab64616a] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:100 FX_TAGSUF=_B_l2q100 python3 scripts/ft_factorial_b.py uP160 23 23 23
+2026-11-16T07:49:53Z lane TA1 end [33e76dabbc93] rc=0
+2026-11-16T07:49:53Z lane TA1 start [6322d84e5e94] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 704 22 22
+2026-11-16T07:51:25Z lane TA2 end [2e6514751dfb] rc=0
+2026-11-16T07:51:25Z lane TA2 start [da8434ce4933] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 704 21 21
+2026-11-16T08:07:17Z lane TB1 end [3184ab64616a] rc=0
+2026-11-16T08:07:17Z lane TB1 start [3572bc83b347] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=0.25 FX_TAGSUF=_B_noise100m python3 scripts/ft_factorial_b.py uP160 23 23 23
+2026-11-16T08:09:12Z lane TA1 end [6322d84e5e94] rc=0
+2026-11-16T08:09:12Z lane TA1 start [51969fc8f57f] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 705 21 21
+2026-11-16T08:10:43Z lane TA2 end [da8434ce4933] rc=0
+2026-11-16T08:10:43Z lane TA2 start [dd5654393775] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 705 23 23
+2026-11-16T08:17:26Z lane TBL end [c929483ca184] rc=0
+2026-11-16T08:17:26Z lane TBL start [cb32a716a62f] FX_INTERV=l2q:0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_TAGSUF=_B_ll2q python3 scripts/ft_factorial_b.py uP160 23 23 23
+2026-11-16T08:27:02Z lane TB1 end [3572bc83b347] rc=0
+2026-11-16T08:27:03Z lane TB1 start [4829300889d7] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=2.323 FX_TAGSUF=_B_noise100s python3 scripts/ft_factorial_b.py uP160 23 23 23
+2026-11-16T08:28:55Z lane TA1 end [51969fc8f57f] rc=0
+2026-11-16T08:28:55Z lane TA1 start [08da2c20c666] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 705 22 22
+2026-11-16T08:30:31Z lane TA2 end [dd5654393775] rc=0
+2026-11-16T08:30:31Z lane TA2 start [8569e9b9803c] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 705 21 21
+2026-11-16T08:47:09Z lane TB1 end [4829300889d7] rc=0
+2026-11-16T08:47:09Z lane TB1 start [05c9cac3178a] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:25 FX_TAGSUF=_B_l2q25 python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T08:48:47Z lane TA1 end [08da2c20c666] rc=0
+2026-11-16T08:48:47Z lane TA1 start [594b1f2dd99c] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 706 21 21
+2026-11-16T08:50:25Z lane TA2 end [8569e9b9803c] rc=0
+2026-11-16T08:50:25Z lane TA2 start [8ca2c7ca67ab] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 706 23 23
+2026-11-16T09:06:50Z lane TB1 end [05c9cac3178a] rc=0
+2026-11-16T09:06:51Z lane TB1 start [4a3625a40630] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:50 FX_TAGSUF=_B_l2q50 python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T09:08:18Z lane TA1 end [594b1f2dd99c] rc=0
+2026-11-16T09:08:18Z lane TA1 start [fd8b265833be] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 706 22 22
+2026-11-16T09:09:52Z lane TA2 end [8ca2c7ca67ab] rc=0
+2026-11-16T09:09:52Z lane TA2 start [20f34917b275] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 706 21 21
+2026-11-16T09:14:15Z lane TBL end [cb32a716a62f] rc=0
+2026-11-16T09:14:15Z lane TBL start [041e00bad1aa] FX_INTERV=noise:0 FX_NOISE=2.06 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_TAGSUF=_B_lnoise python3 scripts/ft_factorial_b.py uP160 23 23 23
+2026-11-16T09:26:20Z lane TB1 end [4a3625a40630] rc=0
+2026-11-16T09:26:20Z lane TB1 start [cac46ccd4d46] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:100 FX_TAGSUF=_B_l2q100 python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T09:27:38Z lane TA1 end [fd8b265833be] rc=0
+2026-11-16T09:27:38Z lane TA1 start [822bdf5e5b9b] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 707 21 21
+2026-11-16T09:29:08Z lane TA2 end [20f34917b275] rc=0
+2026-11-16T09:29:08Z lane TA2 start [e5f1bbcba882] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 707 23 23
+2026-11-16T09:46:20Z lane TB1 end [cac46ccd4d46] rc=0
+2026-11-16T09:46:20Z lane TB1 start [928c8aeddbf3] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=sham:100 FX_TAGSUF=_B_sham100 python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T09:47:26Z lane TA1 end [822bdf5e5b9b] rc=0
+2026-11-16T09:47:27Z lane TA1 start [d8309fd66285] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 707 22 22
+2026-11-16T09:48:54Z lane TA2 end [e5f1bbcba882] rc=0
+2026-11-16T09:48:54Z lane TA2 start [a139a76a8bb5] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 707 21 21
+2026-11-16T10:05:35Z lane TB1 end [928c8aeddbf3] rc=0
+2026-11-16T10:05:35Z lane TB1 start [e01bc6da6469] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=0.25 FX_TAGSUF=_B_noise100m python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T10:06:35Z lane TA1 end [d8309fd66285] rc=0
+2026-11-16T10:06:35Z lane TA1 start [630a6697a00b] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 708 21 21
+2026-11-16T10:08:09Z lane TA2 end [a139a76a8bb5] rc=0
+2026-11-16T10:08:09Z lane TA2 start [360ca7cde294] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 708 23 23
+2026-11-16T10:10:27Z lane TBL end [041e00bad1aa] rc=0
+2026-11-16T10:10:27Z lane TBL start [aafcdf97aaba] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_stop1211_B_base/opt_step546.pkl -- FX_INTERV=l2q:0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:546 FX_TAGSUF=_B_ll2q python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T10:13:18Z lane MA start [ae642f60793c] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W601_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L21_W602_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L21_W603_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L21_W604_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L21_W605_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L21_W606_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L21_W607_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L21_W608_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L701_W21_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L702_W21_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L703_W21_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L704_W21_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L705_W21_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L706_W21_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L707_W21_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L708_W21_D21_stop1211/stop_done.json checkpoints/ft/uP160_fx_L23_W601_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L23_W602_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L23_W603_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L23_W604_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L23_W605_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L23_W606_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L23_W607_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L23_W608_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L701_W23_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L702_W23_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L703_W23_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L704_W23_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L705_W23_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L706_W23_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L707_W23_D23_stop1211/stop_done.json checkpoints/ft/uP160_fx_L708_W23_D23_stop1211/stop_done.json checkpoints/ft/uP161_fx_L22_W601_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L22_W602_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L22_W603_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L22_W604_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L22_W605_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L22_W606_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L22_W607_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L22_W608_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L701_W22_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L702_W22_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L703_W22_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L704_W22_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L705_W22_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L706_W22_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L707_W22_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L708_W22_D22_stop1211/stop_done.json checkpoints/ft/uP161_fx_L21_W601_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L21_W602_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L21_W603_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L21_W604_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L21_W605_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L21_W606_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L21_W607_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L21_W608_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L701_W21_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L702_W21_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L703_W21_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L704_W21_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L705_W21_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L706_W21_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L707_W21_D21_stop1211/stop_done.json checkpoints/ft/uP161_fx_L708_W21_D21_stop1211/stop_done.json -- UM_RHO=0 UM_STREAM=95100000 UM_TAG=_A UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:21:601:21:stop1211 uP160:fx:21:602:21:stop1211 uP160:fx:21:603:21:stop1211 uP160:fx:21:604:21:stop1211 uP160:fx:21:605:21:stop1211 uP160:fx:21:606:21:stop1211 uP160:fx:21:607:21:stop1211 uP160:fx:21:608:21:stop1211 uP160:fx:701:21:21:stop1211 uP160:fx:702:21:21:stop1211 uP160:fx:703:21:21:stop1211 uP160:fx:704:21:21:stop1211 uP160:fx:705:21:21:stop1211 uP160:fx:706:21:21:stop1211 uP160:fx:707:21:21:stop1211 uP160:fx:708:21:21:stop1211 uP160:fx:23:601:23:stop1211 uP160:fx:23:602:23:stop1211 uP160:fx:23:603:23:stop1211 uP160:fx:23:604:23:stop1211 uP160:fx:23:605:23:stop1211 uP160:fx:23:606:23:stop1211 uP160:fx:23:607:23:stop1211 uP160:fx:23:608:23:stop1211 uP160:fx:701:23:23:stop1211 uP160:fx:702:23:23:stop1211 uP160:fx:703:23:23:stop1211 uP160:fx:704:23:23:stop1211 uP160:fx:705:23:23:stop1211 uP160:fx:706:23:23:stop1211 uP160:fx:707:23:23:stop1211 uP160:fx:708:23:23:stop1211 uP161:fx:22:601:22:stop1211 uP161:fx:22:602:22:stop1211 uP161:fx:22:603:22:stop1211 uP161:fx:22:604:22:stop1211 uP161:fx:22:605:22:stop1211 uP161:fx:22:606:22:stop1211 uP161:fx:22:607:22:stop1211 uP161:fx:22:608:22:stop1211 uP161:fx:701:22:22:stop1211 uP161:fx:702:22:22:stop1211 uP161:fx:703:22:22:stop1211 uP161:fx:704:22:22:stop1211 uP161:fx:705:22:22:stop1211 uP161:fx:706:22:22:stop1211 uP161:fx:707:22:22:stop1211 uP161:fx:708:22:22:stop1211 uP161:fx:21:601:21:stop1211 uP161:fx:21:602:21:stop1211 uP161:fx:21:603:21:stop1211 uP161:fx:21:604:21:stop1211 uP161:fx:21:605:21:stop1211 uP161:fx:21:606:21:stop1211 uP161:fx:21:607:21:stop1211 uP161:fx:21:608:21:stop1211 uP161:fx:701:21:21:stop1211 uP161:fx:702:21:21:stop1211 uP161:fx:703:21:21:stop1211 uP161:fx:704:21:21:stop1211 uP161:fx:705:21:21:stop1211 uP161:fx:706:21:21:stop1211 uP161:fx:707:21:21:stop1211 uP161:fx:708:21:21:stop1211
+2026-11-16T10:13:19Z Lane MA: A screen measurement (gated on all 64 stop_done.json), queue_Ameasure.txt.
+2026-11-16T10:25:24Z lane TB1 end [e01bc6da6469] rc=0
+2026-11-16T10:25:24Z lane TB1 start [a480e0739ad2] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=2.323 FX_TAGSUF=_B_noise100s python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T10:26:09Z lane TA1 end [630a6697a00b] rc=0
+2026-11-16T10:26:09Z lane TA1 start [f2eee3290999] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 708 22 22
+2026-11-16T10:27:50Z lane TA2 end [360ca7cde294] rc=0
+2026-11-16T10:27:50Z lane TA2 start [511e4e41098f] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 708 21 21
+2026-11-16T10:45:08Z lane TB1 end [a480e0739ad2] rc=0
+2026-11-16T10:45:08Z lane TB1 start [bcee87748a35] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:25 FX_TAGSUF=_B_l2q25 python3 scripts/ft_factorial_b.py uP160 23 23 802
+2026-11-16T10:45:50Z lane TA1 end [f2eee3290999] rc=0
+2026-11-16T10:47:03Z lane TA2 end [511e4e41098f] rc=0
+2026-11-16T11:00:02Z lane TB1 end [bcee87748a35] rc=0
+2026-11-16T11:00:02Z lane TB1 start [1005cf1277d5] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:50 FX_TAGSUF=_B_l2q50 python3 scripts/ft_factorial_b.py uP160 23 23 802
+2026-11-16T11:01:34Z lane TBL end [aafcdf97aaba] rc=0
+2026-11-16T11:01:34Z lane TBL start [92f081d1ff58] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_stop1211_B_base/opt_step546.pkl -- FX_INTERV=noise:0 FX_NOISE=2.06 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:546 FX_TAGSUF=_B_lnoise python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T11:09:51Z lane MA end [ae642f60793c] rc=0
+2026-11-16T11:11:12Z lane TC1 start [8c33c0af4ba5] FX_BRANCH=uP160_fx_L21_W601_D21_stop1211:1211 python3 scripts/ft_factorial.py uP160 21 601 21
+2026-11-16T11:11:14Z lane TC2 start [2337ac94b5b7] FX_BRANCH=uP160_fx_L701_W21_D21_stop1211:1211 python3 scripts/ft_factorial.py uP160 701 21 21
+2026-11-16T11:11:16Z lane TBC start [0baf18b5c542] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_ro0T100_stop1211_B_ro0100/stop_done.json -- FX_BRANCH=uP160_fx_L21_W21_D801_ro0T100_stop1211_B_ro0100:1211 FX_TAGSUF=_B_ro0100 python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T11:11:17Z A screen metrics complete (64). Frozen continuation rule applied (select_continuation.py -> manifest_A_cont.json); lanes TC1, TC2 on queue_Acont.txt; lane TBC on queue_Bcont.txt (gated).
+2026-11-16T11:11:31Z lane MB start [08a2440b5456] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D21_ro0T25_stop1211_B_ro025/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D21_ro0T50_stop1211_B_ro050/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D21_ro0T100_stop1211_B_ro0100/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D21_noiseT100_stop1211_B_noise100m/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D801_ro0T25_stop1211_B_ro025/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D801_ro0T50_stop1211_B_ro050/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D801_ro0T100_stop1211_B_ro0100/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D801_shamT100_stop1211_B_sham100/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D801_stop1211_B_base/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D802_ro0T25_stop1211_B_ro025/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D802_ro0T50_stop1211_B_ro050/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D802_ro0T100_stop1211_B_ro0100/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D802_noiseT100_stop1211_B_noise100m/stop_done.json checkpoints/ft/uP160_fx_L21_W21_D802_stop1211_B_base/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D23_l2qT25_stop1211_B_l2q25/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D23_l2qT50_stop1211_B_l2q50/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D23_l2qT100_stop1211_B_l2q100/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D23_noiseT100_stop1211_B_noise100m/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D23_noiseT100_stop1211_B_noise100s/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D801_l2qT25_stop1211_B_l2q25/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D801_l2qT50_stop1211_B_l2q50/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D801_l2qT100_stop1211_B_l2q100/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D801_shamT100_stop1211_B_sham100/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D801_noiseT100_stop1211_B_noise100m/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D801_noiseT100_stop1211_B_noise100s/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D801_stop1211_B_base/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D802_l2qT25_stop1211_B_l2q25/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D802_l2qT50_stop1211_B_l2q50/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D802_l2qT100_stop1211_B_l2q100/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D802_noiseT100_stop1211_B_noise100m/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D802_noiseT100_stop1211_B_noise100s/stop_done.json checkpoints/ft/uP160_fx_L23_W23_D802_stop1211_B_base/stop_done.json -- UM_RHO=0 UM_STREAM=95200000 UM_TAG=_B UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:21:21:21:ro0T25_stop1211_B_ro025 uP160:fx:21:21:21:ro0T50_stop1211_B_ro050 uP160:fx:21:21:21:ro0T100_stop1211_B_ro0100 uP160:fx:21:21:21:noiseT100_stop1211_B_noise100m uP160:fx:21:21:801:ro0T25_stop1211_B_ro025 uP160:fx:21:21:801:ro0T50_stop1211_B_ro050 uP160:fx:21:21:801:ro0T100_stop1211_B_ro0100 uP160:fx:21:21:801:shamT100_stop1211_B_sham100 uP160:fx:21:21:801:noiseT100_stop1211_B_noise100m uP160:fx:21:21:801:stop1211_B_base uP160:fx:21:21:802:ro0T25_stop1211_B_ro025 uP160:fx:21:21:802:ro0T50_stop1211_B_ro050 uP160:fx:21:21:802:ro0T100_stop1211_B_ro0100 uP160:fx:21:21:802:noiseT100_stop1211_B_noise100m uP160:fx:21:21:802:stop1211_B_base uP160:fx:23:23:23:l2qT25_stop1211_B_l2q25 uP160:fx:23:23:23:l2qT50_stop1211_B_l2q50 uP160:fx:23:23:23:l2qT100_stop1211_B_l2q100 uP160:fx:23:23:23:noiseT100_stop1211_B_noise100m uP160:fx:23:23:23:noiseT100_stop1211_B_noise100s uP160:fx:23:23:801:l2qT25_stop1211_B_l2q25 uP160:fx:23:23:801:l2qT50_stop1211_B_l2q50 uP160:fx:23:23:801:l2qT100_stop1211_B_l2q100 uP160:fx:23:23:801:shamT100_stop1211_B_sham100 uP160:fx:23:23:801:noiseT100_stop1211_B_noise100m uP160:fx:23:23:801:noiseT100_stop1211_B_noise100s uP160:fx:23:23:801:stop1211_B_base uP160:fx:23:23:802:l2qT25_stop1211_B_l2q25 uP160:fx:23:23:802:l2qT50_stop1211_B_l2q50 uP160:fx:23:23:802:l2qT100_stop1211_B_l2q100 uP160:fx:23:23:802:noiseT100_stop1211_B_noise100m uP160:fx:23:23:802:noiseT100_stop1211_B_noise100s uP160:fx:23:23:802:stop1211_B_base uP160:s:21 uP160:s:23
+2026-11-16T11:11:32Z Lane MB on queue_Bmeasure_gated.txt (B measurement gated on completion of all B runs; commands as frozen in queue_Bmeasure.txt).
+2026-11-16T11:11:40Z lane MAC start [3bace8b64d0d] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W601_D21_br1211/final.json checkpoints/ft/uP160_fx_L701_W21_D21_br1211/final.json checkpoints/ft/uP160_fx_L23_W601_D23_br1211/final.json checkpoints/ft/uP160_fx_L701_W23_D23_br1211/final.json checkpoints/ft/uP161_fx_L22_W601_D22_br1211/final.json checkpoints/ft/uP161_fx_L701_W22_D22_br1211/final.json checkpoints/ft/uP161_fx_L21_W601_D21_br1211/final.json checkpoints/ft/uP161_fx_L701_W21_D21_br1211/final.json checkpoints/ft/uP160_fx_L708_W21_D21_br1211/final.json checkpoints/ft/uP160_fx_L704_W21_D21_br1211/final.json -- UM_RHO=0 UM_STREAM=95100000 UM_TAG=_Acont UM_STEPS=4000 python3 scripts/unit_metrics.py uP160:fx:21:601:21:br1211 uP160:fx:701:21:21:br1211 uP160:fx:23:601:23:br1211 uP160:fx:701:23:23:br1211 uP161:fx:22:601:22:br1211 uP161:fx:701:22:22:br1211 uP161:fx:21:601:21:br1211 uP161:fx:701:21:21:br1211 uP160:fx:708:21:21:br1211 uP160:fx:704:21:21:br1211
+2026-11-16T11:11:41Z Lane MAC: continuation metrics at 4000 (gated).
+2026-11-16T11:16:34Z lane TB1 end [1005cf1277d5] rc=0
+2026-11-16T11:16:34Z lane TB1 start [9a3335dbc309] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=l2q:100 FX_TAGSUF=_B_l2q100 python3 scripts/ft_factorial_b.py uP160 23 23 802
+2026-11-16T11:42:03Z lane TB1 end [9a3335dbc309] rc=0
+2026-11-16T11:42:03Z lane TB1 start [e98d936bae61] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=0.25 FX_TAGSUF=_B_noise100m python3 scripts/ft_factorial_b.py uP160 23 23 802
+2026-11-16T12:06:57Z lane TBL end [92f081d1ff58] rc=0
+2026-11-16T12:07:18Z lane TB1 end [e98d936bae61] rc=0
+2026-11-16T12:07:18Z lane TB1 start [2dfd635d25f3] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=2.323 FX_TAGSUF=_B_noise100s python3 scripts/ft_factorial_b.py uP160 23 23 802
+2026-11-16T12:09:23Z lane TC2 end [2337ac94b5b7] rc=0
+2026-11-16T12:09:23Z lane TC2 start [c744478302d6] FX_BRANCH=uP160_fx_L23_W601_D23_stop1211:1211 python3 scripts/ft_factorial.py uP160 23 601 23
+2026-11-16T12:09:24Z lane TC1 end [8c33c0af4ba5] rc=0
+2026-11-16T12:09:24Z lane TC1 start [2296338bb1ba] FX_BRANCH=uP160_fx_L701_W23_D23_stop1211:1211 python3 scripts/ft_factorial.py uP160 701 23 23
+2026-11-16T12:09:32Z lane TBC end [0baf18b5c542] rc=0
+2026-11-16T12:09:32Z lane TBC start [ecb7e3f552d3] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_stop1211_B_base/stop_done.json -- FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:1211 FX_TAGSUF=_B_base python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T12:27:40Z lane TB1 end [2dfd635d25f3] rc=0
+2026-11-16T12:47:16Z lane MB end [08a2440b5456] rc=0
+2026-11-16T12:47:16Z lane MB start [2796963da50b] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D21_ro0pT0_br546_w546-1146_B_lro0p/final.json checkpoints/ft/uP160_fx_L21_W21_D21_noiseT0_br546_w546-1146_B_lnoise/final.json checkpoints/ft/uP160_fx_L21_W21_D801_ro0pT0_br546_w546-1146_B_lro0p/final.json checkpoints/ft/uP160_fx_L21_W21_D801_noiseT0_br546_w546-1146_B_lnoise/final.json checkpoints/ft/uP160_fx_L23_W23_D23_l2qT0_br546_w546-1146_B_ll2q/final.json checkpoints/ft/uP160_fx_L23_W23_D23_noiseT0_br546_w546-1146_B_lnoise/final.json checkpoints/ft/uP160_fx_L23_W23_D801_l2qT0_br546_w546-1146_B_ll2q/final.json checkpoints/ft/uP160_fx_L23_W23_D801_noiseT0_br546_w546-1146_B_lnoise/final.json checkpoints/ft/uP160_fx_L21_W21_D801_br1211_B_ro0100/final.json checkpoints/ft/uP160_fx_L21_W21_D801_br1211_B_base/final.json checkpoints/ft/uP160_fx_L23_W23_D801_br1211_B_l2q100/final.json checkpoints/ft/uP160_fx_L23_W23_D801_br1211_B_base/final.json -- UM_RHO=0 UM_STREAM=95200000 UM_TAG=_Bfinal UM_STEPS=4000 python3 scripts/unit_metrics.py uP160:fx:21:21:21:ro0pT0_br546_w546-1146_B_lro0p uP160:fx:21:21:21:noiseT0_br546_w546-1146_B_lnoise uP160:fx:21:21:801:ro0pT0_br546_w546-1146_B_lro0p uP160:fx:21:21:801:noiseT0_br546_w546-1146_B_lnoise uP160:fx:23:23:23:l2qT0_br546_w546-1146_B_ll2q uP160:fx:23:23:23:noiseT0_br546_w546-1146_B_lnoise uP160:fx:23:23:801:l2qT0_br546_w546-1146_B_ll2q uP160:fx:23:23:801:noiseT0_br546_w546-1146_B_lnoise uP160:fx:21:21:801:br1211_B_ro0100 uP160:fx:21:21:801:br1211_B_base uP160:fx:23:23:801:br1211_B_l2q100 uP160:fx:23:23:801:br1211_B_base uP160:s:21 uP160:s:23
+2026-11-16T12:53:30Z lane TC1 end [2296338bb1ba] rc=0
+2026-11-16T12:53:30Z lane TC1 start [577c24731711] FX_BRANCH=uP161_fx_L22_W601_D22_stop1211:1211 python3 scripts/ft_factorial.py uP161 22 601 22
+2026-11-16T12:53:42Z lane TBC end [ecb7e3f552d3] rc=0
+2026-11-16T12:53:42Z lane TBC start [36fb94b49926] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_l2qT100_stop1211_B_l2q100/stop_done.json -- FX_BRANCH=uP160_fx_L23_W23_D801_l2qT100_stop1211_B_l2q100:1211 FX_TAGSUF=_B_l2q100 python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T12:53:46Z lane TC2 end [c744478302d6] rc=0
+2026-11-16T12:53:46Z lane TC2 start [17a4d8a5dca2] FX_BRANCH=uP161_fx_L701_W22_D22_stop1211:1211 python3 scripts/ft_factorial.py uP161 701 22 22
+2026-11-16T13:27:15Z lane TBC end [36fb94b49926] rc=0
+2026-11-16T13:27:15Z lane TBC start [72c350b08102] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_stop1211_B_base/stop_done.json -- FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:1211 FX_TAGSUF=_B_base python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T13:27:18Z lane TC1 end [577c24731711] rc=0
+2026-11-16T13:27:18Z lane TC1 start [d771df03c47b] FX_BRANCH=uP161_fx_L21_W601_D21_stop1211:1211 python3 scripts/ft_factorial.py uP161 21 601 21
+2026-11-16T13:27:27Z lane TC2 end [17a4d8a5dca2] rc=0
+2026-11-16T13:27:27Z lane TC2 start [3607e2e9e29a] FX_BRANCH=uP161_fx_L701_W21_D21_stop1211:1211 python3 scripts/ft_factorial.py uP161 701 21 21
+2026-11-16T14:00:37Z lane TC1 end [d771df03c47b] rc=0
+2026-11-16T14:00:37Z lane TC1 start [723bf18e633a] FX_BRANCH=uP160_fx_L708_W21_D21_stop1211:1211 python3 scripts/ft_factorial.py uP160 708 21 21
+2026-11-16T14:00:56Z lane TBC end [72c350b08102] rc=0
+2026-11-16T14:01:05Z lane TC2 end [3607e2e9e29a] rc=0
+2026-11-16T14:01:05Z lane TC2 start [0cb1efc10857] FX_BRANCH=uP160_fx_L704_W21_D21_stop1211:1211 python3 scripts/ft_factorial.py uP160 704 21 21
+2026-11-16T14:07:21Z lane MB end [2796963da50b] rc=0
+2026-11-16T14:15:09Z Freeze B scored (fail-closed scorer, all inputs present): R3 CONFIRMED, R4 FALSIFIED.
+2026-11-16T14:24:43Z lane TC1 end [723bf18e633a] rc=0
+2026-11-16T14:24:53Z lane TC2 end [0cb1efc10857] rc=0
+2026-11-16T14:27:56Z lane MAC end [3bace8b64d0d] rc=0
+2026-11-16T14:32:09Z Freeze A scored (fail-closed scorer; all 64 runs, metrics and 10 continuations present): R1-W FALSIFIED (TRANSFER: rho 0.65, p 0.006), R1-L CONFIRMED (NO-TRANSFER: rho -0.02, upper 0.52). 1211->4000 class agreement 9/10.

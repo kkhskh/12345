@@ -1,0 +1,8 @@
+[uP161_fx_L21_W601_D21_br1211] branched from uP161_fx_L21_W601_D21_stop1211 step 1211
+[uP161_fx_L21_W601_D21_br1211] step 1500 loss 0.5935 201s
+[uP161_fx_L21_W601_D21_br1211] step 1803 loss 0.5274 406s
+[uP161_fx_L21_W601_D21_br1211] step 2000 loss 0.6167 547s
+[uP161_fx_L21_W601_D21_br1211] step 2686 loss 0.5368 1030s
+[uP161_fx_L21_W601_D21_br1211] step 3000 loss 0.5671 1248s
+[uP161_fx_L21_W601_D21_br1211] step 4000 loss 0.5149 1947s
+[uP161_fx_L21_W601_D21_br1211] done acc 0.7488 KL 0.0019 1990s

@@ -10,3 +10,9 @@
 [uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 300 loss 0.8384 318s
 [uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 366 loss 0.7904 391s
 [uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 400 loss 0.7670 429s
+[uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 546 loss 0.6329 588s
+[uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 600 loss 0.5987 641s
+[uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 800 loss 0.6030 853s
+[uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 813 loss 0.5939 865s
+[uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 1000 loss 0.5672 1048s
+[uP160_fx_L21_W21_D801_noiseT100_stop1211_B_noise100m] step 1211 loss 0.5937 1259s

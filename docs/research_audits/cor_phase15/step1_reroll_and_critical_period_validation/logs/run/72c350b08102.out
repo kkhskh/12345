@@ -1,0 +1,8 @@
+[uP160_fx_L23_W23_D801_br1211_B_base] branched from uP160_fx_L23_W23_D801_stop1211_B_base step 1211
+[uP160_fx_L23_W23_D801_br1211_B_base] step 1500 loss 0.5550 208s
+[uP160_fx_L23_W23_D801_br1211_B_base] step 1803 loss 0.5277 419s
+[uP160_fx_L23_W23_D801_br1211_B_base] step 2000 loss 0.5892 557s
+[uP160_fx_L23_W23_D801_br1211_B_base] step 2686 loss 0.5449 1048s
+[uP160_fx_L23_W23_D801_br1211_B_base] step 3000 loss 0.5697 1266s
+[uP160_fx_L23_W23_D801_br1211_B_base] step 4000 loss 0.5521 1970s
+[uP160_fx_L23_W23_D801_br1211_B_base] done acc 0.7481 KL 0.0014 2013s

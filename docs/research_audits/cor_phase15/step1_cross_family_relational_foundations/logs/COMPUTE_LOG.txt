@@ -24,3 +24,184 @@ step 25 and lnz sigma 0 == baseline at step 25 (max |diff| 0.0); benchmark and c
 2026-11-16T20:04:13Z lane TB end [dcd51fde1d2b] rc=0
 2026-11-16T20:04:13Z lane TB start [9ecda2a480c1] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=ro0 FX_LSIG=2.5 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 21
 2026-11-16T20:05:49Z X1 scored: frozen X1a CONFIRMED, X1b FALSIFIED; amendment X1a' CONFIRMED, X1b' FALSIFIED.
+2026-11-16T20:06:04Z EXPL (post-X1-scoring): g_mech and g_das on s3, s4 finals (niced)
+2026-11-16T20:14:19Z lane TA end [75841fdb9e45] rc=0
+2026-11-16T20:14:20Z lane TA start [296132adf086] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=oq0 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T20:14:25Z lane TB end [9ecda2a480c1] rc=0
+2026-11-16T20:14:25Z lane TB start [05a6da7af59b] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=ro0 FX_LSIG=2.5 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T20:24:13Z lane TA end [296132adf086] rc=0
+2026-11-16T20:24:13Z lane TA start [07938039564d] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=oq0 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 802
+2026-11-16T20:24:20Z lane TB end [05a6da7af59b] rc=0
+2026-11-16T20:24:20Z lane TB start [2dc2bf0a342f] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=ro0 FX_LSIG=2.5 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 802
+2026-11-16T20:33:46Z lane TA end [07938039564d] rc=0
+2026-11-16T20:33:46Z lane TA start [48d9496b6787] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=rd2 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 23
+2026-11-16T20:33:59Z lane TB end [2dc2bf0a342f] rc=0
+2026-11-16T20:33:59Z lane TB start [b29b21262961] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=own2 FX_LSIG=1.25 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 23
+2026-11-16T20:43:23Z lane TA end [48d9496b6787] rc=0
+2026-11-16T20:43:23Z lane TA start [285b47de877a] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=rd2 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 801
+2026-11-16T20:43:41Z lane TB end [b29b21262961] rc=0
+2026-11-16T20:43:41Z lane TB start [2080ece9d503] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=own2 FX_LSIG=1.25 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 801
+2026-11-16T20:53:25Z lane TA end [285b47de877a] rc=0
+2026-11-16T20:53:25Z lane TA start [a395bd1bf332] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=msk:100 FX_EDGES=rd2 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 802
+2026-11-16T20:53:45Z lane TB end [2080ece9d503] rc=0
+2026-11-16T20:53:45Z lane TB start [91cc5be14306] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=lnz:100 FX_EDGES=own2 FX_LSIG=1.25 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 802
+2026-11-16T21:03:24Z lane TA end [a395bd1bf332] rc=0
+2026-11-16T21:03:24Z lane TA start [80bd19f89e3f] FX_BRANCH=uP160_fx_L21_W21_D802_stop1211_B_base:1211 FX_EXTRA_SNAPS=1757,2546 FX_TAGSUF=_XIVbase python3 scripts/ft_factorial_c.py uP160 21 21 802
+2026-11-16T21:03:43Z lane TB end [91cc5be14306] rc=0
+2026-11-16T21:03:43Z lane TB start [6926fe0e811b] FX_BRANCH=uP160_fx_L21_W21_D802_ro0T100_stop1211_B_ro0100:1211 FX_TAGSUF=_XIVearly python3 scripts/ft_factorial_c.py uP160 21 21 802
+2026-11-16T21:26:39Z lane TA end [80bd19f89e3f] rc=0
+2026-11-16T21:26:39Z lane TA start [79e6a9dd966f] FX_BRANCH=uP160_fx_L23_W23_D802_stop1211_B_base:1211 FX_EXTRA_SNAPS=1757,2546 FX_TAGSUF=_XIVbase python3 scripts/ft_factorial_c.py uP160 23 23 802
+2026-11-16T21:26:53Z lane TB end [6926fe0e811b] rc=0
+2026-11-16T21:26:53Z lane TB start [b7c26d05909b] FX_BRANCH=uP160_fx_L23_W23_D802_l2qT100_stop1211_B_l2q100:1211 FX_TAGSUF=_XIVearly python3 scripts/ft_factorial_c.py uP160 23 23 802
+2026-11-16T21:49:38Z lane TA end [79e6a9dd966f] rc=0
+2026-11-16T21:49:38Z lane TA start [3bcc3deae0b1] FX_STOP=1146 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 21
+2026-11-16T21:49:54Z lane TB end [b7c26d05909b] rc=0
+2026-11-16T21:49:54Z lane TB start [65292a97a0bb] FX_STOP=1146 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T21:54:46Z lane TA end [3bcc3deae0b1] rc=0
+2026-11-16T21:54:46Z lane TA start [bfc1a5f8994a] FX_STOP=2546 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:1211 FX_EXTRA_SNAPS=1757,2546 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T21:54:59Z lane TB end [65292a97a0bb] rc=0
+2026-11-16T21:54:59Z lane TB start [6032af139e6b] FX_STOP=1146 FX_BRANCH=uP160_fx_L21_W21_D802_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 802
+2026-11-16T22:00:08Z lane TB end [6032af139e6b] rc=0
+2026-11-16T22:00:08Z lane TB start [87c8f71eb1b0] FX_STOP=1146 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 23
+2026-11-16T22:05:05Z lane TB end [87c8f71eb1b0] rc=0
+2026-11-16T22:05:05Z lane TB start [cd190c262606] FX_STOP=1146 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 801
+2026-11-16T22:05:40Z lane TA end [bfc1a5f8994a] rc=0
+2026-11-16T22:05:40Z lane TA start [5ae109893c21] FX_STOP=2546 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:1211 FX_EXTRA_SNAPS=1757,2546 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 801
+2026-11-16T22:07:34Z CHECK: baseline replays (bref, branched at 546) are bitwise identical to the original/restored baseline step-600 checkpoints (max |diff| 0.0, 5 of 6 checked so far).
+2026-11-16T22:09:53Z lane TB end [cd190c262606] rc=0
+2026-11-16T22:09:53Z lane TB start [5aaa18e44f5d] FX_STOP=1146 FX_BRANCH=uP160_fx_L23_W23_D802_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 802
+2026-11-16T22:14:40Z lane TB end [5aaa18e44f5d] rc=0
+2026-11-16T22:14:40Z lane TB start [0e71406c1d4e] FX_STOP=1757 FX_BRANCH=uP160_fx_L21_W21_D21_base:1500 FX_EXTRA_SNAPS=1757 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 21
+2026-11-16T22:16:05Z lane TA end [5ae109893c21] rc=0
+2026-11-16T22:16:05Z lane TA start [779e4fd82ba9] FX_STOP=2546 FX_BRANCH=uP160_fx_L21_W21_D21_base:2000 FX_EXTRA_SNAPS=2546 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 21 21 21
+2026-11-16T22:16:51Z lane TB end [0e71406c1d4e] rc=0
+2026-11-16T22:16:51Z lane TB start [cab4d9035eae] FX_STOP=1757 FX_BRANCH=uP160_fx_L23_W23_D23_base:1500 FX_EXTRA_SNAPS=1757 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 23
+2026-11-16T22:18:59Z lane TB end [cab4d9035eae] rc=0
+2026-11-16T22:18:59Z lane TB start [8b53f47fd739] FX_STOP=2546 FX_BRANCH=uP160_fx_L23_W23_D23_base:2000 FX_EXTRA_SNAPS=2546 FX_TAGSUF=_XIVbref python3 scripts/ft_factorial_c.py uP160 23 23 23
+2026-11-16T22:20:25Z lane TA end [779e4fd82ba9] rc=0
+2026-11-16T22:20:25Z lane TA start [694788dad682] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_mskoq0T100_stop1211_XIV/stop_done.json -- FX_BRANCH=uP160_fx_L21_W21_D801_mskoq0T100_stop1211_XIV:1211 FX_TAGSUF=_XIVsham python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T22:23:22Z lane TB end [8b53f47fd739] rc=0
+2026-11-16T22:23:23Z lane TB start [432535ecadb0] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_lnzro0s2.5T100_stop1211_XIV/stop_done.json -- FX_BRANCH=uP160_fx_L21_W21_D801_lnzro0s2.5T100_stop1211_XIV:1211 FX_TAGSUF=_XIVlnoise python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T22:35:07Z CONTAINER RESTART at ~22:34Z killed all processes (2 continuation runs in progress, resumable via resume.pkl; exploratory g_mech s4 / g_das s3,s4 lost). Claims of the 2 interrupted jobs removed; lanes relaunched.
+2026-11-16T22:35:07Z lane TB start [694788dad682] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_mskoq0T100_stop1211_XIV/stop_done.json -- FX_BRANCH=uP160_fx_L21_W21_D801_mskoq0T100_stop1211_XIV:1211 FX_TAGSUF=_XIVsham python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T22:35:07Z lane TA start [432535ecadb0] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_lnzro0s2.5T100_stop1211_XIV/stop_done.json -- FX_BRANCH=uP160_fx_L21_W21_D801_lnzro0s2.5T100_stop1211_XIV:1211 FX_TAGSUF=_XIVlnoise python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T22:38:10Z EXPL: g_mech s4 rerun after restart (s3 had completed before).
+2026-11-16T22:44:37Z lane TB end [694788dad682] rc=0
+2026-11-16T22:44:37Z lane TB start [8271e6870884] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_mskrd2T100_stop1211_XIV/stop_done.json -- FX_BRANCH=uP160_fx_L23_W23_D801_mskrd2T100_stop1211_XIV:1211 FX_TAGSUF=_XIVsham python3 scripts/ft_factorial_c.py uP160 23 23 801
+2026-11-16T22:52:29Z lane TA end [432535ecadb0] rc=0
+2026-11-16T22:52:29Z lane TA start [280ebd3a9fce] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_lnzown2s1.25T100_stop1211_XIV/stop_done.json -- FX_BRANCH=uP160_fx_L23_W23_D801_lnzown2s1.25T100_stop1211_XIV:1211 FX_TAGSUF=_XIVlnoise python3 scripts/ft_factorial_c.py uP160 23 23 801
+2026-11-16T23:07:08Z lane TB end [8271e6870884] rc=0
+2026-11-16T23:07:08Z lane MB start [cdef85e09f8d] python3 scripts/i_sham_validity.py
+2026-11-16T23:08:06Z lane MB end [cdef85e09f8d] rc=0
+2026-11-16T23:08:06Z lane MB start [4047811dcd67] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211,2000,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:21:base
+2026-11-16T23:09:59Z lane MB end [4047811dcd67] rc=0
+2026-11-16T23:09:59Z lane MB start [b6b23aae9255] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211,2000,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:21:ro0T100
+2026-11-16T23:11:56Z lane MB end [b6b23aae9255] rc=0
+2026-11-16T23:11:56Z lane MB start [3a7c73932315] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211 python3 scripts/unit_metrics.py uP160:fx:21:21:801:stop1211_B_base
+2026-11-16T23:13:19Z lane MB end [3a7c73932315] rc=0
+2026-11-16T23:13:19Z lane MB start [bc205c54fcf6] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211 python3 scripts/unit_metrics.py uP160:fx:21:21:801:ro0T100_stop1211_B_ro0100
+2026-11-16T23:14:41Z lane MB end [bc205c54fcf6] rc=0
+2026-11-16T23:14:41Z lane MB start [67b8e1ad8053] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=2000,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:801:br1211_B_ro0100
+2026-11-16T23:15:10Z lane MB end [67b8e1ad8053] rc=0
+2026-11-16T23:15:10Z lane MB start [b2c4ad77d191] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=2000,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:801:br1211_B_base
+2026-11-16T23:15:30Z lane TA end [280ebd3a9fce] rc=0
+2026-11-16T23:15:30Z lane MA start [7711f5a19dcc] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211 python3 scripts/unit_metrics.py uP160:fx:21:21:802:stop1211_B_base
+2026-11-16T23:15:34Z lane MB end [b2c4ad77d191] rc=0
+2026-11-16T23:15:34Z lane MB start [6d022a8c3bc7] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211 python3 scripts/unit_metrics.py uP160:fx:21:21:802:ro0T100_stop1211_B_ro0100
+2026-11-16T23:16:58Z lane MB end [6d022a8c3bc7] rc=0
+2026-11-16T23:16:58Z lane MB start [b038771e91b9] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211,2000,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:23:base
+2026-11-16T23:16:59Z lane MA end [7711f5a19dcc] rc=0
+2026-11-16T23:16:59Z lane MA start [0c82e0e3b9bb] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211,2000,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:23:l2qT100
+2026-11-16T23:18:51Z lane MB end [b038771e91b9] rc=0
+2026-11-16T23:18:51Z lane MB start [32c5fc6c8686] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211 python3 scripts/unit_metrics.py uP160:fx:23:23:801:stop1211_B_base
+2026-11-16T23:18:52Z lane MA end [0c82e0e3b9bb] rc=0
+2026-11-16T23:18:52Z lane MA start [1a205459257d] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211 python3 scripts/unit_metrics.py uP160:fx:23:23:801:l2qT100_stop1211_B_l2q100
+2026-11-16T23:20:16Z lane MB end [32c5fc6c8686] rc=0
+2026-11-16T23:20:16Z lane MB start [d791ef8c1a5f] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=2000,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:801:br1211_B_l2q100
+2026-11-16T23:20:20Z lane MA end [1a205459257d] rc=0
+2026-11-16T23:20:20Z lane MA start [de1d6dac805e] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=2000,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:801:br1211_B_base
+2026-11-16T23:20:42Z lane MB end [d791ef8c1a5f] rc=0
+2026-11-16T23:20:42Z lane MB start [11227f67841d] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211 python3 scripts/unit_metrics.py uP160:fx:23:23:802:stop1211_B_base
+2026-11-16T23:20:46Z lane MA end [de1d6dac805e] rc=0
+2026-11-16T23:20:46Z lane MA start [2b7950869f9f] UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=100,150,300,600,1211 python3 scripts/unit_metrics.py uP160:fx:23:23:802:l2qT100_stop1211_B_l2q100
+2026-11-16T23:22:11Z lane MB end [11227f67841d] rc=0
+2026-11-16T23:22:11Z lane MB start [bfccb0513d78] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D21_mskoq0T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:21:21:21:mskoq0T100_stop1211_XIV
+2026-11-16T23:22:15Z lane MA end [2b7950869f9f] rc=0
+2026-11-16T23:22:15Z lane MA start [6d22c4cff1b9] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D21_lnzro0s2.5T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:21:21:21:lnzro0s2.5T100_stop1211_XIV
+2026-11-16T23:22:35Z lane MB end [bfccb0513d78] rc=0
+2026-11-16T23:22:35Z lane MB start [a2b2d06eeb55] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D21_ro0T0_br546_w546-646_XIV/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146,1757,2546,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:21:ro0T0_br546_w546-646_XIV
+2026-11-16T23:22:40Z lane MA end [6d22c4cff1b9] rc=0
+2026-11-16T23:22:40Z lane MA start [5a0dc26cefa7] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D21_stop1146_br546_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146 python3 scripts/unit_metrics.py uP160:fx:21:21:21:stop1146_br546_XIVbref
+2026-11-16T23:23:51Z lane MA end [5a0dc26cefa7] rc=0
+2026-11-16T23:23:51Z lane MA start [7cb32e3006cc] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D21_stop1757_br1500_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1757 python3 scripts/unit_metrics.py uP160:fx:21:21:21:stop1757_br1500_XIVbref
+2026-11-16T23:24:19Z lane MA end [7cb32e3006cc] rc=0
+2026-11-16T23:24:19Z lane MA start [eccdb8f974c6] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D21_stop2546_br2000_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=2546 python3 scripts/unit_metrics.py uP160:fx:21:21:21:stop2546_br2000_XIVbref
+2026-11-16T23:24:28Z lane MB end [a2b2d06eeb55] rc=0
+2026-11-16T23:24:28Z lane MB start [5c2cb43fc76b] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_mskoq0T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:21:21:801:mskoq0T100_stop1211_XIV
+2026-11-16T23:24:43Z lane MA end [eccdb8f974c6] rc=0
+2026-11-16T23:24:43Z lane MA start [74a88d7c9ce4] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_lnzro0s2.5T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:21:21:801:lnzro0s2.5T100_stop1211_XIV
+2026-11-16T23:24:54Z lane MB end [5c2cb43fc76b] rc=0
+2026-11-16T23:24:54Z lane MB start [93f35992449a] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_br1211_XIVsham/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=4000 python3 scripts/unit_metrics.py uP160:fx:21:21:801:br1211_XIVsham
+2026-11-16T23:25:10Z lane MA end [74a88d7c9ce4] rc=0
+2026-11-16T23:25:10Z lane MA start [2a8ee5913b85] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_br1211_XIVlnoise/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=4000 python3 scripts/unit_metrics.py uP160:fx:21:21:801:br1211_XIVlnoise
+2026-11-16T23:25:21Z lane MB end [93f35992449a] rc=0
+2026-11-16T23:25:21Z lane MB start [f7facc77bef4] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_ro0T0_br546_w546-646_XIV/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146,1757,2546,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:801:ro0T0_br546_w546-646_XIV
+2026-11-16T23:25:35Z lane MA end [2a8ee5913b85] rc=0
+2026-11-16T23:25:35Z lane MA start [98fe2c84b5e2] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_stop1146_br546_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146 python3 scripts/unit_metrics.py uP160:fx:21:21:801:stop1146_br546_XIVbref
+2026-11-16T23:26:48Z lane MA end [98fe2c84b5e2] rc=0
+2026-11-16T23:26:48Z lane MA start [efe318a9b78e] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_stop2546_br1211_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1757,2546 python3 scripts/unit_metrics.py uP160:fx:21:21:801:stop2546_br1211_XIVbref
+2026-11-16T23:27:17Z lane MB end [f7facc77bef4] rc=0
+2026-11-16T23:27:17Z lane MB start [1882d122c5ab] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D802_mskoq0T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:21:21:802:mskoq0T100_stop1211_XIV
+2026-11-16T23:27:29Z lane MA end [efe318a9b78e] rc=0
+2026-11-16T23:27:29Z lane MA start [50a54c35215f] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D802_lnzro0s2.5T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:21:21:802:lnzro0s2.5T100_stop1211_XIV
+2026-11-16T23:27:44Z lane MB end [1882d122c5ab] rc=0
+2026-11-16T23:27:44Z lane MB start [54d0d565bd3f] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D802_br1211_XIVearly/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=2000,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:802:br1211_XIVearly
+2026-11-16T23:27:55Z lane MA end [50a54c35215f] rc=0
+2026-11-16T23:27:55Z lane MA start [86d5e60cc40b] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D802_br1211_XIVbase/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1757,2000,2546,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:802:br1211_XIVbase
+2026-11-16T23:28:27Z lane MB end [54d0d565bd3f] rc=0
+2026-11-16T23:28:27Z lane MB start [0d8ed5a3518e] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D802_ro0T0_br546_w546-646_XIV/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146,1757,2546,4000 python3 scripts/unit_metrics.py uP160:fx:21:21:802:ro0T0_br546_w546-646_XIV
+2026-11-16T23:29:08Z lane MA end [86d5e60cc40b] rc=0
+2026-11-16T23:29:08Z lane MA start [14902a338039] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D802_stop1146_br546_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146 python3 scripts/unit_metrics.py uP160:fx:21:21:802:stop1146_br546_XIVbref
+2026-11-16T23:30:21Z lane MA end [14902a338039] rc=0
+2026-11-16T23:30:21Z lane MA start [57286e8c5b5a] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D23_mskrd2T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:23:23:23:mskrd2T100_stop1211_XIV
+2026-11-16T23:30:21Z lane MB end [0d8ed5a3518e] rc=0
+2026-11-16T23:30:21Z lane MB start [d5a24d58e101] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D23_lnzown2s1.25T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:23:23:23:lnzown2s1.25T100_stop1211_XIV
+2026-11-16T23:30:47Z lane MA end [57286e8c5b5a] rc=0
+2026-11-16T23:30:47Z lane MA start [2684a67175e6] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D23_l2qT0_br546_w546-646_XIV/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146,1757,2546,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:23:l2qT0_br546_w546-646_XIV
+2026-11-16T23:30:47Z lane MB end [d5a24d58e101] rc=0
+2026-11-16T23:30:47Z lane MB start [b74d660b25cc] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D23_stop1146_br546_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146 python3 scripts/unit_metrics.py uP160:fx:23:23:23:stop1146_br546_XIVbref
+2026-11-16T23:31:59Z lane MB end [b74d660b25cc] rc=0
+2026-11-16T23:31:59Z lane MB start [317ca1a34619] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D23_stop1757_br1500_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1757 python3 scripts/unit_metrics.py uP160:fx:23:23:23:stop1757_br1500_XIVbref
+2026-11-16T23:32:25Z lane MB end [317ca1a34619] rc=0
+2026-11-16T23:32:25Z lane MB start [3027a76df6a5] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D23_stop2546_br2000_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=2546 python3 scripts/unit_metrics.py uP160:fx:23:23:23:stop2546_br2000_XIVbref
+2026-11-16T23:32:41Z lane MA end [2684a67175e6] rc=0
+2026-11-16T23:32:41Z lane MA start [93ba794dba5f] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_mskrd2T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:23:23:801:mskrd2T100_stop1211_XIV
+2026-11-16T23:32:50Z lane MB end [3027a76df6a5] rc=0
+2026-11-16T23:32:50Z lane MB start [d6e9d2026261] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_lnzown2s1.25T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:23:23:801:lnzown2s1.25T100_stop1211_XIV
+2026-11-16T23:33:07Z lane MA end [93ba794dba5f] rc=0
+2026-11-16T23:33:07Z lane MA start [23743924d838] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_br1211_XIVsham/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=4000 python3 scripts/unit_metrics.py uP160:fx:23:23:801:br1211_XIVsham
+2026-11-16T23:33:18Z lane MB end [d6e9d2026261] rc=0
+2026-11-16T23:33:18Z lane MB start [9efda1eb0e96] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_br1211_XIVlnoise/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=4000 python3 scripts/unit_metrics.py uP160:fx:23:23:801:br1211_XIVlnoise
+2026-11-16T23:33:33Z lane MA end [23743924d838] rc=0
+2026-11-16T23:33:33Z lane MA start [b18bb1951a93] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_l2qT0_br546_w546-646_XIV/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146,1757,2546,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:801:l2qT0_br546_w546-646_XIV
+2026-11-16T23:33:43Z lane MB end [9efda1eb0e96] rc=0
+2026-11-16T23:33:43Z lane MB start [1235bc25943a] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_stop1146_br546_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146 python3 scripts/unit_metrics.py uP160:fx:23:23:801:stop1146_br546_XIVbref
+2026-11-16T23:34:58Z lane MB end [1235bc25943a] rc=0
+2026-11-16T23:34:58Z lane MB start [cdc708a4c9a5] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_stop2546_br1211_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1757,2546 python3 scripts/unit_metrics.py uP160:fx:23:23:801:stop2546_br1211_XIVbref
+2026-11-16T23:35:28Z lane MA end [b18bb1951a93] rc=0
+2026-11-16T23:35:28Z lane MA start [eda7151d5c89] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D802_mskrd2T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:23:23:802:mskrd2T100_stop1211_XIV
+2026-11-16T23:35:39Z lane MB end [cdc708a4c9a5] rc=0
+2026-11-16T23:35:39Z lane MB start [9be48616cd20] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D802_lnzown2s1.25T100_stop1211_XIV/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1211 python3 scripts/unit_metrics.py uP160:fx:23:23:802:lnzown2s1.25T100_stop1211_XIV
+2026-11-16T23:35:53Z lane MA end [eda7151d5c89] rc=0
+2026-11-16T23:35:53Z lane MA start [07d20d0d933f] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D802_br1211_XIVearly/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=2000,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:802:br1211_XIVearly
+2026-11-16T23:36:04Z lane MB end [9be48616cd20] rc=0
+2026-11-16T23:36:04Z lane MB start [6282164065a4] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D802_br1211_XIVbase/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=1757,2000,2546,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:802:br1211_XIVbase
+2026-11-16T23:36:35Z lane MA end [07d20d0d933f] rc=0
+2026-11-16T23:36:35Z lane MA start [26ebe21610f4] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D802_l2qT0_br546_w546-646_XIV/final.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146,1757,2546,4000 python3 scripts/unit_metrics.py uP160:fx:23:23:802:l2qT0_br546_w546-646_XIV
+2026-11-16T23:37:14Z lane MB end [6282164065a4] rc=0
+2026-11-16T23:37:14Z lane MB start [bed210a72fb9] bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D802_stop1146_br546_XIVbref/stop_done.json -- UM_RHO=0 UM_STREAM=95300000 UM_TAG=_I UM_STEPS=646,696,846,1146 python3 scripts/unit_metrics.py uP160:fx:23:23:802:stop1146_br546_XIVbref
+2026-11-16T23:38:23Z lane MB end [bed210a72fb9] rc=0
+2026-11-16T23:38:28Z lane MA end [26ebe21610f4] rc=0
+2026-11-16T23:40:25Z RESTORED step2000 of the 4 XIII-E D801 continuations (excluded from the XIII-E archive; hashes appended to I_restored_checkpoints.txt; step4000 copies match the XIII-E manifest) - measurement plan unchanged
+2026-11-16T23:41:35Z measured the 4 restored step-2000 units (same frozen command, UM_STEPS=2000)
+2026-11-16T23:41:59Z score_I.py: R-S CONFIRMED, R-N CONFIRMED, R-P CONFIRMED (sham validity all valid)

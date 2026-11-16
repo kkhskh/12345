@@ -1,0 +1,1 @@
+uP160:fx:21:21:21:mskoq0T100_stop1211_XIV 1211 {'lik_RO1': 0.761, 'lik_RO2': 0.799, 'rel_RO2': 0.304, 'mix_mass': 0.16, 'mix_share': 0.04, 'transfer': 0.773, 'route_Q': 0.091, 'route_R': 0.392, 'slope_W': 0.853, 'slope_e': 0.748, 'KL': 0.026, 'acc': 0.837, 'l2_attn': 0.524, 'l2_mlp': 0.417, 'l2_both': 0.941, 'l2_interact': -0.434, 'sec': 22.948}

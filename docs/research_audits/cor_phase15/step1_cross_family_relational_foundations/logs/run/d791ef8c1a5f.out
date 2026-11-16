@@ -1,0 +1,1 @@
+uP160:fx:23:23:801:br1211_B_l2q100 4000 {'lik_RO1': 0.801, 'lik_RO2': 0.877, 'rel_RO2': 0.43, 'mix_mass': 0.161, 'mix_share': 0.002, 'transfer': 0.861, 'route_Q': 0.036, 'route_R': 0.517, 'slope_W': 0.876, 'slope_e': 0.868, 'KL': 0.004, 'acc': 0.867, 'l2_attn': 0.409, 'l2_mlp': 0.497, 'l2_both': 0.906, 'l2_interact': -0.586, 'sec': 24.991}

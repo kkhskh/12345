@@ -1,0 +1,5 @@
+[uP160_fx_L21_W21_D801_br1211_XIVlnoise] resumed at step 2000
+[uP160_fx_L21_W21_D801_br1211_XIVlnoise] step 2686 loss 0.5521 371s
+[uP160_fx_L21_W21_D801_br1211_XIVlnoise] step 3000 loss 0.5758 514s
+[uP160_fx_L21_W21_D801_br1211_XIVlnoise] step 4000 loss 0.5553 986s
+[uP160_fx_L21_W21_D801_br1211_XIVlnoise] done acc 0.7470 KL 0.0041 1014s

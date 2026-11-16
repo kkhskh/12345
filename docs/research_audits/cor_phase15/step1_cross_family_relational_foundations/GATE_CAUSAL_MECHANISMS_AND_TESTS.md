@@ -105,11 +105,35 @@ Controls on the trained subspaces:
 - **The gate is not carried by one linear direction**, unlike the T4 relational carrier (1–2 stable directions; ledger C4). Neither the 1-d encoding direction nor the best trained 1-d subspace suffices. The value-conditional directions are close to the encoding direction (cos 0.34–0.99) and do not suffice either.
 - **[spec]** One reading is that the stored variable is the trust of each token rather than g itself: trust is g for tokens 2 and 3 and 1 − g for tokens 4 and 5. A shared subspace then needs one direction per role. This was not tested.
 
+
+## 3b. The two new models s3 and s4 [expl, after X1 was scored]
+
+`g_mech.py` was run on the final checkpoints, with the same stream as s0–s2. DAS was not run on these two models: the container restart at about 22:34Z killed the jobs, and they were not repeated for time.
+
+| | s3 | s4 |
+|---|---|---|
+| KL(Bayes ‖ model) / gate-flip slope G | 0.000 / 0.994 | 0.000 / 0.996 |
+| relation-preserving shift, mean \|Δ\| (gate flip 2.45) | 0.048 | 0.031 |
+| patch transfer: G at the layer-1 input / E at the layer-2 input / R at the layer-2 input | 1.00 / 1.00 / 0.00 | 0.95 / 1.00 / 0.00 |
+| full E patch / 1-d g direction / value-conditional / decoy / variance-matched random | 1.00 / 0.28 / 0.31 / 0.01 / 0.00 | 1.00 / 0.31 / 0.28 / 0.13 / 0.00 |
+| null-donor decision change | 0.036 | 0.021 |
+
+Both new models have **s2's layout**:
+- the gate is computed in layer 1 at E from the gate tokens;
+- the gate is stored at E at the layer-2 input;
+- the decision is formed by layer-2 readout attention.
+
+Across five models there are therefore three layouts: s0 (early-readout-like), s1, and s2/s3/s4. In every model:
+- the gate is mediated by the evidence tokens;
+- no single direction suffices;
+- decoy and random controls fail;
+- the shift response is small.
+
 ## 4. Decision mechanism by model (comparison levels, mandate §8.5)
 
 | level | shared by s0–s2? | evidence |
 |---|---|---|
-| behaviour (Bayes-level, gate-following, relation-invariant) | yes | §1 |
+| behaviour (Bayes-level, gate-following, relation-invariant) | yes, in all five models | §1, §3b |
 | abstract computation (a trust variable derived from the relation, stored at the evidence tokens, then combined with the evidence at the readout) | yes | §2 patches, §3 DAS |
 | neural architecture of the route | **no** | gate computed in layer 0 (s0, s1) or layer 1 (s2); decision moved to the readout at layer 1 (s0) or by layer-2 readout attention (s1, s2) |
 | individual circuit components | **no** | the deepening package found different heads per seed (L0-h1/h2, L1-h3; L1-h2 + L2-h0, L2-h1 + L2-h3, L2-h1) |

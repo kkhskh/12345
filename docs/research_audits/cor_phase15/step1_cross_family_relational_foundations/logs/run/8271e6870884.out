@@ -1,0 +1,8 @@
+[uP160_fx_L23_W23_D801_br1211_XIVsham] branched from uP160_fx_L23_W23_D801_mskrd2T100_stop1211_XIV step 1211
+[uP160_fx_L23_W23_D801_br1211_XIVsham] step 1500 loss 0.5571 140s
+[uP160_fx_L23_W23_D801_br1211_XIVsham] step 1803 loss 0.5288 281s
+[uP160_fx_L23_W23_D801_br1211_XIVsham] step 2000 loss 0.5914 375s
+[uP160_fx_L23_W23_D801_br1211_XIVsham] step 2686 loss 0.5468 697s
+[uP160_fx_L23_W23_D801_br1211_XIVsham] step 3000 loss 0.5710 847s
+[uP160_fx_L23_W23_D801_br1211_XIVsham] step 4000 loss 0.5515 1314s
+[uP160_fx_L23_W23_D801_br1211_XIVsham] done acc 0.7464 KL 0.0015 1344s

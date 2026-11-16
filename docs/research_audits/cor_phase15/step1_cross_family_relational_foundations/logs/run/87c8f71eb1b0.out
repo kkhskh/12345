@@ -1,0 +1,9 @@
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] branched from uP160_fx_L23_W23_D23_base step 546
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] step 600 loss 0.5942 29s
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] step 646 loss 0.5662 50s
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] step 696 loss 0.5989 74s
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] step 800 loss 0.5970 125s
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] step 813 loss 0.5863 131s
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] step 846 loss 0.5850 147s
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] step 1000 loss 0.5113 220s
+[uP160_fx_L23_W23_D23_stop1146_br546_XIVbref] step 1146 loss 0.5592 289s

@@ -1,0 +1,1 @@
+uP160:fx:21:21:802:lnzro0s2.5T100_stop1211_XIV 1211 {'lik_RO1': 0.72, 'lik_RO2': 0.739, 'rel_RO2': 0.156, 'mix_mass': 0.174, 'mix_share': 0.072, 'transfer': 0.738, 'route_Q': 0.191, 'route_R': 0.217, 'slope_W': 0.738, 'slope_e': 0.768, 'KL': 0.036, 'acc': 0.845, 'l2_attn': 0.73, 'l2_mlp': 0.202, 'l2_both': 0.932, 'l2_interact': -0.265, 'sec': 24.02}

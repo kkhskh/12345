@@ -1,0 +1,1 @@
+uP160:fx:23:23:801:br1211_XIVlnoise 4000 {'lik_RO1': 0.022, 'lik_RO2': 0.053, 'rel_RO2': 0.176, 'mix_mass': 0.959, 'mix_share': 0.411, 'transfer': 0.969, 'route_Q': 0.775, 'route_R': 0.193, 'slope_W': 0.997, 'slope_e': 0.963, 'KL': 0.001, 'acc': 0.898, 'l2_attn': 0.843, 'l2_mlp': 0.156, 'l2_both': 0.999, 'l2_interact': -0.295, 'sec': 23.227}

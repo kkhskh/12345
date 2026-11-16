@@ -1,0 +1,1 @@
+uP160:fx:21:21:21:stop2546_br2000_XIVbref 2546 {'lik_RO1': 0.811, 'lik_RO2': 0.861, 'rel_RO2': 0.331, 'mix_mass': 0.166, 'mix_share': 0.061, 'transfer': 0.841, 'route_Q': 0.123, 'route_R': 0.387, 'slope_W': 0.877, 'slope_e': 0.843, 'KL': 0.012, 'acc': 0.85, 'l2_attn': 0.545, 'l2_mlp': 0.378, 'l2_both': 0.923, 'l2_interact': -0.38, 'sec': 22.582}

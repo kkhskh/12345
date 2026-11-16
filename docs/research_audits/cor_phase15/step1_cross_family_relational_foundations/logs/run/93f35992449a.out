@@ -1,0 +1,1 @@
+uP160:fx:21:21:801:br1211_XIVsham 4000 {'lik_RO1': 0.813, 'lik_RO2': 0.867, 'rel_RO2': 0.395, 'mix_mass': 0.16, 'mix_share': 0.038, 'transfer': 0.88, 'route_Q': 0.058, 'route_R': 0.451, 'slope_W': 0.884, 'slope_e': 0.901, 'KL': 0.004, 'acc': 0.852, 'l2_attn': 0.508, 'l2_mlp': 0.432, 'l2_both': 0.94, 'l2_interact': -0.363, 'sec': 25.356}

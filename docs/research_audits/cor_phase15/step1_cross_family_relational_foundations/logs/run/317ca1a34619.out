@@ -1,0 +1,1 @@
+uP160:fx:23:23:23:stop1757_br1500_XIVbref 1757 {'lik_RO1': 0.055, 'lik_RO2': 0.091, 'rel_RO2': 0.268, 'mix_mass': 0.965, 'mix_share': 0.295, 'transfer': 0.914, 'route_Q': 0.69, 'route_R': 0.36, 'slope_W': 0.945, 'slope_e': 0.91, 'KL': 0.01, 'acc': 0.878, 'l2_attn': 0.819, 'l2_mlp': 0.175, 'l2_both': 0.994, 'l2_interact': -0.321, 'sec': 24.256}

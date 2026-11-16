@@ -1,0 +1,6 @@
+gate s4 step 400 loss 0.2404 553s
+gate s4 step 800 loss 0.2063 1148s
+gate s4 step 1200 loss 0.1801 1776s
+gate s4 step 1600 loss 0.1816 2600s
+gate s4 step 2000 loss 0.1850 3344s
+gate s4 step 2400 loss 0.1729 4308s

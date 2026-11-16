@@ -1,0 +1,9 @@
+{
+ "P0_refuse_real_state": true,
+ "P1_synthetic_dev": true,
+ "P1_detail": {
+  "X1a": "CONFIRMED",
+  "X1b": "FALSIFIED"
+ },
+ "P2_missing_refuse": true
+}

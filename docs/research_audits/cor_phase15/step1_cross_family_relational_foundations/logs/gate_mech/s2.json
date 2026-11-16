@@ -1,0 +1,113 @@
+{
+ "name": "s2",
+ "ckpt": "/home/claude/12345/docs/research_audits/cor_phase15/step1_cross_family_relational_foundations/src/../../step1_relational_mechanism_deepening/checkpoints/gate_s2.npz",
+ "n": 2000,
+ "behaviour": {
+  "KL_bayes": 0.000166686343129118,
+  "KL_gatefree": 0.583214913609291,
+  "G_slope": 0.9968855280586688,
+  "flip_mean_abs": 2.4644479751586914,
+  "shift_mean_abs": 0.03813454881310463,
+  "decoy_toggle_mean_abs": 0.013361907564103603,
+  "shift_decision_change": 0.0275,
+  "decoy_decision_change": 0.0045
+ },
+ "presence_heldout_x0": {
+  "resid_pre1@G": {
+   "g": 0.15,
+   "decoy": 0.7676470588235295,
+   "x0_value": 1.0
+  },
+  "resid_pre1@E": {
+   "g": 0.25735294117647056,
+   "decoy": 0.7088235294117647,
+   "x0_value": 0.55
+  },
+  "resid_pre1@R": {
+   "g": 0.3426470588235294,
+   "decoy": 0.7352941176470589,
+   "x0_value": 0.487
+  },
+  "resid_pre2@G": {
+   "g": 0.6044117647058823,
+   "decoy": 0.7676470588235295,
+   "x0_value": 1.0
+  },
+  "resid_pre2@E": {
+   "g": 0.9985294117647059,
+   "decoy": 0.75,
+   "x0_value": 0.781
+  },
+  "resid_pre2@R": {
+   "g": 0.31029411764705883,
+   "decoy": 0.6764705882352942,
+   "x0_value": 0.51
+  },
+  "resid_post2@G": {
+   "g": 0.9176470588235294,
+   "decoy": 0.7676470588235295,
+   "x0_value": 0.996
+  },
+  "resid_post2@E": {
+   "g": 0.9955882352941177,
+   "decoy": 0.6897058823529412,
+   "x0_value": 0.801
+  },
+  "resid_post2@R": {
+   "g": 1.0,
+   "decoy": 0.6676470588235294,
+   "x0_value": 0.487
+  }
+ },
+ "use_flip_transfer": {
+  "resid_pre1@G": 1.0,
+  "resid_pre1@E": 0.0,
+  "resid_pre1@R": 0.0,
+  "resid_pre2@G": 0.0,
+  "resid_pre2@E": 1.0,
+  "resid_pre2@R": 0.0,
+  "resid_post2@G": 0.0,
+  "resid_post2@E": 0.0,
+  "resid_post2@R": 1.0
+ },
+ "n_decisive": 351,
+ "mediation": {
+  "site": "resid_pre2",
+  "g_direction": 0.32947976878612717,
+  "decoy_direction": 0.08670520231213873,
+  "value_conditional_direction": 0.3583815028901734,
+  "cos_g_vs_conditional": [
+   [
+    0.9053527838161071,
+    0.9568813020012745,
+    0.8737786882454521
+   ],
+   [
+    0.54469563281953,
+    0.4115595221305398,
+    0.49680414771179865
+   ],
+   [
+    0.6261799800224559,
+    0.33747614236059087,
+    0.4442589214713222
+   ],
+   [
+    0.4933668043572884,
+    0.6091563894942903,
+    0.39404346387075284
+   ]
+  ],
+  "random_vm_mean": 0.0011560693641618496,
+  "random_vm_max": 0.005780346820809248,
+  "random_var_ratio_mean": 1.0,
+  "null_donor_decision_change": 0.026,
+  "full_E_patch": 1.0,
+  "ideal_reference": {
+   "g_direction": 1.0,
+   "decoy_direction": 0.0,
+   "random": 0.0,
+   "null_donor": 0.0
+  }
+ }
+}

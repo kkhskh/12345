@@ -1,0 +1,31 @@
+{
+ "order1": {
+  "NLL": 0.4621552327158634,
+  "acc": 0.8008333333333333,
+  "KL_from_bayes": 0.28048321727591174,
+  "converged": true,
+  "gateflip_slope": -2.2547877787800848e-18,
+  "swap_slope_vs_bayes": -6.2186828130065634e-18
+ },
+ "order2": {
+  "NLL": 0.4314422216891467,
+  "acc": 0.8008333333333333,
+  "KL_from_bayes": 0.2497702062491951,
+  "converged": true,
+  "gateflip_slope": -1.2942821148121433e-18,
+  "swap_slope_vs_bayes": 0.08814620906922674
+ },
+ "order3": {
+  "NLL": 0.18167202343466626,
+  "acc": 0.8999999999999998,
+  "KL_from_bayes": 7.99471463895377e-09,
+  "converged": true,
+  "gateflip_slope": 0.9999366733945441,
+  "swap_slope_vs_bayes": 0.9999343824223018
+ },
+ "bayes": {
+  "NLL": 0.1816720154399516,
+  "gateflip_slope": 1.0,
+  "swap_slope_vs_bayes": 1.0
+ }
+}

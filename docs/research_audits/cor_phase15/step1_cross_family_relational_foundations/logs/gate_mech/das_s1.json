@@ -1,0 +1,54 @@
+{
+ "name": "s1",
+ "site": "resid_pre1",
+ "n_decisive_test": 185,
+ "das": {
+  "1": {
+   "train_loss": 0.9994404911994934,
+   "transfer": 0.5945945945945946,
+   "at_G_tokens": 0.0,
+   "at_R_token": 0.0,
+   "null_donor_decision_change": 0.043,
+   "random_transfer_mean": 0.0,
+   "random_transfer_max": 0.0,
+   "random_var_ratio": 0.055376407893521586
+  },
+  "2": {
+   "train_loss": 0.04232233762741089,
+   "transfer": 1.0,
+   "at_G_tokens": 0.0,
+   "at_R_token": 0.0,
+   "null_donor_decision_change": 0.045,
+   "random_transfer_mean": 0.0,
+   "random_transfer_max": 0.0,
+   "random_var_ratio": 0.09302955806228115
+  },
+  "4": {
+   "train_loss": 0.04215379059314728,
+   "transfer": 1.0,
+   "at_G_tokens": 0.0,
+   "at_R_token": 0.0,
+   "null_donor_decision_change": 0.038,
+   "random_transfer_mean": 0.0,
+   "random_transfer_max": 0.0,
+   "random_var_ratio": 0.20637698341271124
+  },
+  "8": {
+   "train_loss": 0.042061422020196915,
+   "transfer": 1.0,
+   "at_G_tokens": 0.0,
+   "at_R_token": 0.0,
+   "null_donor_decision_change": 0.049,
+   "random_transfer_mean": 0.030270270270270273,
+   "random_transfer_max": 0.11351351351351352,
+   "random_var_ratio": 0.32474751408913016
+  }
+ },
+ "ideal_reference": {
+  "transfer_k1": 1.0,
+  "null_donor": 0.0,
+  "random": 0.0,
+  "at_G": 0.0,
+  "at_R": 0.0
+ }
+}

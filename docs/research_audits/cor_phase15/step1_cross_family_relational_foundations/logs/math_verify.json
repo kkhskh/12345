@@ -1,0 +1,20 @@
+{
+ "T4_reliable_marginal": [
+  0.3333333333333333,
+  0.3333333333333333,
+  0.3333333333333333
+ ],
+ "T4_single_source_uniform_chisq_p": [
+  0.6475495261959592,
+  0.14653221164265828,
+  0.5960742733299801,
+  0.22833760991698035,
+  0.6576778876261626,
+  0.9310055876041877
+ ],
+ "T4_nontarget_relabel_max_abs_diff": 0.0,
+ "T4_nontarget_equality_edit_mean_abs_diff_control": 0.05173847255765273,
+ "T4_equality_edit_impossible_fraction": 0.30500000000000005,
+ "GATE_shift_invariance_max_abs_diff": 0.0,
+ "GATE_powermean_pointmass_max_abs_diff": 1.8735013540549517e-16
+}

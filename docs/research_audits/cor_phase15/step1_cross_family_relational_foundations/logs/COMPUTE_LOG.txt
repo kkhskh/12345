@@ -2,3 +2,13 @@ XIV compute log (UTC).  Machine: 2 CPU, 8 GB.  Benchmark (2026-11-16T17:07:44Z):
 (2.05 steps/s per lane, 4.1 aggregate), peak RSS 0.80-0.81 GB per run (scripts/peakmem.sh).  Development (not confirmation):
 i_attn_dev.py (stream 97_000_000), i_sham_dev.py (97_100_000), i_calib.py (97_200_000); bitwise checks msk/ro0 == XIII-E ro0 run at
 step 25 and lnz sigma 0 == baseline at step 25 (max |diff| 0.0); benchmark and check runs deleted.
+2026-11-16T17:07:54Z lane TA start [bd6de3446def] FX_INTERV=ro0:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 21
+2026-11-16T17:07:54Z lane TB start [f7554fbcade7] FX_INTERV=ro0:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 801
+2026-11-16T17:20:46Z GATE confirmation training launched (outputs not inspected before FREEZE_X): python3 scripts/g_train.py 3
+2026-11-16T17:20:46Z GATE confirmation training launched (outputs not inspected before FREEZE_X): python3 scripts/g_train.py 4
+2026-11-16T17:20:46Z DEV: g_train.py 1 400 (development seed 1; reproduces gate_s1 step-400 loss 0.4543 exactly)
+2026-11-16T18:10:02Z lane TA end [bd6de3446def] rc=0
+2026-11-16T18:10:02Z lane TA start [cb41e7b4b223] FX_INTERV=ro0:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L21_W21_D802_stop1211_B_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 21 21 802
+2026-11-16T18:10:17Z lane TB end [f7554fbcade7] rc=0
+2026-11-16T18:10:17Z lane TB start [e0c9288d4c8e] FX_INTERV=l2q:0 FX_IWIN=546:646 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_EXTRA_SNAPS=646,696,846,1146,1757,2546 FX_TAGSUF=_XIV python3 scripts/ft_factorial_c.py uP160 23 23 23
+2026-11-16T18:41:42Z DEV/expl: g_rules_exact, g_order_ceilings, t4_order1, math_verify, g_traj_eval (dev s1 + dev finals), g_mech s0-s2 (stream 98_200_000), g_das s0-s2 (98_300_000). preflight_X OK. GATE s3/s4 checkpoint dirs listed by count only.

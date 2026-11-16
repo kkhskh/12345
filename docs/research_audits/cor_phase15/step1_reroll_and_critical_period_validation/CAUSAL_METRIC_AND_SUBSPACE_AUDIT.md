@@ -101,13 +101,13 @@ Overlap = ‖P₁ᵀP₂‖²_F / k (1 = same span; about k/64 ≈ 0.05 for rand
 | DAS vs RAND0 | 0.05 | 0.08 |
 | DAS vs VMRAND0 | 0.16 | 0.08 |
 
-The Σ-whitened overlaps are in `logs/c_audit.json`. They are higher for the DAS pairs and leave the ordering unchanged.
+*Post-review correction:* the overlaps in `logs/c_audit.json` labelled "whitened" use a Σ-weighted inner product, not whitening, and under them the ordering **does** change (in C-C2 the second-seed DAS overlap falls below the decoy, ENC and CCD overlaps; random floor 0.22–0.28). The earlier claim that the ordering is unchanged is withdrawn. The Euclidean results below stand.
 
 **Reading.**
 - **The DAS spans are only partly shared.** At k = 3, two DAS seeds share only part of their span (0.42 / 0.69). The C4 sweep shows why: the extra dimensions are arbitrary.
 - **The successful sets share a common core.** DAS, ENC, CCD and DAS_DECOY overlap substantially (0.33–0.61), far above random, so they share a common signal-aligned core.
 - **The decoder span is nearly orthogonal to that core** (0.05–0.07), as the geometry predicts.
-- **The decoy-trained subspace shares about as much with DAS as DAS's own second seed** (C-C2: 0.61 vs 0.69). The relational channel is therefore not m-specific; it is the model's general cross-group relation direction at this site.
+- **The decoy-trained subspace shares about as much with DAS as DAS's own second seed** (C-C2: 0.61 vs 0.69). *Post-review correction:* decoy pairs change neither m nor the exact posterior (checked on 300 and 491 pairs), so DAS_DECOY is fitted to the model's own response to decoy edits, whose size was not logged. Its sufficiency may only reflect the site's most output-sensitive subspace. Whether the carrier is m-specific is therefore **not established**; the earlier reading "general cross-group relation direction" is withdrawn.
 
 **Key/query split (answers XIII-D review 2, F9).** The split is a property of the model, not of the particular subspace that DAS happened to find:
 
@@ -139,7 +139,7 @@ DAS was fitted on the first half of the J_DM pairs and evaluated on the second.
 
 **Corrected statement.**
 - The relational effect is carried by a small, model-specific number of stable directions: one in C-C1, two in C-C2.
-- Adding dimensions beyond that gains ≤ 0.03 and adds directions that are not seed-stable.
+- Adding dimensions beyond that gains little (C-C2 ≤ 0.023 beyond k = 2; C-C1 +0.059 from k = 1 to k = 6) and adds directions that are not seed-stable. No C4 value has an interval.
 - "Three-dimensional" was an experimental choice, not a finding. It is withdrawn as a property of the mechanism.
 
 **Across k, the qualitative tests behave the same way:**
@@ -153,13 +153,13 @@ DAS was fitted on the first half of the J_DM pairs and evaluated on the second.
 |---|---|---|
 | P3 sufficiency of a low-dimensional relational channel | **survives** | SUFF 0.82–0.90 vs ideal 1 and null 0, replicated at every k ≥ 2 |
 | P3 "3-dimensional carrier" | **contradicted / withdrawn** | C4: 1–2 stable directions; extra dimensions arbitrary (R5 falsified) |
-| P3 "m-specific carrier" | **contradicted** | decoy-trained subspaces are equally sufficient at every k; overlap with DAS 0.33–0.61 |
+| P3 "m-specific carrier" | **not established** (post-review; was "contradicted") | decoy-trained subspaces are equally sufficient, but decoy pairs carry no posterior change, so this does not show a shared code |
 | P3c "decodable ≠ used" | **retracted in that wording**; supported only in the weaker form "filter directions decode but do not transmit, as expected under correlated noise" | C2, R6 confirmed |
 | P3e use through layer-2 keys + queries | **survives** | 0.91–0.96 for every sufficient set; K/Q split is a stable model property |
 | P4a reverse-swap necessity | **survives** | ideal 0, null 1; observed 0.03–0.06 (k ≥ 2) |
-| P4b "synthetic ablation is non-specific" | **non-diagnostic** | the ideal carrier also damages (0.35). Only a 0.10–0.22 excess is attributable |
+| P4b "synthetic ablation is non-specific" | **non-diagnostic** | the ideal carrier also damages (0.35). The 0.10–0.22 excess is not interpretable as measured: the mean baseline is pooled over positions and the zero-ablation reference is not identified (post-review) |
 | P3a DAS excess over source-free control | **non-diagnostic as a specificity test** | the ideal excess is only 0.28; observed values are at that level |
-| restore "non-separability" | **retracted**; a modest shortfall against the ideal 0.46 remains | C1 |
+| restore "non-separability" | **retracted**; the shortfall against the ideal 0.46 may be a normalisation artefact (ideal assumes own slope 1; post-review) | C1 |
 | P6 eligibility specificity (falsified as scored) | **non-diagnostic**: the criterion is ill-posed | C1 own-share references; the DAS own-share vs ideal 1 / null 0 survives |
 | E2 true row interchange | **survives** | R² 0.90–0.91 vs ideal 1 / null 0 |
 | E2 decoy-row controls (base and borrowed) | **non-diagnostic** | ideal ≈ null ≈ 0 |

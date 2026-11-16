@@ -1,0 +1,1083 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XIII-E
+
+## Re-Roll or Structure? Statistical Algorithm Selection, Early Training Sensitivity, and Causal Measurement Validation
+
+**Focused, high-priority foundational investigation**
+
+**Scientific objective: Establish which explanations from Investigations XIII-C and XIII-D are genuinely supported before extending the research into new territory.**
+
+---
+
+# 0. MISSION
+
+You are continuing COR immediately after Foundational Investigation XIII-D.
+
+Starting branch:
+
+`cor-phase15-step1-causal-algorithm-selection-validation`
+
+Reported HEAD:
+
+`9f1bb83`
+
+Latest archive:
+
+`cor_inv13d_causal_algorithm_selection_validation.zip`
+
+Latest directory:
+
+`docs/research_audits/cor_phase15/step1_causal_algorithm_selection_validation/`
+
+Verify the actual repository state.
+
+Read the complete XIII-D research record, especially:
+
+- `MAIN_RESEARCH_SYNTHESIS.md`
+- `READOUT_INITIALIZATION_AND_LEARNING_CAUSALITY.md`
+- `FROZEN_CONFIRMATION_AND_STATISTICS.md`
+- `OPEN_COR_FOUNDATIONAL_QUESTIONS.md`
+- The mathematical and causal-carrier reports
+- All three independent-agent reviews
+- `reviews/ADJUDICATION.md`
+- The actual training, intervention, and scoring scripts
+
+Consult XIII-C and XIII-B where the earlier experiments are necessary for understanding the current hypotheses.
+
+**Remain in Phase 1.5, Step 1.**
+
+The provisional foundational-exploration estimate remains approximately 25%. It must not increase simply because another investigation is completed.
+
+Do not select a paper thesis, close the stage, move to Phase 2, or claim that COR's original obstruction/discrepancy framework is established.
+
+## Why this investigation is necessary
+
+Investigation XIII-C claimed that the fresh readout-map initialization determined which internal decision algorithm a Transformer learned.
+
+Investigation XIII-D falsified that explanation.
+
+XIII-D found that outcomes depended on interactions involving the pretrained parent, fresh layer-2 initialization, and readout initialization. However, its own mechanism review identified a simpler unresolved possibility:
+
+**Changing a seed may merely re-draw a random initialization and produce another sample from the distribution of possible trained solutions.**
+
+There may be no special causal significance to matching the seed numbers of independently generated components.
+
+The existing sample is too small to establish whether the apparent initialization combinations have a meaningful structure beyond this re-roll explanation.
+
+At the same time:
+
+- The proposed early critical period lacks sham masking, short-window controls, and replication.
+- Several previous causal measurements were not compared with their ideal-reference values.
+- The relationship among different sufficient subspaces has not been adequately characterized.
+- Earlier scoring procedures allowed confirmation results to influence the planning of later frozen tests.
+
+**These issues must be resolved before another extensive theory-building investigation.**
+
+Do not use XIII-E to invent a new algorithm-selection mechanism unless the evidence genuinely requires one.
+
+---
+
+# 1. THREE MANDATORY RESEARCH OBJECTIVES
+
+This investigation has exactly three primary scientific objectives.
+
+### Objective A — Test the re-roll null hypothesis
+
+Determine whether re-drawing a newly initialized component simply produces another sample from a parent-dependent distribution of neural solutions, or whether identifiable initialization structure influences the outcome.
+
+### Objective B — Validate the early-training sensitivity result
+
+Determine whether short pathway interventions have a reproducible, route-specific effect, rather than merely disturbing optimization at a sensitive time.
+
+### Objective C — Repair causal measurement and interpretation
+
+Establish which existing carrier, decoder, eligibility, and attention-row conclusions survive ideal-model reference calculations and properly matched controls.
+
+These objectives must be completed before optional additional exploration.
+
+**Do not substitute another large collection of unconstrained training runs for discriminating experiments.**
+
+---
+
+# 2. WORKSTREAM A — THE RE-ROLL EXPERIMENT
+
+**Highest priority. Mandatory.**
+
+This is the principal investigation.
+
+## A1. Define the competing explanations precisely
+
+Consider:
+
+**H0 — Re-roll explanation**
+
+Re-drawing a fresh component results in another draw from a distribution of learned solutions, with no special role for the numerical matching of independently generated seed identifiers.
+
+The probability of an early, mixture, or hybrid solution may depend on the pretrained parent and on which components are held fixed.
+
+Do not assume all parents have the same solution probabilities.
+
+**H1 — Initialization structure**
+
+Particular relationships between the fresh readout map and fresh layer-2 initialization systematically influence which solution emerges.
+
+This influence may be expressed through measurable alignment or other joint properties.
+
+**H2 — Asymmetric solution stability**
+
+Starting from an early-producing configuration versus a mixture-producing configuration changes the response to replacing one component in a way not adequately explained by random re-drawing.
+
+**H3 — Higher-order interactions**
+
+No single-component rule explains the outcome, but interactions involving parent, readout initialization, and layer-2 initialization contain reproducible predictive information.
+
+These hypotheses must be separated carefully.
+
+The statement "a fresh random draw changes the outcome" is not itself evidence for an identifiable selection mechanism.
+
+Likewise, an initialization-dependent deterministic training process can generate an apparently random distribution of solutions.
+
+## A2. Audit initialization independence
+
+Before conducting new training, verify how the following are generated:
+
+- Fresh layer-2 initialization, L.
+- Fresh readout-map initialization, W.
+- Training-data stream, D.
+
+Check that the implementation truly generates the relevant tensors independently.
+
+Inspect whether identical seed numbers introduce hidden statistical coupling or merely act as arbitrary labels for independent random draws.
+
+Record:
+
+- The actual random-number generators.
+- Their seed transformations.
+- Parameter tensor hashes.
+- Initialization distributions.
+- Any shared state.
+- Determinism assumptions.
+
+If seed matching creates no statistical dependence, document this mathematically and in code.
+
+Do not use the phrase "matching seeds" as though it describes physical alignment unless such alignment is demonstrated.
+
+## A3. Run the primary 64-run experiment
+
+Select **four previously characterized diagonal configurations**, including:
+
+- Two that produced early-readout solutions.
+- Two that produced mixture solutions.
+- At least two independently pretrained parents represented across the four configurations.
+
+Use established XIII-B/C/D outcomes to select these development anchors, and disclose that selection.
+
+For each anchor, run:
+
+- Eight independent re-draws of W while holding L and D fixed.
+- Eight independent re-draws of L while holding W and D fixed.
+
+That yields:
+
+**4 anchors × 16 re-draws = 64 controlled short fine-tuning runs.**
+
+Evaluate every run at step 1211.
+
+Use the same architecture, generator, learning schedule, and class measurements as the established experiments.
+
+Report continuous early-readout and mixture-head measurements rather than relying only on categorical classifications.
+
+The training commands, seed list, anchor selection, analysis definitions, and stopping criteria must be frozen before inspecting new outcomes.
+
+## A4. Address anchor-selection bias
+
+Because the anchors were selected partly by their known outcomes, simple comparisons can exhibit regression toward their underlying solution probabilities.
+
+Do not interpret a change away from an early anchor as evidence of instability without considering this selection effect.
+
+Construct the correct conditional comparisons.
+
+Compare:
+
+- W re-draws from early anchors.
+- W re-draws from mixture anchors.
+- L re-draws from early anchors.
+- L re-draws from mixture anchors.
+- Parent-specific baseline solution frequencies.
+
+Use a clear statistical null model.
+
+Distinguish differences explained by the component held fixed from differences requiring a special initialization interaction.
+
+The original diagonal-versus-off-diagonal result was not statistically compelling. Do not treat it as a discovered law.
+
+## A5. Confirm the meaning of step 1211
+
+Step-1211 classification is a screening outcome, not automatically the final trained solution.
+
+Preselect a balanced subset of the 64 runs and continue it to step 4000.
+
+Include:
+
+- Early classifications.
+- Mixture classifications.
+- Hybrid or borderline cases.
+- Both replacement types.
+- Both pretrained parents.
+
+Where feasible, finish at least eight representative runs.
+
+Do not choose the continuation subset only after seeing which results favor the preferred hypothesis.
+
+Report class transitions from step 1211 to step 4000.
+
+If step-1211 classification proves unreliable, account for that uncertainty in every conclusion based on the 64-run screen.
+
+## A6. Analyze probabilities and uncertainty
+
+Estimate, where supported:
+
+- P(early | W re-draw).
+- P(early | L re-draw).
+- P(mixture | W re-draw).
+- P(mixture | L re-draw).
+- Parent-specific solution frequencies.
+- Anchor-specific variation.
+- Differences between early and mixture anchors.
+- The frequency of hybrid outcomes.
+- Stability of continuous implementation measurements.
+
+Use binomial or multinomial uncertainty estimates appropriately.
+
+Account for the shared pretrained parents and fixed anchor components.
+
+Sixty-four runs do not constitute 64 independently pretrained models.
+
+Do not use individual episodes as independent evidence about model-selection probabilities.
+
+Avoid declaring equivalence merely because a hypothesis test does not reject a difference.
+
+If the sample cannot distinguish the hypotheses, report an inconclusive result with an explicit bound on what remains possible.
+
+## A7. Investigate initialization alignment only if warranted
+
+If the primary experiment reveals repeatable structure, investigate whether it is associated with the relationship between W and layer-2 keys and queries.
+
+Candidate measurements include:
+
+- Readout-to-key alignment.
+- Readout-to-query alignment.
+- Relevant joint W–L projections.
+- Initial candidate-output sensitivity.
+- Early gradient alignment.
+
+Use theory-guided measurements rather than a broad search for accidental correlations.
+
+Develop an explicit prediction.
+
+Test it on held-out initialization draws.
+
+Do not infer a mechanism from an association selected and evaluated on the same 64 runs.
+
+If no convincing structure appears, do not create a complicated alignment story to rescue the hypothesis.
+
+## A8. Required decision
+
+At the end, classify the evidence into one of four outcomes:
+
+**A — Evidence for structured selection:** A specified initialization relationship predicts new outcomes beyond appropriate re-roll baselines.
+
+**B — Evidence consistent with re-roll:** The outcomes are statistically compatible with the parent-conditional re-draw model, with sufficiently informative bounds on plausible structured effects.
+
+**C — Mixed:** Some parents or components show structure while others do not.
+
+**D — Inconclusive:** The data are insufficient to distinguish the explanations.
+
+Report the actual estimates, uncertainty, and model comparisons.
+
+**Do not interpret outcome B as proof that neural training contains no deeper algorithm-selection mechanism.**
+
+It means that this experimental setting has not supported the particular low-order mechanism being tested.
+
+---
+
+# 3. WORKSTREAM B — MAKE THE CRITICAL-PERIOD RESULT RIGOROUS
+
+**Second priority. Mandatory.**
+
+XIII-D found that blocking either route during the first 100 training steps could permanently redirect the final organization.
+
+However:
+
+- Only one diagnostic run was available per direction.
+- No sham mask was run.
+- No intervention shorter than 100 steps was tested.
+- Later interventions were not matched for severity.
+- One pathway intervention caused much stronger loss disruption than the other.
+
+The current evidence establishes sensitivity to early perturbation, not a fully identified critical period.
+
+## B1. Sham-mask control
+
+Construct a sham intervention that matches the real masking procedure in relevant implementation and optimization details but does not specifically block either hypothesized information route.
+
+A suitable control should account for:
+
+- Intervention duration.
+- Execution pathway.
+- Numerical operations.
+- Gradient and activation disruption, where relevant.
+- Random-number consumption.
+- Training-data exposure.
+
+Verify that the sham does not unknowingly block a meaningful alternative route.
+
+Distinguish a genuine neutral sham from a general-disturbance control.
+
+If a perfectly neutral sham cannot be constructed, use separate sham and disturbance controls and report what each establishes.
+
+## B2. Short intervention windows
+
+Test both route restrictions using:
+
+- 25 training steps.
+- 50 training steps.
+- 100 training steps.
+
+Use at least three independently specified data-order seeds per condition when the computational budget permits.
+
+Include corresponding no-mask baselines and sham interventions.
+
+Reuse initialization tensors across the paired conditions.
+
+Keep the total training schedule unchanged.
+
+Do not count a failed-to-train model as evidence that a successful alternative algorithm emerged.
+
+## B3. Severity-matched late intervention
+
+The earlier late-block comparison was confounded because the two blocked pathways experienced very different loss increases.
+
+Construct late interventions matched on a scientifically meaningful disturbance measure, such as:
+
+- Immediate loss increase.
+- Candidate-accuracy disruption.
+- Relevant activation or gradient displacement.
+
+Prespecify the matching method using development data.
+
+Avoid tuning the intervention severity directly on confirmation outcomes.
+
+Test whether a comparable disturbance later in training can still change the final implementation.
+
+If a late disturbance changes the solution, the interpretation of a uniquely early critical period must be revised.
+
+## B4. Measure persistent consequences
+
+For every condition, record:
+
+- Final competence.
+- Continuous early-readout strength.
+- Mixture-head formation.
+- Route-specific information.
+- Final decision accuracy.
+- Loss trajectory.
+- Whether the intervention's effect persists after release.
+
+Also measure whether the unused route retains relational information.
+
+Where appropriate, test whether readout-only retraining can reactivate that information.
+
+Do not automatically call retained information an available backup; determine whether it can actually be used.
+
+## B5. Separate competing interpretations
+
+Compare:
+
+**Route-specific early selection**
+
+A particular information pathway being unavailable early changes which solution develops.
+
+**General early sensitivity**
+
+Many disturbances early in optimization can redirect the solution.
+
+**Passive learning commitment**
+
+The network learns one useful route first and later stops using alternatives.
+
+**Active competition**
+
+One pathway causally suppresses the development or use of another.
+
+These explanations may coexist.
+
+Sham controls and temporal interventions may distinguish route-specific sensitivity from general disturbance, but may not by themselves distinguish active competition from commitment.
+
+Do not claim more than the experiment establishes.
+
+## B6. Mandatory conclusion
+
+Determine whether:
+
+- The 100-step finding replicates.
+- Shorter blocks produce a similar effect.
+- Sham disturbances reproduce the effect.
+- Severity-matched late disturbances produce similar effects.
+- The resulting models remain competent.
+- There is evidence for a specifically early route-selection window.
+
+If results are borderline, report uncertainty and avoid a binary declaration.
+
+A rigorous negative result is acceptable.
+
+---
+
+# 4. WORKSTREAM C — REPAIR THE CAUSAL MEASUREMENT GAPS
+
+**Third priority. Mandatory, primarily analysis-only.**
+
+This workstream should use existing checkpoints, scripts, and saved intervention results wherever possible.
+
+Do not spend hours retraining models to answer questions that can be addressed through algebra, ideal-reference calculations, or existing activations.
+
+## C1. Ideal-model reference values for every causal metric
+
+Revisit the metrics used in XIII-D for:
+
+- Unrelated-donor controls.
+- Restoration experiments.
+- Eligibility own-share.
+- Borrowed-pair attention-row controls.
+- Natural donor interchange.
+- Source-independent patches.
+- Synthetic ablations.
+
+For each metric, calculate or numerically verify its value under an idealized mechanism that exactly implements the proposed relational variable.
+
+An ideal carrier should not fail a specificity test merely because the test is badly defined.
+
+Likewise, a null mechanism should not pass a supposedly discriminating test.
+
+Produce a table reporting:
+
+1. Metric definition.
+2. Ideal-model expected value.
+3. Null or decoy expected value.
+4. Real-model observed value.
+5. Uncertainty.
+6. What the comparison can actually identify.
+
+Correct previous interpretations where necessary.
+
+Preserve the original historical verdicts.
+
+Do not silently rewrite XIII-D's frozen results.
+
+## C2. Measure decoder quality directly
+
+Earlier work showed that decoder filters and encoding patterns can behave differently under activation interventions.
+
+The mathematical reviewer established that this can be expected under correlated noise.
+
+Now measure:
+
+- How well the decoder directions actually decode the target relational information.
+- Held-out predictive performance.
+- Relevant signal and noise covariance.
+- Encoder-pattern performance.
+- Decoder-filter performance under matched interventions.
+
+Use the same neural sites and the same evaluation pairs.
+
+Include a variance-matched random control.
+
+Do not compare unmatched activation magnitudes or neural locations.
+
+Determine whether apparent intervention failures reflect decoding geometry, lack of information, or the actual causal route.
+
+Do not use the phrase "decodable but not used" without an experiment that establishes both sides of that claim.
+
+## C3. Compute principal angles between sufficient subspaces
+
+The previous experiment found several low-dimensional subspaces that were similarly effective in transferring relational information.
+
+Determine how similar those subspaces actually are.
+
+Compare:
+
+- DAS-trained directions.
+- Haufe encoding patterns.
+- Class-conditional mean directions.
+- Decoy-trained directions.
+- Relevant decoder directions.
+- Dimension-matched random directions.
+
+Compute principal angles, projection overlap, and appropriate subspace-similarity measures.
+
+Use correctly matched token sites, normalization, and dimensionality.
+
+A small principal angle is not itself evidence of identical causal function.
+
+A large angle does not imply independent information when the representation is redundant.
+
+Interpret the geometry together with causal interventions.
+
+## C4. Vary subspace dimension from k = 1 to k = 6
+
+The earlier three-dimensional choice was imposed by the experimental design.
+
+Run a dimension sweep:
+
+**k = 1, 2, 3, 4, 5, 6.**
+
+Measure:
+
+- Relational-effect transfer.
+- Reverse-swap necessity.
+- Null-pair preservation.
+- Source-independent excess.
+- Unrelated-decision disruption.
+- Decoy performance.
+- Subspace stability.
+
+Determine whether the result genuinely requires three dimensions, fewer suffice, or several dimensions perform equivalently.
+
+Do not claim a natural three-dimensional neural mechanism solely because a three-dimensional intervention succeeded.
+
+Use independent fitting and evaluation streams.
+
+Avoid repeatedly selecting the best dimension on the confirmation data.
+
+## C5. Reassess previous positive findings
+
+Classify each major XIII-D causal claim as:
+
+- Survives corrected controls.
+- Supported only in a weaker form.
+- Non-diagnostic under the corrected reference.
+- Contradicted by the corrected analysis.
+- Still unresolved.
+
+Pay particular attention to:
+
+- P3's relational carrier.
+- P4's reverse-swap necessity.
+- P6's eligibility specificity.
+- The borrowed-pair attention-row control.
+- Restoration claims.
+- The interpretation of alternative effective subspaces.
+
+The goal is not to increase the number of positive results.
+
+**The goal is to determine exactly what the existing experiments establish.**
+
+---
+
+# 5. STRICTLY DEFERRED QUESTIONS
+
+The following remain important but are not primary obligations in XIII-E:
+
+### The layer-1 depth experiment
+
+XIII-D could not distinguish whether layer-0 adaptation succeeds because of access to information at a different location or because its output passes through additional downstream processing.
+
+A layer-1-plus-extra-block experiment may address that.
+
+Do not launch it in XIII-E unless the three mandatory workstreams are finished and a compelling scientific reason emerges.
+
+### The cause of the early-class decision error
+
+The previous experiments failed to identify the source of early-readout models' excess error.
+
+This remains open.
+
+Do not spend XIII-E's primary training budget on new error-decomposition sweeps.
+
+### Broad cross-family experiments
+
+GATE, TRANS, adaptive-source settings, unknown groups, and the original O/D framework remain part of the larger COR foundational landscape.
+
+Do not launch a new broad investigation of these families inside XIII-E.
+
+After XIII-E, use the results to decide whether to deepen the current mechanism or move outward toward a multidimensional Investigation XIV.
+
+These deferred questions must remain explicitly recorded.
+
+---
+
+# 6. COMPUTATIONAL EXECUTION AND RESOURCE CONTROL
+
+Environment: approximately two CPU cores and eight gigabytes of memory, unless verified otherwise.
+
+XIII-D suffered repeated out-of-memory kills.
+
+**Do not repeat that failure pattern.**
+
+## Memory management
+
+Before launching the full training queue:
+
+1. Measure the peak resident memory of one training run.
+2. Measure the memory required by concurrent analysis.
+3. Determine safe concurrency empirically.
+4. Set a fixed concurrency limit with a safety margin.
+5. Monitor memory throughout execution.
+
+An upper bound of approximately five concurrent jobs may be considered, but only if measured memory use supports it.
+
+On two CPU cores, excessive concurrency may reduce throughput rather than increase it.
+
+Prefer fewer reliable jobs over repeated out-of-memory failures.
+
+Never assume four simultaneous jobs are faster without measuring actual throughput.
+
+## Training schedule
+
+Launch the 64 re-roll runs early.
+
+Run mathematical analysis and preparation of the mask controls while training proceeds, but avoid memory contention.
+
+Queue the short-window and sham experiments after development validation and protocol freezing.
+
+Finish the prespecified long training subset.
+
+Do not quietly change job schedules or experiment definitions based on early confirmation outcomes.
+
+## Execution time
+
+The primary re-roll screen was estimated at approximately 3–4 hours on the previous machine.
+
+Treat that as an estimate requiring a throughput benchmark, not a guaranteed duration.
+
+The complete investigation may require additional time for masking runs, analysis, review, and verification.
+
+Do not impose unnecessary extra training merely to meet an eight-hour target.
+
+Equally, do not stop while essential scheduled tests remain unfinished.
+
+**Completion is defined by scientific evidence and verification, not hours spent.**
+
+---
+
+# 7. PROTOCOL FREEZING AND PREVENTING INTERIM SCORING
+
+**Mandatory process correction.**
+
+XIII-D's sequential freeze procedure allowed partial scoring and influenced later hypothesis development.
+
+Implement a stronger separation.
+
+## 7.1 Freeze before confirmation outcomes
+
+Record and hash:
+
+- The complete 64-run seed matrix.
+- Anchor-selection rules.
+- Re-draw procedures.
+- Training configurations.
+- Step-1211 measures.
+- Full-length continuation selection.
+- Masking conditions.
+- Sham conditions.
+- Critical-period controls.
+- Evaluation streams.
+- Success and failure criteria.
+- Analysis scripts.
+- Planned statistical comparisons.
+
+Use development results for threshold calibration.
+
+Do not use confirmation outcomes to alter thresholds.
+
+## 7.2 Make incomplete scoring impossible
+
+Modify the confirmation scorer so it refuses to evaluate a freeze unless:
+
+- Every required output exists.
+- Every output matches its expected configuration.
+- Every required run has completed.
+- File integrity checks pass.
+- All preregistered diagnostic arms are present.
+
+Use a machine-readable frozen manifest.
+
+The scorer must fail closed if a file is absent or incomplete.
+
+Do not produce partial verdicts with missing experiments silently counted as failures or successes.
+
+If exploratory monitoring is necessary, use separate non-confirmation monitoring scripts that cannot access or produce the frozen verdict.
+
+## 7.3 Handle later scientific discoveries honestly
+
+If an unexpected result motivates a new hypothesis after confirmation outcomes are inspected, label that hypothesis post hoc or exploratory.
+
+A subsequent independent validation can be frozen separately.
+
+Do not call a prediction independent merely because its scorer was frozen after earlier confirmation results were seen.
+
+Preserve the chronology.
+
+---
+
+# 8. PRE-REGISTERED SCIENTIFIC TESTS
+
+Freeze approximately four to six genuinely discriminating predictions.
+
+The exact criteria must follow appropriate development and mathematical preflight.
+
+Suggested structure:
+
+**R1 — Re-roll probability**
+
+A defined conditional comparison of W and L re-draws is consistent with, or meaningfully departs from, the preregistered re-roll null model.
+
+**R2 — Structured initialization**
+
+A specified joint initialization statistic predicts held-out outcomes beyond parent-specific baseline frequencies.
+
+Only include this prediction if development analysis identifies a justified statistic before confirmation.
+
+**R3 — Early mask specificity**
+
+A real pathway mask produces a change that exceeds the sham and general-disturbance controls under matched conditions.
+
+**R4 — Critical-window sensitivity**
+
+Short and late interventions produce a preregistered pattern that distinguishes a specifically early selection effect from general training disruption.
+
+**R5 — Carrier geometry**
+
+A specified subspace relationship, dimensionality pattern, or corrected ideal-reference contrast holds under independent evaluation.
+
+**R6 — Measurement specificity**
+
+The corrected metric distinguishes the real relational mechanism from ideal, null, and decoy references in the predicted manner.
+
+Do not force all suggested predictions into the final protocol if they are non-diagnostic.
+
+A useful experiment can be exploratory when its hypothesis was generated from observed data.
+
+Distinguish:
+
+- Numerical pass.
+- Discriminating confirmation.
+- Non-diagnostic pass.
+- Falsification.
+- Inconclusive evidence.
+- Protocol deviation.
+
+Do not inflate confirmation by counting correlated metrics as independent discoveries.
+
+---
+
+# 9. STATISTICAL REQUIREMENTS
+
+The central scientific problem involves probabilities of learned solutions.
+
+Treat that seriously.
+
+Report:
+
+- All 64 re-roll outcomes.
+- Parent and anchor identifiers.
+- W and L re-draw types.
+- Continuous mechanism measures.
+- Categorical classifications.
+- Parent-specific baseline rates.
+- Confidence or credible intervals.
+- Relevant effect sizes.
+- Conditional comparisons.
+- Uncertainty due to small parent counts.
+- Step-1211 versus step-4000 classification stability.
+- Sham and real-mask contrasts.
+- Training competence.
+- Sensitivity to borderline thresholds.
+
+Use appropriate binomial or hierarchical analyses.
+
+Do not treat multiple draws sharing a pretrained parent and fixed initialization component as independently pretrained observations.
+
+Do not turn "not statistically significant" into "proven equivalent."
+
+Where the available sample is insufficient to rule out a meaningful structured effect, explicitly report that limitation.
+
+The scientific decision must depend on observed effect sizes and uncertainty, not a preferred narrative.
+
+---
+
+# 10. INDEPENDENT ADVERSARIAL REVIEW
+
+Run separate reviewer agents where available.
+
+At least two review perspectives are required.
+
+### Reviewer A — Statistical and mathematical validity
+
+Examine:
+
+- Re-roll null definition.
+- Anchor-selection bias.
+- Statistical independence.
+- Confidence intervals.
+- Model comparisons.
+- Ideal-reference calculations.
+- Principal angles.
+- Decoder and encoding geometry.
+- Dimension-sweep interpretation.
+
+The reviewer must specifically check whether the experiment can actually distinguish re-roll from structured selection.
+
+### Reviewer B — Mechanisms and experimental controls
+
+Examine:
+
+- Randomization independence.
+- Mask implementation.
+- Sham validity.
+- Severity matching.
+- Training competence.
+- Continuous class measurements.
+- Subspace causal tests.
+- Whether proposed conclusions exceed the evidence.
+
+### Reviewer C — Experimental integrity, if available
+
+Check:
+
+- Freeze chronology.
+- Confirmation-output access.
+- Partial-scoring prevention.
+- Command and configuration hashes.
+- Missing or repeated runs.
+- Training and checkpoint reproducibility.
+- Memory-related failures.
+- ZIP integrity.
+
+Reviewers must have access to real scripts and results.
+
+Preserve criticisms and adjudications.
+
+Do not describe independent-agent reviews as external human peer review.
+
+---
+
+# 11. REQUIRED RESEARCH ARTIFACTS
+
+Create the branch:
+
+`cor-phase15-step1-reroll-and-critical-period-validation`
+
+Create the directory:
+
+`docs/research_audits/cor_phase15/step1_reroll_and_critical_period_validation/`
+
+Required documents:
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+Scientific outcomes, evidence classifications, corrected interpretations, remaining uncertainty, and implications for COR.
+
+### REROLL_VS_STRUCTURE.md
+
+The exact null hypothesis, 64-run design, training results, parent-specific probabilities, statistical comparisons, step-1211 stability, and conclusions about initialization structure.
+
+### EARLY_TRAINING_CAUSALITY.md
+
+Sham interventions, 25/50/100-step masks, severity-matched late tests, route-specific effects, competence, and critical-period interpretations.
+
+### CAUSAL_METRIC_AND_SUBSPACE_AUDIT.md
+
+Ideal-reference calculations, decoder quality, variance-matched controls, principal angles, k=1–6 sweep, and reassessment of previous mechanism claims.
+
+### FROZEN_PROTOCOL_AND_STATISTICS.md
+
+Prediction-freeze records, full experiment inventory, thresholds, statistical estimates, failed tests, non-diagnostic results, and protocol deviations.
+
+### COR_FOUNDATIONAL_NAVIGATION.md
+
+What the new results imply for research direction.
+
+Separate:
+
+- Evidence favoring a re-roll model.
+- Evidence for structured initialization.
+- Evidence about early training sensitivity.
+- Causal measurements that remain trustworthy.
+- Questions requiring different tasks or architectures.
+- Deferred T4 questions.
+- Broader COR directions.
+
+Do not interpret this navigation document as a phase transition.
+
+Also include:
+
+- Full executable scripts.
+- Training configurations.
+- Random seeds.
+- All new model checkpoints.
+- Raw outcomes.
+- Mathematical calculations.
+- Statistical scripts.
+- Resource logs.
+- Reviewer reports.
+- Adjudication.
+- Freeze hashes.
+- SHA-256 manifest.
+- Exact dependencies.
+- Reproduction instructions.
+
+Do not create ceremonial reports or omit failed runs.
+
+---
+
+# 12. MANDATORY VERIFIED ZIP
+
+Deliver:
+
+`cor_inv13e_reroll_critical_period_and_causal_audit.zip`
+
+This must contain the new research artifacts, not merely summaries.
+
+Before delivery:
+
+1. Extract into a clean temporary directory.
+2. Verify every file covered by the manifest.
+3. Verify the entire 64-run training inventory.
+4. Recompute the primary re-roll probabilities.
+5. Reproduce the principal statistical comparisons.
+6. Recompute step-1211 classifications.
+7. Verify the selected 4000-step continuations.
+8. Replay representative sham and real-mask results.
+9. Recompute ideal-model metric references.
+10. Recompute decoder and principal-angle analyses.
+11. Recompute the k=1–6 results.
+12. Reproduce the frozen prediction verdicts.
+13. Verify that incomplete scoring is correctly refused.
+14. Check all required external dependencies by exact hash.
+
+Disclose any unavailable dependency or failed replay.
+
+Do not call the archive standalone if earlier COR packages are required.
+
+Provide the ZIP and main synthesis separately.
+
+The final response must identify:
+
+- Branch and HEAD.
+- Frozen protocol commit.
+- Number of training runs actually completed.
+- Number of independent pretrained parents.
+- Principal results.
+- Confidence intervals and limitations.
+- Confirmed and falsified predictions.
+- Non-diagnostic outcomes.
+- Protocol deviations.
+- Reviewer findings.
+- Reproducibility results.
+- Exact ZIP location.
+
+---
+
+# 13. REQUIRED FINAL ANSWERS
+
+Answer these questions directly.
+
+1. Is there convincing evidence that changing fresh initialization produces more than another re-roll of the possible learned solutions?
+
+2. What are the observed probabilities of early, mixture, and hybrid outcomes under W and L re-draws?
+
+3. Do those probabilities differ depending on whether the original configuration was early or mixture?
+
+4. Are the apparent differences larger than expected from parent-specific baselines, anchor selection, and sampling variation?
+
+5. Does step-1211 organization reliably predict the final 4000-step organization?
+
+6. Is there any validated joint W–L initialization property that predicts the resulting algorithm?
+
+7. Does brief pathway masking have a route-specific effect beyond a sham disturbance?
+
+8. What happens with 25-, 50-, and 100-step interventions?
+
+9. Can a severity-matched late intervention produce the same lasting change?
+
+10. Is there evidence for a specifically early critical period, or only general optimization sensitivity?
+
+11. What do the corrected ideal-model references reveal about the previous causal-intervention metrics?
+
+12. How well do the decoder directions actually decode, and what does their causal failure mean after variance matching?
+
+13. How geometrically similar are the different successful relational subspaces?
+
+14. Is three-dimensionality a genuine experimental finding, or merely one successful choice among k=1–6?
+
+15. Which major causal claims from XIII-D survive stronger measurement controls?
+
+16. Which previously reported results should be downgraded, retracted, or treated as inconclusive?
+
+17. Does the evidence justify deeper work on T4 initialization structure, or would broader cross-family testing now have higher scientific value?
+
+18. What precisely remains unresolved before COR can make stronger mathematical and mechanistic claims?
+
+For each answer, distinguish:
+
+- Mathematical proof.
+- Numerical verification.
+- Development evidence.
+- Frozen confirmation.
+- Exploratory analysis.
+- Inference or speculation.
+
+A negative answer is acceptable.
+
+An unsupported answer is not.
+
+---
+
+# 14. FINAL SCIENTIFIC DIRECTIVE
+
+Investigations XIII-C and XIII-D established that the choice of neural decision implementation is sensitive to initialization and early training conditions.
+
+But our attempt to identify a simple component-level cause failed.
+
+Before constructing another complex explanation, we must answer the simpler question:
+
+**Does the observed selection behavior have reproducible structure beyond repeated random re-drawing of fresh model components?**
+
+This is the primary purpose of XIII-E.
+
+Complete the controlled 64-run experiment.
+
+Measure probabilities and uncertainty.
+
+Test whether apparently special seed combinations are genuinely special.
+
+Establish whether brief training interventions have route-specific effects under sham and severity-matched controls.
+
+Correct the causal measurements before relying on them in future mathematical or mechanistic arguments.
+
+Do not protect previous hypotheses.
+
+Do not manufacture a new mechanism if the evidence favors a simpler statistical explanation.
+
+Do not interpret inconclusive data as proof of randomness.
+
+Do not treat a failed prediction as a failed investigation when it eliminates an incorrect scientific theory.
+
+**If the results support re-roll, report that clearly and identify the remaining limits of the conclusion.**
+
+**If the results support structure, show exactly what distinguishes it from re-roll and validate that distinction on held-out runs.**
+
+**If the results are mixed or inconclusive, report the actual uncertainty rather than forcing a decision.**
+
+After these questions are settled as far as the available resources permit, COR can make a better-informed decision about whether to continue investigating this local mechanism or expand into the wider multidimensional scientific territory.
+
+The deferred questions—including layer-1 depth, early-class errors, GATE, TRANS, adaptive sources, and the original obstruction/discrepancy theory—remain on the foundational research map.
+
+They must not be declared resolved.
+
+**Remain in Phase 1.5, Step 1, at the provisional 25% foundational-exploration estimate.**
+
+Do not select a final thesis or advance phases.
+
+**Carry out the experiments rigorously, preserve the falsifications, obtain adversarial review, verify the complete ZIP, and deliver the actual research artifacts.**

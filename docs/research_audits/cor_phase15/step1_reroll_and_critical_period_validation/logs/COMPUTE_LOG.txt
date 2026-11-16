@@ -1,0 +1,1 @@
+2026-11-16T00:53:59Z XIII-E start. Branch cor-phase15-step1-reroll-and-critical-period-validation from 9f1bb83 (verified local and remote). Machine: 2 CPUs, 8 GB. Harness copied from XIII-D (src/, ft_factorial, unit_metrics, route_status, c_carrier, lane2, gates).

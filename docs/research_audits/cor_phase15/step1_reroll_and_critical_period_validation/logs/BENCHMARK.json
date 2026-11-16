@@ -1,0 +1,25 @@
+{
+ "single": {
+  "steps": 300,
+  "wall_s": 91,
+  "peak_rss_kb": 792384
+ },
+ "two": {
+  "wall_s": 147,
+  "agg_steps_per_s": 4.08,
+  "peak_rss_kb": [
+   765596,
+   780404
+  ]
+ },
+ "three": {
+  "wall_s": 230,
+  "agg_steps_per_s": 3.91,
+  "peak_rss_kb": [
+   778532,
+   778636,
+   770184
+  ]
+ },
+ "note": "uP161 21/21/21 FX_STOP=300; XLA single-threaded; machine 2 CPUs 8 GB; decision: 2 training lanes + at most 1 light analysis job"
+}

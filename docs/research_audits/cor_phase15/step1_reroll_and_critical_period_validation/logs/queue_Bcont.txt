@@ -1,0 +1,4 @@
+bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_ro0T100_stop1211_B_ro0100/stop_done.json -- FX_BRANCH=uP160_fx_L21_W21_D801_ro0T100_stop1211_B_ro0100:1211 FX_TAGSUF=_B_ro0100 python3 scripts/ft_factorial_b.py uP160 21 21 801
+bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_stop1211_B_base/stop_done.json -- FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:1211 FX_TAGSUF=_B_base python3 scripts/ft_factorial_b.py uP160 21 21 801
+bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_l2qT100_stop1211_B_l2q100/stop_done.json -- FX_BRANCH=uP160_fx_L23_W23_D801_l2qT100_stop1211_B_l2q100:1211 FX_TAGSUF=_B_l2q100 python3 scripts/ft_factorial_b.py uP160 23 23 801
+bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_stop1211_B_base/stop_done.json -- FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:1211 FX_TAGSUF=_B_base python3 scripts/ft_factorial_b.py uP160 23 23 801

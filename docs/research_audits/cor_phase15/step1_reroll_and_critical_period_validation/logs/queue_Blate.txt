@@ -1,0 +1,8 @@
+FX_INTERV=ro0p:0 FX_RO0P=2 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 FX_TAGSUF=_B_lro0p python3 scripts/ft_factorial_b.py uP160 21 21 21
+FX_INTERV=noise:0 FX_NOISE=4.0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D21_base:546 FX_TAGSUF=_B_lnoise python3 scripts/ft_factorial_b.py uP160 21 21 21
+bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_stop1211_B_base/opt_step546.pkl -- FX_INTERV=ro0p:0 FX_RO0P=2 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:546 FX_TAGSUF=_B_lro0p python3 scripts/ft_factorial_b.py uP160 21 21 801
+bash scripts/when_file.sh checkpoints/ft/uP160_fx_L21_W21_D801_stop1211_B_base/opt_step546.pkl -- FX_INTERV=noise:0 FX_NOISE=4.0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L21_W21_D801_stop1211_B_base:546 FX_TAGSUF=_B_lnoise python3 scripts/ft_factorial_b.py uP160 21 21 801
+FX_INTERV=l2q:0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_TAGSUF=_B_ll2q python3 scripts/ft_factorial_b.py uP160 23 23 23
+FX_INTERV=noise:0 FX_NOISE=2.06 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D23_base:546 FX_TAGSUF=_B_lnoise python3 scripts/ft_factorial_b.py uP160 23 23 23
+bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_stop1211_B_base/opt_step546.pkl -- FX_INTERV=l2q:0 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:546 FX_TAGSUF=_B_ll2q python3 scripts/ft_factorial_b.py uP160 23 23 801
+bash scripts/when_file.sh checkpoints/ft/uP160_fx_L23_W23_D801_stop1211_B_base/opt_step546.pkl -- FX_INTERV=noise:0 FX_NOISE=2.06 FX_IWIN=546:1146 FX_BRANCH=uP160_fx_L23_W23_D801_stop1211_B_base:546 FX_TAGSUF=_B_lnoise python3 scripts/ft_factorial_b.py uP160 23 23 801

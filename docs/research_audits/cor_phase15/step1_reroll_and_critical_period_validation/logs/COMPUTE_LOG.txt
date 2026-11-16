@@ -10,3 +10,10 @@
 2026-11-16T01:37:10Z lane TA2 start [9c2c28793002] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 602 21
 2026-11-16T01:37:11Z lane TA1 end [20b691103434] rc=0
 2026-11-16T01:37:11Z lane TA1 start [6f206bb35e28] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 602 23
+2026-11-16T01:37:32Z FREEZE A-2 committed a4f66b7.
+2026-11-16T01:39:08Z NOTE: B interventions (sham, ro0p, noise) were first added to scripts/ft_factorial.py at ~01:38Z, then moved to scripts/ft_factorial_b.py and ft_factorial.py restored to its frozen hash (f48b46e3...) within ~2 min; no re-roll run started in that window (A starts at 01:37:10/11Z, next after restore).
+2026-11-16T01:50:39Z lane TA2 end [9c2c28793002] rc=0
+2026-11-16T01:50:39Z lane TA2 start [ba443224ed50] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 22 602 22
+2026-11-16T01:50:40Z lane TA1 end [6f206bb35e28] rc=0
+2026-11-16T01:50:40Z lane TA1 start [426903dce480] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 602 21
+2026-11-16T01:57:57Z B development: sham (masked path, zero bias) is bitwise identical to plain training at step 25 -> sham kept only for D=801 (full-length check). Calibration logs/b_calib.json.

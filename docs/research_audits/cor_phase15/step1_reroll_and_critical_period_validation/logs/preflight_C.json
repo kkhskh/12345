@@ -1,0 +1,31 @@
+{
+ "P0": {
+  "o": {
+   "R5": "CONFIRMED",
+   "R6": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N1": {
+  "o": {
+   "R5": "FALSIFIED",
+   "R6": "CONFIRMED"
+  },
+  "ok": true
+ },
+ "N2": {
+  "o": {
+   "R5": "CONFIRMED",
+   "R6": "FALSIFIED"
+  },
+  "ok": true
+ },
+ "N3": {
+  "rc": 2,
+  "ok": true
+ },
+ "N4": {
+  "rc": 2,
+  "ok": true
+ }
+}

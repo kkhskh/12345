@@ -14,3 +14,5 @@
 [uP161_fx_L22_W602_D22_stop1211] step 600 loss 0.5743 344s
 [uP161_fx_L22_W602_D22_stop1211] step 800 loss 0.5755 456s
 [uP161_fx_L22_W602_D22_stop1211] step 813 loss 0.5976 462s
+[uP161_fx_L22_W602_D22_stop1211] step 1000 loss 0.5598 559s
+[uP161_fx_L22_W602_D22_stop1211] step 1211 loss 0.5192 707s

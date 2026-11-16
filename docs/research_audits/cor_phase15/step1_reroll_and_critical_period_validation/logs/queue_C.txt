@@ -1,0 +1,2 @@
+CA_CKDIR=adapt4_carrier CA_STREAM=96200000 python3 scripts/c_audit.py uP160:s:23
+bash scripts/when_file.sh logs/FREEZE_C.flag -- CA_CKDIR=adapt4_carrier CA_STREAM=96200000 python3 scripts/c_audit.py uP165:s:21

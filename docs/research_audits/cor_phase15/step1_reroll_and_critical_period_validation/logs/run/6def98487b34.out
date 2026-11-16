@@ -1,0 +1,19 @@
+checkpoint: /home/claude/12345/docs/research_audits/cor_phase15/step1_reroll_and_critical_period_validation/src/../../step1_causal_algorithm_selection_validation/checkpoints/adapt4_carrier/uP160_s_23_early01_b0.6_lr0.001.npz
+E1116 02:28:41.267447    3661 slow_operation_alarm.cc:74] 
+********************************
+[Compiling module jit_lossf for CPU] Very slow compile? If you want to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+********************************
+E1116 02:28:43.287014    3576 slow_operation_alarm.cc:141] The operation took 2m2.023031476s
+
+********************************
+[Compiling module jit_lossf for CPU] Very slow compile? If you want to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+********************************
+C2 {'token_ridge_decoder_R2_m': 0.501, 'proj_R2_m_DEC_m': 0.859, 'proj_R2_m_ENC_m': 0.859, 'proj_R2_m_CCD_m': 0.855, 'proj_R2_m_DEC_r': 0.74, 'proj_R2_m_ENC_r': 0.727, 'proj_R2_m_DAS': 0.78, 'proj_R2_m_DAS_DECOY': 0.741, 'proj_R2_m_RAND0': 0.584, 'proj_R2_m_VMRAND0': 0.644, 'token_ridge_decoder_R2_logr': 0.397, 'proj_R2_logr_DEC_m': 0.738, 'proj_R2_logr_ENC_m': 0.8, 'proj_R2_logr_CCD_m': 0.812, 'proj_R2_logr_DEC_r': 0.793, 'proj_R2_logr_ENC_r': 0.778, 'proj_R2_logr_DAS': 0.801, 'proj_R2_logr_DAS_DECOY': 0.768, 'proj_R2_logr_RAND0': 0.644, 'proj_R2_logr_VMRAND0': 0.688}
+C3 {'DAS|DAS_s2': 0.417, 'DAS|DAS_DECOY': 0.325, 'DAS|ENC_m': 0.402, 'DAS|ENC_r': 0.319, 'DAS|CCD_m': 0.394, 'DAS|DEC_m': 0.053, 'DAS|DEC_r': 0.037, 'DAS|RAND0': 0.049, 'DAS|VMRAND0': 0.163}
+TRACE {'DAS': {'keys_only': 0.885761022567749, 'queries_only': 0.022819912061095238, 'values_only': 0.024939747527241707, 'keys_and_queries': 0.9618818163871765}, 'DAS_s2': {'keys_only': 0.8983646631240845, 'queries_only': 0.018491709604859352, 'values_only': 0.025032704696059227, 'keys_and_queries': 0.96043461561203}, 'ENC_m': {'keys_only': 0.8880302309989929, 'queries_only': 0.023782378062605858, 'values_only': 0.04349655285477638, 'keys_and_queries': 0.9555664658546448}, 'DAS_DECOY': {'keys_only': 0.9189082980155945, 'queries_only': 0.010696232318878174, 'values_only': 0.03551561012864113, 'keys_and_queries': 0.958463191986084}}
+k 1 {'SUFF_slope': 0.865, 'SUFF_R2': 0.853, 'reverse_remaining': 0.076, 'null_rel_JD0': 0.064, 'null_rel_DEC': 0.03, 'unrelated_donor_slope': 0.684, 'unrelated_donor_R2': 0.299, 'meanrep_damage_KL': 0.591, 'decoy_DAS_SUFF_slope': 0.742, 'seed_stability_mean_cos': 0.995}
+k 2 {'SUFF_slope': 0.896, 'SUFF_R2': 0.874, 'reverse_remaining': 0.063, 'null_rel_JD0': 0.066, 'null_rel_DEC': 0.03, 'unrelated_donor_slope': 0.702, 'unrelated_donor_R2': 0.31, 'meanrep_damage_KL': 0.639, 'decoy_DAS_SUFF_slope': 0.786, 'seed_stability_mean_cos': 0.802}
+k 3 {'SUFF_slope': 0.905, 'SUFF_R2': 0.882, 'reverse_remaining': 0.061, 'null_rel_JD0': 0.067, 'null_rel_DEC': 0.03, 'unrelated_donor_slope': 0.705, 'unrelated_donor_R2': 0.308, 'meanrep_damage_KL': 0.569, 'decoy_DAS_SUFF_slope': 0.801, 'seed_stability_mean_cos': 0.506}
+k 4 {'SUFF_slope': 0.914, 'SUFF_R2': 0.886, 'reverse_remaining': 0.057, 'null_rel_JD0': 0.068, 'null_rel_DEC': 0.031, 'unrelated_donor_slope': 0.706, 'unrelated_donor_R2': 0.309, 'meanrep_damage_KL': 0.648, 'decoy_DAS_SUFF_slope': 0.804, 'seed_stability_mean_cos': 0.485}
+k 5 {'SUFF_slope': 0.918, 'SUFF_R2': 0.888, 'reverse_remaining': 0.055, 'null_rel_JD0': 0.068, 'null_rel_DEC': 0.03, 'unrelated_donor_slope': 0.706, 'unrelated_donor_R2': 0.313, 'meanrep_damage_KL': 0.668, 'decoy_DAS_SUFF_slope': 0.82, 'seed_stability_mean_cos': 0.436}
+k 6 {'SUFF_slope': 0.924, 'SUFF_R2': 0.889, 'reverse_remaining': 0.052, 'null_rel_JD0': 0.068, 'null_rel_DEC': 0.031, 'unrelated_donor_slope': 0.717, 'unrelated_donor_R2': 0.317, 'meanrep_damage_KL': 0.664, 'decoy_DAS_SUFF_slope': 0.838, 'seed_stability_mean_cos': 0.438}

@@ -14,3 +14,5 @@
 [uP161_fx_L21_W602_D21_stop1211] step 600 loss 0.5900 347s
 [uP161_fx_L21_W602_D21_stop1211] step 800 loss 0.5643 460s
 [uP161_fx_L21_W602_D21_stop1211] step 813 loss 0.5384 466s
+[uP161_fx_L21_W602_D21_stop1211] step 1000 loss 0.5700 562s
+[uP161_fx_L21_W602_D21_stop1211] step 1211 loss 0.5208 707s

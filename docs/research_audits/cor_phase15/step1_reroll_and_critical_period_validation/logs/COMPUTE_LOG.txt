@@ -17,3 +17,62 @@
 2026-11-16T01:50:40Z lane TA1 end [6f206bb35e28] rc=0
 2026-11-16T01:50:40Z lane TA1 start [426903dce480] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 602 21
 2026-11-16T01:57:57Z B development: sham (masked path, zero bias) is bitwise identical to plain training at step 25 -> sham kept only for D=801 (full-length check). Calibration logs/b_calib.json.
+2026-11-16T01:59:48Z FREEZE B committed b710b38. Lane TB1 on queue_B.txt (third training lane; aggregate throughput nearly unchanged: benchmark 3.9 vs 4.1 steps/s).
+2026-11-16T01:59:48Z lane TB1 start [7a7ba5938d61] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=546,1211 FX_TAGSUF=_B_base python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T02:01:31Z lane CA1 start [6def98487b34] CA_CKDIR=adapt4_carrier CA_STREAM=96200000 python3 scripts/c_audit.py uP160:s:23
+2026-11-16T02:01:31Z Workstream C carrier audit (c_audit.py, analysis only, niced) lane CA1 on queue_C.txt.
+2026-11-16T02:02:36Z lane TA2 end [ba443224ed50] rc=0
+2026-11-16T02:02:36Z lane TA2 start [4c9f07772192] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 603 21
+2026-11-16T02:02:36Z lane TA1 end [426903dce480] rc=0
+2026-11-16T02:02:36Z lane TA1 start [9821479b7d75] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 603 23
+2026-11-16T02:14:22Z lane TB1 end [7a7ba5938d61] rc=0
+2026-11-16T02:14:22Z lane TB1 start [55ab1903abaf] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=546,1211 FX_TAGSUF=_B_base python3 scripts/ft_factorial_b.py uP160 21 21 802
+2026-11-16T02:16:56Z lane TA1 end [9821479b7d75] rc=0
+2026-11-16T02:16:56Z lane TA1 start [098f124010eb] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 22 603 22
+2026-11-16T02:17:01Z lane TA2 end [4c9f07772192] rc=0
+2026-11-16T02:17:01Z lane TA2 start [08fcaf1f478e] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 603 21
+2026-11-16T02:28:54Z lane TB1 end [55ab1903abaf] rc=0
+2026-11-16T02:28:54Z lane TB1 start [7f581c20754c] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=546,1211 FX_TAGSUF=_B_base python3 scripts/ft_factorial_b.py uP160 23 23 801
+2026-11-16T02:31:21Z lane TA1 end [098f124010eb] rc=0
+2026-11-16T02:31:21Z lane TA1 start [59096fd0675a] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 604 21
+2026-11-16T02:31:31Z lane TA2 end [08fcaf1f478e] rc=0
+2026-11-16T02:31:31Z lane TA2 start [4f94f2bfde17] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 604 23
+2026-11-16T02:43:45Z lane TB1 end [7f581c20754c] rc=0
+2026-11-16T02:43:45Z lane TB1 start [4b362bfdc0ef] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=546,1211 FX_TAGSUF=_B_base python3 scripts/ft_factorial_b.py uP160 23 23 802
+2026-11-16T02:45:53Z lane TA1 end [59096fd0675a] rc=0
+2026-11-16T02:45:53Z lane TA1 start [dbfa74405868] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 22 604 22
+2026-11-16T02:46:17Z lane TA2 end [4f94f2bfde17] rc=0
+2026-11-16T02:46:17Z lane TA2 start [93ed56c99a2c] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 604 21
+2026-11-16T02:58:12Z lane TB1 end [4b362bfdc0ef] rc=0
+2026-11-16T02:58:12Z lane TB1 start [710fc2d26b47] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:25 FX_TAGSUF=_B_ro025 python3 scripts/ft_factorial_b.py uP160 21 21 21
+2026-11-16T03:00:29Z lane TA1 end [dbfa74405868] rc=0
+2026-11-16T03:00:29Z lane TA1 start [b57ec3a58386] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 605 21
+2026-11-16T03:00:59Z lane TA2 end [93ed56c99a2c] rc=0
+2026-11-16T03:00:59Z lane TA2 start [42cb7bd05046] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 605 23
+2026-11-16T03:13:42Z lane TB1 end [710fc2d26b47] rc=0
+2026-11-16T03:13:42Z lane TB1 start [d54461ee116c] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:50 FX_TAGSUF=_B_ro050 python3 scripts/ft_factorial_b.py uP160 21 21 21
+2026-11-16T03:16:25Z lane TA1 end [b57ec3a58386] rc=0
+2026-11-16T03:16:25Z lane TA1 start [c9b319a415d1] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 22 605 22
+2026-11-16T03:16:54Z lane TA2 end [42cb7bd05046] rc=0
+2026-11-16T03:16:54Z lane TA2 start [426a47560a5f] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 605 21
+2026-11-16T03:29:35Z lane TB1 end [d54461ee116c] rc=0
+2026-11-16T03:29:35Z lane TB1 start [6bd1690f5d08] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:100 FX_TAGSUF=_B_ro0100 python3 scripts/ft_factorial_b.py uP160 21 21 21
+2026-11-16T03:32:07Z lane TA1 end [c9b319a415d1] rc=0
+2026-11-16T03:32:07Z lane TA1 start [ee4db56536b2] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 606 21
+2026-11-16T03:32:53Z lane TA2 end [426a47560a5f] rc=0
+2026-11-16T03:32:53Z lane TA2 start [3d57c5ba6f64] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 606 23
+2026-11-16T03:34:11Z queue_C.txt line 2 (C-C2 audit) gated in place on logs/FREEZE_C.flag, so that R5/R6 (predictions for C-C2 from the C-C1 audit as development) are frozen before C-C2 is analysed.
+2026-11-16T03:45:13Z lane TB1 end [6bd1690f5d08] rc=0
+2026-11-16T03:45:13Z lane TB1 start [ffee29905aa0] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=noise:100 FX_NOISE=2.323 FX_TAGSUF=_B_noise100m python3 scripts/ft_factorial_b.py uP160 21 21 21
+2026-11-16T03:47:48Z lane TA1 end [ee4db56536b2] rc=0
+2026-11-16T03:47:48Z lane TA1 start [011b558f04bf] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 22 606 22
+2026-11-16T03:48:51Z lane TA2 end [3d57c5ba6f64] rc=0
+2026-11-16T03:48:51Z lane TA2 start [784e00d34c42] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP161 21 606 21
+2026-11-16T03:54:56Z lane CA1 end [6def98487b34] rc=0
+2026-11-16T03:54:56Z lane CA1 start [6e299ff74930] bash scripts/when_file.sh logs/FREEZE_C.flag -- CA_CKDIR=adapt4_carrier CA_STREAM=96200000 python3 scripts/c_audit.py uP165:s:21
+2026-11-16T04:00:11Z lane TB1 end [ffee29905aa0] rc=0
+2026-11-16T04:00:11Z lane TB1 start [0bb43d23ed6a] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 FX_INTERV=ro0:25 FX_TAGSUF=_B_ro025 python3 scripts/ft_factorial_b.py uP160 21 21 801
+2026-11-16T04:02:19Z lane TA1 end [011b558f04bf] rc=0
+2026-11-16T04:02:19Z lane TA1 start [6385b91cd25d] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 21 607 21
+2026-11-16T04:03:21Z lane TA2 end [784e00d34c42] rc=0
+2026-11-16T04:03:21Z lane TA2 start [2adf795c32f9] FX_STOP=1211 FX_SAVEOPT=1 FX_SAVEOPT_AT=1211 python3 scripts/ft_factorial.py uP160 23 607 23

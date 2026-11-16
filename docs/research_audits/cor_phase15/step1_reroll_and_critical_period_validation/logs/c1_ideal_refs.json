@@ -1,0 +1,145 @@
+{
+ "propS_check": 4.9404924595819466e-15,
+ "carrier": {
+  "SUFF": {
+   "ideal_slope": 0.9999999999999999,
+   "ideal_R2": 1.0,
+   "ideal_slope_CI": [
+    0.9999999999999997,
+    1.0000000000000002
+   ],
+   "null_slope": 0.0
+  },
+  "unrelated_donor(SRCF)": {
+   "ideal_slope": 0.7195853262716232,
+   "ideal_R2": 0.2877795276154761,
+   "ideal_slope_CI": [
+    0.6780595338335415,
+    0.7635399274612876
+   ],
+   "null_slope": 0.0
+  },
+  "reverse(donor run with base projection)": {
+   "ideal_slope": -3.8427649469394943e-16,
+   "ideal_R2": 0.0640505796841665,
+   "ideal_slope_CI": [
+    -4.258335796252728e-16,
+    -3.4078191065652045e-16
+   ],
+   "null_slope": 1.0
+  },
+  "restore(base meanrep, donor intact)": {
+   "ideal_slope": 0.4624279761889442,
+   "ideal_R2": 0.3323786939721286,
+   "ideal_slope_CI": [
+    0.44038381456239395,
+    0.4858079813090141
+   ],
+   "null_slope": 1.0
+  },
+  "meanrep_both_remaining": {
+   "ideal_slope": 3.746072770704924e-16,
+   "ideal_R2": 0.052008332683208036,
+   "ideal_slope_CI": [
+    3.1262931374622475e-16,
+    4.3451260453891327e-16
+   ],
+   "null_slope": 1.0
+  },
+  "DAS_minus_SRCF_excess": {
+   "ideal": 0.2804146737283767,
+   "null": 0.0
+  },
+  "meanrep_damage_KL": {
+   "ideal": 0.3473155880631068,
+   "ideal_CI": [
+    0.3311090623961896,
+    0.3636439476505588
+   ],
+   "null": 0.0
+  },
+  "zero_ablation_damage_KL": {
+   "ideal": 0.3471451800634446,
+   "ideal_CI": [
+    0.3309501461096157,
+    0.363547872967111
+   ],
+   "null": 0.0
+  },
+  "null_JD0_transfer": {
+   "ideal": 0.0,
+   "null": 0.0,
+   "decoy": 0.0,
+   "note": "exact by sufficiency; a decoy carrier also transfers 0 under an exact-Bayes model, so null preservation cannot separate an m-carrier from a decoy carrier"
+  }
+ },
+ "E1_own_share": {
+  "E5": {
+   "ideal_DAS_own_share": 1.0,
+   "ideal_SRCFREE_own_share": 0.5019762506404668,
+   "ideal_SRCFREE_CI": [
+    0.4621727743841525,
+    0.5447572335437142
+   ],
+   "ideal_SRCFREE_cosine": 0.4296904782001994,
+   "ideal_excess": 0.4980237493595332,
+   "null_DAS_own_share": 0.0,
+   "null_SRCFREE_own_share": 0.0,
+   "mean_abs_own": 1.1108179299237388,
+   "mean_abs_srcfree": 1.199675103305653
+  },
+  "E3": {
+   "ideal_DAS_own_share": 1.0,
+   "ideal_SRCFREE_own_share": 0.40188352776741604,
+   "ideal_SRCFREE_CI": [
+    0.19173240853289647,
+    0.6109436839275848
+   ],
+   "ideal_SRCFREE_cosine": 0.08054086639711858,
+   "ideal_excess": 0.598116472232584,
+   "null_DAS_own_share": 0.0,
+   "null_SRCFREE_own_share": 0.0,
+   "mean_abs_own": 0.260032747195824,
+   "mean_abs_srcfree": 1.2002955506801016
+  },
+  "QF5": {
+   "ideal_DAS_own_share": 1.0,
+   "ideal_SRCFREE_own_share": 0.4039535915342317,
+   "ideal_SRCFREE_CI": [
+    0.3770223142152625,
+    0.4308156230002123
+   ],
+   "ideal_SRCFREE_cosine": 0.4895617187252775,
+   "ideal_excess": 0.5960464084657683,
+   "null_DAS_own_share": 0.0,
+   "null_SRCFREE_own_share": 0.0,
+   "mean_abs_own": 1.2751179057783426,
+   "mean_abs_srcfree": 0.8489138668006321
+  },
+  "QF4": {
+   "ideal_DAS_own_share": 1.0,
+   "ideal_SRCFREE_own_share": 0.4975879367983786,
+   "ideal_SRCFREE_CI": [
+    0.4537242656635858,
+    0.5372657395859946
+   ],
+   "ideal_SRCFREE_cosine": 0.4610927126241969,
+   "ideal_excess": 0.5024120632016214,
+   "null_DAS_own_share": 0.0,
+   "null_SRCFREE_own_share": 0.0,
+   "mean_abs_own": 1.2736627841096262,
+   "mean_abs_srcfree": 1.1036950999151613
+  }
+ },
+ "E2_rows": {
+  "TRUE_ideal_R2": 1.0,
+  "SHUFD_vs_base_ideal_R2": 0.006649270920309758,
+  "SHUFD_vs_borrowed_ideal_R2": 0.0033355402368542286,
+  "SHUFD_vs_borrowed_null_R2": 0.0,
+  "note": "ideal and null both give ~0 on the borrowed-pair arm: no power by construction (rows act through the base episode's values)",
+  "SHUFD_vs_base_CI": [
+   0.0003021240373119183,
+   0.021455211460872425
+  ]
+ }
+}

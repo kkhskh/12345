@@ -1,0 +1,32 @@
+== Investigation XIV clean extraction check 2026-11-17T00:35:09Z
+1. copy cor_phase15 WITHOUT step1_cross_family_relational_foundations into a clean directory and extract the ZIP there
+   extracted OK
+2. integrity manifest
+   manifest OK (901 files)
+3+4. T4 controls and early-vs-late persistence recomputed by the frozen fail-closed scorer; 3 units re-measured from checkpoints
+   score_I identical: True {'R-S': 'CONFIRMED', 'R-N': 'CONFIRMED', 'R-P': 'CONFIRMED'}
+   re-measured units: 3 | max |diff| mix/lik/KL: 0.0
+5. evidence ledger: every package pointer exists and every quoted anchor number occurs in its cited source
+   ledger pointers: 18, missing: []; anchors checked: 34, not found: []
+6. key mathematical derivations recomputed (exact rules, interaction-order ceilings, invariances)
+   g_rules_exact reproduced: True
+   g_order_ceilings reproduced: True
+   math_verify reproduced: True
+7+9. representative GATE relational intervention replayed (g_mech.py on s1: patching, presence, mediation, null and decoy controls)
+   g_mech s1 identical: True | null donor 0.037 | decoy dir 0.09248554913294797 | random 0.0
+8+10. frozen cross-family prediction X1 (and its amendment) and their statistics recomputed
+   score_X identical: True {'X1a': 'CONFIRMED', 'X1b': 'FALSIFIED'}
+   score_X_amend identical: True {'X1a_prime': 'CONFIRMED', 'X1b_prime': 'FALSIFIED'}
+11. every new checkpoint loads with finite outputs; required source files present
+   T4 checkpoints loaded: 480, failed/non-finite: 0; GATE snapshots loaded: 154, failed/non-finite: 0; required files missing: []
+12. fail-closed scoring: each scorer on an input with one required item removed
+   score_I without unit_metrics_I.jsonl: refused, no output (rc=2)
+   score_I without i_sham_validity.json: refused, no output (rc=2)
+   score_X without one snapshot: refused, no output (rc=2)
+   score_X_amend without one snapshot: refused, no output (rc=2)
+   (preflights P0-P5 / P0-P2 are freeze-time records, logs/preflight_*.json; P0 tests refusal on the then-incomplete state and is not re-run)
+13. external dependencies by exact hash (deps_inventory14.py) + absolute-path scan
+   external files: 221 | hash mismatches: 0 | module mismatches: 0 | missing: []
+   sibling packages required: ['step1_causal_algorithm_selection_validation', 'step1_cross_implementation_causal_equivalence', 'step1_curriculum_response_identification', 'step1_foundational_atlas_continuation', 'step1_latent_reliability', 'step1_perfect_agreement_boundary', 'step1_r1_causal_origin_and_selective_rescue', 'step1_relational_computation_atlas', 'step1_relational_decision_computation', 'step1_relational_decision_computation_followup', 'step1_relational_mechanism_deepening', 'step1_reroll_and_critical_period_validation']
+   scripts/src files with absolute local paths: 0
+== done (any FAILED / False / NOT REFUSED / mismatches > 0 / non-finite > 0 / nonzero diff is a failure)

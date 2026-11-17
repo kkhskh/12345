@@ -44,7 +44,7 @@ for r in "2:0.9:0.3333333333333333 B_s201" "3:0.9:0.3333333333333333 C_s204"; do
 python3 scripts/t4_ds_traj.py confirm_outputs/T4ds_s301 301 98800000 3000 /tmp/x15_t4.json > /dev/null 2>&1; python3 -c "import json; a=json.load(open('confirm_outputs/traj_T4ds_s301.json')); b=json.load(open('/tmp/x15_t4.json')); print('   T4ds_s301 trajectory identical:', a['traj']==b['traj'])"
 echo "9+10+12. transition times, abruptness, competence gates and frozen verdicts recomputed by the fail-closed scorers"
 for s in XV T4; do cp logs/score_$s.json /tmp/x15_s$s.json; python3 scripts/score_$s.py > /dev/null 2>&1; python3 -c "import json; a=json.load(open('/tmp/x15_s$s.json')); b=json.load(open('logs/score_$s.json')); print('   score_$s identical:', a==b, b['verdicts'], 'competent:', b['n_competent'])"; done
-echo "11. principal statistics (threshold sensitivity; learning-signal correlations) recomputed"
+echo "11. principal statistics recomputed (threshold sensitivity; the withdrawn gradient-signal output is also reproduced, as a record)"
 cp logs/xv_sensitivity.json /tmp/x15_sens.json; python3 scripts/xv_sensitivity.py > /dev/null 2>&1; python3 -c "import json; print('   sensitivity identical:', json.load(open('/tmp/x15_sens.json'))==json.load(open('logs/xv_sensitivity.json')))"
 python3 scripts/xv_gradsig.py 2:0.9:0.3333333333333333 confirm_outputs/B_s201 0,175 201 /tmp/x15_g.json > /dev/null 2>&1; python3 -c "import json; a=json.load(open('logs/expl/gradsig_B_s201.json')); b=json.load(open('/tmp/x15_g.json')); print('   gradient signal B_s201 identical:', a['points']==b['points'])"
 echo "13. representative relational counterfactual replay (x_mech.py on B_s201: gate flips, residual patches, probes)"

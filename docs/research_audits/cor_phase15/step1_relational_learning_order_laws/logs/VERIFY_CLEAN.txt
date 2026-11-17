@@ -1,0 +1,32 @@
+== Investigation XV clean extraction check 2026-11-17T10:19:09Z
+1. copy cor_phase15 WITHOUT step1_relational_learning_order_laws and extract the ZIP
+   extracted OK
+2. manifest
+   manifest OK (2305 files)
+3+6. generator definitions, exact posteriors, gate-free formula, source invisibility, minimal orders and benefit matching (xv_math_verify.py)
+   reproduced: True | all_pass: True
+4+5. exact decision rules and interaction-order limits recomputed (xv_math.py on the four conditions)
+   conditions: 4 | mismatches: [] | min orders: {'2:0.9': 3, '3:0.9': 4, '2:0.9:0.05': 3, '3:0.9:0.05': 4}
+7. every included checkpoint loads with finite outputs
+   GATE-variant checkpoints: 1760 loaded, 0 failed; DeepSets T4: 360 loaded, 0 failed
+8. learning-stage measurements reproduced from checkpoints (2 GATE-variant runs + 1 DeepSets run)
+   B_s201 trajectory identical: True
+   C_s204 trajectory identical: True
+   T4ds_s301 trajectory identical: True
+9+10+12. transition times, abruptness, competence gates and frozen verdicts recomputed by the fail-closed scorers
+   score_XV identical: True {'P1': 'COMPLEXITY_DELAYS', 'P2': 'INCONCLUSIVE', 'P3': 'H1_COMPLEXITY_FIRST'} competent: {'A': 4, 'B': 4, 'C': 1, 'D': 1}
+   score_T4 identical: True {'P6': 'CONFIRMED'} competent: 4
+11. principal statistics recomputed (threshold sensitivity; the withdrawn gradient-signal output is also reproduced, as a record)
+   sensitivity identical: True
+   gradient signal B_s201 identical: True
+13. representative relational counterfactual replay (x_mech.py on B_s201: gate flips, residual patches, probes)
+   identical: True
+14. incomplete frozen inputs are refused
+   score_XV without one trajectory: refused (rc=2)
+   score_T4 without one snapshot: refused (rc=2)
+15. external dependencies by exact hash
+   modules: 9 | mismatches: [] | siblings: ['step1_cross_family_relational_foundations', 'step1_foundational_atlas_continuation', 'step1_latent_reliability', 'step1_relational_computation_atlas', 'step1_relational_mechanism_deepening']
+16. representative training reproduced bitwise (B_s201 retrained from scratch to step 300 and compared with its archived snapshot)
+   B_s201 step 300 max |diff|: 0.0
+   scripts/src with absolute local paths: 0
+== done

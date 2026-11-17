@@ -1,5 +1,3 @@
 resume.pkl
 logs/claims/
 __pycache__/
-checkpoints/
-confirm_outputs/

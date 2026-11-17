@@ -175,3 +175,28 @@ These development results already contradict H2's call for C. The RACE pattern w
 **Not run.**
 - a 5th and 6th seed per condition (budget);
 - the noisy-gate extension (Workstream F), which gets mathematics only, if time permits.
+
+---
+
+## Post-review notes (added after scoring; not part of the freeze)
+
+The text above is the freeze record as committed in `7957fee`, left unchanged. Corrections from the reviews (see `reviews/ADJUDICATION.md`):
+
+1. **Confound rationale (Review A F4).**
+   - Delete "because their sum is fixed by β". The sum Δ_gate + Δ_int varies with ν (0.302 against 0.216).
+   - The two gains move together only because ν is the generator's single remaining knob.
+   - A generator with separate pair and single-source reliabilities can decouple them.
+   - "About 2× larger" holds for the Δ_gate ratio (1.98). The full value from the order-1 state gives 1.40, and the accuracy gain 3.9.
+2. **G = 0 for order ≤ a (Review A F6).** It is exact in the population, and |G| ≲ 0.01 on the 9000-question stream.
+3. **"Matched exactly" (Review A F8).** B and C differ by 0.09%. The match is exact only under the gate-free-mixture definition.
+4. **Development incident (Review C F1).**
+   - The overwrite reached step 850, over about 10 minutes, and the killed runs left a `resume.pkl`.
+   - Steps 25–475 of `logs/dev_traj_contaminated_A.json` match the overwriting run's weights, so that trajectory is partly contaminated.
+   - "Development A had A_p ≥ 0.5 from step 200" is not supported by any retained uncontaminated file, and is withdrawn.
+   - Confirmation is unaffected.
+5. **Post-freeze material (Review C F8).** Some scripts (exploratory, sensitivity, wrappers) and RELATIONAL_COMPLEXITY_AND_VALUE_MATHEMATICS.md were written after the freeze but before scoring. None of them read confirmation outputs before scoring.
+6. **Declared P5 statistic (Review C F3).** The declared statistic was the signal at t_S. The whole signal analysis was later withdrawn (Review B F1).
+7. **Auxiliary assumptions (Review A F11).**
+   - H1's "no usefulness effect" assumed that complexity alone sets timing.
+   - H2's stage pattern assumed that the intermediate payoff, not its ratio to the gate's payoff, decides whether the stage appears.
+   - Neither assumption was stated at the freeze.

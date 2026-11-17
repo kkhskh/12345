@@ -1,0 +1,16 @@
+2:0.9:0.05 confirm_outputs/A_s201 0,175 201 logs/expl/gradsig_A_s201.json
+2:0.9:0.3333333333333333 confirm_outputs/B_s201 0,175 201 logs/expl/gradsig_B_s201.json
+3:0.9:0.3333333333333333 confirm_outputs/C_s201 0,175 201 logs/expl/gradsig_C_s201.json
+3:0.9:0.05 confirm_outputs/D_s201 0,175 201 logs/expl/gradsig_D_s201.json
+2:0.9:0.05 confirm_outputs/A_s202 0,175 202 logs/expl/gradsig_A_s202.json
+2:0.9:0.3333333333333333 confirm_outputs/B_s202 0,150 202 logs/expl/gradsig_B_s202.json
+3:0.9:0.3333333333333333 confirm_outputs/C_s202 0,150 202 logs/expl/gradsig_C_s202.json
+3:0.9:0.05 confirm_outputs/D_s202 0,175 202 logs/expl/gradsig_D_s202.json
+2:0.9:0.05 confirm_outputs/A_s203 0,150 203 logs/expl/gradsig_A_s203.json
+2:0.9:0.3333333333333333 confirm_outputs/B_s203 0,150 203 logs/expl/gradsig_B_s203.json
+3:0.9:0.3333333333333333 confirm_outputs/C_s203 0,150 203 logs/expl/gradsig_C_s203.json
+3:0.9:0.05 confirm_outputs/D_s203 0,150 203 logs/expl/gradsig_D_s203.json
+2:0.9:0.05 confirm_outputs/A_s204 0,175 204 logs/expl/gradsig_A_s204.json
+2:0.9:0.3333333333333333 confirm_outputs/B_s204 0,150 204 logs/expl/gradsig_B_s204.json
+3:0.9:0.3333333333333333 confirm_outputs/C_s204 0,150 204 logs/expl/gradsig_C_s204.json
+3:0.9:0.05 confirm_outputs/D_s204 0,175 204 logs/expl/gradsig_D_s204.json

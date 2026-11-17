@@ -27,7 +27,7 @@
 - Here L_S(y) = ∏_{s∈S} (β if x_s = y, else (1 − β)/2).
 
 **Numerical checks.**
-- The sampler's empirical frequencies match the exact joint to within 1.7·10⁻⁴ on 300,000 questions.
+- The sampler's empirical frequencies match the exact joint to within 3.9·10⁻⁴ on 300,000 questions (as logged; the first draft misreported 1.7·10⁻⁴). The pass tolerance is loose; Review A's χ² test on 6M questions gives p = 0.2–0.56 (F9).
 - The Bayes formula matches the brute-force posterior to 10⁻¹⁶.
 - The gate-free formula matches brute-force marginalisation over g exactly.
 - Source: `logs/xv_math_verified.json`.
@@ -90,7 +90,11 @@ So the arity-3 gate is a genuine three-way relation, and no pairwise shortcut ex
 | 2 | 0.05 | 0.2880 | 0.5035 | 0.4278 | 0.1398 | 0.0757 | 0.872 / 0.900 | 0.345 |
 | 3 | 0.05 | 0.2880 | 0.5035 | 0.4265 | 0.1385 | 0.0770 | 0.872 / 0.900 | 0.345 |
 
-**Confound [proof].** With β fixed, Δ_gate + Δ_int = L*(order 1) − L(Bayes). Lowering ν makes the noise pair disagree more often, so pair agreement becomes a stronger trust cue. This lowers Δ_gate and raises Δ_int *together*. The "usefulness" contrast is therefore also an intermediate-cue contrast.
+**Confound [num; corrected after Review A F4].**
+- Lowering ν makes the noise pair disagree more often, so pair agreement becomes a stronger trust cue. This lowers Δ_gate and raises Δ_int *together*. The "usefulness" contrast is therefore also an intermediate-cue contrast.
+- This is an observation about the single knob ν, not a consequence of a fixed sum. The identity Δ_gate + Δ_int = L*(order 1) − L(Bayes) holds by definition, and the sum itself varies (0.302 at ν = 1/3, 0.216 at ν = 0.05).
+- **Removing the confound.** A generator with separate pair and single-source reliabilities (β₁, β₀) can change Δ_gate 1.65× at an intermediate gain matched within 3% (Review A, c5), at the cost of changing the Bayes NLL.
+- **The size of the contrast depends on the reference:** Δ_gate ratio 1.98; full gate value from the order-1 state 1.40; accuracy-gain ratio 3.9.
 
 - **Accuracy.** The gate's accuracy gain differs much more than its NLL gain: 0.109 against 0.028.
 - **Secondary mismatch.** Order-1 accuracy is 0.791 against 0.872.
@@ -127,7 +131,7 @@ The mathematics fixes the *available* stages and their exact values. It does not
 
 ## 7. Counterexamples and limits [proof by construction]
 
-- **Gate-source law.** If the last gate source were drawn uniformly, so that P(g = 1) = 1/3, single sources would still be independent of g. But the usefulness would change, so the arity contrast would no longer be value-matched. That is why the generator fixes P(g) = ½.
+- **Gate-source law (corrected after Review A F7).** If the last gate source were drawn uniformly, P(g = 1) = 1/3 in both arities and the values stay matched (Δ_gate 0.2555 against 0.2541 at ν = 1/3). P(g) = ½ is chosen to balance the two regimes and to stay comparable with XIV. It is not needed for arity matching.
 - **Evidence order.** If the evidence were a pair under both regimes, the a = 3 order-a class would no longer contain the complete gate-free mixture. The 0.09%–0.9% mismatch would then grow.
 - **Shortcut through x₂ (a = 2).** None. x₂ is independent of everything (MI 0).
 - **Noisy gate (Workstream F).** See §8.

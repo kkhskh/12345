@@ -1,0 +1,26 @@
+{
+ "P0_refuse_real": true,
+ "P1_race": true,
+ "P1_detail": {
+  "P1": "COMPLEXITY_DELAYS",
+  "P2": "INCONCLUSIVE",
+  "P3": "RACE"
+ },
+ "P2_h2": true,
+ "P2_detail": {
+  "P1": "COMPLEXITY_DELAYS",
+  "P2": "BENEFIT_SPEEDS",
+  "P3": "H2_PAYOFF"
+ },
+ "P3_noeffect": true,
+ "P3_detail": {
+  "P1": "NO_EFFECT",
+  "P2": "NO_EFFECT",
+  "P3": "H1_COMPLEXITY_FIRST"
+ },
+ "P4_missing_traj": true,
+ "P5_wrong_seed": true,
+ "T4_P0_refuse_real": true,
+ "T4_P1_confirm": true,
+ "T4_P2_falsify": true
+}

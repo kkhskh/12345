@@ -1,0 +1,1261 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XV
+
+## Mathematical Laws of Relational Learning: Complexity, Predictive Value, Uncertainty, and Learning Transitions
+
+**Full-depth mathematical, experimental, and mechanistic research mandate**
+
+**Target execution: one substantial research session, approximately 8–13 hours of active investigation where feasible, using the available two-CPU machine.**
+
+**Primary objective: Make quantitative predictions about how neural networks acquire relational reasoning, then attempt to falsify those predictions across controlled task variants and independently trained models.**
+
+---
+
+# 0. RESEARCH MISSION
+
+You are continuing the COR foundational research program immediately after Investigation XIV.
+
+Starting branch:
+
+`cor-phase15-step1-cross-family-relational-foundations`
+
+Reported HEAD:
+
+`97e346d`
+
+Latest archive:
+
+`cor_inv14_cross_family_relational_foundations.zip`
+
+Latest directory:
+
+`docs/research_audits/cor_phase15/step1_cross_family_relational_foundations/`
+
+Verify the actual repository state.
+
+Read the complete Investigation XIV research record, including:
+
+- `MAIN_RESEARCH_SYNTHESIS.md`
+- `CROSS_FAMILY_MATHEMATICAL_STRUCTURE.md`
+- `CROSS_FAMILY_CONFIRMATION.md`
+- `GATE_CAUSAL_MECHANISMS_AND_TESTS.md`
+- `T4_FOUNDATIONAL_EVIDENCE_LEDGER.md`
+- `COR_FOUNDATIONAL_RESEARCH_MAP.md`
+- All mathematical, mechanistic, and integrity reviews
+- `reviews/ADJUDICATION.md`
+- The actual GATE generator, model-training code, scoring scripts, and checkpoints
+
+Consult the earlier T4 investigations for the exact mathematical generator and the history of from-scratch learning failures.
+
+Do not rely exclusively on synthesis documents when primary code or experimental evidence exists.
+
+## Central question
+
+**What determines the order in which neural networks learn to use relationships between information sources?**
+
+In particular:
+
+Does a network learn simpler relationships first, does it prioritize relationships that provide larger decision improvements, or does learning order depend on additional properties of optimization and representation?
+
+Investigation XIV created a meaningful opening.
+
+Two newly trained GATE models initially approached the solution available from individual information sources. They then acquired the full gating relation relatively abruptly.
+
+They did not learn the intermediate pairwise-agreement strategy to the degree predicted.
+
+That observation suggests a possible learning transition, but it does not establish a general law.
+
+**The purpose of XV is to determine whether that learning pattern can be predicted when we deliberately change the mathematics of the task.**
+
+Do not merely reproduce the original GATE experiment.
+
+Do not construct a theory after observing new training trajectories and present it as a prospective prediction.
+
+Do not equate a mathematically possible learning stage with a stage neural optimization must actually pass through.
+
+---
+
+# 1. COR STATUS AND RESEARCH BOUNDARIES
+
+COR remains in:
+
+**Phase 1.5 — Step 1: Foundational Mathematical and Mechanistic Investigation.**
+
+The provisional exploration estimate is approximately 25%.
+
+This number must not change automatically because XV is completed.
+
+No final thesis is selected.
+
+No research phase is closed.
+
+The original COR obstruction/discrepancy framework is not established.
+
+The broader research landscape includes:
+
+- T4 latent-reliability computation.
+- GATE relational compatibility.
+- TRANS latent transport and composition.
+- Adaptive source generators.
+- Hidden group structure.
+- Different learning objectives and architectures.
+- The original obstruction/discrepancy questions.
+
+XV concentrates on the mathematical and experimental foundations of **relational learning order**.
+
+Do not substitute unrelated investigations of these other areas for the mandatory work.
+
+---
+
+# 2. EXACT STARTING POINT FROM INVESTIGATION XIV
+
+The original GATE generator has a deterministic trust relation identified using two non-answer sources.
+
+The complete correct decision has interaction order three.
+
+XIV established exact reference points, including approximately:
+
+| GATE decision strategy | Expected negative log-likelihood |
+|---|---:|
+| Best order-1 rule | 0.462 |
+| Best order-2 rule | 0.431 |
+| Bayes-optimal full rule | 0.182 |
+
+These values apply to the original GATE generator only.
+
+They must not be copied to newly constructed variants.
+
+The improvement from order 1 to order 2 was relatively small, whereas the improvement from the order-2 strategy to the full gating strategy was much larger.
+
+Two new models trained from scratch initially learned source-based evidence without substantial gate use.
+
+The intermediate pairwise-agreement strategy was learned weakly or partially.
+
+The complete gate relation then emerged rapidly.
+
+XIV's mathematical prediction of an initial source-based phase was confirmed.
+
+Its prediction of a substantial intermediate pairwise phase was falsified.
+
+**The interpretation that greater decision benefit causes the model to skip the intermediate stage is a hypothesis, not an established result.**
+
+This distinction is central to XV.
+
+---
+
+# 3. DEFINE THE RESEARCH VARIABLES BEFORE EXPERIMENTATION
+
+Three quantities must be distinguished.
+
+## 3.1 Structural relational complexity
+
+Operationally define complexity using the number of sources participating in the relevant relationship.
+
+For each task, calculate:
+
+1. The minimum number of sources needed to determine the trust relation.
+2. The minimum interaction order required for the Bayes-optimal candidate decision.
+3. The best achievable decision performance for each restricted interaction order.
+
+These are related but not identical.
+
+For example, the original GATE gate depends on two non-answer sources, but its complete decision requires three-way interactions because the gate determines which answer-bearing evidence matters.
+
+Do not confuse **gate arity** with **decision interaction order**.
+
+Define interaction order using a precise mathematical function class, such as the order-limited logit expansion established in XIV.
+
+Verify minimality, not merely that a high-order representation can express the rule.
+
+Where possible, use proofs and exact enumeration.
+
+## 3.2 Decision usefulness
+
+Define usefulness independently of training outcomes.
+
+The principal measure should be the exact expected reduction in optimal negative log-likelihood when a specified relational component becomes available.
+
+For example:
+
+\[
+\Delta_k
+=
+\mathcal L^*_{\mathrm{restricted}}
+-
+\mathcal L^*_{\mathrm{relational}}
+\]
+
+where both quantities are exact or numerically verified population optima under declared function classes.
+
+Also report:
+
+- Bayes accuracy improvement.
+- Candidate-decision changes.
+- Probability of examples where the relationship matters.
+- The improvement attributable to intermediate relationships.
+- The improvement attributable to the complete trust relation.
+
+Usefulness must refer to a property of the task, not how much an already trained model improved.
+
+## 3.3 Learning difficulty and learning signal
+
+**Structural complexity and optimization difficulty are not synonymous.**
+
+A more useful relationship may generate a stronger gradient signal and therefore be easier to acquire.
+
+Consequently, changing usefulness may also change effective training difficulty.
+
+XV must explicitly acknowledge and investigate this coupling.
+
+Measure relevant learning-signal properties, including:
+
+- Initial gradient magnitude.
+- Gradient alignment with relationally informative parameters.
+- Relevant signal-to-noise ratios.
+- Early training-loss improvement.
+- Sample dependence.
+- Optimization stability.
+
+These are mechanistic diagnostics, not automatic substitutes for the mathematical definitions.
+
+Do not claim complexity and usefulness have been fully disentangled merely because they were assigned separate columns in an experiment table.
+
+**The central comparison is structural complexity versus measurable decision benefit, with optimization consequences explicitly measured.**
+
+---
+
+# 4. MANDATORY COMPETING LEARNING HYPOTHESES
+
+Develop precise versions of the following explanations.
+
+## H1 — Complexity-first learning
+
+Models preferentially acquire lower-order relational computations before higher-order ones.
+
+Under otherwise comparable conditions, increasing interaction order should delay the acquisition of the relevant relation.
+
+An intermediate lower-order strategy should often emerge before a higher-order strategy, provided it is useful and learnable.
+
+## H2 — Decision-benefit learning
+
+Models preferentially acquire relationships that offer larger expected improvements in their decisions.
+
+A higher-order relationship may therefore emerge before a lower-order alternative is fully learned.
+
+Increasing the value of a relationship while holding structural complexity fixed should affect its acquisition.
+
+## H3 — Optimization-signal explanation
+
+The observed learning order is more directly determined by gradient strength, representation geometry, or optimization dynamics than by either structural complexity or Bayes-level decision improvement alone.
+
+Under this explanation, mathematically equal improvements need not produce similar learning trajectories.
+
+## H4 — Interaction-dependent learning
+
+Complexity, usefulness, and optimization jointly affect learning.
+
+There may be no universal ordering rule, but restricted predictive principles may exist for identifiable classes of tasks and model architectures.
+
+## H5 — Task-specific learning transitions
+
+The apparent GATE staircase and leap may be specific to its generator, supervision, or architecture.
+
+The same pattern may not occur in changed GATE variants or in T4.
+
+These hypotheses must produce different observable predictions.
+
+A generic claim that "all three factors matter" is not a sufficiently discriminating scientific conclusion.
+
+---
+
+# 5. WORKSTREAM A — CONSTRUCT A CONTROLLED MATHEMATICAL TASK FAMILY
+
+**Highest priority. Mandatory.**
+
+Construct a small, carefully designed family of GATE variants.
+
+The purpose is to change structural complexity and decision usefulness in controlled ways.
+
+## A1. Preserve comparability
+
+Where possible, keep constant:
+
+- Number of input positions.
+- Total number of presented sources.
+- Candidate answer vocabulary.
+- Model architecture.
+- Hidden dimensions.
+- Training objective.
+- Number of training questions.
+- Data-generation budget.
+- Batch size.
+- Learning-rate schedule.
+- Evaluation procedure.
+
+Where a variant uses fewer gate-defining sources, use appropriately controlled irrelevant source positions rather than automatically changing the model's input size.
+
+Ensure that these added sources do not leak trust information.
+
+Keep the original GATE environment as a documented reference.
+
+Do not assume a modified gate automatically has the mathematical interaction order suggested by its construction.
+
+Verify the actual order.
+
+## A2. Primary experimental contrasts
+
+Build at least three mathematically validated task conditions:
+
+| Condition | Relational complexity | Decision usefulness |
+|---|---|---|
+| A | Lower | Lower |
+| B | Lower | Higher |
+| C | Higher | Approximately matched to B |
+
+These conditions provide two primary comparisons.
+
+**Comparison A versus B:** Change decision usefulness while keeping structural complexity fixed.
+
+**Comparison B versus C:** Change structural complexity while keeping decision usefulness approximately constant.
+
+A fourth condition, higher complexity with lower usefulness, is strongly preferred if the measured training budget permits.
+
+With four conditions, the study can examine interaction effects more directly.
+
+With only three, report that the design consists of matched contrasts rather than a complete factorial experiment.
+
+## A3. Candidate gate constructions
+
+The original GATE uses a relation between two non-answer sources.
+
+Construct a higher-complexity variant where the gate requires a genuine relation among three non-answer sources.
+
+For example, investigate modular relationships of the form:
+
+\[
+g = f(x_0,x_1,x_2)
+\]
+
+But do not assume such a relation has the intended mathematical properties.
+
+Verify:
+
+- The gate's minimum required source count.
+- Whether individual sources reveal trust.
+- Whether pairs reveal trust.
+- Its actual decision interaction order.
+- The exact posterior.
+- The lower-order optimal rules.
+- The availability of an intermediate strategy.
+
+If the original task requires order three and the new task requires order four, verify this formally.
+
+A higher-order task must not accidentally become solvable through a low-order shortcut.
+
+## A4. Change usefulness without changing interaction order
+
+Investigate controlled changes in evidence reliability, gate relevance, or other explicitly modeled parameters.
+
+The objective is to alter the Bayes-level value of the relation while preserving its structural interaction order.
+
+For every candidate modification:
+
+- Recompute the exact Bayes rule.
+- Recompute the lower-order optimum.
+- Recompute the full relational gain.
+- Check whether source-wise trust invisibility survives.
+- Check whether the decision task remains nontrivial.
+- Verify that the gate is still required for the claimed optimal computation.
+
+Avoid variants where a supposedly high-order relationship becomes unnecessary.
+
+When matching usefulness across different interaction orders, use a preregistered numerical tolerance.
+
+If matching exact NLL gain and accuracy gain simultaneously is impossible, prioritize exact expected NLL gain, report accuracy as a secondary difference, and acknowledge the remaining mismatch.
+
+Do not silently label materially different tasks as usefulness-matched.
+
+## A5. Ensure the intermediate strategy is actually available
+
+For a meaningful test of staged learning, the intermediate computation must offer a genuine improvement.
+
+Calculate the exact gain available to each intermediate function class.
+
+If the intermediate gain is zero, there is no reason to expect a distinct intermediate learning stage.
+
+If the gain is extremely small, the experiment may be unable to distinguish absence of learning from weak partial learning.
+
+Use the mathematical calculations to assess whether the comparison is diagnostically useful.
+
+Reject or redesign non-diagnostic variants during development.
+
+## A6. Required mathematical output
+
+For every retained condition, produce:
+
+- Exact generator definition.
+- Trust relation.
+- Proof or verified argument for minimal relational arity.
+- Proof or verified argument for minimal decision interaction order.
+- Exact Bayes rule.
+- Order-restricted optimal rules.
+- Expected NLL for each relevant order.
+- Expected accuracy for each relevant order.
+- Incremental decision benefit.
+- Valid counterfactual relational edits.
+- Expected outputs of the proposed learning-stage diagnostics.
+
+Provide executable verification.
+
+A variant is not eligible for confirmation training until its mathematical references have passed independent checks.
+
+---
+
+# 6. WORKSTREAM B — MAKE LEARNING-ORDER PREDICTIONS BEFORE TRAINING
+
+**Mandatory.**
+
+This is the scientific center of XV.
+
+The mathematical task family must lead to quantitative predictions about learning trajectories.
+
+## B1. Define the observable stages
+
+Use exact decision references rather than broad descriptions such as "the model starts learning relations."
+
+Define measurable states corresponding to:
+
+**Source-based behavior**
+
+The model is primarily using individual-source evidence and has not acquired the diagnostic relational response.
+
+**Intermediate relational behavior**
+
+The model uses a relevant lower-order relationship but has not acquired the complete higher-order trust rule.
+
+**Full relational behavior**
+
+The model responds to the full trust relation and approaches the appropriate decision rule.
+
+A model may move between these states continuously.
+
+Do not force every trajectory into a categorical staircase.
+
+Preserve continuous measurements.
+
+## B2. Construct calibrated diagnostics
+
+For the original GATE, XIV used:
+
+- Gate-flip response.
+- Pairwise-agreement response.
+- Exact reference NLL values.
+- Accuracy.
+- Dense training checkpoints.
+
+Reuse these diagnostics where mathematically valid.
+
+For new variants, derive the appropriate analogues.
+
+In particular, a higher-order gate may require new counterfactual edits to distinguish partial relational learning from full rule acquisition.
+
+Each diagnostic must have reference responses for:
+
+- Order-1 behavior.
+- Relevant intermediate optimal behavior.
+- Bayes-optimal behavior.
+- Non-relational or shortcut alternatives.
+
+Avoid interpreting an accuracy plateau alone as evidence of a specific internal computation.
+
+Different algorithms may achieve the same accuracy.
+
+## B3. Define a learning transition
+
+Predefine:
+
+- The relevant response threshold.
+- The minimum persistence across checkpoints.
+- How borderline scores are handled.
+- How temporary improvement is distinguished from stable acquisition.
+- How abruptness is measured.
+- What counts as skipping an intermediate stage.
+- What counts as failing to learn the task.
+
+Use sufficient checkpoint density to resolve transitions.
+
+A jump must be distinguished from a gradual change missed because checkpoints were too far apart.
+
+Where feasible, store snapshots approximately every 25 steps during the early learning period, matching XIV's successful approach.
+
+Adapt snapshot spacing only on the basis of independent development measurements.
+
+## B4. Freeze competing predictions
+
+At minimum, construct predictions addressing:
+
+**P1 — Complexity contrast**
+
+With usefulness approximately matched, does the higher-order relation emerge later, less reliably, or through a different sequence?
+
+**P2 — Usefulness contrast**
+
+With structural complexity fixed, does increasing decision benefit change the timing or ordering of relational acquisition?
+
+**P3 — Intermediate-stage prediction**
+
+Under which exact payoff conditions should the model learn a lower-order relationship before acquiring the full relation?
+
+**P4 — Leap prediction**
+
+Under which conditions should the model acquire the full relational response before substantially mastering the intermediate strategy?
+
+**P5 — Learning-signal alternative**
+
+Do mathematical benefit and structural complexity retain predictive value after accounting for measured optimization signals, or do learning-signal properties better explain the trajectories?
+
+**P6 — Cross-environment prediction**
+
+If T4 trainability is established, does an appropriately defined learning-stage pattern occur there under its own mathematical references?
+
+Do not automatically treat these candidate predictions as six valid frozen tests.
+
+Develop the quantitative thresholds and confirm each prediction has the ability to distinguish competing hypotheses.
+
+Prefer fewer meaningful frozen tests over many redundant checks.
+
+---
+
+# 7. WORKSTREAM C — INDEPENDENT MODEL TRAINING
+
+**Mandatory.**
+
+Investigation XIV confirmed its learning-order prediction in only two new models.
+
+That was a useful first test.
+
+It is not sufficient for comparing distributions of learning transitions across several task variants.
+
+## C1. Replication requirements
+
+Train **at least four genuinely fresh model initializations per primary task condition**, with a target of four to six.
+
+For three primary conditions, the minimum core design is:
+
+**3 task conditions × 4 models = 12 independent training runs.**
+
+For a complete four-condition design:
+
+**4 task conditions × 4 models = 16 independent training runs.**
+
+Additional fifth and sixth seeds per condition are desirable only if the measured compute budget permits.
+
+Do not reduce replication to one or two models per condition merely to include more task variants.
+
+If the full design is infeasible, preserve the minimum four-model replication in a smaller number of scientifically decisive conditions and explicitly narrow the conclusions.
+
+## C2. Paired initialization design
+
+Use the same predetermined seed identifiers across task conditions where the architecture and tensor shapes permit.
+
+This can reduce variation when comparing conditions.
+
+However, do not confuse paired seed identifiers with independent experimental units.
+
+Each trained model must start from a fresh initialization rather than from a fine-tuned checkpoint.
+
+Distinguish:
+
+- Random initialization.
+- Data order.
+- Task variant.
+- Training seed.
+- Model architecture.
+
+Record all tensor and configuration hashes.
+
+## C3. Competence requirements
+
+For each task, predefine the competence level needed for a learning-stage conclusion.
+
+Prefer reference-based criteria using the exact Bayes gap rather than a universal accuracy threshold.
+
+A model that does not learn the required relation by the training budget is a failed or censored learning run.
+
+It must not automatically be interpreted as proof that high-order relations are learned later.
+
+Report:
+
+- Time to reach the source-only reference.
+- Time to reach intermediate relational performance.
+- Time to acquire the full relational response.
+- Final competence.
+- Runs that never reach particular stages.
+- Uncertainty across independently trained models.
+
+Use censored-data methods where appropriate.
+
+## C4. Test competing explanations
+
+Analyze whether learning order is better predicted by:
+
+- Relational interaction order.
+- Exact decision benefit.
+- Their interaction.
+- Initial relational gradient signal.
+- Other justified optimization diagnostics.
+
+Do not search across many post hoc predictors and report the best correlation as a discovered law.
+
+Use the predeclared primary comparisons.
+
+Keep exploratory model fitting clearly separate.
+
+---
+
+# 8. WORKSTREAM D — LEARNING TRANSITIONS AND MECHANISTIC EXPLANATION
+
+**Mandatory, but narrower than the mathematical and training comparisons.**
+
+If a model abruptly acquires a relational rule, investigate what actually changes.
+
+Do not automatically infer a new circuit merely because behavioral performance jumps.
+
+## D1. Analyze selected checkpoints
+
+Choose representative models and checkpoints covering:
+
+- Before relational learning.
+- Intermediate improvement, if present.
+- Immediately before the transition.
+- Immediately after the transition.
+- A competent final model.
+
+Choose checkpoint-selection rules before examining detailed confirmation mechanisms where possible.
+
+## D2. Examine possible changes
+
+Investigate:
+
+- Whether the relational information becomes represented for the first time.
+- Whether existing information becomes usable by downstream computation.
+- Whether the model changes how it weights evidence.
+- Whether the transition results from a change in attention routing.
+- Whether the transition is largely output calibration rather than new information use.
+- Whether a lower-order computation is genuinely displaced or simply becomes unnecessary.
+
+Use causal interventions only when they can distinguish these explanations.
+
+Do not launch another uncontrolled attention-head survey.
+
+## D3. Connect mechanism to the mathematical prediction
+
+A useful mechanistic result should answer:
+
+**Why did this task variant show this learning sequence rather than another one?**
+
+If the proposed causal mechanism does not explain differences among task variants, do not present it as an explanation of the learning-order law.
+
+It may be a task-specific implementation detail.
+
+---
+
+# 9. WORKSTREAM E — T4 FROM SCRATCH AS A CONDITIONAL CROSS-TASK TEST
+
+**Important secondary objective, with an explicit trainability gate.**
+
+T4 is a scientifically valuable comparison because its trust relationship is different from GATE's.
+
+But earlier COR work established a serious complication:
+
+- The tested from-scratch Transformer failed to learn T4 in 0 of 3 runs.
+- A simpler DeepSets-style architecture succeeded in 3 of 3 runs.
+
+This history must shape the experiment.
+
+## E1. Do not assume the T4 Transformer will learn
+
+Review the original failed training configurations and successful DeepSets runs.
+
+Identify the exact mathematical reference behavior for T4.
+
+Do not use GATE's order-1, order-2, and Bayes reference numbers for T4.
+
+T4 has uncertain episode-level trust involving information aggregated across multiple questions.
+
+Its learning-stage diagnostics must reflect that structure.
+
+## E2. Predefine a trainability gate
+
+Before interpreting T4 learning order, require evidence that the tested model can learn the intended T4 decision problem under the declared training setup.
+
+Define:
+
+- Competent final performance.
+- Relevant relational-response accuracy.
+- Adequate optimization duration.
+- Suitable evaluation data.
+- A successful reference architecture.
+
+If the Transformer does not reach competence, report an optimization or trainability failure.
+
+**Do not count a failure to learn T4 as evidence for or against a relational learning-order hypothesis.**
+
+## E3. Use the successful architecture as a reference
+
+Where feasible, train fresh DeepSets models with dense checkpoints as a positive control.
+
+If sufficient compute remains, compare their trajectories with a from-scratch Transformer under explicitly matched mathematical tasks.
+
+Recognize that an architecture difference prevents attributing every learning-order difference to the task.
+
+If a competent Transformer cannot be obtained, the DeepSets result may still offer a useful learning-stage observation, but it does not constitute a same-architecture T4–GATE confirmation.
+
+## E4. Protect the primary experiment
+
+The GATE variant study is the mandatory core.
+
+Do not allow repeated unsuccessful T4 training attempts to consume the session.
+
+Use a bounded pilot and a prespecified stopping rule.
+
+If the trainability gate fails or the compute budget is exhausted, preserve the result and defer the full T4 comparison.
+
+**Do not claim cross-task generalization from GATE variants alone.**
+
+---
+
+# 10. WORKSTREAM F — TRUST UNCERTAINTY
+
+**Conditional extension, not a substitute for the primary experiment.**
+
+The original GATE gate is deterministic.
+
+T4's trust is uncertain.
+
+If the main experiment and its replication requirements are complete, investigate one controlled noisy-gate GATE variant.
+
+The objective is to determine whether uncertainty changes:
+
+- The exact Bayes rule.
+- The benefit of the relational computation.
+- The required interaction order.
+- The nature of learning transitions.
+- Whether evidence is combined gradually or through a more abrupt change.
+
+Derive the correct posterior.
+
+Distinguish uncertainty in the gate from noise in candidate answers.
+
+Avoid changing several mathematical properties simultaneously without analysis.
+
+The previous T4 fitted power-mean parameter was non-uniquely interpretable.
+
+Do not equate the emergence of a new fitted operator with proof of a different internal computation.
+
+If time does not permit meaningful replication, perform the mathematical analysis only and label new neural results exploratory.
+
+---
+
+# 11. COMPUTE FEASIBILITY AND EXECUTION PRIORITIES
+
+**Mandatory execution planning.**
+
+The task variants require fresh training.
+
+The experiment must fit a realistic single-session research budget.
+
+The previous environment had approximately two CPU cores and eight gigabytes of memory.
+
+Do not assume those resources remain identical without checking.
+
+## First: benchmark
+
+Before selecting the final confirmation design, measure:
+
+- Wall-clock time for one fresh GATE training run.
+- Time per training step.
+- Peak resident memory.
+- Cost of checkpoint saving.
+- Cost of exact mathematical calculations.
+- Cost of evaluation and causal diagnostics.
+- Throughput under safe concurrent execution.
+
+Use the actual model configuration planned for XV.
+
+A short timing benchmark should not be confused with the cost of a full run if training speed changes over time.
+
+## Second: choose the feasible design
+
+Priority order:
+
+1. Exact mathematical derivations and verification for all retained primary conditions.
+2. Three primary task conditions with at least four fresh models each.
+3. Dense learning checkpoints and frozen evaluation of all primary models.
+4. A fourth task condition, if measured resources permit.
+5. Additional fifth or sixth models per condition, if useful.
+6. The bounded T4 trainability comparison.
+7. A noisy-gate extension.
+8. Additional mechanistic exploration.
+
+The optional tasks must not displace the main experiment.
+
+If the measured environment cannot complete even the minimum primary design in one session, reduce model or task computational cost only in scientifically defensible ways.
+
+Do not silently change the research question.
+
+Report the achievable design and its limits.
+
+## Third: resource management
+
+Use measured safe concurrency.
+
+Do not repeat earlier out-of-memory failures.
+
+Limit parallel analysis while neural training is running.
+
+Save checkpoints at prespecified steps.
+
+Use deterministic resumable runs.
+
+Maintain a machine-readable inventory of all expected jobs.
+
+Track failures, restarts, missing outputs, and replacement runs.
+
+Do not claim completion of an experiment if its required model runs did not finish.
+
+---
+
+# 12. FREEZING, BLINDING, AND SCIENTIFIC INTEGRITY
+
+Investigation XIV disclosed that some GATE training-loss logs existed before prediction freezing.
+
+XV must strengthen this process.
+
+## 12.1 Separate development and confirmation
+
+Use development seeds to:
+
+- Validate new generators.
+- Calculate mathematical references.
+- Calibrate diagnostic tolerances.
+- Check model trainability.
+- Estimate compute requirements.
+
+Do not use development outcomes as independent confirmation.
+
+Choose a separate set of fresh confirmation seeds.
+
+Freeze the final confirmation protocol before any confirmation output is inspected.
+
+## 12.2 Freeze the complete design
+
+Commit and hash:
+
+- Task generator code.
+- Mathematical reference calculations.
+- Task parameters.
+- Model architecture.
+- Training schedule.
+- Initializations and data seeds.
+- Checkpoint schedule.
+- Competence criteria.
+- Stage definitions.
+- Transition criteria.
+- Hypotheses.
+- Competing predictions.
+- Scoring code.
+- Uncertainty methods.
+- Statistical comparisons.
+
+No prediction may be strengthened retrospectively based on an observed trajectory.
+
+## 12.3 Prevent outcome leakage
+
+Keep confirmation training outputs unavailable to the investigator during protocol construction and amendment.
+
+Do not read final loss lines, intermediate accuracy logs, or mechanistic scores from confirmation runs before the relevant freeze.
+
+Use separate directories or controlled output handling.
+
+Where possible, launch confirmation runs only after the freeze has been verified.
+
+Avoid retrospective freeze amendments that appear independent but were informed by earlier confirmation outcomes.
+
+## 12.4 Fail-closed scoring
+
+Retain the improved XIII-E/XIV scorer design.
+
+The scorer must refuse to issue verdicts when:
+
+- Any required run is missing.
+- Any required checkpoint is absent.
+- A configuration hash differs.
+- A necessary control is incomplete.
+- A task variant fails mathematical verification.
+- A scoring dependency is missing.
+
+Allow exploratory monitoring through separately labeled tools.
+
+Do not use exploratory monitoring to create undisclosed post hoc confirmation criteria.
+
+---
+
+# 13. STATISTICS AND SCIENTIFIC INTERPRETATION
+
+Use the independently initialized model as the primary replication unit.
+
+Do not count:
+
+- Checkpoints as independent models.
+- Episodes as independent training replicates.
+- Different metrics on the same model as independent discoveries.
+- Paired seed identifiers as proof of independent model populations.
+
+Report:
+
+- Per-seed learning trajectories.
+- Exact stage-entry times.
+- Transition durations.
+- Competence failures.
+- Censored learning times.
+- Between-seed variation.
+- Effect sizes for complexity and usefulness contrasts.
+- Uncertainty intervals.
+- Baseline-adjusted comparisons.
+- Sensitivity to diagnostic thresholds.
+- Task-dependent gradient properties.
+- Any confounding differences among task variants.
+
+With four to six models per condition, the study may still have limited power for subtle effects.
+
+Do not interpret a nonsignificant difference as equivalence.
+
+Do not claim a universal law from a handful of small models.
+
+If useful, fit a simple predeclared learning-time model involving complexity and decision benefit.
+
+Any exploratory statistical model discovered after confirmation must be labeled exploratory and requires future validation.
+
+---
+
+# 14. MANDATORY ADVERSARIAL REVIEW
+
+Use at least two independent reviewing agents, preferably three.
+
+## Reviewer A — Mathematics
+
+Examine:
+
+- Exact generator definitions.
+- Minimal relational arity.
+- Decision interaction order.
+- Lower-order optimal rules.
+- Population NLL and accuracy values.
+- Usefulness matching.
+- Counterexamples and shortcuts.
+- Whether the proposed predictions actually follow from the stated assumptions.
+
+The reviewer must identify any task where the intended complexity or usefulness comparison is invalid.
+
+## Reviewer B — Learning dynamics and mechanisms
+
+Examine:
+
+- Competence thresholds.
+- Checkpoint density.
+- Stage classifications.
+- Abruptness measurements.
+- Gradient-signal confounds.
+- Partial intermediate learning.
+- Whether attention or activation measurements distinguish the proposed mechanisms.
+- T4 trainability interpretation.
+
+The reviewer must test whether a seemingly abrupt jump could be a measurement or optimization artifact.
+
+## Reviewer C — Experimental integrity
+
+Examine:
+
+- Independent seed counts.
+- Freeze chronology.
+- Confirmation-data leakage.
+- Fail-closed scorers.
+- Compute feasibility.
+- Resource failures.
+- Run selection.
+- Statistical independence.
+- Archive integrity.
+- Reproducibility.
+
+The reviewers must have access to the actual code and primary experimental data.
+
+Preserve their findings and adjudications.
+
+Do not describe agent reviews as human peer review.
+
+---
+
+# 15. REQUIRED REPOSITORY ARTIFACTS
+
+Create branch:
+
+`cor-phase15-step1-relational-learning-order-laws`
+
+Create research directory:
+
+`docs/research_audits/cor_phase15/step1_relational_learning_order_laws/`
+
+Produce the following substantive documents.
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+Principal discoveries, failed predictions, mathematical results, actual learning trajectories, uncertainty, and implications for COR.
+
+### RELATIONAL_COMPLEXITY_AND_VALUE_MATHEMATICS.md
+
+Exact task variants, interaction-order proofs, optimal restricted rules, decision-benefit calculations, source-invisibility checks, and counterexamples.
+
+### TASK_VARIANT_EXPERIMENTAL_DESIGN.md
+
+Primary contrasts, hypotheses, seed inventory, task matching, resource budget, preflight results, competence requirements, and frozen procedures.
+
+### LEARNING_TRANSITIONS_AND_FROZEN_CONFIRMATION.md
+
+All new model trajectories, stage measurements, gate and intermediate responses, transition timing, prediction verdicts, uncertainty, and failures.
+
+### OPTIMIZATION_AND_MECHANISM_ANALYSIS.md
+
+Gradient measurements, proposed learning-signal explanations, checkpoint mechanisms, and comparisons of competing learning theories.
+
+### T4_FROM_SCRATCH_AND_GENERALIZATION.md
+
+Earlier trainability record, new bounded experiments, competence-gate decisions, mathematically appropriate T4 diagnostics, and any justified cross-task conclusions.
+
+If the T4 experiment is deferred, this document must explicitly record the measured reason rather than inventing results.
+
+### COR_FOUNDATIONAL_NAVIGATION_XV.md
+
+Explain which new scientific territory was explored.
+
+Separate:
+
+- What is established mathematically.
+- What was prospectively predicted and confirmed.
+- What was prospectively falsified.
+- What remains task-specific.
+- What may generalize.
+- What the next decisive research direction should be.
+
+Preserve the broader COR research map.
+
+Do not quietly erase unresolved TRANS, ADAPT, unknown-group, or O/D questions.
+
+Also include:
+
+- Training and generator scripts.
+- All important new checkpoints.
+- Raw predictions and outcomes.
+- Exact mathematical enumeration.
+- Statistical scripts.
+- Frozen protocol files.
+- Configuration hashes.
+- Execution and resource logs.
+- Independent reviews.
+- Adjudication.
+- SHA-256 manifest.
+- External dependency inventory.
+- Reproduction instructions.
+
+No placeholder reports.
+
+No omitted failed runs.
+
+---
+
+# 16. VERIFIED RESEARCH ZIP
+
+Produce:
+
+`cor_inv15_relational_learning_order_laws.zip`
+
+Before delivery:
+
+1. Extract the archive into a clean directory.
+2. Verify all manifest hashes.
+3. Verify the actual task generator definitions.
+4. Recompute the exact decision rules.
+5. Recompute interaction-order limits.
+6. Recompute the benefit matching among variants.
+7. Load all included checkpoints.
+8. Reproduce all learning-stage measurements.
+9. Recompute transition times and abruptness measures.
+10. Reproduce the frozen prediction verdicts.
+11. Recompute the principal statistical comparisons.
+12. Verify competence-gate decisions.
+13. Replay representative relational counterfactual evaluations.
+14. Check that incomplete frozen inputs are refused.
+15. Verify external dependency hashes.
+16. Reproduce representative training or checkpoint continuation results.
+
+If earlier COR research packages are required, identify them explicitly.
+
+Do not claim the archive is standalone unless it really is.
+
+Deliver the ZIP itself and a separate main synthesis.
+
+The final response must provide:
+
+- Branch and HEAD.
+- Freeze commits.
+- Actual elapsed research time.
+- Machine and resource use.
+- Number of mathematical task variants.
+- Number of independent models per condition.
+- Total training runs.
+- Competent and incompetent model counts.
+- Confirmed predictions.
+- Falsified predictions.
+- Inconclusive and non-diagnostic results.
+- Reviewer corrections.
+- Reproducibility results.
+- Exact archive location.
+
+---
+
+# 17. REQUIRED FINAL SCIENTIFIC QUESTIONS
+
+Answer each question with explicit evidence labels.
+
+**Mathematics**
+
+1. What exactly defines relational complexity in the tested environments?
+
+2. What is the minimum source count for the trust relation in each task?
+
+3. What is the minimum interaction order of each Bayes-optimal decision rule?
+
+4. What are the exact gains from lower-order and full relational computations?
+
+5. Were the intended complexity and usefulness comparisons successfully constructed without introducing low-order shortcuts?
+
+6. Which mathematical properties remained confounded?
+
+**Learning**
+
+7. Do models consistently acquire source-wise information before relational information?
+
+8. When does an intermediate relational stage appear?
+
+9. Under what conditions is that stage skipped?
+
+10. Does changing decision benefit at fixed complexity change learning order?
+
+11. Does changing complexity at matched decision benefit change learning order?
+
+12. Is the timing of a full relational transition better predicted by complexity, usefulness, or measured learning-signal properties?
+
+13. Do abrupt transitions persist across independently initialized models?
+
+14. Are apparent jumps genuine changes in relational use, rather than calibration or sparse checkpoint sampling?
+
+15. Which prospective predictions were falsified?
+
+**Mechanisms**
+
+16. Is relational information newly represented at the transition, or does previously represented information become usable?
+
+17. What causes the network to move from one strategy to another?
+
+18. Does the proposed mechanism explain differences across task variants?
+
+**Generalization**
+
+19. Can a T4 model trained from scratch competently learn the relational task under the tested setup?
+
+20. If T4 learning fails, what does that result establish, and what does it not establish?
+
+21. If T4 learning succeeds, does its learning order support or contradict the proposed GATE-derived explanation?
+
+22. Do the results justify a restricted mathematical principle of relational learning, or only task-specific observations?
+
+23. Which counterexamples limit the proposed principle?
+
+24. What is the most informative next scientific direction for COR?
+
+Every answer must distinguish:
+
+- Mathematical proof.
+- Independent numerical verification.
+- Development evidence.
+- Frozen confirmation.
+- Exploratory evidence.
+- Speculation.
+
+Do not convert a plausible explanation into a proven law.
+
+---
+
+# 18. FINAL SCIENTIFIC DIRECTIVE
+
+Investigation XIV established something unusually useful for COR.
+
+Mathematics was used to predict observable stages of neural learning before new models were examined.
+
+Part of that prediction survived.
+
+Another part failed.
+
+The models did not reliably master the intermediate pairwise relationship before acquiring the complete gating relation.
+
+This opened an important question:
+
+**Does learning proceed according to relational complexity, according to the value of relational information, or according to the optimization processes through which those properties affect neural training?**
+
+Investigation XV must address that question directly.
+
+Build a mathematically controlled family of tasks.
+
+Calculate what each relationship is worth.
+
+Calculate the minimum relational interaction order.
+
+Use these calculations to make discriminating predictions.
+
+Train multiple independently initialized models per condition.
+
+Observe the learning process with sufficient temporal resolution.
+
+Test whether the predicted ordering and transitions occur.
+
+Do not assume that greater usefulness and greater ease of learning are independent.
+
+Do not mistake a model failing to learn for evidence about learning order.
+
+Do not extrapolate from two models to a universal principle.
+
+Do not settle for discovering another interesting neural circuit after training.
+
+**The defining goal is prospective explanatory power.**
+
+We want to know whether mathematical properties of relational information can predict how neural systems acquire that information and begin using it to make decisions.
+
+If the predictions survive across controlled task variants, formulate the narrowest mathematically defensible principle supported by the evidence.
+
+If they fail, identify the boundary and preserve the counterexamples.
+
+If the experiments cannot separate complexity, usefulness, and optimization, state precisely why.
+
+Do not protect the proposed theory.
+
+Do not use additional experiments to rescue it after confirmation without labeling those experiments exploratory.
+
+The broader COR objective remains understanding how AI systems use consistency, disagreement, and relationships between sources.
+
+A successful theory of relational learning could contribute to those foundations, but would not automatically validate the original obstruction/discrepancy framework.
+
+**Remain in Phase 1.5, Step 1, at approximately 25% provisional foundational exploration.**
+
+Do not close the phase, select a final paper thesis, or claim generality that has not been demonstrated.
+
+**Execute Investigation XV, obtain rigorous adversarial review, and deliver the complete verified research archive.**

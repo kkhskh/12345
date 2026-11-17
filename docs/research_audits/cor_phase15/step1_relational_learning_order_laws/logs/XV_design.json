@@ -1,0 +1,132 @@
+{
+ "conditions": {
+  "A": "2:0.9:0.05",
+  "B": "2:0.9:0.3333333333333333",
+  "C": "3:0.9:0.3333333333333333",
+  "D": "3:0.9:0.05"
+ },
+ "seeds": [
+  201,
+  202,
+  203,
+  204
+ ],
+ "stream": 98700000,
+ "n_episodes": 1500,
+ "runs": [
+  {
+   "cond": "A",
+   "spec": "2:0.9:0.05",
+   "seed": 201,
+   "dir": "confirm_outputs/A_s201",
+   "traj": "confirm_outputs/traj_A_s201.json"
+  },
+  {
+   "cond": "B",
+   "spec": "2:0.9:0.3333333333333333",
+   "seed": 201,
+   "dir": "confirm_outputs/B_s201",
+   "traj": "confirm_outputs/traj_B_s201.json"
+  },
+  {
+   "cond": "C",
+   "spec": "3:0.9:0.3333333333333333",
+   "seed": 201,
+   "dir": "confirm_outputs/C_s201",
+   "traj": "confirm_outputs/traj_C_s201.json"
+  },
+  {
+   "cond": "D",
+   "spec": "3:0.9:0.05",
+   "seed": 201,
+   "dir": "confirm_outputs/D_s201",
+   "traj": "confirm_outputs/traj_D_s201.json"
+  },
+  {
+   "cond": "A",
+   "spec": "2:0.9:0.05",
+   "seed": 202,
+   "dir": "confirm_outputs/A_s202",
+   "traj": "confirm_outputs/traj_A_s202.json"
+  },
+  {
+   "cond": "B",
+   "spec": "2:0.9:0.3333333333333333",
+   "seed": 202,
+   "dir": "confirm_outputs/B_s202",
+   "traj": "confirm_outputs/traj_B_s202.json"
+  },
+  {
+   "cond": "C",
+   "spec": "3:0.9:0.3333333333333333",
+   "seed": 202,
+   "dir": "confirm_outputs/C_s202",
+   "traj": "confirm_outputs/traj_C_s202.json"
+  },
+  {
+   "cond": "D",
+   "spec": "3:0.9:0.05",
+   "seed": 202,
+   "dir": "confirm_outputs/D_s202",
+   "traj": "confirm_outputs/traj_D_s202.json"
+  },
+  {
+   "cond": "A",
+   "spec": "2:0.9:0.05",
+   "seed": 203,
+   "dir": "confirm_outputs/A_s203",
+   "traj": "confirm_outputs/traj_A_s203.json"
+  },
+  {
+   "cond": "B",
+   "spec": "2:0.9:0.3333333333333333",
+   "seed": 203,
+   "dir": "confirm_outputs/B_s203",
+   "traj": "confirm_outputs/traj_B_s203.json"
+  },
+  {
+   "cond": "C",
+   "spec": "3:0.9:0.3333333333333333",
+   "seed": 203,
+   "dir": "confirm_outputs/C_s203",
+   "traj": "confirm_outputs/traj_C_s203.json"
+  },
+  {
+   "cond": "D",
+   "spec": "3:0.9:0.05",
+   "seed": 203,
+   "dir": "confirm_outputs/D_s203",
+   "traj": "confirm_outputs/traj_D_s203.json"
+  },
+  {
+   "cond": "A",
+   "spec": "2:0.9:0.05",
+   "seed": 204,
+   "dir": "confirm_outputs/A_s204",
+   "traj": "confirm_outputs/traj_A_s204.json"
+  },
+  {
+   "cond": "B",
+   "spec": "2:0.9:0.3333333333333333",
+   "seed": 204,
+   "dir": "confirm_outputs/B_s204",
+   "traj": "confirm_outputs/traj_B_s204.json"
+  },
+  {
+   "cond": "C",
+   "spec": "3:0.9:0.3333333333333333",
+   "seed": 204,
+   "dir": "confirm_outputs/C_s204",
+   "traj": "confirm_outputs/traj_C_s204.json"
+  },
+  {
+   "cond": "D",
+   "spec": "3:0.9:0.05",
+   "seed": 204,
+   "dir": "confirm_outputs/D_s204",
+   "traj": "confirm_outputs/traj_D_s204.json"
+  }
+ ],
+ "steps": 4000,
+ "snapshots": "every 25 to 2000, every 250 to 4000"
+}

@@ -1,0 +1,109 @@
+Yes. After reading the XIV results, the mathematical report, and the reviewers' corrections, I think we have a clear next scientific goal.
+
+**We should investigate whether there are predictable principles governing *when and how AI models learn to use relationships between information sources*.**
+
+That is the direction I would choose for **Investigation XV**.
+
+## **Why this is the right goal**
+
+XIV gave us a particularly interesting observation.
+
+Two newly trained models initially learned to make decisions using relatively simple information. They later began using the more complicated relationship that tells them which sources to trust.
+
+But they didn't follow the complete sequence we predicted. They learned some simpler relationships only partially, then acquired the more powerful relationship quite abruptly.
+
+That raises a much bigger question:
+
+**Does an AI model learn relationships in order of complexity, or does it prioritize whichever relationship offers the greatest improvement in its decisions?**
+
+We don't know yet. The mathematical calculations established what different kinds of information are worth, but the proposed learning sequence also depended on an additional assumption about how models learn. The first part of the prediction survived; the second failed.
+
+That's exactly the uncertainty I would investigate.
+
+## **How I would explore the new territory**
+
+[Authensus (@authensus) on X](https://images.openai.com/static-rsc-4/TxUpCT56m8x7-mM6vDEpCv2qe6RpIzW0UEzqIupRacfmgOIvVfAqM8CrrH2q44Pz-6Y9bf3grt3p24u92IaZ9CJpYwPfWsIbC38AMeI0OLEkvUUicvo_Yaufvu2R2peYh5L3o45JLnSadsHMAYncKNdYqN4dXh2x1BqynriWwvU?purpose=inline)
+
+**Direction 1 — Change the difficulty**
+
+Build GATE variants where figuring out trust requires different numbers of sources. Determine mathematically what information each solution needs and how much it improves decisions.
+
+[Multi-robot task allocation under uncertainty via hindsight optimization | Jeon Ho Kang](https://images.openai.com/static-rsc-4/z16KWJDfsq-73qms4fbZ1LYoowavyjGmyD7B9oudk3SXGc1RkE67RC30a6wkN5f66okWufd3jQNrxFhp6-zoZ3iNg3S-JtjiqOFVvUJFqsoGmKrYRdIbvSjBHzu8u8n0HOtstdsFMEfKkSK2hSCjtXBG8UbOULFFH0zBeibSxVQ?purpose=inline)
+
+**Direction 2 — Change the reward for learning a relationship**
+
+Keep complexity fixed while changing how much the relationship helps. Then reverse the experiment: change complexity while keeping its usefulness comparable. This could distinguish learning by difficulty from learning by benefit.
+
+[Discover Research Literature Using Visuals: Litmaps | HKUST Library](https://images.openai.com/static-rsc-4/YVRv6LsbDMxmZzN1EyA4x5ZwVyqqMIdP3cRfN3vCSp7Ofu52VeP0bk_NMPXPyEDM0lpPz7piE9kKe72a-tlTEPf5Um1Gcs4HflGlFQAEjFI5E2DIlhClEaj_QBn6GpI2YZSVVhUxkuJaDMfXAF4f9OKU9TYQ2CTOoQALEx2hdGs?purpose=inline)
+
+**Direction 3 — Make trust uncertain**
+
+Introduce noisy relationships rather than perfectly reliable ones. See whether models still make abrupt jumps or instead learn to combine uncertain evidence gradually.
+
+[「テストと知りながら黙っていた」LLMをNLAは可視化した——Anthropic Natural Language Autoencodersが揺るがすベンチマーク中心主義 | Deep Signal](https://images.openai.com/static-rsc-4/YTytUhFdovtBAlLm6KtCMy6npTYmiNZHItTDj6XcCwKwPnT6_2PUPk_lU7UQPWZNcl_RrUOSL6FXWZ91_cJp0ImGTeG4zCc0QxxEqESLkjqS4gyX2KCw2SHk1o_cxaSSwu7ibOL3BihBpk2NwH5NDPvoMTKvKymy4gjPS4Cd300?purpose=inline)
+
+**Direction 4 — Test a genuinely different environment**
+
+Train T4 models from scratch and watch their learning in the same detail. Derive appropriate mathematical reference points rather than assuming T4 has the same learning stages as GATE.
+
+## **The experiment that matters most**
+
+I would want Claude to design a test where two explanations predict **opposite learning sequences**.
+
+For example, create one relationship that is simpler but offers a small improvement, and another that is more complicated but offers a much larger improvement.
+
+Then ask:
+
+*Which one does the model learn first?*
+
+Next, adjust the environment so the simpler relationship becomes more valuable, while its mathematical complexity stays the same.
+
+If the learning order changes predictably, we would have evidence that usefulness plays a causal role.
+
+If complexity consistently determines the order, that supports a different explanation.
+
+If neither predicts the outcome, we investigate what other conditions matter.
+
+**This would be more powerful than simply observing another learning jump.**
+
+## **What success would look like**
+
+I don't want Investigation XV to end with "three more models showed a jump."
+
+I want it to produce something like this:
+
+> Given these mathematical properties of a task, we predict which relationships an AI model will learn first, which it may skip, and when a more complete strategy should emerge.
+
+And then I want that prediction tested on new models and at least one meaningfully different task.
+
+If it works, we begin to have a generalizable explanation of learning dynamics.
+
+If it fails, we will have learned which mathematical features are insufficient to explain how models acquire relational reasoning.
+
+Both outcomes would expand the territory COR has actually investigated.
+
+## **How this connects to the original COR idea**
+
+There's another reason I favor this direction.
+
+Ultimately, we're interested in how an AI system uses **consistency, disagreement, and relationships among sources**.
+
+The next question could become:
+
+**Under what conditions does a model learn that consistency between sources is informative, and when does it learn to use that information to decide what to trust?**
+
+That is a meaningful route back toward COR's original motivation.
+
+It does not validate the obstruction/discrepancy framework. We would still need separate mathematics and experiments for that. But it could help establish the broader scientific foundations needed to investigate those operators seriously.
+
+### **My recommendation**
+
+Call the next investigation:
+
+**COR Investigation XV — Mathematical Laws of Relational Learning: Complexity, Predictive Value, Uncertainty, and Learning Transitions.**
+
+Keep it within Phase 1.5, Step 1, at the provisional 25% estimate.
+
+The defining change should be that Claude must **predict the learning process before training**, not merely explain the trained model afterward.
+
+I think this is the strongest next direction because it takes the most promising new result from XIV and asks whether it represents a general principle rather than another property of one artificial environment.

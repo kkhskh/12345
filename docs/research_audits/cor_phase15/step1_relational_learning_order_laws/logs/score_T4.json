@@ -1,0 +1,60 @@
+{
+ "models": {
+  "s301": {
+   "t_G4": 750,
+   "longest_source_run": 8,
+   "width": 200,
+   "competent": true,
+   "final": {
+    "step": 6000,
+    "acc": 0.7406666666666667,
+    "KL_bayes": 0.0012956369269714696,
+    "KL_own": 0.44192940452466845,
+    "G4": 0.8301261733231454
+   }
+  },
+  "s302": {
+   "t_G4": 750,
+   "longest_source_run": 9,
+   "width": 150,
+   "competent": true,
+   "final": {
+    "step": 6000,
+    "acc": 0.7343333333333333,
+    "KL_bayes": 0.0013208829936593063,
+    "KL_own": 0.4467675253721547,
+    "G4": 0.8399722845245597
+   }
+  },
+  "s303": {
+   "t_G4": 700,
+   "longest_source_run": 7,
+   "width": 150,
+   "competent": true,
+   "final": {
+    "step": 6000,
+    "acc": 0.7403333333333333,
+    "KL_bayes": 0.001314423835815507,
+    "KL_own": 0.44391385259106303,
+    "G4": 0.8372622738135664
+   }
+  },
+  "s304": {
+   "t_G4": 900,
+   "longest_source_run": 10,
+   "width": 250,
+   "competent": true,
+   "final": {
+    "step": 6000,
+    "acc": 0.737,
+    "KL_bayes": 0.0013824158531678657,
+    "KL_own": 0.4426114540791675,
+    "G4": 0.8326539200104986
+   }
+  }
+ },
+ "verdicts": {
+  "P6": "CONFIRMED"
+ },
+ "n_competent": 4
+}

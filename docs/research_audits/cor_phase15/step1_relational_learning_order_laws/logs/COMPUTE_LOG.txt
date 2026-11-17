@@ -1,3 +1,85 @@
 2026-11-17T04:11:45Z XV benchmark: x_train.py 4000 steps, 2 concurrent lanes: 1966 s / 1970 s per run (2.03 steps/s per lane); peak RSS 0.71-0.74 GB; snapshot saving included. Dev runs (seed 100): 3:0.9:1/3 and 2:0.9:0.05 done; launched 2:0.9:1/3 and 3:0.9:0.05.
 2026-11-17T04:22:13Z DEV INCIDENT: dev output directories were named by a 7-character prefix of the condition string, so the second dev pair (2:0.9:1/3 and 3:0.9:0.05, seed 100) wrote into the directories of the first pair (2:0.9:0.05 and 3:0.9:1/3) for ~4 min (steps <= ~475 overwritten). Both new runs killed; contaminated directories moved to checkpoints/dev_contaminated/. The first pair's trajectories up to step 1300-1400 had been evaluated before the overwrite (values recorded in TASK_VARIANT_EXPERIMENTAL_DESIGN.md); development only. Relaunched with full-condition directory names.
 2026-11-17T05:03:51Z Dev: B_s100, D_s100 evaluated (D gate not acquired in 4000 steps). DeepSets T4 dev seed 300: 160 s per 6000 steps. Environment restart (~04:55Z) killed nothing needed. FREEZE XV being committed; confirmation runs launched only after the commit.
+2026-11-17T05:04:17Z lane TB start [3275fe2714e2] BLIND=1 python3 scripts/t4_ds_train.py 301 confirm_outputs/T4ds_s301
+2026-11-17T05:04:17Z lane TA start [b4f9f8a3cf16] BLIND=1 python3 scripts/t4_ds_train.py 302 confirm_outputs/T4ds_s302
+2026-11-17T05:06:53Z lane TB end [3275fe2714e2] rc=0
+2026-11-17T05:06:54Z lane TB start [b065fb598856] BLIND=1 python3 scripts/t4_ds_train.py 303 confirm_outputs/T4ds_s303
+2026-11-17T05:06:55Z lane TA end [b4f9f8a3cf16] rc=0
+2026-11-17T05:06:55Z lane TA start [e827892b17d9] BLIND=1 python3 scripts/t4_ds_train.py 304 confirm_outputs/T4ds_s304
+2026-11-17T05:09:32Z lane TB end [b065fb598856] rc=0
+2026-11-17T05:09:32Z lane TB start [2e844877f3ec] BLIND=1 python3 scripts/x_train.py 2:0.9:0.05 201 confirm_outputs/A_s201
+2026-11-17T05:09:33Z lane TA end [e827892b17d9] rc=0
+2026-11-17T05:09:33Z lane TA start [a8e51a8fc82f] BLIND=1 python3 scripts/x_train.py 2:0.9:0.3333333333333333 201 confirm_outputs/B_s201
+2026-11-17T05:39:03Z lane TB end [2e844877f3ec] rc=0
+2026-11-17T05:39:03Z lane TB start [49cdbab379b0] BLIND=1 python3 scripts/x_train.py 3:0.9:0.3333333333333333 201 confirm_outputs/C_s201
+2026-11-17T05:39:06Z lane TA end [a8e51a8fc82f] rc=0
+2026-11-17T05:39:06Z lane TA start [15eaadd8d342] BLIND=1 python3 scripts/x_train.py 3:0.9:0.05 201 confirm_outputs/D_s201
+2026-11-17T06:07:50Z lane TB end [49cdbab379b0] rc=0
+2026-11-17T06:07:50Z lane TB start [8c47a8956895] BLIND=1 python3 scripts/x_train.py 2:0.9:0.05 202 confirm_outputs/A_s202
+2026-11-17T06:07:51Z lane TA end [15eaadd8d342] rc=0
+2026-11-17T06:07:51Z lane TA start [342d3f742db2] BLIND=1 python3 scripts/x_train.py 2:0.9:0.3333333333333333 202 confirm_outputs/B_s202
+2026-11-17T06:37:00Z lane TA end [342d3f742db2] rc=0
+2026-11-17T06:37:00Z lane TA start [852bf5125cfb] BLIND=1 python3 scripts/x_train.py 3:0.9:0.3333333333333333 202 confirm_outputs/C_s202
+2026-11-17T06:37:02Z lane TB end [8c47a8956895] rc=0
+2026-11-17T06:37:02Z lane TB start [08d149eac98b] BLIND=1 python3 scripts/x_train.py 3:0.9:0.05 202 confirm_outputs/D_s202
+2026-11-17T07:06:54Z lane TA end [852bf5125cfb] rc=0
+2026-11-17T07:06:54Z lane TA start [f972e27515db] BLIND=1 python3 scripts/x_train.py 2:0.9:0.05 203 confirm_outputs/A_s203
+2026-11-17T07:06:55Z lane TB end [08d149eac98b] rc=0
+2026-11-17T07:06:55Z lane TB start [955e46fa03f5] BLIND=1 python3 scripts/x_train.py 2:0.9:0.3333333333333333 203 confirm_outputs/B_s203
+2026-11-17T07:36:09Z lane TB end [955e46fa03f5] rc=0
+2026-11-17T07:36:09Z lane TB start [7a1023c69784] BLIND=1 python3 scripts/x_train.py 3:0.9:0.3333333333333333 203 confirm_outputs/C_s203
+2026-11-17T07:36:09Z lane TA end [f972e27515db] rc=0
+2026-11-17T07:36:09Z lane TA start [c1621d778482] BLIND=1 python3 scripts/x_train.py 3:0.9:0.05 203 confirm_outputs/D_s203
+2026-11-17T08:05:34Z lane TA end [c1621d778482] rc=0
+2026-11-17T08:05:34Z lane TA start [f2edb214b5ff] BLIND=1 python3 scripts/x_train.py 2:0.9:0.05 204 confirm_outputs/A_s204
+2026-11-17T08:05:39Z lane TB end [7a1023c69784] rc=0
+2026-11-17T08:05:39Z lane TB start [7261e513f67c] BLIND=1 python3 scripts/x_train.py 2:0.9:0.3333333333333333 204 confirm_outputs/B_s204
+2026-11-17T08:36:08Z lane TA end [f2edb214b5ff] rc=0
+2026-11-17T08:36:08Z lane TA start [bbab5776fa5a] BLIND=1 python3 scripts/x_train.py 3:0.9:0.3333333333333333 204 confirm_outputs/C_s204
+2026-11-17T08:36:15Z lane TB end [7261e513f67c] rc=0
+2026-11-17T08:36:15Z lane TB start [b3593d17d382] BLIND=1 python3 scripts/x_train.py 3:0.9:0.05 204 confirm_outputs/D_s204
+2026-11-17T09:06:30Z lane TA end [bbab5776fa5a] rc=0
+2026-11-17T09:06:30Z lane MA start [c69c6b2149fd] bash scripts/when_file.sh confirm_outputs/T4ds_s301/done.json -- python3 scripts/t4_ds_traj.py confirm_outputs/T4ds_s301 301 98800000 3000 confirm_outputs/traj_T4ds_s301.json
+2026-11-17T09:06:36Z lane TB end [b3593d17d382] rc=0
+2026-11-17T09:06:36Z lane MB start [f4422e9d80e5] bash scripts/when_file.sh confirm_outputs/T4ds_s302/done.json -- python3 scripts/t4_ds_traj.py confirm_outputs/T4ds_s302 302 98800000 3000 confirm_outputs/traj_T4ds_s302.json
+2026-11-17T09:07:09Z lane MA end [c69c6b2149fd] rc=0
+2026-11-17T09:07:09Z lane MA start [173789d04629] bash scripts/when_file.sh confirm_outputs/T4ds_s303/done.json -- python3 scripts/t4_ds_traj.py confirm_outputs/T4ds_s303 303 98800000 3000 confirm_outputs/traj_T4ds_s303.json
+2026-11-17T09:07:11Z lane MB end [f4422e9d80e5] rc=0
+2026-11-17T09:07:11Z lane MB start [d8695f2d262d] bash scripts/when_file.sh confirm_outputs/T4ds_s304/done.json -- python3 scripts/t4_ds_traj.py confirm_outputs/T4ds_s304 304 98800000 3000 confirm_outputs/traj_T4ds_s304.json
+2026-11-17T09:07:39Z lane MB end [d8695f2d262d] rc=0
+2026-11-17T09:07:39Z lane MB start [62395bcaa831] bash scripts/when_file.sh confirm_outputs/A_s201/done.json -- python3 scripts/xv_traj.py 2:0.9:0.05 confirm_outputs/A_s201 98700000 1500 confirm_outputs/traj_A_s201.json
+2026-11-17T09:07:48Z lane MA end [173789d04629] rc=0
+2026-11-17T09:07:48Z lane MA start [c353d1d7afcb] bash scripts/when_file.sh confirm_outputs/B_s201/done.json -- python3 scripts/xv_traj.py 2:0.9:0.3333333333333333 confirm_outputs/B_s201 98700000 1500 confirm_outputs/traj_B_s201.json
+2026-11-17T09:11:14Z lane MB end [62395bcaa831] rc=0
+2026-11-17T09:11:14Z lane MB start [4d2e70f9460a] bash scripts/when_file.sh confirm_outputs/C_s201/done.json -- python3 scripts/xv_traj.py 3:0.9:0.3333333333333333 confirm_outputs/C_s201 98700000 1500 confirm_outputs/traj_C_s201.json
+2026-11-17T09:11:24Z lane MA end [c353d1d7afcb] rc=0
+2026-11-17T09:11:24Z lane MA start [b0e9b3527edd] bash scripts/when_file.sh confirm_outputs/D_s201/done.json -- python3 scripts/xv_traj.py 3:0.9:0.05 confirm_outputs/D_s201 98700000 1500 confirm_outputs/traj_D_s201.json
+2026-11-17T09:14:45Z lane MB end [4d2e70f9460a] rc=0
+2026-11-17T09:14:45Z lane MB start [51577697c4c1] bash scripts/when_file.sh confirm_outputs/A_s202/done.json -- python3 scripts/xv_traj.py 2:0.9:0.05 confirm_outputs/A_s202 98700000 1500 confirm_outputs/traj_A_s202.json
+2026-11-17T09:14:49Z lane MA end [b0e9b3527edd] rc=0
+2026-11-17T09:14:49Z lane MA start [5208cee8ae0c] bash scripts/when_file.sh confirm_outputs/B_s202/done.json -- python3 scripts/xv_traj.py 2:0.9:0.3333333333333333 confirm_outputs/B_s202 98700000 1500 confirm_outputs/traj_B_s202.json
+2026-11-17T09:18:05Z lane MB end [51577697c4c1] rc=0
+2026-11-17T09:18:05Z lane MB start [d9dcca20ff59] bash scripts/when_file.sh confirm_outputs/C_s202/done.json -- python3 scripts/xv_traj.py 3:0.9:0.3333333333333333 confirm_outputs/C_s202 98700000 1500 confirm_outputs/traj_C_s202.json
+2026-11-17T09:18:06Z lane MA end [5208cee8ae0c] rc=0
+2026-11-17T09:18:06Z lane MA start [58205f575968] bash scripts/when_file.sh confirm_outputs/D_s202/done.json -- python3 scripts/xv_traj.py 3:0.9:0.05 confirm_outputs/D_s202 98700000 1500 confirm_outputs/traj_D_s202.json
+2026-11-17T09:21:33Z lane MA end [58205f575968] rc=0
+2026-11-17T09:21:33Z lane MA start [26511add2544] bash scripts/when_file.sh confirm_outputs/A_s203/done.json -- python3 scripts/xv_traj.py 2:0.9:0.05 confirm_outputs/A_s203 98700000 1500 confirm_outputs/traj_A_s203.json
+2026-11-17T09:21:33Z lane MB end [d9dcca20ff59] rc=0
+2026-11-17T09:21:33Z lane MB start [7e12b8ed77c4] bash scripts/when_file.sh confirm_outputs/B_s203/done.json -- python3 scripts/xv_traj.py 2:0.9:0.3333333333333333 confirm_outputs/B_s203 98700000 1500 confirm_outputs/traj_B_s203.json
+2026-11-17T09:24:54Z lane MB end [7e12b8ed77c4] rc=0
+2026-11-17T09:24:54Z lane MB start [8a8cc12c2e72] bash scripts/when_file.sh confirm_outputs/C_s203/done.json -- python3 scripts/xv_traj.py 3:0.9:0.3333333333333333 confirm_outputs/C_s203 98700000 1500 confirm_outputs/traj_C_s203.json
+2026-11-17T09:24:57Z lane MA end [26511add2544] rc=0
+2026-11-17T09:24:57Z lane MA start [a9ac7cec60be] bash scripts/when_file.sh confirm_outputs/D_s203/done.json -- python3 scripts/xv_traj.py 3:0.9:0.05 confirm_outputs/D_s203 98700000 1500 confirm_outputs/traj_D_s203.json
+2026-11-17T09:28:17Z lane MB end [8a8cc12c2e72] rc=0
+2026-11-17T09:28:17Z lane MB start [b2212447658c] bash scripts/when_file.sh confirm_outputs/A_s204/done.json -- python3 scripts/xv_traj.py 2:0.9:0.05 confirm_outputs/A_s204 98700000 1500 confirm_outputs/traj_A_s204.json
+2026-11-17T09:28:24Z lane MA end [a9ac7cec60be] rc=0
+2026-11-17T09:28:24Z lane MA start [80ef8d06749d] bash scripts/when_file.sh confirm_outputs/B_s204/done.json -- python3 scripts/xv_traj.py 2:0.9:0.3333333333333333 confirm_outputs/B_s204 98700000 1500 confirm_outputs/traj_B_s204.json
+2026-11-17T09:31:31Z lane MB end [b2212447658c] rc=0
+2026-11-17T09:31:31Z lane MB start [7afdc9bbbc89] bash scripts/when_file.sh confirm_outputs/C_s204/done.json -- python3 scripts/xv_traj.py 3:0.9:0.3333333333333333 confirm_outputs/C_s204 98700000 1500 confirm_outputs/traj_C_s204.json
+2026-11-17T09:31:35Z lane MA end [80ef8d06749d] rc=0
+2026-11-17T09:31:35Z lane MA start [7caf700a09c3] bash scripts/when_file.sh confirm_outputs/D_s204/done.json -- python3 scripts/xv_traj.py 3:0.9:0.05 confirm_outputs/D_s204 98700000 1500 confirm_outputs/traj_D_s204.json
+2026-11-17T09:34:52Z lane MB end [7afdc9bbbc89] rc=0
+2026-11-17T09:34:53Z lane MA end [7caf700a09c3] rc=0
+2026-11-17T09:37:39Z all 20 training + 20 measurement jobs rc=0; scoring with score_XV.py and score_T4.py
+2026-11-17T09:38:14Z SCORED: P1 COMPLEXITY_DELAYS (6/8 arity-3 censored), P2 INCONCLUSIVE, P3 H1_COMPLEXITY_FIRST; P6 CONFIRMED (4/4 competent). Post-scoring exploratory: P5 gradient signal (all 16), mechanism checkpoints (A_s201, B_s201, C_s204, D_s203; C_s201 censored at 4000).

@@ -1,0 +1,119 @@
+{
+ "planted": {
+  "confirm_outputs/WA_const_s401": 2000,
+  "confirm_outputs/WA_const_s402": 3000,
+  "confirm_outputs/WA_const_s403": null,
+  "confirm_outputs/WA_const_s404": 5000,
+  "confirm_outputs/WA_cont_C_s201": 300,
+  "confirm_outputs/WA_cont_C_s202": 500,
+  "confirm_outputs/WA_cont_C_s203": null,
+  "confirm_outputs/WA_cont_D_s201": 800,
+  "confirm_outputs/WA_cont_D_s202": null,
+  "confirm_outputs/WA_cont_D_s204": 600,
+  "confirm_outputs/WB_low_s501": 1500,
+  "confirm_outputs/WB_high_s501": 800,
+  "confirm_outputs/WB_low_s502": 1400,
+  "confirm_outputs/WB_high_s502": 700,
+  "confirm_outputs/WB_low_s503": 1600,
+  "confirm_outputs/WB_high_s503": 900,
+  "confirm_outputs/WB_low_s504": null,
+  "confirm_outputs/WB_high_s504": 1000
+ },
+ "expected": {
+  "P1": "BROAD",
+  "P2": "CONT_BROAD",
+  "P3": "BENEFIT_SPEEDS",
+  "P5": "STAGE_ROBUST"
+ },
+ "refusals": {
+  "missing_trajectory_line": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: trajectory steps mismatch: confirm_outputs/WB_high_s503"
+  },
+  "not_blind": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: not blind: confirm_outputs/WA_const_s402"
+  },
+  "leftover_resume": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: resume state left (incomplete?): confirm_outputs/WA_cont_D_s202"
+  },
+  "missing_snapshot": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: snapshots missing: confirm_outputs/WA_const_s404"
+  },
+  "changed_frozen_file": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: frozen file changed or missing: src/xvidiag.py"
+  }
+ },
+ "scorer_rc": 0,
+ "scorer_out": "{\"P1\": \"BROAD\", \"P2\": \"CONT_BROAD\", \"P3\": \"BENEFIT_SPEEDS\", \"P5\": \"STAGE_ROBUST\"}\n",
+ "got": {
+  "P1": "BROAD",
+  "P2": "CONT_BROAD",
+  "P3": "BENEFIT_SPEEDS",
+  "P5": "STAGE_ROBUST"
+ },
+ "t_A_recovered": {
+  "confirm_outputs/WA_const_s401": 2000,
+  "confirm_outputs/WA_const_s402": 3000,
+  "confirm_outputs/WA_const_s403": null,
+  "confirm_outputs/WA_const_s404": 5000,
+  "confirm_outputs/WA_cont_C_s201": 300,
+  "confirm_outputs/WA_cont_C_s202": 500,
+  "confirm_outputs/WA_cont_C_s203": null,
+  "confirm_outputs/WA_cont_D_s201": 800,
+  "confirm_outputs/WA_cont_D_s202": null,
+  "confirm_outputs/WA_cont_D_s204": 600,
+  "confirm_outputs/WB_low_s501": 1500,
+  "confirm_outputs/WB_low_s502": 1400,
+  "confirm_outputs/WB_low_s503": 1600,
+  "confirm_outputs/WB_low_s504": null,
+  "confirm_outputs/WB_high_s501": 800,
+  "confirm_outputs/WB_high_s502": 700,
+  "confirm_outputs/WB_high_s503": 900,
+  "confirm_outputs/WB_high_s504": 1000
+ },
+ "t_A_correct": true,
+ "scenario2": {
+  "planted": {
+   "confirm_outputs/WA_const_s401": 9000,
+   "confirm_outputs/WA_const_s402": null,
+   "confirm_outputs/WA_const_s403": null,
+   "confirm_outputs/WA_const_s404": null,
+   "confirm_outputs/WA_cont_C_s201": null,
+   "confirm_outputs/WA_cont_C_s202": 2500,
+   "confirm_outputs/WA_cont_C_s203": null,
+   "confirm_outputs/WA_cont_D_s201": null,
+   "confirm_outputs/WA_cont_D_s202": null,
+   "confirm_outputs/WA_cont_D_s204": null,
+   "confirm_outputs/WB_low_s501": 1000,
+   "confirm_outputs/WB_high_s501": 1050,
+   "confirm_outputs/WB_low_s502": 1100,
+   "confirm_outputs/WB_high_s502": 1150,
+   "confirm_outputs/WB_low_s503": 900,
+   "confirm_outputs/WB_high_s503": 950,
+   "confirm_outputs/WB_low_s504": 1200,
+   "confirm_outputs/WB_high_s504": 1250
+  },
+  "expected": {
+   "P1": "RARE",
+   "P2": "CONT_RARE",
+   "P3": "NO_EFFECT",
+   "P5": "STAGE_NOT_ROBUST"
+  },
+  "got": {
+   "P1": "RARE",
+   "P2": "CONT_RARE",
+   "P3": "NO_EFFECT",
+   "P5": "STAGE_NOT_ROBUST"
+  }
+ },
+ "all_pass": true
+}

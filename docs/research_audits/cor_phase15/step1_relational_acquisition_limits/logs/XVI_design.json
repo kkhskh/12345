@@ -1,0 +1,210 @@
+{
+ "runs": [
+  {
+   "cohort": "WA_fresh_const",
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 401,
+   "sched": "const",
+   "steps": 15000,
+   "diag_every": 50,
+   "init": null,
+   "dir": "confirm_outputs/WA_const_s401"
+  },
+  {
+   "cohort": "WA_fresh_const",
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 402,
+   "sched": "const",
+   "steps": 15000,
+   "diag_every": 50,
+   "init": null,
+   "dir": "confirm_outputs/WA_const_s402"
+  },
+  {
+   "cohort": "WA_fresh_const",
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 403,
+   "sched": "const",
+   "steps": 15000,
+   "diag_every": 50,
+   "init": null,
+   "dir": "confirm_outputs/WA_const_s403"
+  },
+  {
+   "cohort": "WA_fresh_const",
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 404,
+   "sched": "const",
+   "steps": 15000,
+   "diag_every": 50,
+   "init": null,
+   "dir": "confirm_outputs/WA_const_s404"
+  },
+  {
+   "cohort": "WA_continuation_restart",
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 201,
+   "sched": "cont",
+   "steps": 4000,
+   "diag_every": 50,
+   "init": "../step1_relational_learning_order_laws/confirm_outputs/C_s201/step4000.npz",
+   "xv_run": "C_s201",
+   "dir": "confirm_outputs/WA_cont_C_s201"
+  },
+  {
+   "cohort": "WA_continuation_restart",
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 202,
+   "sched": "cont",
+   "steps": 4000,
+   "diag_every": 50,
+   "init": "../step1_relational_learning_order_laws/confirm_outputs/C_s202/step4000.npz",
+   "xv_run": "C_s202",
+   "dir": "confirm_outputs/WA_cont_C_s202"
+  },
+  {
+   "cohort": "WA_continuation_restart",
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 203,
+   "sched": "cont",
+   "steps": 4000,
+   "diag_every": 50,
+   "init": "../step1_relational_learning_order_laws/confirm_outputs/C_s203/step4000.npz",
+   "xv_run": "C_s203",
+   "dir": "confirm_outputs/WA_cont_C_s203"
+  },
+  {
+   "cohort": "WA_continuation_restart",
+   "cond": "3:0.9:0.9:0.05",
+   "seed": 201,
+   "sched": "cont",
+   "steps": 4000,
+   "diag_every": 50,
+   "init": "../step1_relational_learning_order_laws/confirm_outputs/D_s201/step4000.npz",
+   "xv_run": "D_s201",
+   "dir": "confirm_outputs/WA_cont_D_s201"
+  },
+  {
+   "cohort": "WA_continuation_restart",
+   "cond": "3:0.9:0.9:0.05",
+   "seed": 202,
+   "sched": "cont",
+   "steps": 4000,
+   "diag_every": 50,
+   "init": "../step1_relational_learning_order_laws/confirm_outputs/D_s202/step4000.npz",
+   "xv_run": "D_s202",
+   "dir": "confirm_outputs/WA_cont_D_s202"
+  },
+  {
+   "cohort": "WA_continuation_restart",
+   "cond": "3:0.9:0.9:0.05",
+   "seed": 204,
+   "sched": "cont",
+   "steps": 4000,
+   "diag_every": 50,
+   "init": "../step1_relational_learning_order_laws/confirm_outputs/D_s204/step4000.npz",
+   "xv_run": "D_s204",
+   "dir": "confirm_outputs/WA_cont_D_s204"
+  },
+  {
+   "cohort": "WB_value_low",
+   "cond": "2:0.9:0.55:0.05",
+   "seed": 501,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "init": null,
+   "dir": "confirm_outputs/WB_low_s501"
+  },
+  {
+   "cohort": "WB_value_low",
+   "cond": "2:0.9:0.55:0.05",
+   "seed": 502,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "init": null,
+   "dir": "confirm_outputs/WB_low_s502"
+  },
+  {
+   "cohort": "WB_value_low",
+   "cond": "2:0.9:0.55:0.05",
+   "seed": 503,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "init": null,
+   "dir": "confirm_outputs/WB_low_s503"
+  },
+  {
+   "cohort": "WB_value_low",
+   "cond": "2:0.9:0.55:0.05",
+   "seed": 504,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "init": null,
+   "dir": "confirm_outputs/WB_low_s504"
+  },
+  {
+   "cohort": "WB_value_high",
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 501,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "init": null,
+   "dir": "confirm_outputs/WB_high_s501"
+  },
+  {
+   "cohort": "WB_value_high",
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 502,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "init": null,
+   "dir": "confirm_outputs/WB_high_s502"
+  },
+  {
+   "cohort": "WB_value_high",
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 503,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "init": null,
+   "dir": "confirm_outputs/WB_high_s503"
+  },
+  {
+   "cohort": "WB_value_high",
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 504,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "init": null,
+   "dir": "confirm_outputs/WB_high_s504"
+  }
+ ],
+ "diag_stream": 99700000,
+ "diag_n": 1500,
+ "snapshot_every": 500,
+ "independence": {
+  "WA_fresh": "4 independent fresh initialisations (seeds 401-404) and independent data streams",
+  "WA_cont": "6 continuations of 6 distinct XV models (the 6 censored XV arity-3 runs); NOT fresh replications; selected as the XV failures",
+  "WB": "4 seed pairs (501-504): within a pair the two value conditions share the initialisation and every random draw (verified V1), so the inferential unit for the value contrast is the pair (4 independent pairs); across pairs everything is independent"
+ },
+ "xv_reference_runs": {
+  "arity3_cosine": [
+   "C_s201",
+   "C_s202",
+   "C_s203",
+   "C_s204",
+   "D_s201",
+   "D_s202",
+   "D_s203",
+   "D_s204"
+  ]
+ }
+}

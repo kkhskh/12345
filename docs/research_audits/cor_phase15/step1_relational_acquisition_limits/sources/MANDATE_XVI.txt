@@ -1,0 +1,1142 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XVI
+
+## The Limits and Causes of Relational Learning: Extended Optimization, Independent Decision Value, and Complexity Scaling
+
+**Full mathematical, computational, and mechanistic research mandate**
+
+**Target: one substantial research session on the available two-CPU environment, with the experimental design sized using measured computational costs.**
+
+**Research objective: Determine why increasing relational complexity delays or prevents the acquisition of a useful trust relation, and whether decision value independently influences that process.**
+
+---
+
+# 0. MISSION AND REPOSITORY STATE
+
+You are continuing the COR foundational research program immediately after Investigation XV.
+
+Starting branch:
+
+`cor-phase15-step1-relational-learning-order-laws`
+
+Reported HEAD:
+
+`632a7e8`
+
+Investigation XV freeze commit:
+
+`7957fee`
+
+Latest archive:
+
+`cor_inv15_relational_learning_order_laws.zip`
+
+Latest synthesis:
+
+`MAIN_RESEARCH_SYNTHESIS_XV.md`
+
+Verify the actual repository state before beginning.
+
+Read the complete XV research directory, including:
+
+- Main research synthesis.
+- `RELATIONAL_COMPLEXITY_AND_VALUE_MATHEMATICS.md`
+- `TASK_VARIANT_EXPERIMENTAL_DESIGN.md`
+- `LEARNING_TRANSITIONS_AND_FROZEN_CONFIRMATION.md`
+- `OPTIMIZATION_AND_MECHANISM_ANALYSIS.md`
+- `T4_FROM_SCRATCH_AND_GENERALIZATION.md`
+- `COR_FOUNDATIONAL_NAVIGATION_XV.md`
+- The underlying generators, training scripts, numerical results, trajectories, and checkpoints.
+- All three independent-agent reviews.
+- `reviews/ADJUDICATION.md`
+- The frozen scoring scripts and their tests.
+
+Consult Investigation XIV where the original GATE learning-order predictions and their falsifications are needed.
+
+Read the actual mathematical and experimental evidence, not merely the executive summaries.
+
+## Central research question
+
+**Why does increasing the number of sources needed to determine trust dramatically delay, or prevent within the observed training budget, the acquisition of a mathematically valuable relational decision rule?**
+
+Investigation XVI must distinguish three possibilities.
+
+**Explanation A — Slower acquisition**
+
+The higher-order relationship can be learned using the existing architecture and training procedure, but requires more effective optimization.
+
+**Explanation B — Optimization barrier**
+
+The higher-order relationship is representable, but the tested optimization process often fails to discover or exploit it, even under substantially extended training.
+
+**Explanation C — Competing strategies and learning signals**
+
+The timing of relational learning depends on the decision value of the relationship, the attractiveness of simpler competing rules, and the optimization signals associated with each.
+
+These explanations are not necessarily mutually exclusive.
+
+Your task is to produce experiments that distinguish their contributions.
+
+Do not merely collect further demonstrations that high-order tasks are difficult.
+
+---
+
+# 1. WHAT INVESTIGATION XV ESTABLISHED
+
+XV constructed four GATE variants using:
+
+- Trust gate arity 2 or 3.
+- Two levels of gate decision value.
+- Four independently initialized models per condition.
+- Mathematically matched decision value across arity.
+
+The relevant mathematical references were verified independently.
+
+The original task family had:
+
+- Minimum trust-source count equal to gate arity \(a\).
+- Minimum decision interaction order \(a+1\).
+- Approximately 0.277 nats of gate benefit in the higher-value conditions.
+- Approximately 0.138–0.140 nats in the lower-value conditions.
+
+The experiment found:
+
+### Complexity result
+
+All eight arity-2 models acquired the complete gate.
+
+Only two of eight arity-3 models acquired it within the 4,000-step budget.
+
+Arity-2 acquisition occurred around steps 500–1,500.
+
+The two successful arity-3 acquisitions occurred around steps 2,250–2,500.
+
+The six unsuccessful arity-3 models remained near the gate-free optimum.
+
+The learning-rate schedule had substantially decayed by the later training stages.
+
+**Therefore, the experiment did not determine whether those six models were incapable of acquiring the gate or simply lacked sufficient effective training.**
+
+### Decision-value result
+
+At arity 2, the lower-value gate appeared to be acquired later in all four paired comparisons.
+
+However, changing the generator parameter also altered the competing agreement cue.
+
+The independent effect of decision value was not established.
+
+### Learning-stage result
+
+The frozen classifier favored a complexity-first learning sequence.
+
+But the result was sensitive to stage thresholds, and in the arity-3 conditions the apparent intermediate stage was partly a consequence of the gate never being acquired.
+
+Do not promote this into a general law.
+
+### Mechanistic result
+
+The proposed gradient-signal estimator failed its null-control test.
+
+Its apparent correlation with learning difficulty was withdrawn.
+
+Whether relational information is newly represented at the learning transition or merely becomes usable also remains unresolved.
+
+### Cross-task result
+
+Four independently initialized DeepSets models learned T4 from scratch and exhibited a source-based phase followed by acquisition of cross-question information.
+
+This is useful evidence about staged relational learning, but does not establish a shared causal learning mechanism.
+
+---
+
+# 2. SCIENTIFIC PRIORITIES AND ORDER
+
+Investigation XVI has three principal workstreams.
+
+## Priority 1 — Resolve the arity-3 training-budget ambiguity
+
+Determine whether the six previously censored three-source learners acquire the relation under longer and appropriately controlled optimization.
+
+## Priority 2 — Isolate decision benefit from the competing agreement cue
+
+Use independently adjustable reliabilities to test whether increasing the benefit of a relation changes its acquisition time when the simpler alternative is held approximately constant.
+
+## Priority 3 — Extend relational complexity to arity 4
+
+Derive a mathematically controlled four-source gate and, only after establishing a diagnostically useful training regime, test whether complexity produces a further acquisition delay.
+
+**The priority order is binding for expensive neural training.**
+
+The mathematics of Priority 2 and Priority 3 should begin early and can proceed while Priority 1 training runs.
+
+But do not allocate most of the compute budget to arity-4 models if arity-3 acquisition remains almost entirely censored.
+
+Do not allow a large collection of variants to displace adequate replication.
+
+---
+
+# 3. WORKSTREAM A — LATER, OR NOT ACQUIRED UNDER EXTENDED OPTIMIZATION?
+
+**Highest priority. Mandatory.**
+
+## A1. Establish the exact ambiguity
+
+The unsuccessful XV arity-3 models stopped at the gate-free decision rule.
+
+A failure at step 4,000 under a decayed learning-rate schedule does not establish an inherent representational or computational inability.
+
+Likewise, successful acquisition after continuing training does not automatically establish that the only missing ingredient was training duration.
+
+The learning-rate schedule, effective parameter displacement, optimizer state, data exposure, and available gradient signal all matter.
+
+Construct a controlled comparison that separates them as far as possible.
+
+## A2. Compare learning schedules
+
+Investigate at least three meaningful conditions:
+
+**Condition A — Original schedule**
+
+The XV decayed learning-rate schedule and its existing results.
+
+**Condition B — Extended constant-rate training**
+
+Train with an appropriately selected constant learning rate for a substantially longer budget, targeting approximately 15,000–20,000 steps.
+
+The constant rate must be calibrated on development runs for numerical stability and learning competence.
+
+**Condition C — Continuation or learning-rate restart**
+
+Continue previously unsuccessful XV models with a restored or controlled learning rate.
+
+Use this to distinguish the effect of additional effective optimization from the effect of restarting the learning process under a different schedule.
+
+Where scientifically useful, include a schedule-matched continuation that does not restart the learning rate.
+
+The original, constant-rate, and continuation conditions answer different questions.
+
+Do not collapse them into a single "more training" result.
+
+## A3. Fresh-model replication
+
+Use independent fresh model initializations for the principal constant-rate comparison.
+
+Target at least four fresh models for each primary arity-3 condition, preferably covering both decision-value levels.
+
+Because long training is expensive, calculate the actual feasibility before finalizing the confirmation design.
+
+If resources cannot support both arity-3 value levels with four fresh runs each, prioritize a single mathematically justified arity-3 condition with at least four fresh seeds, and use the previously trained XV models for the continuation comparison.
+
+Do not pretend that multiple continuations of the same trained checkpoint are independent fresh-model replications.
+
+Use paired initializations and data streams only as secondary variance-reduction comparisons.
+
+Report the independent random initialization count separately.
+
+## A4. Longer training and checkpoint density
+
+Target the 15,000–20,000-step range for the primary extended-training runs, unless the measured compute budget requires a narrower preregistered design.
+
+Record diagnostic trajectories densely throughout training.
+
+The later stages are particularly important.
+
+XV's 250-step late checkpoint spacing was inadequate to determine the abruptness of some arity-3 transitions.
+
+Use a regular diagnostic cadence sufficient to distinguish:
+
+- No gate acquisition.
+- Slow gradual acquisition.
+- A relatively abrupt transition.
+- Temporary gate use followed by regression.
+- Stable acquired competence.
+
+A 25–50-step diagnostic interval is preferable near suspected transitions.
+
+Separate lightweight diagnostic snapshots from full optimizer checkpoints to control archive size.
+
+Do not infer a sharp transition from observations separated by several hundred steps.
+
+## A5. Diagnose censoring correctly
+
+For each model, record:
+
+- First reliable relational response.
+- First sustained gate acquisition.
+- Final relational competence.
+- Time spent near the gate-free optimum.
+- Training loss.
+- Decision accuracy.
+- Gradient and optimizer behavior.
+- Any temporary regressions.
+- Maximum completed training exposure.
+
+Treat models that never acquire the gate as **right-censored observations**.
+
+Never assign them an acquisition time equal to the final training step.
+
+Use suitable acquisition-time analyses, such as survival-style summaries with appropriate small-sample uncertainty.
+
+If acquisition remains rare, avoid estimating a precise mean learning time.
+
+Report acquisition probability by the tested budget instead.
+
+## A6. Compare effective optimization exposure
+
+Training steps alone are not sufficient.
+
+Report:
+
+- Cumulative learning-rate exposure.
+- Optimizer state behavior.
+- Gradient norms.
+- Update magnitudes.
+- Candidate-relational response over time.
+- Differences between continuing and restarting training.
+
+An informative result would distinguish:
+
+- The original schedule stopped making effective progress.
+- A constant schedule permits later acquisition.
+- A restart specifically unlocks acquisition.
+- Extended optimization remains unsuccessful despite substantial updates.
+
+Do not attribute causation to any one explanation without appropriate controls.
+
+## A7. Rule out trivial incapacity
+
+The gate is mathematically representable under the tested architecture only if its actual model implementation has sufficient expressive capacity.
+
+Investigate this using relevant existing models and controlled trainability checks.
+
+Possible evidence includes:
+
+- Successful models of the same architecture.
+- Explicit or constructive representability arguments.
+- Diagnostic supervised feature supply.
+- Controlled interventions that make gate information available.
+
+Distinguish:
+
+- Mathematical impossibility.
+- Architectural expressivity limitations.
+- Optimization failure.
+- Limited training budget.
+
+Do not claim absolute inability merely because 20,000 steps were insufficient.
+
+## A8. Required Workstream A outcome
+
+Classify the result as:
+
+**A1 — Extended learning succeeds broadly:** The previously censored behavior is largely attributable to insufficient effective optimization under the original schedule.
+
+**A2 — Extended learning succeeds selectively:** There is substantial seed-dependent acquisition variation or an optimization barrier.
+
+**A3 — Extended learning remains rare:** The tested procedures do not reliably acquire the higher-order relation within the extended budget.
+
+**A4 — Inconclusive:** The comparisons or resources are insufficient to distinguish the explanations.
+
+Provide the actual model counts, acquisition times, uncertainty, and schedule comparisons.
+
+Do not force a binary "later" or "never" conclusion.
+
+---
+
+# 4. WORKSTREAM B — ISOLATE DECISION VALUE FROM COMPETING AGREEMENT
+
+**Mandatory. Second priority.**
+
+The main decision-value experiment in XV was confounded.
+
+Review A identified a way to improve it by controlling the reliabilities of different source components independently.
+
+This is the most important mathematical correction for XVI.
+
+## B1. Construct a two-reliability generator
+
+Extend the GATE family so that the reliability of the paired evidence and the reliability of the single-source alternative can be varied independently.
+
+Preserve the intended gate relation and task semantics.
+
+The resulting generator should allow meaningful changes in the value of the gate without automatically strengthening or weakening the competing agreement rule in the same way.
+
+Do not assume the parameterization succeeds merely because two reliability parameters exist.
+
+Prove or verify what each parameter actually changes.
+
+## B2. Verify the reference mathematics
+
+For each candidate parameter setting, calculate:
+
+- Bayes-optimal negative log-likelihood.
+- Bayes-optimal accuracy.
+- Gate-free optimal performance.
+- Order-restricted optimal performance.
+- Gate-specific decision benefit.
+- Agreement-only decision benefit.
+- Source-only performance.
+- Source marginals.
+- Gate-source mutual information.
+- Competing cue overlap.
+- Relevant gradient-signal properties.
+
+The previous mathematical review suggested that approximately a 1.65-fold difference in gate value might be obtained while keeping the competing cue fixed.
+
+**Verify that claim using the actual generator. Do not treat 1.65 as guaranteed.**
+
+Find two parameter settings that produce a meaningful gate-value contrast while closely matching the competing cue.
+
+Predefine tolerances.
+
+If the match is imperfect, quantify the residual differences rather than declaring the confound eliminated.
+
+## B3. Preserve relational complexity
+
+For the primary value contrast, use the same gate arity.
+
+Prefer arity 2 because XV showed reliable gate acquisition there.
+
+This should make acquisition-time differences measurable instead of censoring nearly every run.
+
+Verify that the mathematical interaction order remains constant across the chosen variants.
+
+Confirm that neither condition introduces a low-order shortcut to the gate.
+
+## B4. Freeze a decision-value prediction
+
+Design an experiment capable of distinguishing:
+
+**Benefit-driven learning:** The higher-value gate is acquired earlier or more reliably.
+
+**Competition-driven learning:** Acquisition is primarily governed by the strength of the simpler competing strategy.
+
+**Optimization-signal learning:** Acquisition is better explained by changes in learnable gradient information than by Bayes-level decision gain alone.
+
+The strongest experiment would hold the competing cue nearly fixed while changing gate benefit, and then measure which learning behavior changes.
+
+If the remaining changes in gradient signal prevent causal separation of the competing explanations, state this explicitly.
+
+A clean decision-value contrast is not automatically a clean gradient-level contrast.
+
+## B5. Fresh confirmation training
+
+Use at least four genuinely independent fresh model initializations per primary value condition.
+
+Prefer paired seed identifiers as an additional analysis, not the sole source of inferential independence.
+
+Use the same architecture, training budget, input structure, and evaluation procedure across the matched value conditions.
+
+Measure the full trajectories.
+
+Do not evaluate only final accuracy.
+
+The primary outcome is the time to sustained gate acquisition.
+
+Secondary outcomes include:
+
+- Intermediate agreement reliance.
+- Source-only performance.
+- Gate-free NLL.
+- Transition duration.
+- Final Bayes gap.
+- Censored acquisition rate.
+
+## B6. Required conclusion
+
+Determine whether changing decision benefit at fixed relational complexity and controlled competing-cue strength causally changes the acquisition distribution.
+
+If it does, report the effect size and uncertainty.
+
+If it does not, report what effect sizes can reasonably be excluded.
+
+If the generator remains confounded, report that failure as a mathematical limitation of the design.
+
+Do not rescue a failed value prediction by redefining the usefulness measure after confirmation.
+
+---
+
+# 5. WORKSTREAM C — FOUR-SOURCE RELATIONAL COMPLEXITY
+
+**Mandatory mathematical work; neural training conditional on a scientifically useful design.**
+
+## C1. Construct the arity-4 task
+
+Extend the GATE generator so that trust depends on four sources.
+
+Preserve the same general decision problem.
+
+Use controlled irrelevant source positions in lower-arity conditions if needed to maintain the same total input format.
+
+Avoid changing architecture, parameter count, input length, and task semantics unnecessarily.
+
+The intended properties include:
+
+- Minimum gate-source count of four.
+- No shortcut through a proper subset of gate sources.
+- A mathematically verified Bayes decision rule.
+- Known restricted-order optimal rules.
+- Measurable gate benefit.
+- A meaningful agreement or lower-order alternative.
+
+Verify all properties.
+
+Do not assume that a four-source construction automatically has decision interaction order five.
+
+Prove or numerically verify the actual minimum order under the declared function class.
+
+## C2. Match decision value
+
+Select an arity-4 condition whose gate benefit closely matches a retained arity-3 or arity-2 reference.
+
+Use the same mathematical definition of benefit.
+
+Measure changes in:
+
+- Gate-free difficulty.
+- Source-only performance.
+- Intermediate benefits.
+- Accuracy gain.
+- Gradient-signal properties.
+
+Do not hide differences that remain after matching.
+
+## C3. Assess learnability before allocating substantial training
+
+The central risk is repeating XV's censored arity-3 result at an even higher complexity.
+
+Use the Workstream A findings to decide whether arity-4 training can answer a discriminating question.
+
+Before launching full confirmation training, define what outcomes would support or contradict the proposed scaling explanations.
+
+If arity 3 remains largely unlearned under extended optimization, more arity-4 non-acquisitions alone may add little scientific information.
+
+In that case, prioritize the mathematical analysis and run only a limited, explicitly exploratory trainability pilot.
+
+Do not consume the entire budget producing additional censored curves.
+
+If arity 3 becomes reliably learnable, proceed with a properly replicated arity-4 comparison.
+
+## C4. Test scaling cautiously
+
+For arities 2, 3, and 4, investigate how acquisition time changes with relational complexity.
+
+Consider specific preregistered models, such as:
+
+- Linear or low-degree growth.
+- Multiplicative growth.
+- A threshold-like acquisition barrier.
+- Strong seed-dependent censoring.
+
+However, **three complexity levels cannot establish a general asymptotic polynomial or exponential law.**
+
+Do not claim exponential scaling merely because observed times rise sharply.
+
+At most, compare particular restricted models and assess which are compatible with the observed data.
+
+If all arity-4 runs are censored, report acquisition bounds rather than inventing a fitted growth exponent.
+
+## C5. Replication
+
+If full arity-4 confirmation is authorized by the preregistered feasibility criteria, use at least four independent fresh initializations.
+
+Do not replace replication with additional task variants.
+
+If the session cannot support four meaningful confirmation runs, label the arity-4 neural results exploratory and do not present them as decisive scaling evidence.
+
+---
+
+# 6. REBUILD THE LEARNING MEASUREMENTS
+
+**Mandatory for all three workstreams.**
+
+Several XV mechanism and stage measurements failed their controls.
+
+Do not carry those measurements forward unchanged.
+
+## D1. Cue-conditioned probes
+
+XV initially interpreted certain probe responses as gate information, but the mathematical review showed that the probes were responding to the competing agreement cue.
+
+For every relevant probe:
+
+- Calculate its expected response under the agreement-only model.
+- Calculate its expected response under the complete gate model.
+- Measure excess gate information beyond the competing cue.
+- Check performance on data that separates the gate from agreement.
+- Use held-out inputs and checkpoints.
+
+Do not use an arbitrary chance value of 0.5 when the correct conditional baseline is higher.
+
+Distinguish:
+
+- Decoding the agreement cue.
+- Decoding the gate.
+- Decoding evidence correlated with the gate.
+- Causal use of the gate.
+
+## D2. Floor-conditioned stage definitions
+
+A model near the best gate-free optimum should not automatically be credited with an intermediate relational stage merely because it has not learned the full gate.
+
+Define the lower-stage and intermediate-stage criteria using mathematically justified performance floors.
+
+Require evidence of actual incremental use of the relevant intermediate relation.
+
+A censored higher-order learner must not produce an automatic confirmation of complexity-first staging.
+
+## D3. Confidence-dependent diagnostic calibration
+
+XV's G and agreement-response diagnostics were not calibration-free.
+
+Their magnitudes could change with output confidence.
+
+Correct this by:
+
+- Measuring ideal-reference responses at matched confidence.
+- Including confidence-sensitive null models.
+- Separating changes in candidate decision from output sharpening.
+- Reporting properly normalized intervention effects where possible.
+
+A sudden increase in output confidence is not by itself proof of new relational computation.
+
+## D4. Dense transition measurements
+
+Use sufficiently frequent snapshots throughout the full period in which gate learning may occur.
+
+Report:
+
+- Time of first measurable acquisition.
+- Time of stable acquisition.
+- Transition width.
+- Confidence and calibration changes.
+- Intermediate-relation use.
+- Final task competence.
+
+Do not call a transition abrupt when checkpoint spacing is too coarse to distinguish a gradual process.
+
+## D5. Rebuild the learning-signal estimator
+
+The XV gradient-SNR estimator returned values near its purported signal level even when the true signal was absent.
+
+It is invalid for the intended scientific claim.
+
+Construct a corrected estimator with:
+
+- Exact or verified zero-signal controls.
+- Positive-signal controls.
+- Noise-calibrated reference values.
+- Repeated estimates for variance.
+- Explicit mathematical interpretation.
+
+Do not fit it to XV's known complexity labels and then claim independent validation.
+
+If no reliable estimator can be built within the research budget, leave the learning-signal hypothesis untested.
+
+This is preferable to reporting a misleading correlation.
+
+---
+
+# 7. MAKE DISCRIMINATING PREDICTIONS
+
+**Mandatory frozen confirmation.**
+
+Use a small set of substantive predictions.
+
+The following prediction families are recommended.
+
+### P1 — Extended arity-3 acquisition
+
+State a quantitative prediction about the acquisition probability or acquisition-time distribution under the longer constant-rate schedule.
+
+Compare with a genuine alternative prediction.
+
+### P2 — Schedule versus duration
+
+Predict whether success depends primarily on additional training exposure, learning-rate restart, or another schedule effect.
+
+Use the appropriate paired continuation and fresh-training controls.
+
+### P3 — Decision benefit at fixed arity
+
+Predict how acquisition time changes when gate decision value changes while competing agreement strength is approximately held fixed.
+
+### P4 — Complexity scaling
+
+If full arity-4 confirmation is scientifically justified, predict the relative acquisition behavior of arity 3 and arity 4 under a specified comparable optimization budget.
+
+If the training experiment is not diagnostic, do not freeze a nominal scaling prediction merely to increase the prediction count.
+
+### P5 — Learning-stage validity
+
+Predict a meaningful transition or intermediate-strategy effect using floor-conditioned, cue-corrected diagnostics.
+
+### P6 — Learning-signal mechanism
+
+Only freeze this prediction if the new gradient measure passes independent null and positive controls.
+
+**Do not manufacture six predictions if only three or four are scientifically discriminating.**
+
+Freeze exact numerical thresholds, expected directions, confidence procedures, diagnostic controls, and failure criteria before confirmation.
+
+---
+
+# 8. FREEZE INTEGRITY AND NO OUTCOME LEAKAGE
+
+Investigation XV successfully froze its main predictions before confirmation training.
+
+Preserve that improvement.
+
+## Before confirmation
+
+Commit and hash:
+
+- Generator code.
+- Mathematical reference tables.
+- All selected task conditions.
+- Training schedules.
+- Initializations and seed inventory.
+- Diagnostic definitions.
+- Competence thresholds.
+- Acquisition criteria.
+- Censoring procedures.
+- Statistical comparisons.
+- Expected outputs.
+- Scoring scripts.
+- Resource allocation.
+- Any conditional authorization criteria for arity-4 training.
+
+## During confirmation
+
+Do not inspect incomplete confirmation outcomes to revise the prediction.
+
+Use separately designated development models for calibration.
+
+Do not read confirmation loss logs before the relevant protocol is frozen.
+
+Use fail-closed scoring that refuses to produce verdicts until all required outputs exist and match the frozen configuration.
+
+If a scientific finding motivates a new prediction after existing confirmation results have been inspected, label it exploratory or freeze a genuinely independent subsequent validation.
+
+Do not represent sequentially informed predictions as independent preregistration.
+
+## Conditional arity-4 decision
+
+The arity-4 decision must be governed by prespecified feasibility criteria.
+
+The decision can depend on measured development feasibility, but it must not be an opportunity to choose whichever confirmation outcome most favors a preferred scaling explanation.
+
+Record the decision chronology.
+
+---
+
+# 9. STATISTICS AND EXPERIMENTAL INDEPENDENCE
+
+The primary experimental unit is a fresh independently initialized model.
+
+Training checkpoints are repeated observations of that model, not independent replications.
+
+Report:
+
+- Fresh model count by condition.
+- Previously trained checkpoint count.
+- Independent continuation count.
+- Training-data seeds.
+- Acquisition times.
+- Censored outcomes.
+- Gate-specific response.
+- Competing-cue response.
+- Final competence.
+- Confidence intervals.
+- Sensitivity to alternative stage thresholds.
+- Differences between learning schedules.
+- Decision-value contrasts.
+- Complexity contrasts.
+- Gradient diagnostic performance.
+
+Use appropriate methods for small samples and right-censored acquisition times.
+
+Do not infer equivalence from a nonsignificant result.
+
+Do not claim "never learn" from finite training.
+
+Do not fit precise asymptotic scaling exponents to three complexity levels.
+
+When the sample cannot distinguish competing explanations, report that explicitly.
+
+---
+
+# 10. COMPUTE-BUDGET CONTROL
+
+**This is an essential part of the research design.**
+
+The previous environment had approximately two CPUs and seven gigabytes of RAM.
+
+XV reported approximately two training lanes, each processing around two training steps per second.
+
+At that throughput, one 20,000-step run could take several hours.
+
+The full proposed design could therefore exceed a single-session budget if launched without prioritization.
+
+## Required preflight
+
+Measure:
+
+- Current machine resources.
+- Steps per second for each variant.
+- Memory per training process.
+- Concurrent throughput.
+- Checkpoint and evaluation overhead.
+- Cost of exact arity-4 enumeration.
+- Expected completion time of the minimum scientific design.
+
+Produce a concrete training-budget table.
+
+Do not claim that dozens of long runs can be completed in one session without measured evidence.
+
+## Mandatory allocation rule
+
+Prioritize:
+
+1. Workstream A's decisive extended-training comparison.
+2. Workstream B's clean value-versus-cue contrast.
+3. Workstream C's exact mathematics.
+4. Workstream C's full neural scaling experiment only if scientifically informative and computationally affordable.
+5. Additional mechanistic analysis.
+
+If necessary, reduce the number of optional experiments rather than reducing every primary contrast to one or two models.
+
+Use existing XV checkpoints for continuation experiments when scientifically appropriate.
+
+Avoid repeatedly retraining models whose existing states are adequate for the intended comparison.
+
+Do not confuse checkpoint continuation with fresh independent training.
+
+## Completion standard
+
+Use the available research session efficiently.
+
+Do not terminate while affordable mandatory tests remain.
+
+Do not fill remaining time with undirected architecture or attention-head searches.
+
+Document genuine compute limitations and their precise effect on the scientific conclusions.
+
+The purpose is decisive evidence, not maximizing the number of jobs or the elapsed duration.
+
+---
+
+# 11. INDEPENDENT ADVERSARIAL REVIEW
+
+Use three separately initialized reviewing agents where supported.
+
+These are agent reviews, not human peer review.
+
+## Reviewer A — Mathematical validity
+
+Examine:
+
+- The extended GATE generators.
+- Minimal interaction orders.
+- Bayes-optimal rules.
+- Decision-benefit matching.
+- Agreement-cue matching.
+- Shortcut elimination.
+- Arity-4 mathematics.
+- Scaling-model identifiability.
+- Whether the frozen predictions follow from their assumptions.
+
+The reviewer must explicitly evaluate whether the value-versus-cue confound has actually been resolved.
+
+## Reviewer B — Learning and mechanism validity
+
+Examine:
+
+- Acquisition definitions.
+- Censoring.
+- Learning-rate controls.
+- Fresh training versus continuation.
+- Cue-conditioned probes.
+- Floor-aware stage rules.
+- Snapshot density.
+- Calibration confounds.
+- Gradient-signal diagnostics.
+- Whether late acquisition can be distinguished from non-acquisition.
+
+The reviewer must identify any supposed learning transition that could be explained entirely by confidence changes or inadequate sampling.
+
+## Reviewer C — Experimental integrity
+
+Examine:
+
+- Freeze chronology.
+- Confirmation-data access.
+- Model independence.
+- Required run completion.
+- Protocol deviations.
+- Resource and memory logs.
+- Checkpoint provenance.
+- Fail-closed scoring.
+- Package hashes.
+- Reproducibility.
+
+Provide reviewers with actual scripts, raw results, and checkpoint evidence.
+
+Preserve every substantive criticism and adjudication.
+
+Corrections must appear in the final synthesis.
+
+Do not change frozen verdicts silently.
+
+---
+
+# 12. REQUIRED REPOSITORY ARTIFACTS
+
+Create branch:
+
+`cor-phase15-step1-relational-acquisition-limits`
+
+Create directory:
+
+`docs/research_audits/cor_phase15/step1_relational_acquisition_limits/`
+
+Produce the following substantive reports.
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+The principal mathematical findings, learning outcomes, failed predictions, revised interpretations, and implications for COR.
+
+### EXTENDED_RELATIONAL_LEARNING.md
+
+The long arity-3 runs, learning-rate comparisons, checkpoint continuations, acquisition-time statistics, censored outcomes, and training competence.
+
+### DECISION_VALUE_AND_COMPETING_CUES.md
+
+The independently controlled reliability generator, exact mathematics, matched decision-value experiments, residual confounds, and frozen findings.
+
+### HIGHER_ORDER_COMPLEXITY_AND_SCALING.md
+
+The exact arity-4 construction, restricted-order decision rules, mathematical verification, feasibility decision, any neural results, and defensible scaling conclusions.
+
+### LEARNING_SIGNAL_AND_STAGE_VALIDATION.md
+
+Cue-corrected probes, floor-conditioned stages, calibration controls, new learning-signal estimator, null references, and mechanistic interpretations.
+
+### FROZEN_CONFIRMATION_AND_STATISTICS.md
+
+Every frozen prediction, numerical threshold, model cohort, acquisition result, uncertainty estimate, censored run, failure, and protocol deviation.
+
+### OPEN_COR_FOUNDATIONAL_QUESTIONS.md
+
+The remaining questions after XVI, including the implications for relational reasoning, T4, GATE, TRANS, adaptive sources, architecture dependence, and the original obstruction/discrepancy framework.
+
+Also include:
+
+- All experimental code.
+- Mathematical verification scripts.
+- Raw training trajectories.
+- Important model checkpoints.
+- Random seeds and configuration hashes.
+- Statistical scripts.
+- Frozen protocol files.
+- Execution logs.
+- Resource measurements.
+- Independent reviews.
+- Adjudications.
+- Reproduction instructions.
+- External dependency inventory.
+- SHA-256 manifest.
+
+Do not omit negative runs.
+
+Do not create placeholder research reports.
+
+---
+
+# 13. ARCHIVE DELIVERY AND REPRODUCIBILITY
+
+Produce:
+
+`cor_inv16_relational_acquisition_limits.zip`
+
+Before delivery:
+
+1. Extract the archive into a clean directory.
+2. Verify all manifest hashes.
+3. Recompute the revised GATE mathematics.
+4. Recompute the decision-value and cue-matching calculations.
+5. Verify the arity-4 mathematical construction.
+6. Load all new checkpoints.
+7. Reproduce the extended-training acquisition results.
+8. Recompute learning-time and censoring analyses.
+9. Recompute cue-conditioned probe baselines.
+10. Verify floor-aware stage classifications.
+11. Recompute relevant optimization diagnostics.
+12. Reproduce frozen prediction verdicts.
+13. Verify the fail-closed scorer behavior.
+14. Verify representative deterministic checkpoint continuations.
+15. Verify external dependency hashes.
+16. Check the reports against the primary results.
+
+## Archive-size safeguard
+
+Investigation XV's full archive exceeded the upload limit and required multipart delivery.
+
+Do not repeat its incomplete or ambiguous multipart-delivery problem.
+
+If the full archive is too large:
+
+- Produce a clearly identified complete research ZIP.
+- Produce a smaller audit ZIP containing all reports, mathematical scripts, frozen protocols, raw metrics, reviewer findings, and enough checkpoints for representative reproduction.
+- Split the full ZIP into consistently numbered parts.
+- Include every part.
+- Provide a SHA-256 hash for the full reconstructed ZIP and each part.
+- Verify reconstruction from the delivered parts before claiming success.
+- Explicitly state which files are omitted from the smaller audit package.
+
+Do not describe a slim package as containing the full checkpoint archive.
+
+Do not invent artifact links or claim delivery of files that are not actually present.
+
+If earlier COR packages are necessary, record their exact hashes and state that the archive is not standalone.
+
+---
+
+# 14. REQUIRED FINAL SCIENTIFIC ANSWERS
+
+Answer these questions directly.
+
+## Extended learning
+
+1. Do the previously unsuccessful three-source models acquire the gate under extended training?
+
+2. Does acquisition depend on continuing the old schedule, restarting its learning rate, or training with a constant rate from the beginning?
+
+3. How many genuinely fresh three-source models learn successfully?
+
+4. What is the estimated distribution of acquisition times?
+
+5. Which outcomes are right-censored?
+
+6. Does an apparent learning barrier persist after controlling for effective optimization exposure?
+
+7. Is the higher-order relation representable by the tested architecture?
+
+8. What evidence distinguishes delayed learning from an optimization barrier?
+
+## Decision benefit
+
+9. Can gate value be changed while holding the competing agreement cue approximately constant?
+
+10. Does changing gate value independently affect acquisition timing?
+
+11. How much of the observed difference remains attributable to changing optimization signals?
+
+12. Which mathematical and statistical confounds remain?
+
+## Complexity
+
+13. Can a four-source gate be constructed without lower-order shortcuts?
+
+14. What is its exact minimum decision interaction order?
+
+15. Can its decision benefit be matched to lower-arity tasks?
+
+16. Is arity-4 neural training diagnostically useful under the observed arity-3 learnability?
+
+17. What conclusions about scaling are supported, and which are not identifiable?
+
+## Learning mechanisms
+
+18. Do the corrected probes show gate information beyond the agreement-cue baseline before behavioral acquisition?
+
+19. Are apparent intermediate stages robust under floor-conditioned criteria?
+
+20. Are learning transitions abrupt under adequately dense measurement?
+
+21. Does a properly null-calibrated learning-signal measure predict acquisition?
+
+22. Can any identified neural mechanism explain the differences between variants rather than merely describe the final model?
+
+## Broader COR significance
+
+23. What did XVI establish that XV could not?
+
+24. Which explanations were falsified?
+
+25. What remains unexplained?
+
+26. Does the evidence support a restricted mathematical principle about relational learning, or only a finite-budget empirical pattern?
+
+27. What is the most valuable next direction in COR's broader foundational research landscape?
+
+Label every answer as:
+
+- Mathematical proof.
+- Numerical verification.
+- Development.
+- Frozen confirmation.
+- Exploratory.
+- Inference or speculation.
+
+Do not present speculative mechanisms as established conclusions.
+
+---
+
+# 15. FINAL SCIENTIFIC DIRECTIVE
+
+Investigation XV showed that increasing the number of sources required to determine trust can dramatically delay the acquisition of a relational decision rule, even when the mathematical decision benefit of that rule is nearly unchanged.
+
+That was meaningful progress.
+
+But the experiment left three fundamental uncertainties.
+
+**First:** Did the higher-order learners simply need more effective optimization, or were they encountering a more persistent learning barrier?
+
+**Second:** Does the independent decision value of a relationship influence when it is learned, or were the earlier results driven by competing simpler strategies?
+
+**Third:** How does acquisition difficulty change as relational complexity increases beyond the levels already tested?
+
+Investigation XVI must resolve these questions as far as the available evidence and compute budget permit.
+
+Do not confuse finite-budget failure with permanent impossibility.
+
+Do not call a confounded comparison causal.
+
+Do not infer a universal scaling law from three complexity levels.
+
+Do not describe a mathematical interaction order as an established neural optimization mechanism.
+
+Do not declare a learning jump when its timing cannot be resolved.
+
+Do not rescue failed predictions with post hoc definitions.
+
+Use exact mathematics to construct the tasks.
+
+Use controlled optimization to test acquisition.
+
+Use sufficient independent seeds to measure variation.
+
+Use correctly calibrated diagnostics to identify relational learning.
+
+Use adversarial review to reject explanations that the evidence cannot support.
+
+**The central objective is not to show once again that relational complexity matters. It is to discover why it matters, when that difficulty can be overcome, and which additional properties determine the learning process.**
+
+If extended training resolves the acquisition gap, identify the relevant optimization conditions.
+
+If it does not, characterize the finite-budget barrier without claiming impossibility.
+
+If decision value independently changes acquisition, quantify the effect.
+
+If it does not, preserve the negative result.
+
+If higher arity reveals a meaningful scaling pattern, test a restricted prediction rather than proclaiming a general law.
+
+And if the experiments expose contradictions or remaining non-identifiability, report them clearly.
+
+Remain in **COR Phase 1.5, Step 1**, with the provisional foundational-exploration estimate unchanged at approximately **25%**.
+
+Do not close the phase, select a final thesis, or claim validation of the original obstruction/discrepancy operators.
+
+**Execute Investigation XVI, verify the mathematical and neural evidence, obtain independent adversarial review, and deliver the complete reproducible research artifacts.**

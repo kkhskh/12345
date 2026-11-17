@@ -57,12 +57,12 @@ Stream 98_200_000; one edited question per episode; n = 2000.
 - s1: E at the layer-2 input 0.94 (previously 0.93).
 - s2: the gate is computed in layer 1 from G (G at the layer-1 input 1.00), and E at the layer-2 input is 1.00.
 
-**New: "decodable ≠ used" occurs in every model.**
+**Decodable but not sufficient alone, in s0 and s1** (corrected after review B, B4). Probe chance is 0.5. Values below 0.5 indicate a lookup code that inverts on the held-out x₀ (B3).
 - **s0:** g is decodable at E at the layer-2 input (0.97), but patching there transfers 0.03. The decision has already moved to the readout through layer-1 attention.
 - **s1:** g is decodable at R at the layer-2 input (1.00), but patching R transfers 0.08. The decision is formed by layer-2 readout attention to E.
-- **s2:** g is decodable at G after layer 1 (0.60–0.92), but G patches transfer 0.
+- The pre-review s2 example is withdrawn. It used resid_post2, which comes after the last layer, where patching the gate or evidence tokens cannot affect the readout by construction.
 
-This is the GATE analogue of the T4 findings N13 and C3, under the corrected toolkit. A probe identifies information present at a site, not the pathway the decision uses.
+The statement shown is "patching a site where g is decodable does not transfer the decision". That is the GATE analogue of the T4 lesson that a probe identifies information present, not the pathway used (N13, C3). It does not show that the information is never used elsewhere.
 
 ## 3. Mediation by the stored gate variable, with ideal references and controls [expl]
 
@@ -102,8 +102,15 @@ Controls on the trained subspaces:
 **Reading.**
 - **Sufficiency.** The gate's effect on the decision is fully mediated by a low-dimensional subspace at the evidence tokens of the edited question: k = 2 in s1 and s2; k = 4–8 for 0.87–0.90 in s0.
 - **Specificity.** Random, decoy, G-site and R-site controls all fail. The ideal references discriminate here: the null donor's ideal is 0, and the observed value equals the tie rate.
-- **The gate is not carried by one linear direction**, unlike the T4 relational carrier (1–2 stable directions; ledger C4). Neither the 1-d encoding direction nor the best trained 1-d subspace suffices. The value-conditional directions are close to the encoding direction (cos 0.34–0.99) and do not suffice either.
-- **[spec]** One reading is that the stored variable is the trust of each token rather than g itself: trust is g for tokens 2 and 3 and 1 − g for tokens 4 and 5. A shared subspace then needs one direction per role. This was not tested.
+- **Dimensionality (corrected after review B, B1–B2).**
+  - A *single direction shared by the four evidence tokens* never suffices (0.21–0.59), and neither do the fixed 1-d encoding and value-conditional directions.
+  - With **one trained direction per token**, review B's check gives s1 1.00 / 0.99, s0 0.64 and s2 0.60 (`reviews/review_b_checks/`). In s1, then, one direction per token is enough; in s0 and s2 it is not.
+  - The earlier claim that this differs from T4's 1–2 directions is withdrawn: the ranges overlap and the comparisons are not like for like.
+- **Weak controls (B5–B8).**
+  - The decoy toggle changes the decoy relation in only 33% of episodes, and decoy and gate are dependent given x₀.
+  - The DAS random subspaces are not variance-matched.
+  - The G/R-site control applies the E-trained subspace at other tokens and tests little.
+  - The ideal references are asserted, not computed.
 
 
 ## 3b. The two new models s3 and s4 [expl, after X1 was scored]
@@ -131,7 +138,7 @@ Across five models there are therefore three layouts: s0 (early-readout-like), s
 
 ## 4. Decision mechanism by model (comparison levels, mandate §8.5)
 
-| level | shared by s0–s2? | evidence |
+| level | shared by s0–s4? | evidence |
 |---|---|---|
 | behaviour (Bayes-level, gate-following, relation-invariant) | yes, in all five models | §1, §3b |
 | abstract computation (a trust variable derived from the relation, stored at the evidence tokens, then combined with the evidence at the readout) | yes | §2 patches, §3 DAS |
@@ -145,11 +152,13 @@ Across five models there are therefore three layouts: s0 (early-readout-like), s
 | trust invisible to single sources | yes (Proposition 1) | yes (exact I = 0) | **same** (mathematical) |
 | exact source-wise ceiling far below Bayes | KL 0.33, agreement with Bayes 0.61 | KL 0.28, accuracy 0.80 against 0.90 | **same** (mathematical) |
 | trust stored at source / evidence tokens and combined at the readout | the mixture organisation (N19, N21); the early-readout organisation instead pools relational evidence into the readout | all 3 models store it at E. s0 then moves the gated evidence to the readout at layer 1, an early-readout-like layout | **partly same**. The T4 mixture/early dichotomy has an analogue in *where the combination happens*, not in *where trust is stored* |
-| dimensionality of the sufficient carrier | 1–2 stable directions | ≥ 2 (k = 1 insufficient in all three) | **different** |
-| decodable ≠ used | yes (N13; C3 with the variance caveat) | yes, in every model (§2) | **same** (methodological, H5) |
-| combination operator (power-mean ρ) | fitted ρ differs by organisation; the reading is non-unique (XIII-B) | **not identifiable** for Bayes-optimal behaviour (Proposition 6, near-trivial) | **different**: depends on trust uncertainty, which GATE lacks (H4) |
+| dimensionality of the sufficient carrier | 1–2 stable directions | shared k = 1 insufficient; per-token 1-d sufficient in s1 only | **not established** (review B, B1–B2) |
+| decodable ≠ used | yes (N13; C3 with the variance caveat) | decodable-site patches do not transfer, in s0 and s1 (§2) | **same methodological lesson** (H5), not a mechanism similarity |
+| combination operator (power-mean ρ) | fitted ρ differs by organisation; the reading is non-unique (XIII-B) | **not identifiable** for Bayes-optimal behaviour (Proposition 6, near-trivial) | **not comparable** (review B) |
 | relational cue screened off by a deterministic relation | no; agreement *is* the trust evidence, non-monotone | yes (Proposition 5) | **different** |
-| learnable from scratch | the M Transformer no (0/3); DeepSets yes (3/3) | yes (s0–s2; s3 and s4 in CROSS_FAMILY_CONFIRMATION.md) | **different** for the Transformer. The interaction-order explanation is **not** supported (Proposition 4, corrected); the source's own explanation is the non-monotone agreement map |
+| learnable from scratch | the M Transformer no (0/3); DeepSets yes (3/3) | yes (5/5) | **different** for the Transformer. The interaction-order explanation is **not** supported (Proposition 4, corrected); the source's own explanation is the non-monotone agreement map |
+
+**Overall (review B).** No cross-family *mechanism* similarity is established causally. The "same" rows are either mathematical properties designed into both tasks (A1, the ceilings) or the general methodological point that probes do not show use. The learnability row is confounded by different architectures and recipes.
 
 ## 6. Not done
 

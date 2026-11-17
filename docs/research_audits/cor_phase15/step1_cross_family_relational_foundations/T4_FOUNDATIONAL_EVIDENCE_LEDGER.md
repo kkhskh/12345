@@ -77,7 +77,7 @@ COR Phase 1.5, Step 1 (provisional ≈ 25%, unchanged). This ledger is the refer
 | N22 | **XIII-C: "the readout map W selects the organisation" — FALSIFIED in XIII-D** (W-only cells 4/4 mixture; W22 effect context-dependent). The organisation is an interaction-dependent function of parent × (L, W). | FALSIFIED | `step1_causal_algorithm_selection_validation/MAIN_RESEARCH_SYNTHESIS.md` §1 | — |
 | N23 | **XIII-E re-roll.** A pooled within-parent W component transfers across contexts (R1-W, p = 0.006). Per parent p = 0.086 (uP160) and 0.018 (uP161), carried mainly by uP161, and no explanatory statistic was found. L transfer was not detected (R1-L), within a bound that assumes homogeneous transfer. The W − L contrast is untested. | COHORT (2 parents), EXPL (decomposition) | `step1_reroll_and_critical_period_validation/REROLL_VS_STRUCTURE.md` + `reviews/ADJUDICATION.md` | "identifiable structure" withdrawn |
 | N24 | **Early-training sensitivity.** A 100-step route block redirects the organisation 6/6. Matched noise at the layer-2 input does not change the route class (0/6), but strong early noise at the layer-2 input flipped the mixture base (2/2, degraded runs): some general disturbances also redirect. The XIII-E sham was only a code-path identity check. Late blocks also leave lasting change (R4 falsified), so there is no closing critical period. On M, the late flip partly reverses (exploratory, 2 runs). | COHORT (1 parent, 3 data orders) | `step1_reroll_and_critical_period_validation/EARLY_TRAINING_CAUSALITY.md` | XIII-D "early critical period" downgraded; "difference of degree" withdrawn |
-| N25 | **XIV Stage I.** Off-route sham, location-matched noise, persistence: R-S, R-N, R-P. | see T4_FINAL_CAUSAL_CONTROLS.md | `logs/score_I.json` | filled from the frozen scorer, see §4 |
+| N25 | **XIV Stage I.** The 100-step early route block flips the organisation 6/6, while an off-route sham of the same masking mechanism (validated on 6/6 baselines) flips 0/6 and attention-TV-matched noise at the same edges flips 0/6. Effects persist to step 4000. With equal 100-step duration and equal recovery time, late blocks (546–646) are reversed within 50–200 updates on M (3/3) and absent or partial on E (2/3 none, 1/3 hybrid). PI_early > PI_late in 4/4 valid pairs. | COHORT (frozen R-S, R-N, R-P CONFIRMED; 1 parent, n = 6; R-P mainly M, 3 of 4 valid pairs) | `logs/score_I.json`, T4_FINAL_CAUSAL_CONTROLS.md | both controls raise the route's attention share (review B), so they exclude masking or perturbation of these edges as the cause, not every reduction of route share or access; late E blocks disrupt the early route transiently; learning-rate exposure is confounded |
 
 ### 2.3 Measurement and causal-identification results (T4)
 
@@ -102,13 +102,18 @@ COR Phase 1.5, Step 1 (provisional ≈ 25%, unchanged). This ledger is the refer
 7. **"Pooled versus per-group".** Unidentifiable (M6). Theorem X1 partly retracted (XI).
 8. **"Interchange accuracy identifies the variable."** False positive (N18).
 9. **"The readout map selects the algorithm" (XIII-C).** Falsified (XIII-D).
-10. **"Early critical period" (XIII-D).** Downgraded (XIII-E R4 falsified); controls inadequate. Revisited in XIV Stage I.
+10. **"Early critical period" (XIII-D).** Downgraded (XIII-E R4 falsified); controls inadequate. XIV Stage I adds an off-route sham, location-matched noise and equal-recovery comparisons: the effect exceeds both controls (which do not test reduction of route share), and a block during formation persists while the same block after formation is mostly reversed. There is no closed window.
 11. **"3-d m-specific carrier" and "decodable but not used".** Withdrawn or retracted (XIII-E).
 12. **The O/D framework.** Never established. Unweighted discrepancy is Bayes-order-compatible only under a weighted-voting coincidence, and fails for copying sources (continuation; deepening).
 
 ## 4. Stage I additions (XIV)
 
-These are filled from `logs/score_I.json` after the frozen scorer ran; see T4_FINAL_CAUSAL_CONTROLS.md.
+From `logs/score_I.json` (frozen scorer, commit `18e0b73`):
+- **R-S (off-route sham): CONFIRMED.** Real block 6/6 flips, sham 0/6. Paired Δδ = 0.80 [0.795, 0.804]. The sham was valid on all 6 baselines.
+- **R-N (location-matched noise): CONFIRMED.** Noise 0/6 flips. Δδ = 0.76 [0.71, 0.80].
+- **R-P (early more persistent): CONFIRMED.** 4 valid pairs, 4/4. Mean ΔPI = 0.81 [0.30, 1.08].
+
+These change N24's status. Early route-block sensitivity now has a same-mechanism sham and a same-edge noise control, but both raise the route's share (review B). For equal-duration blocks: a block during formation selects the organisation; after formation it is mostly reversed. A closing critical period is still not supported.
 
 ## 5. What is suitable for cross-family testing
 

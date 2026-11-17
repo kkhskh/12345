@@ -5,6 +5,8 @@
 - FREEZE X amendment: commit `b019ca9`. It was registered after mathematical review A and before any X1 output was inspected.
 - Scoring commit: `1ec55aa`.
 
+**Disclosure (review C, finding 1).** The training scripts' loss logs (`logs/g_train_s3.out`, `logs/g_train_s4.out`) were written during training and partly committed with FREEZE X and the amendment. Before the amendment, the investigator read only the final line of the s3 log (step 4000, loss 0.1807), which bears on competence. The plateau-stage lines were not read. The amendment's phrase "before any X1 output was inspected" should be read with this qualification.
+
 **Scorers.**
 - `scripts/score_X.py` (frozen) → `logs/score_X.json`;
 - `scripts/score_X_amend.py` → `logs/score_X_amend.json`.
@@ -60,12 +62,12 @@ Both are fail-closed. The amendment's exact references are in `logs/score_X_amen
 
 ## 3. Interpretation
 
-**Supported (frozen confirmation, n = 2 new models; the order-1 phase also occurred in development seed 1).** GATE models trained from scratch first reach the exact order-1 (source-wise) ceiling and stay there.
-- The ceiling: accuracy 0.80 (exact optimum 0.801), NLL 0.45–0.48 (exact optimum 0.462).
-- During this phase G ≈ 0, which means no use of the gate relation, and the agreement index is small.
-- The phase lasts about 175–350 steps.
+**Supported (frozen confirmation, n = 2 new models; the order-1 phase also occurred in development seed 1).** GATE models trained from scratch first reach the order-1 accuracy level with no use of the gate relation (G ≈ 0, below 0.03) for about 175–350 steps.
+- Accuracy 0.80 (exact optimum 0.801).
+- **Corrected after review B (D).** s3 does not simply stay at the order-1 ceiling. With G ≤ 0.011, its NLL falls to 0.449, below the exact order-1 optimum of 0.462: it realises about 40% of the order-2 gain, with A_p up to 0.27. s4 is close to a pure order-1 phase (A_p ≤ 0.09; NLL 0.464–0.47).
+- The X1a criteria cannot separate order 1 from partial order 2, because both have accuracy 0.801.
 
-**Falsified.** These models do **not** learn the pairwise-agreement (order-2) rule before the gate.
+**Falsified.** These models do **not** learn the pairwise-agreement (order-2) rule to half strength before the gate. The supported reading is: order-1 accuracy first; agreement use then grows slowly (s3 partly, s4 hardly); then the gate is acquired abruptly, before agreement reaches the order-2 level.
 - Agreement use grows slowly during the order-1 phase, to A_p ≤ 0.27 in s3 and 0.09 in s4, measured against the order-2 optimum's 0.96.
 - The gate is then acquired as a leap: G goes from 0.03 to 0.76 in about 150 steps in s3, and from 0.11 to 0.66 in 100 steps in s4.
 - After the leap A_p is transiently negative and returns to 0, so the models end on the Bayes rule, which uses no agreement beyond the gate.

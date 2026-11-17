@@ -40,9 +40,8 @@ PY
 echo "7+9. representative GATE relational intervention replayed (g_mech.py on s1: patching, presence, mediation, null and decoy controls)"
 cp logs/gate_mech/s1.json /tmp/x14_m1.json; python3 scripts/g_mech.py s1 ../step1_relational_mechanism_deepening/checkpoints/gate_s1.npz 98200000 logs/gate_mech/s1.json > /dev/null 2>&1
 python3 -c "import json; a=json.load(open('/tmp/x14_m1.json')); b=json.load(open('logs/gate_mech/s1.json')); a.pop('ckpt'); b.pop('ckpt'); print('   g_mech s1 identical:', a==b, '| null donor', b['mediation']['null_donor_decision_change'], '| decoy dir', b['mediation']['decoy_direction'], '| random', b['mediation']['random_vm_max'])"
-echo "8+10. frozen cross-family prediction X1 and its statistics recomputed (score_X.py)"
-cp logs/score_X.json /tmp/x14_X.json; python3 scripts/score_X.py > /dev/null 2>&1
-python3 -c "import json; a=json.load(open('/tmp/x14_X.json')); b=json.load(open('logs/score_X.json')); print('   score_X identical:', a==b, b['verdicts'])"
+echo "8+10. frozen cross-family prediction X1 (and its amendment) and their statistics recomputed"
+for sc in score_X score_X_amend; do cp logs/$sc.json /tmp/x14_$sc.json; python3 scripts/$sc.py > /dev/null 2>&1; python3 -c "import json; a=json.load(open('/tmp/x14_$sc.json')); b=json.load(open('logs/$sc.json')); print('   $sc identical:', a==b, b['verdicts'])"; done
 echo "11. every new checkpoint loads with finite outputs; required source files present"
 python3 - <<'PY'
 import sys, os, glob, numpy as np, jax.numpy as jnp
@@ -63,9 +62,10 @@ req = ["src/gatelib.py", "src/maskfwd.py", "scripts/ft_factorial_c.py", "scripts
 print(f"   T4 checkpoints loaded: {n}, failed/non-finite: {bad}; GATE snapshots loaded: {ng}, failed/non-finite: {badg}; required files missing: {[r for r in req if not os.path.exists(r)]}")
 PY
 echo "12. fail-closed scoring: each scorer on an input with one required item removed"
-X=$(mktemp -d); cp -r logs/* $X/; rm $X/unit_metrics_I.jsonl; python3 scripts/score_I.py $X > /dev/null 2>&1; rc=$?; [ $rc -eq 2 ] && [ ! -f $X/score_I.json.new ] && echo "   score_I without unit_metrics_I.jsonl: refused (rc=$rc)" || echo "   score_I: NOT REFUSED (rc=$rc)"; rm -rf $X
-X=$(mktemp -d); cp -r checkpoints/gate/s3 checkpoints/gate/s4 $X/; rm $X/s3/step1000.npz; python3 scripts/score_X.py $X $X/out.json > /dev/null 2>&1; rc=$?; [ $rc -eq 2 ] && [ ! -f $X/out.json ] && echo "   score_X without one snapshot: refused (rc=$rc)" || echo "   score_X: NOT REFUSED (rc=$rc)"; rm -rf $X
-for f in I X; do python3 scripts/preflight_$f.py > /dev/null 2>&1 && echo "   preflight $f OK" || echo "   PREFLIGHT $f FAILED"; done
+X=$(mktemp -d); cp -r logs/* $X/; rm $X/unit_metrics_I.jsonl $X/score_I.json; python3 scripts/score_I.py $X > /dev/null 2>&1; rc=$?; [ $rc -eq 2 ] && [ ! -f $X/score_I.json ] && echo "   score_I without unit_metrics_I.jsonl: refused, no output (rc=$rc)" || echo "   score_I: NOT REFUSED (rc=$rc)"; rm -rf $X
+X=$(mktemp -d); cp -r logs/* $X/; rm $X/i_sham_validity.json $X/score_I.json; python3 scripts/score_I.py $X > /dev/null 2>&1; rc=$?; [ $rc -eq 2 ] && [ ! -f $X/score_I.json ] && echo "   score_I without i_sham_validity.json: refused, no output (rc=$rc)" || echo "   score_I: NOT REFUSED (rc=$rc)"; rm -rf $X
+for sc in score_X score_X_amend; do X=$(mktemp -d); cp -r checkpoints/gate/s3 checkpoints/gate/s4 $X/; rm $X/s3/step1000.npz; python3 scripts/$sc.py $X $X/out.json > /dev/null 2>&1; rc=$?; [ $rc -eq 2 ] && [ ! -f $X/out.json ] && echo "   $sc without one snapshot: refused, no output (rc=$rc)" || echo "   $sc: NOT REFUSED (rc=$rc)"; rm -rf $X; done
+echo "   (preflights P0-P5 / P0-P2 are freeze-time records, logs/preflight_*.json; P0 tests refusal on the then-incomplete state and is not re-run)"
 echo "13. external dependencies by exact hash (deps_inventory14.py) + absolute-path scan"
 cp logs/DEPENDENCIES.json /tmp/x14_d.json; python3 scripts/deps_inventory14.py > /dev/null 2>&1
 python3 - <<'PY'

@@ -205,3 +205,4 @@ step 25 and lnz sigma 0 == baseline at step 25 (max |diff| 0.0); benchmark and c
 2026-11-16T23:40:25Z RESTORED step2000 of the 4 XIII-E D801 continuations (excluded from the XIII-E archive; hashes appended to I_restored_checkpoints.txt; step4000 copies match the XIII-E manifest) - measurement plan unchanged
 2026-11-16T23:41:35Z measured the 4 restored step-2000 units (same frozen command, UM_STEPS=2000)
 2026-11-16T23:41:59Z score_I.py: R-S CONFIRMED, R-N CONFIRMED, R-P CONFIRMED (sham validity all valid)
+2026-11-17T00:33:41Z Reviews B and C received; ADJUDICATION written; corrections applied. DISCLOSURE: at 19:13Z (before the X amendment) the investigator read the final line of logs/g_train_s3.out (step 4000 loss 0.1807).

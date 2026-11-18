@@ -30,7 +30,7 @@ XV used 250-step spacing after step 2000. Because diagnostics run inline, densit
 **A decision-level agreement measure was tried and rejected in development** [dev].
 - The obvious analogue of F_G is following on pair-single swaps.
 - It gave 1.0 for the order-1 rule as well, and no swap changes the gate-free optimum's argmax without also changing the order-1 optimum's.
-- So no decision-level test separates agreement use from source-wise use with this edit.
+- So no decision-level test separates agreement use from source-wise use with this edit **in the arity-3 conditions and WB-high**. Review A (finding 8) shows that in WB-low, 54 of 162 swaps would have allowed one. The rejection was generalised too far.
 
 **A_conf** = XV's agreement index A_p × sB(gate-free optimum) / sB(model):
 - It is constant across temperatures for the gate-free optimum (spread < 1e-6), and 0 for the order-1 rule and for Bayes [num, V6].
@@ -41,7 +41,7 @@ XV used 250-step spacing after step 2000. Because diagnostics run inline, densit
 - A_conf ≥ 0.5 × reference;
 - KL ≤ KL(order 1) − 0.5 · (KL(order 1) − KL(gate-free)), i.e. at least half the agreement benefit realised beyond the best source-wise rule.
 
-It is evaluated **only in models that acquire the gate.** XV's problem, that a censored model sitting at the gate-free optimum automatically "showed the stage", therefore cannot recur.
+It is evaluated **only in models that acquire the gate.** Note (Review A finding 3): it certifies that the gate is not yet *decision-visible* (F_G ≤ 0.1), not that it is unused. A graded partial gate can coexist with it. XV's problem, that a censored model sitting at the gate-free optimum automatically "showed the stage", therefore cannot recur.
 
 ## 3. Cue-conditioned probes (D1) (`scripts/xvi_probe.py`)
 
@@ -82,10 +82,10 @@ So the natural probe of a gate-free model sits exactly at the cue baseline, whic
 
 **Controls on every checkpoint:**
 - **null:** the difference of two independent gate-randomisations, so μ = 0 exactly;
-- **planted:** the null plus a fixed vector with ‖v‖² = 10 null standard errors, which U must recover;
+- **planted:** the null plus a fixed vector with ‖v‖² = 10 null standard errors, which U must recover. This checks the arithmetic only, not sensitivity (Review B finding 2);
 - **natural positive:** the true batch minus the same batch with its labels permuted.
 
-**Interpretation.** U is the squared norm of the expected *first-order* gate-attributable gradient. A value consistent with 0 at a plateau means that, to first order, gradient descent receives no expected push toward the gate. It does not show that no escape exists, since noise and higher-order terms remain.
+**Interpretation.** U is the squared norm of the expected first-order gate-attributable gradient. A value below the detection limit at a plateau bounds that push. It does not show that the push is zero.
 
 **Validation and results.** See §6.2.
 
@@ -114,19 +114,20 @@ The restart acquirers (4/4) also met the criterion. They are not part of P5.
 - The WB calls are unchanged under every variant.
 - The WA fresh call drops to 3/4 when A_conf ≥ 0.7 is required, and to 2/4 when 75% of the agreement benefit is required. In condition C that benefit is only 0.023 nats, so the floor test operates on a small margin there.
 
-**XV reanalysis [expl].** The same definitions were applied to XV's snapshots (`logs/expl/xv_original_arm.json`):
+**XV reanalysis [expl; downgraded after review].** The same definitions were applied to XV's snapshots (`logs/expl/xv_original_arm.json`):
 - Every acquiring arity-3 model and every arity-2 A model (ν = 0.05) showed the stage.
-- **In XV's condition B (arity 2, ν = 1/3, a weak cue) only 1 of 4 did,** with longest runs of 1, 4, 3 and 1 points.
-- So, under corrected diagnostics, **XV's "complexity-first in all four conditions" does not hold for B.** B acquired the gate before the floor-verified agreement stage was established, which is the pattern XV called RACE.
-- This settles XV Review B finding 5 in favour of the reviewer: with weak agreement value and a fast gate, the stage is skipped or too short to register.
-- Together with P5 (where every condition tested had either a strong cue, ν = 0.05, or a slow gate, arity 3), the corrected staging picture is narrower than XV stated. **An agreement stage is observed when the agreement strategy is worth something and the gate is slow to arrive. It is not observed when the gate comes fast and the cue is weak** [expl + frozen].
+- In XV's condition B (arity 2, ν = 1/3, a weak cue), only 1 of 4 passed (longest runs of 1, 4, 3 and 1 points).
+- **But in this weak-cue condition the KL floor sits a few thousandths of a nat from the gate-free value.** A merely mistempered agreement rule fails it (Review B finding 8).
+- **So whether XV-B skipped the stage is not established either way.** What is established: with a strong cue (ν = 0.05) or a slow gate (arity 3), the floor-conditioned stage is present in every acquirer [frozen P5 + expl].
 
 ### 6.2 Learning-signal estimator: validation and measurements [expl]
 
-**Validation over 30 estimates** on 24 checkpoints (XV and XVI) passes every control:
-- null z between −1.10 and +1.13 (0 of 30 beyond ±2);
-- planted signal recovered at 0.89–1.11;
-- natural positive control z ≥ 18.7.
+**Validation over 31 estimates on 27 checkpoints:**
+- The estimator is unbiased by construction, and the null z values stay between −1.10 and +1.13.
+- **But their SD is 0.55, not 1.** The jackknife SE is conservative by about a factor of 2, so the z values below understate significance (Review B finding 2).
+- The planted signal is recovered at 0.89–1.11 (an arithmetic check only).
+- The natural positive control gives z ≥ 18.7.
+- **Detection limit on plateaus:** ‖μ‖ ≈ 0.001–0.004, about 1–3% of the full expected gradient (10.5% for D_s202).
 
 **Measurements** (gate-attributable expected-gradient z; B = 48 pairs):
 
@@ -135,6 +136,7 @@ The restart acquirers (4/4) also met the criterion. They are not part of P5.
 | XV C_s201 (censored) | −0.15, −0.81, −0.50 (3 replicates) | −0.17 (1000), −0.66 (2000), −0.36 / +0.25 / −0.73 (4000) | — | — | — |
 | XV D_s201 (censored) | — | −0.23, +0.05, +0.15 | — | — | — |
 | XVI restart D_s201, D_s202 (censored at total exposure 5.9) | — | −0.01, +0.75 | — | — | — |
+| XVI restart C_s201 (first response 1200 after restart) | — | −0.53 (500 after restart) | — | — | — |
 | XV C_s204 (first response 2250) | — | +0.03 (1000) | +1.89 (2000) | 14.9 (2250) | 57.2 (2500) |
 | XV D_s203 (first response 2000) | — | +0.34 (1000) | **5.17** (1750) | 40.9 (2000) | 46.7 |
 | XVI fresh s403 (first response 3000) | — | — | +0.43 (2500) | — | — |
@@ -142,19 +144,13 @@ The restart acquirers (4/4) also met the criterion. They are not part of P5.
 | XV B_s201, arity 2 (first response 425) | — | — | **4.40** (300) | 30.6 (450) | 53.2 |
 | XV A_s201, arity 2 (first response 775) | — | — | **7.26** (625) | 28.5 (775) | 58.1 |
 
-**Reading:**
-- **On every plateau measured,** the expected first-order gradient attributable to the gate is indistinguishable from zero (|z| ≤ 0.81). That covers 3 distinct censored models in 4 states (XV D_s201 again after its XVI restart; XV C_s201 at three replicate estimates), initialisation, and pre-onset points 1000–2400 steps before the first response.
-- **The signal appears only shortly before the behavioural onset:**
-  - 150–175 steps before the first response at arity 2 (z 4.4, 7.3);
-  - about 250 steps before it in one arity-3 model (D_s203, z 5.2);
-  - not detectably at 250–500 steps before onset in three other arity-3 models (z 0.43–1.89);
-  - very large (z 15–58) during the transition itself.
-- **What this means [inference]:**
-  - A first-order expected-gradient signal does **not** foreshadow *when* a model will leave the plateau, beyond a few hundred steps. It cannot explain the 1100–3500-step spread of fresh acquisition times, or why D_s201 and D_s202 stay put. At the plateau there is no measurable expected push toward the gate.
-  - That is the signature of a near-saddle plateau: escape depends on stochastic and higher-order dynamics. Once escape begins, the first-order signal becomes self-reinforcing.
-- **What it does not show:**
-  - It does not identify the escape mechanism. The noise-driven, higher-order and representation-drift accounts are not separated.
-  - It is not a test of the H3 timing hypothesis. A measure that is zero on every plateau cannot rank plateau durations, so in the mandate's sense (question 21) it does **not** predict acquisition.
+**Reading (corrected after review; ADJUDICATION W1):**
+- On every plateau measured the gate-attributable expected gradient is **below the detection limit** (|z| ≤ 0.81 with conservative SEs). This covers 3 distinct censored models in 4 states, initialisation, and points 1000–2400 steps before the first response.
+- It is **clearly present (z ≥ 4)** 150–250 steps before the first response in 3 of 5 measured transitions (B_s201, A_s201, D_s203).
+- It is **marginally above every null value** at 250–500 steps before in 2 more (C_s204 @2000, z 1.89; s404 @3000, z 1.18).
+- It grows by one to two orders of magnitude through the transition.
+- **This does not foreshadow escape far in advance,** and in that sense it does not predict acquisition timing (question 21). Only 1–2 checkpoints precede each onset, and ordinary first-order escape from a saddle with exponential growth would also look like "zero" at earlier points.
+- **The data do not distinguish first-order saddle escape from noise-driven or higher-order escape.** The earlier statement "no expected push toward the gate; escape must be stochastic or higher-order" is withdrawn.
 
 ### 6.3 Cue-conditioned probes around transitions [expl]
 
@@ -177,12 +173,14 @@ The restart acquirers (4/4) also met the criterion. They are not part of P5.
 | WB high s501 @700 | 0.50 | 0.87 | 0.71 / 0.64 | 0.49 |
 | WB high s501 @800 | 0.99 | 1.00 | 1.00 / 0.99 | 0.95 |
 
-**Answer to mandate question 18 [expl, 3 transitions + 4 censored models].**
-- **No.** Before behavioural acquisition, at every site measured, the natural probe never exceeds the agreement-cue baseline. The decorrelated probe stays at chance at arity 3.
-- Gate information beyond the cue first appears at the **same** checkpoint where following and causal use begin (s402 @1050; C_s201 @1150; WB s501 @700) and grows with them.
-- The censored models never form it. Their natural probes sit exactly at the cue baseline (0.89 against 0.883), which is what misled XV's first reading.
-- **At this resolution (25–50 steps), representation and use emerge together.** A lead shorter than one interval cannot be excluded.
+**Answer to mandate question 18 [expl; corrected after review, ADJUDICATION W6].**
+- **No evidence of gate information beyond the cue before use.**
+- Pooled over slots, the natural probe never exceeds the cue baseline before behavioural acquisition, and the decorrelated probe rises only when following and causal use rise: s402 @1050, C_s201 @1150, WB s501 @700.
+- **But these probes pool the six question slots, and acquisition is slot-local.**
+- With the slot fixed (Review B finding 5), gate information and causal use are already present in one slot of WB_high_s501 at step **600**, and in C_s202 they appear together slot by slot.
+- So the slot-level evidence also supports **co-emergence of representation and use**, at an earlier checkpoint than the pooled table shows.
+- The censored models never form gate information beyond the cue (natural probe 0.89 against 0.883; decorrelated 0.48–0.51).
 
 **Caveat (arity 2).**
 - With the probe trained on x₀ ∈ {0, 1} and tested on x₀ = 2, a representation that encodes the gate **sources** but not g generalises *systematically wrong*. At arity 2 the decorrelated probe therefore falls **below** 0.5 before the transition (down to 0.03 at the gate tokens).
-- So for arity 2 only values above 0.5 are read as evidence of g. The arity-3 probes do not show this artifact (0.47–0.53 before onset).
+- So only values above 0.5 are read as evidence of g. **The artefact also occurs at arity 3** (Review B finding 6): C_s201 at the gate tokens before onset reads 0.44 and 0.38.

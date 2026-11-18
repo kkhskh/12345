@@ -23,7 +23,7 @@
 - Numerically, the maximum over all proper subsets is about 3·10⁻¹⁵ nats for arity 4 (V5) and below 10⁻¹² for every neural condition (V4).
 
 **Proposition 2 (minimal decision order a + 1) [proof of the upper bound; num for the lower bound].**
-- **Upper bound.** The Bayes logit is the log of g·L_pair(y) + (1 − g)·L_single(y). This is a sum of tables over (all a gate sources, one evidence source, y). So it lies in the order-(a + 1) log-linear class.
+- **Upper bound** (wording corrected after Review A finding 10). Because g ∈ {0, 1}, the Bayes log-posterior is g · log L_pair(y) + (1 − g) · log L_single(y), up to normalisation. Each term is a product of the gate indicator, a function of all a gate sources, with a function of one evidence source and y. So it is a sum of tables over (all gate sources, one evidence source, y) and lies in the order-(a + 1) class.
 - **Lower bound, numerically.** The expected-NLL-optimal rules of order ≤ a all have positive KL from Bayes, and order a + 1 reaches it exactly. For arity 4, the KL from Bayes by order is:
 
 | order k | 1 | 2 | 3 | 4 | 5 |
@@ -31,6 +31,7 @@
 | KL from Bayes | 0.3017 | 0.2773 | 0.2770 | 0.2770 | 1.8·10⁻¹⁴ |
 
 - Every order ≤ 4 optimum has gate-flip slope G = 0 (|G| < 2·10⁻¹⁸). Order 5 gives G = 1.0000.
+- Review A verified, by a linear program, that no rule of order ≤ a reproduces even the Bayes **decisions**, while order a + 1 does. It also gives a symmetry argument that upgrades the lower bound and Proposition 3 to proofs (`reviews/REVIEW_A_MATHEMATICS.md`, finding 10).
 
 **Proposition 3 (value matched exactly across arity when a ≥ 3) [argument + num].**
 - A table of order ≤ a can contain all a gate sources only if it contains no evidence. A table with any evidence source contains at most a − 1 gate sources, which are independent of g (Proposition 1).
@@ -69,7 +70,7 @@ That is a cleaner complexity contrast than XV's arity 2 against arity 3.
 
 **Pilot rule outcome.**
 - P1 came out BROAD, so arity-3 learning was reliable in condition C, and an arity-4 experiment **would now be diagnostic**: arity 4 would not merely add censored curves.
-- The rule's second condition (at least 6 h of session after the queue) was not met. I ended training after the frozen queue (10 h 55 min), so **no arity-4 neural run was made** [frozen rule].
+- The rule's second condition (at least 6 h of session after the queue) was not met. I ended training after the frozen queue (10 h 55 min), so **no arity-4 neural run was made** [frozen rule]. The second condition was under my control (Review C).
 
 **Q16 (is arity-4 training diagnostically useful?).**
 - **Yes, now.** In condition C, arity 3 is acquired in 7/7 models given enough exposure (1.0–3.9), so an arity-4 run with matched value (Proposition 3) would measure a delay rather than repeat the censoring.
@@ -77,8 +78,8 @@ That is a cleaner complexity contrast than XV's arity 2 against arity 3.
 
 **Q17 (scaling).**
 - **Supported [frozen + expl]:**
-  - At equal decision value and equal competing cue (ν = 1/3), going from arity 2 to arity 3 multiplies the effective optimisation needed to acquire the gate by about 2–9× (exposure 0.37–0.52 against 1.0–3.4; different schedules, so this is exploratory).
-  - At arity 3 the cost of complexity is a **delay with large variation between seeds** in condition C, and a **delay or a persistent finite-budget barrier** in condition D (strong cue, lower value).
+  - At equal decision value and equal competing cue (ν = 1/3), going from arity 2 to arity 3 multiplies the exposure needed to acquire the gate by about 2–9× (0.37–0.52 against 1.0–3.4). **This compares a cosine schedule (arity 2, XV) with a constant one (arity 3, XVI), so it is exploratory** (Review A finding 14).
+  - At arity 3 the cost of complexity is a **delay with large variation between seeds** in condition C. In condition D (strong cue, lower value) 2 of 3 restarted models were still censored at total exposure 5.9, which is consistent with a longer delay; a barrier is not established.
 - **Not identifiable:**
   - any growth law: polynomial, exponential, threshold;
   - whether the arity-4 cost would be a further constant factor, a larger factor, or a barrier.

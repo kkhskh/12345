@@ -5,17 +5,18 @@
 ## What XVI changed
 
 1. **The XV arity-3 censoring was a finite-optimisation effect in condition C** [frozen]. Every arity-3 model given a substantially larger effective learning budget acquired the gate: 4/4 fresh at a constant rate and 3/3 restarted XV failures. This happened at total exposures of 1.0–3.9, against XV's 2.0.
-2. **In condition D (strong agreement cue, lower gate value) a persistent finite-budget barrier exists for some seeds** [frozen, selected seeds]. 2 of 3 restarted XV failures stayed at the gate-free optimum through 4000 further full-rate steps while still making substantial parameter updates. XV's development model D_s100 behaved the same way.
-3. **On every plateau measured there is no first-order expected gradient toward the gate.** It appears only a few hundred steps before the behavioural onset [expl, validated estimator].
-4. **Gate information beyond the agreement cue appears together with its causal use,** at 25–50-step resolution. XV's apparent "information before use" was the cue [expl].
-5. **Value against cue.** With the competing cue's law held exactly fixed, a 1.74× change in gate value produced no consistent change in timing (P3 INCONCLUSIVE). XV's arity-2 value effect, measured with the cue changing, was consistent [frozen + expl].
-6. **The agreement stage survives corrected, floor-conditioned criteria** where the agreement cue is strong or the gate is slow (P5, 12/12). **It does not** in XV's fast-gate, weak-cue condition B (1/4) [frozen + expl].
+2. **In condition D (strong agreement cue, lower gate value) the result is inconclusive** [frozen, selected seeds]. 2 of 3 restarted XV failures were still at the gate-free optimum after 4000 further full-rate steps, with substantial parameter updates. Given the escape rate seen in D, that is consistent with late learning (Review B finding 3).
+3. **On every plateau measured, the gate-attributable expected gradient is below the detection limit,** about 1–3% of the expected gradient. It is clearly present 150–250 steps before onset in 3 of 5 transitions [expl, validated estimator]. Whether escape is first-order or noise-driven is not determined.
+4. **Gate information beyond the agreement cue appears together with its causal use,** slot by slot. XV's apparent "information before use" was the cue [expl].
+4b. **Acquisition is slot-local** [expl, Review B]. The six question slots share parameters but acquire the gate at different times; one model held 3 of 6 slots for about 1600 steps.
+5. **Value against cue.** With the competing cue's law held fixed, a 1.74× change in gate value produced no consistent change in timing (P3 INCONCLUSIVE; no effect size excluded). But decision-level competition and difficulty also differed, so no account is favoured [frozen + review].
+6. **The agreement stage survives corrected, floor-conditioned criteria** where the agreement cue is strong or the gate is slow (P5, 12/12). In XV's fast-gate, weak-cue condition B the floor test is too marginal to decide [frozen + expl].
 7. **Arity 4 can be built at exactly matched value, intermediate gain and Bayes NLL relative to arity 3** [argument + num]. That makes a clean complexity contrast available for the first time.
 
 ## Open questions, in order of value
 
-1. **What sets the plateau escape time?**
-   - The signal is zero on the plateau, escape times vary 3× between fresh seeds (1100–3500), and some D seeds do not escape.
+1. **What sets the plateau escape time, and why is escape slot-local?**
+   - The first-order signal is below detection on the plateau, escape times vary 3× between fresh seeds (1100–3500), two D seeds had not escaped by exposure 5.9, and slots escape separately.
    - Candidates: gradient-noise-driven escape, slow drift of a representation the gate computation needs, and higher-order curvature.
    - Tests:
      - vary the batch size and learning rate at fixed exposure (noise scale);
@@ -42,4 +43,4 @@
 
 ## Most valuable next direction [judgement]
 
-**Question 1, the escape-time mechanism,** combined with fresh D-condition runs. It is the one place where XVI turned a finite-budget observation into a sharp, testable puzzle: a plateau with zero expected gate gradient that some seeds leave and others do not. It is also cheap: the plateau checkpoints and the validated estimator already exist.
+**Question 1, the escape-time mechanism,** combined with fresh D-condition runs. It is the one place where XVI turned a finite-budget observation into a sharp, testable puzzle: a plateau with an undetectably small expected gate gradient, left slot by slot at seed-dependent times. It is also cheap: the plateau checkpoints and the estimator already exist. A larger number of batches would tighten the estimator's detection limit.

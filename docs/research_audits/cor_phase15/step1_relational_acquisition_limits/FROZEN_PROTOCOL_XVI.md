@@ -148,3 +148,16 @@ All runs are blind (BLIND = 1): nothing is printed, and outcomes go only to file
 - No confirmation output is read before every run completes and `score_XVI.py` runs. The lane logs record only start and end and the exit code.
 - The scorer fails closed (`logs/preflight_XVI.json`). It recovers planted outcomes in two synthetic scenarios covering all eight verdict branches, and it refuses (exit 2, no output) on: a missing trajectory line, blind = false, a leftover resume state, a missing snapshot, or a changed frozen file.
 - A finding that motivates a new prediction after scoring is labelled exploratory.
+
+---
+
+## Post-freeze notes (added after scoring; not part of the freeze)
+
+The text above is unchanged since freeze commit `737393b`. Review findings that concern it (`reviews/ADJUDICATION.md`):
+
+1. **§5, P2 expectation.** The hashed scorer docstring states CONT_BROAD. This protocol states CONT_SELECTIVE, revised before the freeze in light of the development evidence. The inconsistency was not noticed at the freeze.
+2. **§6, preflight.** The preflight covered 8 of the 13 verdict branches, not "all eight".
+3. **§6, no reading before scoring.** Confirmation trajectory files were read by line counting (`wc -l`) for progress monitoring before scoring. No content was displayed.
+4. **§1, development stop.** Both development runs reached step 2050. They were stopped at 16:19:23.
+5. **§1, the decision-level agreement measure.** Its rejection holds for the arity-3 conditions and WB-high. In WB-low a decision-level test was possible (Review A finding 8).
+6. **§1 and §5 (P3), cue matching.** The cue's law and log-loss benefit are matched, but its decision-level use is not (Review A finding 1). The P3 alternatives did not discriminate between accounts (Review A finding 2).

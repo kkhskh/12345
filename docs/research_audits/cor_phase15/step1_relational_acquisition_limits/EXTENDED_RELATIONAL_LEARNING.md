@@ -46,7 +46,11 @@
 - **By condition:** C 3/3; D 1/3.
 - Matched-exposure comparison with the fresh cohort at E* = 5.90: 4/6 against 4/4, so CONT_LOWER (Fisher exact p = 0.47; no inference of a difference).
 
-**My frozen expectation for P2 was CONT_SELECTIVE, with no FAST_UNLOCK. It was wrong** [frozen]. It rested on one development model, XV's development D_s100, which did not unlock within 2050 post-restart steps. The confirmation shows that this development model was typical of the **D** condition (2 of 3 D continuations also never unlocked) but not of the **C** condition.
+**Frozen expectation for P2.** The frozen record is inconsistent (ADJUDICATION W8).
+- The protocol states CONT_SELECTIVE with no FAST_UNLOCK, revised before the freeze after development model D_s100 failed to unlock within 2050 post-restart steps. Against it, the outcome is a miss.
+- The hashed scorer's docstring still states CONT_BROAD. Against it, the outcome is a hit.
+
+**Fragility.** FAST_UNLOCK is true only at the frozen 0.5 threshold (false from 0.51; Review B), because C_s202's t_A rests on 3 of 6 slots. The count 4/6 is robust at every threshold.
 
 ## 3. Comparison across arms on the exposure axis [frozen numbers; cross-arm comparison exploratory]
 
@@ -60,42 +64,52 @@ Acquired / evaluable by cumulative exposure. A censored run is evaluable at a th
 | XV cosine, C (exploratory, corrected definitions) | 0/4 | 1/4 | — | — | — |
 | XV cosine, D (exploratory) | 0/4 | 1/4 | — | — | — |
 
-**Reading [inference].**
+**Reading [inference; corrected after review, reviews/ADJUDICATION.md W2, W3].**
 
 - **Condition C (gate value 0.277, weak agreement cue).**
   - Given more effective optimisation, every model tested acquired the gate: 4 fresh models and the 3 restarted XV failures.
-  - Acquisition happened at total exposures between 1.0 and 3.9. XV's whole run had only 2.0, and its last quarter had a rate below 30% of the peak.
-  - **XV's censoring in C is therefore attributable to insufficient effective optimisation (Explanation A),** not to an inability of the architecture or of these particular seeds.
-  - The fresh constant-rate models reached the gate at about the same exposures as the restarted ones (≤ 3.0: 3/4 against 2/3). So, as far as n = 7 can show, nothing points to the restart *itself* doing anything beyond restoring exposure.
-- **Condition D (gate value 0.138, strong agreement cue, cue overlap 0.88).**
-  - 2 of 3 restarted XV failures stayed at the gate-free optimum through a further 4000 steps at the full rate (total exposure 5.9, about 3× XV's), together with development model D_s100 (another 2050 steps).
-  - During those steps their parameters kept moving. The mean update norm on the plateau was 0.049–0.058 per step, against 0.033–0.040 in the fresh C models, and the parameter norm grew from about 50 to 52.
-  - So this is **not** an optimizer that has stopped moving. **Under this procedure, and for these selected seeds, a finite-budget barrier persists (Explanation B), selectively.**
-  - No fresh D models were trained (budget; FROZEN_PROTOCOL_XVI.md §3), so the D result rests on 3 + 1 selected models. **It cannot say how common the barrier is in D.**
-- **Restart against constant rate.** The four restart successes came 400–1950 steps after the restart. Fresh constant-rate models needed 1100–3500 steps from initialisation, and the restarted models began already at the gate-free optimum.
-  - The design cannot separate "the rate was restored" from "the Adam moments were reset", because XV saved no optimizer state. It also cannot say whether exposure accumulated under a decaying rate counts like exposure at the peak rate [design limit].
+  - Acquisition happened at total exposures of 1.0–3.9, against XV's whole run of 2.0, which spent its last quarter at a rate below 30% of the peak.
+  - **XV's censoring in C is attributable to insufficient effective optimisation (Explanation A),** not to an inability of the architecture or of these seeds.
+- **Condition D (gate value 0.138, strong agreement cue).**
+  - 2 of 3 restarted XV failures were still at the gate-free optimum after a further 4000 full-rate steps (total exposure 5.9). Their parameters kept moving: plateau update norms of 0.049–0.058 per step.
+  - **This does not establish a barrier** (Review B, finding 3). An escape rate estimated from the D runs themselves (about 1 per 10,000–12,000 plateau steps) gives a 45–51% chance that both stay censored for 4000 steps.
+  - Their plateau statistics look like those of C models before escape.
+  - **They are right-censored. Late learning and a persistent barrier cannot be distinguished.**
+  - No fresh D models were trained.
+- **Restart against constant rate: not separable** (Review B finding 4, Review A finding 9).
+  - On total exposure the routes look comparable. On exposure since the restart the restarted models look faster (descriptive p = 0.11, n = 3 against 4).
+  - The frozen FAST_UNLOCK descriptor fired, but only at the 0.5 threshold. The frozen matched-exposure call was CONT_LOWER (Fisher p = 0.47).
+  - The restart is confounded with an Adam moment reset (XV saved no optimizer state), which leaves a visible signature in the update norms.
+  - Whether exposure accumulated at a decaying rate is equivalent to exposure at the peak rate is not known.
 
-## 4. Classification (mandate A8)
+## 4. Classification (mandate A8; corrected after review)
 
-**A2, extended learning succeeds selectively, with a strong condition dependence:**
-- **Condition C:** extended optimisation succeeds broadly (A1-like): 7 of 7, including all 3 of XV's C failures.
-- **Condition D:** 1 of 3 restarted failures succeeded. The other 2 remain at the gate-free optimum despite substantial parameter updates (A3-like for those seeds).
+| condition | outcome | classification |
+|---|---|---|
+| **C** | 7 of 7 acquired, including all 3 of XV's C failures | **A1:** extended learning succeeds broadly |
+| **D** | 1 of 3 restarted failures acquired; 2 are right-censored with substantial updates | **A4:** inconclusive |
 
-The frozen verdicts (P1 BROAD, P2 CONT_BROAD) describe the cohorts as preregistered. The split by condition above is post hoc and descriptive.
+Overall: **A1 in C, A4 in D.** The frozen verdicts (P1 BROAD, P2 CONT_BROAD) describe the cohorts as preregistered. The split by condition is post hoc and descriptive.
 
-## 5. Abruptness under dense measurement (D4) [frozen data; exploratory reading]
+## 5. Abruptness under dense measurement (D4) [frozen data; exploratory reading; corrected after review]
 
-- **Fresh constant rate (diagnostics every 50 steps):**
-  - F_G rose from ≤ 0.1 to ≥ 0.9 within 150–200 steps (3–4 intervals) in all 4 models.
-  - Before that, each spent 800–3200 steps at the gate-free optimum with F_G < 0.2.
-- **Restart arm:** widths of 100, 200 and 400 steps, plus one exception, **C_s202**.
-  - C_s202's F_G crossed 0.5 at step 400, fell back below 0.5 once, and took 1850 steps to pass 0.9.
-  - **That transition was not abrupt.** It is the only regression among the 16 acquisitions in the confirmation set.
-- **Workstream B (every 25 steps):** widths of 75–250 steps.
-- **XV's arity-3 transitions,** previously reported as "less abrupt" (600–750 steps), are not comparable. Their 250-step spacing cannot resolve them, and the XVI data replace them: of the 8 arity-3 acquisitions measured with 50-step diagnostics, 6 took 100–200 steps, one took 400 and one (C_s202) took 1850.
-- **The jumps are not explained by sharpening.** F_G cannot be raised by a confidence change: it is exactly 0 for the gate-free optimum at every temperature. Mean confidence rose from 0.785–0.81 to 0.90–0.91 across the arity-3 transitions, as expected when a correct decision rule is adopted. The rise came together with the decision change, not instead of it.
+**Acquisition is slot-local** (Review B finding 1, re-checked; ADJUDICATION W5).
+- The model answers 6 question slots per episode. F_G pools gate flips over them, and the slots acquire the gate **separately**.
+- Intermediate plateaus of pooled F_G are whole numbers of acquired slots.
+- **WA_cont_C_s202 is the clearest case.** It held F_G = 0.502, i.e. 3 of 6 slots, from step about 350 to about 2000, then the remaining slots jumped.
+  - Its frozen t_A = 400 rests on 0.50187 against the 0.5 threshold, about 6 of 3471 decisive flips.
+  - Its one "regression" (0.4987) is a fluctuation of about 11 flips.
+  - Its "1850-step transition" is two sharp jumps, not a gradual process.
 
-## 6. Optimizer behaviour (A6) [frozen data; exploratory summaries]
+**Per slot, every observed acquisition is sharp.**
+- Pooled F_G widths (≤ 0.1 to ≥ 0.9) are 75–400 steps in 15 of 16 acquisitions: fresh 150–200, restart 100–400, WB 75–250.
+- These widths are **lower bounds**. F_G is close to binary on this task (Review A finding 4). The graded G gives 175–450 steps.
+
+**Sampling.** Diagnostics every 25–50 steps resolve all of these transitions. XV's earlier "less abrupt at arity 3" (250-step spacing) is superseded.
+
+**Confidence.** No acquisition can be produced by a confidence change: t_A requires KL ≤ 0.75 of the gate-free KL. Mean confidence rose from 0.785–0.82 to 0.85–0.91 across the arity-3 acquisitions, together with the decision change.
+
+## 6. Optimizer behaviour (A6) [frozen data; exploratory summaries; `scripts/xvi_optimizer_summary.py` → `logs/expl/optimizer_summary.json`]
 
 | run | plateau gradient norm | plateau update norm | transition gradient norm | transition update norm |
 |---|---|---|---|---|
@@ -105,12 +119,12 @@ The frozen verdicts (P1 BROAD, P2 CONT_BROAD) describe the cohorts as preregiste
 | restart D, acquired (D_s204) | 0.11 | 0.057 | 0.16 | 0.124 |
 
 - Update norms roughly double during transitions.
-- On the plateau, the censored D models had gradient norms and update magnitudes **indistinguishable** from D_s204 before it acquired the gate.
-- The rebuilt learning-signal estimator found **no first-order gate-attributable expected gradient** on these plateaus (LEARNING_SIGNAL_AND_STAGE_VALIDATION.md §6).
+- On the plateau, the censored D models had gradient norms and update magnitudes indistinguishable from D_s204 before it acquired the gate.
+- The rebuilt learning-signal estimator found the gate-attributable expected gradient **below its detection limit** (about 1–3% of the expected gradient) on these plateaus (LEARNING_SIGNAL_AND_STAGE_VALIDATION.md §6.2).
 
 ## 7. Representability (A7)
 
 - **Mathematically:** the gate has decision order a + 1 = 4 [proof]. The order-4 log-linear class contains Bayes [num].
 - **Architecturally:** the tested Transformer represents it. Arity-3 models of exactly this architecture reached KL from Bayes of 0.0003–0.0013 with F_G = 1.00: 4 fresh models, 4 restarted models, and XV's C_s204 and D_s203 [frozen].
 - **Within the seeds tested in D:** D_s204, a model that sat at the gate-free optimum for 4000 XV steps plus 1900 restart steps, then acquired the gate. So "at the gate-free optimum for a long time" does not imply "cannot acquire".
-- **The two persisting D models** are therefore a case of **optimisation failure within a finite budget**, not representational or architectural impossibility. I make no claim that they would never acquire the gate.
+- **The two censored D models** are not acquired *within the budget*. That is not representational or architectural impossibility, and **I make no claim that they would never acquire the gate**: their censoring is consistent with late learning (§3).

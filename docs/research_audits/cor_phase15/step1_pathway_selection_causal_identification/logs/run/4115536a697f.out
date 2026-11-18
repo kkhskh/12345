@@ -3,3 +3,6 @@
 [uP160_fx_L23_W23_D801_gsgown2T100_dev] step 1803 loss 0.5343 429s
 [uP160_fx_L23_W23_D801_gsgown2T100_dev] step 2000 loss 0.5963 550s
 [uP160_fx_L23_W23_D801_gsgown2T100_dev] step 2686 loss 0.5465 1005s
+[uP160_fx_L23_W23_D801_gsgown2T100_dev] step 3000 loss 0.5718 1147s
+[uP160_fx_L23_W23_D801_gsgown2T100_dev] step 4000 loss 0.5501 1615s
+[uP160_fx_L23_W23_D801_gsgown2T100_dev] done acc 0.7462 KL 0.0021 1643s

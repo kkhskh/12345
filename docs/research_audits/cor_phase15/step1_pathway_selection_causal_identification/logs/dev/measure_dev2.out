@@ -1,0 +1,8 @@
+uP160_fx_L21_W21_D801_fstro0T100_stop1211_dev {'lik_RO1': 0.007, 'mix_mass': 0.956, 'KL': 0.011, 'acc': 0.858, 'nec_E': 0.016, 'nec_M': 0.729, 'rhoL': 0.791, 'lapseL': 0.004, 'nec_rq1': 0.201, 'cls2': 'MIXTURE'}
+uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev {'lik_RO1': 0.257, 'mix_mass': 0.945, 'KL': 0.017, 'acc': 0.865, 'nec_E': 0.157, 'nec_M': 0.385, 'rhoL': 0.57, 'lapseL': 0.0, 'nec_rq1': 0.129, 'cls2': 'HYBRID'}
+uP160_fx_L21_W21_D801_vrsro0T100_stop1211_dev {'lik_RO1': 0.001, 'mix_mass': 0.957, 'KL': 0.01, 'acc': 0.861, 'nec_E': 0.007, 'nec_M': 0.801, 'rhoL': 0.833, 'lapseL': 0.0, 'nec_rq1': 0.113, 'cls2': 'MIXTURE'}
+uP160_fx_L23_W23_D801_fstown2T100_stop1211_dev {'lik_RO1': 0.743, 'mix_mass': 0.184, 'KL': 0.025, 'acc': 0.832, 'nec_E': 1.241, 'nec_M': 0.008, 'rhoL': 0.662, 'lapseL': 0.034, 'nec_rq1': 0.533, 'cls2': 'EARLY'}
+uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev {'lik_RO1': 0.241, 'mix_mass': 0.945, 'KL': 0.013, 'acc': 0.853, 'nec_E': 0.169, 'nec_M': 0.384, 'rhoL': 0.586, 'lapseL': 0.0, 'nec_rq1': 0.183, 'cls2': 'HYBRID'}
+uP160_fx_L23_W23_D801_vrsown2T100_stop1211_dev {'lik_RO1': 0.738, 'mix_mass': 0.166, 'KL': 0.026, 'acc': 0.831, 'nec_E': 1.299, 'nec_M': 0.008, 'rhoL': 0.638, 'lapseL': 0.031, 'nec_rq1': 0.635, 'cls2': 'EARLY'}
+uP160_fx_L21_W21_D801_gsgown0T100_stop1211_dev {'lik_RO1': 0.217, 'mix_mass': 0.938, 'KL': 0.018, 'acc': 0.846, 'nec_E': 0.157, 'nec_M': 0.423, 'rhoL': 0.544, 'lapseL': 0.0, 'nec_rq1': 0.082, 'cls2': 'HYBRID'}
+uP160_fx_L21_W21_D801_gsvown0T100_stop1211_dev {'lik_RO1': 0.108, 'mix_mass': 0.939, 'KL': 0.014, 'acc': 0.844, 'nec_E': 0.09, 'nec_M': 0.576, 'rhoL': 0.63, 'lapseL': 0.0, 'nec_rq1': 0.137, 'cls2': 'HYBRID'}

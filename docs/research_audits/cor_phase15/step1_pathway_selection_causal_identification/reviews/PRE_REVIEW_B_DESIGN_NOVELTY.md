@@ -237,3 +237,149 @@ Dev pattern: fst and vrs flip both bases fully; gsg gives the same hybrid on bot
 12. **Novelty statement.** Position against Kleinman et al. 2024 (gradient-only deficit, pathway race) and Chen et al. 2024 (early suppression, alternative strategy, release timing) as the closest prior work. Claim only the forward/learning-signal decomposition, and only if R2 and R3 are run (§4).
 
 **Reproducing my checks:** `/tmp/preB18/stat.py RUN STEPS`, `/tmp/preB18/rhob.py`, `/tmp/preB18/rhob2.py`. They use the frozen `xviiim.measure_final` and `metrics.rho_fit`, with XLA single-threaded, about 12–25 s per measurement. No package file was modified except this review.
+
+---
+
+## Addendum: re-review of design v2
+
+**Scope.** Re-review of design v2 before the freeze. Read:
+- PRE_EXPERIMENT_IDENTIFIABILITY_REVIEW.md §9–§10 (§10.8 not yet written);
+- `scripts/xviii_train.py` (gsv, sha, vrg, slog, per-group GLOG), `src/xviiim.py` (rho_fit_lapse, nec_rq1, cls_behav2, measure_v2);
+- `scripts/xviii_design.py`, `logs/XVIII_design.json`, `scripts/score_XVIII.py`, `scripts/preflight_XVIII.py`, `logs/preflight_XVIII.json` (ALL_PASS);
+- `scripts/measure18.py`, `scripts/xviii_parents.py`, `scripts/score_parents18.py`;
+- `logs/dev/gsg_continuation.jsonl`, `measure_dev2.jsonl` and `rhoL_xiv.json`;
+- Reviewer A's review.
+
+**New checks.** These were measurements on existing checkpoints only, with no training. Scripts:
+- `/tmp/preB18/v2meas.py` (frozen `measure_v2`, dev stream 86 100 000);
+- `/tmp/preB18/lapse_stream.py`.
+
+**Verdict: APPROVE WITH REQUIRED CHANGES.**
+- Most of R1–R10 are met.
+- Four new defects must be fixed before the freeze. Two are in how Hm and H3 are scored, one is in the parent scorer, and one is the fragility of the new behavioural classifier.
+- One plausible outcome pattern lands in no row of the table.
+- Each fix is a change to the scorer or the table. **No new training arm is required.**
+- With the fixes, none of the §11 stop conditions applies (§B2.3).
+
+### B2.1 New measurements
+
+**(m1) gsg at step 4000, scored with step-4000 anchors** [num]. The anchors are the XIV D801 baseline and the real-block continuations at step 4000, measured with `measure_v2`.
+
+| run @ 4000 | nec_E | nec_M | lapseL | ρ_L | KL | cls2 (struct, behav, causal) | φ_nec @ 4000 | φ_nec @ 1211 (A) |
+|---|---|---|---|---|---|---|---|---|
+| E baseline | 1.548 | 0.003 | 0.0185 | 0.653 | 0.0049 | E, E, E | 0 | 0 |
+| E block (ro0) | 0.004 | 0.774 | 0.0080 | 0.974 | 0.0015 | M, M, M | 1 | 1 |
+| **gsg E (ro0)** | 0.103 | 0.473 | 0.0044 | 0.855 | 0.0021 | **H, M, M** | **0.72** | 0.66 |
+| M baseline | 0.013 | 0.677 | 0.0075 | 0.978 | 0.0014 | M, M, M | 0 | 0 |
+| **M block (l2q)** | 1.544 | 0.008 | **0.0152** | 0.616 | 0.0039 | **E, H, E → HYBRID** | 1 | 1 |
+| **gsg M (own2)** | 0.121 | 0.451 | — | — | 0.002 | HYBRID | **0.26** | 0.27 |
+
+**(m2) The lapse fit is stable across measurement streams at step 1211** [num]. For the XIV M→EARLY flip with the smallest calibration lapse (D = 23), the fitted lapse is 0.0201, 0.0210 and 0.0218 on streams 86.1M, 77.7M and 77.8M.
+
+**(m3) Dev scores in `measure_dev2.jsonl`** [num, read]:
+- The E and M early-class runs have lapse 0.022–0.034 and ρ_L 0.47–0.66.
+- ρ_L rises by 0.12–0.16 between steps 1000 and 1211 in every early-class run.
+- In `rhoL_xiv.json`, ρ_L alone overlaps between the classes: the early maximum is 0.730 (`mskoq0`, D21), and the mixture minimum is 0.692 (M baseline, D802).
+- **cls_behav2 therefore separates the classes almost entirely by lapse.** The early minimum is 0.0201 and the mixture maximum is 0.0141, against a threshold of 0.017. The calibration is in-sample on 24 runs.
+
+### B2.2 (a) Status of R1–R10
+
+| req. | status | comment |
+|---|---|---|
+| **R1** horizon | **Met, with an adequate limitation.** | The dev gsg hybrids are stable on the primary outcome: φ_nec goes from 0.66 to 0.72 (E) and from 0.27 to 0.26 (M) between steps 1211 and 4000 (m1). They are highly competent (KL 0.002). My review's worry, a transient resolving into "flip E, not M", is not borne out on φ. In class terms gsg-E becomes 2/3 MIXTURE by 4000, so report its component classes. The 1000/1211 rule plus continuation to 2546 is acceptable. **But see B2.4-4:** the continuation anchors and the behavioural classifier are not stationary. |
+| **R2** gsv, H2g split | **Met.** | The implementation is correct [code, `xviii_train.py:116, 126–127`]. The logits are stop-gradiented, and the whole T term of ctx is stop-gradiented. That also removes the complement-logit recruitment leak through ∂L/∂a_T that limits gsg (Reviewer A, A1). So gsv is a clean "no learning signal through T" cell. Limitation to state: gsv is **not** Kleinman et al.'s detach. The shared W_Q, W_K and W_V still learn through the other edges. |
+| **R3** share clamp | **Met in construction. Defective in scoring:** see B2.4-1. | The adaptive sha follows Reviewer A's specification [code, lines 100–108 and 120–121]. The clamp error check (max_err > 1e-3 → UNINTERPRETABLE) is in the scorer. The validity cell sha-hi-real is dev-only and its result (§10.8) is not yet available. |
+| **R4** outcome | **Met.** | φ_nec with paired anchors, F/P/N bands, "P never supports F/N", missing ≠ no flip, ≥ 5/6 pooled rule, and per-base reporting. Preflight passes the three synthetic scenarios and five refusals. **But the table is not exhaustive:** see B2.4-2. |
+| **R5** dose | **Pending.** | The runs are in progress, and no interpretation rule is written. See B2.4-6. |
+| **R6** vrg | **Met.** | [code, line 124] |
+| **R7** diagnostics | **Partly met.** | Competence (KL ≤ 0.045, accuracy ≥ baseline − 0.03) and the non-unanimous-baseline rule are met. The lapse-aware ρ_L is implemented, but the resulting classifier is a lapse threshold with a thin margin, and it drifts with training (m1, m3: see B2.4-4). **rq1 is measured but used nowhere,** neither in the classification nor in the scorer. It is also not a "third route": nec_rq1 is 0.35 in the E baseline at step 4000 and 0.66 in the M→EARLY block at step 4000 (m1), so layer-1 readout pooling is part of the early organisation. Re-label it as a descriptive measure, or give it a rule. |
+| **R8** H3 | **Not met as frozen:** see B2.4-3. | This is partly my own error in R8. |
+| **R9** parents | **Met, with one scorer bug and one selection issue:** see B2.4-5. | |
+| **R10** logging | **Met at layer granularity** (emb, layer 0, layer 1, layer 2, W_A). | I asked for per-tensor logging (W_Q, W_K, W_V, W_O). Per-layer is an acceptable limitation, because the Adam explanation is already weakened by the matched global gradient energy (N3). |
+| not adopted | **Accepted.** | fst (Reviewer A's Check-A argument), vsg (H1d is stated to include the value learning it enables), xbo (mandate A3's cross-layer boost is stated as not addressed), and the Adam swap and transplant (they were non-blocking). |
+
+### B2.3 (b) Mandate §11 stop conditions
+
+| stop condition | assessment |
+|---|---|
+| The comparison is mathematically non-identifying | **Not triggered, if B2.4-1 and B2.4-2 are fixed.** As frozen, Hm mixes two indices (B2.4-1), so a CONTRADICTED verdict for "route establishment" could be a scoring artefact. The fixed design identifies four contrasts: H1d against Hm-fwd (sha cells); H1d against Hm-lat (gsg/gsv through the mediator rule); H2g-R against H2g-RV (gsg against gsv); and H4 against additive (by band only, as already stated). |
+| No competence-preserving strength | Not triggered: every dev arm is competent. |
+| Controls cannot be meaningfully matched | **Conditional.** If sha-hi-real fails its validity rule in dev, the sha arms are uninterpretable and H1d against Hm-fwd is lost. **The freeze must wait for §10.8.** |
+| The diagnostic is not independent of the intervention | Not triggered, with the limitation stated. Structural and causal both read T; the behavioural classifier is now essentially lapse, which is attention-free but fragile (B2.4-4). φ_nec drives the band, and the classes only gate F and N. |
+| The parent cohort cannot support the claim | Not triggered for a claim scoped to bistable parents. Selection should not depend on the uP160-calibrated lapse threshold (B2.4-5). |
+| An unresolved alternative makes the primary result uninterpretable | **Only the Hm definitional split** (B2.4-1). It is fixable in the scorer. No other remaining alternative makes the primary result uninterpretable. |
+
+### B2.4 Required changes before the freeze
+
+**1. Split Hm into Hm-fwd and Hm-lat, and score the sha arms by the latent mediator as well.**
+- The clamp fixes T's **forward** share during the window. The routing gradient still flows, so the **parameters** keep moving T's latent (unclamped) logits, and β absorbs the difference.
+  - In sha-lo-real, real content keeps recruiting T in the parameters, so the latent share at step 100 can approach the baseline's.
+  - In sha-hi-rolled, useless content pushes the latent share down while β holds the forward share up.
+  - At release β disappears, and the forward share jumps to its latent value.
+- The scorer's Hm mediator, φ_share, uses the **unmasked (latent)** share at step 100 [code: `score_XVIII.py`, `traj["100"]` via `XM.shares`]. Yet its sha predictions are fixed (hi-rolled N, lo-real F), which is the **forward** reading.
+- Under the latent reading, sha-hi-rolled probably predicts F and sha-lo-real probably predicts N, both **the same as H1d**. As frozen, a CONTRADICTED verdict for Hm can therefore be an artefact of mixing two indices.
+- **Fix:**
+  - (i) Add Hm-fwd, with the current fixed sha predictions and the "med" rule for the other arms using the forward share. For gsg, gsv and vrg the forward share equals the latent share.
+  - (ii) Add Hm-lat, with "med" (latent φ_share at step 100) for every arm, including sha.
+  - (iii) Record |β| at step 99 and the size of the release jump for every sha run. Pre-register that a sha cell with |β₉₉| > 1 is reported as also carrying a release shock, which is an H3-type confound.
+  - (iv) State in the report that the sha cells separate H1d from Hm-fwd only. H1d against Hm-lat rests on gsg and gsv through the mediator rule. Dev gsg-M already fails Hm-lat: φ_share 0.85, φ_nec 0.27 (Reviewer A, A4).
+
+**2. The table is not exhaustive. Add H1d + H2g-RV (additive).**
+- Dev already shows gsg = P on both bases while vrs, fst and the graded b = 2.3 runs flip.
+- A likely confirmation pattern is vrg F, gsg P, gsv P or F, sha-hi-rolled F, sha-lo-real N. Every current row is contradicted by it:
+  - H1d (gsg ≠ N);
+  - Hm (sha-hi-rolled ≠ N);
+  - H1d + Hm (sha cells ≠ P);
+  - H2g-R and H2g-RV (vrg ≠ N);
+  - H4 (sha-hi-rolled ≠ N).
+- Add the row "content plus learning signal": vrg F, gsg P, gsv P (or F), sha-hi-rolled F, sha-lo-real N.
+- Also pre-register that "all CONTRADICTED" is reported descriptively, by arm bands, and never re-fitted.
+- Re-run the preflight with this scenario.
+
+**3. Make the H3-on-E rule use one metric. This corrects my own R8.**
+- The threshold 0.061 is XIV's **immediate** Δloss: the intervention applied to the baseline's parameters at step 100. Sham 0.031 + 0.03, against noise 0.18 (`i_calib`).
+- The frozen rule instead computes a **trajectory** difference: the arm's loss in steps 90–99 minus the baseline's.
+- Under the immediate metric, vrs-E had 0.126 (Reviewer A) and would fail 0.061, even though it is below the non-flipping noise.
+- The logical criterion for excluding a monotone-in-size H3 is "**a disturbance smaller than one that did not flip, flips**".
+- **Fix:**
+  - Compute vrg's immediate Δloss at the paired baseline's step-100 parameters, on the step-100 batch. This is a measurement, not training.
+  - Exclude H3 on E if vrg is F on at least 2 of 3 E pairs, each with immediate Δloss below XIV's non-flipping E noise (0.18).
+  - Report the trajectory Δloss as secondary.
+  - State that XIV's noise acted on ro0 while T is now own0.
+
+**4. The behavioural classifier is fragile and drifts. Gate on it with a sensitivity analysis.**
+- cls_behav2 is in effect "lapse ≥ 0.017" (m3).
+  - The in-sample margin is 0.003 on each side.
+  - It is stable across streams at step 1211 (m2).
+  - It is **not** stable over training. The XIV M→EARLY block falls to lapse 0.0152 at step 4000, which makes cls2 HYBRID even though structural and causal say EARLY and φ_nec = 1 (m1).
+  - ρ_L itself rises by 0.12–0.16 between steps 1000 and 1211 in early runs (m3).
+- **Fixes:**
+  - (i) Report every band also under the struct + causal class, with the behavioural class dropped, as a pre-registered sensitivity. A hypothesis verdict that changes between the two is labelled "behaviour-dependent".
+  - (ii) Do not use cls_behav2 at the 2546 stability readout. It is not calibrated there.
+  - (iii) **Continue the paired baseline and block to step 2546 for any pair with a P or unstable arm.** φ_nec at 2546 is undefined against step-1211 anchors, and the scorer does not handle step 2546 at all.
+
+**5. Parent scorer bug and parent selection.**
+- `score_parents18.py` marks P4 "counterexample" whenever "F" is absent from both bases. That includes NONEVAL / NONEVAL, for example an incompetent baseline.
+- **Fix:** if both bases are non-evaluable, mark the parent "non-evaluable"; if one is, mark it "partial (one base evaluable)".
+- **Screening** (`xviii_parents.py`) selects bases by cls2, which includes the lapse threshold calibrated on uP160. A bistable parent whose early organisation has lapse below 0.017 would be recorded as "non-bistable". That biases the denominator by a diagnostic calibrated out of sample.
+- **Fix:** screen on struct + causal unanimity with competence, and report cls_behav2 alongside.
+
+**6. Write the dose rule (R5) before seeing the dose results, and freeze only after §10.8.**
+- Pre-register now: "If gsv(T = 200) is F in dev, a confirmation (T = 100) result that contradicts H2g-RV is reported as 'H2g-RV not excluded; weaker lever per unit window', not as an exclusion. The same applies to gsg and H2g-R."
+- §10.8 must also hold the sha-hi-real validity result and the own0 dev runs (gsg, gsv, fst, vrg). Freeze after that.
+
+**Non-blocking.**
+- Re-label rq1 (B2.2).
+- Report the dev result that graded b = 2.3 already flips both bases (`measure_dev2`: E ro0 b2.3 is MIXTURE; M own2 b2.3 is EARLY). This answers P1 in dev: complete blockage is not necessary. Keep gof23 as a confirmation of that.
+- Compute: 48 confirmation runs at about 13 min each (two `measure_v2` steps add about 1.5 min) on 2 lanes ≈ 5.2 h. Parents ≈ 12 runs each. That is feasible, and the queue order (baselines first, clamps waiting for slog) is correct.
+
+### B2.5 (c) Novelty positioning in §9
+
+- **Accurate as far as it goes.** The §9 summary correctly states:
+  - the broad phenomenon is established (Kleinman, Achille & Soatto 2024: an early gradient-only `.detach()` deficit decides a two-pathway race, https://arxiv.org/html/2308.12221v2; Chen et al. 2024: early attention-structure suppression, alternative strategy, release timing, https://arxiv.org/abs/2309.07311v6; Singh et al. 2024/2025; Cloud et al. 2024; competing algorithms) [lit, verified in my main review];
+  - the only candidate contribution is the forward-information against learning-signal decomposition.
+- **Three corrections for PRIOR_WORK_AND_NOVELTY.md:**
+  1. **gsv is the transformer-attention analogue of Kleinman's gating deficit, not a replication.** It removes gradient through 6 edges per readout row, while the shared projections keep learning; Kleinman detaches a whole pathway. A gsv result of P or N against Kleinman's winner-take-all is a contrast to report, not a refutation.
+  2. **With fst dropped, "a forward-only block suffices" rests on dev data only.** The confirmatory decomposition is vrg / sha (content and share) against gsg / gsv (learning signal). Claim only what those cells show.
+  3. **Graded suppression flipping both bases (b = 2.3, dev) brings the result closer to Chen et al.'s soft regulariser.** The "complete restriction" framing of the mandate's §10 claim should be dropped if this replicates.
+- My main review's statement stands: no study found in a focused search decomposes a training-time attention restriction into forward-content, share and learning-signal components scored by test-time necessity. That is absence in search, not proof.

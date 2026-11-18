@@ -26,3 +26,11 @@ skipped (superseded by adaptive clamp): FX_INTERV=shc:100 FX_EDGES=own2 FX_SHC=0
 2026-11-18T17:43:47Z lane S1 start [46e29932a491] FX_INTERV=gsg:100 FX_EDGES=ro0 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
 2026-11-18T17:44:49Z lane D1 end [1aefe89c142d] rc=0
 2026-11-18T17:45:03Z lane S2 start [4115536a697f] FX_INTERV=gsg:100 FX_EDGES=own2 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T18:11:27Z lane S1 end [46e29932a491] rc=0
+2026-11-18T18:11:27Z lane S1 start [b5e4772e883a] FX_INTERV=gsg:100 FX_EDGES=own0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T18:12:38Z lane S2 end [4115536a697f] rc=0
+2026-11-18T18:12:38Z lane S2 start [6e13520d7660] FX_INTERV=gsv:100 FX_EDGES=own0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T18:28:43Z lane S1 end [b5e4772e883a] rc=0
+2026-11-18T18:28:43Z lane S1 start [2be38abd1b83] FX_INTERV=fst:100 FX_EDGES=own0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T18:30:21Z lane S2 end [6e13520d7660] rc=0
+2026-11-18T18:30:21Z lane S2 start [78f55a345471] FX_INTERV=vrg:100 FX_EDGES=own0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801

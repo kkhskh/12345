@@ -23,7 +23,7 @@ for p, v in PJ["parents"].items():
         g = lambda arm: recs.get(v["runs"][f"{b}|{arm}"]) or refuse(f"missing {p} {b} {arm}")
         B, K = g("baseline")["final"]["1211"], g("block")["final"]["1211"]
         ev = bool(comp(B, B) and B["cls2"] in OPP and comp(K, B))
-        blk = band(1.0, K["cls2"], B["cls2"]) if ev else "NONEVAL"
+        blk = band(1.0, K["cls2"], B["cls2"]) if ev else "NONEVAL"          # an evaluable base whose block is not F is a counterexample base
         arms = {"block": blk}
         for arm in ("vrg", "gsv", "sha_hi_rolled", "sha_lo_real"):
             A = g(arm)["final"]["1211"]
@@ -31,7 +31,8 @@ for p, v in PJ["parents"].items():
             arms[arm + "_phi"] = phi(A, B, K) if ev else None
         res["bases"][b] = dict(evaluable=ev, baseline_cls=B["cls2"], block_cls=K["cls2"], arms=arms)
     bb = [res["bases"][b]["arms"]["block"] for b in ("E", "M")]
-    out["P4"][p] = "effect present" if bb == ["F", "F"] else ("counterexample" if "F" not in bb else "partial")
+    evs = [res["bases"][b]["evaluable"] for b in ("E", "M")]
+    out["P4"][p] = "non-evaluable" if not any(evs) else ("effect present" if bb == ["F", "F"] else ("counterexample" if ("F" not in bb and all(evs)) else "partial"))
     res["arm_summary"] = {arm: (res["bases"]["E"]["arms"][arm] if res["bases"]["E"]["arms"][arm] == res["bases"]["M"]["arms"][arm] else "MIXED") for arm in ("block", "vrg", "gsv", "sha_hi_rolled", "sha_lo_real")}
     out["parents"][p] = res
 k = sum(v == "effect present" for v in out["P4"].values()); n = len(out["P4"]); out["P4_summary"] = dict(effect_present=k, bistable_parents=n, candidates=5)

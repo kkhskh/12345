@@ -5,16 +5,6 @@
    "grad_rel_vs_plain": 0.03087921254336834,
    "grad_rel_vs_gsg": 0.027269728481769562
   },
-  "shc": {
-   "target_mass_before_mean": 0.1335413157939911,
-   "target_mass_before_range": [
-    0.010468952357769012,
-    0.3553966283798218
-   ],
-   "target_mass_after": 0.1340002715587616,
-   "logits_vs_plain": 0.263461172580719,
-   "rows_sum_to_1": NaN
-  },
   "vrg": {
    "logits_vs_vrs": 0.0,
    "grad_rel_vs_vrs": 0.021273642778396606
@@ -25,16 +15,6 @@
    "logits_vs_plain": 5.960464477539062e-07,
    "grad_rel_vs_plain": 0.05919661372900009,
    "grad_rel_vs_gsg": 0.05368378758430481
-  },
-  "shc": {
-   "target_mass_before_mean": 0.14329493045806885,
-   "target_mass_before_range": [
-    0.03324797749519348,
-    0.6724510192871094
-   ],
-   "target_mass_after": 0.14099988341331482,
-   "logits_vs_plain": 0.2698477506637573,
-   "rows_sum_to_1": NaN
   },
   "vrg": {
    "logits_vs_vrs": 0.0,

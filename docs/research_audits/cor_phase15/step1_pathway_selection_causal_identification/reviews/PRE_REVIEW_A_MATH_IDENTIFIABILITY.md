@@ -347,3 +347,144 @@ Hybrids are not stationary. gsg-E moves from nec_E 0.243, nec_M 0.242 at step 81
 - `own0.py`: preliminary necessity of the own0-only E block at step 813, and gsg-E drift.
 
 All of these load the harness exactly as `unit_modes.py` does (the source executed up to the training loop), and none trains.
+
+---
+
+## Addendum: re-review of design v2
+
+**Object.**
+- `PRE_EXPERIMENT_IDENTIFIABILITY_REVIEW.md` §9–§10;
+- `scripts/xviii_train.py` (md5 e90ce467…; modes sha, gsv, vrg; FX_SLOG);
+- `scripts/unit_modes2.py`, `scripts/unit_modes3.py` and their logs;
+- `scripts/xviii_design.py`, `logs/XVIII_design.json` (48 runs);
+- `scripts/score_XVIII.py`, `scripts/preflight_XVIII.py` and `logs/preflight_XVIII.json`;
+- `src/xviiim.py` (measure_v2, rho_fit_lapse, cls_behav2, nec_rq1);
+- `logs/dev/rhoL_xiv.json`, `logs/dev/gsg_continuation.jsonl`, `logs/dev/measure_dev2.jsonl`.
+
+New scratch scripts are in `/tmp/preA18/`: `newton.py`, `newton2.py`, `asym.py`, `logitsplit_gsv.py`, `dloss_own.py`, `um2.py`. No training was run, and no package file was changed except this one.
+
+### Verdict: **APPROVE WITH REQUIRED CHANGES**
+
+The v2 design implements the redesign faithfully. Every hypothesis in the frozen table now has at least one discriminating arm, and no decisive arm is guaranteed by construction. Five changes are required before the freeze:
+- **A1, A2 and A3 are blocking.** A1 is a solver defect that would silently waste the decisive arm. A2 is a scorer asymmetry. A3 is an undeclared split of Hm.
+- **A4 and A5 are required corrections** to the H3 rule and to the declarations.
+
+The baseline and block runs may continue.
+
+### (a) Does sha match the §3.3 specification?
+
+**What matches [code: `xviii_train.py:100–108, 120–121`].**
+- `sha_ell` gives l = logsumexp_T(s) − logsumexp_C(s) per (episode, head, readout row). With offset β on T, the row share is exactly σ(l + β). So `sha_beta` solves mean_{n,q} σ(l + β_h) = A*_h(i) on the stop-gradiented logits of the current batch at the current parameters, as specified.
+- The offset is stop-gradiented, and ∂L/∂s_T flows: unit 3 gives −0.0071, which is nonzero.
+- The schedule is the paired baseline's per-head share before the update at step i, on the same batch (identical data stream). The lo schedule is the baseline's step-0 row, so β(0) ≈ 0.
+- Rolled content uses the vrg substitution.
+- The logged diagnostics (`_shad`) recompute β and the achieved share at the pre-update parameters, so the scorer's clamp-error check is meaningful.
+- I verified the scorer's window-log indices (β at w[8:8+nh], shares at w[8+nh:8+2nh]) against the logging code.
+
+**A1 (blocking): Newton from β = 0 diverges in exactly the regime sha-hi-rolled will enter [num, `newton.py`].**
+- Under rolled content, the routing gradient lowers T's *latent* share while the hi schedule rises. The E per-head targets go 0.086 → 0.294 in dev (`slog`).
+- On synthetic per-row log-odds, the harness's 8 Newton steps (starting from β = 0, with clipping) fail in 24 of 112 cases (|achieved − target| > 1e-3). They oscillate onto the ±20 clip.
+- The failures include current share 0.03 against target 0.234 (any spread), and current 0.01 against target 0.134.
+- At β = −20 the forward pass *is the block*. The scorer would catch this (clamp_max_err > 1e-3 gives UNINTERPRETABLE), but the decisive arm would be lost.
+- The unit check (`unit_modes3`) only tests the initial parameters, where targets are near the current share (max error 6e-8). It does not exercise this regime.
+- **Fix:** warm-start at β₀ = logit(A*) − logit(mean_{n,q} σ(l)), then run the same 8 Newton steps. On 128 cases, including current shares down to 0.003 and targets up to 0.9, the maximum error was 1.7e-6 and there were no failures [num, `newton2.py`]. Safeguarded bisection also has no failures.
+- Add a unit check with a latent share of 0.01–0.03 and targets of 0.13–0.4.
+
+### (b) Is the scorer logic correct and symmetric?
+
+**What is correct [code].**
+- φ_nec matches §10.4.
+- Bands require both the φ_nec threshold and the cls2 direction, at the same step and against the paired anchors.
+- Competence uses KL ≤ 0.045 and acc ≥ the paired baseline's acc − 0.03. A non-competent run is MISSING.
+- Evaluability requires a competent, unanimous baseline and a competent block with the opposite class.
+- The arm is pooled at ≥ 5 of the definite evaluable pairs, otherwise MIXED or INCONCLUSIVE.
+- int→str step keys round-trip correctly through `measure18.py`.
+- Minor: a NaN φ (degenerate anchors) falls through to "P". It should be MISSING.
+
+**A2 (blocking): the hypothesis-verdict rule is asymmetric between "med" predictions and fixed predictions** [num, `asym.py`, using the package's own preflight record builder].
+- A fixed prediction is *contradicted* only when ≥ 5 pairs share a definite band that differs from it. Split outcomes give MIXED, hence INCONCLUSIVE.
+- A med prediction (Hm on gsg and gsv) is *contradicted* by **any 2 mismatched pairs**. It is *consistent* with no minimum number of evaluable pairs; 2 matching pairs suffice.
+- Demonstration with identical perturbations (2 of the 6 gsg pairs turned to P, everything else exactly as predicted):
+  - when H1d is the truth, H1d's verdict is **INCONCLUSIVE**;
+  - when Hm is the truth, Hm's verdict is **CONTRADICTED**.
+- **Fix:** one rule for every hypothesis and arm.
+  - Form each pair's predicted band (fixed, or med from that pair's mediator).
+  - CONSISTENT if at least 5 definite evaluable pairs match.
+  - CONTRADICTED if at least 2 definite pairs mismatch.
+  - INCONCLUSIVE otherwise.
+  - These conditions are disjoint for n ≤ 6.
+- Re-run the preflight with heterogeneous scenarios: one noisy pair per arm, and two noisy pairs on one arm, for each hypothesis.
+
+**Also required: per-base hypothesis verdicts.**
+- Use the same rule with "3 of 3 match, any mismatch contradicts", reported next to the pooled verdict.
+- Probe: H1d exactly true on E and Hm exactly true on M gives *every* pooled verdict INCONCLUSIVE except the H2g ones [num].
+- Dev already shows strongly base-dependent magnitudes (gsg φ_nec 0.66 on E against 0.27 on M), so a base-specific truth is a live possibility, and pooling would hide it.
+
+### (c) Is the mediator ("med") rule implemented as intended?
+
+**For gsg and gsv, yes.** φ_share uses the unmasked own-question mean share at step 100, anchored on the paired baseline and block, and is mapped to bands at 0.2 and 0.8. Two caveats must be stated:
+- **The mapping is an identity assumption** (mediator band = outcome band). The single-index idea only needs a *monotone* mapping. Either state that "Hm with identity mapping" is the version tested, or calibrate the mapping on gof23 plus the anchors per pair.
+- **The denominator is small on M.** A_base − A_block at step 100 is about 0.024–0.03 (dev `slog`: 0.143 → 0.167). φ_share on M is therefore noisy to about ±0.1, even with the common episode set used in `measure18.py`. Report a bootstrap interval over episodes.
+
+**A3 (blocking): the clamp separates two different mediators, and the table merges them.**
+- sha holds T's *forward* share during the window. The routing gradient keeps acting on the latent logits, and β removes its effect only in the forward pass.
+- At release β disappears, and the network carries its *latent* share: σ(l), not σ(l + β).
+- So under sha the two candidate mediators come apart:
+  - **Hm-window:** the forward share trajectory in steps 0–99. This is what sha sets. The fixed predictions in the table (sha-hi-rolled N, sha-lo-real F) belong to this hypothesis.
+  - **Hm-release:** the latent share state at step 100, which is what the network continues from. Its prediction for every arm, *including vrg and both sha arms*, is med, computed from the measured latent φ_share.
+- Expected consequences. These are not guaranteed, but the sign of the routing gradient makes them likely:
+  - In sha-hi-rolled, the latent share falls (content useless), so Hm-release → F. That is **the same as H1d**.
+  - In sha-lo-real, the latent share may grow as in the baseline, so Hm-release → N. That is **the same as H1d**.
+  - **So the sha arms separate H1d from Hm-window but, in that case, not from Hm-release.** H1d against Hm-release is then separated only by gsg and gsv: content present, latent share low at release. The dev result on M (φ_share 0.85, observed P) already disfavours Hm-release with identity mapping.
+- **Required:**
+  1. Split Hm into Hm-window (fixed sha predictions as now; vrg → med on the window-mean *forward* share) and Hm-release (med everywhere).
+  2. Report each sha run's latent φ_share at step 100 and β at step 99.
+  3. Declare in §10.3: "if the latent φ_share of sha-hi-rolled is ≥ 0.8, sha-hi-rolled does not separate H1d from Hm-release". State the analogous condition for sha-lo-real (latent φ_share ≤ 0.2).
+- The dev sha runs arriving in ~90 minutes will show which case applies. The rule must be frozen before they are inspected, not adjusted after.
+
+**A3b.** Hm's fixed prediction F for vrg assumes vrg's share stays low. vrg's share is endogenous, so Hm should predict med for vrg, as it does for gsg and gsv.
+
+### (d) Remaining guaranteed outcomes, and pairs no arm separates
+
+**No decisive arm is guaranteed by construction.**
+- block = F holds by the evaluability definition. That is intended: the block is the anchor.
+- gof23 is predicted F by all hypotheses and was F on both bases in dev (`measure_dev2`). It is correctly secondary (P1 only).
+- vrg is predicted F by every hypothesis except the two H2g variants, so it is decisive only against H2g. That is acceptable, but it should not be described as a content test between H1d and Hm.
+
+**A4: the H3 rule on E compares two different metrics** [num].
+- The 0.061 threshold is built from XIV's *same-θ immediate* Δloss (sham 0.031 at step 100). The rule then applies it to a *trajectory* Δloss: the arm's own window loss minus the baseline's, both on their own parameters.
+- The trajectory metric includes the consequences of different learning:
+  - gsg, whose immediate disturbance is 0 by construction, has a trajectory Δloss of +0.031 (E own0) and +0.034 (E ro0);
+  - dev vrs-ro0 has +0.062 and would fail the threshold;
+  - its immediate Δloss is 0.126 (ro0), and vrg-own0's is 0.129 at the baseline's step 100 (`dloss_own.py`). Both are below the non-flipping E noise control (≈ 0.18, same metric).
+- **Fix:** score H3 on E with the L4 metric. Apply the arm's intervention to the paired baseline's step-25/50/100 checkpoints; this is deterministic and needs no training. Use as threshold the largest same-metric Δloss of a XIV E control that did not flip (noise σ = 2.5: ≈ 0.18 at step 100). Apply the same check to sha-hi-rolled on E. At the baseline's own parameters β ≈ 0, so it equals vrg's 0.129, but report it.
+
+**A5: declarations still missing from §10.3.**
+1. **gsv does not freeze T's share** [proof + num, `logitsplit_gsv.py`].
+   - With s_T stop-gradiented and the T term of ctx stop-gradiented, the complement logits get ∂L/∂s_k = a_k(u_k − Σ_C a_j u_j). Their aggregate equals plain's with ū_T set to 0.
+   - This signal depends on the gauge: it moves with any common shift of the value vectors, which plain training cancels.
+   - The resulting logit-level recruitment of T's share under gsv is 0.6–1.0× plain's on E-own0 and ≈ 0.5× on M at init. At M's baseline step 100 it is ≈ 0.
+   - H2g-RV's prediction (gsv = F) holds only for "learning signal through T's edges", not for "T's share is not learned". State this.
+2. **Under uniform attention within groups, gsg's complement keeps the fraction n_T/(n_T + n_C).** For own0 the measured fraction is 0.5–0.7 (E init and baseline step 100), not 0.14. Correct the gsg row of the §10.2 table.
+3. **Hm (med = P) and H1d + Hm additive both predict P for gsg and gsv,** so those arms cannot separate them; separation rests on the sha arms. **H4 and additive** are separated by band only (N against P) on the sha arms. This is already noted in A7; carry it into §10.3.
+4. **Horizon.** The gsg hybrids are competent through step 4000 (KL ≤ 0.017). By steps 3000–4000, however, they are MIXTURE on two of three diagnostics on *both* bases (causal: nec_E 0.10–0.14 ≤ 0.15 and nec_M 0.45–0.48 ≥ 0.30; behavioural: ρ_L 0.76–0.86, lapse ≤ 0.017). They stay HYBRID only through structural lik_RO1 0.19 > 0.15.
+   - So the drift runs towards F on E and towards N on M.
+   - A P verdict at 1211 is therefore horizon-dependent, in opposite directions on the two bases. Declare this alongside the 2546 stability readout.
+
+**Provenance (required, trivial).** `logs/unit_modes2.json` (17:36) predates the current harness (17:44). It still contains a check of the removed `shc` mode, including `rows_sum_to_1: NaN`. I re-ran it against the current harness (`/tmp/preA18/um2.py`):
+- gsv and vrg reproduce exactly: gsv logits vs plain 1.2e-6 / 6e-7; vrg logits vs vrs 0.0; gradient deltas identical.
+- `shc` is now a no-op.
+
+Regenerate the log with `shc` removed, so that every unit log matches the frozen harness hash.
+
+### Summary of required changes before the freeze
+
+| id | type | change |
+|---|---|---|
+| A1 | code (blocking) | warm-start β₀ = logit(A*) − logit(mean σ(l)) in `sha_beta`, plus a unit check in the far-target regime |
+| A2 | scorer (blocking) | one symmetric per-pair verdict rule (≥ 5 match → CONSISTENT; ≥ 2 mismatch → CONTRADICTED); per-base verdicts; NaN φ → MISSING; preflight with heterogeneous scenarios |
+| A3 | pre-registration (blocking) | split Hm into Hm-window and Hm-release; vrg → med; report latent φ_share and β(99) for sha; declare the non-separation conditions |
+| A4 | rule | H3 on E on the same-θ immediate Δloss metric, threshold from same-metric non-flipping XIV controls; also for sha-hi-rolled |
+| A5 | declarations | gsv share recruitment via the complement; gsg fraction text; Hm(P) vs additive; horizon drift; regenerate `unit_modes2.json` |
+
+With A1–A3 implemented and the preflight re-run, the design meets mandate §2 Check B. Every frozen hypothesis has a discriminating arm, and the remaining equivalences are declared.

@@ -4,3 +4,5 @@
 [uP160_fx_L21_W21_D801_gsgro0T100_dev] step 2000 loss 0.5941 539s
 [uP160_fx_L21_W21_D801_gsgro0T100_dev] step 2686 loss 0.5466 1019s
 [uP160_fx_L21_W21_D801_gsgro0T100_dev] step 3000 loss 0.5697 1162s
+[uP160_fx_L21_W21_D801_gsgro0T100_dev] step 4000 loss 0.5508 1625s
+[uP160_fx_L21_W21_D801_gsgro0T100_dev] done acc 0.7454 KL 0.0021 1654s

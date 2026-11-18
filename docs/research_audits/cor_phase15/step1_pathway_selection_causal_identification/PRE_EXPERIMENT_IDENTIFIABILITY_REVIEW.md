@@ -303,3 +303,49 @@ All on D = 801, uP160, development stream:
 - sha-hi-rolled, sha-lo-real and sha-hi-real (both bases).
 
 Their results are in §10.8, added before the freeze commit.
+
+### 10.8 Re-review of design v2, and the changes made before the freeze
+
+**Verdicts.** Both reviewers re-reviewed design v2. Their addenda are appended to their review files.
+- Reviewer A: **APPROVE WITH REQUIRED CHANGES** (A1–A5).
+- Reviewer B: **APPROVE WITH REQUIRED CHANGES** (fixes 1–6).
+- Every required change is adopted:
+
+| item | change made |
+|---|---|
+| A1 (share solver diverges on far targets) | Newton warm start at logit(A*) − logit(current mean share). New unit check `scripts/unit_sha_far.py`: 144 far-target cases, 0 failures, worst error 1.2e-7, max \|β\| 6.4. `unit_modes3.py` re-run on the final harness. |
+| A2 (asymmetric verdict rule) | One per-pair rule for every hypothesis, mediator rows included. An arm is CONSISTENT if at least 5 evaluable pairs match, CONTRADICTED if at least 2 definite pairs mismatch, and INCONCLUSIVE otherwise. **Per-base verdicts** use 3 matches / 2 mismatches. A NaN φ_nec counts as MISSING. Preflight symmetry check: the same perturbation contradicts H1d and Hm_window alike (`logs/preflight_XVIII.json`). |
+| A3 / B fix 1 (forward and latent mediators conflated) | Hm is split: **Hm_window** (the share used in the forward pass during the window; tested by the sha cells) and **Hm_release** (the latent share the network continues from at release; med rule on *every* arm, sha arms included). The clamp offset at step 99, the forward share at step 99 and the release jump (latent minus forward) are recorded for each sha run. |
+| A4 / B fix 3 (H3 metric) | H3 on E now uses the **immediate** loss change at the paired baseline's step-100 parameters (`scripts/h3_immediate18.py`). H3 is excluded on E if vrg is F on at least 2 of 3 E pairs with immediate Δloss < 0.18, the Δloss of XIV's non-flipping E noise. Dev check (D = 801): vrg 0.126 on E, 0.012 on M. |
+| A5 (declarations) | Added to §10.9. `unit_modes2.py` regenerated without the superseded constant clamp. |
+| B fix 2 (missing row) | New row **H1d_plus_H2g** ("content plus learning signal"): vrg F, gsg P, gsv P or F, sha-hi-rolled F, sha-lo-real N. If every hypothesis is contradicted, the outcome is reported descriptively, arm by arm. |
+| B fix 4 (behavioural gate drifts with training) | Every verdict is also computed **without the behavioural diagnostic** (structural and causal only), as a pre-registered sensitivity analysis (`hypotheses_sensitivity_no_behaviour`). The step-2546 readout does not use the behavioural class. Continuations include the paired baseline and block. |
+| B fix 5 (parents) | Screening classifies with structural and causal only. A parent with no evaluable base is "non-evaluable", not a "counterexample". |
+| B fix 6 (dose rule written first; freeze after this section) | **Dose rule, written before any T = 200 development result was looked at:** if gsg(T = 200) or gsv(T = 200) is F on a base in development, the H2g hypotheses become *potency* hypotheses. The T = 100 confirmation predictions are unchanged, but a CONTRADICTED verdict for H2g at T = 100 is reported as "weaker at the matched window, not excluded as a lever". If neither is F, the T = 100 design stands unqualified. |
+| B: rq1 label | `nec_rq1` is the necessity of the layer-1 readout pooling route. It is necessary in early models, so it is **not** a third-route check. It is reported descriptively and enters no rule. |
+
+**Final prediction table** (frozen; P/F means either band is allowed):
+
+| hypothesis | vrg | gsg | gsv | sha-hi-rolled | sha-lo-real |
+|---|---|---|---|---|---|
+| H1d | F | N | N | F | N |
+| Hm_window | med | med | med | N | F |
+| Hm_release | med | med | med | med | med |
+| H2g_R | N | F | F | N | N |
+| H2g_RV | N | N | F | N | N |
+| H4 | F | N | N | N | N |
+| H1d_plus_Hm | F | P | P | P | P |
+| H1d_plus_H2g | F | P | P/F | F | N |
+
+### 10.9 Declared limitations and equivalences (frozen)
+
+1. **gsg keeps part of the recruitment signal.** It keeps the recruitment carried by the complement logits, and through the shared W_Q/W_K. On own0 it keeps 0.5–0.7 of the logit-level recruitment, not the 0.14 suggested by the n_T/(n_T + n_C) formula in §10.2 (Reviewer A addendum, measured).
+2. **gsv still trains T's share** through the complement logits: 0.6–1.0× plain on E and about 0.5× on M at initialisation. H2g_RV therefore means "no learning signal through T's edges", **not** "T's share is frozen".
+3. **Hm_window (med = P) and H1d_plus_Hm** both predict P for gsg and gsv. Only the sha arms separate them.
+4. **H4 and H1d_plus_Hm** differ only by band (N against P) in sha-hi-rolled.
+5. **H1d** means forward content *including the value learning it enables*. No arm separates the two (vsg was not run).
+6. **Mandate A3** is addressed only by sha-lo-real (an adaptive aggregate-odds clamp). The cross-layer competitor boost (xbo) is not run.
+7. **The sha cells separate H1d from Hm_window, not necessarily from Hm_release.** If the latent share of sha-hi-rolled falls during the window, the release-jump record shows it, and Hm_release is judged by the mediator rule.
+8. **The gsg hybrids are competent and stable to step 4000** (development: φ_nec 0.66 → 0.72 on E and 0.27 → 0.26 on M, Reviewer B; class HYBRID throughout). A P result at step 1211 is therefore not presumed transient.
+9. **The step-1211 endpoint is mid-training**: the learning rate is still 83% of peak. Classification at 1211 follows XIV. The stability rule, and the 2546 readout for P or unstable runs, are the safeguards.
+10. **One parent and two bases**, so n_eff ≈ 2 for "across organisations". Parents are scoped to bistable ones and reported as k/5.

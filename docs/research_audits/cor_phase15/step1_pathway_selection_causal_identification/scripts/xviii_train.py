@@ -7,7 +7,7 @@ four XVIII training-time interventions on the edge set FX_EDGES (src/maskfwd.edg
   gsv:<T>  forward UNCHANGED; ALL gradient through the target edges removed (logits stop-gradient, and the target term of the head output
            stop-gradient: no routing and no value gradient through T)                               [added after pre-review B]
   sha:<T>  adaptive share clamp (pre-review A, §3.3): a stop-gradient per-head logit offset beta_h(i) on the target edges, solved by 8 Newton
-           steps so that the head-mean target share over (episodes, readout rows) equals a schedule A*_h(i); routing gradient flows.
+           steps from the warm start logit(A*) - logit(current mean share) so that the head-mean target share over (episodes, readout rows) equals a schedule A*_h(i); routing gradient flows.
            FX_SHA_SCHED = slog.json of the paired baseline (per-step, per-head target shares); FX_SHA_LO=1 holds A*_h(i) = A*_h(0);
            FX_SHA_CONTENT = real | rolled (rolled = the vrg value substitution on T).
   vrg:<T>  as vrs, with stop_gradient on the rolled values (no cross-episode value training)        [added after pre-review B]
@@ -102,7 +102,9 @@ def sha_ell(s):
     sr = s[:, :, 36:42, :]; m = XM[36:42][None, None]
     lT = jax.nn.logsumexp(jnp.where(m > 0, sr, -1e30), -1); lC = jax.nn.logsumexp(jnp.where(m > 0, -1e30, sr), -1); return lT - lC
 def sha_beta(s, step_i):
-    l = sha_ell(jax.lax.stop_gradient(s)); tgt = SHA_A[jnp.minimum(step_i, SHA_A.shape[0] - 1)]; b = jnp.zeros(l.shape[1])
+    l = sha_ell(jax.lax.stop_gradient(s)); tgt = SHA_A[jnp.minimum(step_i, SHA_A.shape[0] - 1)]
+    cur = jax.nn.sigmoid(l).mean((0, 2)); lg = lambda p: jnp.log(jnp.clip(p, 1e-6, 1 - 1e-6)) - jnp.log1p(-jnp.clip(p, 1e-6, 1 - 1e-6))
+    b = jnp.clip(lg(tgt) - lg(cur), -20.0, 20.0)                       # warm start (pre-review A addendum, A1): no Newton oscillation on far targets
     for _ in range(8):
         p = jax.nn.sigmoid(b[None, :, None] + l); f = p.mean((0, 2)) - tgt; d = (p * (1 - p)).mean((0, 2)); b = jnp.clip(b - f / jnp.maximum(d, 1e-6), -20.0, 20.0)
     return b

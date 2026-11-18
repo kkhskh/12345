@@ -1,6 +1,7 @@
 """XVIII frozen independent-parent rule (design v2 §10.5).  Reads logs/measure_scr.jsonl (screening baselines, stream 95_500_000) and writes
 logs/XVIII_parents.json and logs/queue_p18.txt.  Rule: for each of uP162..uP165, seeds s = 20..23 (D = 811) in order; the E base is the first
-competent (KL <= 0.045) seed with cls2 == EARLY, the M base the first competent seed with cls2 == MIXTURE.  If a class is missing after 20..23,
+competent (KL <= 0.045) seed whose structural and causal classes agree on EARLY, the M base likewise on MIXTURE
+(the behavioural lapse threshold, calibrated on uP160, is not used for screening: pre-review B addendum, fix 5).  If a class is missing after 20..23,
 seeds 24 and 25 are screened (written to logs/queue_scr2.txt) and the rule is re-applied; a parent still lacking a class is non-bistable.
 uP161 is non-bistable by the XIII-E record (0/32 early).  Bistable parents get, for both bases and D = 812: baseline, block, vrg, gsv,
 sha_hi_rolled, sha_lo_real, measured on stream 95_600_000 (logs/measure_p18.jsonl)."""
@@ -15,7 +16,9 @@ for p in ("uP162", "uP163", "uP164", "uP165"):
     cls = {}
     for s in (20, 21, 22, 23, 24, 25):
         t = f"{p}_fx_L{s}_W{s}_D811_stop1211_scr"
-        if t in M: f = M[t]["final"]["1211"]; cls[s] = f["cls2"] if f["KL"] <= 0.045 else "INCOMPETENT"
+        if t in M:
+            f = M[t]["final"]["1211"]; c2 = f["cls2_struct"] if f["cls2_struct"] == f["cls2_causal"] else "HYBRID"   # struct + causal only (review B addendum, fix 5)
+            cls[s] = c2 if f["KL"] <= 0.045 else "INCOMPETENT"
     pick = {c: next((s for s in sorted(cls) if cls[s] == c), None) for c in ("EARLY", "MIXTURE")}
     screened = sorted(cls); need_more = any(v is None for v in pick.values()) and max(screened, default=0) < 25
     out["parents"][p] = dict(screen=cls, E_seed=pick["EARLY"], M_seed=pick["MIXTURE"], bistable=all(v is not None for v in pick.values()), pending_extra_seeds=need_more)

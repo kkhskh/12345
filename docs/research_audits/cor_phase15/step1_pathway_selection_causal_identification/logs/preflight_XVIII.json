@@ -1,44 +1,80 @@
 {
  "scenarios": {
   "H1d": {
-   "rc": 0,
    "verdicts": {
     "H1d": "CONSISTENT",
-    "Hm": "CONTRADICTED",
+    "Hm_window": "CONTRADICTED",
+    "Hm_release": "CONTRADICTED",
     "H2g_R": "CONTRADICTED",
     "H2g_RV": "CONTRADICTED",
     "H4": "CONTRADICTED",
-    "H1d_plus_Hm": "CONTRADICTED"
+    "H1d_plus_Hm": "CONTRADICTED",
+    "H1d_plus_H2g": "CONTRADICTED"
    },
-   "expected_unique_consistent": "H1d",
-   "pass_": true
+   "pass_": true,
+   "h3_E": true
   },
-  "Hm": {
-   "rc": 0,
+  "Hm_window": {
    "verdicts": {
     "H1d": "CONTRADICTED",
-    "Hm": "CONSISTENT",
+    "Hm_window": "CONSISTENT",
+    "Hm_release": "CONTRADICTED",
     "H2g_R": "CONTRADICTED",
     "H2g_RV": "CONTRADICTED",
     "H4": "CONTRADICTED",
-    "H1d_plus_Hm": "CONTRADICTED"
+    "H1d_plus_Hm": "CONTRADICTED",
+    "H1d_plus_H2g": "CONTRADICTED"
    },
-   "expected_unique_consistent": "Hm",
-   "pass_": true
+   "pass_": true,
+   "h3_E": true
   },
-  "additive": {
-   "rc": 0,
+  "Hm_release": {
    "verdicts": {
     "H1d": "CONTRADICTED",
-    "Hm": "CONTRADICTED",
+    "Hm_window": "CONTRADICTED",
+    "Hm_release": "CONSISTENT",
     "H2g_R": "CONTRADICTED",
     "H2g_RV": "CONTRADICTED",
     "H4": "CONTRADICTED",
-    "H1d_plus_Hm": "CONSISTENT"
+    "H1d_plus_Hm": "CONTRADICTED",
+    "H1d_plus_H2g": "CONTRADICTED"
    },
-   "expected_unique_consistent": "H1d_plus_Hm",
-   "pass_": true
+   "pass_": true,
+   "h3_E": true
+  },
+  "H1d_plus_Hm": {
+   "verdicts": {
+    "H1d": "CONTRADICTED",
+    "Hm_window": "CONTRADICTED",
+    "Hm_release": "CONTRADICTED",
+    "H2g_R": "CONTRADICTED",
+    "H2g_RV": "CONTRADICTED",
+    "H4": "CONTRADICTED",
+    "H1d_plus_Hm": "CONSISTENT",
+    "H1d_plus_H2g": "CONTRADICTED"
+   },
+   "pass_": true,
+   "h3_E": true
+  },
+  "H1d_plus_H2g": {
+   "verdicts": {
+    "H1d": "CONTRADICTED",
+    "Hm_window": "CONTRADICTED",
+    "Hm_release": "CONTRADICTED",
+    "H2g_R": "CONTRADICTED",
+    "H2g_RV": "CONTRADICTED",
+    "H4": "CONTRADICTED",
+    "H1d_plus_Hm": "CONTRADICTED",
+    "H1d_plus_H2g": "CONSISTENT"
+   },
+   "pass_": true,
+   "h3_E": true
   }
+ },
+ "symmetry": {
+  "H1d_after_2_gsg_P": "CONTRADICTED",
+  "Hm_window_after_2_gsg_P": "CONTRADICTED",
+  "pass_": true
  },
  "refusals": {
   "missing_run": {
@@ -58,6 +94,10 @@
    "refused": true
   },
   "missing_step": {
+   "rc": 2,
+   "refused": true
+  },
+  "missing_h3": {
    "rc": 2,
    "refused": true
   }

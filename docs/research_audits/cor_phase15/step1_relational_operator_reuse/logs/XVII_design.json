@@ -1,0 +1,126 @@
+{
+ "runs": [
+  {
+   "name": "A3_s801",
+   "arity": 3,
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 801,
+   "sched": "const",
+   "steps": 5000,
+   "diag_every": 50,
+   "dir": "confirm_outputs/A3_s801"
+  },
+  {
+   "name": "A3_s802",
+   "arity": 3,
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 802,
+   "sched": "const",
+   "steps": 5000,
+   "diag_every": 50,
+   "dir": "confirm_outputs/A3_s802"
+  },
+  {
+   "name": "A3_s803",
+   "arity": 3,
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 803,
+   "sched": "const",
+   "steps": 5000,
+   "diag_every": 50,
+   "dir": "confirm_outputs/A3_s803"
+  },
+  {
+   "name": "A3_s804",
+   "arity": 3,
+   "cond": "3:0.9:0.9:0.3333333333333333",
+   "seed": 804,
+   "sched": "const",
+   "steps": 5000,
+   "diag_every": 50,
+   "dir": "confirm_outputs/A3_s804"
+  },
+  {
+   "name": "A2_s701",
+   "arity": 2,
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 701,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "dir": "confirm_outputs/A2_s701"
+  },
+  {
+   "name": "A2_s702",
+   "arity": 2,
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 702,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "dir": "confirm_outputs/A2_s702"
+  },
+  {
+   "name": "A2_s703",
+   "arity": 2,
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 703,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "dir": "confirm_outputs/A2_s703"
+  },
+  {
+   "name": "A2_s704",
+   "arity": 2,
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 704,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "dir": "confirm_outputs/A2_s704"
+  },
+  {
+   "name": "A2_s705",
+   "arity": 2,
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 705,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "dir": "confirm_outputs/A2_s705"
+  },
+  {
+   "name": "A2_s706",
+   "arity": 2,
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 706,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "dir": "confirm_outputs/A2_s706"
+  },
+  {
+   "name": "A2_s707",
+   "arity": 2,
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 707,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "dir": "confirm_outputs/A2_s707"
+  },
+  {
+   "name": "A2_s708",
+   "arity": 2,
+   "cond": "2:0.9:0.9:0.05",
+   "seed": 708,
+   "sched": "cosine",
+   "steps": 4000,
+   "diag_every": 25,
+   "dir": "confirm_outputs/A2_s708"
+  }
+ ],
+ "analysis_dir": "logs/analysis",
+ "learning_dir": "learning"
+}

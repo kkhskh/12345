@@ -1,0 +1,13 @@
+DEVELOPMENT (C_s202 replay step 1000, SlotDiag n=600): E_q[j] <- E_q[j] + alpha*(target - E_q[j]); F_G at slot j (and at the acquired slot i)
+slot 1: alpha 0.25: toward ACQ 0: FG_j 0.01 (FG_i 1.00) | toward UNACQ 2: 0.00 | random: 0.00
+slot 1: alpha 0.5: toward ACQ 0: FG_j 0.10 (FG_i 0.59) | toward UNACQ 2: 0.00 | random: 0.00
+slot 1: alpha 0.75: toward ACQ 0: FG_j 0.17 (FG_i 0.25) | toward UNACQ 2: 0.00 | random: 0.04
+slot 1: alpha 0.9: toward ACQ 0: FG_j 0.16 (FG_i 0.18) | toward UNACQ 2: 0.00 | random: 0.03
+slot 2: alpha 0.25: toward ACQ 3: FG_j 0.00 (FG_i 0.95) | toward UNACQ 5: 0.00 | random: 0.00
+slot 2: alpha 0.5: toward ACQ 3: FG_j 0.07 (FG_i 0.44) | toward UNACQ 5: 0.00 | random: 0.00
+slot 2: alpha 0.75: toward ACQ 3: FG_j 0.11 (FG_i 0.19) | toward UNACQ 5: 0.00 | random: 0.00
+slot 2: alpha 0.9: toward ACQ 3: FG_j 0.14 (FG_i 0.13) | toward UNACQ 5: 0.00 | random: 0.00
+slot 5: alpha 0.25: toward ACQ 4: FG_j 0.01 (FG_i 0.99) | toward UNACQ 1: 0.00 | random: 0.00
+slot 5: alpha 0.5: toward ACQ 4: FG_j 0.06 (FG_i 0.61) | toward UNACQ 1: 0.00 | random: 0.00
+slot 5: alpha 0.75: toward ACQ 4: FG_j 0.08 (FG_i 0.27) | toward UNACQ 1: 0.00 | random: 0.01
+slot 5: alpha 0.9: toward ACQ 4: FG_j 0.09 (FG_i 0.20) | toward UNACQ 1: 0.00 | random: 0.00

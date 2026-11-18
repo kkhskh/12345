@@ -1,0 +1,95 @@
+{
+ "scenarios": {
+  "1": {
+   "expected": {
+    "P0": "STAGGERED",
+    "P1": "FOLLOWS_CODE",
+    "P2": "TRANSFER",
+    "P3": "LATE_LESS_CODE_DEPENDENT",
+    "P4": "ROUTING_INSUFFICIENT",
+    "P5": "CODE_KEYING_PERSISTS",
+    "PL": "INTERFERENCE_NO_ACCELERATION"
+   },
+   "got": {
+    "P0": "STAGGERED",
+    "P1": "FOLLOWS_CODE",
+    "P2": "TRANSFER",
+    "P3": "LATE_LESS_CODE_DEPENDENT",
+    "P4": "ROUTING_INSUFFICIENT",
+    "P5": "CODE_KEYING_PERSISTS",
+    "PL": "INTERFERENCE_NO_ACCELERATION"
+   },
+   "ok": true
+  },
+  "2": {
+   "expected": {
+    "P0": "SYNCHRONOUS",
+    "P1": "NOT_EVALUABLE",
+    "P2": "NOT_EVALUABLE",
+    "P3": "NOT_EVALUABLE",
+    "P4": "NOT_EVALUABLE",
+    "P5": "NOT_EVALUABLE",
+    "PL": "NOT_EVALUABLE"
+   },
+   "got": {
+    "P0": "SYNCHRONOUS",
+    "P1": "NOT_EVALUABLE",
+    "P2": "NOT_EVALUABLE",
+    "P3": "NOT_EVALUABLE",
+    "P4": "NOT_EVALUABLE",
+    "P5": "NOT_EVALUABLE",
+    "PL": "NOT_EVALUABLE"
+   },
+   "ok": true
+  },
+  "3": {
+   "expected": {
+    "P0": "STAGGERED",
+    "P1": "FOLLOWS_CODE",
+    "P2": "NO_TRANSFER",
+    "P3": "OPPOSITE",
+    "P4": "ROUTING_SUFFICIENT",
+    "P5": "NOT_PERSISTENT",
+    "PL": "NOT_SUPPORTED"
+   },
+   "got": {
+    "P0": "STAGGERED",
+    "P1": "FOLLOWS_CODE",
+    "P2": "NO_TRANSFER",
+    "P3": "OPPOSITE",
+    "P4": "ROUTING_SUFFICIENT",
+    "P5": "NOT_PERSISTENT",
+    "PL": "NOT_SUPPORTED"
+   },
+   "ok": true
+  }
+ },
+ "refusals": {
+  "missing_analysis": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: analysis missing: A3_s802"
+  },
+  "not_blind": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: config mismatch: confirm_outputs/A2_s703"
+  },
+  "missing_snapshot": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: snapshots missing: confirm_outputs/A2_s705"
+  },
+  "changed_frozen_file": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: frozen file changed or missing: src/xviislot.py"
+  },
+  "missing_learning_arm": {
+   "rc": 2,
+   "wrote": false,
+   "msg": "REFUSED: learning arm missing: A3_s803_full"
+  }
+ },
+ "all_pass": true
+}

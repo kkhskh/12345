@@ -1,5 +1,8 @@
 # Cross-slot learning interventions (Experiment D)
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). **W8:** training on an *already-acquired* slot's loss alone produces the same collapse of the other slots (A3_s804 0.87 → 0.23; A2_s705 0.96 → 0.61) [expl, review B5]. Interference is generic single-slot forgetting under a fresh AdamW restart, and is not evidence of slot-specific maintenance. Acceleration was not testable (ceiling; the frozen checkpoints were 20–220 steps from natural acquisition). **W5:** the H4 reading is withdrawn; H2, H3 and H4 are not identified. Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Evidence labels:** [proof], [num], [dev], [frozen], [expl], [spec].
 
 **Question.** When one slot is pushed to learn, do the others benefit, stay unaffected, or suffer?
@@ -62,5 +65,5 @@ This is consistent with H2's "shared computation, code-keyed access". It argues 
 
 **Answers.**
 - **Q16 [frozen + expl]:** improving one slot does **not** help the others. Under targeted training, the other unacquired slots stay at 0.02–0.07 while the targeted slot reaches 1.00, and the acquired slots lose most of their gate use.
-- **Q17:** yes, targeted pressure accelerates one slot without training the others. In fresh models the targeted slot acquired the gate within 100–200 steps, as fast as under full training (a ceiling effect). In the long C_s202 window [dev], it did not acquire in 1000 steps.
-- **Q18:** the pattern supports **position-conditioned specialisation of learning and maintenance**, coexisting with a **computation that is reusable by code exchange** (CROSS_SLOT_CAUSAL_TRANSFER.md). That is H4, a mixture. It is neither pure H1 nor pure H3.
+- **Q17:** *[withdrawn, W8: not testable here, ceiling and imminence]* yes, targeted pressure accelerates one slot without training the others. In fresh models the targeted slot acquired the gate within 100–200 steps, as fast as under full training (a ceiling effect). In the long C_s202 window [dev], it did not acquire in 1000 steps.
+- **Q18:** *[withdrawn, W5, W8]* the pattern supports **position-conditioned specialisation of learning and maintenance**, coexisting with a **computation that is reusable by code exchange** (CROSS_SLOT_CAUSAL_TRANSFER.md). That is H4, a mixture. It is neither pure H1 nor pure H3.

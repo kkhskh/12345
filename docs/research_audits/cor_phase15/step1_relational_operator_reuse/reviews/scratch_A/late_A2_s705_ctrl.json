@@ -1,0 +1,15 @@
+{
+ "L1 4->5": {
+  "raw_donor": 0.524390243902439,
+  "raw_recip": 0.3743016759776536,
+  "mean_donor": 0.9878048780487805,
+  "mean_recip": 0.8324022346368715
+ },
+ "L2 4->5": {
+  "raw_donor": 0.6219512195121951,
+  "raw_recip": 0.9664804469273743,
+  "mean_donor": 0.9573170731707317,
+  "mean_recip": 0.8659217877094972
+ },
+ "slot_decode_acc_layer2_input_Eq_projected_out": 1.0
+}

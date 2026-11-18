@@ -1,5 +1,8 @@
 # Position, embedding and content interventions (Experiment A)
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). P1 is a numerical check of Theorem P, not a mechanism confirmation (W5). Reviewer A independently confirmed Theorem P (max |Δ| 4.3·10⁻⁶). Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Evidence labels:** [proof], [num], [dev], [frozen], [expl], [spec].
 
 ## 1. What the architecture makes provable (Theorem P; COMPETING_NEURAL_MECHANISMS.md §1)

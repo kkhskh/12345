@@ -1,5 +1,8 @@
 # Cross-slot causal transfer (Experiments B and C)
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). **W3:** the transfer does not separate H2 from the mandate's H3, and duplicating the donor code (no exchange) does not transfer (0.08–0.22), so the code acts as a unique binding label. **W4:** the layer locus is withdrawn; in A2_s704 a layer-2-only identity swap transfers 0.65–0.70 [expl, review]. **W7:** the routing transplant was content-mismatched; a matched transplant gives 0.11–0.47, and forcing baseline attention during the relabel cuts transfer to 0.02–0.32. **W11:** no slot's input content or task evidence moves, but activations do mix across slots through attention. Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Evidence labels:** [proof], [num], [dev], [frozen], [expl], [spec].
 
 ## 1. What each intervention can carry (mandate §6.1, §6.3)
@@ -54,15 +57,15 @@
 
 ## 3. Reading of the development evidence [dev; not confirmation]
 
-1. **The unacquired slot can run the acquired slot's computation.** Given that slot's code in layers 0–1 only, gate use transfers (0.96 at arity 3, 0.68 at arity 2), with nothing but the code moved. That is direct causal evidence against strict H3 in these two models.
+1. **The unacquired slot can run the acquired slot's computation.** Given that slot's code in layers 0–1 only, gate use transfers (0.96 at arity 3, 0.68 at arity 2), with nothing but the code moved. *[withdrawn, W3: under Theorem P this rejects only a straw H3, and does not separate H2 from the mandate's H3]*
 2. **The early-layer computation is keyed by the code, not merely routed by it.** Routing transplants carry almost nothing.
-3. **The late layer is largely code-agnostic at arity 3** (the donor keeps 0.96 when only layer 2 carries the other code), **less so at arity 2** (0.65).
+3. *[withdrawn, W4: windows with lo > 0 move only the raw code; derived identity persists]* **The late layer is largely code-agnostic at arity 3** (the donor keeps 0.96 when only layer 2 carries the other code), **less so at arity 2** (0.65).
 4. **Code keying persists after acquisition.** Mixing codes across layers breaks gate use even when every slot has acquired it. The slots never become interchangeable at the level of single layers; each runs the shared computation consistently keyed by its own code.
 
 **Necessity tests (mandate §7.3).** The relabel also tests necessity:
 - An acquired slot given an unacquired code in layers 0–1 loses gate use completely (donor 0.00 at arity 3, 0.04 at arity 2).
 - Given the unacquired code in layer 2 only, it keeps 0.96 (arity 3).
-- So the code in layers 0–1 is **necessary** for an acquired slot's gate use. Layer 2's is largely not.
+- So the code in layers 0–1 is **necessary** for an acquired slot's gate use. *[withdrawn, W4]* Layer 2's is largely not.
 
 ## 4. Identifiability (mandate §7.4)
 
@@ -84,7 +87,7 @@ All 6 evaluable fresh models (3 per arity) met every frozen mechanism prediction
 **Answers to Q8–Q15.**
 - **Q8:** gate use can be transferred to an unacquired slot. **Q9:** the transfer survives source matching, by construction: only the code moves.
 - **Q10:** attention-pattern transfer does **not** reproduce it.
-- **Q11:** the causal *site* is shared, layers 0–1 for every slot. Since codes are near-orthogonal, a shared activation *direction* was not tested, and no alignment maps were fitted.
+- **Q11:** *[withdrawn, W4]* the causal *site* is shared, layers 0–1 for every slot. Since codes are near-orthogonal, a shared activation *direction* was not tested, and no alignment maps were fitted.
 - **Q12:** yes, there is evidence for a common relational computation, available to every slot given an engaging code.
 - **Q13:** yes, there is evidence for code-dependent access to it, and the access is not routing alone.
 - **Q14:** distinct position-conditioned implementations in the strong sense (non-transferable) are rejected. The learning results (CROSS_SLOT_LEARNING_INTERVENTIONS.md) show each slot's access is sustained by its own training signal.

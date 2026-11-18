@@ -1,5 +1,8 @@
 # Novelty and prior explanations (bounded audit, mandate §13)
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). The claimed separation of "the computation exists" from "a position can use it" is withdrawn (W3). What remains distinctive is an alignment-free, source-matched demonstration of label-driven transfer in an exactly equivariant model. The mechanism is ordinary conditional computation. Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Evidence labels:** [proof], [num], [dev], [frozen], [expl], [spec].
 
 This is a focused comparison, not a literature review. It names the strongest existing explanations for what XVII observes, and says what would and would not be new.

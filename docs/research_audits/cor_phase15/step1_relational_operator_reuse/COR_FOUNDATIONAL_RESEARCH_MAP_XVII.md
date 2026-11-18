@@ -1,5 +1,8 @@
 # COR foundational research map after Investigation XVII
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). **W1:** Proposition S is replaced by S′. **W3–W5:** transfer does not identify a shared computation; the layer locus and the H4 verdict are withdrawn. Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Status.** COR Phase 1.5, Step 1, provisional ≈ 25%, unchanged. No thesis is selected, no phase is closed, and the O/D operators are not validated.
 
 ## What XVII adds
@@ -12,7 +15,7 @@
 3. **A relational computation that any slot can run, accessed through a code-keyed early-layer transformation** [frozen, 6/6 fresh models, both arities].
    - Exchanging only the slot code in layers 0–1 transfers gate use to an unacquired slot.
    - Attention routing alone does not.
-   - The readout layer is largely code-agnostic.
+   - *[withdrawn, W4]* The readout layer is largely code-agnostic.
 4. **Slot competences are learned and maintained by each slot's own training signal** [frozen + expl].
    - Targeted training helps the targeted slot only, and erodes the others.
 5. **Slot-staggered acquisition is reliable at arity 3 and inconsistent at arity 2.** The long partial window of XVI's C_s202 is rare [frozen P0 MIXED].

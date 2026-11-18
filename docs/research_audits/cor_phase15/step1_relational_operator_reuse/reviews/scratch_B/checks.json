@@ -1,0 +1,138 @@
+{
+ "A3_s804": {
+  "pair": [
+   1,
+   0
+  ],
+  "complement_maxdiff_[2,3)_vs_pi[0,2)": 6.645917892456055e-06,
+  "myfwd_vs_pkg": 0.0,
+  "base_FG_j": 0.0,
+  "relabel02_FG_j": 0.794392523364486,
+  "random_code_02_FG_j": [
+   0.009345794392523364,
+   0.004672897196261682,
+   0.004672897196261682,
+   0.009345794392523364,
+   0.0
+  ],
+  "dup_code_i_02_FG_j": 0.0794392523364486,
+  "dup_code_i_02_FG_i": 0.18009478672985782,
+  "dup_code_i_03_FG_j": 0.19158878504672897,
+  "matched_route_L01_FG_j": 0.32242990654205606,
+  "relabel02_but_own_route_L01_FG_j": 0.02336448598130841,
+  "L1in_readout_slotdecode_acc_noEq": 1.0,
+  "L1in_relabel_recipient_decoded_as_i_frac": 1.0,
+  "L1in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L1in_Eq_norm_frac": 0.535467803478241,
+  "L2in_readout_slotdecode_acc_noEq": 0.9733333333333334,
+  "L2in_relabel_recipient_decoded_as_i_frac": 0.9966666666666667,
+  "L2in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L2in_Eq_norm_frac": 0.4121584892272949,
+  "L3in_readout_slotdecode_acc_noEq": 0.9427777777777778,
+  "L3in_relabel_recipient_decoded_as_i_frac": 0.8966666666666666,
+  "L3in_relabel_recipient_decoded_as_j_frac": 0.006666666666666667,
+  "L3in_Eq_norm_frac": 0.33735719323158264
+ },
+ "A3_s803": {
+  "pair": [
+   0,
+   1
+  ],
+  "complement_maxdiff_[2,3)_vs_pi[0,2)": 9.208917617797852e-06,
+  "myfwd_vs_pkg": 0.0,
+  "base_FG_j": 0.014218009478672985,
+  "relabel02_FG_j": 0.8625592417061612,
+  "random_code_02_FG_j": [
+   0.009478672985781991,
+   0.014218009478672985,
+   0.037914691943127965,
+   0.04739336492890995,
+   0.04265402843601896
+  ],
+  "dup_code_i_02_FG_j": 0.12322274881516587,
+  "dup_code_i_02_FG_i": 0.12149532710280374,
+  "dup_code_i_03_FG_j": 0.14691943127962084,
+  "matched_route_L01_FG_j": 0.46919431279620855,
+  "relabel02_but_own_route_L01_FG_j": 0.03317535545023697,
+  "L1in_readout_slotdecode_acc_noEq": 1.0,
+  "L1in_relabel_recipient_decoded_as_i_frac": 1.0,
+  "L1in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L1in_Eq_norm_frac": 0.5026313662528992,
+  "L2in_readout_slotdecode_acc_noEq": 0.9994444444444445,
+  "L2in_relabel_recipient_decoded_as_i_frac": 1.0,
+  "L2in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L2in_Eq_norm_frac": 0.3899088203907013,
+  "L3in_readout_slotdecode_acc_noEq": 0.9705555555555555,
+  "L3in_relabel_recipient_decoded_as_i_frac": 0.95,
+  "L3in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L3in_Eq_norm_frac": 0.3320411741733551
+ },
+ "A2_s704": {
+  "pair": [
+   2,
+   0
+  ],
+  "complement_maxdiff_[2,3)_vs_pi[0,2)": 7.510185241699219e-06,
+  "myfwd_vs_pkg": 0.0,
+  "base_FG_j": 0.11728395061728394,
+  "relabel02_FG_j": 0.7160493827160493,
+  "random_code_02_FG_j": [
+   0.012345679012345678,
+   0.018518518518518517,
+   0.07407407407407407,
+   0.030864197530864196,
+   0.006172839506172839
+  ],
+  "dup_code_i_02_FG_j": 0.09259259259259259,
+  "dup_code_i_02_FG_i": 0.2982456140350877,
+  "dup_code_i_03_FG_j": 0.15432098765432098,
+  "matched_route_L01_FG_j": 0.1111111111111111,
+  "relabel02_but_own_route_L01_FG_j": 0.32098765432098764,
+  "L1in_readout_slotdecode_acc_noEq": 1.0,
+  "L1in_relabel_recipient_decoded_as_i_frac": 1.0,
+  "L1in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L1in_Eq_norm_frac": 0.5570880174636841,
+  "L2in_readout_slotdecode_acc_noEq": 1.0,
+  "L2in_relabel_recipient_decoded_as_i_frac": 1.0,
+  "L2in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L2in_Eq_norm_frac": 0.4342474639415741,
+  "L3in_readout_slotdecode_acc_noEq": 0.8844444444444445,
+  "L3in_relabel_recipient_decoded_as_i_frac": 1.0,
+  "L3in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L3in_Eq_norm_frac": 0.3492809534072876
+ },
+ "A2_s705": {
+  "pair": [
+   4,
+   0
+  ],
+  "complement_maxdiff_[2,3)_vs_pi[0,2)": 4.589557647705078e-06,
+  "myfwd_vs_pkg": 0.0,
+  "base_FG_j": 0.09876543209876543,
+  "relabel02_FG_j": 0.8333333333333334,
+  "random_code_02_FG_j": [
+   0.024691358024691357,
+   0.030864197530864196,
+   0.006172839506172839,
+   0.006172839506172839,
+   0.037037037037037035
+  ],
+  "dup_code_i_02_FG_j": 0.18518518518518517,
+  "dup_code_i_02_FG_i": 0.18902439024390244,
+  "dup_code_i_03_FG_j": 0.2222222222222222,
+  "matched_route_L01_FG_j": 0.2716049382716049,
+  "relabel02_but_own_route_L01_FG_j": 0.14814814814814814,
+  "L1in_readout_slotdecode_acc_noEq": 1.0,
+  "L1in_relabel_recipient_decoded_as_i_frac": 1.0,
+  "L1in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L1in_Eq_norm_frac": 0.526475191116333,
+  "L2in_readout_slotdecode_acc_noEq": 0.9205555555555556,
+  "L2in_relabel_recipient_decoded_as_i_frac": 0.9633333333333334,
+  "L2in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L2in_Eq_norm_frac": 0.32349008321762085,
+  "L3in_readout_slotdecode_acc_noEq": 0.8355555555555556,
+  "L3in_relabel_recipient_decoded_as_i_frac": 0.93,
+  "L3in_relabel_recipient_decoded_as_j_frac": 0.0,
+  "L3in_Eq_norm_frac": 0.33944830298423767
+ }
+}

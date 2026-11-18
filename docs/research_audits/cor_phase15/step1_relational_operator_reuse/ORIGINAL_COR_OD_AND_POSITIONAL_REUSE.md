@@ -1,5 +1,8 @@
 # The original COR obstruction/discrepancy (O/D) mathematics and positional reuse
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). Case D (silent) is endorsed by Reviewer A. **W1:** Proposition S is false as stated. Its gate-flip column was computed over the evidence sources only, so 0 was guaranteed. Argmin D over all six sources changes on 51–54% of gate flips but tracks the gate only at F_G 0.14–0.23. **Corrected S′:** every source-level O_c or D_c with single-source germs is a quadratic form, hence an order-≤2 score, and an exact LP over all 567 uniquely-decided inputs shows no order-≤2 score reproduces the GATE Bayes decisions at arity 2 or 3. **F2:** the count form of D is an anchored (relative) instance, not Definition 3 itself, which gives a variance. **F3:** the 'order-1 optimum' column is the NLL-optimal rule, and an accuracy-optimal weighted vote reaches 0.705 in 2:0.9:0.55:0.05. **F4:** proposition numbering mixes the two PDFs; the relative extension obstruction is Proposition 6 in the original and Proposition 5 in the Update. Update Propositions 6 (local validity) and 7 (superposition non-uniqueness) were omitted; both reinforce silence. **W2:** see Case C(ii). Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Stage 1 of Investigation XVII.** This determination was written and committed before any XVII neural-mechanism result was inspected or used to choose an interpretation. At the time of writing, only the following existed:
 - the architecture's forward code;
 - dense deterministic replays of existing XVI runs (in progress; not yet analysed);
@@ -50,14 +53,14 @@ For an input x and a candidate contrast c = (a, b):
 
 ## 4. Source-level discrepancy cannot express any GATE decision [proof + num]
 
-**Proposition S.**
+**Proposition S** *[withdrawn as stated, W1; replaced by S′ below]*.
 - D_c(x) = Σ_s w_s [x_s ≠ c] is a sum of single-source terms, for any weights, including the "repaired" weighted vote.
 - So argmin_c D_c is an order-1 rule.
 - Every rule of order ≤ a ignores the gate in every GATE condition (XVI, verification V5 and V6), so argmin D never responds to a gate flip.
 
 **Exact over all 729 inputs per condition** (`scripts/xvii_od_check.py` → `logs/xvii_od_check.json`):
 
-| condition | argmin D accuracy (evidence sources) | argmin D (all six sources) | order-1 optimum | gate-free optimum | Bayes | inputs on which a gate flip changes argmin D |
+| condition | argmin D accuracy (evidence sources) | argmin D (all six sources) | argmax of NLL-optimal order-1 rule (F3) | gate-free optimum | Bayes | gate flip changes argmin D (evidence sources only; 0 by construction, W1) |
 |---|---|---|---|---|---|---|
 | 2:0.9:0.9:1/3 | 0.738 | 0.608 | 0.791 | 0.791 | 0.900 | 0.000 |
 | 2:0.9:0.9:0.05 | 0.791 | 0.618 | 0.872 | 0.872 | 0.900 | 0.000 |
@@ -73,7 +76,7 @@ So the GATE relation, the object of every XVII experiment, lies **outside** what
 |---|---|---|
 | **A.** O/D predicts uniform, reusable relational computation | **No** | No invariance or sharing axiom exists on ρ, P or the graph. A prediction of position-independent computation would require adding an equivariance constraint, which would be new mathematics |
 | **B.** O/D distinguishes relational computation from positional access | **No** | The framework has no notion of "access" or of acquisition. Proposition 6 (relative extension obstruction) gives *language* for "a partial section on a subcomplex U does not extend", which one could apply to "acquired slots" against "unacquired slots". But every substantive ingredient (which vertices, which stalks, which ρ) would have to be supplied by the analyst from the neural results. That is the circularity Phase 1 warned against. Doing it here would be a new hypothesis inspired by COR, not an O/D prediction |
-| **C.** O/D predicts a more limited property | **Only two limited, negative properties** | (i) Source-level discrepancy cannot represent the gate at all (Proposition S). (ii) If an analyst built an O/D complex whose ρ, P and metrics respect the architecture's exact slot-permutation symmetry (COMPETING_NEURAL_MECHANISMS.md, Theorem P), the resulting O and D would be slot-permutation invariant. That is a consequence of the analyst's choice plus the architecture, and it says nothing about which slot acquires first |
+| **C.** O/D predicts a more limited property | **Only two limited, negative properties** | (i) Source-level O/D cannot represent the GATE decision (corrected S′, W1). (ii) *[overstated, W2: an equivariance axiom gives only invariance across (θ, θ_π), not reuse within one trained network]* If an analyst built an O/D complex whose ρ, P and metrics respect the architecture's exact slot-permutation symmetry (COMPETING_NEURAL_MECHANISMS.md, Theorem P), the resulting O and D would be slot-permutation invariant. That is a consequence of the analyst's choice plus the architecture, and it says nothing about which slot acquires first |
 | **D.** O/D is silent on positional reuse and internal access | **Yes, for the primary question** | Nothing in the definitions, propositions or Phase 1–1.5 results bears on whether a network implements a relational operation once and reuses it across positions, or how the positions come to use it |
 
 **Determination: Case D for positional reuse and access, with the limited negative properties of Case C.** P6 (an O/D prediction) is therefore **not frozen**. No XVII neural result will be described as confirming or falsifying O/D.
@@ -93,7 +96,7 @@ So the GATE relation, the object of every XVII experiment, lies **outside** what
 | kind of claim | example | status |
 |---|---|---|
 | Original O/D prediction | — | none exists for this question |
-| Mathematically justified restricted version | Proposition S (gate-blindness of source-level D) | proved here |
+| Mathematically justified restricted version | Proposition S′ (any source-level O_c or D_c is an order-≤2 score; exact LP: no order-≤2 score reproduces GATE Bayes decisions at a = 2, 3) | Review A, `reviews/scratch_A/lp.py`; original S withdrawn (W1) |
 | New hypothesis inspired by COR | "slot acquisition is a relative-extension obstruction" | not pursued: it would need the circular analyst choices described above |
 | Standard Bayesian explanation | the ideal GATE decision is the same function at every slot (slots are exchangeable) | proof, trivial |
 | Ordinary neural conditional computation | shared weights conditioned on the question embedding E_q | the object of XVII's experiments |

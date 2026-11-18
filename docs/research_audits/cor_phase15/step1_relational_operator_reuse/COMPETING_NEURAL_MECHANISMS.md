@@ -1,5 +1,8 @@
 # Competing neural mechanisms: formal statements and discriminating predictions
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). **W3:** P2 does not discriminate H2 from the mandate's H3. Under Theorem P a slot is its code, so the H3 used here is a straw version. **W5, W6:** P1 is a numerical check of Theorem P; P3 re-measures P2 (complement windows, verified to ≈1e-5); P0, P3 and PL replicate development regularities and are not consequences of H1–H4. **W9:** P5 does not exclude H1-with-binding. **W7:** P4's transplant was content-mismatched. The "H4 mixture" conclusion is withdrawn: H2, H3 and H4 are not identified by any XVII intervention. Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Evidence labels:** [proof], [num], [dev], [frozen], [expl], [spec].
 
 **When this was written.** The hypotheses and predictions below were fixed in the XVII freeze, before any fresh confirmation model was trained. They were derived from the architecture (§1) and from **development** analyses of existing XVI models (C_s202, WB_low_s503, WA_const_s402), recorded in §4 and `logs/expl/`.

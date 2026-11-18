@@ -1,5 +1,8 @@
 # Slot-local acquisition: reconstruction and artifact checks
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). **W12:** staggering at arity 2 is unresolved at 20-step snapshot resolution. **B10:** threshold crossings with 600 episodes are noisy at the one-snapshot level. Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Evidence labels:** [proof], [num], [dev], [frozen], [expl], [spec].
 
 ## 1. Locating the model and verifying the replay

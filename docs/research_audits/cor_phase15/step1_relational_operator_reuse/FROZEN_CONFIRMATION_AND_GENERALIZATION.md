@@ -1,5 +1,8 @@
 # Frozen confirmation and generalisation
 
+> **Post-review corrections** (`reviews/ADJUDICATION.md`; agent reviews, not human peer review). All frozen calls stand as scored. **W5:** P1 is architectural and P3 equals P2 measured on content-swapped episodes, so the 6/6 calls are 4 independent mechanism tests plus P0. **W10:** every selected checkpoint lies 20–220 steps before natural acquisition of the unacquired slots. **W11:** U→U controls were recorded once per donor (duplicated). Random-code controls added by Reviewer B give 0.00–0.07, and transfer survives them. **W12:** P0 at arity 2 is unresolved at 20-step resolution. **W7, W8, W9:** see MAIN. Text withdrawn after review is kept in place and marked *[withdrawn, Wn]* so the record is preserved.
+
+
 **Evidence labels:** [proof], [num], [dev], [frozen], [expl], [spec].
 
 ## 1. Chronology (logs/COMPUTE_LOG.txt, git)
@@ -62,12 +65,12 @@
 - **None of the fresh models shows a long partial window like C_s202.** The longest is A2_s705, with 10 partial checkpoints, about 200 steps. C_s202's 1600-step window remains a rare case (1 of 16 XVI acquisitions and 0 of 11 fresh acquiring models).
 
 **P2 and P4 (transfer, and routing as insufficient).**
-- In all 6 evaluable models, an unacquired slot ran the gate computation when given an acquired slot's code in layers 0–1 only: recipient F_G 0.65–0.90, against U → U controls of 0.01–0.12. Nothing but the slot code moved.
+- In all 6 evaluable models, an unacquired slot ran the gate computation when given an acquired slot's code in layers 0–1 only: recipient F_G 0.65–0.90, against U → U controls of 0.01–0.12 (perturbation controls 0.00–0.07 after review, W11). Nothing but the slot code moved.
 - Transplanting attention routing gave 0.05–0.17.
 - This replicates both development findings in fresh models at both arities [frozen].
 
 **P3 (layer locus).**
-- Acquired slots keep 0.60–0.90 of their gate use when only layer 2 carries another slot's code, and keep 0.02–0.17 when layers 0–1 do. Layers 0–1 carry the code dependence.
+- Acquired slots keep 0.60–0.90 of their gate use when only layer 2 carries another slot's code, and keep 0.02–0.17 when layers 0–1 do. Layers 0–1 carry the *raw*-code dependence. *[layer-locus reading withdrawn, W4]*
 
 **P5 (after acquisition).**
 - Consistent exchange across layers 0–1 keeps 0.79–1.00. Mixing codes between layers 0 and 1–2 drops to 0.26–0.62.

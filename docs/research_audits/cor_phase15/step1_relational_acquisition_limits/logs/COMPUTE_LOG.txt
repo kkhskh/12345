@@ -2,3 +2,45 @@
 2026-11-17T15:55:42Z lane DB start [7a2436009102] python3 scripts/xvi_train.py 3:0.9:0.9:0.3333333333333333 150 checkpoints/dev/C_const_s150 const 6000 50
 2026-11-17T15:55:42Z lane DA start [b51a3474baeb] python3 scripts/xvi_train.py 3:0.9:0.9:0.05 100 checkpoints/dev/D_cont_s100 cont 3000 50 ../step1_relational_learning_order_laws/checkpoints/dev/D_s100/step4000.npz
 2026-11-17T16:19:23Z dev runs stopped at the freeze (C_const_s150 at step 2000, D_cont_s100 at step 2050; partial trajectories kept)
+2026-11-17T16:20:02Z FREEZE 737393b committed and pushed; confirmation queue (18 runs) launched on lanes A1, A2
+2026-11-17T16:20:02Z lane A2 start [ad5de65de970] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.3333333333333333 401 confirm_outputs/WA_const_s401 const 15000 50
+2026-11-17T16:20:02Z lane A1 start [d7f1dc1001c0] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.3333333333333333 402 confirm_outputs/WA_const_s402 const 15000 50
+2026-11-17T19:14:25Z lane A2 end [ad5de65de970] rc=0
+2026-11-17T19:14:26Z lane A2 start [ab290d60906d] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.3333333333333333 403 confirm_outputs/WA_const_s403 const 15000 50
+2026-11-17T19:14:55Z lane A1 end [d7f1dc1001c0] rc=0
+2026-11-17T19:14:55Z lane A1 start [321d4fd72c84] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.3333333333333333 404 confirm_outputs/WA_const_s404 const 15000 50
+2026-11-17T21:57:12Z lane A2 end [ab290d60906d] rc=0
+2026-11-17T21:57:12Z lane A2 start [87251c868d12] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.3333333333333333 201 confirm_outputs/WA_cont_C_s201 cont 4000 50 ../step1_relational_learning_order_laws/confirm_outputs/C_s201/step4000.npz
+2026-11-17T21:57:15Z lane A1 end [321d4fd72c84] rc=0
+2026-11-17T21:57:15Z lane A1 start [fd5ece754596] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.3333333333333333 202 confirm_outputs/WA_cont_C_s202 cont 4000 50 ../step1_relational_learning_order_laws/confirm_outputs/C_s202/step4000.npz
+2026-11-17T22:38:53Z lane A2 end [87251c868d12] rc=0
+2026-11-17T22:38:53Z lane A2 start [c06f76c91f09] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.3333333333333333 203 confirm_outputs/WA_cont_C_s203 cont 4000 50 ../step1_relational_learning_order_laws/confirm_outputs/C_s203/step4000.npz
+2026-11-17T22:39:11Z lane A1 end [fd5ece754596] rc=0
+2026-11-17T22:39:11Z lane A1 start [5c99bd9cf3d9] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.05 201 confirm_outputs/WA_cont_D_s201 cont 4000 50 ../step1_relational_learning_order_laws/confirm_outputs/D_s201/step4000.npz
+2026-11-17T23:20:26Z lane A2 end [c06f76c91f09] rc=0
+2026-11-17T23:20:26Z lane A2 start [d4f64151ccb8] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.05 202 confirm_outputs/WA_cont_D_s202 cont 4000 50 ../step1_relational_learning_order_laws/confirm_outputs/D_s202/step4000.npz
+2026-11-17T23:20:33Z lane A1 end [5c99bd9cf3d9] rc=0
+2026-11-17T23:20:33Z lane A1 start [8394cdce8d64] BLIND=1 python3 scripts/xvi_train.py 3:0.9:0.9:0.05 204 confirm_outputs/WA_cont_D_s204 cont 4000 50 ../step1_relational_learning_order_laws/confirm_outputs/D_s204/step4000.npz
+2026-11-18T00:02:06Z lane A2 end [d4f64151ccb8] rc=0
+2026-11-18T00:02:06Z lane A2 start [13b8866ae7b1] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.55:0.05 501 confirm_outputs/WB_low_s501 cosine 4000 25
+2026-11-18T00:02:07Z lane A1 end [8394cdce8d64] rc=0
+2026-11-18T00:02:07Z lane A1 start [b3f89b8d5c3d] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.55:0.05 502 confirm_outputs/WB_low_s502 cosine 4000 25
+2026-11-18T00:47:16Z lane A2 end [13b8866ae7b1] rc=0
+2026-11-18T00:47:16Z lane A2 start [fd881e903f6e] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.55:0.05 503 confirm_outputs/WB_low_s503 cosine 4000 25
+2026-11-18T00:47:30Z lane A1 end [b3f89b8d5c3d] rc=0
+2026-11-18T00:47:30Z lane A1 start [1381cf2ebdec] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.55:0.05 504 confirm_outputs/WB_low_s504 cosine 4000 25
+2026-11-18T01:08:57Z container restart detected (~01:00Z); lanes relaunched after clearing claims of unfinished jobs; WB_low_s503/s504 resume from their resume states
+2026-11-18T01:08:57Z lane A1 start [fd881e903f6e] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.55:0.05 503 confirm_outputs/WB_low_s503 cosine 4000 25
+2026-11-18T01:08:57Z lane A2 start [1381cf2ebdec] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.55:0.05 504 confirm_outputs/WB_low_s504 cosine 4000 25
+2026-11-18T01:38:48Z lane A2 end [1381cf2ebdec] rc=0
+2026-11-18T01:38:49Z lane A2 start [57dc15e87a9e] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.9:0.05 501 confirm_outputs/WB_high_s501 cosine 4000 25
+2026-11-18T01:38:57Z lane A1 end [fd881e903f6e] rc=0
+2026-11-18T01:38:57Z lane A1 start [a5e75087d56a] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.9:0.05 502 confirm_outputs/WB_high_s502 cosine 4000 25
+2026-11-18T02:26:58Z lane A2 end [57dc15e87a9e] rc=0
+2026-11-18T02:26:58Z lane A2 start [92c42ff66f81] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.9:0.05 503 confirm_outputs/WB_high_s503 cosine 4000 25
+2026-11-18T02:27:02Z lane A1 end [a5e75087d56a] rc=0
+2026-11-18T02:27:02Z lane A1 start [1b74a691f0d3] BLIND=1 python3 scripts/xvi_train.py 2:0.9:0.9:0.05 504 confirm_outputs/WB_high_s504 cosine 4000 25
+2026-11-18T03:14:48Z lane A2 end [92c42ff66f81] rc=0
+2026-11-18T03:15:09Z lane A1 end [1b74a691f0d3] rc=0
+2026-11-18T03:17:33Z all 18 confirmation runs complete (rc=0); first read of confirmation outputs = frozen scorer score_XVI.py
+2026-11-18T03:17:48Z SCORED: P1 BROAD, P2 CONT_BROAD, P3 INCONCLUSIVE, P5 STAGE_ROBUST

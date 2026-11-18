@@ -1,0 +1,1 @@
+{"cond": "3:0.9:0.9:0.05", "seed": 202, "sched": "cont", "steps": 4000, "diag_every": 50, "init": "../step1_relational_learning_order_laws/confirm_outputs/D_s202/step4000.npz", "init_sha256": "46bb053700bc2245662816c9fc70e624b4ba2c6e9321ea927abffe53b759edcd", "seconds": 2489.188479423523, "blind": true, "cum_lr": 3.8995001851058078, "diag_stream": 99700000, "diag_n": 1500}

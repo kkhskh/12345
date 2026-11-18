@@ -1,0 +1,50 @@
+{
+ "cond": "2:0.9:0.9:0.05",
+ "ckpt": "XV_A_s201@925",
+ "baselines": {
+  "AGREE": 0.8825000000000001,
+  "EVID": 0.8825000000000001,
+  "decorrelated_chance": 0.5
+ },
+ "natural": {
+  "resid_pre1@G": 0.0,
+  "resid_pre1@E": 0.3396793587174349,
+  "resid_pre1@R": 0.2875751503006012,
+  "resid_pre2@G": 0.6342685370741483,
+  "resid_pre2@E": 0.969939879759519,
+  "resid_pre2@R": 0.4559118236472946,
+  "resid_post2@G": 0.874749498997996,
+  "resid_post2@E": 0.9979959919839679,
+  "resid_post2@R": 1.0
+ },
+ "decorrelated": {
+  "resid_pre1@G": 0.0,
+  "resid_pre1@E": 0.358087487283825,
+  "resid_pre1@R": 0.3123092573753815,
+  "resid_pre2@G": 0.6093591047812817,
+  "resid_pre2@E": 0.9633774160732451,
+  "resid_pre2@R": 0.3296032553407935,
+  "resid_post2@G": 0.8372329603255341,
+  "resid_post2@E": 0.9969481180061037,
+  "resid_post2@R": 0.9969481180061037
+ },
+ "use": {
+  "resid_pre2@E": 1.0,
+  "resid_pre2@R": 0.0,
+  "resid_post2@R": 1.0
+ },
+ "use_baseline": {},
+ "follow": 1.0,
+ "use_baseline_no_patch": 0.0,
+ "excess_natural_over_EVID": {
+  "resid_pre1@G": -0.8825000000000001,
+  "resid_pre1@E": -0.5428206412825651,
+  "resid_pre1@R": -0.5949248496993988,
+  "resid_pre2@G": -0.24823146292585174,
+  "resid_pre2@E": 0.08743987975951895,
+  "resid_pre2@R": -0.42658817635270546,
+  "resid_post2@G": -0.007750501002004029,
+  "resid_post2@E": 0.11549599198396787,
+  "resid_post2@R": 0.11749999999999994
+ }
+}

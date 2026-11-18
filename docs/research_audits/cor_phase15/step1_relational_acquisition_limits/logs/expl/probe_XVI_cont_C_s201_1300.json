@@ -1,0 +1,50 @@
+{
+ "cond": "3:0.9:0.9:0.3333333333333333",
+ "ckpt": "WA_cont_C_s201@1300",
+ "baselines": {
+  "AGREE": 0.7408333333333341,
+  "EVID": 0.7408333333333331,
+  "decorrelated_chance": 0.5
+ },
+ "natural": {
+  "resid_pre1@G": 0.5020040080160321,
+  "resid_pre1@E": 0.5070140280561122,
+  "resid_pre1@R": 0.47695390781563124,
+  "resid_pre2@G": 0.5961923847695391,
+  "resid_pre2@E": 0.6993987975951904,
+  "resid_pre2@R": 0.49298597194388777,
+  "resid_post2@G": 0.9789579158316634,
+  "resid_post2@E": 0.9268537074148296,
+  "resid_post2@R": 1.0
+ },
+ "decorrelated": {
+  "resid_pre1@G": 0.4801627670396745,
+  "resid_pre1@E": 0.5096642929806714,
+  "resid_pre1@R": 0.513733468972533,
+  "resid_pre2@G": 0.5940996948118006,
+  "resid_pre2@E": 0.6876907426246185,
+  "resid_pre2@R": 0.44150559511698884,
+  "resid_post2@G": 0.982706002034588,
+  "resid_post2@E": 0.9003051881993896,
+  "resid_post2@R": 1.0
+ },
+ "use": {
+  "resid_pre2@E": 0.9846431797651309,
+  "resid_pre2@R": 0.006323396567299007,
+  "resid_post2@R": 1.0
+ },
+ "use_baseline": {},
+ "follow": 1.0,
+ "use_baseline_no_patch": 0.0,
+ "excess_natural_over_EVID": {
+  "resid_pre1@G": -0.23882932531730106,
+  "resid_pre1@E": -0.23381930527722095,
+  "resid_pre1@R": -0.2638794255177019,
+  "resid_pre2@G": -0.14464094856379406,
+  "resid_pre2@E": -0.04143453573814271,
+  "resid_pre2@R": -0.24784736138944535,
+  "resid_post2@G": 0.23812458249833024,
+  "resid_post2@E": 0.18602037408149652,
+  "resid_post2@R": 0.2591666666666669
+ }
+}

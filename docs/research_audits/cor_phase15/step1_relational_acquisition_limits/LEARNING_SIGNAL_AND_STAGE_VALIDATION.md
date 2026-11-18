@@ -1,0 +1,104 @@
+# Learning signal and stage validation (mandate section 6)
+
+**Evidence labels:** [proof], [num], [dev], [frozen], [expl], [spec].
+
+Every XV measurement that failed its controls was rebuilt before the freeze, and each rebuilt measure was checked against exact references. Any measure that failed a reference check in development is reported here and was not used.
+
+## 1. Gate acquisition: decision-level and confidence-invariant (D3, D4)
+
+**F_G (gate-flip following)** (`src/xvidiag.py`):
+- It is computed over gate flips (the last gate source redrawn so that g switches) that change the Bayes argmax, with the argmax unique before and after.
+- It is the fraction of those flips on which the model's argmax moves to the new Bayes argmax.
+- Any monotone sharpening or flattening of a fixed decision rule leaves its argmaxes, and therefore F_G, unchanged.
+
+**Reference values** [num, V6, all four neural conditions]:
+- F_G = 0 for the gate-free optimum at temperatures 0.5, 1 and 2;
+- F_G = 1 for Bayes at the same three temperatures.
+
+**XV's graded G, by contrast,** equals 1/T for Bayes tempered by T, so it is 2.0 or 0.5. It is kept as a secondary, confidence-dependent measure, together with G_conf = G / sB (sB is the model's overall sharpness relative to Bayes). G_conf is 1 for tempered Bayes and 0 for gate-free rules.
+
+**Acquisition (frozen):** three consecutive diagnostic points with F_G ≥ 0.5 **and** KL ≤ 0.75 × the gate-free KL. The KL condition requires that at least a quarter of the gate's value has actually been realised, not merely that some decisions follow.
+
+**Density:**
+- 50-step diagnostics over the entire runs of Workstream A (15,000 or 4000 steps);
+- 25-step diagnostics over the entire runs of Workstream B.
+
+XV used 250-step spacing after step 2000. Because diagnostics run inline, density does not require dense parameter checkpoints.
+
+## 2. Agreement use, and the floor-conditioned stage (D2, D3)
+
+**A decision-level agreement measure was tried and rejected in development** [dev].
+- The obvious analogue of F_G is following on pair-single swaps.
+- It gave 1.0 for the order-1 rule as well, and no swap changes the gate-free optimum's argmax without also changing the order-1 optimum's.
+- So no decision-level test separates agreement use from source-wise use with this edit.
+
+**A_conf** = XV's agreement index A_p × sB(gate-free optimum) / sB(model):
+- It is constant across temperatures for the gate-free optimum (spread < 1e-6), and 0 for the order-1 rule and for Bayes [num, V6].
+- The reference value is 1.0, or 1.116 at arity 2 with ν = 0.05.
+
+**Floor-conditioned stage (frozen).** At least 4 consecutive points before acquisition with:
+- F_G ≤ 0.1;
+- A_conf ≥ 0.5 × reference;
+- KL ≤ KL(order 1) − 0.5 · (KL(order 1) − KL(gate-free)), i.e. at least half the agreement benefit realised beyond the best source-wise rule.
+
+It is evaluated **only in models that acquire the gate.** XV's problem, that a censored model sitting at the gate-free optimum automatically "showed the stage", therefore cannot recur.
+
+## 3. Cue-conditioned probes (D1) (`scripts/xvi_probe.py`)
+
+For one question per episode (3000 episodes), linear probes for g read the residual stream at the inputs of layers 1 and 2 and after layer 2, at the gate tokens, the evidence tokens and the readout.
+
+**Natural probe and its baselines.**
+- The natural probe is tested on held-out x₀ = 2.
+- Exact baselines from the task law:
+  - AGREE: the best prediction of g from [pair agrees];
+  - EVID: the best prediction from the full evidence.
+- In every condition EVID = AGREE: the evidence carries no information about g beyond agreement. The values are 0.741 at ν = 1/3 and 0.883 at ν = 0.05.
+
+**Decorrelated probe.** It is trained and tested on gate-randomised inputs, where the gate sources are redrawn independently of the evidence regime.
+- The evidence then carries **no** information about the visible g, so chance is exactly 0.5.
+- Accuracy above 0.5 requires g computed from the gate tokens.
+- This is the mandate's "data that separates the gate from agreement".
+
+**Causal use.** Flip transfer of the residual at the evidence tokens or the readout, on Bayes-decisive flips.
+
+**Validation on XV models** [expl, XV checkpoints only]:
+
+| model | natural probe after layer 2 at the readout | EVID | decorrelated probe (sites carrying g) | causal use at the evidence tokens, layer-2 input |
+|---|---|---|---|---|
+| XV C_s201 at step 4000 (censored; at the gate-free optimum) | 0.75 | 0.741 | 0.48–0.51 (chance) | 0.29 = no-patch baseline |
+| XV A_s201 at step 925 (acquired) | 1.00 | 0.883 | 0.96–1.00 | 1.00 |
+
+So the natural probe of a gate-free model sits exactly at the cue baseline, which is what misled XV's first reading of D_s203. The decorrelated probe separates the two cases cleanly.
+
+**Checkpoints near transitions.** The confirmation runs saved parameters every 500 steps. Probes near a transition use checkpoints regenerated by deterministic replay (`scripts/xvi_replay.py`), which was verified bitwise against an archived development snapshot (`logs/expl/replay_check_dev.txt`: max |diff| = 0.0).
+
+## 4. Learning-signal estimator (D5) (`scripts/xvi_gradsig2.py`)
+
+**Quantity.** μ = E[∇L(true batch) − ∇L(the same batch with the gate sources redrawn independently)]. All marginals, labels and evidence are kept, and only the dependence between the visible gate and the evidence regime is removed.
+
+**Estimator.** The unbiased U = (‖Σ D_i‖² − Σ ‖D_i‖²) / (B(B − 1)) for ‖μ‖², with a jackknife standard error over B independent pairs.
+- Its expectation is exactly 0 when μ = 0.
+- XV's ‖mean D‖ / noise had expectation about 1 under the null; that was the defect.
+
+**Controls on every checkpoint:**
+- **null:** the difference of two independent gate-randomisations, so μ = 0 exactly;
+- **planted:** the null plus a fixed vector with ‖v‖² = 10 null standard errors, which U must recover;
+- **natural positive:** the true batch minus the same batch with its labels permuted.
+
+**Interpretation.** U is the squared norm of the expected *first-order* gate-attributable gradient. A value consistent with 0 at a plateau means that, to first order, gradient descent receives no expected push toward the gate. It does not show that no escape exists, since noise and higher-order terms remain.
+
+**Validation and results.** See §6.
+
+## 5. Calibration and sharpening controls (D3)
+
+Every trajectory point records:
+- confidence (mean max-probability), entropy and sB;
+- G, G_conf, A_p and A_conf;
+- KL, NLL and accuracy;
+- the optimizer quantities: learning rate, cumulative learning rate, gradient norm, update norm, parameter norm, and the Adam first- and second-moment norms.
+
+A transition is called abrupt only when F_G, which is invariant to sharpening, changes within a few diagnostic intervals.
+
+## 6. Results
+
+(Filled in after scoring.)

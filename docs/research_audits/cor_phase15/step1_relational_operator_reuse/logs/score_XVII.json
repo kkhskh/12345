@@ -1,0 +1,351 @@
+{
+ "models": {
+  "A3_s801": {
+   "acquiring": false,
+   "P0": null
+  },
+  "A3_s802": {
+   "acquiring": true,
+   "P0": true,
+   "P1": true,
+   "P2": true,
+   "P2_values": {
+    "transfer": 0.6455765219629253,
+    "control": 0.05125325201455598
+   },
+   "P3": true,
+   "P4": true,
+   "P4_routing_suff": false,
+   "P5": true,
+   "PL": true,
+   "PL_values": {
+    "targeted_A": 0.1895734597156398,
+    "full_A": 0.995260663507109,
+    "targeted_j0": 1.0,
+    "full_j0": 1.0
+   }
+  },
+  "A3_s803": {
+   "acquiring": true,
+   "P0": true,
+   "P1": true,
+   "P2": true,
+   "P2_values": {
+    "transfer": 0.9023696682464456,
+    "control": 0.014218009478672985
+   },
+   "P3": true,
+   "P4": true,
+   "P4_routing_suff": false,
+   "P5": true,
+   "PL": true,
+   "PL_values": {
+    "targeted_A": 0.11083823823002223,
+    "full_A": 1.0,
+    "targeted_j0": 1.0,
+    "full_j0": 1.0
+   }
+  },
+  "A3_s804": {
+   "acquiring": true,
+   "P0": true,
+   "P1": true,
+   "P2": true,
+   "P2_values": {
+    "transfer": 0.7823565441936531,
+    "control": 0.05805206640592301
+   },
+   "P3": true,
+   "P4": true,
+   "P4_routing_suff": false,
+   "P5": true,
+   "PL": true,
+   "PL_values": {
+    "targeted_A": 0.24561937475542414,
+    "full_A": 1.0,
+    "targeted_j0": 1.0,
+    "full_j0": 1.0
+   }
+  },
+  "A2_s701": {
+   "acquiring": true,
+   "P0": false
+  },
+  "A2_s702": {
+   "acquiring": true,
+   "P0": false
+  },
+  "A2_s703": {
+   "acquiring": true,
+   "P0": false
+  },
+  "A2_s704": {
+   "acquiring": true,
+   "P0": true,
+   "P1": true,
+   "P2": true,
+   "P2_values": {
+    "transfer": 0.6790123456790124,
+    "control": 0.11728395061728396
+   },
+   "P3": true,
+   "P4": true,
+   "P4_routing_suff": false,
+   "P5": true,
+   "PL": true,
+   "PL_values": {
+    "targeted_A": 0.28195769167652057,
+    "full_A": 1.0,
+    "targeted_j0": 1.0,
+    "full_j0": 1.0
+   }
+  },
+  "A2_s705": {
+   "acquiring": true,
+   "P0": true,
+   "P1": true,
+   "P2": true,
+   "P2_values": {
+    "transfer": 0.8301007987892004,
+    "control": 0.03644135614616442
+   },
+   "P3": true,
+   "P4": true,
+   "P4_routing_suff": false,
+   "P5": true,
+   "PL": true,
+   "PL_values": {
+    "targeted_A": 0.2861936231094155,
+    "full_A": 1.0,
+    "targeted_j0": 1.0,
+    "full_j0": 1.0
+   }
+  },
+  "A2_s706": {
+   "acquiring": true,
+   "P0": false
+  },
+  "A2_s707": {
+   "acquiring": true,
+   "P0": true,
+   "P1": true,
+   "P2": true,
+   "P2_values": {
+    "transfer": 0.792792102709851,
+    "control": 0.03883579771470229
+   },
+   "P3": true,
+   "P4": true,
+   "P4_routing_suff": false,
+   "P5": true
+  },
+  "A2_s708": {
+   "acquiring": true,
+   "P0": false
+  }
+ },
+ "learning_subset": [
+  "A3_s802",
+  "A3_s803",
+  "A3_s804",
+  "A2_s704",
+  "A2_s705"
+ ],
+ "verdicts": {
+  "pooled": {
+   "P0": {
+    "call": "MIXED",
+    "k": 6,
+    "n": 11,
+    "cp95": [
+     0.23379359765934518,
+     0.8325119059362929
+    ]
+   },
+   "P1": {
+    "call": "FOLLOWS_CODE",
+    "k": 6,
+    "n": 6,
+    "cp95": [
+     0.5407418735600995,
+     1.0
+    ]
+   },
+   "P2": {
+    "call": "TRANSFER",
+    "k": 6,
+    "n": 6,
+    "cp95": [
+     0.5407418735600995,
+     1.0
+    ]
+   },
+   "P3": {
+    "call": "LATE_LESS_CODE_DEPENDENT",
+    "k": 6,
+    "n": 6,
+    "cp95": [
+     0.5407418735600995,
+     1.0
+    ]
+   },
+   "P4": {
+    "call": "ROUTING_INSUFFICIENT",
+    "k": 6,
+    "n": 6,
+    "cp95": [
+     0.5407418735600995,
+     1.0
+    ]
+   },
+   "P5": {
+    "call": "CODE_KEYING_PERSISTS",
+    "k": 6,
+    "n": 6,
+    "cp95": [
+     0.5407418735600995,
+     1.0
+    ]
+   },
+   "PL": {
+    "call": "INTERFERENCE_NO_ACCELERATION",
+    "k": 5,
+    "n": 5,
+    "cp95": [
+     0.4781762498950185,
+     1.0
+    ]
+   }
+  },
+  "arity2": {
+   "P0": {
+    "call": "MIXED",
+    "k": 3,
+    "n": 8,
+    "cp95": [
+     0.08523341413725354,
+     0.7551367836334484
+    ]
+   },
+   "P1": {
+    "call": "FOLLOWS_CODE",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P2": {
+    "call": "TRANSFER",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P3": {
+    "call": "LATE_LESS_CODE_DEPENDENT",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P4": {
+    "call": "ROUTING_INSUFFICIENT",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P5": {
+    "call": "CODE_KEYING_PERSISTS",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "PL": {
+    "call": "INTERFERENCE_NO_ACCELERATION",
+    "k": 2,
+    "n": 2,
+    "cp95": [
+     0.15811388300841897,
+     1.0
+    ]
+   }
+  },
+  "arity3": {
+   "P0": {
+    "call": "STAGGERED",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P1": {
+    "call": "FOLLOWS_CODE",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P2": {
+    "call": "TRANSFER",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P3": {
+    "call": "LATE_LESS_CODE_DEPENDENT",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P4": {
+    "call": "ROUTING_INSUFFICIENT",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "P5": {
+    "call": "CODE_KEYING_PERSISTS",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   },
+   "PL": {
+    "call": "INTERFERENCE_NO_ACCELERATION",
+    "k": 3,
+    "n": 3,
+    "cp95": [
+     0.2924017738212866,
+     1.0
+    ]
+   }
+  }
+ }
+}

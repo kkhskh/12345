@@ -1,1 +1,100 @@
 2026-11-18T06:25:20Z XVII start (branch cor-phase15-step1-relational-operator-reuse from 9c56c59); dev replays launched
+2026-11-18T07:24:54Z FREEZE c419773 pushed; confirmation queue launched (48 lines, lanes B1 B2)
+2026-11-18T07:24:54Z lane B1 start [826b8be89f77] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 3:0.9:0.9:0.3333333333333333 801 confirm_outputs/A3_s801 const 5000 50 -
+2026-11-18T07:24:54Z lane B2 start [f0f61dba6aa2] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 2:0.9:0.9:0.05 701 confirm_outputs/A2_s701 cosine 4000 25 -
+2026-11-18T08:10:17Z lane B2 end [f0f61dba6aa2] rc=0
+2026-11-18T08:10:17Z lane B2 start [f8f6a9f10e48] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 3:0.9:0.9:0.3333333333333333 802 confirm_outputs/A3_s802 const 5000 50 -
+2026-11-18T08:16:42Z lane B1 end [826b8be89f77] rc=0
+2026-11-18T08:16:42Z lane B1 start [a6209c5ea070] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 2:0.9:0.9:0.05 702 confirm_outputs/A2_s702 cosine 4000 25 -
+2026-11-18T08:59:40Z lane B1 end [a6209c5ea070] rc=0
+2026-11-18T08:59:40Z lane B1 start [e5edbc383123] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 3:0.9:0.9:0.3333333333333333 803 confirm_outputs/A3_s803 const 5000 50 -
+2026-11-18T08:59:48Z lane B2 end [f8f6a9f10e48] rc=0
+2026-11-18T08:59:48Z lane B2 start [a2bd7995ced7] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 2:0.9:0.9:0.05 703 confirm_outputs/A2_s703 cosine 4000 25 -
+2026-11-18T09:44:32Z lane B2 end [a2bd7995ced7] rc=0
+2026-11-18T09:44:32Z lane B2 start [39d7cf6c4e56] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 3:0.9:0.9:0.3333333333333333 804 confirm_outputs/A3_s804 const 5000 50 -
+2026-11-18T09:50:50Z lane B1 end [e5edbc383123] rc=0
+2026-11-18T09:50:50Z lane B1 start [08fec72e4052] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 2:0.9:0.9:0.05 704 confirm_outputs/A2_s704 cosine 4000 25 -
+2026-11-18T10:34:01Z lane B1 end [08fec72e4052] rc=0
+2026-11-18T10:34:01Z lane B1 start [5485f67cfd3a] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 2:0.9:0.9:0.05 705 confirm_outputs/A2_s705 cosine 4000 25 -
+2026-11-18T10:34:38Z lane B2 end [39d7cf6c4e56] rc=0
+2026-11-18T10:34:38Z lane B2 start [bdb476e36b94] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 2:0.9:0.9:0.05 706 confirm_outputs/A2_s706 cosine 4000 25 -
+2026-11-18T11:17:29Z lane B1 end [5485f67cfd3a] rc=0
+2026-11-18T11:17:29Z lane B1 start [6c49cd2cc44b] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 2:0.9:0.9:0.05 707 confirm_outputs/A2_s707 cosine 4000 25 -
+2026-11-18T11:18:15Z lane B2 end [bdb476e36b94] rc=0
+2026-11-18T11:18:15Z lane B2 start [68b287d74871] BLIND=1 SNAP=20 python3 scripts/xvii_train.py 2:0.9:0.9:0.05 708 confirm_outputs/A2_s708 cosine 4000 25 -
+2026-11-18T12:00:22Z lane B1 end [6c49cd2cc44b] rc=0
+2026-11-18T12:00:22Z lane B1 start [ef94b8b30303] bash scripts/when_file.sh confirm_outputs/A3_s801/done.json -- python3 scripts/xvii_confirm_analysis.py 3:0.9:0.9:0.3333333333333333 confirm_outputs/A3_s801 logs/analysis/A3_s801.json
+2026-11-18T12:01:11Z lane B2 end [68b287d74871] rc=0
+2026-11-18T12:01:11Z lane B2 start [85af7b632eba] bash scripts/when_file.sh confirm_outputs/A2_s701/done.json -- python3 scripts/xvii_confirm_analysis.py 2:0.9:0.9:0.05 confirm_outputs/A2_s701 logs/analysis/A2_s701.json
+2026-11-18T12:03:20Z lane B2 end [85af7b632eba] rc=0
+2026-11-18T12:03:20Z lane B2 start [2e917ea9fcfc] bash scripts/when_file.sh confirm_outputs/A3_s802/done.json -- python3 scripts/xvii_confirm_analysis.py 3:0.9:0.9:0.3333333333333333 confirm_outputs/A3_s802 logs/analysis/A3_s802.json
+2026-11-18T12:10:00Z lane B1 end [ef94b8b30303] rc=0
+2026-11-18T12:10:00Z lane B1 start [2b65f38fbe3b] bash scripts/when_file.sh confirm_outputs/A2_s702/done.json -- python3 scripts/xvii_confirm_analysis.py 2:0.9:0.9:0.05 confirm_outputs/A2_s702 logs/analysis/A2_s702.json
+2026-11-18T12:13:32Z lane B1 end [2b65f38fbe3b] rc=0
+2026-11-18T12:13:32Z lane B1 start [28079299efbb] bash scripts/when_file.sh confirm_outputs/A3_s803/done.json -- python3 scripts/xvii_confirm_analysis.py 3:0.9:0.9:0.3333333333333333 confirm_outputs/A3_s803 logs/analysis/A3_s803.json
+2026-11-18T12:14:15Z lane B2 end [2e917ea9fcfc] rc=0
+2026-11-18T12:14:15Z lane B2 start [12a34ad80152] bash scripts/when_file.sh confirm_outputs/A2_s703/done.json -- python3 scripts/xvii_confirm_analysis.py 2:0.9:0.9:0.05 confirm_outputs/A2_s703 logs/analysis/A2_s703.json
+2026-11-18T12:16:46Z lane B2 end [12a34ad80152] rc=0
+2026-11-18T12:16:46Z lane B2 start [181daf11267a] bash scripts/when_file.sh confirm_outputs/A3_s804/done.json -- python3 scripts/xvii_confirm_analysis.py 3:0.9:0.9:0.3333333333333333 confirm_outputs/A3_s804 logs/analysis/A3_s804.json
+2026-11-18T12:19:37Z lane B1 end [28079299efbb] rc=0
+2026-11-18T12:19:37Z lane B1 start [a56881fb5ce2] bash scripts/when_file.sh confirm_outputs/A2_s704/done.json -- python3 scripts/xvii_confirm_analysis.py 2:0.9:0.9:0.05 confirm_outputs/A2_s704 logs/analysis/A2_s704.json
+2026-11-18T12:24:16Z lane B1 end [a56881fb5ce2] rc=0
+2026-11-18T12:24:16Z lane B1 start [a80c3b29cb09] bash scripts/when_file.sh confirm_outputs/A2_s705/done.json -- python3 scripts/xvii_confirm_analysis.py 2:0.9:0.9:0.05 confirm_outputs/A2_s705 logs/analysis/A2_s705.json
+2026-11-18T12:27:12Z lane B2 end [181daf11267a] rc=0
+2026-11-18T12:27:12Z lane B2 start [4e8b72bf7cab] bash scripts/when_file.sh confirm_outputs/A2_s706/done.json -- python3 scripts/xvii_confirm_analysis.py 2:0.9:0.9:0.05 confirm_outputs/A2_s706 logs/analysis/A2_s706.json
+2026-11-18T12:30:50Z lane B2 end [4e8b72bf7cab] rc=0
+2026-11-18T12:30:50Z lane B2 start [91714de857c6] bash scripts/when_file.sh confirm_outputs/A2_s707/done.json -- python3 scripts/xvii_confirm_analysis.py 2:0.9:0.9:0.05 confirm_outputs/A2_s707 logs/analysis/A2_s707.json
+2026-11-18T12:32:53Z lane B1 end [a80c3b29cb09] rc=0
+2026-11-18T12:32:53Z lane B1 start [7c325f4ced30] bash scripts/when_file.sh confirm_outputs/A2_s708/done.json -- python3 scripts/xvii_confirm_analysis.py 2:0.9:0.9:0.05 confirm_outputs/A2_s708 logs/analysis/A2_s708.json
+2026-11-18T12:34:41Z lane B1 end [7c325f4ced30] rc=0
+2026-11-18T12:34:41Z lane B1 start [ed4b8f0e58b8] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A3_s801 targeted
+2026-11-18T12:38:10Z lane B2 end [91714de857c6] rc=0
+2026-11-18T12:38:10Z lane B2 start [91cfed487bec] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A3_s801 full
+2026-11-18T12:39:10Z lane B2 end [91cfed487bec] rc=0
+2026-11-18T12:39:10Z lane B2 start [6b663b436b01] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s701 targeted
+2026-11-18T12:39:10Z lane B2 end [6b663b436b01] rc=0
+2026-11-18T12:39:10Z lane B2 start [817226abe295] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s701 full
+2026-11-18T12:39:10Z lane B2 end [817226abe295] rc=0
+2026-11-18T12:39:10Z lane B2 start [f81b128d8f2e] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A3_s802 targeted
+2026-11-18T12:39:12Z lane B1 end [ed4b8f0e58b8] rc=0
+2026-11-18T12:39:12Z lane B1 start [70dd39b59f68] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A3_s802 full
+2026-11-18T12:43:01Z lane B2 end [f81b128d8f2e] rc=0
+2026-11-18T12:43:01Z lane B2 start [638ac61a9d79] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s702 targeted
+2026-11-18T12:43:01Z lane B2 end [638ac61a9d79] rc=0
+2026-11-18T12:43:01Z lane B2 start [fd041906ccb0] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s702 full
+2026-11-18T12:43:01Z lane B2 end [fd041906ccb0] rc=0
+2026-11-18T12:43:01Z lane B2 start [6d18ca75f271] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A3_s803 targeted
+2026-11-18T12:43:05Z lane B1 end [70dd39b59f68] rc=0
+2026-11-18T12:43:05Z lane B1 start [6f8f638247df] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A3_s803 full
+2026-11-18T12:46:49Z lane B1 end [6f8f638247df] rc=0
+2026-11-18T12:46:49Z lane B1 start [5866ed7ef1b4] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s703 targeted
+2026-11-18T12:46:49Z lane B1 end [5866ed7ef1b4] rc=0
+2026-11-18T12:46:49Z lane B1 start [3234778138e9] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s703 full
+2026-11-18T12:46:49Z lane B1 end [3234778138e9] rc=0
+2026-11-18T12:46:49Z lane B1 start [0f4218ab59c7] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A3_s804 targeted
+2026-11-18T12:46:50Z lane B2 end [6d18ca75f271] rc=0
+2026-11-18T12:46:50Z lane B2 start [fad90c5d6518] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A3_s804 full
+2026-11-18T12:50:37Z lane B1 end [0f4218ab59c7] rc=0
+2026-11-18T12:50:37Z lane B1 start [533798032829] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s704 targeted
+2026-11-18T12:50:40Z lane B2 end [fad90c5d6518] rc=0
+2026-11-18T12:50:40Z lane B2 start [b978ce369a14] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s704 full
+2026-11-18T12:54:30Z lane B2 end [b978ce369a14] rc=0
+2026-11-18T12:54:30Z lane B2 start [e68c8ffbc218] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s705 targeted
+2026-11-18T12:54:31Z lane B1 end [533798032829] rc=0
+2026-11-18T12:54:31Z lane B1 start [b1238aa1e3d0] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s705 full
+2026-11-18T12:58:13Z lane B2 end [e68c8ffbc218] rc=0
+2026-11-18T12:58:13Z lane B2 start [d155e8f6eb65] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s706 targeted
+2026-11-18T12:58:13Z lane B2 end [d155e8f6eb65] rc=0
+2026-11-18T12:58:13Z lane B2 start [aebf983f27db] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s706 full
+2026-11-18T12:58:13Z lane B2 end [aebf983f27db] rc=0
+2026-11-18T12:58:13Z lane B2 start [82a1f939af3d] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s707 targeted
+2026-11-18T12:58:13Z lane B2 end [82a1f939af3d] rc=0
+2026-11-18T12:58:13Z lane B2 start [5170920360a8] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s707 full
+2026-11-18T12:58:14Z lane B2 end [5170920360a8] rc=0
+2026-11-18T12:58:14Z lane B2 start [540aa8e7e94a] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s708 targeted
+2026-11-18T12:58:14Z lane B2 end [540aa8e7e94a] rc=0
+2026-11-18T12:58:14Z lane B2 start [f7e9d0c648a7] bash scripts/when_file.sh logs/analysis/A3_s801.json logs/analysis/A3_s802.json logs/analysis/A3_s803.json logs/analysis/A3_s804.json logs/analysis/A2_s701.json logs/analysis/A2_s702.json logs/analysis/A2_s703.json logs/analysis/A2_s704.json logs/analysis/A2_s705.json logs/analysis/A2_s706.json logs/analysis/A2_s707.json logs/analysis/A2_s708.json -- python3 scripts/xvii_learning_arm.py A2_s708 full
+2026-11-18T12:58:14Z lane B2 end [f7e9d0c648a7] rc=0
+2026-11-18T12:58:14Z lane B1 end [b1238aa1e3d0] rc=0
+2026-11-18T13:03:33Z all 48 queue jobs complete (rc=0); first read of confirmation outputs = score_XVII.py
+2026-11-18T13:03:47Z SCORED: P0 MIXED, P1 FOLLOWS_CODE, P2 TRANSFER, P3 LATE_LESS_CODE_DEPENDENT, P4 ROUTING_INSUFFICIENT, P5 CODE_KEYING_PERSISTS, PL INTERFERENCE_NO_ACCELERATION

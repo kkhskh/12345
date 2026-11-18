@@ -1,0 +1,42 @@
+{
+ "2:0.9:0.9:0.3333333333333333": {
+  "acc_minD_evidence": 0.7378703703703704,
+  "acc_minD_all_sources": 0.6075720164609053,
+  "acc_order1_optimum": 0.7913888888888889,
+  "acc_gatefree_optimum": 0.7913888888888889,
+  "acc_bayes": 0.8999999999999999,
+  "fraction_inputs_where_gate_flip_changes_minD": 0.0
+ },
+ "2:0.9:0.9:0.05": {
+  "acc_minD_evidence": 0.7913888888888889,
+  "acc_minD_all_sources": 0.6179783950617284,
+  "acc_order1_optimum": 0.8716666666666666,
+  "acc_gatefree_optimum": 0.8716666666666666,
+  "acc_bayes": 0.8999999999999999,
+  "fraction_inputs_where_gate_flip_changes_minD": 0.0
+ },
+ "3:0.9:0.9:0.3333333333333333": {
+  "acc_minD_evidence": 0.7378703703703704,
+  "acc_minD_all_sources": 0.6206018518518519,
+  "acc_order1_optimum": 0.7913888888888889,
+  "acc_gatefree_optimum": 0.7913888888888889,
+  "acc_bayes": 0.8999999999999999,
+  "fraction_inputs_where_gate_flip_changes_minD": 0.0
+ },
+ "3:0.9:0.9:0.05": {
+  "acc_minD_evidence": 0.7913888888888889,
+  "acc_minD_all_sources": 0.6206018518518518,
+  "acc_order1_optimum": 0.8716666666666666,
+  "acc_gatefree_optimum": 0.8716666666666666,
+  "acc_bayes": 0.8999999999999999,
+  "fraction_inputs_where_gate_flip_changes_minD": 0.0
+ },
+ "2:0.9:0.55:0.05": {
+  "acc_minD_evidence": 0.6805555555555556,
+  "acc_minD_all_sources": 0.5575385802469135,
+  "acc_order1_optimum": 0.668125,
+  "acc_gatefree_optimum": 0.7054166666666666,
+  "acc_bayes": 0.725,
+  "fraction_inputs_where_gate_flip_changes_minD": 0.0
+ }
+}

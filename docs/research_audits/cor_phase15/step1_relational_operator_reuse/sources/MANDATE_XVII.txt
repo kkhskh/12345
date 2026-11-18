@@ -1,0 +1,1316 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XVII
+
+## Relational Computation, Positional Access, and the Search for a Reusable Neural Operator
+
+**Full mathematical, mechanistic, and causal research mandate**
+
+**Primary question: When a neural network learns to evaluate relationships between information sources at different question positions, does it acquire a reusable computation, position-dependent access to a shared computation, or distinct position-conditioned implementations?**
+
+**Secondary question: Does COR's original obstruction/discrepancy mathematics make any valid, distinguishing prediction about these mechanisms?**
+
+This investigation must build directly on the experimental discoveries of XIII–XVI.
+
+It must not become another general investigation of training speed, gate arity, or learning-rate schedules.
+
+---
+
+# 0. RESEARCH STATUS AND STARTING POINT
+
+Continue from Investigation XVI.
+
+Starting branch:
+
+`cor-phase15-step1-relational-acquisition-limits`
+
+Reported HEAD:
+
+`9c56c59`
+
+Investigation XVI freeze:
+
+`737393b`
+
+Latest archive:
+
+`cor_inv16_relational_acquisition_limits.zip`
+
+Latest synthesis:
+
+`MAIN_RESEARCH_SYNTHESIS_XVI.md`
+
+Verify the repository state and locate the complete evidence before proceeding.
+
+COR remains:
+
+**Phase 1.5, Step 1 — Foundational Mathematical and Mechanistic Investigation.**
+
+Provisional foundational exploration remains approximately **25%**.
+
+No final thesis is selected.
+
+No phase is closed.
+
+The original obstruction/discrepancy (O/D) framework remains unvalidated.
+
+## Required historical review
+
+Read the actual definitions, code, experiments, and corrected conclusions from the earlier investigations, particularly:
+
+**Investigations I–VIII**
+
+The original COR mathematics, O/D operators, source disagreement, dependence, reliability, GATE, TRANS, adaptive environments, and earlier counterexamples.
+
+**Investigations IX–XIII**
+
+Relational information accessibility, causal equivalence, learning pathways, neural implementation differences, and the limitations of fitted relational operators.
+
+**Investigations XIII-C through XIII-E**
+
+The corrections to claims about neural pathways, internal sufficient statistics, causal interchange, learned organization, and misleading diagnostic measurements.
+
+**Investigation XIV**
+
+GATE mathematics, causal mechanisms, heterogeneous neural layouts, and the learning-stage predictions.
+
+**Investigation XV**
+
+Relational complexity, decision usefulness, source-first learning, and the earlier acquisition delays.
+
+**Investigation XVI**
+
+The resolution of several training-budget limitations, the revised gate-following diagnostics, the observation of position-specific acquisition, and the remaining causal uncertainties.
+
+Do not rely solely on the latest synthesis.
+
+Retrieve original definitions and primary experimental evidence wherever necessary.
+
+Do not silently replace the original O/D framework with a more convenient modern theory.
+
+---
+
+# 1. WHY XVII EXISTS
+
+Investigation XVI revealed a potentially important phenomenon that was not part of its original frozen predictions.
+
+The six question positions in a GATE Transformer share the same underlying model parameters, yet they do not necessarily acquire relational reasoning simultaneously.
+
+In particular, model `C_s202` exhibited a long partially acquired state.
+
+For approximately 1,600 training steps, the model used the trust relationship successfully at three question positions while remaining on a simpler strategy at the other three.
+
+The acquired positions subsequently expanded to include the remaining positions.
+
+This means a network can display different relational abilities at different positions despite substantial parameter sharing.
+
+But the interpretation is unresolved.
+
+A single network can potentially implement:
+
+1. A reusable relational computation.
+2. A shared computation accessed differently by each position.
+3. Distinct position-conditioned implementations using the same shared weights.
+
+These are not equivalent.
+
+**The primary mission of XVII is to distinguish them experimentally.**
+
+The secondary mission is to determine whether any of these mechanisms are predicted by COR's original mathematical framework.
+
+Do not assume they are.
+
+---
+
+# 2. FIRST GATE — RECOVER AND TEST THE ORIGINAL COR MATHEMATICS
+
+**Mandatory first stage, before neural mechanism results are inspected.**
+
+This stage establishes whether XVII genuinely tests COR or is a separate investigation of neural computation.
+
+## 2.1 Recover the exact O/D definitions
+
+Locate the original mathematical formulations and their historical revisions.
+
+Identify precisely:
+
+- What the obstruction operator measures.
+- What the discrepancy operator measures.
+- The mathematical inputs each requires.
+- The spaces or objects on which they operate.
+- Whether they describe source relationships, candidate decisions, model representations, or some other quantity.
+- The transformations under which they are expected to remain invariant.
+- Whether they contain assumptions about position.
+- Whether they contain assumptions about parameter sharing.
+- Whether they predict anything about neural computation.
+- Whether they predict anything about transferring a relational operation between question positions.
+
+Preserve the notation and assumptions of the original theory.
+
+Do not invent a position-dependent O/D operator unless it follows from the original definitions.
+
+## 2.2 Formulate explicit mathematical possibilities
+
+Determine which of the following is justified.
+
+**Case A — O/D predicts uniform reusable relational computation.**
+
+If the original theory entails position-independent operations under clearly stated assumptions, derive the prediction and those assumptions.
+
+**Case B — O/D predicts a distinction between relational computation and positional access.**
+
+If the mathematics genuinely distinguishes these quantities, specify how they should be measured and what experiments could falsify the prediction.
+
+**Case C — O/D predicts a more limited property.**
+
+The mathematics may predict relationships among information sources without determining how a neural model implements them.
+
+Derive only that limited prediction.
+
+**Case D — O/D is silent on positional reuse and internal access.**
+
+If this is the correct conclusion, state it explicitly.
+
+Do not manufacture a connection.
+
+The aim is not to force the original theory to explain XVI.
+
+The aim is to find out whether it actually does.
+
+## 2.3 Review historical counterexamples
+
+Recover the earlier cases where discrepancy-based or obstruction-based reasoning failed, required additional reliability information, or disagreed with exact Bayesian inference.
+
+Test whether those failures constrain the proposed interpretation of reusable relational computations.
+
+Do not rescue the original O/D framework by adding arbitrary learned quantities that already encode the correct answer.
+
+Distinguish:
+
+- Original O/D predictions.
+- Mathematically justified restricted versions.
+- New hypotheses inspired by COR.
+- Standard Bayesian explanations.
+- Ordinary neural conditional computation.
+
+These are different scientific claims.
+
+## 2.4 Freeze the mathematical status
+
+Produce:
+
+`ORIGINAL_COR_OD_AND_POSITIONAL_REUSE.md`
+
+Conclude with an explicit determination of what O/D predicts, what it does not predict, and which proposed extensions would constitute new mathematics.
+
+**This conclusion must be recorded before the neural findings are used to choose an interpretation.**
+
+If O/D is silent, continue with the neural investigation, but do not call the neural results confirmation of O/D.
+
+---
+
+# 3. THREE COMPETING NEURAL MECHANISMS
+
+**Central theoretical framework of XVII.**
+
+Formulate the following competing explanations as precise causal hypotheses.
+
+## H1 — Shared and uniformly reusable computation
+
+The network develops a relational operation that can be used across question positions without requiring position-specific learned access.
+
+The operation should transfer between positions when the relevant relational inputs are correctly aligned.
+
+Position differences may arise from temporary optimization or performance differences, but the same abstract computation is already available through comparable pathways.
+
+## H2 — Shared computation with position-dependent access
+
+The model develops an internal relational computation that is potentially available to multiple positions.
+
+However, different question positions learn different ways of accessing, routing, activating, or reading out that computation.
+
+A position may fail behaviorally because it does not yet use an existing computation, not because the computation is absent everywhere.
+
+A successful causal intervention on the relevant access mechanism should restore relational behavior without transferring the correct answer or copying the donor's source evidence.
+
+## H3 — Distinct position-conditioned implementations
+
+The shared network weights support different effective computations at different positions.
+
+These may involve different attention paths, activation subspaces, feature interactions, or conditional circuits.
+
+A learned computation from one position may not transfer to another without replacing additional implementation-specific components.
+
+The model need not contain separate parameter sets.
+
+Distinct computations can be expressed through shared weights conditioned on question embeddings and contextual attention patterns.
+
+## H4 — Other or non-identifiable mechanisms
+
+The actual network may combine these explanations.
+
+A shared subcomputation may feed distinct downstream operations.
+
+Some positions may share mechanisms while others do not.
+
+Multiple reparameterizations may explain the same interventions.
+
+**Do not force every model into H1, H2, or H3 if the evidence is insufficient.**
+
+The investigation should distinguish them wherever possible and report non-identifiability where necessary.
+
+---
+
+# 4. START WITH EXISTING XVI CHECKPOINTS
+
+**Mandatory development stage. No new training initially.**
+
+Use the archived XVI checkpoints and bitwise-replay machinery.
+
+The priority model is:
+
+`C_s202`
+
+Locate and verify its exact model identifier, training configuration, initialization, checkpoints, and the reported partially acquired period.
+
+Regenerate checkpoints around the interval where some slots use the gate while others do not.
+
+Also select representative models showing:
+
+- Early complete acquisition.
+- Late complete acquisition.
+- A temporary partial-acquisition state.
+- A model remaining near the gate-free rule.
+- A model that acquires the gate quickly.
+
+Do not select only models that support the preferred explanation.
+
+## 4.1 Reconstruct slot-level learning
+
+For every question position, measure:
+
+- Decision-level gate-following.
+- Agreement-cue reliance.
+- Gate-free reference performance.
+- Bayes-reference performance.
+- Position-specific training loss.
+- Acquisition onset.
+- Stability of acquisition.
+- Transition width.
+- Temporary regression.
+- Relevant attention and activation changes.
+
+Use XVI's corrected confidence-independent gate-following measure.
+
+Do not revert to the invalid or poorly calibrated diagnostics from XV.
+
+Explicitly distinguish per-slot performance from pooled performance.
+
+## 4.2 Verify the observation independently
+
+Confirm that the reported partial-acquisition window is real and not caused by:
+
+- Aggregation artifacts.
+- Different question difficulties.
+- Candidate-answer imbalance.
+- Different source distributions across slots.
+- Changed confidence.
+- Incorrect slot indexing.
+- Incomplete checkpoints.
+- Misaligned data streams.
+- Incorrect thresholding.
+
+This stage must establish a reliable empirical target.
+
+If the effect fails these checks, record that failure and do not proceed as though the phenomenon were established.
+
+---
+
+# 5. EXPERIMENT A — POSITION AND QUESTION-EMBEDDING SWAPS
+
+**Mandatory.**
+
+The architecture uses shared weights across question positions.
+
+Question embeddings and position-dependent attention may affect how the shared weights are used.
+
+Test whether relational ability follows:
+
+- The question embedding.
+- The actual question content.
+- The physical position.
+- The surrounding attention context.
+- Some interaction among these factors.
+
+## 5.1 Controlled interventions
+
+At partially acquired checkpoints, select:
+
+- A position that has acquired the gate.
+- A position that has not acquired the gate.
+
+Construct controlled tests involving:
+
+**A. Embedding interchange**
+
+Swap or transplant the corresponding learned question embeddings under a precisely defined intervention.
+
+**B. Content interchange**
+
+Exchange question content while preserving the appropriate underlying relational labels and source structure.
+
+**C. Position interchange**
+
+Change where equivalent questions appear, with the mathematical task held fixed.
+
+**D. Joint intervention**
+
+Swap content and question embeddings together when needed to preserve a meaningful task interpretation.
+
+## 5.2 Essential controls
+
+For every intervention, verify:
+
+- The correct target answer.
+- The gate relation.
+- The source distribution.
+- The model's competence on the corresponding unmodified examples.
+- The absence of answer leakage.
+- Whether the intervention changes the semantics of the question.
+- Whether it creates a configuration never encountered during training.
+
+Include matched controls that change embeddings or positions without transferring a learned relational ability.
+
+Use several donor-recipient pairs rather than a single convenient example.
+
+## 5.3 Discriminating outcomes
+
+A result where relational ability follows the embedding supports position-conditioned access or computation.
+
+It does **not**, by itself, distinguish the two.
+
+A result where the ability follows question content supports a different interpretation.
+
+A result where it remains tied to the physical slot supports position-dependent routing or contextual processing.
+
+Derive the detailed predictions before interpreting the outcomes.
+
+Do not equate a successful embedding swap with proof of a shared relational operator.
+
+---
+
+# 6. EXPERIMENT B — CAUSAL TRANSFER OF RELATIONAL COMPUTATION
+
+**Highest-priority causal experiment.**
+
+Determine whether a position that already uses the gate can supply a causally relevant computation to a position that has not acquired it.
+
+## 6.1 Distinguish what is transferred
+
+Three different things could be transferred by an activation patch.
+
+**Source evidence**
+
+The donor may carry useful answer-bearing values.
+
+**Access or routing**
+
+The donor may provide an attention configuration or activation state that permits the recipient to use a relational computation already available elsewhere.
+
+**Relational computation**
+
+The donor may provide an abstract gate-dependent computation that the recipient can reuse.
+
+These explanations must not be conflated.
+
+## 6.2 Essential donor controls
+
+Construct donor-recipient pairs that distinguish relational state from ordinary source content.
+
+Include:
+
+**Relation-preserving donors**
+
+Change the gate-defining source tokens while preserving the gate's value.
+
+Measure the response to these changes before using the donor in a causal transfer claim.
+
+**Evidence-matched donors**
+
+Match answer-bearing evidence as closely as mathematically possible while varying the gate relation.
+
+Document which input values can and cannot be matched simultaneously.
+
+**Gate-matched, evidence-different donors**
+
+Preserve the relational state while changing other source evidence.
+
+**Non-relational control donors**
+
+Use appropriately matched activation sources that do not carry the intended relational computation.
+
+**Wrong-gate donors**
+
+Use donors whose relational state predicts an incompatible gate response.
+
+Every proposed donor type must be checked for mathematical feasibility under the actual generator.
+
+Do not invent impossible source combinations or use off-support states without labeling them.
+
+## 6.3 Compare multiple interventions
+
+Test:
+
+- Full residual-stream patches.
+- Restricted activation subspace patches.
+- Attention-row interchange.
+- Attention-pattern interchange.
+- Selected query/key effects where justified.
+- Selected value-path effects where justified.
+- Access-path interventions suggested by Experiment A.
+
+Do not assume that residual transfer and attention-pattern transfer test the same mechanism.
+
+A successful full residual patch may simply move useful evidence.
+
+A successful attention patch may change evidence selection rather than transfer a reusable relational computation.
+
+Identify the information each intervention can carry.
+
+## 6.4 Necessary negative controls
+
+Include:
+
+- Same-location sham patches.
+- Off-target patches.
+- Random matched subspaces.
+- Source-preserving decoys.
+- Norm-matched perturbations.
+- Relation-preserving counterfactuals.
+- Interventions that carry equivalent ordinary source evidence without the target relational state.
+- Reverse-direction transfer.
+
+Measure whether the intervention causes a specific gate-dependent change beyond its matched control.
+
+A simple patched-versus-unpatched comparison is insufficient.
+
+## 6.5 Quantitative success criteria
+
+The central outcome is not whether patching increases accuracy.
+
+The outcome is whether a donor position's relational computation can be transferred to an unlearned position in a manner that:
+
+1. Follows the appropriate counterfactual gate relation.
+2. Preserves unrelated answer-bearing evidence.
+3. Survives source-matched controls.
+4. Depends on the proposed causal feature or route.
+5. Transfers across multiple donor-recipient pairs.
+6. Produces the mathematically predicted decision changes.
+7. Cannot be explained adequately by a simpler evidence-transfer mechanism.
+
+Separate behavioral sufficiency from mechanistic identity.
+
+Even strong transfer does not by itself establish that the network uses a unique internal operator.
+
+---
+
+# 7. EXPERIMENT C — SHARED COMPUTATION OR SHARED ACCESS?
+
+**Mandatory.**
+
+Use the strongest observations from Experiments A and B to identify where the acquired relational operation resides and how each position uses it.
+
+Investigate:
+
+- Whether learned positions rely on the same activation directions.
+- Whether position-specific transformations align these directions.
+- Whether the same attention heads play equivalent causal roles.
+- Whether the same readout process can use the relational information across positions.
+- Whether different positions require different conditional routes.
+- Whether a common intermediate computation is present even when the final decision is not gate-sensitive.
+
+## 7.1 Cross-position causal alignment
+
+Compare same-position and cross-position interventions using properly matched inputs.
+
+Test whether a causal feature learned for one position generalizes to another without retraining.
+
+If alignment transformations are necessary, determine whether they are:
+
+- Fixed mathematically.
+- Learned using independent development data.
+- Position-specific.
+- Identifiable from the available observations.
+
+Do not fit arbitrary alignment maps using confirmation outcomes and then claim prospective transfer.
+
+## 7.2 Access-specific interventions
+
+Attempt to restore gate use at an unlearned slot by intervening on its access path while keeping the recipient's own evidence intact.
+
+The important question is:
+
+**Can the recipient use an existing relational computation once its access mechanism is changed?**
+
+If so, identify exactly what was changed.
+
+A shared computation with position-dependent access should produce a different intervention pattern from a genuinely position-specific computation.
+
+Predefine the expected differences.
+
+## 7.3 Necessity tests
+
+Where a shared component is proposed, test whether disrupting it affects gate use across multiple learned positions.
+
+Where a position-specific component is proposed, test whether disrupting it selectively affects the corresponding position.
+
+Use matched perturbations and competence controls.
+
+Avoid relying on decodability as proof of use.
+
+## 7.4 Identifiability
+
+State which explanations are observationally equivalent under the available interventions.
+
+If two mechanisms cannot be distinguished, report the equivalence rather than choosing the more appealing interpretation.
+
+---
+
+# 8. EXPERIMENT D — DOES LEARNING AT ONE POSITION HELP THE OTHERS?
+
+**Mandatory if a valid and computationally affordable intervention is established.**
+
+The previous experiments examine a trained model's internal computation.
+
+This experiment examines how the computation is acquired.
+
+## 8.1 Central question
+
+When a model learns to use a relationship at one position, does that make it easier for other positions to learn the same relationship?
+
+If learning is driven by a reusable computation, improvement at one position might benefit others.
+
+If learning is dominated by position-specific access, progress at one position may not immediately generalize.
+
+If position-conditioned implementations are largely separate, targeted training may produce strongly localized effects.
+
+These are hypotheses, not automatic consequences.
+
+## 8.2 Controlled training interventions
+
+Develop a carefully matched intervention that increases learning pressure at one position during the partially acquired stage.
+
+Possible approaches include:
+
+- Position-targeted training examples.
+- Position-targeted loss weighting.
+- Controlled position-specific access interventions.
+- Restricted modifications to question embeddings.
+- Causal training-pathway manipulations suggested by earlier results.
+
+Choose the intervention using mathematical and development evidence.
+
+## 8.3 Controls
+
+Require:
+
+- A matched amount of training.
+- A matched total loss contribution where feasible.
+- A sham intervention.
+- An intervention targeting a different position.
+- A non-relational control.
+- Identical initialization and data streams where paired comparisons are scientifically appropriate.
+- Independent fresh seeds for confirmation.
+
+Track the possibility that changing one slot's loss also changes gradients through shared weights.
+
+Do not assume position-targeted supervision produces position-local parameter changes.
+
+## 8.4 Measure cross-position effects
+
+Record:
+
+- Acquisition timing in the targeted position.
+- Acquisition timing in every untargeted position.
+- Changes in the relational activation signature.
+- Changes in attention routes.
+- Transfer effects before and after training.
+- Overall model competence.
+- Whether training at one position causes interference elsewhere.
+
+The decisive finding would be a predicted, controlled pattern of transfer or independence across positions.
+
+Do not interpret a general improvement in accuracy as proof of operator sharing.
+
+---
+
+# 9. EXPERIMENT E — ARCHITECTURAL CONTROL
+
+**Conditional, not a substitute for the main experiments.**
+
+Claude suggested comparing a more position-invariant architecture.
+
+This can be useful, but it introduces an important confound: changing architecture may change trainability and the class of computations available.
+
+First use the existing Transformer's shared weights and question embeddings to investigate positional dependence.
+
+Only then consider a more explicitly position-equivariant or position-free architecture.
+
+## E1. Construction
+
+If this experiment proceeds, define mathematically what position symmetry the architecture enforces.
+
+Do not merely remove positional embeddings and assume all position dependence disappears.
+
+Check:
+
+- Input encoding.
+- Attention masks.
+- Output indexing.
+- Question identity.
+- Training distribution.
+- Architectural capacity.
+- Task competence.
+
+## E2. Comparison
+
+Compare:
+
+- Original architecture.
+- A controlled position-symmetry variant.
+- Any necessary capacity-matched baseline.
+
+Determine whether the architectural constraint changes:
+
+- Slot-local acquisition.
+- Relational competence.
+- Learning timing.
+- Cross-position transfer.
+- Internal implementation.
+
+This is a secondary control.
+
+Do not allow architecture training to consume the budget needed for causal experiments and fresh confirmation.
+
+---
+
+# 10. PREDICTIONS AND PREREGISTRATION
+
+**Mandatory before new confirmation models are trained or their results inspected.**
+
+The slot-local phenomenon was discovered retrospectively in XVI.
+
+It must now become a prospective object of study.
+
+## 10.1 Development versus confirmation
+
+Existing XVI checkpoints may be used to:
+
+- Construct interventions.
+- Identify causal sites.
+- Develop hypotheses.
+- Calibrate diagnostics.
+- Estimate effect sizes.
+- Validate mathematical feasibility.
+- Select appropriate model configurations.
+
+They do not count as independent confirmation of hypotheses derived from their own results.
+
+## 10.2 Required discriminating predictions
+
+Freeze a small set of meaningful predictions about:
+
+**P1 — Position swap**
+
+Whether gate use follows the question embedding, physical position, content, or an interaction.
+
+**P2 — Causal transfer**
+
+Whether a learned position can restore gate use at an unlearned position beyond source-matched controls.
+
+**P3 — Shared component necessity**
+
+Whether a proposed shared component has comparable causal importance across learned positions.
+
+**P4 — Access versus computation**
+
+Whether intervening on a recipient's access pathway restores relational behavior without transferring the donor's answer-bearing evidence.
+
+**P5 — Cross-position learning**
+
+Whether targeted learning at one position produces a specific predicted effect on acquisition at other positions.
+
+**P6 — O/D prediction**
+
+Only if Stage I establishes that O/D has genuine mathematical predictive content for positional reuse.
+
+If O/D is silent, do not create a fictional O/D prediction.
+
+## 10.3 Predefine outcomes
+
+For each prediction, define:
+
+- Primary measured quantity.
+- Ideal-reference behavior.
+- Matched-control behavior.
+- Direction of the expected effect.
+- Minimum meaningful effect size.
+- Quantitative acceptance criteria.
+- Replication unit.
+- Uncertainty procedure.
+- Falsifying outcomes.
+- Inconclusive outcomes.
+
+Do not use a successful-looking intervention as the sole basis for defining its own success metric.
+
+## 10.4 Freeze implementation
+
+Commit and hash:
+
+- Prediction definitions.
+- Intervention code.
+- Donor-selection procedures.
+- Model cohorts.
+- Random seeds.
+- Question-slot selection.
+- Mathematical counterfactuals.
+- Scoring scripts.
+- Statistical methods.
+- Competence criteria.
+- Resource budget.
+
+Do not inspect confirmation outputs before the freeze.
+
+Use fail-closed scoring.
+
+---
+
+# 11. FRESH-MODEL CONFIRMATION
+
+**Mandatory.**
+
+The historical slot-locality result was found in existing models.
+
+A serious scientific claim requires fresh confirmation.
+
+## 11.1 Model selection
+
+The original architecture must remain the primary test object.
+
+Do not immediately reduce model size simply to obtain more seeds.
+
+A smaller architecture may have a different relational learning mechanism.
+
+## 11.2 Arity-2 replication
+
+Arity-2 models are relatively inexpensive.
+
+Target **8–12 genuinely independent fresh models**, subject to measured resource constraints.
+
+However, arity-2 replication is only useful for this question if the models exhibit diagnostically meaningful partial slot acquisition.
+
+Before finalizing the primary confirmation cohort, establish on development seeds whether arity-2 produces:
+
+- A measurable interval of partial acquisition.
+- Identifiable acquired and unacquired positions.
+- Sufficient time resolution for causal intervention.
+- Competent eventual relational learning.
+
+If arity-2 transitions are too synchronized, they cannot substitute for arity-3 confirmation.
+
+Do not count twelve irrelevant arity-2 runs as a successful replication of the XVI phenomenon.
+
+## 11.3 Arity-3 replication
+
+Retain arity-3 models as a core part of confirmation because the original phenomenon occurred there.
+
+Use independent fresh seeds and the effective constant-rate training procedure established in XVI.
+
+Target at least four independent fresh arity-3 models if the measured budget permits.
+
+Prioritize checkpoints around partial acquisition rather than saving every full optimizer state.
+
+If insufficient compute remains, conduct a smaller explicitly labeled confirmation and narrow the claims.
+
+## 11.4 Actual independence
+
+Distinguish:
+
+- Fresh initialization seeds.
+- Shared seed identifiers.
+- Training-data streams.
+- Checkpoints from the same run.
+- Multiple question positions from the same model.
+- Intervention examples from the same model.
+
+Six positions are not six independent neural models.
+
+Hundreds of patched examples are not hundreds of independent training replications.
+
+Use appropriate hierarchical uncertainty estimates.
+
+---
+
+# 12. MATHEMATICAL AND CAUSAL CONTROLS
+
+**Mandatory across the investigation.**
+
+Every causal claim must survive appropriate controls.
+
+## 12.1 Source matching
+
+Distinguish transferred source evidence from transferred relational information.
+
+The XVI residual-patching comparison lacked the necessary source-matched donor control.
+
+XVII must fix this explicitly.
+
+## 12.2 Relation-preserving edits
+
+Use edits that change relevant tokens while preserving the mathematical relation, where supported by the generator.
+
+These should establish whether a proposed causal variable depends on the abstract relation or on a specific encoding.
+
+## 12.3 Counterfactual gate changes
+
+Use changes that alter the gate while appropriately controlling other relevant evidence.
+
+Derive the correct decision under each edited input.
+
+Do not infer the expected answer from the model's own behavior.
+
+## 12.4 Off-target and random controls
+
+Use matched sham interventions and appropriately calibrated random subspaces.
+
+A positive transfer effect is uninterpretable without relevant negative controls.
+
+## 12.5 Calibration
+
+Use the corrected decision-level measures from XVI.
+
+Do not treat output-confidence changes as gate acquisition.
+
+## 12.6 Causal necessity and sufficiency
+
+Distinguish:
+
+- Information being decodable.
+- Information being available to downstream computation.
+- Information being causally sufficient under intervention.
+- Information being necessary for the observed decision.
+- Information being part of a reusable abstract computation.
+
+These require different evidence.
+
+## 12.7 Mathematical ideal references
+
+Evaluate the proposed interventions against exact GATE decision rules.
+
+Do not interpret an intervention as successful if the corresponding ideal-reference behavior has not been established.
+
+Where the ideal computation does not support a claimed diagnostic, reject that diagnostic.
+
+---
+
+# 13. CONNECTION TO EXISTING SCIENTIFIC RESEARCH
+
+**Mandatory novelty audit, but bounded.**
+
+Compare the proposed findings with existing work on:
+
+- Conditional computation.
+- Position-dependent specialization.
+- Shared neural representations.
+- Neural routing.
+- Causal abstraction.
+- Activation and attention interchange.
+- Positional embeddings.
+- Mechanistic interpretability.
+- Superposition and distributed computation.
+- Learning and reuse of algorithmic circuits.
+
+Identify the strongest relevant existing explanations.
+
+In particular, distinguish:
+
+**Known phenomenon:** Shared network parameters can support input-conditioned computations.
+
+**Potentially distinctive finding:** A mathematically defined relational computation is causally reusable across positions, with a measurable separation between computation and access.
+
+**Potentially stronger finding:** The original COR mathematics correctly predicts that reuse or its failure under a condition not already explained by standard methods.
+
+Do not claim novelty because the exact synthetic task or checkpoint is new.
+
+A finding is scientifically distinctive only if it provides new explanatory, predictive, or methodological content beyond the relevant literature.
+
+Produce a focused comparison with concrete citations.
+
+Do not let the literature review replace the actual experiment.
+
+---
+
+# 14. COMPUTE AND EXECUTION PRIORITIES
+
+Use the available two-CPU research environment.
+
+The session should be organized so that the most informative work happens first.
+
+## Stage 1 — Mathematical review
+
+Recover O/D and derive its valid implications.
+
+No new neural training is required.
+
+## Stage 2 — Existing-checkpoint causal investigation
+
+Use XVI's partially acquired models and deterministic replay.
+
+Develop and test the competing mechanisms.
+
+This should consume a substantial portion of the investigation because it directly addresses the discovery.
+
+## Stage 3 — Freeze the confirmation protocol
+
+Select only experiments that distinguish competing explanations.
+
+## Stage 4 — Fresh-model validation
+
+Train a scientifically justified mix of arity-2 and arity-3 models.
+
+Use measured throughput.
+
+## Stage 5 — Targeted learning intervention
+
+Run only if earlier evidence identifies a meaningful causal target and the remaining budget supports appropriate replication.
+
+## Stage 6 — Independent review and archive
+
+Verify conclusions and reproducibility.
+
+### Restrictions
+
+Do not run:
+
+- Another broad arity sweep.
+- A new noisy-gate family.
+- A T4 Transformer retraining program.
+- A large architecture search.
+- An unrelated TRANS investigation.
+- More W-initialization searches.
+
+Those directions remain part of COR's broader research landscape, but they are not XVII's primary question.
+
+Do not spend the entire session producing additional training curves while leaving the causal-transfer experiments unfinished.
+
+---
+
+# 15. INDEPENDENT ADVERSARIAL REVIEW
+
+Use three independent reviewing agents where supported.
+
+## Reviewer A — COR mathematics and theoretical identity
+
+Examine:
+
+- Original O/D definitions.
+- Historical counterexamples.
+- Claimed consequences for positional reuse.
+- Mathematical ideal references.
+- Whether new operators were introduced silently.
+- Whether a proposed shared relational operation is actually identifiable.
+- Whether the interpretation is distinct from ordinary Bayesian inference or conditional computation.
+
+The reviewer must be allowed to conclude that O/D is silent.
+
+## Reviewer B — Neural mechanisms and causal inference
+
+Examine:
+
+- Embedding swaps.
+- Attention interventions.
+- Residual patches.
+- Source-matched controls.
+- Relation-preserving edits.
+- Cross-position causal alignment.
+- Shared-component necessity.
+- Slot-targeted learning interventions.
+- Alternative explanations.
+- Whether a transfer effect represents ordinary evidence transfer rather than relational computation.
+
+This reviewer must aggressively reject undercontrolled patching claims.
+
+## Reviewer C — Experimental integrity and reproducibility
+
+Examine:
+
+- Freeze chronology.
+- Independent seeds.
+- Donor and recipient selection.
+- Question-position indexing.
+- Existing versus fresh models.
+- Statistical dependence.
+- Intervention code.
+- Complete raw results.
+- Fail-closed scoring.
+- Dependency hashes.
+- Clean extraction.
+- Reproduction of frozen verdicts.
+- Missing checkpoints and failed runs.
+
+The reviews must be preserved with explicit adjudication.
+
+Do not describe agent reviews as human peer review.
+
+---
+
+# 16. REQUIRED REPOSITORY ARTIFACTS
+
+Create branch:
+
+`cor-phase15-step1-relational-operator-reuse`
+
+Create directory:
+
+`docs/research_audits/cor_phase15/step1_relational_operator_reuse/`
+
+Produce:
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+A complete scientific synthesis of what was established, falsified, qualified, and left unresolved.
+
+### ORIGINAL_COR_OD_AND_POSITIONAL_REUSE.md
+
+The recovered original mathematics, its legitimate predictions, counterexamples, and the conclusion about whether O/D addresses positional reuse.
+
+### SLOT_LOCAL_ACQUISITION_RECONSTRUCTION.md
+
+Detailed reconstruction of the partially acquired checkpoints, including per-slot trajectories and artifact checks.
+
+### COMPETING_NEURAL_MECHANISMS.md
+
+Formal descriptions and discriminating predictions for shared computation, position-dependent access, and position-conditioned implementations.
+
+### POSITION_EMBEDDING_AND_CONTENT_INTERVENTIONS.md
+
+Swap experiments, semantic controls, results, and interpretations.
+
+### CROSS_SLOT_CAUSAL_TRANSFER.md
+
+Source-matched donor controls, relation-preserving interventions, residual and attention interchange, causal sufficiency and necessity results.
+
+### CROSS_SLOT_LEARNING_INTERVENTIONS.md
+
+Effects of position-targeted training interventions on learning at other positions, if scientifically feasible.
+
+### FROZEN_CONFIRMATION_AND_GENERALIZATION.md
+
+Fresh model cohorts, frozen predictions, statistical tests, confirmation outcomes, and limitations.
+
+### NOVELTY_AND_PRIOR_EXPLANATIONS.md
+
+The relationship between the findings and established work on conditional computation, causal abstraction, and position-dependent mechanisms.
+
+### COR_FOUNDATIONAL_RESEARCH_MAP_XVII.md
+
+What XVII contributes to the broader COR research territory and which original questions remain open.
+
+Include:
+
+- Mathematical verification.
+- Generator and model code.
+- Intervention scripts.
+- Raw metrics.
+- Per-slot training trajectories.
+- Important checkpoints.
+- Donor-recipient assignment records.
+- Configuration and freeze hashes.
+- Statistical calculations.
+- Independent reviews.
+- Adjudication.
+- Execution logs.
+- External dependency manifest.
+- Reproduction instructions.
+
+No placeholder reports.
+
+No omitted negative results.
+
+---
+
+# 17. VERIFIED ARCHIVE
+
+Produce:
+
+`cor_inv17_relational_operator_reuse.zip`
+
+Before delivery:
+
+1. Extract into a clean directory.
+2. Verify all manifest hashes.
+3. Reconstruct the partial-acquisition trajectories.
+4. Verify the original O/D derivation against the actual source mathematics.
+5. Recompute GATE ideal-reference decisions.
+6. Reproduce position and embedding swap results.
+7. Recompute source-matched patching controls.
+8. Reproduce causal transfer scores.
+9. Reproduce shared-component necessity tests.
+10. Recompute fresh-model confirmation statistics.
+11. Verify all frozen verdicts.
+12. Verify fail-closed scoring.
+13. Load all included checkpoints.
+14. Replay representative interventions.
+15. Verify deterministic checkpoint continuation where claimed.
+16. Verify dependency hashes.
+17. Check reviewer corrections against final reports.
+18. Verify any multipart archive reconstruction before claiming complete delivery.
+
+If the complete archive exceeds upload limits, produce both:
+
+- A complete, verified research archive.
+- A smaller audit archive with complete reports, mathematical tools, frozen protocols, raw metrics, and representative checkpoints.
+
+Identify any omitted checkpoints explicitly.
+
+Do not describe the smaller archive as complete.
+
+---
+
+# 18. REQUIRED FINAL SCIENTIFIC ANSWERS
+
+Answer each question with explicit evidence labels.
+
+## COR mathematics
+
+1. Does the original O/D framework predict any property of reusable relational computation?
+
+2. Does it predict position-independent behavior, position-dependent access, or neither?
+
+3. Which original assumptions are required?
+
+4. Do earlier O/D counterexamples undermine the proposed connection?
+
+5. Is the resulting prediction distinctive, or already implied by standard Bayesian or causal reasoning?
+
+## Neural computation
+
+6. Is the slot-local acquisition phenomenon independently reproducible?
+
+7. Does relational ability follow question embeddings, question content, physical positions, or their interaction?
+
+8. Can relational behavior be transferred from an acquired slot to an unacquired slot?
+
+9. Does transfer survive source-matched evidence controls?
+
+10. Does attention-pattern transfer reproduce the relevant behavior?
+
+11. Are causal activation directions shared across positions?
+
+12. Is there evidence for a common relational computation?
+
+13. Is there evidence for position-dependent access to that computation?
+
+14. Is there evidence for distinct position-conditioned implementations?
+
+15. Which of these mechanisms cannot be distinguished by the available interventions?
+
+## Learning
+
+16. Does improvement at one question position affect learning at other positions?
+
+17. Can targeted intervention accelerate one position without directly training the others?
+
+18. Does the resulting pattern support reusable computation or position-conditioned specialization?
+
+19. Are the conclusions stable across independent fresh models?
+
+20. Do arity-2 and arity-3 models display comparable mechanisms?
+
+## Scientific significance
+
+21. Which results were genuinely predicted before new confirmation?
+
+22. Which predictions failed?
+
+23. Which apparent mechanisms were ruled out by matched controls?
+
+24. Does the new result explain any previous T4/GATE implementation heterogeneity?
+
+25. What is genuinely novel relative to established mechanistic-interpretability research?
+
+26. What has XVII established about COR's original theory?
+
+27. What remains unproven?
+
+28. What is the next most informative research direction?
+
+Use evidence categories:
+
+- Mathematical proof.
+- Independent numerical verification.
+- Development.
+- Frozen confirmation.
+- Exploratory causal evidence.
+- Falsification.
+- Speculation.
+
+Do not promote exploratory findings into frozen confirmations.
+
+---
+
+# 19. FINAL SCIENTIFIC DIRECTIVE
+
+Investigations XIII–XVI gradually established that neural networks can solve relational tasks through different internal organizations, that training pathways affect those organizations, and that relational computations can emerge at different times.
+
+Investigation XVI added an especially important observation:
+
+**Different question positions within the same shared-weight network can acquire the same relational ability at different times.**
+
+But the meaning of this observation is unknown.
+
+It could reflect:
+
+- A shared computation.
+- Position-dependent access to a shared computation.
+- Distinct position-conditioned computations.
+- A combination that current interventions cannot identify.
+
+Investigation XVII must distinguish these explanations.
+
+Start with the original COR mathematics.
+
+Determine what it actually predicts.
+
+Then use existing partially acquired models to construct causal tests.
+
+Distinguish relational computation from ordinary source evidence.
+
+Distinguish access from implementation.
+
+Distinguish parameter sharing from computational reuse.
+
+Freeze discriminating predictions.
+
+Test those predictions on fresh models.
+
+Reject explanations that fail matched controls.
+
+Do not infer a universal relational operator merely because two positions use the same weights.
+
+Do not infer six separate circuits merely because six positions learn at different times.
+
+Do not label either outcome an O/D confirmation unless the original mathematics actually entails the prediction.
+
+**The desired achievement is a defensible causal answer to whether relational reasoning is implemented as a reusable operation, and, if so, how that operation becomes accessible across positions.**
+
+If this connects meaningfully to O/D, demonstrate the connection mathematically and experimentally.
+
+If O/D is silent, say so and preserve the neural discovery without pretending it validates the original framework.
+
+If the mechanisms remain non-identifiable, explain what intervention would be needed to distinguish them.
+
+**Remain in COR Phase 1.5, Step 1, at approximately 25% provisional foundational exploration.**
+
+Do not close the phase or select a final thesis.
+
+Execute Investigation XVII, obtain independent adversarial review, and deliver the complete reproducible research evidence.

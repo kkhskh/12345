@@ -8,3 +8,11 @@
 [uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 200 loss 0.8769 152s
 [uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 246 loss 0.8360 189s
 [uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 300 loss 0.8771 233s
+[uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 366 loss 0.8459 262s
+[uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 400 loss 0.8463 277s
+[uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 546 loss 0.8592 344s
+[uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 600 loss 0.8231 368s
+[uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 800 loss 0.6016 458s
+[uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 813 loss 0.5848 464s
+[uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 1000 loss 0.5566 546s
+[uP160_fx_L21_W21_D801_gsgro0T100_stop1211_dev] step 1211 loss 0.5777 642s

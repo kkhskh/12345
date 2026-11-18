@@ -2,3 +2,15 @@
 2026-11-18T16:41:18Z replay check 16:32-16:36 (2 runs to step 150, bitwise 0.0); dev behaviour/necessity on XIV checkpoints; unit_modes
 2026-11-18T16:41:18Z lane D1 start [1928c03730c0] FX_INTERV=gsg:100 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
 2026-11-18T16:41:18Z lane D2 start [f86fe8ed69d4] FX_INTERV=gsg:100 FX_EDGES=ro0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T16:52:06Z lane D2 end [f86fe8ed69d4] rc=0
+2026-11-18T16:52:06Z lane D2 start [e67248353091] FX_INTERV=fst:100 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T16:52:06Z lane D1 end [1928c03730c0] rc=0
+2026-11-18T16:52:06Z lane D1 start [82d668def235] FX_INTERV=fst:100 FX_EDGES=ro0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T17:02:48Z lane D2 end [e67248353091] rc=0
+2026-11-18T17:02:48Z lane D2 start [e4501e65677c] FX_INTERV=vrs:100 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T17:02:48Z lane D1 end [82d668def235] rc=0
+2026-11-18T17:02:48Z lane D1 start [5cb20cab347b] FX_INTERV=vrs:100 FX_EDGES=ro0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T17:13:39Z lane D1 end [5cb20cab347b] rc=0
+2026-11-18T17:13:39Z lane D1 start [ea9cb4387215] FX_INTERV=msk:100 FX_EDGES=own0 FX_STOP=1211 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T17:13:40Z lane D2 end [e4501e65677c] rc=0
+2026-11-18T17:13:40Z lane D2 start [425065a35c07] FX_INTERV=gof:100 FX_EDGES=own2 FX_B=2.3 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801

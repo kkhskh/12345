@@ -1,0 +1,16 @@
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP162 20 20 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP162 21 21 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP162 22 22 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP162 23 23 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP163 20 20 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP163 21 21 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP163 22 22 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP163 23 23 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 20 20 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 21 21 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 22 22 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 23 23 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 20 20 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 21 21 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 22 22 811
+FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 23 23 811

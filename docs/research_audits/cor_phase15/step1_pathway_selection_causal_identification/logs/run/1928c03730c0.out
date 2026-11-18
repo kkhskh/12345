@@ -8,3 +8,11 @@
 [uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 200 loss 0.8348 154s
 [uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 246 loss 0.7521 192s
 [uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 300 loss 0.7716 234s
+[uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 366 loss 0.6706 264s
+[uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 400 loss 0.6273 279s
+[uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 546 loss 0.5766 345s
+[uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 600 loss 0.5672 369s
+[uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 800 loss 0.5754 458s
+[uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 813 loss 0.5775 464s
+[uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 1000 loss 0.5529 548s
+[uP160_fx_L23_W23_D801_gsgown2T100_stop1211_dev] step 1211 loss 0.5622 643s

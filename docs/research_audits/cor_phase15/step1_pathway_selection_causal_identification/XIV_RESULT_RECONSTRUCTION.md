@@ -50,10 +50,11 @@ Every edge set is a set of (query token, key token) pairs in one layer. A mask e
 
 **Finding A1-2 (own-question edges carry the E route's necessity)** [dev, XIV step-1211 checkpoints].
 - At test time, blocking only the own-question edges at layer 0 (`own0`) raises KL nearly as much as the full block:
-  - own0: +1.02 to +1.20;
+  - own0: +0.98 to +1.28;
   - full block (`ro0`): +1.18 to +1.38;
-  - over the 6 early-organised XIV runs.
-- This test establishes necessity in the trained model. It does not show which edges matter during training. Whether a training-time block of `own0` alone flips E is tested in XVIII development.
+  - a ratio of 0.81–1.03 over the 12 early-organised XIV runs (3 E baselines, 6 E controls, 3 M real-block flips).
+- This test establishes necessity in the trained model. It does not show which edges matter during training.
+- **Development follow-up (XVIII):** a 100-step training block of `own0` alone flips E (D = 801: nec_E 0.004, nec_M 0.81, MIXTURE on all three diagnostics). XVIII therefore uses T = own0 on E.
 
 ## 3. Bitwise replay
 

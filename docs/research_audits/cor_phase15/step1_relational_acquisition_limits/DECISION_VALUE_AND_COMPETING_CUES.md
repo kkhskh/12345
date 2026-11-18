@@ -65,4 +65,49 @@
 
 ## 5. Results
 
-(Filled in after scoring.)
+**P3 [frozen]: INCONCLUSIVE.**
+
+| seed pair | t_A, low value (0.080) | t_A, high value (0.140) | ratio low / high |
+|---|---|---|---|
+| 501 | 1175 | 725 | 1.62 |
+| 502 | 1325 | 1875 | 0.71 |
+| 503 | 1825 | 2075 | 0.88 |
+| 504 | 1675 | 825 | 2.03 |
+
+- All 8 models acquired the gate, became competent (final KL ≤ 0.0005, F_G = 1.00), and showed the floor-conditioned agreement stage.
+- Transition widths were 75–250 steps.
+- Means were 1500 against 1375. The median log ratio is 0.18 (1.19×). Exact Mann–Whitney p = 1.0; sign test p = 1.0.
+- **My frozen expectation (BENEFIT_SPEEDS) was not supported.**
+
+**Answers.**
+
+- **Can gate value be changed while the competing cue is held fixed (Q9)?**
+  - Yes for the cue's law, exactly [proof]; and for its benefit, to 0.66% [num].
+  - **But not without changing overall difficulty.** All 15 grid pairs within tolerance carry a 0.075–0.25 Bayes-accuracy difference [num].
+- **Does gate value independently change acquisition timing (Q10)?**
+  - Within this design no consistent effect was detected: 2 pairs faster with higher value, 2 slower or equal.
+  - With 4 pairs, effects of about 1.25–1.5× in either direction **cannot be excluded**.
+  - **A uniform effect as large as XV's arity-2 contrast (1.4–2.6× in 4/4 pairs) is not supported here.** Only 1 of 4 pairs reached 2×, and one reversed [frozen data; inference].
+- **How much is attributable to optimisation signal (Q11)?** Not identifiable in this design.
+  - The rebuilt estimator shows that the first-order gate signal is zero on the plateau and appears only about 150–250 steps before onset in every condition measured (LEARNING_SIGNAL_AND_STAGE_VALIDATION.md §6.2).
+  - It was not measured in the WB models, and it could not separate value from signal in any case.
+- **Remaining confounds (Q12):**
+  - overall difficulty (Bayes accuracy 0.725 against 0.900; order-1 accuracy 0.668 against 0.872);
+  - the gate's accuracy gain (ratio 1.45, against 1.74 in NLL);
+  - no gradient-level matching;
+  - n = 4 pairs.
+  - Variation between seed pairs is large: within the high condition, 725–2075 (2.9×).
+
+**Cross-investigation reading [expl; different studies and seeds, not causal].**
+
+| condition | gate value | cue overlap / agreement benefit | t_A |
+|---|---|---|---|
+| XV B (ν = 1/3) | 0.277 | 0.74 / 0.025 | 475–625 |
+| XV A (ν = 0.05) | 0.140 | 0.88 / 0.076 | 800–1500 |
+| XVI high (= XV A condition, new seeds) | 0.140 | 0.88 / 0.076 | 725–2075 |
+| XVI low | 0.080 | 0.88 / 0.075 | 1175–1825 |
+
+- Halving the value **with** a stronger competing cue (XV) gave a consistent delay. Cutting the value by 1.74× **with the cue fixed** (XVI) did not.
+- That pattern fits the competition-driven account, in which the attractiveness of the simpler agreement rule governs timing, better than the benefit-driven account.
+- It is not a controlled test: the two contrasts differ in more than the cue, and the overall difficulty differs within XVI.
+- **A clean test would hold value and difficulty fixed while varying only ν.** At fixed b1 and b0, ν moves the cue and the gate value together (XV), so that again needs a different parameterisation [spec].

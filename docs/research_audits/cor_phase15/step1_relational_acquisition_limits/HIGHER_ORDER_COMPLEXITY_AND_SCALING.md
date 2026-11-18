@@ -67,4 +67,20 @@ That is a cleaner complexity contrast than XV's arity 2 against arity 3.
 
 ## 5. Results and conclusions
 
-(Filled in after scoring: see the post-confirmation section below.)
+**Pilot rule outcome.**
+- P1 came out BROAD, so arity-3 learning was reliable in condition C, and an arity-4 experiment **would now be diagnostic**: arity 4 would not merely add censored curves.
+- The rule's second condition (at least 6 h of session after the queue) was not met. I ended training after the frozen queue (10 h 55 min), so **no arity-4 neural run was made** [frozen rule].
+
+**Q16 (is arity-4 training diagnostically useful?).**
+- **Yes, now.** In condition C, arity 3 is acquired in 7/7 models given enough exposure (1.0–3.9), so an arity-4 run with matched value (Proposition 3) would measure a delay rather than repeat the censoring.
+- It needs a 7-source input format and arity-3 baselines retrained in that format: about 20 lane-hours on this machine.
+
+**Q17 (scaling).**
+- **Supported [frozen + expl]:**
+  - At equal decision value and equal competing cue (ν = 1/3), going from arity 2 to arity 3 multiplies the effective optimisation needed to acquire the gate by about 2–9× (exposure 0.37–0.52 against 1.0–3.4; different schedules, so this is exploratory).
+  - At arity 3 the cost of complexity is a **delay with large variation between seeds** in condition C, and a **delay or a persistent finite-budget barrier** in condition D (strong cue, lower value).
+- **Not identifiable:**
+  - any growth law: polynomial, exponential, threshold;
+  - whether the arity-4 cost would be a further constant factor, a larger factor, or a barrier.
+
+  Two neural complexity levels cannot discriminate these, and none was attempted.

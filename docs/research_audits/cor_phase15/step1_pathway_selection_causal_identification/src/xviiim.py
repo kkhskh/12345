@@ -62,3 +62,48 @@ def measure_final(M, stream):
     S = MT.sets(stream); r = dict(lik_RO1=MT.avail(M, S["PL"], 1))
     mass, share = RP.head_stats(M, S["Xn"][:1500], S["qn"][:1500], F, jnp); r["mix_mass"] = float(mass.max())
     b, Ln = MT.behaviour(M, S); r.update(b); r.update(MT.rho_fit(Ln, S)); r.update(necessity(M, nat(stream))); r.update(classify(r)); return r
+
+
+# ---------------------------------------------------------------- additions after the pre-experiment reviews (A §4, B §2 R7)
+from scipy.optimize import minimize
+from scipy.special import logsumexp as _lse
+
+
+def rho_fit_lapse(Ln, S, ntr=1500):
+    """XIII-B nested power-mean family (metrics.rho_fit) with a uniform lapse: P = (1 - eps) P_pm + eps / K, eps = sigmoid(th[5]).
+    Pre-review B (N2): plain rho confounds lapse-type error with organisation.  Same data, split and starts as metrics.rho_fit."""
+    X, q = S["Xn"], S["qn"]; n = len(q); W, Lg, pf, e, Sx = RP.parts(X, q); f = Sx - e; lW = np.log(W); lL = np.log(Lg)
+    cenl = lambda lp: lp - lp.mean(-1, keepdims=True); y = cenl(np.log(RP.sm(Ln) + 1e-12)); tr, te = np.arange(ntr), np.arange(ntr, n)
+    def fam(th, idx):
+        al, ka, de, tau, rho, le = th; rho = float(np.clip(rho, 1e-3, 5)); eps = 1 / (1 + np.exp(-le))
+        z = al * lW[idx] + ka * np.log(np.maximum(f[idx], 1)) + de * (f[idx] == 0); lw = z - _lse(z, 1, keepdims=True)
+        lp = tau * _lse(lw[..., None] + rho * lL[idx], 1) / rho; lp = lp - _lse(lp, -1, keepdims=True)
+        return cenl(np.log((1 - eps) * np.exp(lp) + eps / lp.shape[-1]))
+    loss = lambda th: float(((fam(th, tr) - y[tr]) ** 2).mean()); best = None
+    for st in ([1, 1, -5, 1, 1.0, -4.0], [0.8, 0.5, -8, 1, 0.5, -4.0], [1, 1, -5, 1.2, 1.0, -2.5]):
+        r = minimize(loss, st, method="Powell", options=dict(maxiter=6000, xtol=1e-4, ftol=1e-8))
+        if best is None or r.fun < best.fun: best = r
+    yt = y[te]; R2 = float(1 - ((fam(best.x, te) - yt) ** 2).sum() / ((yt - yt.mean()) ** 2).sum())
+    return dict(rhoL=float(np.clip(best.x[4], 1e-3, 5)), lapseL=float(1 / (1 + np.exp(-best.x[5]))), R2_pmL=R2)
+
+
+def nec_rq1(M, NAT):
+    """Third-route check: KL rise when layer-1 readout -> all sources is blocked at test time (XIII-D 'rq1')."""
+    X, q, PB = NAT; base = kl_of(MFW.forward(M, X), q, PB); m = np.zeros((43, 43), bool); m[36:42, 0:36] = True
+    return kl_of(MFW.forward(M, X, biases={1: m}), q, PB) - base
+
+
+def cls_behav2(r):
+    """Behavioural class after pre-review B (R7), calibrated on the 24 XIV step-1211 runs (logs/dev/rhoL_xiv.json; all 24 correct):
+    EARLY if lapse >= 0.017 and rhoL <= 0.75; MIXTURE if lapse <= 0.017 and rhoL >= 0.68; else HYBRID."""
+    return "EARLY" if (r["lapseL"] >= 0.017 and r["rhoL"] <= 0.75) else ("MIXTURE" if (r["lapseL"] <= 0.017 and r["rhoL"] >= 0.68) else "HYBRID")
+
+
+def classify_v2(r):
+    c = (cls_struct(r), cls_behav2(r), cls_causal(r)); return dict(cls2_struct=c[0], cls2_behav=c[1], cls2_causal=c[2], cls2=c[0] if len(set(c)) == 1 else "HYBRID")
+
+
+def measure_v2(M, stream):
+    """measure_final plus the lapse-aware behavioural fit and the third-route check (frozen in FREEZE_XVIII)."""
+    S = MT.sets(stream); r = measure_final(M, stream); Ln = np.asarray(F.batched(jax.jit(lambda X_: F.forward(M, X_)), S["Xn"]))[np.arange(len(S["qn"])), S["qn"]]
+    r.update(rho_fit_lapse(Ln, S)); r["nec_rq1"] = nec_rq1(M, nat(stream)); r.update(classify_v2(r)); return r

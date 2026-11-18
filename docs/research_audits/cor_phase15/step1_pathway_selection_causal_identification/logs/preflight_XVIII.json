@@ -1,0 +1,66 @@
+{
+ "scenarios": {
+  "H1d": {
+   "rc": 0,
+   "verdicts": {
+    "H1d": "CONSISTENT",
+    "Hm": "CONTRADICTED",
+    "H2g_R": "CONTRADICTED",
+    "H2g_RV": "CONTRADICTED",
+    "H4": "CONTRADICTED",
+    "H1d_plus_Hm": "CONTRADICTED"
+   },
+   "expected_unique_consistent": "H1d",
+   "pass_": true
+  },
+  "Hm": {
+   "rc": 0,
+   "verdicts": {
+    "H1d": "CONTRADICTED",
+    "Hm": "CONSISTENT",
+    "H2g_R": "CONTRADICTED",
+    "H2g_RV": "CONTRADICTED",
+    "H4": "CONTRADICTED",
+    "H1d_plus_Hm": "CONTRADICTED"
+   },
+   "expected_unique_consistent": "Hm",
+   "pass_": true
+  },
+  "additive": {
+   "rc": 0,
+   "verdicts": {
+    "H1d": "CONTRADICTED",
+    "Hm": "CONTRADICTED",
+    "H2g_R": "CONTRADICTED",
+    "H2g_RV": "CONTRADICTED",
+    "H4": "CONTRADICTED",
+    "H1d_plus_Hm": "CONSISTENT"
+   },
+   "expected_unique_consistent": "H1d_plus_Hm",
+   "pass_": true
+  }
+ },
+ "refusals": {
+  "missing_run": {
+   "rc": 2,
+   "refused": true
+  },
+  "duplicate": {
+   "rc": 2,
+   "refused": true
+  },
+  "wrong_stream": {
+   "rc": 2,
+   "refused": true
+  },
+  "missing_field": {
+   "rc": 2,
+   "refused": true
+  },
+  "missing_step": {
+   "rc": 2,
+   "refused": true
+  }
+ },
+ "all_pass": true
+}

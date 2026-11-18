@@ -4,6 +4,16 @@ four XVIII training-time interventions on the edge set FX_EDGES (src/maskfwd.edg
   fst:<T>  forward BLOCKED (target attention = 0, as -1e9), backward through the UNBLOCKED softmax (straight-through: a = a_full + sg(a_blk - a_full))
   vrs:<T>  attention UNCHANGED; the value vectors read through the target edges are taken from another episode of the batch (roll by 1)
   gof:<T>  finite logit offset -FX_B on the target edges (graded suppression)
+  gsv:<T>  forward UNCHANGED; ALL gradient through the target edges removed (logits stop-gradient, and the target term of the head output
+           stop-gradient: no routing and no value gradient through T)                               [added after pre-review B]
+  sha:<T>  adaptive share clamp (pre-review A, §3.3): a stop-gradient per-head logit offset beta_h(i) on the target edges, solved by 8 Newton
+           steps so that the head-mean target share over (episodes, readout rows) equals a schedule A*_h(i); routing gradient flows.
+           FX_SHA_SCHED = slog.json of the paired baseline (per-step, per-head target shares); FX_SHA_LO=1 holds A*_h(i) = A*_h(0);
+           FX_SHA_CONTENT = real | rolled (rolled = the vrg value substitution on T).
+  vrg:<T>  as vrs, with stop_gradient on the rolled values (no cross-episode value training)        [added after pre-review B]
+FX_GLOG=1 also records per-parameter-group gradient norms (emb, layer0, layer1, layer2, WA) in the window, and for sha the offsets and achieved shares.
+FX_SLOG=<edges> (plain runs): records, for steps < FX_SLOGT, the per-head mean target share of the current parameters on the current batch
+(before the update) and the batch loss, to slog.json.  Logging only: it does not change the training computation.
 FX_GLOG=1 additionally records the global gradient norm and the batch loss at every step of the window (for the new modes only).
 
 XIV Stage I harness = ft_factorial_b.py (XIII-E) plus: FX_INTERV=msk:<T> with FX_EDGES=<kind> (off-route sham: -1e9 bias on the
@@ -46,7 +56,7 @@ STOP = int(os.environ.get("FX_STOP", 0))
 # FX_BRANCH=<tag>:<k> starts from that run's step-k parameters, optimiser and rng state (bitwise continuation of the source run);
 # FX_IWIN=<a>:<b> applies the FX_INTERV mask for steps a <= i < b (default 0:T).  Branch runs get the tag suffix _br<k>.
 BRANCH = os.environ.get("FX_BRANCH", ""); IWIN = os.environ.get("FX_IWIN", "")                                     # repro check: stop after STOP steps (LR schedule unchanged)
-tag = f"{parent}_fx_L{LS}_W{WS}_D{DS}" + (f"_s{STEPS}" if STEPS != 4000 else "") + (f"_{iname}{os.environ.get('FX_EDGES', '') if iname in ('msk', 'lnz', 'gsg', 'fst', 'vrs', 'gof') else ''}{('s' + os.environ['FX_LSIG']) if iname == 'lnz' else ''}{('b' + os.environ['FX_B']) if iname == 'gof' else ''}T{iT}" if INTERV else "") + (f"_stop{STOP}" if STOP else "") + (f"_wa{os.environ['FX_WA']}" if os.environ.get("FX_WA") else "") + (f"_br{BRANCH.split(':')[1]}" if BRANCH else "") + (f"_w{IWIN.replace(':', '-')}" if IWIN else "") + os.environ.get("FX_TAGSUF", "")
+tag = f"{parent}_fx_L{LS}_W{WS}_D{DS}" + (f"_s{STEPS}" if STEPS != 4000 else "") + (f"_{iname}{os.environ.get('FX_EDGES', '') if iname in ('msk', 'lnz', 'gsg', 'fst', 'vrs', 'gof', 'gsv', 'sha', 'vrg') else ''}{(('lo' if os.environ.get('FX_SHA_LO') == '1' else 'hi') + os.environ.get('FX_SHA_CONTENT', 'real')) if iname == 'sha' else ''}{('s' + os.environ['FX_LSIG']) if iname == 'lnz' else ''}{('b' + os.environ['FX_B']) if iname == 'gof' else ''}T{iT}" if INTERV else "") + (f"_stop{STOP}" if STOP else "") + (f"_wa{os.environ['FX_WA']}" if os.environ.get("FX_WA") else "") + (f"_br{BRANCH.split(':')[1]}" if BRANCH else "") + (f"_w{IWIN.replace(':', '-')}" if IWIN else "") + os.environ.get("FX_TAGSUF", "")
 OUT = os.path.join(HERE, "..", "checkpoints", "ft", tag); os.makedirs(OUT, exist_ok=True)
 pf = NV.load_parent(parent); fresh = lambda s: N.init("M", NL.ENV, s)
 WA0 = np.asarray(fresh(WS + 7777)["WA"]); WAT = os.environ.get("FX_WA", "")          # XIII-D A4: controlled transforms of the fresh readout map
@@ -72,7 +82,7 @@ def mask_for(layer):
     if iname == "msk":                                                  # XIV: off-route sham (same -1e9 masking mechanism, off-route edges)
         el, em = MFW.edges(os.environ["FX_EDGES"])
         if layer == el: m[em] = NEG
-    if iname in ("gsg", "fst", "vrs", "gof"):                          # XVIII: the four new modes; zero bias marks the layer, block_m does the rest
+    if iname in ("gsg", "fst", "vrs", "gof", "gsv", "sha", "vrg"):     # XVIII: the new modes; zero bias marks the layer, block_m does the rest
         el, em = MFW.edges(os.environ["FX_EDGES"])
         if layer == el: return jnp.zeros((43, 43), jnp.float32)
     if iname == "lnz":                                                  # XIV: location-matched logit noise; zero bias marks the layer
@@ -80,7 +90,22 @@ def mask_for(layer):
         if layer == el: return jnp.zeros((43, 43), jnp.float32)
     return jnp.asarray(m) if m.any() else None
 LNZ = (MFW.edges(os.environ["FX_EDGES"])[1].astype(np.float32), float(os.environ["FX_LSIG"])) if iname == "lnz" else None; LKEY = jax.random.PRNGKey(525252)
-XM = jnp.asarray(MFW.edges(os.environ["FX_EDGES"])[1].astype(np.float32)) if iname in ("gsg", "fst", "vrs", "gof") else None; XB = float(os.environ.get("FX_B", 0))
+XNEW = ("gsg", "fst", "vrs", "gof", "gsv", "sha", "vrg")
+XM = jnp.asarray(MFW.edges(os.environ["FX_EDGES"])[1].astype(np.float32)) if iname in XNEW else None; XB = float(os.environ.get("FX_B", 0))
+SHA_ROLL = os.environ.get("FX_SHA_CONTENT", "real") == "rolled"
+if iname == "sha":                                                       # schedule A*[i, h] from the paired baseline's slog.json
+    _sl = json.load(open(os.environ["FX_SHA_SCHED"]))["shares"]; _A = np.array([r[1] for r in _sl], np.float32)
+    if os.environ.get("FX_SHA_LO") == "1": _A = np.repeat(_A[:1], len(_A), 0)
+    SHA_A = jnp.asarray(_A)
+def sha_ell(s):
+    """log-odds l[n,h,q] = logsumexp_T(s) - logsumexp_C(s) on the 6 readout rows (each row's T = its own-question sources)."""
+    sr = s[:, :, 36:42, :]; m = XM[36:42][None, None]
+    lT = jax.nn.logsumexp(jnp.where(m > 0, sr, -1e30), -1); lC = jax.nn.logsumexp(jnp.where(m > 0, -1e30, sr), -1); return lT - lC
+def sha_beta(s, step_i):
+    l = sha_ell(jax.lax.stop_gradient(s)); tgt = SHA_A[jnp.minimum(step_i, SHA_A.shape[0] - 1)]; b = jnp.zeros(l.shape[1])
+    for _ in range(8):
+        p = jax.nn.sigmoid(b[None, :, None] + l); f = p.mean((0, 2)) - tgt; d = (p * (1 - p)).mean((0, 2)); b = jnp.clip(b - f / jnp.maximum(d, 1e-6), -20.0, 20.0)
+    return b
 def block_m(lay, x, bias, step_i=0):
     z = N.ln(x, lay["g1"], lay["b1"])
     q = jnp.einsum("ntd,hde->nhte", z, lay["WQ"]); k = jnp.einsum("ntd,hde->nhte", z, lay["WK"]); v = jnp.einsum("ntd,hde->nhte", z, lay["WV"])
@@ -88,13 +113,18 @@ def block_m(lay, x, bias, step_i=0):
     if bias is not None: s = s + bias
     if LNZ is not None: s = s + LNZ[1] * jnp.asarray(LNZ[0]) * jax.random.normal(jax.random.fold_in(LKEY, step_i), s.shape)
     if XM is not None:                                                  # XVIII modes (XM = target edge mask, float 0/1, (43,43))
-        if iname == "gsg": s = XM * jax.lax.stop_gradient(s) + (1.0 - XM) * s
+        if iname in ("gsg", "gsv"): s = XM * jax.lax.stop_gradient(s) + (1.0 - XM) * s
         if iname == "gof": s = s - XB * XM
         if iname == "fst":
             af = jax.nn.softmax(s, -1); ab = jax.nn.softmax(s + NEG * XM, -1); a = af + jax.lax.stop_gradient(ab - af)
+        elif iname == "sha":
+            s = s + jax.lax.stop_gradient(sha_beta(s, step_i))[None, :, None, None] * XM; a = jax.nn.softmax(s, -1)
         else: a = jax.nn.softmax(s, -1)
-        if iname == "vrs":
-            ctx = jnp.einsum("nhts,nhse->nhte", a * (1.0 - XM), v) + jnp.einsum("nhts,nhse->nhte", a * XM, jnp.roll(v, 1, axis=0))
+        if iname in ("vrs", "vrg") or (iname == "sha" and SHA_ROLL):
+            vr = jnp.roll(v, 1, axis=0); vr = jax.lax.stop_gradient(vr) if iname in ("vrg", "sha") else vr
+            ctx = jnp.einsum("nhts,nhse->nhte", a * (1.0 - XM), v) + jnp.einsum("nhts,nhse->nhte", a * XM, vr)
+        elif iname == "gsv":
+            ctx = jnp.einsum("nhts,nhse->nhte", a * (1.0 - XM), v) + jax.lax.stop_gradient(jnp.einsum("nhts,nhse->nhte", a * XM, v))
         else: ctx = jnp.einsum("nhts,nhse->nhte", a, v)
         x = x + jnp.einsum("nhte,hed->ntd", ctx, lay["WO"])
         h = jax.nn.gelu(N.ln(x, lay["g2"], lay["b2"]) @ lay["W1"] + lay["c1"], approximate=True); return x + h @ lay["W2"] + lay["c2"]
@@ -119,9 +149,30 @@ def mkstep(masked):
     def step(tt, st, X, Y, step_i=0):
         l, g = jax.value_and_grad(lambda a: lossf(a, X, Y, masked, step_i))(tt); up, st = opt.update(g, st, tt); return optax.apply_updates(tt, up), st, l
     return step
-GLOG = os.environ.get("FX_GLOG") == "1" and iname in ("gsg", "fst", "vrs", "gof"); glog = []
+SLOG = os.environ.get("FX_SLOG", ""); SLOGT = int(os.environ.get("FX_SLOGT", 100)); slog = []
+def _att_at(tt, X, lay_i, masked, step_i):
+    """attention logits s (n,h,43,43) at layer lay_i under the run's forward (plain, or the masked forward of this mode)."""
+    x = N.embed(dict(tt["emb"]), X); lays = list(tt["pre"]) + list(tt["new"])
+    for l in range(lay_i):
+        bias = mask_for(l if l < 2 else 2) if masked else None
+        x = (NL.block(lays[l], x, l=l if l < 2 else 10) if bias is None else block_m(lays[l], x, bias, step_i))
+    lay = lays[lay_i]; z = N.ln(x, lay["g1"], lay["b1"]); q = jnp.einsum("ntd,hde->nhte", z, lay["WQ"]); k = jnp.einsum("ntd,hde->nhte", z, lay["WK"])
+    return jnp.einsum("nhte,nhse->nhts", q, k) / jnp.sqrt(q.shape[-1])
+if SLOG:
+    _SL_l, _SL_m = MFW.edges(SLOG); _SL_m = jnp.asarray(_SL_m.astype(np.float32))
+    _slf = jax.jit(lambda tt, X: (jax.nn.softmax(_att_at(tt, X, _SL_l, False, 0), -1)[:, :, 36:42] * _SL_m[None, None, 36:42]).sum(-1).mean((0, 2)))
+GLOG = os.environ.get("FX_GLOG") == "1" and iname in XNEW; glog = []
+if GLOG and iname == "sha":
+    _EL = MFW.edges(os.environ["FX_EDGES"])[0]
+    def _shad(tt, X, step_i):
+        sraw = _att_at(tt, X, _EL, True, step_i); b = sha_beta(sraw, step_i); a = jax.nn.softmax(sraw + b[None, :, None, None] * XM, -1)
+        return jnp.concatenate([b, (a[:, :, 36:42] * XM[None, None, 36:42]).sum(-1).mean((0, 2))])
+    _shadj = jax.jit(_shad)
 if GLOG:
-    _gn = jax.jit(lambda tt, X, Y, step_i: optax.global_norm(jax.grad(lambda a: lossf(a, X, Y, True, step_i))(tt)))
+    def _gnf(tt, X, Y, step_i):
+        g = jax.grad(lambda a: lossf(a, X, Y, True, step_i))(tt)
+        return jnp.stack([optax.global_norm(g), optax.global_norm(g["emb"]), optax.global_norm(g["pre"][0]), optax.global_norm(g["pre"][1]), optax.global_norm(g["new"]), optax.global_norm(g["WA"])])
+    _gn = jax.jit(_gnf)
 step_plain, step_mask = mkstep(False), (mkstep(True) if INTERV else None)
 fwd = jax.jit(logits_X)
 def fn_of(tt): return lambda X: np.concatenate([np.asarray(fwd(tt, jnp.asarray(X[i:i + 1000]))) for i in range(0, len(X), 1000)])
@@ -146,9 +197,14 @@ if os.path.exists(RP_):   # XIII-E: STOP runs resume too (XIII-D OOM lesson)
 if STOP and start >= STOP: print(f"[{tag}] already at stop", flush=True); sys.exit(0)
 for i in range(start, STEPS):
     d = NL.Bm.sample_fast(NL.ENV, 256, rng); X = jnp.asarray(d["X"]); Y = jnp.asarray(d["Y"])
-    if GLOG and iw0 <= i < iw1: glog.append((i, float(_gn(t, X, Y, jnp.int32(i)))))
+    if SLOG and i < SLOGT: slog.append((i, [float(x) for x in np.asarray(_slf(t, X))]))
+    if GLOG and iw0 <= i < iw1: _g = np.asarray(_gn(t, X, Y, jnp.int32(i))); glog.append((i, float(_g[0])))
+    if GLOG and iname == "sha" and iw0 <= i < iw1: _sd = np.asarray(_shadj(t, X, jnp.int32(i)))
     t, st, l = (step_mask(t, st, X, Y, jnp.int32(i)) if (INTERV and iw0 <= i < iw1) else step_plain(t, st, X, Y))
-    if GLOG and iw0 <= i < iw1: glog[-1] = glog[-1] + (float(l),)
+    if GLOG and iw0 <= i < iw1: glog[-1] = glog[-1] + (float(l),) + tuple(float(x) for x in _g[1:])
+    if GLOG and iname == "sha" and iw0 <= i < iw1: glog[-1] = glog[-1] + tuple(float(x) for x in _sd)
+    if SLOG and i < SLOGT: slog[-1] = slog[-1] + (float(l),)
+    if SLOG and i + 1 == SLOGT: json.dump(dict(edges=SLOG, fields="[step, per-head share before update, batch loss]", shares=slog), open(os.path.join(OUT, "slog.json"), "w"))
     if (i + 1) % max(STEPS // 40, 1) == 0: hist.append((i + 1, float(l)))
     if (i + 1) in snaps:
         np.savez(os.path.join(OUT, f"step{i + 1}.npz"), *[np.asarray(x) for x in jax.tree_util.tree_leaves(t)])

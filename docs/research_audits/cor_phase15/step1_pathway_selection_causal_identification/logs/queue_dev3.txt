@@ -1,0 +1,6 @@
+FX_INTERV=sha:100 FX_EDGES=own0 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L21_W21_D801_stop100_slog/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=rolled FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+FX_INTERV=sha:100 FX_EDGES=own0 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L21_W21_D801_stop100_slog/slog.json FX_SHA_LO=1 FX_SHA_CONTENT=real FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+FX_INTERV=sha:100 FX_EDGES=own0 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L21_W21_D801_stop100_slog/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=real FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+FX_INTERV=sha:100 FX_EDGES=own2 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L23_W23_D801_stop100_slog/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=rolled FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+FX_INTERV=sha:100 FX_EDGES=own2 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L23_W23_D801_stop100_slog/slog.json FX_SHA_LO=1 FX_SHA_CONTENT=real FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+FX_INTERV=sha:100 FX_EDGES=own2 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L23_W23_D801_stop100_slog/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=real FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801

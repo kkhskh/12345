@@ -62,7 +62,7 @@ Frozen calls are unchanged. The last column gives what each call means after rev
    - It follows the question code E_q, in interaction with the slot's own content [proof, Theorem P; num; frozen P1 6/6].
    - "Physical position" does not exist in this model. Content is exchangeable across slots.
 8. **Can relational behaviour be transferred from an acquired slot to an unacquired one?** Yes, by giving the unacquired slot the acquired slot's code in layers 0–1 only: 0.65–0.90, against perturbation controls of 0.00–0.07 [frozen P2 6/6; expl, review; dev 0.68–0.96]. KL to Bayes improves as well (B9). Every frozen checkpoint lay 20–220 steps before natural acquisition, so transfer far from acquisition rests on one development model (W10, W11).
-9. **Does transfer survive source-matched controls?** Yes, by construction. Each slot keeps its own tokens and evidence, and only the code moves. A U → U exchange gives 0.01–0.06 [frozen]. No slot's input content is copied to another slot, and no task-relevant evidence moves (W11).
+9. **Does transfer survive source-matched controls?** Yes, by construction. Each slot keeps its own tokens and evidence, and only the code moves. A U → U exchange gives model means of 0.04–0.06 (pair-level 0.00–0.13) [frozen; corrected W15]. No slot's input content is copied to another slot, and no task-relevant evidence moves (W11).
 10. **Does attention-pattern transfer reproduce the behaviour?** Not when the donor's content-specific attention is transplanted: 0.05–0.17 [frozen P4 6/6]. A content-matched transplant gives 0.11–0.47, and forcing baseline attention during the relabel cuts transfer to 0.02–0.32. Routing is therefore necessary and partly sufficient [expl, review; W7].
 11. **Are causal activation directions shared across positions?**
     - The causal **site** is not localised. The claim that it is layers 0–1 is withdrawn: derived slot identity persists in the residual, and in A2_s704 a layer-2-only identity swap transfers 0.65–0.70 [expl, review; W4].
@@ -77,7 +77,7 @@ Frozen calls are unchanged. The last column gives what each call means after rev
 **Learning**
 
 16. **Does improvement at one position affect learning at the others?**
-    - Not positively: under slot-targeted training the other unacquired slots stay at 0.02–0.07.
+    - Not positively: under slot-targeted training the other unacquired slots stay at 0.00–0.10 [corrected W15].
     - Negatively: the acquired slots lose gate use, from 0.86–0.96 down to 0.11–0.29 [frozen PL interference + expl]. Training on an already-acquired slot's loss alone causes the same collapse, so this is generic forgetting and not specific to the targeted slot (W8).
 17. **Can targeted intervention accelerate one position without training the others?**
     - Not testable here. In fresh models the targeted slot acquired the gate within 100–200 steps, as fast as under full training (a ceiling), and it was already 20–220 steps from natural acquisition. No acceleration is shown (W8).
@@ -126,7 +126,8 @@ Frozen calls are unchanged. The last column gives what each call means after rev
 - **Censoring.** A3_s801 never acquired the gate within 5000 steps.
 - **Not run:** the architecture control (Experiment E), for budget reasons.
 - **Diagnostic size.** Per-slot diagnostics used 600 episodes in the confirmation analyses (development used 600–1500).
-- **Integrity rule.** Monitoring was restricted to the lane log and file existence. No confirmation output was read before scoring.
+- **Integrity rule.** Monitoring was restricted to the lane log and file existence. Outside the frozen queue, no confirmation output was read before scoring (W14). Reviewer C confirmed this from first-read access times.
+- **Concurrent development job (W13).** A development job on the XVI model C_s202 ran from about 07:25 to 08:02, alongside the blind confirmation training. It used XVI checkpoints only and touched no confirmation output, but it was missing from COMPUTE_LOG.txt and from the timeline.
 
 ## Post-review corrections
 
@@ -148,4 +149,12 @@ These come from `reviews/ADJUDICATION.md`. All three reviews are agent reviews, 
   - "no activation moves" is replaced by "no content or task evidence moves".
 - **W12.** P0 at arity 2 is unresolved at 20-step resolution.
 
-**Integrity review (C):** see the end of `reviews/ADJUDICATION.md`.
+- **W13.** A concurrent development job on C_s202 (07:25–08:02) is now disclosed. It touched no confirmation output.
+- **W14.** "First read" now means first read outside the frozen queue.
+- **W15.** Number corrections:
+  - arity-3 acquisition spreads are 60–100 steps;
+  - other unacquired slots under targeted training end at 0.00–0.10;
+  - U→U controls have model means of 0.04–0.06.
+- **W16.** Frozen documents carry post-review banners. The frozen text is at `git show c419773:<path>`.
+
+**Integrity review (C)** found no critical or major problems. The freeze chronology, the 27 freeze hashes, the absence of early reads, run completion and scorer reproduction all checked out.

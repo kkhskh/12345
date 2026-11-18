@@ -17,7 +17,7 @@
 | 07:24–12:03 | 12 training runs, all with exit code 0 |
 | 12:01–12:39 | 12 frozen analyses, all with exit code 0 |
 | 12:39–13:03 | learning arms (5 models × 2 arms), all with exit code 0 |
-| about 13:04 | **first read of any confirmation output: `score_XVII.py`** |
+| about 13:04 | **first read of any confirmation output outside the frozen queue: `score_XVII.py`** (the frozen analysis and learning jobs read outputs earlier, as designed; W14) |
 
 **Monitoring.** Following the integrity rule adopted after XVI's review, progress was monitored only through the lane log and the existence of `done.json`, analysis and learning directories. No output file was opened or line-counted before scoring.
 
@@ -59,13 +59,13 @@
 ## 5. Readings
 
 **P0 (staggering).**
-- At arity 3, all 3 acquiring models had partial checkpoints. Slot acquisition spread over 80–160 steps: s802 3700–3760; s803 1360–1440; s804 2580–2680.
+- At arity 3, all 3 acquiring models had partial checkpoints. Slot acquisition spread over 60–100 steps (corrected, W15): s802 3700–3760; s803 1360–1440; s804 2580–2680.
 - At arity 2, 5 of 8 models acquired the gate in every slot within one or two 20-step intervals (spreads of 20–40 steps). Staggering there is below this resolution, or absent.
 - **The frozen expectation (STAGGERED pooled) is not met.** Slot staggering is reliable at arity 3 and inconsistent at arity 2 in this condition.
 - **None of the fresh models shows a long partial window like C_s202.** The longest is A2_s705, with 10 partial checkpoints, about 200 steps. C_s202's 1600-step window remains a rare case (1 of 16 XVI acquisitions and 0 of 11 fresh acquiring models).
 
 **P2 and P4 (transfer, and routing as insufficient).**
-- In all 6 evaluable models, an unacquired slot ran the gate computation when given an acquired slot's code in layers 0–1 only: recipient F_G 0.65–0.90, against U → U controls of 0.01–0.12 (perturbation controls 0.00–0.07 after review, W11). Nothing but the slot code moved.
+- In all 6 evaluable models, an unacquired slot ran the gate computation when given an acquired slot's code in layers 0–1 only: recipient F_G 0.65–0.90, against U → U controls with model means of 0.04–0.06 (pair-level 0.00–0.13, net of duplicates). The 0.01 and 0.12 figures were single-slot baselines (W15). Perturbation controls are 0.00–0.07 (W11). Nothing but the slot code moved.
 - Transplanting attention routing gave 0.05–0.17.
 - This replicates both development findings in fresh models at both arities [frozen].
 
@@ -80,7 +80,7 @@
 - **Interference** [frozen]: targeted training (loss on one unacquired slot) took the acquired slots from 0.86–0.96 down to 0.11–0.29 within 400 steps. Full training kept them at 1.00.
 - **"No acceleration" passed only at the ceiling.** The targeted slot acquired the gate in both arms within 100–200 steps (1.00 against 1.00), so that half of PL is uninformative here. This differs from development: in C_s202 the targeted slot never acquired the gate in 1000 steps.
 - **Exploratory, beyond the frozen rule:**
-  - Under targeted training the **other unacquired slots did not acquire the gate** (0.02–0.19 at 400 steps). Under full training they all did (1.00).
+  - Under targeted training the **other unacquired slots did not acquire the gate** (0.00–0.10 at 400 steps, corrected W15). Under full training they all did (1.00).
   - So learning at one slot does not spread to the others, and each slot's competence is sustained by its own loss.
 
 ## 6. What generalised and what did not (Q19, Q20)

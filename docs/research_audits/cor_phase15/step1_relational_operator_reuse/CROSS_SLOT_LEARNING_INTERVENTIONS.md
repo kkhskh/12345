@@ -64,6 +64,6 @@ This is consistent with H2's "shared computation, code-keyed access". It argues 
 | A2_s705 | 1.00 / 0.04 / 0.29 (from 0.94) | 1.00 / 1.00 / 1.00 |
 
 **Answers.**
-- **Q16 [frozen + expl]:** improving one slot does **not** help the others. Under targeted training, the other unacquired slots stay at 0.02–0.07 while the targeted slot reaches 1.00, and the acquired slots lose most of their gate use.
+- **Q16 [frozen + expl]:** improving one slot does **not** help the others. Under targeted training, the other unacquired slots stay at 0.00–0.10 (corrected, W15) while the targeted slot reaches 1.00, and the acquired slots lose most of their gate use.
 - **Q17:** *[withdrawn, W8: not testable here, ceiling and imminence]* yes, targeted pressure accelerates one slot without training the others. In fresh models the targeted slot acquired the gate within 100–200 steps, as fast as under full training (a ceiling effect). In the long C_s202 window [dev], it did not acquire in 1000 steps.
 - **Q18:** *[withdrawn, W5, W8]* the pattern supports **position-conditioned specialisation of learning and maintenance**, coexisting with a **computation that is reusable by code exchange** (CROSS_SLOT_CAUSAL_TRANSFER.md). That is H4, a mixture. It is neither pure H1 nor pure H3.

@@ -65,7 +65,7 @@
 
 ## 6. Fresh-model reconstruction [frozen P0: MIXED]
 
-- **Arity 3:** all 3 acquiring fresh models staggered. Slots acquired over 80–160 steps, with partial checkpoints at 20-step resolution. A3_s801 never acquired the gate within 5000 steps.
+- **Arity 3:** all 3 acquiring fresh models staggered. Slots acquired over 60–100 steps (corrected, W15), with partial checkpoints at 20-step resolution. A3_s801 never acquired the gate within 5000 steps.
 - **Arity 2:** only 3 of 8 had a resolvable partial checkpoint. The other 5 acquired the gate in all slots within 20–40 steps.
 - **No fresh model** reproduced a long partial window like C_s202's.
 - **So:** the phenomenon of slot-local acquisition is reproducible at arity 3 in short form. Its long form is rare (1 of 16 XVI acquisitions, 0 of 11 fresh). At arity 2, in this condition, slots often acquire the gate together within the measurement resolution.

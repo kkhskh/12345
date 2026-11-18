@@ -79,7 +79,7 @@ All 6 evaluable fresh models (3 per arity) met every frozen mechanism prediction
 
 | prediction | result |
 |---|---|
-| P2 TRANSFER | [0,2) recipient 0.65–0.90 against U → U controls of 0.01–0.12 |
+| P2 TRANSFER | [0,2) recipient 0.65–0.90 against U → U controls with model means 0.04–0.06 (W15) |
 | P3 LATE_LESS_CODE_DEPENDENT | the donor keeps 0.60–0.90 under [2,3) and 0.02–0.17 under [0,2) |
 | P4 ROUTING_INSUFFICIENT | routing transplant 0.05–0.17 |
 | P5 CODE_KEYING_PERSISTS | after acquisition, consistent [0,2) 0.79–1.00 against mixed [0,1) 0.26–0.62 |

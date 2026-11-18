@@ -1,6 +1,6 @@
 # Adjudication of the XVII reviews
 
-**About these reviews.** All three reviewers are agents (mandate §15), and this is not human peer review. I adjudicated as the investigating agent. Reviewers' scratch scripts and outputs are archived in `reviews/scratch_A/` and `reviews/scratch_B/`.
+**About these reviews.** All three reviewers are agents (mandate §15), and this is not human peer review. I adjudicated as the investigating agent. Reviewers' scratch scripts and outputs are archived in `reviews/scratch_A/`, `reviews/scratch_B/` and `reviews/scratch_C/` (access-time record and scorer copy).
 
 **Rules.**
 - **Frozen verdicts are not rescored.** `logs/score_XVII.json` is unchanged, and every call in it was computed by the frozen rules.
@@ -91,6 +91,32 @@ This fits the complement identity, given that the episodes differ (they are cont
 6. Label mixtures between layers 0 and 1 degrade gate use after acquisition [frozen P5, descriptive].
 7. Single-slot training, on any slot, degrades the other slots [frozen PL; expl, review].
 
-## Review C (integrity)
+## Decisions on Review C (integrity)
 
-(Added below when the integrity review arrives.)
+**Overall.** Reviewer C found integrity sound, with no critical or major findings. Specifically:
+- the freeze chronology holds;
+- all 27 freeze hashes match;
+- first-read access times show no early reads outside the frozen queue;
+- all 48 jobs exited 0;
+- the scorer output is byte-identical.
+
+| finding | decision | action |
+|---|---|---|
+| F1 an undisclosed development job on C_s202 ran 07:25–08:02, concurrent with blind training | **accepted** | **W13**: disclosed in MAIN and appended to COMPUTE_LOG.txt as a post-review note. It used XVI checkpoints only. |
+| F2 "first read = score_XVII.py" is imprecise | accepted | **W14** |
+| F3 arity-3 spreads are 60–100, not 80–160 | **accepted, verified** (s802 60, s803 80, s804 100) | **W15** |
+| F4 other unacquired slots under targeted training end at 0.00–0.10 | **accepted, verified** | **W15** |
+| F5 U→U controls conflated with baselines | **accepted, verified**: model means 0.04–0.06, pair-level 0.00–0.13; 0.01 and 0.12 were single-slot baselines | **W15** |
+| F6 banners on frozen documents | accepted | **W16**: the frozen text is at `git show c419773:<path>` |
+| F7 denominators | accepted | already given in MAIN's verdict table (pooled and per-arity k/n) |
+| F8 trainer docstring is stale but hashed | accepted | left unedited because the file is frozen; noted here |
+| F9 small sample (6 evaluable; Clopper–Pearson lower bound 0.54) | accepted | already disclosed |
+
+**Checks the reviewer could not run.** These were blocked by a pending approval. Equivalent checks run by me are in `logs/VERIFY_CLEAN.txt`, but they are not independent of the investigator:
+- **Bitwise snapshot replay:** step 15, max |diff| = 0.0.
+- **Analysis re-run on one model:** steps 6–9, A3_s803 battery reproduced exactly.
+- **Real-data scorer refusal:** step 12, rc = 2.
+
+The 13-case scorer tamper test was not run by anyone.
+
+**Concurrent editing.** The reviewer noted that other agents were editing the package during its review. Those were my adjudication edits after Reviews A and B, and they touched only reports, not frozen code or data. Reviewer C's hash checks were made against c419773.

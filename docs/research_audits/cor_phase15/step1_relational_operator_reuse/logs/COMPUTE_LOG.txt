@@ -98,3 +98,5 @@
 2026-11-18T12:58:14Z lane B1 end [b1238aa1e3d0] rc=0
 2026-11-18T13:03:33Z all 48 queue jobs complete (rc=0); first read of confirmation outputs = score_XVII.py
 2026-11-18T13:03:47Z SCORED: P0 MIXED, P1 FOLLOWS_CODE, P2 TRANSFER, P3 LATE_LESS_CODE_DEPENDENT, P4 ROUTING_INSUFFICIENT, P5 CODE_KEYING_PERSISTS, PL INTERFERENCE_NO_ACCELERATION
+# Post-review disclosure (W13, added 2026-11-18 after Review C): a development job on XVI model C_s202 (XVI checkpoints only) ran ~07:25-08:02Z
+# concurrently with the blind confirmation lanes; it was not logged at the time. It read and wrote no confirmation output.

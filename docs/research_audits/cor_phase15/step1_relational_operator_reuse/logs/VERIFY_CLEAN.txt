@@ -1,8 +1,8 @@
-== Investigation XVII clean extraction check 2026-11-18T14:13:28Z
+== Investigation XVII clean extraction check 2026-11-18T14:26:45Z
 1. copy the sibling packages required by logs/DEPENDENCIES.json (not standalone) and extract the ZIP
    extracted OK
 2. manifest
-   manifest OK (2937 files)
+   manifest OK (2940 files)
 3. partial-acquisition trajectories reconstructed (C_s202 replay checkpoints, per-slot F_G)
    identical: True
 4. O/D derivation: source-level discrepancy check recomputed
@@ -45,7 +45,7 @@ PASS H4 mixture verdict not asserted in MAIN
 PASS O/D not presented as validated
 PASS agent reviews not called human peer review
 PASS archive not standalone
-PASS adjudication withdrawals ['W1', 'W10', 'W11', 'W12', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9'] referenced in MAIN
+PASS adjudication withdrawals ['W1', 'W10', 'W11', 'W12', 'W13', 'W14', 'W15', 'W16', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9'] referenced in MAIN
 ALL_PASS True (20/20)
    scripts/src with absolute local paths: 0
 18. multipart reconstruction: see logs/VERIFY_PARTS.txt (scripts/verify_parts17.sh)

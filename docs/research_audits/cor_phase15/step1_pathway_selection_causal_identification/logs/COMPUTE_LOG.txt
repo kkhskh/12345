@@ -34,3 +34,29 @@ skipped (superseded by adaptive clamp): FX_INTERV=shc:100 FX_EDGES=own2 FX_SHC=0
 2026-11-18T18:28:43Z lane S1 start [2be38abd1b83] FX_INTERV=fst:100 FX_EDGES=own0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
 2026-11-18T18:30:21Z lane S2 end [6e13520d7660] rc=0
 2026-11-18T18:30:21Z lane S2 start [78f55a345471] FX_INTERV=vrg:100 FX_EDGES=own0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T18:40:51Z lane S1 end [2be38abd1b83] rc=0
+2026-11-18T18:40:52Z lane T1 start [8ffae5115cdc] FX_INTERV=sha:100 FX_EDGES=own0 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L21_W21_D801_stop100_slog/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=rolled FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T18:42:23Z lane S2 end [78f55a345471] rc=0
+2026-11-18T18:42:38Z lane T2 start [ababcea7532d] FX_INTERV=sha:100 FX_EDGES=own0 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L21_W21_D801_stop100_slog/slog.json FX_SHA_LO=1 FX_SHA_CONTENT=real FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T18:52:26Z lane T1 end [8ffae5115cdc] rc=0
+2026-11-18T18:52:26Z lane T1 start [0a5cc9a608b9] FX_INTERV=sha:100 FX_EDGES=own0 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L21_W21_D801_stop100_slog/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=real FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T18:54:26Z lane T2 end [ababcea7532d] rc=0
+2026-11-18T18:54:26Z lane T2 start [bb7d2164598a] FX_INTERV=sha:100 FX_EDGES=own2 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L23_W23_D801_stop100_slog/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=rolled FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T19:03:41Z lane T1 end [0a5cc9a608b9] rc=0
+2026-11-18T19:03:41Z lane T1 start [1278e71a3bab] FX_INTERV=sha:100 FX_EDGES=own2 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L23_W23_D801_stop100_slog/slog.json FX_SHA_LO=1 FX_SHA_CONTENT=real FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T19:05:53Z lane T2 end [bb7d2164598a] rc=0
+2026-11-18T19:05:53Z lane T2 start [fbf21036a9da] FX_INTERV=sha:100 FX_EDGES=own2 FX_SHA_SCHED=checkpoints/ft/uP160_fx_L23_W23_D801_stop100_slog/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=real FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T19:15:09Z lane T1 end [1278e71a3bab] rc=0
+2026-11-18T19:16:23Z lane T2 end [fbf21036a9da] rc=0
+2026-11-18T19:18:59Z lane U1 start [a93c48e4d73b] DEV4=1 FX_INTERV=gsv:100 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T19:18:59Z lane U2 start [ddb4b117a2a2] DEV4=1 FX_INTERV=vrg:100 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T19:28:57Z lane U2 end [ddb4b117a2a2] rc=0
+2026-11-18T19:28:57Z lane U2 start [e7f8ca63128a] DEV4=1 FX_INTERV=gsg:200 FX_EDGES=own0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T19:28:57Z lane U1 end [a93c48e4d73b] rc=0
+2026-11-18T19:28:57Z lane U1 start [667885654b36] DEV4=1 FX_INTERV=gsg:200 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T19:40:34Z lane U1 end [667885654b36] rc=0
+2026-11-18T19:40:34Z lane U1 start [5273bc3aa029] DEV4=1 FX_INTERV=gsv:200 FX_EDGES=own0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+2026-11-18T19:40:34Z lane U2 end [e7f8ca63128a] rc=0
+2026-11-18T19:40:34Z lane U2 start [fb9d061d38c9] DEV4=1 FX_INTERV=gsv:200 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+2026-11-18T19:52:21Z lane U2 end [fb9d061d38c9] rc=0
+2026-11-18T19:52:22Z lane U1 end [5273bc3aa029] rc=0

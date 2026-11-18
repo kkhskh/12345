@@ -1,0 +1,137 @@
+{
+ "software": {
+  "python": "3.13.18",
+  "jax": "0.12.0.1",
+  "numpy": "2.5.3",
+  "optax": "0.2.8",
+  "scipy": "1.18.1"
+ },
+ "env": {
+  "XLA_FLAGS": "--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1"
+ },
+ "external_python_modules": {
+  "bayes": {
+   "path": "step1_latent_reliability/src/bayes.py",
+   "sha256": "4df02f2b7934fd112432f0d90d3fbe2b745cf4c662c60dba763d54f7a7dc4516"
+  },
+  "nets": {
+   "path": "step1_latent_reliability/src/nets.py",
+   "sha256": "5bf69368a7164eeafe941c717385b82a60b72d5374004b3d305c18771ac337a4"
+  },
+  "ckpt": {
+   "path": "step1_latent_reliability/src/ckpt.py",
+   "sha256": "88170e3a98151e5382db3d08d5d3732879069a9048ecb60852facb2532f2ae14"
+  },
+  "nnlib": {
+   "path": "step1_r1_causal_origin_and_selective_rescue/src/nnlib.py",
+   "sha256": "b2b133a27c8c7f94f87c4ce1c06fd1d5d54912bf1c23e8d70c17a45a54593319"
+  },
+  "gen_family": {
+   "path": "step1_relational_computation_atlas/src/gen_family.py",
+   "sha256": "d8ab5e1ab40fa47c31d7eb2a1629aeea92c0c28ec3193fe0ae852ce9a951be83"
+  },
+  "fwd3": {
+   "path": "step1_relational_mechanism_deepening/src/fwd3.py",
+   "sha256": "d03a117c6779543fa381beb3bb4503bf1b6fd9243532d095ab6246ad996b4987"
+  },
+  "eqv": {
+   "path": "step1_cross_implementation_causal_equivalence/src/eqv.py",
+   "sha256": "3330e5c283263cd2adf0b1c853bc2699fc068d90f7f2d1fbd5efdc8f2a46b573"
+  },
+  "cri": {
+   "path": "step1_curriculum_response_identification/src/cri.py",
+   "sha256": "8a920658340f60704452cef3aa9590d0a76610c98153b8b818b66f359eec190d"
+  },
+  "boundary": {
+   "path": "step1_perfect_agreement_boundary/src/boundary.py",
+   "sha256": "d98f0d51d7e5c48689f652a9a5f460fe0fe89ffabb84589128fff0153cc9056b"
+  },
+  "r1lib": {
+   "path": "step1_r1_causal_origin_and_selective_rescue/src/r1lib.py",
+   "sha256": "45d8defee921b5fbce898c5fa44e0d87dbc96eb8c7ffb081fefe7b40306e5cdb"
+  },
+  "evalrun": {
+   "path": "step1_r1_causal_origin_and_selective_rescue/src/evalrun.py",
+   "sha256": "52d2a81a80ee1246d4d1a2f1a0c366ca42b0e7c5b09f6d7095a0c560119f4652"
+  },
+  "native": {
+   "path": "step1_cross_family_relational_foundations/src/native.py",
+   "sha256": "8e651489ce7fd0fa1ae34bd6b5c31bd59c004bfcb7b593d9738043e2b99f1e90"
+  },
+  "ftlib": {
+   "path": "step1_cross_family_relational_foundations/src/ftlib.py",
+   "sha256": "44e6fdd780df688d724627309ce5e737e9e86af6ecace1123e7a396258c09f5d"
+  },
+  "genlib": {
+   "path": "step1_cross_family_relational_foundations/src/genlib.py",
+   "sha256": "5484ecbb0b21ac5cb38211c42522cd6bf40edf9fd12c049eba65a92015b8ca69"
+  },
+  "relpairs": {
+   "path": "step1_cross_family_relational_foundations/src/relpairs.py",
+   "sha256": "4a9ac197d6575cffbf2ce7e021fbf788678afea336733a9211caf5e479152b42"
+  },
+  "metrics": {
+   "path": "step1_cross_family_relational_foundations/src/metrics.py",
+   "sha256": "eb7feca2f83bb6bc7dcee2159ab7b42a3302f917740e8f801d1ccef076b1a5e7"
+  },
+  "maskfwd": {
+   "path": "step1_cross_family_relational_foundations/src/maskfwd.py",
+   "sha256": "26a1d1c6744e3e819313527b6500ca64b1c4615643efd259c3a411550008a8c1"
+  },
+  "xc": {
+   "path": "step1_cross_family_relational_foundations/src/xc.py",
+   "sha256": "f87a27ba6059d1d6f108764f0eecdeb65d4c36d7a5e8b7b68e89aedd0f939613"
+  }
+ },
+ "sibling_packages_required": [
+  "step1_cross_family_relational_foundations",
+  "step1_cross_implementation_causal_equivalence",
+  "step1_curriculum_response_identification",
+  "step1_latent_reliability",
+  "step1_perfect_agreement_boundary",
+  "step1_r1_causal_origin_and_selective_rescue",
+  "step1_relational_computation_atlas",
+  "step1_relational_decision_computation",
+  "step1_relational_decision_computation_followup",
+  "step1_relational_mechanism_deepening"
+ ],
+ "external_data_files": {
+  "parents_and_eval": {
+   "step1_relational_decision_computation/checkpoints/zP160/pre.npz": "2f79a1b840145a75c04542aa5ae14f461e3882c1e1667b8063ef6b5129443483",
+   "step1_relational_decision_computation/checkpoints/zP161/pre.npz": "d1fba7830bc4196a5d1be9372c579d354a0de31e9e97c5a7b122a9c2cf4c56d8",
+   "step1_relational_decision_computation/checkpoints/zP162/pre.npz": "9e8e2e51083036662ae22a2c4757e224dc1732e4504b6a4a875368d53406cb59",
+   "step1_relational_decision_computation/checkpoints/zP163/pre.npz": "870b7661033bf1cf7a94a53cce2eee9e655e4e688277a48ef59c0a81ebe39d9d",
+   "step1_relational_decision_computation/checkpoints/zP164/pre.npz": "777318b0125862cf86dd9abbb261cea5f1d78b3fd818724a95b257b691d52472",
+   "step1_relational_decision_computation/checkpoints/zP165/pre.npz": "ac7f0cedeac898724e8fdf017c58948252890620ac3f335a8b65d2c69df10ac4",
+   "step1_relational_decision_computation_followup/logs/eval_conf13.npz": "29956910098e60b9ac80ada34298df6d78619ad3a8224a1de0876cc2e4613a32"
+  },
+  "xiv_step1211_checkpoints_used_in_development": {
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D21_lnzro0s2.5T100_stop1211_XIV/step1211.npz": "20bfea0f2970adf97349533444c90b008bc9570268a4d108776684e83f22aa51",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D21_mskoq0T100_stop1211_XIV/step1211.npz": "74eb1e57b1aaf5c87e26974604e837ec7e140c351638237d265b551788c033c0",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D21_ro0T0_br546_w546-646_XIV/step1211.npz": "9f2d623a7b397935f9a1cd2313c1e347688b82e9619fbbe62355d877b5fa1dbe",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D801_lnzro0s2.5T100_stop1211_XIV/step1211.npz": "b53bbbb73279803ae2b419b067b6a08d8a65b84cc391bafa41d8baf5bcbf228b",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D801_mskoq0T100_stop1211_XIV/step1211.npz": "00fe11bcd189822736fc48a41176b47534b1fde957974318fb28c45bef234013",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D801_ro0T0_br546_w546-646_XIV/step1211.npz": "b894d35cd212ee99139bd6f78a0f5e3bd40cc7ad6573a3082d86f312746d1052",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D801_ro0T100_stop1211_B_ro0100/step1211.npz": "771c94b8b2f4894c5160fe4a281affbfe02239427addcd36f7542e173062361f",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D801_stop1211_B_base/step1211.npz": "f0566a7679b34a1559d61146ffe7f70216ca8028b48142546c71132ebb278bae",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D802_lnzro0s2.5T100_stop1211_XIV/step1211.npz": "cafc4d617b56db748a78bfe969e4d83ca574879b0542aff2eadb680bd31e5d73",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D802_mskoq0T100_stop1211_XIV/step1211.npz": "3f82314ddb094af126c1839ef252d98265c98470236f019ac5bbd2ced683354a",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D802_ro0T0_br546_w546-646_XIV/step1211.npz": "ca1ce0343a6b2bfef43c954feac27a8ce50fcad5e85d98941c830f2cba659277",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D802_ro0T100_stop1211_B_ro0100/step1211.npz": "94d82424788bed03a050ac8c624b916f152138ffb5f7ef4476ca590262f36176",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L21_W21_D802_stop1211_B_base/step1211.npz": "cba9f5b707605401612b48f855a2791c7af128c8c09faaa9b44532fa61f5780f",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D23_l2qT0_br546_w546-646_XIV/step1211.npz": "c985766b46bcd4cdbae642a363a40c3186efe2a4529a259811d1118b6bd29cef",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D23_lnzown2s1.25T100_stop1211_XIV/step1211.npz": "e31e6e90af650f5ecb3e8f0a58df66e4717b0c05a506164aaa69a6ec8dfca304",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D23_mskrd2T100_stop1211_XIV/step1211.npz": "f41217188db003ac30dc9b359f97f25f704fdc9ae9047c9085f510eba97606c1",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D801_l2qT0_br546_w546-646_XIV/step1211.npz": "967ec2e9c9721003eb970fbd3430532acbddf5265b384869ae2450126bd92604",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D801_l2qT100_stop1211_B_l2q100/step1211.npz": "2bfa4ffa9adf23b69938c0016c26ea7a0e704938cf4298291375255495e2eba8",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D801_lnzown2s1.25T100_stop1211_XIV/step1211.npz": "482896ecf8f7ade608ffde89bc91db29fa1499d64571e0f9f133ee6e73219815",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D801_mskrd2T100_stop1211_XIV/step1211.npz": "68fb2ce18823d10822772812f1ec5e9cfeb273aa932917ef11217cdaa43aecef",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D801_stop1211_B_base/step1211.npz": "3b9fcce11c464bfd8ca4a0390d524f8c87be087dae5c3d85e93ac19f02aaf5b4",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D802_l2qT0_br546_w546-646_XIV/step1211.npz": "4e50083a125326e4be1ee52ab1e7ade10273e7076a112913284f86919744c55e",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D802_l2qT100_stop1211_B_l2q100/step1211.npz": "a0f8abb356fc256cbe3063dea95aa6b4445d861017b18751d6b209d0e731a440",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D802_lnzown2s1.25T100_stop1211_XIV/step1211.npz": "e78f7b92b9e98ae471737481ad216b03e2172aa76c7dc08b24adac2083fb0d50",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D802_mskrd2T100_stop1211_XIV/step1211.npz": "9b60d68e9dee1f80c8ae9e911eecb433775830c79d950130caf1a0b75392e8b4",
+   "step1_cross_family_relational_foundations/checkpoints/ft/uP160_fx_L23_W23_D802_stop1211_B_base/step1211.npz": "2f7f1156fa931dbfdd380138d322b3591e610673bb4caa3fe94370327bd8af19"
+  }
+ }
+}

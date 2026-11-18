@@ -349,3 +349,58 @@ Their results are in §10.8, added before the freeze commit.
 8. **The gsg hybrids are competent and stable to step 4000** (development: φ_nec 0.66 → 0.72 on E and 0.27 → 0.26 on M, Reviewer B; class HYBRID throughout). A P result at step 1211 is therefore not presumed transient.
 9. **The step-1211 endpoint is mid-training**: the learning rate is still 83% of peak. Classification at 1211 follows XIV. The stability rule, and the 2546 readout for P or unstable runs, are the safeguards.
 10. **One parent and two bases**, so n_eff ≈ 2 for "across organisations". Parents are scoped to bistable ones and reported as k/5.
+
+11. **H1d_plus_H2g and Hm_release can both come out CONSISTENT. If they do, that is a declared equivalence, not a failure of the design.**
+    - H1d_plus_H2g describes the cause: forward content plus the learning signal through T. Hm_release describes the mediator: the latent share of T at release.
+    - In development, content and latent recruitment are coupled in the expected direction. Under the share clamp with real content the latent share **rises** above the baseline's. With destroyed content it **falls** (§10.10).
+    - No arm here forces the latent share independently of both content and learning signal. Doing so would need a new arm (for example a non-stop-gradient latent boost under rolled content), which is not run.
+
+### 10.10 Development results for design v2 (D = 801, uP160, development stream 86_100_000; one run per cell; not confirmation)
+
+Measured with `measure18.py` (measure_v2) at step 1211; file `logs/dev/measure_dev2.jsonl`.
+
+| arm | E (T = own0): nec_E / nec_M, cls2 | M (T = own2): nec_E / nec_M, cls2 |
+|---|---|---|
+| baseline (XIV) | 1.240 / 0.004, EARLY | 0.033 / 0.599, MIXTURE |
+| block (own0 −1e9; M: XIV l2q) | 0.004 / 0.810, MIXTURE | 1.345 / 0.009, EARLY |
+| vrg | 0.005 / 0.794, MIXTURE (**F**) | 1.283 / 0.009, EARLY (**F**) |
+| gsg | 0.157 / 0.423, HYBRID (**P**) | (ro0 edges were not used on M) 0.169 / 0.384, HYBRID (**P**) |
+| gsv | 0.090 / 0.576, HYBRID (**P**) | 1.298 / 0.011, EARLY (**F**) |
+| sha-hi-rolled | 0.006 / 0.788, MIXTURE (**F**) | 1.279 / 0.009, EARLY (**F**) |
+| sha-lo-real | 1.314 / 0.004, EARLY (**N**) | 0.031 / 0.608, MIXTURE (**N**) |
+| sha-hi-real (validity cell) | 1.240 / 0.004, EARLY: **identical to the baseline**, β ≡ 0 | 0.033 / 0.599, MIXTURE: **identical to the baseline** |
+| fst (development only) | 0.006 / 0.772, MIXTURE (F) | 1.241 / 0.008, EARLY (F) |
+| gof b = 2.3 (P1, development) | ro0: 0.014 / 0.768, MIXTURE (F) | 1.366 / 0.010, EARLY (F) |
+
+**Clamp records** (step-99 β, forward share at step 99, latent share at step 100):
+
+| run | β at step 99 | forward share at 99 | latent share at 100 | fraction of steps with \|β\| > 1 | baseline latent share |
+|---|---|---|---|---|---|
+| E hi-rolled | 0.35 to 1.13 | 0.233 | **0.146** | 0.13 | 0.234 |
+| E lo-real | −0.33 to −2.29 | 0.134 | **0.268** | 0.12 | 0.234 |
+| E hi-real | ≈ 0 | 0.233 | 0.234 | 0.00 | 0.234 |
+| M hi-rolled | 0.10 to 0.33 | 0.167 | **0.142** | 0.00 | 0.167 |
+
+**Clamp validity rule (§10.6): passed.** On both bases sha-hi-real reproduces its baseline, as N, and its β stays at zero.
+
+**Development pattern.** On E, the bands are vrg F, gsg P, gsv P, sha-hi-rolled F, sha-lo-real N. On M they are vrg F, gsg P, **gsv F**, sha-hi-rolled F, sha-lo-real N.
+- On M, removing all learning signal through T with the forward content intact (gsv) flips the organisation fully. On E it does so only partially.
+- **Development verdicts:**
+  - contradicted: H1d (gsg is P, not N), Hm_window (sha-hi-rolled F, sha-lo-real N), H2g_R, H2g_RV and H4;
+  - consistent: H1d_plus_H2g, and probably Hm_release (§10.9 item 11).
+- **This is one data order.** The confirmation uses three fresh orders and a fresh measurement stream.
+
+The dose runs (T = 200) are read by the rule in §10.8, which was written before they ran. Their results are in §10.11, added before the freeze commit.
+
+### 10.11 Dose development runs (T = 200 window; D = 801), read by the rule in §10.8 (written before these ran)
+
+| arm | E: nec_E / nec_M, cls2 (struct, behav, causal) | M: nec_E / nec_M, cls2 |
+|---|---|---|
+| gsg, T = 200 | 0.022 / 0.610, HYBRID (MIXTURE, HYBRID, MIXTURE): F without the behavioural gate | 1.282 / 0.007, EARLY (**F**) |
+| gsv, T = 200 | 0.005 / 0.816, MIXTURE (**F**) | 1.232 / 0.006, EARLY (**F**) |
+
+**Applying the rule.** gsv(T = 200) is F on both bases, and gsg(T = 200) is F on M. **The dose rule therefore applies.**
+- The H2g hypotheses are stated as **potency hypotheses**.
+- The T = 100 confirmation predictions are unchanged. A CONTRADICTED verdict for H2g_R or H2g_RV at T = 100 will be reported as "the learning-signal deficit is weaker than content removal at the matched 100-step window, and is not excluded as a lever". In development it suffices given 200 steps.
+
+**Freeze decision.** The design passes both pre-freeze reviews (APPROVE WITH REQUIRED CHANGES, all changes adopted) and the clamp-validity rule. It is frozen as v2 + §10.8–§10.11.

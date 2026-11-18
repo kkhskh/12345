@@ -70,6 +70,22 @@
 - **What is distinguished** is the strong H3 claim, that an unacquired slot cannot use the acquired slot's computation without its own new implementation. Development **rejects** it in two models; P2 tests it in fresh models.
 - **Not identified:** which features of a code make it "engaging". Codes are near-orthogonal random vectors (cosines −0.10 to 0.02) that barely move during the partial window (norm change < 0.1).
 
-## 5. Fresh-model results
+## 5. Fresh-model results [frozen]
 
-After scoring: P1–P5 in FROZEN_CONFIRMATION_AND_GENERALIZATION.md.
+All 6 evaluable fresh models (3 per arity) met every frozen mechanism prediction:
+
+| prediction | result |
+|---|---|
+| P2 TRANSFER | [0,2) recipient 0.65–0.90 against U → U controls of 0.01–0.12 |
+| P3 LATE_LESS_CODE_DEPENDENT | the donor keeps 0.60–0.90 under [2,3) and 0.02–0.17 under [0,2) |
+| P4 ROUTING_INSUFFICIENT | routing transplant 0.05–0.17 |
+| P5 CODE_KEYING_PERSISTS | after acquisition, consistent [0,2) 0.79–1.00 against mixed [0,1) 0.26–0.62 |
+
+**Answers to Q8–Q15.**
+- **Q8:** gate use can be transferred to an unacquired slot. **Q9:** the transfer survives source matching, by construction: only the code moves.
+- **Q10:** attention-pattern transfer does **not** reproduce it.
+- **Q11:** the causal *site* is shared, layers 0–1 for every slot. Since codes are near-orthogonal, a shared activation *direction* was not tested, and no alignment maps were fitted.
+- **Q12:** yes, there is evidence for a common relational computation, available to every slot given an engaging code.
+- **Q13:** yes, there is evidence for code-dependent access to it, and the access is not routing alone.
+- **Q14:** distinct position-conditioned implementations in the strong sense (non-transferable) are rejected. The learning results (CROSS_SLOT_LEARNING_INTERVENTIONS.md) show each slot's access is sustained by its own training signal.
+- **Q15:** "code-keyed access" and "a code-conditioned implementation adoptable by any slot" cannot be distinguished (§4).

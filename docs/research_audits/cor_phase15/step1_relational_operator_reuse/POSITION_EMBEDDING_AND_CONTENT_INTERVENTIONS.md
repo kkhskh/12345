@@ -34,6 +34,6 @@ Setting: C_s202 step 1000, with E_q[j] replaced by E_q[j] + α(target − E_q[j]
 
 **Reading.** Moving one code toward another does not transfer the computation. As the codes converge, the two slots become indistinguishable, and **both** lose gate use. The code carries slot identity (the binding of a slot's tokens to its readout) as well as access. That is why the clean test is the **exchange** of codes within a layer window (CROSS_SLOT_CAUSAL_TRANSFER.md), which keeps every slot's identity distinct.
 
-## 3. Fresh-model results
+## 3. Fresh-model results [frozen P1: FOLLOWS_CODE, 6/6]
 
-After scoring: P1 in FROZEN_CONFIRMATION_AND_GENERALIZATION.md.
+Full-window code exchange gave recipient F_G 0.87–0.99 and donor 0.02–0.12 in all 6 evaluable fresh models. This confirms numerically the proof-level conclusion of §1.

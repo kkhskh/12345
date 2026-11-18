@@ -1,0 +1,1 @@
+{"cond": "3:0.9:0.9:0.3333333333333333", "seed": 802, "sched": "const", "steps": 5000, "diag_every": 50, "init": null, "init_sha256": "6d494a18d9dc7b3416682fb708314956c7c6942dc24d9692576a72b59ecee352", "seconds": 2963.2425198554993, "blind": true, "cum_lr": 4.899500232603259, "snap_every": 20, "diag_stream": 99700000, "diag_n": 1500}

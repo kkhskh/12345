@@ -29,7 +29,8 @@
 | 350 | 1.00, 0, 0, 1.00, 0.97, 0 | | |
 | 1000 | 1.00, 0.00, 0.00, 0.99, 0.99, 0.00 | 0.006, 0.278, 0.278, 0.008, 0.012, 0.264 | 0.90, 0.79, 0.79, 0.90, 0.90, 0.79 |
 
-- Slots 0, 3 and 4 acquired the gate at about steps 200–350. Slots 1, 2 and 5 stayed at exactly F_G = 0.00 until about step 1900, and acquired it together at about 2000 (`logs/expl/dev_slot_C_s202_full.json`).
+- Slots 0, 3 and 4 acquired the gate at about steps 200–350. Slots 1, 2 and 5 stayed at exactly F_G = 0.00 through step 1950.
+- They then acquired it in close succession: slot 5 at 0.28 at step 2000; slots 1 and 5 at 0.99–1.00 by 2050; slot 2 at 0.41, 0.50 and then 1.00 by 2150 (`logs/expl/dev_slot_C_s202_full.json`).
 - The pooled XVI value of 0.502 ("3 of 6 slots") is exactly this state.
 
 ## 4. Artifact checks (mandate §4.2) [dev]
@@ -59,6 +60,9 @@
 - Slot 3 follows at about 1780; slots 0, 2, 4 and 5 at 1820–1860.
 - So even short transitions are **staggered across slots**. The long C_s202 window is an extreme of a general pattern.
 
-## 6. Fresh-model reconstruction
+## 6. Fresh-model reconstruction [frozen P0: MIXED]
 
-After scoring: FROZEN_CONFIRMATION_AND_GENERALIZATION.md (frozen test P0: is a partial checkpoint resolvable at 20-step resolution in most acquiring fresh models?).
+- **Arity 3:** all 3 acquiring fresh models staggered. Slots acquired over 80–160 steps, with partial checkpoints at 20-step resolution. A3_s801 never acquired the gate within 5000 steps.
+- **Arity 2:** only 3 of 8 had a resolvable partial checkpoint. The other 5 acquired the gate in all slots within 20–40 steps.
+- **No fresh model** reproduced a long partial window like C_s202's.
+- **So:** the phenomenon of slot-local acquisition is reproducible at arity 3 in short form. Its long form is rare (1 of 16 XVI acquisitions, 0 of 11 fresh). At arity 2, in this condition, slots often acquire the gate together within the measurement resolution.

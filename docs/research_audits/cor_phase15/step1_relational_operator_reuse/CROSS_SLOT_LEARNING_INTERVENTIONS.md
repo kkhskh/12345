@@ -48,4 +48,19 @@ This is consistent with H2's "shared computation, code-keyed access". It argues 
 - **Comparison:** targeted against full, 400 steps.
 - **Expectation:** INTERFERENCE_NO_ACCELERATION.
 
-Results after scoring: FROZEN_CONFIRMATION_AND_GENERALIZATION.md.
+## 4. Fresh-model results [frozen PL: INTERFERENCE_NO_ACCELERATION, 5/5; second half at the ceiling]
+
+**Per slot group over 400 steps** (from `learning/*/slot_traj.json`):
+
+| model | targeted arm: targeted slot / other unacquired / acquired, at step 400 | full arm (same groups) |
+|---|---|---|
+| A3_s802 | 1.00 / 0.07 / 0.19 (from 0.96) | 1.00 / 1.00 / 1.00 |
+| A3_s803 | 1.00 / — / 0.11 (from 0.91) | 1.00 / — / 1.00 |
+| A3_s804 | 1.00 / 0.02 / 0.25 (from 0.86) | 1.00 / 1.00 / 1.00 |
+| A2_s704 | 1.00 / — / 0.28 (from 0.88) | 1.00 / — / 1.00 |
+| A2_s705 | 1.00 / 0.04 / 0.29 (from 0.94) | 1.00 / 1.00 / 1.00 |
+
+**Answers.**
+- **Q16 [frozen + expl]:** improving one slot does **not** help the others. Under targeted training, the other unacquired slots stay at 0.02–0.07 while the targeted slot reaches 1.00, and the acquired slots lose most of their gate use.
+- **Q17:** yes, targeted pressure accelerates one slot without training the others. In fresh models the targeted slot acquired the gate within 100–200 steps, as fast as under full training (a ceiling effect). In the long C_s202 window [dev], it did not acquire in 1000 steps.
+- **Q18:** the pattern supports **position-conditioned specialisation of learning and maintenance**, coexisting with a **computation that is reusable by code exchange** (CROSS_SLOT_CAUSAL_TRANSFER.md). That is H4, a mixture. It is neither pure H1 nor pure H3.

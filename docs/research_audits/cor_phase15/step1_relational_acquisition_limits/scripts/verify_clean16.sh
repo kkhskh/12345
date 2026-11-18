@@ -5,8 +5,8 @@ set -u; ZIP=$1; SRC=$2; LOG=$3; T=$(mktemp -d); NAME=step1_relational_acquisitio
 export XLA_FLAGS="--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1"
 {
 echo "== Investigation XVI clean extraction check $(date -u +%FT%TZ)"
-echo "1. copy cor_phase15 WITHOUT $NAME (siblings are required: the archive is not standalone) and extract the ZIP"
-mkdir -p $T/cor_phase15; for d in $SRC/*; do b=$(basename $d); [ "$b" = "$NAME" ] && continue; cp -r $d $T/cor_phase15/; done
+echo "1. copy the sibling packages required by logs/DEPENDENCIES.json (the archive is not standalone) into a clean directory and extract the ZIP"
+mkdir -p $T/cor_phase15; for b in $(python3 -c "import json,sys; print(' '.join(json.load(open(sys.argv[1]))['sibling_packages_required']))" $SRC/$NAME/logs/DEPENDENCIES.json); do cp -r $SRC/$b $T/cor_phase15/; done; echo "   siblings copied: $(ls $T/cor_phase15 | tr '\n' ' ')"
 (cd $T/cor_phase15 && unzip -q $ZIP) && echo "   extracted OK" || echo "   EXTRACT FAILED"; P=$T/cor_phase15/$NAME; cd $P || exit 1
 echo "2. manifest"; sha256sum -c --quiet MANIFEST.sha256 && echo "   manifest OK ($(wc -l < MANIFEST.sha256) files)" || echo "   MANIFEST FAILED"
 echo "3. revised GATE mathematics (xvi_math_verify.py, 7 checks) reproduced"

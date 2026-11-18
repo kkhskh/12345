@@ -1,0 +1,61 @@
+== Investigation XVI clean extraction check 2026-11-18T04:39:50Z
+1. copy the sibling packages required by logs/DEPENDENCIES.json (the archive is not standalone) into a clean directory and extract the ZIP
+   siblings copied: step1_cross_family_relational_foundations step1_foundational_atlas_continuation step1_latent_reliability step1_relational_computation_atlas step1_relational_learning_order_laws step1_relational_mechanism_deepening 
+   extracted OK
+2. manifest
+   manifest OK (447 files)
+3. revised GATE mathematics (xvi_math_verify.py, 7 checks) reproduced
+   reproduced: True | all_pass: True {'V1_generator_identity_and_rng_consumption': True, 'V2_sampler_law': True, 'V3_joint_two_code_paths': True, 'V4_value_contrast': True, 'V5_arity4': True, 'V6_diagnostic_references': True, 'V7_reference_cache': True}
+4. decision-value and cue-matching grid recomputed
+   value grid identical: True
+5. arity-4 construction recomputed (orders 1-5, 7 positions)
+   conditions: 5 | mismatches: [] | min orders: {'2:0.9:0.9:0.3333333333333333:7': 3, '3:0.9:0.9:0.3333333333333333:7': 4, '4:0.9:0.9:0.3333333333333333:7': 5, '4:0.9:0.9:0.05:7': 5, '3:0.9:0.9:0.05:7': 4}
+6. every new checkpoint loads with finite outputs
+   checkpoints: 259 loaded, 0 failed
+7. extended-training measurements reproduced: inline trajectory points recomputed offline from archived snapshots
+   confirm_outputs/WA_const_s401: steps (500, 7500, 15000) max |offline - inline| = 0.00e+00
+   confirm_outputs/WA_cont_D_s201: steps (500, 4000) max |offline - inline| = 0.00e+00
+   confirm_outputs/WB_low_s501: steps (1000, 4000) max |offline - inline| = 0.00e+00
+8+10+12. acquisition times, censoring, survival statistics, floor-aware stages and frozen verdicts recomputed by the fail-closed scorer
+   score_XVI identical: True {'P1': 'BROAD', 'P2': 'CONT_BROAD', 'P3': 'INCONCLUSIVE', 'P5': 'STAGE_ROBUST'}
+9. cue-conditioned probe baselines and a representative probe recomputed
+   probe identical: True | baselines {'AGREE': 0.7408333333333341, 'EVID': 0.7408333333333331, 'decorrelated_chance': 0.5}
+11. optimization diagnostic (rebuilt learning-signal estimator) recomputed on one checkpoint
+   gradient signal identical: True
+13. fail-closed scorer behaviour: synthetic preflight (planted outcomes, refusals) and a refusal on the real data
+   preflight all_pass: True
+   real data with one trajectory line removed: refused (rc=2)
+14. deterministic continuation and fresh training reproduced bitwise (replay to step 500)
+    confirm_outputs/WA_cont_D_s201/step500.npz max |diff|: 0.0
+    confirm_outputs/WB_low_s501/step500.npz max |diff|: 0.0
+15. external dependencies by exact hash
+   modules: 10 | identical: True | siblings: ['step1_cross_family_relational_foundations', 'step1_foundational_atlas_continuation', 'step1_latent_reliability', 'step1_relational_computation_atlas', 'step1_relational_learning_order_laws', 'step1_relational_mechanism_deepening']
+16. reports checked against the primary results
+PASS verdict P1=BROAD stated in MAIN and FROZEN_CONFIRMATION
+PASS verdict P2=CONT_BROAD stated in MAIN and FROZEN_CONFIRMATION
+PASS verdict P3=INCONCLUSIVE stated in MAIN and FROZEN_CONFIRMATION
+PASS verdict P5=STAGE_ROBUST stated in MAIN and FROZEN_CONFIRMATION
+PASS fresh t_A [1100, 1600, 3000, 3500] in MAIN
+PASS fresh s401 t_A 1600 in EXTENDED
+PASS fresh s402 t_A 1100 in EXTENDED
+PASS fresh s403 t_A 3000 in EXTENDED
+PASS fresh s404 t_A 3500 in EXTENDED
+PASS censored runs ['WA_cont_D_s201', 'WA_cont_D_s202']
+PASS restart C_s201 t_A 1200 in EXTENDED
+PASS restart C_s202 t_A 400 in EXTENDED
+PASS restart C_s203 t_A 550 in EXTENDED
+PASS restart D_s204 t_A 1950 in EXTENDED
+PASS WB pair 501 (1175, 725) in DECISION_VALUE
+PASS WB pair 502 (1325, 1875) in DECISION_VALUE
+PASS WB pair 503 (1825, 2075) in DECISION_VALUE
+PASS WB pair 504 (1675, 825) in DECISION_VALUE
+PASS P3 ratios 1.62, 0.71, 0.88, 2.03
+PASS math verification all_pass and 7 checks
+PASS value ratio 1.74 and agreement-benefit diff 0.66% stated
+PASS estimator controls (null |z| <= 1.13, planted 0.89-1.11) stated
+PASS P5 12/12 acquirers with stage
+PASS no 'human peer review' claim
+PASS archive not claimed standalone
+ALL_PASS True (25/25)
+   scripts/src with absolute local paths: 0
+== done

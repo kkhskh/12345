@@ -1,0 +1,11 @@
+FX_INTERV=gsg:100 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+FX_INTERV=gsg:100 FX_EDGES=ro0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+FX_INTERV=fst:100 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+FX_INTERV=fst:100 FX_EDGES=ro0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+FX_INTERV=vrs:100 FX_EDGES=own2 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+FX_INTERV=vrs:100 FX_EDGES=ro0 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+FX_INTERV=msk:100 FX_EDGES=own0 FX_STOP=1211 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+FX_INTERV=gof:100 FX_EDGES=own2 FX_B=2.3 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+FX_INTERV=gof:100 FX_EDGES=ro0 FX_B=2.3 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801
+FX_INTERV=gof:100 FX_EDGES=own2 FX_B=4.6 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 23 23 801
+FX_INTERV=gof:100 FX_EDGES=ro0 FX_B=4.6 FX_STOP=1211 FX_GLOG=1 FX_TAGSUF=_dev python3 scripts/xviii_train.py uP160 21 21 801

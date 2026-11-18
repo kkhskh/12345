@@ -1,0 +1,880 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XVIII
+
+## Causal Selection of Learned Relational Computations: Information Access, Attention Competition, and Generalization
+
+**A decisive experimental investigation of COR's strongest surviving causal result**
+
+### PRIMARY SCIENTIFIC MISSION
+
+Determine why briefly interfering with a specific neural information pathway during training can change the eventual internal organization of a model's relational reasoning.
+
+The objective is not to reproduce the same result repeatedly.
+
+The objective is to distinguish its competing causal explanations, determine its limits, and assess whether it constitutes a defensible scientific contribution beyond known results.
+
+**This investigation must be designed around questions that existing evidence cannot already answer.**
+
+---
+
+# 0. STARTING POINT
+
+Continue from the completed Investigation XVII.
+
+Repository branch:
+
+`cor-phase15-step1-relational-operator-reuse`
+
+Reported HEAD:
+
+`c429471`
+
+Before starting, verify the actual repository state, commits, dependencies, and available checkpoints.
+
+Read the relevant primary experimental records from Investigations XIII-C, XIII-D, XIII-E, XIV, XV, XVI, and XVII.
+
+Most importantly, inspect:
+
+- XIV's `T4_FINAL_CAUSAL_CONTROLS.md`.
+- XIII-E's route-blocking and masking experiments.
+- XIII-D's pathway and learned-organization experiments.
+- XIV's evidence ledger and reviewer corrections.
+- The original route-intervention code and exact attention-edge definitions.
+- The model and training configurations.
+- The original trained parents and alternative organizational states.
+- The scoring code for classifying early versus mixture behavior.
+- The recorded limitations of the sham and noise controls.
+- XVII's conclusion that its neural findings did not validate O/D.
+
+Read the original results and code, not just the main synthesis documents.
+
+COR remains in Phase 1.5, Step 1, with approximately 25% provisional foundational exploration.
+
+The original obstruction/discrepancy framework remains unvalidated.
+
+Do not treat success in this investigation as automatic validation of COR's original theory.
+
+---
+
+# 1. THE DISCOVERY WE ARE INVESTIGATING
+
+Investigation XIV established the following in a controlled T4 cohort:
+
+A temporary 100-step block of a selected information pathway during training changed the eventual organization of the learned solution.
+
+The effect occurred in six of six tested base-by-data-order runs.
+
+An off-route masking control changed the organization in zero of six runs.
+
+A disturbance applied to the same attention edges, matched by attention-total-variation severity, also changed the organization in zero of six runs.
+
+The intervention's effect persisted after the block was removed.
+
+However, the cohort used one pretrained parent, two fine-tuned organizational bases, and three data orders per base.
+
+The six runs were not six independent pretrained models.
+
+**The original result is real within its tested conditions, but its exact cause and generality remain unresolved.**
+
+## A critical limitation in XIV
+
+The real block reduced or eliminated access through the targeted pathway.
+
+But both controls increased the attention share allocated to the original pathway.
+
+Therefore, the controls did not establish whether the learning change resulted from:
+
+1. Specifically removing the information available through the pathway.
+2. Reducing that pathway's relative contribution to the neural computation.
+3. Redirecting optimization toward an alternative route.
+4. A broader training disturbance associated with the intervention.
+
+The distinction is essential.
+
+The next experiment must confront it directly.
+
+---
+
+# 2. MANDATORY DESIGN REVIEW BEFORE ANY NEW TRAINING
+
+**This is the most important procedural change after XVII.**
+
+XVII spent substantial compute confirming outcomes that were mathematically guaranteed or incapable of distinguishing the competing explanations.
+
+That must not happen again.
+
+Before a single new confirmation model is trained, perform three checks.
+
+## Check A — Is the answer already determined?
+
+Determine whether a proposed result follows directly from:
+
+- The architecture.
+- The attention softmax equations.
+- The intervention definition.
+- The task generator.
+- The mathematical scoring rule.
+- A guaranteed property of the initialized models.
+
+If so, derive it mathematically.
+
+Do not spend hours confirming it experimentally.
+
+## Check B — Can the experiment distinguish the explanations?
+
+For every proposed intervention, construct a prediction table.
+
+Show what each competing explanation predicts.
+
+If two explanations produce the same result under the proposed manipulation, that result cannot distinguish them.
+
+Reject or redesign non-discriminating tests.
+
+## Check C — Is the finding already known?
+
+Conduct a focused literature search before finalizing the experimental design.
+
+Compare with research on:
+
+- Circuit formation during neural training.
+- Attention masking and information routing.
+- Competition between learned neural algorithms.
+- Path dependence and multiple training solutions.
+- Training-time causal interventions.
+- Curriculum effects and early learning constraints.
+- Mechanistic interpretability of algorithm selection.
+
+Identify what is already established.
+
+Do not call the broad idea of pathway competition novel merely because the specific T4 generator is new.
+
+## Independent pre-experiment review
+
+At least two independent reviewing agents must challenge the experimental design before the freeze.
+
+One should examine the mathematics and causal identifiability.
+
+The other should examine alternative neural and optimization explanations.
+
+Their approval must depend on the experiment actually distinguishing competing hypotheses, not merely being reproducible.
+
+If the primary test is non-identifying, redesign it.
+
+**Do not proceed to expensive confirmation merely to satisfy the mandate's requested number of runs.**
+
+Produce a written design-review decision.
+
+---
+
+# 3. FORMALIZE THE COMPETING CAUSAL EXPLANATIONS
+
+Develop the strongest mathematically meaningful versions of these explanations.
+
+## H1 — Information-access dependence
+
+The learned organization changes because the model cannot obtain particular relational information through the targeted pathway during an important period of learning.
+
+This explanation predicts that interventions affecting the actual availability of the relevant information should influence which computation is learned.
+
+But the explanation requires a precise definition of information availability.
+
+A pathway carrying a tiny attention weight is not automatically equivalent to a pathway carrying zero information.
+
+Define the distinction mathematically.
+
+## H2 — Relative contribution and pathway competition
+
+The change occurs because the targeted pathway contributes less to the network's computation, allowing an alternative pathway to become more influential during optimization.
+
+Under this explanation, sufficiently reducing the effective contribution of a route may produce similar outcomes even when its attention edges remain technically accessible.
+
+The quantity of interest may be attention mass, transmitted signal, gradient contribution, or some combination.
+
+Do not assume those are equivalent.
+
+## H3 — General optimization disturbance
+
+The intervention changes the training process through its effects on loss, gradients, or optimization stability, rather than through a particular relational information route.
+
+Other interventions producing comparable training disturbances might cause similar organizational changes.
+
+## H4 — Interaction-dependent selection
+
+The effect depends on both the specific information pathway and its quantitative contribution to training.
+
+There may be no sharp distinction between removing access and reducing its influence.
+
+The mathematical equations may make some formulations of H1 and H2 observationally equivalent.
+
+If so, demonstrate the equivalence instead of forcing an artificial distinction.
+
+## H5 — Parent- or initialization-specific behavior
+
+The intervention's ability to change the learned organization may depend on a particular pretrained representation or fine-tuning initialization.
+
+Under this explanation, the original result may not generalize to genuinely independent pretrained models.
+
+### Mandatory requirement
+
+Each hypothesis must produce at least one discriminating prediction or be explicitly marked as non-identifiable.
+
+Do not allow every hypothesis to survive every possible outcome.
+
+---
+
+# 4. EXPERIMENT A — DIRECTLY TEST THE MISSING CONTROL
+
+**Highest-priority neural experiment.**
+
+The key missing control is an intervention that decreases the targeted pathway's contribution without simply reproducing the original complete block.
+
+## A1. Recover the exact pathway definitions
+
+Reconstruct the real interventions from XIII-E and XIV.
+
+The original study used different route locations in its early and mixture organizations.
+
+Verify the precise tensor indices, attention edges, layer identities, and source sets from the implementation.
+
+Check that the published descriptions of real-route and off-route edges correspond to the actual code.
+
+Do not rely on verbal descriptions if the tensor masks disagree with them.
+
+## A2. Continuous pathway suppression
+
+Construct a graded intervention that decreases attention to the relevant edges without setting their logits to negative infinity.
+
+For example, use controlled finite negative attention-logit offsets.
+
+Develop a range of strengths from minimal suppression to near-complete suppression.
+
+Measure:
+
+- Attention mass on the targeted edges.
+- Effective information contribution.
+- Changes in forward activations.
+- Training loss.
+- Gradient norms and directions.
+- Alternative-route activity.
+- Final learned organization.
+- Model competence.
+
+The central question is whether a change in learned organization requires a complete block or can emerge under partial suppression.
+
+## A3. Alternative means of reducing pathway contribution
+
+Construct a second intervention that reduces the original route's contribution by a different mechanism.
+
+A possible approach is increasing the attention logits of a carefully controlled competing route rather than directly suppressing the target edges.
+
+Other approaches may be appropriate if mathematically justified.
+
+The second mechanism should be chosen so that the proposed explanations predict different outcomes.
+
+Do not assume that positive bias to an alternative route is harmless.
+
+Verify what information that route carries and how its contribution changes.
+
+## A4. Information-content intervention
+
+Where technically and mathematically meaningful, manipulate the information transmitted through the route while approximately preserving its attention allocation.
+
+This may involve controlled changes to value content or other representations.
+
+Require controls preserving ordinary source evidence and task semantics.
+
+Do not claim that value perturbation cleanly isolates information content unless the intervention and its controls justify that claim.
+
+## A5. Matched comparisons
+
+Compare interventions on:
+
+- Target attention share.
+- Effective signal contribution.
+- Attention-total-variation distance.
+- Immediate loss disruption.
+- Gradient disturbance.
+- Training duration.
+- Total optimization exposure.
+- Final competence.
+
+Some of these quantities may be impossible to match simultaneously.
+
+If so, derive and report the tradeoffs.
+
+Do not use the term "matched severity" without specifying the metric.
+
+Use development data to calibrate the intervention strength.
+
+Freeze the calibration procedure before confirmation.
+
+Do not tune severity on confirmation outcomes.
+
+## A6. The decisive comparison
+
+Compare:
+
+**A — Full targeted block.**
+
+**B — Partial targeted suppression with the route still accessible.**
+
+**C — Reduced route contribution achieved through an alternative intervention.**
+
+**D — Matched non-targeted disturbance.**
+
+**E — A source- or signal-content control, if identifiable.**
+
+The outcome must be evaluated by the final learned computation, not just its accuracy.
+
+A result where multiple distinct interventions change the organization at the same effective route contribution would support a different explanation from one where only eliminating a particular informational pathway works.
+
+Define those distinctions prospectively.
+
+---
+
+# 5. EXPERIMENT B — ESTABLISH THE ACTUAL LEARNED ORGANIZATION
+
+**Mandatory.**
+
+One lesson from XIII–XVII is that a useful-looking measurement may not uniquely identify the mechanism it claims to measure.
+
+The original pathway experiment used organizational scores involving attention behavior.
+
+Some of those scores directly involved the edges that were manipulated.
+
+Therefore, the new study must not rely on a single attention-derived score to conclude that a different algorithm was learned.
+
+## B1. Independent behavioral diagnosis
+
+Test the trained models on mathematically defined relational cases that distinguish the known T4 organizations.
+
+Use:
+
+- Exact Bayesian references.
+- The previously validated early-versus-mixture behavioral distinctions.
+- Relevant counterfactual source edits.
+- Relational evidence changes.
+- Previously validated role or reliability contrasts.
+
+Determine whether the models genuinely differ in how they combine evidence.
+
+## B2. Independent neural diagnosis
+
+Use validated causal tests from XIII–XIV where appropriate.
+
+Measure:
+
+- Which pathways are necessary.
+- Whether alternative pathways are sufficient.
+- Whether the relevant relational information is causally used.
+- Whether the organization remains after the intervention is removed.
+- Whether attention changes correspond to different causal dependencies.
+
+Avoid unsupported claims about a unique three-dimensional carrier or an identifiable fitted combination operator.
+
+Those earlier claims were qualified or withdrawn.
+
+## B3. Competence
+
+Every organizational conclusion must be accompanied by a test of task competence.
+
+A model that no longer solves the task is not evidence that a competent alternative strategy was selected.
+
+Distinguish:
+
+- Competent organizational change.
+- Hybrid organization.
+- Temporary disruption.
+- Failed learning.
+- Measurement ambiguity.
+
+## B4. Classification rule
+
+Freeze the organizational classification before new confirmation outcomes are inspected.
+
+Require multiple independently informative diagnostics.
+
+When diagnostics disagree, report an ambiguous or hybrid result.
+
+Do not force a binary classification.
+
+---
+
+# 6. EXPERIMENT C — GENERALIZATION ACROSS INDEPENDENT PARENTS
+
+**Mandatory if the causal comparison in Experiment A is diagnostic and computationally feasible.**
+
+The XIV effect was established primarily within one pretrained parent.
+
+Changing the data order does not create a new independent pretrained model.
+
+The next question is whether the causal effect survives genuine changes in pretraining initialization and learned representations.
+
+## C1. Independent pretrained parents
+
+Use models derived from genuinely independent pretraining initializations and data streams.
+
+Prefer at least three independent pretrained parents in the total confirmation cohort, including the historically studied parent only as a reference.
+
+Do not count fine-tuning rerolls from one pretrained parent as independent pretraining replications.
+
+If the budget cannot support that design, clearly distinguish established within-parent evidence from incomplete across-parent evidence.
+
+## C2. Establish the feasible organizations
+
+The original COR record shows that different pretrained parents do not necessarily produce both early and mixture organizations under the same recipe.
+
+Do not manufacture nominal comparisons that lack competent baseline models.
+
+For each parent:
+
+- Determine whether competent organizational alternatives are obtainable.
+- Record failed attempts.
+- Use predefined selection rules.
+- Preserve the complete denominator of candidate parents.
+- Avoid choosing only parents that display the desired result.
+
+## C3. Paired intervention comparison
+
+Within each valid parent, compare:
+
+- Baseline training.
+- Real route block.
+- Partial route suppression.
+- Matched alternative disturbance.
+- Any additional decisive intervention justified in Experiment A.
+
+Use matched initializations and data order where appropriate.
+
+Then compare effects across independent parents.
+
+## C4. Scientific outcome
+
+Determine whether:
+
+- The effect is specific to the historical parent.
+- It generalizes to multiple independent parents.
+- Its direction depends on pre-existing organization.
+- Its magnitude depends on identifiable representations.
+- Particular parents provide counterexamples.
+
+A failed generalization is a scientific result.
+
+Do not hide it.
+
+---
+
+# 7. EXPERIMENT D — WHEN DOES THE INTERVENTION MATTER?
+
+**Conditional secondary experiment.**
+
+XIV suggested that a short intervention during formation has a lasting effect, while an equivalent intervention after organization forms is often reversed.
+
+But earlier studies also showed that sufficiently long late interventions can cause lasting changes.
+
+Therefore, there is no established closed critical period.
+
+If the main causal experiment succeeds, investigate whether intervention timing changes the final organization under matched conditions.
+
+Control:
+
+- Intervention duration.
+- Learning-rate exposure.
+- Effective suppression.
+- Recovery opportunity.
+- Model competence.
+- Initial organization.
+- Number of post-release updates.
+
+The question is whether early training creates a special sensitivity to pathway competition, not whether the network becomes permanently immutable.
+
+Do not repeat the previous persistence measurements without a new discriminating hypothesis.
+
+---
+
+# 8. A BOUNDED CONNECTION TO THE ORIGINAL COR O/D THEORY
+
+**Mandatory mathematical assessment; not an open-ended theory-repair program.**
+
+Investigation XVII established that the original O/D definitions do not predict positional reuse.
+
+It also found a limitation of their source-level form when applied to higher-order GATE decisions.
+
+Do not ignore those results.
+
+For this investigation, determine whether the existing O/D definitions imply anything about:
+
+- Information-pathway obstruction.
+- Discrepancy between available and required relational evidence.
+- Competition between alternative neural computations.
+- Changes in learned organization after a pathway is restricted.
+
+Use the original definitions.
+
+Do not invent a new obstruction quantity and present it as an existing COR prediction.
+
+Three outcomes are acceptable.
+
+**O1 — Distinctive prediction:** The original mathematics yields a valid, nontrivial prediction about an experimental quantity.
+
+**O2 — Limited correspondence:** The mathematics describes some task-level relationship but does not predict the neural intervention.
+
+**O3 — No applicable prediction:** The original mathematics does not address the mechanism being studied.
+
+Freeze this assessment before the neural confirmation outcomes.
+
+If O/D yields no applicable prediction, do not waste the neural budget trying to rescue it.
+
+The pathway result can remain an independent scientific contribution.
+
+---
+
+# 9. PROSPECTIVE PREDICTIONS
+
+**Mandatory.**
+
+This investigation must produce fewer, stronger predictions than XVII.
+
+Do not maximize the number of frozen verdicts.
+
+Possible primary predictions include:
+
+### P1 — Complete blockage versus graded suppression
+
+Does graded suppression of the targeted route produce a meaningful organizational change, or is complete removal necessary under the tested conditions?
+
+### P2 — Mechanism of suppression
+
+Do two different manipulations that produce similar effective pathway contributions produce comparable learned organizations?
+
+### P3 — Route specificity versus general disturbance
+
+Does a targeted intervention select an organization more effectively than a genuinely comparable disturbance outside the relevant relational computation?
+
+### P4 — Generalization
+
+Does the predicted causal effect occur in independently pretrained models?
+
+### P5 — Timing
+
+If tested, does the causal relationship depend on the stage of learning under appropriately matched optimization conditions?
+
+### P6 — COR mathematics
+
+Only if the recovered original O/D formulation yields a genuine prediction that differs from the relevant alternatives.
+
+For each prediction specify:
+
+- Exact measured outcome.
+- Competing predictions.
+- Mathematical or empirical justification.
+- Minimum meaningful difference.
+- Calibration method.
+- Model cohort.
+- Statistical unit.
+- Failure condition.
+- Inconclusive condition.
+
+Each prediction must pass the pre-experiment design review.
+
+**Do not run a test where every competing explanation predicts the same outcome.**
+
+---
+
+# 10. NOVELTY AND SCIENTIFIC POSITIONING
+
+**Mandatory before expensive confirmation.**
+
+The scientific contribution being considered is not simply:
+
+"Attention changes what a neural network learns."
+
+That broad phenomenon is not enough.
+
+The potentially distinctive contribution is more specific:
+
+**Temporary restriction of a causally relevant information pathway during training selects between competent relational computations, with experimentally identifiable conditions and boundaries.**
+
+Compare this claim with existing research.
+
+Determine which elements are already established and which would constitute an additional scientific contribution.
+
+Do not rely on an absence of an exact phrase in search results as proof of novelty.
+
+Pay particular attention to work that already demonstrates:
+
+- Learned-algorithm competition.
+- Training-time causal circuit manipulation.
+- Pathway-dependent learning.
+- Algorithm changes caused by early training interventions.
+- Multiple internally distinct solutions with equivalent task performance.
+
+Produce a comparison identifying the closest existing experiments, their interventions, their controls, and the additional question XVIII actually answers.
+
+A new result is valuable only if it provides a scientifically meaningful difference.
+
+---
+
+# 11. COMPUTE AND REPLICATION
+
+Use measured current hardware throughput.
+
+Do not assume that the full ideal design fits into one session.
+
+## Allocation priority
+
+1. Recover and validate the XIV experiment.
+2. Complete mathematical and causal design review.
+3. Develop a genuinely discriminating intervention comparison.
+4. Run the primary causal confirmation with adequate independent replication.
+5. Test across independent pretrained parents.
+6. Perform conditional timing analysis.
+7. Complete adversarial review and verification.
+
+Do not sacrifice the primary identification test to perform many optional variants.
+
+## Replication rules
+
+Distinguish:
+
+- Independent pretrained parents.
+- Fine-tuning initializations.
+- Training data-order seeds.
+- Checkpoint measurements.
+- Test examples.
+
+Report each level separately.
+
+Use hierarchical uncertainty where appropriate.
+
+Do not present 12 fine-tuning runs from one parent as 12 independent confirmations of a universal training effect.
+
+## Stop conditions
+
+Stop or redesign the experiment if:
+
+- The intervention comparison is mathematically non-identifying.
+- No competence-preserving intervention strength can be found.
+- The proposed controls cannot be meaningfully matched.
+- The organizational diagnostic is not independent of the intervention.
+- The available parent cohort cannot support the intended generalization claim.
+- The design reviewer identifies an unresolved alternative that makes the primary result uninterpretable.
+
+A scientifically justified negative or inconclusive result is preferable to another impressive but non-discriminating confirmation.
+
+---
+
+# 12. INDEPENDENT REVIEWS
+
+Use independent agents at two separate moments.
+
+## BEFORE confirmation
+
+**Reviewer A — Mathematics and causal identification**
+
+Challenge the hypotheses, intervention equations, matching criteria, and predicted distinctions.
+
+Identify outcomes already guaranteed by the architecture.
+
+**Reviewer B — Experimental design and novelty**
+
+Challenge the controls, model independence, possible shortcuts, organizational diagnostics, and prior-work claims.
+
+Both reviewers must produce written conclusions before the freeze.
+
+## AFTER confirmation
+
+**Reviewer C — Mechanistic interpretation**
+
+Determine exactly which causal explanations are supported or excluded.
+
+**Reviewer D — Integrity and reproduction**
+
+Check freeze chronology, seed independence, training logs, scorer behavior, hashes, missing runs, and reproducibility.
+
+The same reviewer roles may be implemented with the available agents, but design review and results review must remain distinct activities.
+
+Preserve all objections and adjudications.
+
+Do not describe agent review as human peer review.
+
+---
+
+# 13. REQUIRED RESEARCH OUTPUTS
+
+Create branch:
+
+`cor-phase15-step1-pathway-selection-causal-identification`
+
+Create directory:
+
+`docs/research_audits/cor_phase15/step1_pathway_selection_causal_identification/`
+
+Required reports:
+
+**MAIN_RESEARCH_SYNTHESIS.md**
+
+A direct account of the primary causal finding, its limitations, and its scientific significance.
+
+**XIV_RESULT_RECONSTRUCTION.md**
+
+Verification of the original result, model cohorts, masking definitions, controls, and organizational diagnostics.
+
+**PRE_EXPERIMENT_IDENTIFIABILITY_REVIEW.md**
+
+The mathematical prediction table, reviewer objections, and the argument that each retained experiment can distinguish the proposed explanations.
+
+**PATHWAY_INFORMATION_VS_ATTENTION_COMPETITION.md**
+
+The main experimental results and comparison of information access, effective contribution, and training disturbance.
+
+**INDEPENDENT_PARENT_GENERALIZATION.md**
+
+Replication across pretrained parents, the complete attempted cohort, negative cases, and hierarchical statistical results.
+
+**ORGANIZATIONAL_MECHANISM_VALIDATION.md**
+
+Independent behavioral and causal evidence that the intervention changed the learned computation rather than simply altering an attention statistic.
+
+**ORIGINAL_COR_OD_RELEVANCE.md**
+
+The bounded assessment of the original theory's actual predictive content.
+
+**PRIOR_WORK_AND_NOVELTY.md**
+
+The closest published work and the precise scientific contribution, if any.
+
+**FROZEN_PREDICTIONS_AND_RESULTS.md**
+
+All prediction definitions, outcomes, effect sizes, negative results, and uncertainty.
+
+**REVIEWS_AND_ADJUDICATION.md**
+
+Both pre-experiment and post-experiment independent reviews.
+
+Include all essential code, model configurations, raw metrics, checkpoints, manifests, dependencies, and reproduction scripts.
+
+---
+
+# 14. VERIFIED ARCHIVE
+
+Produce:
+
+`cor_inv18_pathway_selection_causal_identification.zip`
+
+Include a complete SHA-256 manifest.
+
+Verify:
+
+- Exact intervention masks and tensor locations.
+- Baseline replication.
+- Mathematics and reference calculations.
+- Severity calibration.
+- Training schedules.
+- Model independence.
+- Frozen predictions.
+- Competence measures.
+- Organizational classifications.
+- Statistical results.
+- Independent reviews.
+- Negative and incomplete runs.
+- Dependency hashes.
+- Clean-extraction reproduction.
+
+Produce a separate smaller audit package if the complete archive exceeds the delivery limit.
+
+Do not omit required archive parts without disclosing that delivery is incomplete.
+
+---
+
+# 15. REQUIRED FINAL SCIENTIFIC QUESTIONS
+
+Answer these questions explicitly.
+
+1. What exactly caused the original XIV organizational change, as far as causal identification permits?
+
+2. Is complete pathway blockage necessary?
+
+3. Can partial attention suppression produce the same effect?
+
+4. Can an alternative intervention producing comparable effective information reduction reproduce it?
+
+5. Can generalized training disturbance explain the result?
+
+6. Were the alternative learned organizations established using independent diagnostics?
+
+7. Did the models remain competent?
+
+8. Does the effect occur in genuinely independent pretrained parents?
+
+9. Which parents or organizations provide counterexamples?
+
+10. Does the result depend on the stage of learning?
+
+11. Which original XIV claims became stronger?
+
+12. Which must be weakened or withdrawn?
+
+13. Which hypotheses are actually distinguished by the experiments?
+
+14. Which remain observationally equivalent?
+
+15. What is already known in the published literature?
+
+16. What is genuinely distinctive about the result, if anything?
+
+17. Does the original COR O/D mathematics make a valid prediction about this phenomenon?
+
+18. If it does not, what precisely remains missing from COR's foundations?
+
+19. Does the evidence support a narrow publishable scientific claim?
+
+20. What additional evidence would be essential before publication?
+
+21. What is the next most valuable foundational question, considering the entire COR research landscape rather than only T4?
+
+Every answer must distinguish proof, frozen confirmation, exploratory evidence, interpretation, and speculation.
+
+---
+
+# 16. FINAL SCIENTIFIC DIRECTIVE
+
+The COR research program has spent substantial time investigating relational learning, implementation heterogeneity, neural causal mechanisms, and training dynamics.
+
+Many findings were useful.
+
+Several strong interpretations were withdrawn after better controls.
+
+Investigation XVII demonstrated the danger of performing expensive experiments that cannot distinguish the competing explanations.
+
+Investigation XVIII must correct that research pattern.
+
+It must focus on a result that already has credible causal evidence and important unresolved questions.
+
+**The aim is to determine whether temporary restriction of a relational information pathway selects a learned computation because of information deprivation, attention competition, broader optimization effects, or an identifiable combination of these mechanisms.**
+
+The work must not become another repetition of earlier route-blocking experiments.
+
+It must not expand into an uncontrolled search across architectures and generators.
+
+It must not claim an original COR prediction where none exists.
+
+It must not call a learned organization a distinct algorithm without the relevant independent functional and causal evidence.
+
+It must not infer generality from different fine-tuning seeds of the same pretrained parent.
+
+It must not force a novel conclusion.
+
+**The minimum successful outcome is a controlled experiment that genuinely distinguishes explanations the previous investigations could not distinguish.**
+
+The stronger outcome is a result that remains valid across independent pretrained models and supports a precise scientific claim not already established by existing research.
+
+A falsification, boundary, or carefully demonstrated non-identifiability is also a meaningful result.
+
+The result should tell us something that was genuinely unknown before the investigation began.
+
+Remain in COR Phase 1.5, Step 1, with approximately 25% provisional foundational exploration.
+
+No phase closure, automatic exploration increase, or validation of the original O/D framework.
+
+**Execute Investigation XVIII only after the pre-experiment mathematical and causal design has passed independent adversarial review. Deliver the complete verified evidence, not merely a list of successful verdicts.**

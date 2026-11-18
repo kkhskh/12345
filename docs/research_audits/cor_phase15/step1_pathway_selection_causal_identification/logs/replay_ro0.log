@@ -1,0 +1,6 @@
+[uP160_fx_L21_W21_D801_ro0T100_stop150_replay] step 25 loss 1.1696 14s
+[uP160_fx_L21_W21_D801_ro0T100_stop150_replay] step 50 loss 1.1001 25s
+[uP160_fx_L21_W21_D801_ro0T100_stop150_replay] step 74 loss 1.0878 36s
+[uP160_fx_L21_W21_D801_ro0T100_stop150_replay] step 100 loss 1.0794 47s
+[uP160_fx_L21_W21_D801_ro0T100_stop150_replay] step 111 loss 1.0883 54s
+[uP160_fx_L21_W21_D801_ro0T100_stop150_replay] step 150 loss 0.9769 71s

@@ -69,5 +69,5 @@ python3 -c "import json; a=json.load(open('/tmp/x17_d.json')); b=json.load(open(
 echo "17. reviewer corrections and primary results checked against the reports"; python3 scripts/check_reports17.py
 echo "   scripts/src with absolute local paths: $(grep -l '/home/claude' scripts/*.py src/*.py 2>/dev/null | wc -l)"
 echo "18. multipart reconstruction: see logs/VERIFY_PARTS.txt (scripts/verify_parts17.sh)"
-echo "== done"
+echo "== done"; rm -rf $T /tmp/x17_*
 } > $LOG 2>&1

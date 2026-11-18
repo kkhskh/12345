@@ -1,0 +1,52 @@
+== Investigation XVII clean extraction check 2026-11-18T14:13:28Z
+1. copy the sibling packages required by logs/DEPENDENCIES.json (not standalone) and extract the ZIP
+   extracted OK
+2. manifest
+   manifest OK (2937 files)
+3. partial-acquisition trajectories reconstructed (C_s202 replay checkpoints, per-slot F_G)
+   identical: True
+4. O/D derivation: source-level discrepancy check recomputed
+   identical: True
+5. GATE ideal-reference decisions recomputed (reference caches against fresh exact fits)
+   caches: 5 max diff: 0.0
+6-9. Theorem P; embedding swap, source-matched controls, causal transfer and shared-component necessity recomputed on A3_s803 (frozen battery)
+   Theorem P max diff: 2.86102294921875e-06
+   battery entries (swap [0,3), transfer [0,2), necessity [2,3) donor, routing) max |recomputed - archived|: 0.0
+10-11. confirmation statistics and frozen verdicts recomputed by the fail-closed scorer
+   identical: True {'P0': 'MIXED', 'P1': 'FOLLOWS_CODE', 'P2': 'TRANSFER', 'P3': 'LATE_LESS_CODE_DEPENDENT', 'P4': 'ROUTING_INSUFFICIENT', 'P5': 'CODE_KEYING_PERSISTS', 'PL': 'INTERFERENCE_NO_ACCELERATION'}
+12. fail-closed scoring: synthetic preflight and a refusal on the real data
+   preflight all_pass: True
+   real data with one analysis removed: refused (rc=2)
+13. every included checkpoint loads with finite outputs
+   checkpoints: 2734 loaded, 0 failed
+14. representative intervention replayed: learning arm A3_s803 targeted (loss on min U), first 100 of 400 steps
+   F_G at steps 0 and 100 identical: True
+15. deterministic training reproduced bitwise (frozen trainer, A2_s701, stopped after its step-120 snapshot; step 100 compared)
+   max |diff| over 46 arrays: 0.0
+16. external dependencies by exact hash
+   modules: 9 | identical: True
+17. reviewer corrections and primary results checked against the reports
+PASS pooled P0=MIXED (6/11) in MAIN and FROZEN_CONFIRMATION
+PASS pooled P1=FOLLOWS_CODE (6/6) in MAIN and FROZEN_CONFIRMATION
+PASS pooled P2=TRANSFER (6/6) in MAIN and FROZEN_CONFIRMATION
+PASS pooled P3=LATE_LESS_CODE_DEPENDENT (6/6) in MAIN and FROZEN_CONFIRMATION
+PASS pooled P4=ROUTING_INSUFFICIENT (6/6) in MAIN and FROZEN_CONFIRMATION
+PASS pooled P5=CODE_KEYING_PERSISTS (6/6) in MAIN and FROZEN_CONFIRMATION
+PASS pooled PL=INTERFERENCE_NO_ACCELERATION (5/5) in MAIN and FROZEN_CONFIRMATION
+PASS A3_s802 [0,2) transfer 0.65 in FROZEN_CONFIRMATION
+PASS A3_s803 [0,2) transfer 0.90 in FROZEN_CONFIRMATION
+PASS A3_s804 [0,2) transfer 0.78 in FROZEN_CONFIRMATION
+PASS A2_s704 [0,2) transfer 0.68 in FROZEN_CONFIRMATION
+PASS A2_s705 [0,2) transfer 0.83 in FROZEN_CONFIRMATION
+PASS A2_s707 [0,2) transfer 0.79 in FROZEN_CONFIRMATION
+PASS evaluable models 6 = 6 stated
+PASS evidence-only gate-flip statistic (0.000, vacuous) reproduced and marked withdrawn W1; S' stated
+PASS H4 mixture verdict not asserted in MAIN
+PASS O/D not presented as validated
+PASS agent reviews not called human peer review
+PASS archive not standalone
+PASS adjudication withdrawals ['W1', 'W10', 'W11', 'W12', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9'] referenced in MAIN
+ALL_PASS True (20/20)
+   scripts/src with absolute local paths: 0
+18. multipart reconstruction: see logs/VERIFY_PARTS.txt (scripts/verify_parts17.sh)
+== done

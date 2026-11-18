@@ -1,0 +1,11 @@
+== multipart reconstruction 2026-11-18T14:19:09Z
+cor_inv17_relational_operator_reuse.zip.part_00: OK
+cor_inv17_relational_operator_reuse.zip.part_01: OK
+cor_inv17_relational_operator_reuse.zip.part_02: OK
+cor_inv17_relational_operator_reuse.zip.part_03: OK
+cor_inv17_relational_operator_reuse.zip.part_04: OK
+cor_inv17_relational_operator_reuse.zip.part_05: OK
+per-part hashes OK
+whole-archive hash OK 6fd3cd5eeebecdba36d1ddb32d240f43e5ec1dae02ffc456d825eab1de59c300
+No errors detected in compressed data of /tmp/x17_rebuilt.zip.
+zip integrity OK

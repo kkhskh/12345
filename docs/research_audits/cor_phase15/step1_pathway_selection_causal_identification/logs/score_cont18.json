@@ -1,0 +1,152 @@
+{
+ "E|811|vrg": {
+  "phi_nec_2546": 1.0209850510739935,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "E|813|vrg": {
+  "phi_nec_2546": 0.9932626962123634,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|811|vrg": {
+  "phi_nec_2546": 0.9913684715027073,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|812|vrg": {
+  "phi_nec_2546": 0.9982653128870146,
+  "band_2546": "F",
+  "primary_1211": "F",
+  "transient": false
+ },
+ "E|811|gsg": {
+  "phi_nec_2546": 0.9706490588610366,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "E|812|gsg": {
+  "phi_nec_2546": 0.6813538520856431,
+  "band_2546": "P",
+  "primary_1211": "P",
+  "transient": false
+ },
+ "E|813|gsg": {
+  "phi_nec_2546": 0.8966446599012255,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|811|gsg": {
+  "phi_nec_2546": 0.34884373116378425,
+  "band_2546": "P",
+  "primary_1211": "P",
+  "transient": false
+ },
+ "M|812|gsg": {
+  "phi_nec_2546": 0.3617600871436382,
+  "band_2546": "P",
+  "primary_1211": "P",
+  "transient": false
+ },
+ "M|813|gsg": {
+  "phi_nec_2546": 0.3594630148922328,
+  "band_2546": "P",
+  "primary_1211": "P",
+  "transient": false
+ },
+ "E|811|gsv": {
+  "phi_nec_2546": 0.9006490717418911,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "E|812|gsv": {
+  "phi_nec_2546": 0.8310266842874168,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "E|813|gsv": {
+  "phi_nec_2546": 0.8781159233533458,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|811|gsv": {
+  "phi_nec_2546": 1.0167435295084433,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|812|gsv": {
+  "phi_nec_2546": 0.9783044440621209,
+  "band_2546": "F",
+  "primary_1211": "F",
+  "transient": false
+ },
+ "E|811|sha_hi_rolled": {
+  "phi_nec_2546": 1.0145343925770987,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "E|813|sha_hi_rolled": {
+  "phi_nec_2546": 0.9930968470813972,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|811|sha_hi_rolled": {
+  "phi_nec_2546": 0.9905549007374556,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|812|sha_hi_rolled": {
+  "phi_nec_2546": 0.9968887505395088,
+  "band_2546": "F",
+  "primary_1211": "F",
+  "transient": false
+ },
+ "E|813|sha_lo_real": {
+  "phi_nec_2546": 0.02060416967613595,
+  "band_2546": "N",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|811|sha_lo_real": {
+  "phi_nec_2546": -0.026471462668551198,
+  "band_2546": "N",
+  "primary_1211": "N",
+  "transient": false
+ },
+ "E|811|gof23": {
+  "phi_nec_2546": 0.9910544305018008,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "E|813|gof23": {
+  "phi_nec_2546": 0.9967311473089221,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|811|gof23": {
+  "phi_nec_2546": 0.9804283464854289,
+  "band_2546": "F",
+  "primary_1211": "P",
+  "transient": true
+ },
+ "M|812|gof23": {
+  "phi_nec_2546": 0.9942681566408544,
+  "band_2546": "F",
+  "primary_1211": "F",
+  "transient": false
+ }
+}

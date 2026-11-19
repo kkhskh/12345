@@ -181,6 +181,26 @@
 - **D4:** post-fix hash recorded.
 - **D5–D10:** applied.
 
-## Stability readout (step 2546)
+## Stability readout (step 2546) [frozen readout rule; structural + causal bands only]
 
-(Filled in from `logs/score_cont18.json` when the continuations finish. They were derived from the frozen, gate-inflated P list. Reported first for gsg/gsv on E and gsg on M.)
+**What was continued.** The 37 continuations are every run that was frozen-P or unstable at step 1211, together with its paired baseline and block. They were continued bitwise from the step-1211 state, on the unchanged learning-rate schedule. Results are in `logs/score_cont18.json`.
+
+**Bands at step 2546** (φ_nec in brackets):
+
+| arm | runs | band at 2546 |
+|---|---|---|
+| vrg | E\|811, E\|813, M\|811, M\|812 | **F** (0.99–1.02) |
+| sha-hi-rolled | same four pairs | **F** (0.99–1.01) |
+| gof b = 2.3 | 4 runs | **F** (0.98–1.00) |
+| sha-lo-real | E\|813, M\|811 | **N** (−0.03, 0.02) |
+| gsv | all five continued | **F**: E 0.83–0.90 (up from 0.81–0.85), M 0.98–1.02 |
+| gsg | E\|811, E\|813 | **F** (0.97, 0.90) |
+| gsg | E\|812 | **P** (0.68) |
+| gsg | M (all three) | **P** (0.35–0.36): a stable hybrid |
+
+**How to read the "transient" labels.** The frozen readout marks a run "transient hybrid" when it was P at 1211 and F or N at 2546. Every such case was P at 1211 only through the behavioural gate, so these are not organisational transitions.
+
+**What the readout shows:**
+- The sensitivity-level pattern is stable to step 2546.
+- gsv's switch of route necessity on E strengthens with training.
+- gsg's hybrid on M is stable, as in development to step 4000.

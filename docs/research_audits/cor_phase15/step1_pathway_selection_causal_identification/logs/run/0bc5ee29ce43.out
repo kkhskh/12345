@@ -2,3 +2,5 @@
 [uP160_fx_L21_W21_D811_gofown0b1e9T100_stop2546_c18_cont] step 1500 loss 0.5455 154s
 [uP160_fx_L21_W21_D811_gofown0b1e9T100_stop2546_c18_cont] step 1803 loss 0.5516 312s
 [uP160_fx_L21_W21_D811_gofown0b1e9T100_stop2546_c18_cont] step 2000 loss 0.5450 415s
+[uP160_fx_L21_W21_D811_gofown0b1e9T100_stop2546_c18_cont] step 2546 loss 0.5443 705s
+uP160_fx_L21_W21_D811_gofown0b1e9T100_stop2546_c18_cont {'lik_RO1': -0.001, 'mix_mass': 0.956, 'KL': 0.013, 'acc': 0.852, 'nec_E': 0.013, 'nec_M': 0.786, 'rhoL': 0.803, 'lapseL': 0.018, 'nec_rq1': 0.123, 'cls2': 'HYBRID'}

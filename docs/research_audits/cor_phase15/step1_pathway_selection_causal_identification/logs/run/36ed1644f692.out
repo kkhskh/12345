@@ -1,0 +1,6 @@
+[uP160_fx_L23_W23_D811_gsgown2T100_stop2546_c18_cont] resumed at step 1211
+[uP160_fx_L23_W23_D811_gsgown2T100_stop2546_c18_cont] step 1500 loss 0.5507 150s
+[uP160_fx_L23_W23_D811_gsgown2T100_stop2546_c18_cont] step 1803 loss 0.5580 305s
+[uP160_fx_L23_W23_D811_gsgown2T100_stop2546_c18_cont] step 2000 loss 0.5418 408s
+[uP160_fx_L23_W23_D811_gsgown2T100_stop2546_c18_cont] step 2546 loss 0.5470 691s
+uP160_fx_L23_W23_D811_gsgown2T100_stop2546_c18_cont {'lik_RO1': 0.318, 'mix_mass': 0.935, 'KL': 0.018, 'acc': 0.846, 'nec_E': 0.28, 'nec_M': 0.257, 'rhoL': 0.514, 'lapseL': 0.001, 'nec_rq1': 0.234, 'cls2': 'HYBRID'}

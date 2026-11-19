@@ -1,0 +1,3199 @@
+{
+ "label": "POST-HOC (not frozen)",
+ "evaluable": {
+  "E|811": true,
+  "E|812": true,
+  "E|813": true,
+  "M|811": true,
+  "M|812": true,
+  "M|813": false
+ },
+ "pooled": {
+  "H1d": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ]
+    },
+    "gsv": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ]
+    },
+    "sha_hi_rolled": {
+     "pred": "F",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "N",
+       "N"
+      ],
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "E|813",
+       "N",
+       "N"
+      ],
+      [
+       "M|811",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ]
+    }
+   }
+  },
+  "Hm_window": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "med",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "gsg": {
+     "pred": "med",
+     "matches": 1,
+     "mismatches": 4,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "P"
+      ],
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "E|813",
+       "F",
+       "P"
+      ],
+      [
+       "M|811",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ]
+    },
+    "gsv": {
+     "pred": "med",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ]
+    },
+    "sha_lo_real": {
+     "pred": "F",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "N",
+       "F"
+      ],
+      [
+       "E|812",
+       "N",
+       "F"
+      ],
+      [
+       "E|813",
+       "N",
+       "F"
+      ],
+      [
+       "M|811",
+       "N",
+       "F"
+      ],
+      [
+       "M|812",
+       "N",
+       "F"
+      ]
+     ]
+    }
+   }
+  },
+  "Hm_release": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "med",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "gsg": {
+     "pred": "med",
+     "matches": 1,
+     "mismatches": 4,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "P"
+      ],
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "E|813",
+       "F",
+       "P"
+      ],
+      [
+       "M|811",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ]
+    },
+    "gsv": {
+     "pred": "med",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "sha_hi_rolled": {
+     "pred": "med",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "sha_lo_real": {
+     "pred": "med",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "N",
+       "N"
+      ],
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "E|813",
+       "N",
+       "N"
+      ],
+      [
+       "M|811",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ]
+    }
+   }
+  },
+  "H2g_R": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ]
+    },
+    "gsg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 3,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "P",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ]
+    },
+    "gsv": {
+     "pred": "F",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ]
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "N",
+       "N"
+      ],
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "E|813",
+       "N",
+       "N"
+      ],
+      [
+       "M|811",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ]
+    }
+   }
+  },
+  "H2g_RV": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ]
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ]
+    },
+    "gsv": {
+     "pred": "F",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ]
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "N",
+       "N"
+      ],
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "E|813",
+       "N",
+       "N"
+      ],
+      [
+       "M|811",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ]
+    }
+   }
+  },
+  "H4": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ]
+    },
+    "gsv": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ]
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "N"
+      ],
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "E|813",
+       "F",
+       "N"
+      ],
+      [
+       "M|811",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ]
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "N",
+       "N"
+      ],
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "E|813",
+       "N",
+       "N"
+      ],
+      [
+       "M|811",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ]
+    }
+   }
+  },
+  "H1d_plus_Hm": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "gsg": {
+     "pred": "P",
+     "matches": 3,
+     "mismatches": 2,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "P"
+      ],
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "E|813",
+       "F",
+       "P"
+      ],
+      [
+       "M|811",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "P"
+      ]
+     ]
+    },
+    "gsv": {
+     "pred": "P",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "P"
+      ],
+      [
+       "E|812",
+       "F",
+       "P"
+      ],
+      [
+       "E|813",
+       "F",
+       "P"
+      ],
+      [
+       "M|811",
+       "F",
+       "P"
+      ],
+      [
+       "M|812",
+       "F",
+       "P"
+      ]
+     ]
+    },
+    "sha_hi_rolled": {
+     "pred": "P",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "P"
+      ],
+      [
+       "E|812",
+       "F",
+       "P"
+      ],
+      [
+       "E|813",
+       "F",
+       "P"
+      ],
+      [
+       "M|811",
+       "F",
+       "P"
+      ],
+      [
+       "M|812",
+       "F",
+       "P"
+      ]
+     ]
+    },
+    "sha_lo_real": {
+     "pred": "P",
+     "matches": 0,
+     "mismatches": 5,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "N",
+       "P"
+      ],
+      [
+       "E|812",
+       "N",
+       "P"
+      ],
+      [
+       "E|813",
+       "N",
+       "P"
+      ],
+      [
+       "M|811",
+       "N",
+       "P"
+      ],
+      [
+       "M|812",
+       "N",
+       "P"
+      ]
+     ]
+    }
+   }
+  },
+  "H1d_plus_H2g": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "gsg": {
+     "pred": "P",
+     "matches": 3,
+     "mismatches": 2,
+     "status": "contradicted",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "P"
+      ],
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "E|813",
+       "F",
+       "P"
+      ],
+      [
+       "M|811",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "P"
+      ]
+     ]
+    },
+    "gsv": {
+     "pred": "PF",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "PF"
+      ],
+      [
+       "E|812",
+       "F",
+       "PF"
+      ],
+      [
+       "E|813",
+       "F",
+       "PF"
+      ],
+      [
+       "M|811",
+       "F",
+       "PF"
+      ],
+      [
+       "M|812",
+       "F",
+       "PF"
+      ]
+     ]
+    },
+    "sha_hi_rolled": {
+     "pred": "F",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "F",
+       "F"
+      ],
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "E|813",
+       "F",
+       "F"
+      ],
+      [
+       "M|811",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ]
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 5,
+     "mismatches": 0,
+     "status": "consistent",
+     "detail": [
+      [
+       "E|811",
+       "N",
+       "N"
+      ],
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "E|813",
+       "N",
+       "N"
+      ],
+      [
+       "M|811",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "per_base": {
+  "E": {
+   "H1d": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "P",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "F",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "F",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "N",
+        "N"
+       ],
+       [
+        "E|812",
+        "N",
+        "N"
+       ],
+       [
+        "E|813",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "Hm_window": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "med",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "P"
+       ],
+       [
+        "E|812",
+        "P",
+        "P"
+       ],
+       [
+        "E|813",
+        "F",
+        "P"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "med",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "F",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "N",
+        "F"
+       ],
+       [
+        "E|812",
+        "N",
+        "F"
+       ],
+       [
+        "E|813",
+        "N",
+        "F"
+       ]
+      ]
+     }
+    }
+   },
+   "Hm_release": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "med",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "P"
+       ],
+       [
+        "E|812",
+        "P",
+        "P"
+       ],
+       [
+        "E|813",
+        "F",
+        "P"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "med",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "med",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "med",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "N",
+        "N"
+       ],
+       [
+        "E|812",
+        "N",
+        "N"
+       ],
+       [
+        "E|813",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "H2g_R": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "F",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 1,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "P",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "F",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "F",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "N",
+        "N"
+       ],
+       [
+        "E|812",
+        "N",
+        "N"
+       ],
+       [
+        "E|813",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "H2g_RV": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "F",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "P",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "F",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "F",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "N",
+        "N"
+       ],
+       [
+        "E|812",
+        "N",
+        "N"
+       ],
+       [
+        "E|813",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "H4": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "P",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "F",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "N"
+       ],
+       [
+        "E|812",
+        "F",
+        "N"
+       ],
+       [
+        "E|813",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "N",
+        "N"
+       ],
+       [
+        "E|812",
+        "N",
+        "N"
+       ],
+       [
+        "E|813",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "H1d_plus_Hm": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "P",
+      "matches": 1,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "P"
+       ],
+       [
+        "E|812",
+        "P",
+        "P"
+       ],
+       [
+        "E|813",
+        "F",
+        "P"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "P"
+       ],
+       [
+        "E|812",
+        "F",
+        "P"
+       ],
+       [
+        "E|813",
+        "F",
+        "P"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "P"
+       ],
+       [
+        "E|812",
+        "F",
+        "P"
+       ],
+       [
+        "E|813",
+        "F",
+        "P"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 3,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "N",
+        "P"
+       ],
+       [
+        "E|812",
+        "N",
+        "P"
+       ],
+       [
+        "E|813",
+        "N",
+        "P"
+       ]
+      ]
+     }
+    }
+   },
+   "H1d_plus_H2g": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "P",
+      "matches": 1,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "P"
+       ],
+       [
+        "E|812",
+        "P",
+        "P"
+       ],
+       [
+        "E|813",
+        "F",
+        "P"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "PF",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "PF"
+       ],
+       [
+        "E|812",
+        "F",
+        "PF"
+       ],
+       [
+        "E|813",
+        "F",
+        "PF"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "F",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "F",
+        "F"
+       ],
+       [
+        "E|812",
+        "F",
+        "F"
+       ],
+       [
+        "E|813",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 3,
+      "mismatches": 0,
+      "status": "consistent",
+      "detail": [
+       [
+        "E|811",
+        "N",
+        "N"
+       ],
+       [
+        "E|812",
+        "N",
+        "N"
+       ],
+       [
+        "E|813",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   }
+  },
+  "M": {
+   "H1d": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "P",
+        "N"
+       ],
+       [
+        "M|812",
+        "P",
+        "N"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "N"
+       ],
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "N",
+        "N"
+       ],
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "Hm_window": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "med",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "med",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "P",
+        "F"
+       ],
+       [
+        "M|812",
+        "P",
+        "F"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "med",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "N"
+       ],
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "N",
+        "F"
+       ],
+       [
+        "M|812",
+        "N",
+        "F"
+       ]
+      ]
+     }
+    }
+   },
+   "Hm_release": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "med",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "med",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "P",
+        "F"
+       ],
+       [
+        "M|812",
+        "P",
+        "F"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "med",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "med",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "med",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "N",
+        "N"
+       ],
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "H2g_R": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "N"
+       ],
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "P",
+        "F"
+       ],
+       [
+        "M|812",
+        "P",
+        "F"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "N"
+       ],
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "N",
+        "N"
+       ],
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "H2g_RV": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "N"
+       ],
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "P",
+        "N"
+       ],
+       [
+        "M|812",
+        "P",
+        "N"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "N"
+       ],
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "N",
+        "N"
+       ],
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "H4": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "P",
+        "N"
+       ],
+       [
+        "M|812",
+        "P",
+        "N"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "N"
+       ],
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "N"
+       ],
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "N",
+        "N"
+       ],
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   },
+   "H1d_plus_Hm": {
+    "verdict": "CONTRADICTED",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "P",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "P",
+        "P"
+       ],
+       [
+        "M|812",
+        "P",
+        "P"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "P"
+       ],
+       [
+        "M|812",
+        "F",
+        "P"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "P"
+       ],
+       [
+        "M|812",
+        "F",
+        "P"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 2,
+      "status": "contradicted",
+      "detail": [
+       [
+        "M|811",
+        "N",
+        "P"
+       ],
+       [
+        "M|812",
+        "N",
+        "P"
+       ]
+      ]
+     }
+    }
+   },
+   "H1d_plus_H2g": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "gsg": {
+      "pred": "P",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "P",
+        "P"
+       ],
+       [
+        "M|812",
+        "P",
+        "P"
+       ]
+      ]
+     },
+     "gsv": {
+      "pred": "PF",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "PF"
+       ],
+       [
+        "M|812",
+        "F",
+        "PF"
+       ]
+      ]
+     },
+     "sha_hi_rolled": {
+      "pred": "F",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "F",
+        "F"
+       ],
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ]
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 2,
+      "mismatches": 0,
+      "status": "inconclusive",
+      "detail": [
+       [
+        "M|811",
+        "N",
+        "N"
+       ],
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ]
+     }
+    }
+   }
+  }
+ },
+ "bands": {
+  "E|811": {
+   "vrg": "F",
+   "gsg": "F",
+   "gsv": "F",
+   "sha_hi_rolled": "F",
+   "sha_lo_real": "N",
+   "gof23": "F"
+  },
+  "E|812": {
+   "vrg": "F",
+   "gsg": "P",
+   "gsv": "F",
+   "sha_hi_rolled": "F",
+   "sha_lo_real": "N",
+   "gof23": "F"
+  },
+  "E|813": {
+   "vrg": "F",
+   "gsg": "F",
+   "gsv": "F",
+   "sha_hi_rolled": "F",
+   "sha_lo_real": "N",
+   "gof23": "F"
+  },
+  "M|811": {
+   "vrg": "F",
+   "gsg": "P",
+   "gsv": "F",
+   "sha_hi_rolled": "F",
+   "sha_lo_real": "N",
+   "gof23": "F"
+  },
+  "M|812": {
+   "vrg": "F",
+   "gsg": "P",
+   "gsv": "F",
+   "sha_hi_rolled": "F",
+   "sha_lo_real": "N",
+   "gof23": "F"
+  },
+  "M|813": {
+   "vrg": "MISSING",
+   "gsg": "P",
+   "gsv": "MISSING",
+   "sha_hi_rolled": "MISSING",
+   "sha_lo_real": "N",
+   "gof23": "MISSING"
+  }
+ },
+ "phi": {
+  "E|811": {
+   "vrg": 1.021,
+   "gsg": 0.893,
+   "gsv": 0.823,
+   "sha_hi_rolled": 1.016,
+   "sha_lo_real": 0.026,
+   "gof23": 0.995
+  },
+  "E|812": {
+   "vrg": 1.039,
+   "gsg": 0.647,
+   "gsv": 0.813,
+   "sha_hi_rolled": 1.038,
+   "sha_lo_real": -0.026,
+   "gof23": 1.022
+  },
+  "E|813": {
+   "vrg": 0.985,
+   "gsg": 0.884,
+   "gsv": 0.849,
+   "sha_hi_rolled": 0.983,
+   "sha_lo_real": -0.002,
+   "gof23": 0.989
+  },
+  "M|811": {
+   "vrg": 0.999,
+   "gsg": 0.426,
+   "gsv": 1.015,
+   "sha_hi_rolled": 1.0,
+   "sha_lo_real": -0.017,
+   "gof23": 0.982
+  },
+  "M|812": {
+   "vrg": 0.998,
+   "gsg": 0.407,
+   "gsv": 0.978,
+   "sha_hi_rolled": 0.998,
+   "sha_lo_real": -0.001,
+   "gof23": 0.989
+  },
+  "M|813": {
+   "vrg": 0.933,
+   "gsg": 0.36,
+   "gsv": 0.955,
+   "sha_hi_rolled": 0.937,
+   "sha_lo_real": 0.017,
+   "gof23": 0.983
+  }
+ }
+}

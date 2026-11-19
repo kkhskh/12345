@@ -1,0 +1,19 @@
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 25 loss 1.1264 29s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 50 loss 1.0952 52s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 74 loss 1.0840 75s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 100 loss 1.0349 100s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 111 loss 1.0337 107s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 150 loss 0.9673 125s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 165 loss 0.9329 132s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 200 loss 0.8519 148s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 246 loss 0.7756 170s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 300 loss 0.5924 195s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 366 loss 0.5661 225s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 400 loss 0.5933 242s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 546 loss 0.5916 310s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 600 loss 0.5678 335s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 800 loss 0.5807 434s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 813 loss 0.5540 441s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 1000 loss 0.5343 530s
+[uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18] step 1211 loss 0.5539 630s
+uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18 {'lik_RO1': 0.003, 'mix_mass': 0.958, 'KL': 0.013, 'acc': 0.848, 'nec_E': 0.011, 'nec_M': 0.792, 'rhoL': 0.788, 'lapseL': 0.01, 'nec_rq1': 0.124, 'cls2': 'MIXTURE'}

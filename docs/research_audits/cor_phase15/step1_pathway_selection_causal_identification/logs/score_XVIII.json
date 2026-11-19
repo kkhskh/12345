@@ -1,0 +1,3687 @@
+{
+ "pairs": {
+  "E|811": {
+   "evaluable": false,
+   "baseline_cls": "HYBRID",
+   "block_cls": "HYBRID",
+   "arms": {
+    "vrg": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 1.0211194621649136,
+     "phi_nec_1000": 1.0351178483327028,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.01312987551096064,
+     "phi_share": 0.9211826178752408,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0599462509155273
+    },
+    "gsg": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.8931725525845666,
+     "phi_nec_1000": 0.863802367960405,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.024643958230864293,
+     "phi_share": 0.49552896662215523,
+     "mediator_band": "P",
+     "window_dloss_90_99": 0.033014345169067205
+    },
+    "gsv": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.8226592250510857,
+     "phi_nec_1000": 0.8313876431002629,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.021245029185723307,
+     "phi_share": 1.0265980014314422,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.053741312026977406
+    },
+    "sha_hi_rolled": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 1.015553564961607,
+     "phi_nec_1000": 1.0286059918680734,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.013190968318652786,
+     "phi_share": 0.8664762858237032,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.04678895473480216,
+     "clamp_max_err": 1.7881393432617188e-07,
+     "clamp_frac_beta_gt1": 0.13,
+     "beta_99": [
+      0.5024592280387878,
+      0.4581780731678009,
+      0.33113259077072144,
+      1.164888858795166
+     ],
+     "fwd_share_99": 0.23576554656028748,
+     "release_jump": -0.08825677633285522
+    },
+    "sha_lo_real": {
+     "primary": "N",
+     "primary_nb": "N",
+     "unstable": false,
+     "phi_nec": 0.025621525126251442,
+     "phi_nec_1000": 0.007335499101904764,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.03397529210823262,
+     "phi_share": -0.31421072032518693,
+     "mediator_band": "N",
+     "window_dloss_90_99": 0.025970602035522372,
+     "clamp_max_err": 1.1920928955078125e-07,
+     "clamp_frac_beta_gt1": 0.12,
+     "beta_99": [
+      -0.5000888109207153,
+      -0.5914708375930786,
+      -0.31432515382766724,
+      -2.306572198867798
+     ],
+     "fwd_share_99": 0.1335699688643217,
+     "release_jump": 0.13660125620663166
+    },
+    "gof23": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.9951413232654358,
+     "phi_nec_1000": 0.9863102545881681,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.012758666016058219,
+     "phi_share": 0.9920907803941199,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.06656236648559566
+    }
+   }
+  },
+  "E|812": {
+   "evaluable": true,
+   "baseline_cls": "EARLY",
+   "block_cls": "MIXTURE",
+   "arms": {
+    "vrg": {
+     "primary": "F",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 1.0386284783974995,
+     "phi_nec_1000": 1.0103375058367665,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.010050333611363618,
+     "phi_share": 0.9181385610001002,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.05622895956039442
+    },
+    "gsg": {
+     "primary": "P",
+     "primary_nb": "P",
+     "unstable": false,
+     "phi_nec": 0.6467465856042993,
+     "phi_nec_1000": 0.6205666605262431,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.020995982481716573,
+     "phi_share": 0.4882465509608011,
+     "mediator_band": "P",
+     "window_dloss_90_99": 0.030116772651672452
+    },
+    "gsv": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.8128897314151797,
+     "phi_nec_1000": 0.80313051919241,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.015022416693127363,
+     "phi_share": 1.0191806392931935,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.04963395595550546
+    },
+    "sha_hi_rolled": {
+     "primary": "F",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 1.0380415548836799,
+     "phi_nec_1000": 1.0226828971272885,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.009334894235413806,
+     "phi_share": 0.8584140381299501,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.044528949260711714,
+     "clamp_max_err": 1.7881393432617188e-07,
+     "clamp_frac_beta_gt1": 0.13,
+     "beta_99": [
+      0.49240797758102417,
+      0.4512192904949188,
+      0.3301704525947571,
+      1.1141084432601929
+     ],
+     "fwd_share_99": 0.23089967295527458,
+     "release_jump": -0.08273514732718468
+    },
+    "sha_lo_real": {
+     "primary": "N",
+     "primary_nb": "N",
+     "unstable": false,
+     "phi_nec": -0.025502237047499557,
+     "phi_nec_1000": 0.004853307884037497,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.025558056175542892,
+     "phi_share": -0.2887357006740341,
+     "mediator_band": "N",
+     "window_dloss_90_99": 0.024793457984924494,
+     "clamp_max_err": 1.1920928955078125e-07,
+     "clamp_frac_beta_gt1": 0.11,
+     "beta_99": [
+      -0.4895232617855072,
+      -0.5606371164321899,
+      -0.3251630365848541,
+      -2.167529821395874
+     ],
+     "fwd_share_99": 0.13332560285925865,
+     "release_jump": 0.12981850281357765
+    },
+    "gof23": {
+     "primary": "F",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 1.0215438786984088,
+     "phi_nec_1000": 1.0165147033306918,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.01033475460268423,
+     "phi_share": 0.9910902856014674,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.06293596029281634
+    }
+   }
+  },
+  "E|813": {
+   "evaluable": false,
+   "baseline_cls": "HYBRID",
+   "block_cls": "MIXTURE",
+   "arms": {
+    "vrg": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.9853434937104327,
+     "phi_nec_1000": 1.021026145287916,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.013207522717206214,
+     "phi_share": 0.9378802540870904,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.05674603581428528
+    },
+    "gsg": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.8835506592471793,
+     "phi_nec_1000": 0.8809001547401416,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.020298477569450937,
+     "phi_share": 0.5513359830921203,
+     "mediator_band": "P",
+     "window_dloss_90_99": 0.03273388743400574
+    },
+    "gsv": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.8490274631402694,
+     "phi_nec_1000": 0.833272586542299,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.01781565776195167,
+     "phi_share": 1.0146223161949637,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.049575906991958574
+    },
+    "sha_hi_rolled": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.9832065457861199,
+     "phi_nec_1000": 1.0182776380062373,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.012675527954006548,
+     "phi_share": 0.8893918324168586,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.04796463847160326,
+     "clamp_max_err": 1.1920928955078125e-07,
+     "clamp_frac_beta_gt1": 0.11,
+     "beta_99": [
+      0.485531210899353,
+      0.4393118619918823,
+      0.3005489408969879,
+      1.231441855430603
+     ],
+     "fwd_share_99": 0.23003217577934265,
+     "release_jump": -0.0853615552186966
+    },
+    "sha_lo_real": {
+     "primary": "P",
+     "primary_nb": "N",
+     "unstable": false,
+     "phi_nec": -0.002159764655252348,
+     "phi_nec_1000": 0.00928637507279972,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.025405914927482096,
+     "phi_share": -0.19519235147782388,
+     "mediator_band": "N",
+     "window_dloss_90_99": 0.025826495885848955,
+     "clamp_max_err": 1.1920928955078125e-07,
+     "clamp_frac_beta_gt1": 0.1,
+     "beta_99": [
+      -0.4708973169326782,
+      -0.5361762642860413,
+      -0.29413190484046936,
+      -1.982208490371704
+     ],
+     "fwd_share_99": 0.13357703760266304,
+     "release_jump": 0.11863164231181145
+    },
+    "gof23": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.988759356020029,
+     "phi_nec_1000": 0.9995240894125319,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.012567950347716997,
+     "phi_share": 0.9900123821393614,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.06171965003013602
+    }
+   }
+  },
+  "M|811": {
+   "evaluable": false,
+   "baseline_cls": "HYBRID",
+   "block_cls": "EARLY",
+   "arms": {
+    "vrg": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.9985894644328852,
+     "phi_nec_1000": 0.9914503948914535,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.023988772761411724,
+     "phi_share": 0.8654330940891813,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0029804289340973344
+    },
+    "gsg": {
+     "primary": "P",
+     "primary_nb": "P",
+     "unstable": false,
+     "phi_nec": 0.42602814180392934,
+     "phi_nec_1000": 0.4148790089986595,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.018226166957707374,
+     "phi_share": 0.8179498917554738,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.002815443277359053
+    },
+    "gsv": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 1.015073293322538,
+     "phi_nec_1000": 1.021081734644057,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.024968464356383634,
+     "phi_share": 1.018227592341599,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0013411343097686768
+    },
+    "sha_hi_rolled": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.999789870566596,
+     "phi_nec_1000": 0.9918586501759887,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.024257679304870664,
+     "phi_share": 0.8625116990721695,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0029288709163666216,
+     "clamp_max_err": 1.043081283569336e-07,
+     "clamp_frac_beta_gt1": 0.0,
+     "beta_99": [
+      0.09294254332780838,
+      0.16910205781459808,
+      0.32232752442359924,
+      0.2335401326417923
+     ],
+     "fwd_share_99": 0.1692540906369686,
+     "release_jump": -0.025593679398298264
+    },
+    "sha_lo_real": {
+     "primary": "N",
+     "primary_nb": "N",
+     "unstable": true,
+     "phi_nec": -0.01718119806280268,
+     "phi_nec_1000": -0.03529981747249633,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.013030590100769885,
+     "phi_share": 0.07003726187032717,
+     "mediator_band": "N",
+     "window_dloss_90_99": 0.0017624974250793901,
+     "clamp_max_err": 1.043081283569336e-07,
+     "clamp_frac_beta_gt1": 0.0,
+     "beta_99": [
+      -0.040602874010801315,
+      -0.1780627965927124,
+      -0.41526350378990173,
+      -0.1788165122270584
+     ],
+     "fwd_share_99": 0.14272337034344673,
+     "release_jump": 0.02588130161166191
+    },
+    "gof23": {
+     "primary": "P",
+     "primary_nb": "F",
+     "unstable": false,
+     "phi_nec": 0.9817910412560455,
+     "phi_nec_1000": 0.9800722434545189,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.025608346814204926,
+     "phi_share": 0.9915340614018435,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.009816962480545088
+    }
+   }
+  },
+  "M|812": {
+   "evaluable": true,
+   "baseline_cls": "MIXTURE",
+   "block_cls": "EARLY",
+   "arms": {
+    "vrg": {
+     "primary": "F",
+     "primary_nb": "F",
+     "unstable": true,
+     "phi_nec": 0.997981978571304,
+     "phi_nec_1000": 0.9913180156584904,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.023267027133636233,
+     "phi_share": 0.8867850463075728,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0034189641475677046
+    },
+    "gsg": {
+     "primary": "P",
+     "primary_nb": "P",
+     "unstable": false,
+     "phi_nec": 0.4071141014063848,
+     "phi_nec_1000": 0.42700246317834095,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.01609879898268085,
+     "phi_share": 0.8519474996651426,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0038805246353148526
+    },
+    "gsv": {
+     "primary": "F",
+     "primary_nb": "F",
+     "unstable": true,
+     "phi_nec": 0.9784138207680682,
+     "phi_nec_1000": 0.961603095195812,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.022485782755271525,
+     "phi_share": 1.0199575007393387,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.00183027982711792
+    },
+    "sha_hi_rolled": {
+     "primary": "F",
+     "primary_nb": "F",
+     "unstable": true,
+     "phi_nec": 0.9976678330276145,
+     "phi_nec_1000": 0.9887568598419187,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.023254968788937604,
+     "phi_share": 0.8860238259325061,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.003317415714263916,
+     "clamp_max_err": 1.043081283569336e-07,
+     "clamp_frac_beta_gt1": 0.0,
+     "beta_99": [
+      0.08182398974895477,
+      0.2015121579170227,
+      0.37725165486335754,
+      0.24450667202472687
+     ],
+     "fwd_share_99": 0.16937368735671043,
+     "release_jump": -0.027920391410589218
+    },
+    "sha_lo_real": {
+     "primary": "N",
+     "primary_nb": "N",
+     "unstable": false,
+     "phi_nec": -0.0013894054461421317,
+     "phi_nec_1000": 0.008930670821902327,
+     "cls2": "MIXTURE",
+     "competent": true,
+     "KL": 0.010646747675108474,
+     "phi_share": 0.0826635817054254,
+     "mediator_band": "N",
+     "window_dloss_90_99": 0.001956129074096591,
+     "clamp_max_err": 1.043081283569336e-07,
+     "clamp_frac_beta_gt1": 0.0,
+     "beta_99": [
+      -0.043384358286857605,
+      -0.1502065360546112,
+      -0.47044119238853455,
+      -0.14858882129192352
+     ],
+     "fwd_share_99": 0.14227300137281418,
+     "release_jump": 0.026260577142238617
+    },
+    "gof23": {
+     "primary": "F",
+     "primary_nb": "F",
+     "unstable": true,
+     "phi_nec": 0.9893001225529876,
+     "phi_nec_1000": 0.981039842191824,
+     "cls2": "EARLY",
+     "competent": true,
+     "KL": 0.022566974322296773,
+     "phi_share": 0.996200086908203,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.009984999895095825
+    }
+   }
+  },
+  "M|813": {
+   "evaluable": false,
+   "baseline_cls": "HYBRID",
+   "block_cls": "EARLY",
+   "arms": {
+    "vrg": {
+     "primary": "MISSING",
+     "primary_nb": "MISSING",
+     "unstable": false,
+     "phi_nec": 0.933478850012655,
+     "phi_nec_1000": 0.944442235503343,
+     "cls2": "EARLY",
+     "competent": false,
+     "KL": 0.023073190829127774,
+     "phi_share": 0.8986619611719062,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0032507777214050293
+    },
+    "gsg": {
+     "primary": "P",
+     "primary_nb": "P",
+     "unstable": false,
+     "phi_nec": 0.35972343147621366,
+     "phi_nec_1000": 0.39553913777729066,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.0158531414872888,
+     "phi_share": 0.8501895867642436,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0026259601116179754
+    },
+    "gsv": {
+     "primary": "MISSING",
+     "primary_nb": "MISSING",
+     "unstable": false,
+     "phi_nec": 0.9550623441815218,
+     "phi_nec_1000": 0.9646544066620371,
+     "cls2": "EARLY",
+     "competent": false,
+     "KL": 0.022667820258940822,
+     "phi_share": 1.0136145418416889,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.001151424646377519
+    },
+    "sha_hi_rolled": {
+     "primary": "MISSING",
+     "primary_nb": "MISSING",
+     "unstable": false,
+     "phi_nec": 0.9374071478108451,
+     "phi_nec_1000": 0.9490161598169033,
+     "cls2": "EARLY",
+     "competent": false,
+     "KL": 0.02346443302327664,
+     "phi_share": 0.8971914940592698,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.0032829523086547185,
+     "clamp_max_err": 8.940696716308594e-08,
+     "clamp_frac_beta_gt1": 0.0,
+     "beta_99": [
+      0.12882086634635925,
+      0.17783218622207642,
+      0.3724941611289978,
+      0.273105263710022
+     ],
+     "fwd_share_99": 0.17407609149813652,
+     "release_jump": -0.03102017566561699
+    },
+    "sha_lo_real": {
+     "primary": "N",
+     "primary_nb": "N",
+     "unstable": false,
+     "phi_nec": 0.017126042553401475,
+     "phi_nec_1000": 0.02062316304897191,
+     "cls2": "HYBRID",
+     "competent": true,
+     "KL": 0.013432559296314314,
+     "phi_share": 0.08212666629581572,
+     "mediator_band": "N",
+     "window_dloss_90_99": 0.0021675169467926247,
+     "clamp_max_err": 1.043081283569336e-07,
+     "clamp_frac_beta_gt1": 0.0,
+     "beta_99": [
+      -0.07672309130430222,
+      -0.17973271012306213,
+      -0.4883224666118622,
+      -0.21363429725170135
+     ],
+     "fwd_share_99": 0.1422090269625187,
+     "release_jump": 0.029011990875005722
+    },
+    "gof23": {
+     "primary": "MISSING",
+     "primary_nb": "MISSING",
+     "unstable": false,
+     "phi_nec": 0.9828666948868754,
+     "phi_nec_1000": 0.986793882325891,
+     "cls2": "EARLY",
+     "competent": false,
+     "KL": 0.023059442398884154,
+     "phi_share": 1.0001138426151719,
+     "mediator_band": "F",
+     "window_dloss_90_99": 0.008721166849136375
+    }
+   }
+  }
+ },
+ "arms": {
+  "vrg": {
+   "pooled": "INCONCLUSIVE",
+   "per_base": {
+    "E": [
+     "NONEVAL",
+     "F",
+     "NONEVAL"
+    ],
+    "M": [
+     "NONEVAL",
+     "F",
+     "NONEVAL"
+    ]
+   },
+   "n_evaluable": 2,
+   "n_definite": 2,
+   "counts": {
+    "F": 2
+   },
+   "phi_nec": [
+    1.021,
+    1.039,
+    0.985,
+    0.999,
+    0.998,
+    0.933
+   ]
+  },
+  "gsg": {
+   "pooled": "INCONCLUSIVE",
+   "per_base": {
+    "E": [
+     "NONEVAL",
+     "P",
+     "NONEVAL"
+    ],
+    "M": [
+     "NONEVAL",
+     "P",
+     "NONEVAL"
+    ]
+   },
+   "n_evaluable": 2,
+   "n_definite": 2,
+   "counts": {
+    "P": 2
+   },
+   "phi_nec": [
+    0.893,
+    0.647,
+    0.884,
+    0.426,
+    0.407,
+    0.36
+   ]
+  },
+  "gsv": {
+   "pooled": "INCONCLUSIVE",
+   "per_base": {
+    "E": [
+     "NONEVAL",
+     "P",
+     "NONEVAL"
+    ],
+    "M": [
+     "NONEVAL",
+     "F",
+     "NONEVAL"
+    ]
+   },
+   "n_evaluable": 2,
+   "n_definite": 2,
+   "counts": {
+    "P": 1,
+    "F": 1
+   },
+   "phi_nec": [
+    0.823,
+    0.813,
+    0.849,
+    1.015,
+    0.978,
+    0.955
+   ]
+  },
+  "sha_hi_rolled": {
+   "pooled": "INCONCLUSIVE",
+   "per_base": {
+    "E": [
+     "NONEVAL",
+     "F",
+     "NONEVAL"
+    ],
+    "M": [
+     "NONEVAL",
+     "F",
+     "NONEVAL"
+    ]
+   },
+   "n_evaluable": 2,
+   "n_definite": 2,
+   "counts": {
+    "F": 2
+   },
+   "phi_nec": [
+    1.016,
+    1.038,
+    0.983,
+    1.0,
+    0.998,
+    0.937
+   ]
+  },
+  "sha_lo_real": {
+   "pooled": "INCONCLUSIVE",
+   "per_base": {
+    "E": [
+     "NONEVAL",
+     "N",
+     "NONEVAL"
+    ],
+    "M": [
+     "NONEVAL",
+     "N",
+     "NONEVAL"
+    ]
+   },
+   "n_evaluable": 2,
+   "n_definite": 2,
+   "counts": {
+    "N": 2
+   },
+   "phi_nec": [
+    0.026,
+    -0.026,
+    -0.002,
+    -0.017,
+    -0.001,
+    0.017
+   ]
+  },
+  "gof23": {
+   "pooled": "INCONCLUSIVE",
+   "per_base": {
+    "E": [
+     "NONEVAL",
+     "F",
+     "NONEVAL"
+    ],
+    "M": [
+     "NONEVAL",
+     "F",
+     "NONEVAL"
+    ]
+   },
+   "n_evaluable": 2,
+   "n_definite": 2,
+   "counts": {
+    "F": 2
+   },
+   "phi_nec": [
+    0.995,
+    1.022,
+    0.989,
+    0.982,
+    0.989,
+    0.983
+   ]
+  }
+ },
+ "hypotheses": {
+  "H1d": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsv": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_hi_rolled": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "Hm_window": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "med",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsv": {
+     "pred": "med",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "F",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "F"
+      ],
+      [
+       "M|812",
+       "N",
+       "F"
+      ]
+     ],
+     "status": "contradicted"
+    }
+   }
+  },
+  "Hm_release": {
+   "verdict": "INCONCLUSIVE",
+   "arms": {
+    "vrg": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "med",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsv": {
+     "pred": "med",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_lo_real": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "H2g_R": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsg": {
+     "pred": "F",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsv": {
+     "pred": "F",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "H2g_RV": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsv": {
+     "pred": "F",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "H4": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsv": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "H1d_plus_Hm": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "P",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "P"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsv": {
+     "pred": "P",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "F",
+       "P"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "P",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "P"
+      ],
+      [
+       "M|812",
+       "F",
+       "P"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "P",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "P"
+      ],
+      [
+       "M|812",
+       "N",
+       "P"
+      ]
+     ],
+     "status": "contradicted"
+    }
+   }
+  },
+  "H1d_plus_H2g": {
+   "verdict": "INCONCLUSIVE",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "P",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "P"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsv": {
+     "pred": "PF",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "PF"
+      ],
+      [
+       "M|812",
+       "F",
+       "PF"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  }
+ },
+ "h3_E": {
+  "rule": "vrg F on >= 2 of 3 E pairs with immediate dloss at the paired baseline's step-100 parameters < 0.18 (XIV non-flipping E noise)",
+  "immediate_dloss": {
+   "E|811": {
+    "vrg": 0.11246418952941895,
+    "sha_hi_rolled": 0.11251747608184814
+   },
+   "E|812": {
+    "vrg": 0.08936965465545654,
+    "sha_hi_rolled": 0.08948314189910889
+   },
+   "E|813": {
+    "vrg": 0.08356130123138428,
+    "sha_hi_rolled": 0.08366763591766357
+   },
+   "M|811": {
+    "vrg": 0.010875701904296875,
+    "sha_hi_rolled": 0.010816693305969238
+   },
+   "M|812": {
+    "vrg": 0.012277364730834961,
+    "sha_hi_rolled": 0.012234807014465332
+   },
+   "M|813": {
+    "vrg": 0.012865245342254639,
+    "sha_hi_rolled": 0.012851893901824951
+   }
+  },
+  "n_ok": 1,
+  "excluded": false
+ },
+ "stability_continuations": [
+  "uP160_fx_L21_W21_D811_vrgown0T100_stop1211_c18",
+  "uP160_fx_L21_W21_D811_stop1211_c18",
+  "uP160_fx_L21_W21_D811_gofown0b1e9T100_stop1211_c18",
+  "uP160_fx_L21_W21_D811_gsgown0T100_stop1211_c18",
+  "uP160_fx_L21_W21_D811_gsvown0T100_stop1211_c18",
+  "uP160_fx_L21_W21_D811_shaown0hirolledT100_stop1211_c18",
+  "uP160_fx_L21_W21_D811_gofown0b2.3T100_stop1211_c18",
+  "uP160_fx_L21_W21_D812_gsgown0T100_stop1211_c18",
+  "uP160_fx_L21_W21_D812_stop1211_c18",
+  "uP160_fx_L21_W21_D812_gofown0b1e9T100_stop1211_c18",
+  "uP160_fx_L21_W21_D812_gsvown0T100_stop1211_c18",
+  "uP160_fx_L21_W21_D813_vrgown0T100_stop1211_c18",
+  "uP160_fx_L21_W21_D813_stop1211_c18",
+  "uP160_fx_L21_W21_D813_gofown0b1e9T100_stop1211_c18",
+  "uP160_fx_L21_W21_D813_gsgown0T100_stop1211_c18",
+  "uP160_fx_L21_W21_D813_gsvown0T100_stop1211_c18",
+  "uP160_fx_L21_W21_D813_shaown0hirolledT100_stop1211_c18",
+  "uP160_fx_L21_W21_D813_shaown0lorealT100_stop1211_c18",
+  "uP160_fx_L21_W21_D813_gofown0b2.3T100_stop1211_c18",
+  "uP160_fx_L23_W23_D811_vrgown2T100_stop1211_c18",
+  "uP160_fx_L23_W23_D811_stop1211_c18",
+  "uP160_fx_L23_W23_D811_gofown2b1e9T100_stop1211_c18",
+  "uP160_fx_L23_W23_D811_gsgown2T100_stop1211_c18",
+  "uP160_fx_L23_W23_D811_gsvown2T100_stop1211_c18",
+  "uP160_fx_L23_W23_D811_shaown2hirolledT100_stop1211_c18",
+  "uP160_fx_L23_W23_D811_shaown2lorealT100_stop1211_c18",
+  "uP160_fx_L23_W23_D811_gofown2b2.3T100_stop1211_c18",
+  "uP160_fx_L23_W23_D812_vrgown2T100_stop1211_c18",
+  "uP160_fx_L23_W23_D812_stop1211_c18",
+  "uP160_fx_L23_W23_D812_gofown2b1e9T100_stop1211_c18",
+  "uP160_fx_L23_W23_D812_gsgown2T100_stop1211_c18",
+  "uP160_fx_L23_W23_D812_gsvown2T100_stop1211_c18",
+  "uP160_fx_L23_W23_D812_shaown2hirolledT100_stop1211_c18",
+  "uP160_fx_L23_W23_D812_gofown2b2.3T100_stop1211_c18",
+  "uP160_fx_L23_W23_D813_gsgown2T100_stop1211_c18",
+  "uP160_fx_L23_W23_D813_stop1211_c18",
+  "uP160_fx_L23_W23_D813_gofown2b1e9T100_stop1211_c18"
+ ],
+ "clamp_checks": {
+  "E|811|sha_hi_rolled": {
+   "max_err": 1.7881393432617188e-07,
+   "frac_beta_gt1": 0.13,
+   "beta_99": [
+    0.5024592280387878,
+    0.4581780731678009,
+    0.33113259077072144,
+    1.164888858795166
+   ],
+   "release_jump": -0.08825677633285522
+  },
+  "E|811|sha_lo_real": {
+   "max_err": 1.1920928955078125e-07,
+   "frac_beta_gt1": 0.12,
+   "beta_99": [
+    -0.5000888109207153,
+    -0.5914708375930786,
+    -0.31432515382766724,
+    -2.306572198867798
+   ],
+   "release_jump": 0.13660125620663166
+  },
+  "E|812|sha_hi_rolled": {
+   "max_err": 1.7881393432617188e-07,
+   "frac_beta_gt1": 0.13,
+   "beta_99": [
+    0.49240797758102417,
+    0.4512192904949188,
+    0.3301704525947571,
+    1.1141084432601929
+   ],
+   "release_jump": -0.08273514732718468
+  },
+  "E|812|sha_lo_real": {
+   "max_err": 1.1920928955078125e-07,
+   "frac_beta_gt1": 0.11,
+   "beta_99": [
+    -0.4895232617855072,
+    -0.5606371164321899,
+    -0.3251630365848541,
+    -2.167529821395874
+   ],
+   "release_jump": 0.12981850281357765
+  },
+  "E|813|sha_hi_rolled": {
+   "max_err": 1.1920928955078125e-07,
+   "frac_beta_gt1": 0.11,
+   "beta_99": [
+    0.485531210899353,
+    0.4393118619918823,
+    0.3005489408969879,
+    1.231441855430603
+   ],
+   "release_jump": -0.0853615552186966
+  },
+  "E|813|sha_lo_real": {
+   "max_err": 1.1920928955078125e-07,
+   "frac_beta_gt1": 0.1,
+   "beta_99": [
+    -0.4708973169326782,
+    -0.5361762642860413,
+    -0.29413190484046936,
+    -1.982208490371704
+   ],
+   "release_jump": 0.11863164231181145
+  },
+  "M|811|sha_hi_rolled": {
+   "max_err": 1.043081283569336e-07,
+   "frac_beta_gt1": 0.0,
+   "beta_99": [
+    0.09294254332780838,
+    0.16910205781459808,
+    0.32232752442359924,
+    0.2335401326417923
+   ],
+   "release_jump": -0.025593679398298264
+  },
+  "M|811|sha_lo_real": {
+   "max_err": 1.043081283569336e-07,
+   "frac_beta_gt1": 0.0,
+   "beta_99": [
+    -0.040602874010801315,
+    -0.1780627965927124,
+    -0.41526350378990173,
+    -0.1788165122270584
+   ],
+   "release_jump": 0.02588130161166191
+  },
+  "M|812|sha_hi_rolled": {
+   "max_err": 1.043081283569336e-07,
+   "frac_beta_gt1": 0.0,
+   "beta_99": [
+    0.08182398974895477,
+    0.2015121579170227,
+    0.37725165486335754,
+    0.24450667202472687
+   ],
+   "release_jump": -0.027920391410589218
+  },
+  "M|812|sha_lo_real": {
+   "max_err": 1.043081283569336e-07,
+   "frac_beta_gt1": 0.0,
+   "beta_99": [
+    -0.043384358286857605,
+    -0.1502065360546112,
+    -0.47044119238853455,
+    -0.14858882129192352
+   ],
+   "release_jump": 0.026260577142238617
+  },
+  "M|813|sha_hi_rolled": {
+   "max_err": 8.940696716308594e-08,
+   "frac_beta_gt1": 0.0,
+   "beta_99": [
+    0.12882086634635925,
+    0.17783218622207642,
+    0.3724941611289978,
+    0.273105263710022
+   ],
+   "release_jump": -0.03102017566561699
+  },
+  "M|813|sha_lo_real": {
+   "max_err": 1.043081283569336e-07,
+   "frac_beta_gt1": 0.0,
+   "beta_99": [
+    -0.07672309130430222,
+    -0.17973271012306213,
+    -0.4883224666118622,
+    -0.21363429725170135
+   ],
+   "release_jump": 0.029011990875005722
+  }
+ },
+ "hypotheses_sensitivity_no_behaviour": {
+  "H1d": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsv": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_hi_rolled": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "Hm_window": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "med",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsv": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "F",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "F"
+      ],
+      [
+       "M|812",
+       "N",
+       "F"
+      ]
+     ],
+     "status": "contradicted"
+    }
+   }
+  },
+  "Hm_release": {
+   "verdict": "INCONCLUSIVE",
+   "arms": {
+    "vrg": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "med",
+     "matches": 1,
+     "mismatches": 1,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsv": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_lo_real": {
+     "pred": "med",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "H2g_R": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsg": {
+     "pred": "F",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "F"
+      ],
+      [
+       "M|812",
+       "P",
+       "F"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsv": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "H2g_RV": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsv": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "H4": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "N"
+      ],
+      [
+       "M|812",
+       "P",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "gsv": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_hi_rolled": {
+     "pred": "N",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "N"
+      ],
+      [
+       "M|812",
+       "F",
+       "N"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  },
+  "H1d_plus_Hm": {
+   "verdict": "CONTRADICTED",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "P",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "P"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsv": {
+     "pred": "P",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "P"
+      ],
+      [
+       "M|812",
+       "F",
+       "P"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_hi_rolled": {
+     "pred": "P",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "P"
+      ],
+      [
+       "M|812",
+       "F",
+       "P"
+      ]
+     ],
+     "status": "contradicted"
+    },
+    "sha_lo_real": {
+     "pred": "P",
+     "matches": 0,
+     "mismatches": 2,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "P"
+      ],
+      [
+       "M|812",
+       "N",
+       "P"
+      ]
+     ],
+     "status": "contradicted"
+    }
+   }
+  },
+  "H1d_plus_H2g": {
+   "verdict": "INCONCLUSIVE",
+   "arms": {
+    "vrg": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsg": {
+     "pred": "P",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "P",
+       "P"
+      ],
+      [
+       "M|812",
+       "P",
+       "P"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "gsv": {
+     "pred": "PF",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "PF"
+      ],
+      [
+       "M|812",
+       "F",
+       "PF"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_hi_rolled": {
+     "pred": "F",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "F",
+       "F"
+      ],
+      [
+       "M|812",
+       "F",
+       "F"
+      ]
+     ],
+     "status": "inconclusive"
+    },
+    "sha_lo_real": {
+     "pred": "N",
+     "matches": 2,
+     "mismatches": 0,
+     "detail": [
+      [
+       "E|812",
+       "N",
+       "N"
+      ],
+      [
+       "M|812",
+       "N",
+       "N"
+      ]
+     ],
+     "status": "inconclusive"
+    }
+   }
+  }
+ },
+ "hypotheses_per_base": {
+  "E": {
+   "H1d": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "Hm_window": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "med",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "N",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "Hm_release": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "med",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H2g_R": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H2g_RV": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H4": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H1d_plus_Hm": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "P",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "P",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "E|812",
+        "N",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H1d_plus_H2g": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "P",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "PF",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "P",
+        "PF"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "E|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   }
+  },
+  "M": {
+   "H1d": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "P",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "Hm_window": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "med",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "P",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "N",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "Hm_release": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "med",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "P",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "med",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H2g_R": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "F",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "P",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H2g_RV": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "P",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H4": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "P",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "N",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H1d_plus_Hm": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "P",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "P",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "P",
+      "matches": 0,
+      "mismatches": 1,
+      "detail": [
+       [
+        "M|812",
+        "N",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   },
+   "H1d_plus_H2g": {
+    "verdict": "INCONCLUSIVE",
+    "arms": {
+     "vrg": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsg": {
+      "pred": "P",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "P",
+        "P"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "gsv": {
+      "pred": "PF",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "PF"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_hi_rolled": {
+      "pred": "F",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "F",
+        "F"
+       ]
+      ],
+      "status": "inconclusive"
+     },
+     "sha_lo_real": {
+      "pred": "N",
+      "matches": 1,
+      "mismatches": 0,
+      "detail": [
+       [
+        "M|812",
+        "N",
+        "N"
+       ]
+      ],
+      "status": "inconclusive"
+     }
+    }
+   }
+  }
+ },
+ "P1_graded": {
+  "pooled": "INCONCLUSIVE",
+  "per_base": {
+   "E": [
+    "NONEVAL",
+    "F",
+    "NONEVAL"
+   ],
+   "M": [
+    "NONEVAL",
+    "F",
+    "NONEVAL"
+   ]
+  },
+  "n_evaluable": 2,
+  "n_definite": 2,
+  "counts": {
+   "F": 2
+  },
+  "phi_nec": [
+   0.995,
+   1.022,
+   0.989,
+   0.982,
+   0.989,
+   0.983
+  ]
+ }
+}

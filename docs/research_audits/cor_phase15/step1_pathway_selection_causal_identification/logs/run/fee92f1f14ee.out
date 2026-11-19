@@ -1,0 +1,9 @@
+[uP162_fx_L20_W20_D811_stop1211_scr] step 25 loss 1.1585 14s
+[uP162_fx_L20_W20_D811_stop1211_scr] step 50 loss 1.1070 25s
+[uP162_fx_L20_W20_D811_stop1211_scr] step 74 loss 1.0918 48s
+[uP162_fx_L20_W20_D811_stop1211_scr] step 100 loss 1.0500 64s
+[uP162_fx_L20_W20_D811_stop1211_scr] step 111 loss 1.0070 69s
+[uP162_fx_L20_W20_D811_stop1211_scr] step 150 loss 0.8800 87s
+[uP162_fx_L20_W20_D811_stop1211_scr] step 165 loss 0.8949 93s
+[uP162_fx_L20_W20_D811_stop1211_scr] step 200 loss 0.8700 109s
+[uP162_fx_L20_W20_D811_stop1211_scr] step 246 loss 0.8573 130s

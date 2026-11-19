@@ -6,7 +6,7 @@ import os, sys, json
 H = os.path.dirname(os.path.abspath(__file__)); SRC = open(os.path.join(H, "xviii_train.py")).read().split("rng = np.random.default_rng(1_000_003")[0]
 SRC = SRC.replace('OUT = os.path.join(HERE, "..", "checkpoints", "ft", tag); os.makedirs(OUT, exist_ok=True)', "OUT = None")
 import numpy as np
-D = json.load(open(sys.argv[1])); P = os.path.join(H, ".."); out = {}
+D = json.load(open(sys.argv[1])); OUTF = sys.argv[2]; P = os.path.join(H, ".."); out = {}   # post-freeze fix: env() overwrites sys.argv
 def env(args, envstr):
     for k in list(os.environ):
         if k.startswith("FX_"): os.environ.pop(k)
@@ -22,4 +22,4 @@ for b, B in D["bases"].items():
             dd = g["NL"].Bm.sample_fast(g["NL"].ENV, 1024, np.random.default_rng(D["stream"] + 17)); X, Y = jnp.asarray(dd["X"]), jnp.asarray(dd["Y"])
             res[arm] = float(g["lossf"](t, X, Y, True, jnp.int32(99)) - g["lossf"](t, X, Y, False))
         out[f"{b}|{Dd}"] = res; print(b, Dd, res, flush=True)
-json.dump(out, open(sys.argv[2], "w"), indent=1)
+json.dump(out, open(OUTF, "w"), indent=1)

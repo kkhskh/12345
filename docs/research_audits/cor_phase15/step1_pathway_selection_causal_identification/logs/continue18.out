@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/claude/12345/docs/research_audits/cor_phase15/step1_pathway_selection_causal_identification/scripts/continue18.py", line 6, in <module>
+    S = json.load(open(sys.argv[1])); D = json.load(open(sys.argv[2])); mout = sys.argv[3]; lines = []
+                  ~~~~^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'logs/score_XVIII.json'

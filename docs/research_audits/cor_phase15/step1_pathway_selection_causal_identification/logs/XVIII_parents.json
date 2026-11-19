@@ -1,0 +1,73 @@
+{
+ "parents": {
+  "uP162": {
+   "screen": {
+    "20": "INCOMPETENT",
+    "21": "INCOMPETENT",
+    "22": "INCOMPETENT",
+    "23": "INCOMPETENT",
+    "24": "INCOMPETENT",
+    "25": "INCOMPETENT"
+   },
+   "E_seed": null,
+   "M_seed": null,
+   "bistable": false,
+   "pending_extra_seeds": false
+  },
+  "uP163": {
+   "screen": {
+    "20": "EARLY",
+    "21": "HYBRID",
+    "22": "INCOMPETENT",
+    "23": "MIXTURE"
+   },
+   "E_seed": 20,
+   "M_seed": 23,
+   "bistable": true,
+   "pending_extra_seeds": false,
+   "runs": {
+    "E|baseline": "uP163_fx_L20_W20_D812_stop1211_p18",
+    "E|block": "uP163_fx_L20_W20_D812_gofown0b1e9T100_stop1211_p18",
+    "E|vrg": "uP163_fx_L20_W20_D812_vrgown0T100_stop1211_p18",
+    "E|gsv": "uP163_fx_L20_W20_D812_gsvown0T100_stop1211_p18",
+    "E|sha_hi_rolled": "uP163_fx_L20_W20_D812_shaown0hirolledT100_stop1211_p18",
+    "E|sha_lo_real": "uP163_fx_L20_W20_D812_shaown0lorealT100_stop1211_p18",
+    "M|baseline": "uP163_fx_L23_W23_D812_stop1211_p18",
+    "M|block": "uP163_fx_L23_W23_D812_gofown2b1e9T100_stop1211_p18",
+    "M|vrg": "uP163_fx_L23_W23_D812_vrgown2T100_stop1211_p18",
+    "M|gsv": "uP163_fx_L23_W23_D812_gsvown2T100_stop1211_p18",
+    "M|sha_hi_rolled": "uP163_fx_L23_W23_D812_shaown2hirolledT100_stop1211_p18",
+    "M|sha_lo_real": "uP163_fx_L23_W23_D812_shaown2lorealT100_stop1211_p18"
+   }
+  },
+  "uP164": {
+   "screen": {
+    "20": "HYBRID",
+    "21": "INCOMPETENT",
+    "22": "EARLY",
+    "23": "EARLY",
+    "24": "HYBRID",
+    "25": "EARLY"
+   },
+   "E_seed": 22,
+   "M_seed": null,
+   "bistable": false,
+   "pending_extra_seeds": false
+  },
+  "uP165": {
+   "screen": {
+    "20": "MIXTURE",
+    "21": "HYBRID",
+    "22": "MIXTURE",
+    "23": "HYBRID",
+    "24": "MIXTURE",
+    "25": "MIXTURE"
+   },
+   "E_seed": null,
+   "M_seed": 20,
+   "bistable": false,
+   "pending_extra_seeds": false
+  }
+ },
+ "uP161": "non-bistable (XIII-E: 0/32 early draws; not screened)"
+}

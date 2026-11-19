@@ -16,7 +16,7 @@
 
 **Within-parent confirmation (uP160).**
 - 2 bases × 3 fresh data orders (D = 811, 812, 813) × 8 arms = **48 runs**, all completed with rc = 0.
-- Measured at steps 1000 and 1211 on stream 95_400_000, which had never been used before.
+- Measured at steps 1000 and 1211 on stream 95_400_000. That stream had been used once before, by XIII-E on development checkpoints only, so there is no leakage (Reviewer D, D2).
 - Statistical unit: base × order pair, n = 6, within one parent, so effectively 2 clustered bases.
 
 **Post-freeze deviation (logged in `logs/COMPUTE_LOG.txt`).**
@@ -48,7 +48,12 @@ Pre-review Reviewer B (addendum, fix 4) had flagged this classifier as "really a
 
 **Implementation gap (my error).** In `score_XVIII.py` the sensitivity analysis drops the behavioural gate from the *bands* but not from the *evaluability* test. So the frozen sensitivity output also has only 2 evaluable pairs. Section 4 applies the pre-registered text in full, labelled post-hoc.
 
-**Frozen verdicts** (2 evaluable pairs; symmetric rule: CONSISTENT needs ≥ 5 matches, CONTRADICTED needs ≥ 2 mismatches):
+**Frozen verdicts** (2 evaluable pairs; symmetric rule: CONSISTENT needs ≥ 5 matches, CONTRADICTED needs ≥ 2 mismatches).
+- These are legitimate frozen results.
+- INCONCLUSIVE applies to the arm-pooled bands. With 2 pairs, no hypothesis could have come out CONSISTENT (Reviewer C, C3).
+- Under the literal reading of the clamp β rule (Reviewer D, D1: E sha runs have |β| > 1 on 10–13% of window steps), Hm_window and H1d_plus_Hm become INCONCLUSIVE.
+- **The frozen "unstable" flags** (M|812 vrg, gsv, sha-hi-rolled and gof23; M|811 sha-lo-real) come from behavioural drift of the baseline or arm between steps 1000 and 1211. For example, the M|812 baseline is behaviourally HYBRID at 1000 and MIXTURE at 1211.
+
 
 | hypothesis | frozen verdict | frozen sensitivity (bands without behaviour, same 2 pairs) |
 |---|---|---|
@@ -65,10 +70,11 @@ Pre-review Reviewer B (addendum, fix 4) had flagged this classifier as "really a
 - **Arm-level pooled bands:** all INCONCLUSIVE, because fewer than 5 evaluable pairs remain.
 - **H3 on E** [frozen]: **not excluded**. The rule needs vrg = F on at least 2 evaluable E pairs, and only E|812 is evaluable.
 
-**The share clamp worked as designed** [frozen]:
+**The share clamp's numerical behaviour** [frozen]:
 - maximum achieved-versus-target error 1.8e-7;
 - |β| > 1 on 0–13% of window steps;
-- no sha run was marked UNINTERPRETABLE.
+- no sha run was marked UNINTERPRETABLE by the scorer's error check.
+- The §10.6 β rule is stated ambiguously. Its source (Reviewer A §3.3) applies it to the validity cell sha-hi-real, which scored 0.00 in development and passed. Applied literally to every run, the E sha runs (0.10–0.13) fail it (Reviewer D, D1). Both readings are reported.
 
 ## 3. Per-pair results (the data the verdicts rest on)
 
@@ -106,20 +112,29 @@ Here the baseline and block classes come from structural + causal agreement and 
 
 **Evaluable pairs:** 5 of 6. M|813 is excluded because its block fails the accuracy criterion.
 
-**Pooled verdicts: every one of the eight pre-registered hypotheses is CONTRADICTED.** Per base, all are contradicted on E. On M all are contradicted except H1d_plus_H2g, which is INCONCLUSIVE.
+**Pooled verdicts** [sens]: all eight are formally CONTRADICTED. Per base, all are contradicted on E; on M all except H1d_plus_H2g, which is INCONCLUSIVE. The **strength** of those contradictions differs (Reviewer C, C4):
 
-| hypothesis | where it fails |
-|---|---|
-| H1d | gsv flips in 5/5 pairs with the forward content intact |
-| Hm_window | sha-hi-rolled flips 5/5; sha-lo-real is N in 6/6 |
-| Hm_release | gsg on M: latent share block-like (φ_share 0.82–0.85), outcome only P in 3/3 |
-| H2g_R, H2g_RV | vrg and sha-hi-rolled flip 5/5 while the routing gradient through T is present |
-| H4 | gsv flips; sha-hi-rolled flips |
-| H1d_plus_Hm | sha arms are F and N, not P |
-| H1d_plus_H2g | gsg is F, not P, on 2 of 3 E pairs |
+| hypothesis | where it fails | strength |
+|---|---|---|
+| H1d | gsv and gsg are never N (φ ≥ 0.36 everywhere) | robust; also frozen |
+| Hm_window | sha-hi-rolled F 5/5; sha-lo-real N 5/5 evaluable | frozen too, within a small contrast (forward-share difference ≤ 0.10 on E and ≤ 0.03 on M, steps ≈ 60–99) |
+| H2g_R, H2g_RV | vrg and sha-hi-rolled F 5/5 with the routing gradient present | robust; also frozen (a necessity failure, so the potency wording of §10.11 does not apply) |
+| H4 | gsv F (M), sha-hi-rolled F | also frozen |
+| H1d_plus_Hm | sha arms F and N, not P | also frozen |
+| **Hm_release** | gsg on M: block-like latent share (φ_share 0.82–0.85), outcome P (2/2 evaluable) | **thin**: the M denominator is 0.031–0.034, the margins are 0.018 and 0.052, and the band would match at step 150. **Not excluded.** |
+| **H1d_plus_H2g** | gsg F, not P, on 2 E pairs (φ 0.88–0.89, margins 0.08–0.09) | **thin**: it depends on dropping the arm's behavioural class (gsg E ρ_L 0.46–0.54). **Not excluded.** |
 
-**H3 on E (post-hoc):** vrg is F on 3/3 E pairs, with immediate Δloss 0.08–0.11 < 0.18. **Excluded.**
+**H3 on E (sens).**
+- **Immediate size:** vrg is F on 3/3 E pairs with immediate Δloss 0.08–0.11 < 0.18. Excluded, but against a threshold from XIV's noise control, which is another cohort and another (36-edge) edge set.
+- **Trajectory-loss size: not excluded.** Window Δloss on E: sha-lo-real (N) +0.025, against +0.030 to +0.067 for every F/P arm (Reviewer C §4). This is confounded, because not building T raises the loss.
+- **Gradient magnitude** does not track the outcome on either base.
+- **No matched non-targeted disturbance arm** was run.
 
-## 5. Stability readout, and the independent parents
+## 5. Independent parents, and the stability readout
 
-(Added when stages 2b, 3 and 4 finish.)
+**Parents.** See INDEPENDENT_PARENT_GENERALIZATION.md.
+- 1 of 5 candidates is bistable (uP163).
+- **[frozen]:** uP163 is non-evaluable, because of the same behavioural gate.
+- **[sens], frozen per-parent rule:** block F, sha-hi-rolled F, sha-lo-real N, vrg MIXED, gsv MIXED.
+
+**Stability readout at step 2546.** See MAIN_RESEARCH_SYNTHESIS.md, "Stability readout".

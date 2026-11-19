@@ -50,4 +50,20 @@ The outcome is scored by **test-time route necessity** together with a lapse-awa
 
 ## 4. The contribution, after the results
 
-(Completed after scoring; see MAIN_RESEARCH_SYNTHESIS.md.)
+**The defensible distinctive content** (after Reviewer C, C15) has two parts:
+1. **The decomposition itself.** One training-time attention restriction is separated into forward content, learning signal and attention share. Each part is set by its own intervention, and the result is scored by test-time route necessity.
+2. **Its descriptive outcome** [sens; uP160, with one independent parent]:
+   - destroying the route's forward content suffices;
+   - removing the gradient through the route suffices fully on one organisation, and switches route necessity on the other;
+   - holding the route's forward share at its initial level while it keeps learning does not suffice;
+   - no single attention statistic at release explains the arms.
+
+**What is not claimed:**
+- "Share restriction does not select": graded suppression at odds × 0.1 does select.
+- A unifying mechanism.
+
+**Contrast with Kleinman et al.**
+- gsv is the attention analogue of their gradient-only deficit (shared weights still learn through other edges). It switches the organisation fully on M, which agrees with their result.
+- On E it switches only route necessity, not behaviour. Their deep-linear race does not predict that organisation-dependence.
+
+The frozen primary was inconclusive, so all of this is at the sensitivity-analysis level.

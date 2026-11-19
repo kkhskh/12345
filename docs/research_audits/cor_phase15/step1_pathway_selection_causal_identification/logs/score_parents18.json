@@ -1,0 +1,89 @@
+{
+ "parents": {
+  "uP162": {
+   "bistable": false,
+   "screen": {
+    "20": "INCOMPETENT",
+    "21": "INCOMPETENT",
+    "22": "INCOMPETENT",
+    "23": "INCOMPETENT",
+    "24": "INCOMPETENT",
+    "25": "INCOMPETENT"
+   }
+  },
+  "uP163": {
+   "bistable": true,
+   "bases": {
+    "E": {
+     "evaluable": false,
+     "baseline_cls": "HYBRID",
+     "block_cls": "HYBRID",
+     "arms": {
+      "block": "NONEVAL",
+      "vrg": "NONEVAL",
+      "vrg_phi": null,
+      "gsv": "NONEVAL",
+      "gsv_phi": null,
+      "sha_hi_rolled": "NONEVAL",
+      "sha_hi_rolled_phi": null,
+      "sha_lo_real": "NONEVAL",
+      "sha_lo_real_phi": null
+     }
+    },
+    "M": {
+     "evaluable": false,
+     "baseline_cls": "HYBRID",
+     "block_cls": "EARLY",
+     "arms": {
+      "block": "NONEVAL",
+      "vrg": "NONEVAL",
+      "vrg_phi": null,
+      "gsv": "NONEVAL",
+      "gsv_phi": null,
+      "sha_hi_rolled": "NONEVAL",
+      "sha_hi_rolled_phi": null,
+      "sha_lo_real": "NONEVAL",
+      "sha_lo_real_phi": null
+     }
+    }
+   },
+   "arm_summary": {
+    "block": "NONEVAL",
+    "vrg": "NONEVAL",
+    "gsv": "NONEVAL",
+    "sha_hi_rolled": "NONEVAL",
+    "sha_lo_real": "NONEVAL"
+   }
+  },
+  "uP164": {
+   "bistable": false,
+   "screen": {
+    "20": "HYBRID",
+    "21": "INCOMPETENT",
+    "22": "EARLY",
+    "23": "EARLY",
+    "24": "HYBRID",
+    "25": "EARLY"
+   }
+  },
+  "uP165": {
+   "bistable": false,
+   "screen": {
+    "20": "MIXTURE",
+    "21": "HYBRID",
+    "22": "MIXTURE",
+    "23": "HYBRID",
+    "24": "MIXTURE",
+    "25": "MIXTURE"
+   }
+  }
+ },
+ "P4": {
+  "uP163": "non-evaluable"
+ },
+ "P4_summary": {
+  "effect_present": 0,
+  "bistable_parents": 1,
+  "candidates": 5
+ }
+}

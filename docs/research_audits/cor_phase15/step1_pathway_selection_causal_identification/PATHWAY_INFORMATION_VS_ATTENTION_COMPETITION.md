@@ -41,67 +41,84 @@ uP160, E and M bases, D = 811–813, measured on a fresh stream.
 
 ### 3.1 The frozen outcome
 
-**The frozen primary analysis is INCONCLUSIVE for every arm.**
-- The behavioural gate makes 4 of the 6 baselines non-unanimous, so only 2 pairs are evaluable.
-- **On those 2 pairs, six of the eight hypotheses are CONTRADICTED** [frozen]: H1d, Hm_window, H2g_R, H2g_RV, H4 and H1d_plus_Hm.
-- **The other two are INCONCLUSIVE:** Hm_release and H1d_plus_H2g.
+**Arm bands.** Every arm-pooled band is INCONCLUSIVE: only 2 of 6 pairs are evaluable. The behavioural gate in the evaluability rule did not transfer to the fresh stream.
 
-### 3.2 Per pair, with the behavioural gate removed from evaluability [post-hoc; 5 evaluable pairs, the pre-registered sensitivity text applied in full]
+**Hypothesis verdicts** [frozen]:
+- **CONTRADICTED (6):** H1d, Hm_window, H2g_R, H2g_RV, H4, H1d_plus_Hm.
+- **INCONCLUSIVE (2):** Hm_release, H1d_plus_H2g.
+- With 2 pairs, no hypothesis could reach CONSISTENT.
+- Under the literal reading of the clamp β rule (Reviewer D, D1), Hm_window and H1d_plus_Hm become INCONCLUSIVE.
 
-| arm | E (3 pairs) | M (2–3 pairs) | reading |
+### 3.2 Per pair, under the pre-registered sensitivity analysis applied in full [sens; 5 evaluable pairs]
+
+| arm | E (3 pairs) | M (2 evaluable) | reading (Reviewer C §3.6) |
 |---|---|---|---|
-| vrg | F, F, F (φ 0.99–1.04) | F, F (M\|813 missing on accuracy) | Destroying T's content with its attention mass intact selects the other organisation. |
-| sha-hi-rolled | F, F, F | F, F | The same holds with T's forward share held on the baseline's own trajectory. |
-| **sha-lo-real** | **N, N, N** (φ −0.03 to 0.03) | **N, N, N** | Holding T's forward share at its initial level, with real content and learning signal, selects **nothing**. |
-| **gsv** | F, F, F (φ 0.81–0.85) | F, F (φ 0.98–1.02) | Removing all learning signal through T, with the forward pass intact, selects. |
-| gsg | F, P, F (φ 0.65–0.89) | P, P, P (φ 0.36–0.43) | Removing only the routing gradient on T's logits gives a strong effect on E and a partial one on M. |
-| gof b = 2.3 | F, F, F | F, F | A complete block is not necessary (mandate P1). |
+| vrg | F, F, F (φ 0.99–1.04) | F, F | Destroying T's forward content (value gradient stopped) **suffices**. |
+| sha-hi-rolled | F, F, F | F, F | The same, with T's forward share held on the baseline's trajectory. Not an independent replication: its release state and immediate Δloss match vrg's. It adds only the Hm_window test. |
+| sha-lo-real | N, N, N (φ −0.03 to 0.03) | N, N (M\|813 also N; non-evaluable) | Holding the forward share at its initial level, **while T's logits and values keep learning**, does **not** suffice. |
+| gsv | F, F, F (φ 0.81–0.85) | F, F (φ 0.98–1.02) | Removing all gradient through T suffices fully on M. On E it switches route necessity, just above the band edge, **without** mixture-like behaviour (ρ_L 0.57–0.61, against 0.73–0.87 for block and vrg). |
+| gsg | F, P, F (φ 0.65–0.89) | P, P (φ 0.41–0.43; M\|813 0.36) | On E it switches necessity in 2/3 pairs (behaviour ρ_L 0.46–0.54, not mixture-like). On M it gives a hybrid. The measured difference from gsv on M is the value gradient through T. |
+| gof b = 2.3 | F, F, F | F, F | A ≈ 90% forward-share reduction that also scales both gradients (a near-block) suffices. **Attention-share restriction of this size does select.** |
 
 ### 3.3 Mediator: latent own-question share at release (step 100)
 
-| arm | φ_share | outcome | consistent with "route established at release"? |
-|---|---|---|---|
-| vrg | 0.87–0.94 (block-like) | flips | yes |
-| sha-hi-rolled | 0.86–0.90 | flips | yes |
-| sha-lo-real (E) | −0.20 to −0.31: the latent share is **above** the baseline's | no flip | yes |
-| sha-lo-real (M) | +0.07 to 0.08 | no flip | yes |
-| gsv | 1.01–1.03 | flips | yes |
-| **gsg on M** | **0.82–0.85** (block-like latent share) | **only partial** (φ_nec 0.36–0.43) | **no** |
+| arm | φ_share | outcome |
+|---|---|---|
+| vrg, sha-hi-rolled | 0.86–0.94 (block-like) | switch |
+| gsv, gof | 0.99–1.03 | switch |
+| sha-lo-real | E −0.20 to −0.31 (above the baseline's); M 0.07–0.08 | no switch |
+| gsg E | 0.49–0.55 | necessity switches in 2/3 pairs |
+| gsg M | 0.82–0.85 | hybrid |
 
-**Clamp detail.** Under sha-lo-real the clamp holds the forward share low. The routing gradient, carrying real content, keeps raising T's latent logits, and at release the share jumps up: by 0.12–0.14 on E and 0.03 on M.
+**gsg dissociates from the latent-share mediator on both bases, in opposite directions** (Reviewer C, C5).
+- **E, robust:** T's share recovers after release, and gsg's busiest head exceeds the baseline's, yet the early route ends unnecessary.
+- **M, marginal:** the denominator A_base − A_block is 0.031–0.034.
+
+No attention statistic at release (mean share, max-head share, within-route concentration) separates all arms (Reviewer C §3.3). On uP163 M the denominator is 0.0048, so it is uninformative.
 
 ## 4. What is distinguished, and what is not
 
-**Excluded** [post-hoc; on 2 evaluable pairs, frozen]:
-- **Forward share or attention competition during formation, as a cause** (Hm_window, H2a). sha-lo-real keeps T's forward share at its initial level and selects nothing, in 6 of 6 pairs; this holds in the frozen analysis too. sha-hi-rolled keeps the baseline's share and selects, in 5 of 5 pairs.
-- **"The forward content through T must be absent"** (H1d). gsv selects with the forward pass identical to plain training, in 5 of 5 pairs.
-- **"The routing gradient alone"** (H2g_R) and **"any learning signal through T"** (H2g_RV). vrg and sha-hi-rolled select while the routing gradient on T is present.
-- **The size of the immediate disturbance** (H3):
-  - on M by XIV's data (L4);
-  - on E post-hoc, because vrg selects in 3 of 3 E pairs with immediate Δloss 0.08–0.11, below the 0.18 of XIV's non-selecting noise.
-  - The frozen H3 rule on E is **not** satisfied, because only one E pair is evaluable.
+**Excluded** [frozen on 2 pairs, reinforced by sens on 5; within this design's contrasts]:
 
-**What fits every arm** [interp; post-hoc; not pre-registered in this form]:
+| hypothesis | evidence |
+|---|---|
+| Hm_window: the forward-share *trajectory during the window* as the cause | Only within a small contrast: forward-share difference ≤ 0.10 on E and ≤ 0.03 on M, confined to steps ≈ 60–99. This excludes "the share must grow in the window", not "the share must be substantial". sha-lo-real does not test a latent-logit race: its latent share at release is at or above the baseline's. |
+| H1d: forward-content absence as a *necessary* condition | gsv and gsg are never N. |
+| H2g_R, H2g_RV as *necessary* conditions | vrg switches with a routing gradient present. The potency wording of the dose rule (§10.11) concerns sufficiency and does not apply to this necessity failure. |
+| H4 | gsv on M; sha-hi-rolled. |
+| H1d_plus_Hm | the sha arms are F and N, not P. |
+| Immediate-size H3 on M | XIV data and the in-cohort vrg Δloss of 0.011–0.013. Ledger N24 still stands. |
 
-> The organisation is switched when, during formation, **route T receives no useful learning signal**. That happens when the signal is absent (block, gsv) or when it carries no task information (vrg, sha-hi-rolled: T's content belongs to another episode). It does not happen when T's attention share is merely held down while its content stays informative (sha-lo-real). In that case the route is still learned latently and established at release.
+**Not excluded:**
+- **Hm_release** (latent share at release) and **H1d_plus_H2g**. Each is contradicted only in the sensitivity analysis, by gsg, in one parent, at thin margins.
+- **Trajectory-loss H3 on E.** The window Δloss orders the N arm below every F/P arm. This is confounded with the outcome.
+- **Immediate-size H3 on E.** It is excluded only against a cross-cohort threshold (sens).
 
-- **gsg is intermediate.** It removes the routing signal on T's logits but leaves the value signal and part of the recruitment signal through the complement logits. The arm is partial where the base relies on recruiting T (M) and near-full on E.
-- **This description joins two pre-registered ideas:** H1d's "content" (through the *usefulness* of the signal) and H2g's "learning signal". It contradicts both in their exact pre-registered forms. It has to be tested prospectively before it can be claimed.
+**No matched non-targeted disturbance arm** was run.
 
-**Not distinguished:**
-- **The value-gradient component.** Forward content and the value learning it enables cannot be separated: vsg was not run.
-- **Whether the latent-share mediator is a cause or only a correlate.** No arm forces the latent share independently of content and learning signal. gsg on M is the one dissociation, and it goes against the mediator account.
-- **Generality.** This is one parent and two bases (n_eff ≈ 2). The parent results are in INDEPENDENT_PARENT_GENERALIZATION.md.
+**Descriptions that fit the data** [interp; none pre-registered in this form; Reviewer C §3.4]:
+
+| | description | status |
+|---|---|---|
+| D0 | Mine: "the organisation switches when T receives no useful learning signal" | **Withdrawn as a finding.** Taken literally, gsg on E (useful value signal plus share recruitment, yet a switch) and fst [dev] contradict it. Read loosely, it is circular. |
+| D1 | Over-determination: content removal and signal removal are each nearly sufficient; neither is necessary; a forward-share clamp with continued learning is not sufficient | A description, not a mechanism. |
+| D2 | A direct logit-recruitment race | Fits E fully. On M it needs the value-gradient component. |
+| D3 | A latent-share mediator | Strained by gsg on both bases. |
+| D4 | Value learning by downstream consumers | Strained by gsg on E. |
+
+**What would discriminate them** (not run): vsg; a gradient-only rolled-content arm; gsg with complement-logit recruitment also stopped; attention logs to step 1211.
 
 ## 5. Matching (mandate A5)
 
-Interventions cannot be matched on every quantity at once. Each arm matches some quantities and gives up others:
+No single quantity can be matched across all arms. What each arm matches, and what it gives up:
 
-| arm | what it matches | what it gives up |
+| arm | matches | gives up |
 |---|---|---|
-| vrg | attention mass exactly | an immediate loss increase (E 0.08–0.11; M 0.01) |
-| gsg / gsv | forward pass and loss identical to plain at each step, given the same parameters | trajectories diverge after the first update |
-| sha-hi-rolled | forward share = the baseline's per head, by construction | the same loss increase as vrg |
-| sha-lo-real | forward share = the initial level | real content kept |
+| vrg | attention mass exactly | immediate Δloss E 0.08–0.11, M 0.01 |
+| sha-hi-rolled | the baseline's per-head forward share | the same Δloss as vrg |
+| sha-lo-real | the initial forward share | — (latent share free) |
+| gsg / gsv | the forward pass at equal parameters (by construction, so **not** evidence about disturbance) | — |
 
-The gradient energy over the window is comparable across arms in development (Reviewer B, N3). Per-group gradient norms are in each run's `window_log.json`.
+**Realised window Δloss on E** (Reviewer C §4): sha-lo-real +0.025; gsg +0.030–0.033; sha-hi-rolled +0.045–0.048; gsv +0.050–0.054; vrg +0.056–0.060; block and gof +0.061–0.067. On M every arm is ≤ 0.010.
+
+**Gradient energy over the window** is within about 5% across arms on each base.

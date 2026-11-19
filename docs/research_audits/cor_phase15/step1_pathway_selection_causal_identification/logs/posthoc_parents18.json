@@ -1,0 +1,50 @@
+{
+ "label": "POST-HOC (not frozen)",
+ "parents": {
+  "uP162": "not bistable",
+  "uP163": {
+   "E": {
+    "evaluable": true,
+    "block": "F",
+    "vrg": {
+     "phi_nec": 0.8160339525668474,
+     "band": "P"
+    },
+    "gsv": {
+     "phi_nec": 0.6443804031716805,
+     "band": "P"
+    },
+    "sha_hi_rolled": {
+     "phi_nec": 0.9311229826569014,
+     "band": "F"
+    },
+    "sha_lo_real": {
+     "phi_nec": -0.012315163225913783,
+     "band": "N"
+    }
+   },
+   "M": {
+    "evaluable": true,
+    "block": "F",
+    "vrg": {
+     "phi_nec": 0.9617666591248436,
+     "band": "F"
+    },
+    "gsv": {
+     "phi_nec": 0.9424115421892789,
+     "band": "F"
+    },
+    "sha_hi_rolled": {
+     "phi_nec": 0.9482357589300567,
+     "band": "F"
+    },
+    "sha_lo_real": {
+     "phi_nec": -0.022139047358756676,
+     "band": "N"
+    }
+   }
+  },
+  "uP164": "not bistable",
+  "uP165": "not bistable"
+ }
+}

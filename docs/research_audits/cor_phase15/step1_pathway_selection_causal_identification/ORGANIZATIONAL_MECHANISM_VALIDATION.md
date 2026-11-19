@@ -70,4 +70,21 @@ The frozen rule (§10.4 of the design):
 
 ## B5. Results on the confirmation cohort
 
-(Filled in from `logs/score_XVIII.json` after scoring.)
+**Necessity** separates the pure classes cleanly in every confirmation baseline and block:
+- E baselines: nec_E 1.36–1.58, nec_M ≤ 0.006;
+- M baselines: nec_M 0.65, nec_E ≤ 0.04.
+
+**But "a complete double dissociation on every run" is false** (Reviewer C, C7). Mixed-necessity hybrids:
+- gsg on M: nec_E 0.26–0.28, nec_M 0.25–0.28;
+- gsg E|812: nec_E 0.22, nec_M 0.40;
+- uP163 vrg E and gsv E.
+
+**The behavioural gate did not transfer.** On the confirmation stream, `cls_behav2` classifies 4 of 6 fresh uP160 baselines, and both uP163 baselines, as HYBRID. Their lapses sit at the 0.017 threshold, or their ρ_L falls just below the mixture band. That made the frozen primary analysis inconclusive (FROZEN_PREDICTIONS_AND_RESULTS.md §2). Behaviour also drifts between steps 1000 and 1211; this caused the frozen "unstable" flags.
+
+**Behaviour versus necessity.** On E, gsg and gsv switch route necessity *without* mixture-like behaviour:
+- gsg and gsv ρ_L 0.46–0.61;
+- block and vrg ρ_L 0.73–0.87.
+
+So necessity and behaviour come apart in intervention-induced hybrids. The behavioural measure is weak in any case (B1).
+
+**Competence.** Every run has KL ≤ 0.034 (uP163 M: ≤ 0.043). The accuracy criterion penalises M → early switches: M|813's block and four arms fail it at 0.83 against 0.87.

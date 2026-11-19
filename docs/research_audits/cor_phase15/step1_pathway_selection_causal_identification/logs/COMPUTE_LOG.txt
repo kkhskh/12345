@@ -175,3 +175,72 @@ skipped (superseded by adaptive clamp): FX_INTERV=shc:100 FX_EDGES=own2 FX_SHC=0
 2026-11-19T01:04:59Z lane S1 start [f2b1f87a4769] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP163 20 20 811 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L20_W20_D811_stop1211_scr uP163 95500000 logs/measure_scr.jsonl
 2026-11-19T01:05:03Z lane S2 end [5da35601ebe3] rc=0
 2026-11-19T01:05:03Z lane S2 start [7cfe63d1cf12] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP163 21 21 811 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L21_W21_D811_stop1211_scr uP163 95500000 logs/measure_scr.jsonl
+2026-11-19T01:16:59Z lane S2 end [7cfe63d1cf12] rc=0
+2026-11-19T01:16:59Z lane S2 start [172b2f7b9fff] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP163 22 22 811 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L22_W22_D811_stop1211_scr uP163 95500000 logs/measure_scr.jsonl
+2026-11-19T01:16:59Z lane S1 end [f2b1f87a4769] rc=0
+2026-11-19T01:16:59Z lane S1 start [4b1c9ad8a411] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP163 23 23 811 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L23_W23_D811_stop1211_scr uP163 95500000 logs/measure_scr.jsonl
+2026-11-19T01:28:42Z lane S1 end [4b1c9ad8a411] rc=0
+2026-11-19T01:28:42Z lane S1 start [d2de94abd4ba] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 20 20 811 && python3 scripts/measure18.py checkpoints/ft/uP164_fx_L20_W20_D811_stop1211_scr uP164 95500000 logs/measure_scr.jsonl
+2026-11-19T01:28:43Z lane S2 end [172b2f7b9fff] rc=0
+2026-11-19T01:28:43Z lane S2 start [f25a42cfa423] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 21 21 811 && python3 scripts/measure18.py checkpoints/ft/uP164_fx_L21_W21_D811_stop1211_scr uP164 95500000 logs/measure_scr.jsonl
+2026-11-19T01:40:31Z lane S1 end [d2de94abd4ba] rc=0
+2026-11-19T01:40:31Z lane S1 start [4b6e3d8992ef] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 22 22 811 && python3 scripts/measure18.py checkpoints/ft/uP164_fx_L22_W22_D811_stop1211_scr uP164 95500000 logs/measure_scr.jsonl
+2026-11-19T01:40:35Z lane S2 end [f25a42cfa423] rc=0
+2026-11-19T01:40:35Z lane S2 start [0b5589084761] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 23 23 811 && python3 scripts/measure18.py checkpoints/ft/uP164_fx_L23_W23_D811_stop1211_scr uP164 95500000 logs/measure_scr.jsonl
+2026-11-19T01:52:14Z lane S1 end [4b6e3d8992ef] rc=0
+2026-11-19T01:52:14Z lane S1 start [45f4f136ebe8] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 20 20 811 && python3 scripts/measure18.py checkpoints/ft/uP165_fx_L20_W20_D811_stop1211_scr uP165 95500000 logs/measure_scr.jsonl
+2026-11-19T01:52:21Z lane S2 end [0b5589084761] rc=0
+2026-11-19T01:52:21Z lane S2 start [498315389007] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 21 21 811 && python3 scripts/measure18.py checkpoints/ft/uP165_fx_L21_W21_D811_stop1211_scr uP165 95500000 logs/measure_scr.jsonl
+2026-11-19T02:03:58Z lane S1 end [45f4f136ebe8] rc=0
+2026-11-19T02:03:58Z lane S1 start [459b4ff6b8bc] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 22 22 811 && python3 scripts/measure18.py checkpoints/ft/uP165_fx_L22_W22_D811_stop1211_scr uP165 95500000 logs/measure_scr.jsonl
+2026-11-19T02:04:15Z lane S2 end [498315389007] rc=0
+2026-11-19T02:04:15Z lane S2 start [a408a7791434] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 23 23 811 && python3 scripts/measure18.py checkpoints/ft/uP165_fx_L23_W23_D811_stop1211_scr uP165 95500000 logs/measure_scr.jsonl
+2026-11-19T02:15:57Z lane S1 end [459b4ff6b8bc] rc=0
+2026-11-19T02:16:10Z lane S2 end [a408a7791434] rc=0
+2026-11-19T02:16:10Z lane R1 start [625494726a47] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP162 24 24 811 && python3 scripts/measure18.py checkpoints/ft/uP162_fx_L24_W24_D811_stop1211_scr uP162 95500000 logs/measure_scr.jsonl
+2026-11-19T02:16:10Z lane R2 start [99c27c942c62] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP162 25 25 811 && python3 scripts/measure18.py checkpoints/ft/uP162_fx_L25_W25_D811_stop1211_scr uP162 95500000 logs/measure_scr.jsonl
+2026-11-19T02:27:50Z lane R2 end [99c27c942c62] rc=0
+2026-11-19T02:27:50Z lane R2 start [ca8bbd19eb0f] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 24 24 811 && python3 scripts/measure18.py checkpoints/ft/uP164_fx_L24_W24_D811_stop1211_scr uP164 95500000 logs/measure_scr.jsonl
+2026-11-19T02:28:02Z lane R1 end [625494726a47] rc=0
+2026-11-19T02:28:02Z lane R1 start [b715f4987888] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP164 25 25 811 && python3 scripts/measure18.py checkpoints/ft/uP164_fx_L25_W25_D811_stop1211_scr uP164 95500000 logs/measure_scr.jsonl
+2026-11-19T02:39:51Z lane R2 end [ca8bbd19eb0f] rc=0
+2026-11-19T02:39:51Z lane R2 start [24d30426004f] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 24 24 811 && python3 scripts/measure18.py checkpoints/ft/uP165_fx_L24_W24_D811_stop1211_scr uP165 95500000 logs/measure_scr.jsonl
+2026-11-19T02:40:01Z lane R1 end [b715f4987888] rc=0
+2026-11-19T02:40:01Z lane R1 start [8d19f02d6bf5] FX_STOP=1211 FX_TAGSUF=_scr python3 scripts/xviii_train.py uP165 25 25 811 && python3 scripts/measure18.py checkpoints/ft/uP165_fx_L25_W25_D811_stop1211_scr uP165 95500000 logs/measure_scr.jsonl
+2026-11-19T02:51:30Z lane R2 end [24d30426004f] rc=0
+2026-11-19T02:51:40Z lane R1 end [8d19f02d6bf5] rc=0
+2026-11-19T02:51:40Z STAGE 3 screening end
+2026-11-19T02:51:40Z STAGE 4 parents start
+2026-11-19T02:51:40Z lane P1 start [b2c1f0ded3aa] FX_SLOG=own0 FX_SLOGT=100 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 20 20 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L20_W20_D812_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T02:51:40Z lane P2 start [2de17856956c] FX_SLOG=own2 FX_SLOGT=100 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 23 23 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L23_W23_D812_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:03:18Z lane P1 end [b2c1f0ded3aa] rc=0
+2026-11-19T03:03:18Z lane P1 start [1de1df62f753] FX_INTERV=gof:100 FX_EDGES=own0 FX_B=1e9 FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 20 20 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L20_W20_D812_gofown0b1e9T100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:03:28Z lane P2 end [2de17856956c] rc=0
+2026-11-19T03:03:28Z lane P2 start [09322a8da419] FX_INTERV=gof:100 FX_EDGES=own2 FX_B=1e9 FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 23 23 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L23_W23_D812_gofown2b1e9T100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:15:48Z lane P1 end [1de1df62f753] rc=0
+2026-11-19T03:15:48Z lane P1 start [f6a2c7e98b8b] FX_INTERV=vrg:100 FX_EDGES=own0 FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 20 20 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L20_W20_D812_vrgown0T100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:15:59Z lane P2 end [09322a8da419] rc=0
+2026-11-19T03:15:59Z lane P2 start [59b4d5dc01b2] FX_INTERV=vrg:100 FX_EDGES=own2 FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 23 23 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L23_W23_D812_vrgown2T100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:28:25Z lane P1 end [f6a2c7e98b8b] rc=0
+2026-11-19T03:28:25Z lane P1 start [cc6c4300083f] FX_INTERV=gsv:100 FX_EDGES=own0 FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 20 20 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L20_W20_D812_gsvown0T100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:28:45Z lane P2 end [59b4d5dc01b2] rc=0
+2026-11-19T03:28:45Z lane P2 start [a8c6d8b19e5e] FX_INTERV=gsv:100 FX_EDGES=own2 FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 23 23 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L23_W23_D812_gsvown2T100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:41:05Z lane P1 end [cc6c4300083f] rc=0
+2026-11-19T03:41:05Z lane P1 start [3fa6e72196e2] bash scripts/when_file.sh checkpoints/ft/uP163_fx_L20_W20_D812_stop1211_p18/slog.json -- FX_INTERV=sha:100 FX_EDGES=own0 FX_SHA_SCHED=checkpoints/ft/uP163_fx_L20_W20_D812_stop1211_p18/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=rolled FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 20 20 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L20_W20_D812_shaown0hirolledT100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:41:29Z lane P2 end [a8c6d8b19e5e] rc=0
+2026-11-19T03:41:29Z lane P2 start [c70819d6d798] bash scripts/when_file.sh checkpoints/ft/uP163_fx_L23_W23_D812_stop1211_p18/slog.json -- FX_INTERV=sha:100 FX_EDGES=own2 FX_SHA_SCHED=checkpoints/ft/uP163_fx_L23_W23_D812_stop1211_p18/slog.json FX_SHA_LO=0 FX_SHA_CONTENT=rolled FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 23 23 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L23_W23_D812_shaown2hirolledT100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:53:47Z lane P1 end [3fa6e72196e2] rc=0
+2026-11-19T03:53:47Z lane P1 start [0dbae7db78c9] bash scripts/when_file.sh checkpoints/ft/uP163_fx_L20_W20_D812_stop1211_p18/slog.json -- FX_INTERV=sha:100 FX_EDGES=own0 FX_SHA_SCHED=checkpoints/ft/uP163_fx_L20_W20_D812_stop1211_p18/slog.json FX_SHA_LO=1 FX_SHA_CONTENT=real FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 20 20 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L20_W20_D812_shaown0lorealT100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T03:54:31Z lane P2 end [c70819d6d798] rc=0
+2026-11-19T03:54:31Z lane P2 start [0efdbf03931c] bash scripts/when_file.sh checkpoints/ft/uP163_fx_L23_W23_D812_stop1211_p18/slog.json -- FX_INTERV=sha:100 FX_EDGES=own2 FX_SHA_SCHED=checkpoints/ft/uP163_fx_L23_W23_D812_stop1211_p18/slog.json FX_SHA_LO=1 FX_SHA_CONTENT=real FX_GLOG=1 FX_STOP=1211 FX_TAGSUF=_p18 python3 scripts/xviii_train.py uP163 23 23 812 && python3 scripts/measure18.py checkpoints/ft/uP163_fx_L23_W23_D812_shaown2lorealT100_stop1211_p18 uP163 95600000 logs/measure_p18.jsonl
+2026-11-19T04:06:32Z lane P1 end [0dbae7db78c9] rc=0
+2026-11-19T04:07:08Z lane P2 end [0efdbf03931c] rc=0
+2026-11-19T04:07:08Z STAGE 4 parents end rc=0
+2026-11-19T04:07:08Z STAGE 2b continuations start
+2026-11-19T04:07:08Z lane K2 start [71e12cbe3338] FX_INTERV=vrg:100 FX_EDGES=own0 FX_GLOG=1 FX_STOP=2546 FX_EXTRA_SNAPS=2546 FX_TAGSUF=_c18_cont python3 scripts/xviii_train.py uP160 21 21 811 && python3 scripts/measure18.py checkpoints/ft/uP160_fx_L21_W21_D811_vrgown0T100_stop2546_c18_cont uP160 95400000 logs/measure_c18_cont.jsonl
+2026-11-19T04:07:08Z lane K1 start [0d4630709029] FX_SLOG=own0 FX_SLOGT=100 FX_STOP=2546 FX_EXTRA_SNAPS=2546 FX_TAGSUF=_c18_cont python3 scripts/xviii_train.py uP160 21 21 811 && python3 scripts/measure18.py checkpoints/ft/uP160_fx_L21_W21_D811_stop2546_c18_cont uP160 95400000 logs/measure_c18_cont.jsonl
+2026-11-19T04:22:54Z lane K2 end [71e12cbe3338] rc=0
+2026-11-19T04:22:54Z lane K2 start [0bc5ee29ce43] FX_INTERV=gof:100 FX_EDGES=own0 FX_B=1e9 FX_GLOG=1 FX_STOP=2546 FX_EXTRA_SNAPS=2546 FX_TAGSUF=_c18_cont python3 scripts/xviii_train.py uP160 21 21 811 && python3 scripts/measure18.py checkpoints/ft/uP160_fx_L21_W21_D811_gofown0b1e9T100_stop2546_c18_cont uP160 95400000 logs/measure_c18_cont.jsonl
+2026-11-19T04:22:57Z lane K1 end [0d4630709029] rc=0
+2026-11-19T04:22:57Z lane K1 start [3120eea48a13] FX_INTERV=gsg:100 FX_EDGES=own0 FX_GLOG=1 FX_STOP=2546 FX_EXTRA_SNAPS=2546 FX_TAGSUF=_c18_cont python3 scripts/xviii_train.py uP160 21 21 811 && python3 scripts/measure18.py checkpoints/ft/uP160_fx_L21_W21_D811_gsgown0T100_stop2546_c18_cont uP160 95400000 logs/measure_c18_cont.jsonl
+2026-11-19T04:29:16Z record: post-fix sha256 of scripts/h3_immediate18.py = e02c584396d01668822a9295f06d6b95f132f0a846b82c9093a47f9d1fee77c8 (review D, D4)

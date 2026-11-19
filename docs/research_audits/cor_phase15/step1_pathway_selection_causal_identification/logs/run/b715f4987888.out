@@ -1,0 +1,19 @@
+[uP164_fx_L25_W25_D811_stop1211_scr] step 25 loss 1.2425 16s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 50 loss 1.1087 29s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 74 loss 1.0850 42s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 100 loss 1.0444 55s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 111 loss 1.0342 61s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 150 loss 0.9431 81s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 165 loss 0.9197 89s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 200 loss 0.8791 108s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 246 loss 0.8765 132s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 300 loss 0.8503 160s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 366 loss 0.7967 195s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 400 loss 0.7980 214s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 546 loss 0.6984 290s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 600 loss 0.6951 319s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 800 loss 0.6386 425s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 813 loss 0.6349 432s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 1000 loss 0.5716 533s
+[uP164_fx_L25_W25_D811_stop1211_scr] step 1211 loss 0.5884 645s
+uP164_fx_L25_W25_D811_stop1211_scr {'lik_RO1': 0.792, 'mix_mass': 0.165, 'KL': 0.039, 'acc': 0.838, 'nec_E': 1.574, 'nec_M': 0.004, 'rhoL': 0.436, 'lapseL': 0.011, 'nec_rq1': 0.508, 'cls2': 'HYBRID'}

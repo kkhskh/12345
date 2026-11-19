@@ -1,0 +1,4 @@
+resume.pkl
+__pycache__/
+logs/claims/
+logs/run/

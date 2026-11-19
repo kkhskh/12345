@@ -1,0 +1,390 @@
+{
+ "checks": [
+  {
+   "check": "scores when provenance is complete (no-files label)",
+   "passed": true,
+   "info": "(0, 'SCORED_NO_FILES (not a frozen verdict)')"
+  },
+  {
+   "check": "P1 category B",
+   "passed": true,
+   "info": "('NEITHER', 0.0)"
+  },
+  {
+   "check": "P1 category I",
+   "passed": true,
+   "info": "('BOTH', 1.0)"
+  },
+  {
+   "check": "P1 category sw",
+   "passed": true,
+   "info": "('BOTH', 1.012)"
+  },
+  {
+   "check": "P1 category none",
+   "passed": true,
+   "info": "('NEITHER', 0.021)"
+  },
+  {
+   "check": "P1 category hyb",
+   "passed": true,
+   "info": "('HYBRID[AMBIGUOUS]', 0.508)"
+  },
+  {
+   "check": "P1 category nc",
+   "passed": true,
+   "info": "('NONCOMPETENT', 0.167)"
+  },
+  {
+   "check": "P1 category amb",
+   "passed": true,
+   "info": "('INCONCLUSIVE(causal_SWITCH)', 1.009)"
+  },
+  {
+   "check": "P1 category conly",
+   "passed": true,
+   "info": "('CAUSAL_ONLY', 1.012)"
+  },
+  {
+   "check": "P1 category fonly",
+   "passed": true,
+   "info": "('FUNCTIONAL_ONLY', 0.021)"
+  },
+  {
+   "check": "P3 category B",
+   "passed": true,
+   "info": "('NEITHER', 0.0)"
+  },
+  {
+   "check": "P3 category I",
+   "passed": true,
+   "info": "('BOTH', 1.0)"
+  },
+  {
+   "check": "P3 category sw",
+   "passed": true,
+   "info": "('BOTH', 1.012)"
+  },
+  {
+   "check": "P3 category none",
+   "passed": true,
+   "info": "('NEITHER', 0.021)"
+  },
+  {
+   "check": "P3 category hyb",
+   "passed": true,
+   "info": "('HYBRID[AMBIGUOUS]', 0.508)"
+  },
+  {
+   "check": "P3 category nc",
+   "passed": true,
+   "info": "('NONCOMPETENT', 0.167)"
+  },
+  {
+   "check": "P3 category amb",
+   "passed": true,
+   "info": "('INCONCLUSIVE(causal_SWITCH)', 1.009)"
+  },
+  {
+   "check": "P3 category conly",
+   "passed": true,
+   "info": "('CAUSAL_ONLY', 1.012)"
+  },
+  {
+   "check": "P3 category fonly",
+   "passed": true,
+   "info": "('FUNCTIONAL_ONLY', 0.021)"
+  },
+  {
+   "check": "P2 not evaluable (hybrid I anchor)",
+   "passed": true,
+   "info": ""
+  },
+  {
+   "check": "band H_switch",
+   "passed": true,
+   "info": "('SUPPORTED', 2)"
+  },
+  {
+   "check": "band H_switch_wrongpred",
+   "passed": true,
+   "info": "('CONTRADICTED', 2)"
+  },
+  {
+   "check": "band H_none",
+   "passed": true,
+   "info": "('SUPPORTED', 2)"
+  },
+  {
+   "check": "band H_noncompetent",
+   "passed": true,
+   "info": "('NONCOMPETENT', 0)"
+  },
+  {
+   "check": "band H_mid_class",
+   "passed": true,
+   "info": "('CONTRADICTED', 2)"
+  },
+  {
+   "check": "band H_M_side",
+   "passed": true,
+   "info": "('INCONCLUSIVE', 0)"
+  },
+  {
+   "check": "band H_cat_conly",
+   "passed": true,
+   "info": "('CONTRADICTED', 2)"
+  },
+  {
+   "check": "band H_cat_sw",
+   "passed": true,
+   "info": "('SUPPORTED', 2)"
+  },
+  {
+   "check": "band H_cat_none",
+   "passed": true,
+   "info": "('INCONCLUSIVE', 0)"
+  },
+  {
+   "check": "band H_dq",
+   "passed": true,
+   "info": "('NONCOMPETENT', 0)"
+  },
+  {
+   "check": "band H_phif",
+   "passed": true,
+   "info": "('SUPPORTED', 2)"
+  },
+  {
+   "check": "evaluable-pair counts reported per base",
+   "passed": true,
+   "info": "{'F': {'E': [2, 3], 'M': [0, 3]}}"
+  },
+  {
+   "check": "record labels ignored; competence recomputed",
+   "passed": true,
+   "info": "NONCOMPETENT"
+  },
+  {
+   "check": "competence boundary 0.05: primary evaluable, comp_strict not",
+   "passed": true,
+   "info": "({'F': {'E': [2, 3], 'M': [0, 3]}}, {'F': {'E': [0, 3], 'M': [0, 3]}})"
+  },
+  {
+   "check": "NaN phi dropped with reason (evalB)",
+   "passed": true,
+   "info": "[['P1', 'value undefined (NaN)']]"
+  },
+  {
+   "check": "pooled 'both' hypothesis fails closed",
+   "passed": true,
+   "info": "2"
+  },
+  {
+   "check": "sensitivity delta0 runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity delta20 runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity phicut70 runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity phicut80 runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity eps003 runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity eps03 runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity lin runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity evalB runs, evaluability recomputed (P2 evaluable=True)",
+   "passed": true,
+   "info": "{'H_switch': 'PARTIAL', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity thr_pm05 runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity thr_strict runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity comp_strict runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "sensitivity comp_loose runs, evaluability recomputed (P2 evaluable=False)",
+   "passed": true,
+   "info": "{'H_switch': 'SUPPORTED', 'H_switch_wrongpred': 'CONTRADICTED', 'H_none': 'SUPPORTED', 'H_noncompetent': 'NONCOMPETENT', 'H_mid_class': 'CONTRADICTED', 'H_M_side': 'INCONCLUSIVE', 'H_cat_conly': 'CONTRADICTED', 'H_cat_sw': 'SUPPORTED', 'H_cat_none': 'INCONCLUSIVE', 'H_dq': 'NONCOMPETENT', 'H_phif': 'SUPPORTED'}"
+  },
+  {
+   "check": "matching gate: ratio, threshold, missing state fails",
+   "passed": true,
+   "info": "{'P1': 1.0, 'P2': 1.0, 'P3': 3.0, 'Q1': None, 'Q2': 1.0, 'Q3': 1.0}"
+  },
+  {
+   "check": "unmatched control pair dropped",
+   "passed": true,
+   "info": "[('P2', 'pair not evaluable'), ('P3', 'control not matched')]"
+  },
+  {
+   "check": "missing matching result fails closed",
+   "passed": true,
+   "info": "[('P1', 'control not matched'), ('P2', 'pair not evaluable'), ('P3', 'control not matched')]"
+  },
+  {
+   "check": "file-mode world scores cleanly",
+   "passed": true,
+   "info": "(0, [])"
+  },
+  {
+   "check": "file-mode fail-closed: checkpoint replaced",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_vsg: checkpoint hash mismatch'])"
+  },
+  {
+   "check": "file-mode fail-closed: run_config missing",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_fullI: run_config unreadable ([Errno 2] No'])"
+  },
+  {
+   "check": "file-mode fail-closed: wrong seed in argv",
+   "passed": true,
+   "info": "(2, 1, [\"uP160_fx_L21_W21_D1_stop1211_br100_E1_fullB: argv ['x', 'uP160', '21', '21', '9'\"])"
+  },
+  {
+   "check": "file-mode fail-closed: fallback allowed",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D2_stop1211_br100_E2_fullB: FX_NOFALLBACK not set'])"
+  },
+  {
+   "check": "file-mode fail-closed: harness hash differs",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_vsg: harness hash differs'])"
+  },
+  {
+   "check": "file-mode fail-closed: branch source outside package",
+   "passed": true,
+   "info": "(2, 2, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_fullB: branch source outside this package '])"
+  },
+  {
+   "check": "file-mode fail-closed: transplant groups differ",
+   "passed": true,
+   "info": "(2, 1, [\"uP160_fx_L21_W21_D1_stop1211_br100_E1_fullI: provenance groups ['L1_QK'] != ['L0\"])"
+  },
+  {
+   "check": "file-mode fail-closed: transplant alpha differs",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_fullI: provenance alpha=0.5 != None'])"
+  },
+  {
+   "check": "file-mode fail-closed: composed state changed after the run",
+   "passed": true,
+   "info": "(2, 2, ['uP160_fx_L21_W21_D2_stop1211_br100_E2_fullI: composed step100.npz hash mismatch'])"
+  },
+  {
+   "check": "file-mode fail-closed: window state trained with other settings",
+   "passed": true,
+   "info": "(2, 1, [\"uP160_fx_L21_W21_D1_stop1211_br100_E1_vsg: window state was trained with {'FX_IN\"])"
+  },
+  {
+   "check": "file-mode fail-closed: native I trained with other settings",
+   "passed": true,
+   "info": "(2, 1, [\"uP160_fx_L21_W21_D2_I_stop100_s100c19: trained with {'FX_INTERV': 'gof:100', 'FX\"])"
+  },
+  {
+   "check": "file-mode fail-closed: fullB not identical to native B",
+   "passed": true,
+   "info": "(2, 2, ['E1: composed fullB is not bit-identical to the native B state'])"
+  },
+  {
+   "check": "file-mode fail-closed: measurement dependency hash differs",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_fullB: measurement dependency hashes diffe'])"
+  },
+  {
+   "check": "file-mode fail-closed: duplicate record",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_fullB: 2 measurement records (need exactly'])"
+  },
+  {
+   "check": "file-mode fail-closed: missing record",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L23_W23_D2_stop1211_br100_M2_pz: 0 measurement records (need exactly 1)'])"
+  },
+  {
+   "check": "file-mode fail-closed: wrong stream",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_fullI: stream=8 != 7'])"
+  },
+  {
+   "check": "file-mode fail-closed: reference hash differs",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L21_W21_D1_stop1211_br100_E1_vsg: refs_sha256=z != r'])"
+  },
+  {
+   "check": "file-mode fail-closed: design lacks harness hash",
+   "passed": true,
+   "info": "(2, 1, ['design lacks harness/dependency hashes'])"
+  },
+  {
+   "check": "file-mode fail-closed: scorer library changed",
+   "passed": true,
+   "info": "(2, 1, ['src/xix_score.py differs from the frozen hash'])"
+  },
+  {
+   "check": "file-mode fail-closed: wrong perturbation seed (M pair)",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L23_W23_D2_stop1211_br100_M2_rn: provenance perturb_seed=19002 != 19502'])"
+  },
+  {
+   "check": "file-mode fail-closed: pnz scales from another pair",
+   "passed": true,
+   "info": "(2, 1, ['uP160_fx_L23_W23_D1_stop1211_br100_M1_pz: noise scales taken from checkpoints/ft'])"
+  },
+  {
+   "check": "file-mode fail-closed: M window state trained on the E target",
+   "passed": true,
+   "info": "(2, 1, [\"uP160_fx_L23_W23_D2_stop1211_br100_M2_vsg: window state was trained with {'FX_IN\"])"
+  },
+  {
+   "check": "kl100 gate: dev lbl passes (ratio 0.88)",
+   "passed": true,
+   "info": "{'ratio': 0.8787218353766857, 'excess_block': 0.07693522621192617, 'excess_ctl': 0.06760466318206426, 'ok': True}"
+  },
+  {
+   "check": "kl100 gate: block excess 0 -> loss matching not applicable, control with positive excess usable",
+   "passed": true,
+   "info": "{'ratio': None, 'excess_block': 0.0, 'excess_ctl': 0.06760466318206426, 'ok': True, 'na': False, 'why': 'block excess < 0.005: loss matching not applicable; control usable if its own excess >= 0.005'}"
+  },
+  {
+   "check": "kl100 gate: control without loss disturbance fails",
+   "passed": true,
+   "info": "{'ratio': None, 'excess_block': 0.07693522621192617, 'excess_ctl': 0.0, 'ok': False, 'why': 'control has no loss disturbance'}"
+  }
+ ],
+ "ok": true
+}

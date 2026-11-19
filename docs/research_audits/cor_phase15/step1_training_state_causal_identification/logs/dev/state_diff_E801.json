@@ -1,0 +1,215 @@
+{
+ "groups": {
+  "WA": {
+   "diff": 0.02125556573355638,
+   "movement_B": 0.032412347485252985,
+   "ratio_diff_to_movement": 0.6557860624944634,
+   "rel_to_norm": 0.015330968875303554,
+   "mu_rel_diff": 1.677537747915849,
+   "nu_rel_diff": 0.07489265758495126,
+   "tensors": [
+    "WA"
+   ]
+  },
+  "final_LN": {
+   "diff": 0.009704551460297795,
+   "movement_B": 0.015195577582450315,
+   "ratio_diff_to_movement": 0.6386431451941504,
+   "rel_to_norm": 0.0009287999868166297,
+   "mu_rel_diff": 1.6709537329523827,
+   "nu_rel_diff": 0.06291898201884805,
+   "tensors": [
+    "bf",
+    "gf"
+   ]
+  },
+  "emb": {
+   "diff": 0.12227080640957853,
+   "movement_B": 0.13273507444550775,
+   "ratio_diff_to_movement": 0.9211642583571598,
+   "rel_to_norm": 0.007092777407042793,
+   "mu_rel_diff": 1.0258834860897599,
+   "nu_rel_diff": 0.10560834415268609,
+   "tensors": [
+    "emb/Eep",
+    "emb/Eq",
+    "emb/Eread",
+    "emb/Esrc",
+    "emb/Eval"
+   ]
+  },
+  "L2_MLP": {
+   "diff": 0.3513272395005363,
+   "movement_B": 0.4919349282923053,
+   "ratio_diff_to_movement": 0.7141742114554213,
+   "rel_to_norm": 0.019592561006122514,
+   "mu_rel_diff": 1.386564523195057,
+   "nu_rel_diff": 0.08762231816598923,
+   "tensors": [
+    "new/0/W1",
+    "new/0/W2",
+    "new/0/c1",
+    "new/0/c2"
+   ]
+  },
+  "L2_QK": {
+   "diff": 0.19282001350113498,
+   "movement_B": 0.2785388423236286,
+   "ratio_diff_to_movement": 0.6922553848956597,
+   "rel_to_norm": 0.017180944577163848,
+   "mu_rel_diff": 1.4405542515517964,
+   "nu_rel_diff": 0.0834840560643608,
+   "tensors": [
+    "new/0/WK",
+    "new/0/WQ"
+   ]
+  },
+  "L2_OV": {
+   "diff": 0.1327479815848241,
+   "movement_B": 0.2494124571555145,
+   "ratio_diff_to_movement": 0.5322427881060192,
+   "rel_to_norm": 0.01167380303669207,
+   "mu_rel_diff": 1.9491210205675702,
+   "nu_rel_diff": 0.0783312579643745,
+   "tensors": [
+    "new/0/WO",
+    "new/0/WV"
+   ]
+  },
+  "L2_LN": {
+   "diff": 0.025002058586333337,
+   "movement_B": 0.035174706090298026,
+   "ratio_diff_to_movement": 0.7107965173084834,
+   "rel_to_norm": 0.0022097579590739805,
+   "mu_rel_diff": 1.4380575272474667,
+   "nu_rel_diff": 0.06561986489791687,
+   "tensors": [
+    "new/0/b1",
+    "new/0/b2",
+    "new/0/g1",
+    "new/0/g2"
+   ]
+  },
+  "L0_MLP": {
+   "diff": 0.47687084794622003,
+   "movement_B": 0.6074031737548157,
+   "ratio_diff_to_movement": 0.785097721828358,
+   "rel_to_norm": 0.025815508617924067,
+   "mu_rel_diff": 1.087286482605979,
+   "nu_rel_diff": 0.09772705040360943,
+   "tensors": [
+    "pre/0/W1",
+    "pre/0/W2",
+    "pre/0/c1",
+    "pre/0/c2"
+   ]
+  },
+  "L0_QK": {
+   "diff": 0.5379923827436855,
+   "movement_B": 0.5725353243395356,
+   "ratio_diff_to_movement": 0.9396667067910649,
+   "rel_to_norm": 0.04460046559052426,
+   "mu_rel_diff": 1.0028898215422766,
+   "nu_rel_diff": 0.2732222776314729,
+   "tensors": [
+    "pre/0/WK",
+    "pre/0/WQ"
+   ]
+  },
+  "L0_OV": {
+   "diff": 0.5409483058650106,
+   "movement_B": 0.482287175759759,
+   "ratio_diff_to_movement": 1.1216311215674382,
+   "rel_to_norm": 0.047761639862386074,
+   "mu_rel_diff": 1.1148219049766843,
+   "nu_rel_diff": 0.10415693507106732,
+   "tensors": [
+    "pre/0/WO",
+    "pre/0/WV"
+   ]
+  },
+  "L0_LN": {
+   "diff": 0.04802666498088892,
+   "movement_B": 0.05625524163245537,
+   "ratio_diff_to_movement": 0.8537278231719633,
+   "rel_to_norm": 0.004179860622491008,
+   "mu_rel_diff": 1.0596491719117374,
+   "nu_rel_diff": 0.11214429799871785,
+   "tensors": [
+    "pre/0/b1",
+    "pre/0/b2",
+    "pre/0/g1",
+    "pre/0/g2"
+   ]
+  },
+  "L1_MLP": {
+   "diff": 0.36207977373067735,
+   "movement_B": 0.46697672636788956,
+   "ratio_diff_to_movement": 0.7753700629727461,
+   "rel_to_norm": 0.019769392115219935,
+   "mu_rel_diff": 1.175967573547422,
+   "nu_rel_diff": 0.0790659526693447,
+   "tensors": [
+    "pre/1/W1",
+    "pre/1/W2",
+    "pre/1/c1",
+    "pre/1/c2"
+   ]
+  },
+  "L1_QK": {
+   "diff": 0.19227442132636824,
+   "movement_B": 0.2886249542818657,
+   "ratio_diff_to_movement": 0.6661739342835779,
+   "rel_to_norm": 0.016335661669659402,
+   "mu_rel_diff": 0.9422073282532042,
+   "nu_rel_diff": 0.10727686530688649,
+   "tensors": [
+    "pre/1/WK",
+    "pre/1/WQ"
+   ]
+  },
+  "L1_OV": {
+   "diff": 0.1163538406787849,
+   "movement_B": 0.2205421442989972,
+   "ratio_diff_to_movement": 0.5275809802639793,
+   "rel_to_norm": 0.01030874242310362,
+   "mu_rel_diff": 1.1688991233463264,
+   "nu_rel_diff": 0.07145164031570643,
+   "tensors": [
+    "pre/1/WO",
+    "pre/1/WV"
+   ]
+  },
+  "L1_LN": {
+   "diff": 0.02210819170964317,
+   "movement_B": 0.037321371189634155,
+   "ratio_diff_to_movement": 0.5923735116083736,
+   "rel_to_norm": 0.0019693083497843585,
+   "mu_rel_diff": 1.232697299103312,
+   "nu_rel_diff": 0.10395479247019478,
+   "tensors": [
+    "pre/1/b1",
+    "pre/1/b2",
+    "pre/1/g1",
+    "pre/1/g2"
+   ]
+  }
+ },
+ "counts": {
+  "B": [
+   100,
+   100
+  ],
+  "I": [
+   100,
+   100
+  ]
+ },
+ "rng_equal": true,
+ "sha256": {
+  "uP160_fx_L21_W21_D801_stop100_s100dev/step100.npz": "3c68eae481b7450e92d09835cd31ad233544bbd39cb11917bbd1f2961480ea30",
+  "uP160_fx_L21_W21_D801_stop100_s100dev/opt_step100.pkl": "c10c5baf6ecf442b530cc9d8b169a2c8dec11154f295af97aa691a0db0dd8a0d",
+  "uP160_fx_L21_W21_D801_gofown0b1e9T100_stop100_s100dev/step100.npz": "3e73d5f251cf3b0cb3d6ad00ff7b2dd54406c5d9bc41dd02d83ae8183ef56aa6",
+  "uP160_fx_L21_W21_D801_gofown0b1e9T100_stop100_s100dev/opt_step100.pkl": "b990605092c56fb13fa32135997d5c1262aa33c51e2f9ce8ada37e243abacf97"
+ }
+}

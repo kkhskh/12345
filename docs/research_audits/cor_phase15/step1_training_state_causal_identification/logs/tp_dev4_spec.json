@@ -1,0 +1,42 @@
+{
+ "parent": "uP160",
+ "stream": 86100000,
+ "measure_out": "logs/dev/measure_tp_dev.jsonl",
+ "stop": 1211,
+ "arms": [
+  {
+   "name": "BfromI_L0L2",
+   "base": "B",
+   "groups": "L0,L2",
+   "opt": "follow"
+  },
+  {
+   "name": "BfromI_L0L1L2",
+   "base": "B",
+   "groups": "L0,L1,L2",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_L0L2",
+   "base": "I",
+   "groups": "L0,L2",
+   "opt": "follow"
+  },
+  {
+   "name": "BfromI_L0L1",
+   "base": "B",
+   "groups": "L0,L1",
+   "opt": "follow"
+  }
+ ],
+ "pairs": [
+  {
+   "name": "M801",
+   "L": 23,
+   "W": 23,
+   "D": 801,
+   "B": "checkpoints/ft/uP160_fx_L23_W23_D801_stop100_s100dev",
+   "I": "checkpoints/ft/uP160_fx_L23_W23_D801_gofown2b1e9T100_stop100_s100dev"
+  }
+ ]
+}

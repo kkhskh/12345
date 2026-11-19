@@ -1,0 +1,1100 @@
+{
+ "stream": 94700000,
+ "parent": "uP160",
+ "score_code_sha256": "a8a8b7ec4bb94dfacc80694522d29ad8f0af81ced3c3e29a10467a31dbe663b1",
+ "harness_sha256": "96f9fb9e5866f37d070583f902d37ccc82dc88928104b60f79ddc98bed33a3fa",
+ "dep_sha256": {
+  "src/xix_score.py": "a8a8b7ec4bb94dfacc80694522d29ad8f0af81ced3c3e29a10467a31dbe663b1",
+  "scripts/measure19.py": "89a3a3790227ff7404bfad22ad500f4b1b1a304201972fe053046a96eaa883fa",
+  "scripts/score19.py": "82c988b6eda42a0fd743376ddd4300377601f85f47a66a5701cef492255b5fae",
+  "scripts/compose19.py": "e0ebd6866ac1554dbc2fd4c047a5825ce45779bfdad4c4ea62bb2cdd3d2a5357",
+  "scripts/xix_train.py": "96f9fb9e5866f37d070583f902d37ccc82dc88928104b60f79ddc98bed33a3fa",
+  "scripts/stats19.py": "5572cb945da9d62afceb21f53e55510264a5fe2daae89b3eeb938feb6386d02e"
+ },
+ "dep_sha256_measure": {
+  "xix_score.py": "a8a8b7ec4bb94dfacc80694522d29ad8f0af81ced3c3e29a10467a31dbe663b1",
+  "measure19.py": "89a3a3790227ff7404bfad22ad500f4b1b1a304201972fe053046a96eaa883fa",
+  "xviiim.py": "66ea7f1bc5d962c6c42876ee978f5e97ad4af6a457a0bc21b7abc5bd623fec81",
+  "native.py": "8e651489ce7fd0fa1ae34bd6b5c31bd59c004bfcb7b593d9738043e2b99f1e90",
+  "ftlib.py": "44e6fdd780df688d724627309ce5e737e9e86af6ecace1123e7a396258c09f5d",
+  "metrics.py": "eb7feca2f83bb6bc7dcee2159ab7b42a3302f917740e8f801d1ccef076b1a5e7",
+  "maskfwd.py": "26a1d1c6744e3e819313527b6500ca64b1c4615643efd259c3a411550008a8c1",
+  "relpairs.py": "4a9ac197d6575cffbf2ce7e021fbf788678afea336733a9211caf5e479152b42",
+  "genlib.py": "5484ecbb0b21ac5cb38211c42522cd6bf40edf9fd12c049eba65a92015b8ca69"
+ },
+ "refs_sha256": "6e35a7b08081227883e7902358b024a7af8c29ab376b693b51046d02322b3519",
+ "min_pairs": 2,
+ "matching": [
+  {
+   "arm": "pnz",
+   "kind": "dist",
+   "lo": 0.67,
+   "hi": 1.5
+  },
+  {
+   "arm": "lbl",
+   "kind": "kl100",
+   "lo": 0.5,
+   "hi": 1000000000.0,
+   "min_block_excess": 0.005
+  }
+ ],
+ "pairs": [
+  {
+   "name": "E821",
+   "base": "E",
+   "L": 21,
+   "W": 21,
+   "D": 821,
+   "Isuf": "_gofown0b1e9T100",
+   "win": {
+    "vsg": "_vsgown0T100",
+    "vsgo": "_vsgoown0T100",
+    "vrs": "_vrsown0T100",
+    "frz": "_frzL0_QKT100",
+    "frzp": "_frzpL0_QKT100",
+    "pnz": "_pnzs9921T100",
+    "lbl": "_lblp0.5s10021T100"
+   },
+   "wenv": {
+    "I": {
+     "FX_INTERV": "gof:100",
+     "FX_EDGES": "own0",
+     "FX_B": "1e9"
+    },
+    "vsg": {
+     "FX_INTERV": "vsg:100",
+     "FX_EDGES": "own0"
+    },
+    "vsgo": {
+     "FX_INTERV": "vsgo:100",
+     "FX_EDGES": "own0"
+    },
+    "vrs": {
+     "FX_INTERV": "vrs:100",
+     "FX_EDGES": "own0"
+    },
+    "frz": {
+     "FX_INTERV": "frz:100",
+     "FX_FREEZE": "L0_QK"
+    },
+    "frzp": {
+     "FX_INTERV": "frzp:100",
+     "FX_FREEZE": "L0_QK"
+    },
+    "pnz": {
+     "FX_INTERV": "pnz:100",
+     "FX_PNZ_SEED": "9921"
+    },
+    "lbl": {
+     "FX_INTERV": "lbl:100",
+     "FX_LBL_P": "0.5",
+     "FX_LBL_SEED": "10021"
+    }
+   }
+  },
+  {
+   "name": "E822",
+   "base": "E",
+   "L": 21,
+   "W": 21,
+   "D": 822,
+   "Isuf": "_gofown0b1e9T100",
+   "win": {
+    "vsg": "_vsgown0T100",
+    "vsgo": "_vsgoown0T100",
+    "vrs": "_vrsown0T100",
+    "frz": "_frzL0_QKT100",
+    "frzp": "_frzpL0_QKT100",
+    "pnz": "_pnzs9922T100",
+    "lbl": "_lblp0.5s10022T100"
+   },
+   "wenv": {
+    "I": {
+     "FX_INTERV": "gof:100",
+     "FX_EDGES": "own0",
+     "FX_B": "1e9"
+    },
+    "vsg": {
+     "FX_INTERV": "vsg:100",
+     "FX_EDGES": "own0"
+    },
+    "vsgo": {
+     "FX_INTERV": "vsgo:100",
+     "FX_EDGES": "own0"
+    },
+    "vrs": {
+     "FX_INTERV": "vrs:100",
+     "FX_EDGES": "own0"
+    },
+    "frz": {
+     "FX_INTERV": "frz:100",
+     "FX_FREEZE": "L0_QK"
+    },
+    "frzp": {
+     "FX_INTERV": "frzp:100",
+     "FX_FREEZE": "L0_QK"
+    },
+    "pnz": {
+     "FX_INTERV": "pnz:100",
+     "FX_PNZ_SEED": "9922"
+    },
+    "lbl": {
+     "FX_INTERV": "lbl:100",
+     "FX_LBL_P": "0.5",
+     "FX_LBL_SEED": "10022"
+    }
+   }
+  },
+  {
+   "name": "E823",
+   "base": "E",
+   "L": 21,
+   "W": 21,
+   "D": 823,
+   "Isuf": "_gofown0b1e9T100",
+   "win": {
+    "vsg": "_vsgown0T100",
+    "vsgo": "_vsgoown0T100",
+    "vrs": "_vrsown0T100",
+    "frz": "_frzL0_QKT100",
+    "frzp": "_frzpL0_QKT100",
+    "pnz": "_pnzs9923T100",
+    "lbl": "_lblp0.5s10023T100"
+   },
+   "wenv": {
+    "I": {
+     "FX_INTERV": "gof:100",
+     "FX_EDGES": "own0",
+     "FX_B": "1e9"
+    },
+    "vsg": {
+     "FX_INTERV": "vsg:100",
+     "FX_EDGES": "own0"
+    },
+    "vsgo": {
+     "FX_INTERV": "vsgo:100",
+     "FX_EDGES": "own0"
+    },
+    "vrs": {
+     "FX_INTERV": "vrs:100",
+     "FX_EDGES": "own0"
+    },
+    "frz": {
+     "FX_INTERV": "frz:100",
+     "FX_FREEZE": "L0_QK"
+    },
+    "frzp": {
+     "FX_INTERV": "frzp:100",
+     "FX_FREEZE": "L0_QK"
+    },
+    "pnz": {
+     "FX_INTERV": "pnz:100",
+     "FX_PNZ_SEED": "9923"
+    },
+    "lbl": {
+     "FX_INTERV": "lbl:100",
+     "FX_LBL_P": "0.5",
+     "FX_LBL_SEED": "10023"
+    }
+   }
+  },
+  {
+   "name": "M821",
+   "base": "M",
+   "L": 23,
+   "W": 23,
+   "D": 821,
+   "Isuf": "_gofown2b1e9T100",
+   "win": {
+    "vsg": "_vsgown2T100",
+    "vsgo": "_vsgoown2T100",
+    "vrs": "_vrsown2T100",
+    "frz": "_frzL2_QKT100",
+    "frzp": "_frzpL2_QKT100",
+    "pnz": "_pnzs9921T100",
+    "lbl": "_lblp0.5s10021T100"
+   },
+   "wenv": {
+    "I": {
+     "FX_INTERV": "gof:100",
+     "FX_EDGES": "own2",
+     "FX_B": "1e9"
+    },
+    "vsg": {
+     "FX_INTERV": "vsg:100",
+     "FX_EDGES": "own2"
+    },
+    "vsgo": {
+     "FX_INTERV": "vsgo:100",
+     "FX_EDGES": "own2"
+    },
+    "vrs": {
+     "FX_INTERV": "vrs:100",
+     "FX_EDGES": "own2"
+    },
+    "frz": {
+     "FX_INTERV": "frz:100",
+     "FX_FREEZE": "L2_QK"
+    },
+    "frzp": {
+     "FX_INTERV": "frzp:100",
+     "FX_FREEZE": "L2_QK"
+    },
+    "pnz": {
+     "FX_INTERV": "pnz:100",
+     "FX_PNZ_SEED": "9921"
+    },
+    "lbl": {
+     "FX_INTERV": "lbl:100",
+     "FX_LBL_P": "0.5",
+     "FX_LBL_SEED": "10021"
+    }
+   }
+  },
+  {
+   "name": "M822",
+   "base": "M",
+   "L": 23,
+   "W": 23,
+   "D": 822,
+   "Isuf": "_gofown2b1e9T100",
+   "win": {
+    "vsg": "_vsgown2T100",
+    "vsgo": "_vsgoown2T100",
+    "vrs": "_vrsown2T100",
+    "frz": "_frzL2_QKT100",
+    "frzp": "_frzpL2_QKT100",
+    "pnz": "_pnzs9922T100",
+    "lbl": "_lblp0.5s10022T100"
+   },
+   "wenv": {
+    "I": {
+     "FX_INTERV": "gof:100",
+     "FX_EDGES": "own2",
+     "FX_B": "1e9"
+    },
+    "vsg": {
+     "FX_INTERV": "vsg:100",
+     "FX_EDGES": "own2"
+    },
+    "vsgo": {
+     "FX_INTERV": "vsgo:100",
+     "FX_EDGES": "own2"
+    },
+    "vrs": {
+     "FX_INTERV": "vrs:100",
+     "FX_EDGES": "own2"
+    },
+    "frz": {
+     "FX_INTERV": "frz:100",
+     "FX_FREEZE": "L2_QK"
+    },
+    "frzp": {
+     "FX_INTERV": "frzp:100",
+     "FX_FREEZE": "L2_QK"
+    },
+    "pnz": {
+     "FX_INTERV": "pnz:100",
+     "FX_PNZ_SEED": "9922"
+    },
+    "lbl": {
+     "FX_INTERV": "lbl:100",
+     "FX_LBL_P": "0.5",
+     "FX_LBL_SEED": "10022"
+    }
+   }
+  },
+  {
+   "name": "M823",
+   "base": "M",
+   "L": 23,
+   "W": 23,
+   "D": 823,
+   "Isuf": "_gofown2b1e9T100",
+   "win": {
+    "vsg": "_vsgown2T100",
+    "vsgo": "_vsgoown2T100",
+    "vrs": "_vrsown2T100",
+    "frz": "_frzL2_QKT100",
+    "frzp": "_frzpL2_QKT100",
+    "pnz": "_pnzs9923T100",
+    "lbl": "_lblp0.5s10023T100"
+   },
+   "wenv": {
+    "I": {
+     "FX_INTERV": "gof:100",
+     "FX_EDGES": "own2",
+     "FX_B": "1e9"
+    },
+    "vsg": {
+     "FX_INTERV": "vsg:100",
+     "FX_EDGES": "own2"
+    },
+    "vsgo": {
+     "FX_INTERV": "vsgo:100",
+     "FX_EDGES": "own2"
+    },
+    "vrs": {
+     "FX_INTERV": "vrs:100",
+     "FX_EDGES": "own2"
+    },
+    "frz": {
+     "FX_INTERV": "frz:100",
+     "FX_FREEZE": "L2_QK"
+    },
+    "frzp": {
+     "FX_INTERV": "frzp:100",
+     "FX_FREEZE": "L2_QK"
+    },
+    "pnz": {
+     "FX_INTERV": "pnz:100",
+     "FX_PNZ_SEED": "9923"
+    },
+    "lbl": {
+     "FX_INTERV": "lbl:100",
+     "FX_LBL_P": "0.5",
+     "FX_LBL_SEED": "10023"
+    }
+   }
+  }
+ ],
+ "families": {
+  "T": {
+   "anchors": {
+    "B": "fullB",
+    "I": "fullI"
+   }
+  }
+ },
+ "arms": {
+  "fullB": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_fullB",
+   "bases": "EM",
+   "transplant": {
+    "tp": "tp_{pair}_fullB",
+    "params_from_I": [],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "fullI": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_fullI",
+   "bases": "EM",
+   "transplant": {
+    "tp": "tp_{pair}_fullI",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK",
+     "L1_LN",
+     "L1_MLP",
+     "L1_OV",
+     "L1_QK",
+     "L2_LN",
+     "L2_MLP",
+     "L2_OV",
+     "L2_QK",
+     "WA",
+     "emb",
+     "final_LN"
+    ],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "paramI_optB": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_paramI_optB",
+   "bases": "EM",
+   "transplant": {
+    "tp": "tp_{pair}_paramI_optB",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK",
+     "L1_LN",
+     "L1_MLP",
+     "L1_OV",
+     "L1_QK",
+     "L2_LN",
+     "L2_MLP",
+     "L2_OV",
+     "L2_QK",
+     "WA",
+     "emb",
+     "final_LN"
+    ],
+    "opt": "B",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "paramB_optI": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_paramB_optI",
+   "bases": "EM",
+   "transplant": {
+    "tp": "tp_{pair}_paramB_optI",
+    "params_from_I": [],
+    "opt": "I",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "BfromI_L0": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_BfromI_L0",
+   "bases": "EM",
+   "transplant": {
+    "tp": "tp_{pair}_BfromI_L0",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK"
+    ],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "IfromB_L0": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_IfromB_L0",
+   "bases": "EM",
+   "transplant": {
+    "tp": "tp_{pair}_IfromB_L0",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK"
+    ],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19"
+    }
+   }
+  },
+  "IfromB_L0_QK": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_IfromB_L0_QK",
+   "bases": "E",
+   "transplant": {
+    "tp": "tp_{pair}_IfromB_L0_QK",
+    "params_from_I": [
+     "L0_QK"
+    ],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19"
+    }
+   }
+  },
+  "IfromB_L0_OV": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_IfromB_L0_OV",
+   "bases": "E",
+   "transplant": {
+    "tp": "tp_{pair}_IfromB_L0_OV",
+    "params_from_I": [
+     "L0_OV"
+    ],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19"
+    }
+   }
+  },
+  "randnorm_L0": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_randnorm_L0",
+   "bases": "E",
+   "transplant": {
+    "tp": "tp_{pair}_randnorm_L0",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK"
+    ],
+    "opt": "B",
+    "perturb": 19000,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "BfromI_L0L1": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_BfromI_L0L1",
+   "bases": "M",
+   "transplant": {
+    "tp": "tp_{pair}_BfromI_L0L1",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK",
+     "L1_LN",
+     "L1_MLP",
+     "L1_OV",
+     "L1_QK"
+    ],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "BfromI_L0L2": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_BfromI_L0L2",
+   "bases": "M",
+   "transplant": {
+    "tp": "tp_{pair}_BfromI_L0L2",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK",
+     "L2_LN",
+     "L2_MLP",
+     "L2_OV",
+     "L2_QK"
+    ],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "IfromB_L0L2": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_IfromB_L0L2",
+   "bases": "M",
+   "transplant": {
+    "tp": "tp_{pair}_IfromB_L0L2",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK",
+     "L2_LN",
+     "L2_MLP",
+     "L2_OV",
+     "L2_QK"
+    ],
+    "opt": "follow",
+    "perturb": null,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19"
+    }
+   }
+  },
+  "randnorm_L0L2": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_randnorm_L0L2",
+   "bases": "M",
+   "transplant": {
+    "tp": "tp_{pair}_randnorm_L0L2",
+    "params_from_I": [
+     "L0_LN",
+     "L0_MLP",
+     "L0_OV",
+     "L0_QK",
+     "L2_LN",
+     "L2_MLP",
+     "L2_OV",
+     "L2_QK"
+    ],
+    "opt": "B",
+    "perturb": 19000,
+    "alpha": null,
+    "src_dirs": {
+     "B": "{parent}_fx_L{L}_W{W}_D{D}_stop100_s100c19",
+     "I": "{parent}_fx_L{L}_W{W}_D{D}{Isuf}_stop100_s100c19"
+    }
+   }
+  },
+  "vsg": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_vsg",
+   "transplant": null,
+   "branch_from": "vsg"
+  },
+  "vsgo": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_vsgo",
+   "transplant": null,
+   "branch_from": "vsgo"
+  },
+  "vrs": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_vrs",
+   "transplant": null,
+   "branch_from": "vrs"
+  },
+  "frz": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_frz",
+   "transplant": null,
+   "branch_from": "frz"
+  },
+  "frzp": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_frzp",
+   "transplant": null,
+   "branch_from": "frzp"
+  },
+  "pnz": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_pnz",
+   "transplant": null,
+   "branch_from": "pnz"
+  },
+  "lbl": {
+   "family": "T",
+   "run": "{parent}_fx_L{L}_W{W}_D{D}_stop1211_br100_{pair}_lbl",
+   "transplant": null,
+   "branch_from": "lbl"
+  }
+ },
+ "hypotheses": [
+  {
+   "id": "E_P1_L0_sufficient",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['BfromI_L0']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P2_L0_necessary",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['IfromB_L0']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_A4_L0QK_restore_insufficient",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['IfromB_L0_QK']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_A4_L0OV_restore_insufficient",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['IfromB_L0_OV']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P3_params_carry",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['paramI_optB']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P3_moments_alone_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['paramB_optI']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_A7_normmatched_L0_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['randnorm_L0']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P6_pnz_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['pnz']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P6_lbl_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['lbl']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P4_vsgo_switch",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vsgo']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P4_vsgo_switch_sens070",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vsgo']",
+   "lo": 0.7,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "SENSITIVITY READING of E_P4_vsgo_switch (never replaces it; pre-review A R2)"
+  },
+  {
+   "id": "E_P4_vsg_partial",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vsg']",
+   "lo": 0.25,
+   "hi": 0.75,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P4_vsgo_exceeds_vsg",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vsgo'] - phi['vsg']",
+   "lo": 0.2,
+   "hi": 1.5,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation (paired contrast)"
+  },
+  {
+   "id": "E_P4_vrs_switch",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vrs']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P5_frz_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['frz']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation; moment-artefact check, eliminates nothing"
+  },
+  {
+   "id": "E_P5_frzp_partial",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['frzp']",
+   "lo": 0.25,
+   "hi": 0.75,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P7_L0_concordant",
+   "family": "T",
+   "base": "E",
+   "kind": "category",
+   "arm": "BfromI_L0",
+   "support": [
+    "BOTH"
+   ],
+   "contradict": [
+    "CAUSAL_ONLY"
+   ],
+   "label": "replication of a 1-pair dev observation; same-run RPC concordance check, eliminates nothing",
+   "eligible": [
+    "BOTH",
+    "CAUSAL_ONLY",
+    "INCONCLUSIVE(causal_SWITCH)"
+   ]
+  },
+  {
+   "id": "E_P7_vrs_concordant",
+   "family": "T",
+   "base": "E",
+   "kind": "category",
+   "arm": "vrs",
+   "support": [
+    "BOTH"
+   ],
+   "contradict": [
+    "CAUSAL_ONLY"
+   ],
+   "label": "replication of a 1-pair dev observation; same-run RPC concordance check, eliminates nothing",
+   "eligible": [
+    "BOTH",
+    "CAUSAL_ONLY",
+    "INCONCLUSIVE(causal_SWITCH)"
+   ]
+  },
+  {
+   "id": "M_P1_L0_alone_insufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0']",
+   "lo": -0.25,
+   "hi": 0.5,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P2_L0_restore_reduces",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['IfromB_L0']",
+   "lo": -0.25,
+   "hi": 0.5,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P2_L0L2_restore_prevents",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['IfromB_L0L2']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P1_L0L1_sufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0L1']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P1_L0L2_sufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0L2']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P3_params_carry",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['paramI_optB']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P3_moments_alone_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['paramB_optI']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_A7_normmatched_L0L2_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['randnorm_L0L2']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "new (no dev run)"
+  },
+  {
+   "id": "M_P6_pnz_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['pnz']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P6_lbl_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['lbl']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P4_vsgo_switch",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['vsgo']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P4_vsg_partial",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['vsg']",
+   "lo": 0.25,
+   "hi": 0.75,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P4_vsgo_exceeds_vsg",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['vsgo'] - phi['vsg']",
+   "lo": 0.2,
+   "hi": 1.5,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation (paired contrast)"
+  },
+  {
+   "id": "M_P4_vrs_switch",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['vrs']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P5_frz_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['frz']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation; moment-artefact check, eliminates nothing"
+  },
+  {
+   "id": "M_P5_frzp_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['frzp']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P7_vsgo_concordant",
+   "family": "T",
+   "base": "M",
+   "kind": "category",
+   "arm": "vsgo",
+   "support": [
+    "BOTH"
+   ],
+   "contradict": [
+    "CAUSAL_ONLY"
+   ],
+   "label": "replication of a 1-pair dev observation; same-run RPC concordance check, eliminates nothing",
+   "eligible": [
+    "BOTH",
+    "CAUSAL_ONLY",
+    "INCONCLUSIVE(causal_SWITCH)"
+   ]
+  }
+ ],
+ "window": {
+  "E": {
+   "L": 21,
+   "T": "own0",
+   "frz": "L0_QK"
+  },
+  "M": {
+   "L": 23,
+   "T": "own2",
+   "frz": "L2_QK"
+  }
+ }
+}

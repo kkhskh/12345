@@ -1,0 +1,503 @@
+{
+ "parent": "uP160",
+ "stream": 94700000,
+ "Ds": [
+  821,
+  822,
+  823
+ ],
+ "transplant_arms": [
+  {
+   "name": "fullB",
+   "base": "B",
+   "groups": "none",
+   "opt": "follow"
+  },
+  {
+   "name": "fullI",
+   "base": "B",
+   "groups": "all",
+   "opt": "follow"
+  },
+  {
+   "name": "paramI_optB",
+   "base": "B",
+   "groups": "all",
+   "opt": "B"
+  },
+  {
+   "name": "paramB_optI",
+   "base": "B",
+   "groups": "none",
+   "opt": "I"
+  },
+  {
+   "name": "BfromI_L0",
+   "base": "B",
+   "groups": "L0",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_L0",
+   "base": "I",
+   "groups": "L0",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_L0_QK",
+   "base": "I",
+   "groups": "L0_QK",
+   "opt": "follow",
+   "bases": "E"
+  },
+  {
+   "name": "IfromB_L0_OV",
+   "base": "I",
+   "groups": "L0_OV",
+   "opt": "follow",
+   "bases": "E"
+  },
+  {
+   "name": "randnorm_L0",
+   "base": "B",
+   "groups": "L0",
+   "opt": "B",
+   "perturb": 19000,
+   "bases": "E"
+  },
+  {
+   "name": "BfromI_L0L1",
+   "base": "B",
+   "groups": "L0,L1",
+   "opt": "follow",
+   "bases": "M"
+  },
+  {
+   "name": "BfromI_L0L2",
+   "base": "B",
+   "groups": "L0,L2",
+   "opt": "follow",
+   "bases": "M"
+  },
+  {
+   "name": "IfromB_L0L2",
+   "base": "I",
+   "groups": "L0,L2",
+   "opt": "follow",
+   "bases": "M"
+  },
+  {
+   "name": "randnorm_L0L2",
+   "base": "B",
+   "groups": "L0,L2",
+   "opt": "B",
+   "perturb": 19000,
+   "bases": "M"
+  }
+ ],
+ "training_arms": [
+  "vsg",
+  "vsgo",
+  "vrs",
+  "frz",
+  "frzp",
+  "pnz",
+  "lbl"
+ ],
+ "hypotheses": [
+  {
+   "id": "E_P1_L0_sufficient",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['BfromI_L0']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P2_L0_necessary",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['IfromB_L0']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_A4_L0QK_restore_insufficient",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['IfromB_L0_QK']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_A4_L0OV_restore_insufficient",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['IfromB_L0_OV']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P3_params_carry",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['paramI_optB']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P3_moments_alone_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['paramB_optI']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_A7_normmatched_L0_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['randnorm_L0']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P6_pnz_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['pnz']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P6_lbl_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['lbl']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P4_vsgo_switch",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vsgo']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P4_vsgo_switch_sens070",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vsgo']",
+   "lo": 0.7,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "SENSITIVITY READING of E_P4_vsgo_switch (never replaces it; pre-review A R2)"
+  },
+  {
+   "id": "E_P4_vsg_partial",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vsg']",
+   "lo": 0.25,
+   "hi": 0.75,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P4_vsgo_exceeds_vsg",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vsgo'] - phi['vsg']",
+   "lo": 0.2,
+   "hi": 1.5,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation (paired contrast)"
+  },
+  {
+   "id": "E_P4_vrs_switch",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['vrs']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P5_frz_nil",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['frz']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation; moment-artefact check, eliminates nothing"
+  },
+  {
+   "id": "E_P5_frzp_partial",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['frzp']",
+   "lo": 0.25,
+   "hi": 0.75,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "E_P7_L0_concordant",
+   "family": "T",
+   "base": "E",
+   "kind": "category",
+   "arm": "BfromI_L0",
+   "support": [
+    "BOTH"
+   ],
+   "contradict": [
+    "CAUSAL_ONLY"
+   ],
+   "label": "replication of a 1-pair dev observation; same-run RPC concordance check, eliminates nothing",
+   "eligible": [
+    "BOTH",
+    "CAUSAL_ONLY",
+    "INCONCLUSIVE(causal_SWITCH)"
+   ]
+  },
+  {
+   "id": "E_P7_vrs_concordant",
+   "family": "T",
+   "base": "E",
+   "kind": "category",
+   "arm": "vrs",
+   "support": [
+    "BOTH"
+   ],
+   "contradict": [
+    "CAUSAL_ONLY"
+   ],
+   "label": "replication of a 1-pair dev observation; same-run RPC concordance check, eliminates nothing",
+   "eligible": [
+    "BOTH",
+    "CAUSAL_ONLY",
+    "INCONCLUSIVE(causal_SWITCH)"
+   ]
+  },
+  {
+   "id": "M_P1_L0_alone_insufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0']",
+   "lo": -0.25,
+   "hi": 0.5,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P2_L0_restore_reduces",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['IfromB_L0']",
+   "lo": -0.25,
+   "hi": 0.5,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P2_L0L2_restore_prevents",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['IfromB_L0L2']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P1_L0L1_sufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0L1']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P1_L0L2_sufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0L2']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P3_params_carry",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['paramI_optB']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P3_moments_alone_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['paramB_optI']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_A7_normmatched_L0L2_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['randnorm_L0L2']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "new (no dev run)"
+  },
+  {
+   "id": "M_P6_pnz_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['pnz']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P6_lbl_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['lbl']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P4_vsgo_switch",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['vsgo']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P4_vsg_partial",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['vsg']",
+   "lo": 0.25,
+   "hi": 0.75,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P4_vsgo_exceeds_vsg",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['vsgo'] - phi['vsg']",
+   "lo": 0.2,
+   "hi": 1.5,
+   "need_class": null,
+   "label": "replication of a 1-pair dev observation (paired contrast)"
+  },
+  {
+   "id": "M_P4_vrs_switch",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['vrs']",
+   "lo": 0.75,
+   "hi": 1.25,
+   "need_class": "I",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P5_frz_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['frz']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation; moment-artefact check, eliminates nothing"
+  },
+  {
+   "id": "M_P5_frzp_nil",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['frzp']",
+   "lo": -0.25,
+   "hi": 0.25,
+   "need_class": "B",
+   "label": "replication of a 1-pair dev observation"
+  },
+  {
+   "id": "M_P7_vsgo_concordant",
+   "family": "T",
+   "base": "M",
+   "kind": "category",
+   "arm": "vsgo",
+   "support": [
+    "BOTH"
+   ],
+   "contradict": [
+    "CAUSAL_ONLY"
+   ],
+   "label": "replication of a 1-pair dev observation; same-run RPC concordance check, eliminates nothing",
+   "eligible": [
+    "BOTH",
+    "CAUSAL_ONLY",
+    "INCONCLUSIVE(causal_SWITCH)"
+   ]
+  }
+ ],
+ "min_pairs": 2,
+ "refs_sha256": "6e35a7b08081227883e7902358b024a7af8c29ab376b693b51046d02322b3519",
+ "matching": [
+  {
+   "arm": "pnz",
+   "kind": "dist",
+   "lo": 0.67,
+   "hi": 1.5
+  },
+  {
+   "arm": "lbl",
+   "kind": "kl100",
+   "lo": 0.5,
+   "hi": 1000000000.0,
+   "min_block_excess": 0.005
+  }
+ ]
+}

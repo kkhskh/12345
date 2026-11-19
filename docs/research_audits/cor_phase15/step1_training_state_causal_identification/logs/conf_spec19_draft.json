@@ -1,0 +1,221 @@
+{
+ "parent": "uP160",
+ "stream": 94700000,
+ "Ds": [
+  821,
+  822,
+  823
+ ],
+ "transplant_arms": [
+  {
+   "name": "fullB",
+   "base": "B",
+   "groups": "none",
+   "opt": "follow"
+  },
+  {
+   "name": "fullI",
+   "base": "B",
+   "groups": "all",
+   "opt": "follow"
+  },
+  {
+   "name": "paramI_optB",
+   "base": "B",
+   "groups": "all",
+   "opt": "B"
+  },
+  {
+   "name": "paramB_optI",
+   "base": "B",
+   "groups": "none",
+   "opt": "I"
+  },
+  {
+   "name": "BfromI_L0",
+   "base": "B",
+   "groups": "L0",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_L0",
+   "base": "I",
+   "groups": "L0",
+   "opt": "follow"
+  },
+  {
+   "name": "BfromI_L0L1",
+   "base": "B",
+   "groups": "L0,L1",
+   "opt": "follow"
+  },
+  {
+   "name": "BfromI_L0L2",
+   "base": "B",
+   "groups": "L0,L2",
+   "opt": "follow"
+  },
+  {
+   "name": "randnorm_L0",
+   "base": "B",
+   "groups": "L0",
+   "opt": "B",
+   "perturb": 19
+  }
+ ],
+ "training_arms": [
+  "vsg",
+  "vrs",
+  "vrg",
+  "gsg",
+  "frz",
+  "ctl"
+ ],
+ "hypotheses": [
+  {
+   "id": "P1_E_L0_sufficient",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['BfromI_L0']",
+   "lo": 0.75,
+   "hi": 1.25
+  },
+  {
+   "id": "P2_E_L0_necessary",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['IfromB_L0']",
+   "lo": -0.25,
+   "hi": 0.25
+  },
+  {
+   "id": "P1_M_L0_insufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0']",
+   "lo": -0.25,
+   "hi": 0.5
+  },
+  {
+   "id": "P2_M_L0_necessary",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['IfromB_L0']",
+   "lo": -0.25,
+   "hi": 0.5
+  },
+  {
+   "id": "P1_M_L0L1_sufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0L1']",
+   "lo": 0.75,
+   "hi": 1.25
+  },
+  {
+   "id": "P1_M_L0L2_sufficient",
+   "family": "T",
+   "base": "M",
+   "expr": "phi['BfromI_L0L2']",
+   "lo": 0.75,
+   "hi": 1.25
+  },
+  {
+   "id": "P3_param_carries",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['paramI_optB']",
+   "lo": 0.75,
+   "hi": 1.25
+  },
+  {
+   "id": "P3_opt_alone_nil",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['paramB_optI']",
+   "lo": -0.25,
+   "hi": 0.25
+  },
+  {
+   "id": "A7_randdir_L0_nil",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['randnorm_L0']",
+   "lo": -0.25,
+   "hi": 0.25
+  },
+  {
+   "id": "P6_matched_ctl_nil",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['ctl']",
+   "lo": -0.25,
+   "hi": 0.25
+  },
+  {
+   "id": "P4_vrs_switch",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['vrs']",
+   "lo": 0.75,
+   "hi": 1.25
+  },
+  {
+   "id": "P4_vsg_partial",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['vsg']",
+   "lo": 0.25,
+   "hi": 0.75
+  },
+  {
+   "id": "P4_vrg_switch",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['vrg']",
+   "lo": 0.75,
+   "hi": 1.25
+  },
+  {
+   "id": "P5_frz_nil",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['frz']",
+   "lo": -0.25,
+   "hi": 0.25
+  },
+  {
+   "id": "P5_gsg_exceeds_frz",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['gsg'] - phi['frz']",
+   "lo": 0.25,
+   "hi": 1.5
+  },
+  {
+   "id": "P7_E_L0_functional",
+   "family": "T",
+   "base": "E",
+   "expr": "phi['BfromI_L0']",
+   "lo": -10,
+   "hi": 10,
+   "need_functional": "switch"
+  },
+  {
+   "id": "P7_vrs_functional",
+   "family": "T",
+   "base": "both",
+   "expr": "phi['vrs']",
+   "lo": -10,
+   "hi": 10,
+   "need_functional": "switch"
+  }
+ ],
+ "min_pairs": 2,
+ "refs_sha256": "57f28ce72c763ce9690c02d4215d58b8eb6e8ff881e9c539f2fcffb9129601fe",
+ "matching": {
+  "arm": "ctl",
+  "lo": 0.67,
+  "hi": 1.5
+ }
+}

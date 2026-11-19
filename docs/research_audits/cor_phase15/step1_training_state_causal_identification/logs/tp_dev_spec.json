@@ -1,0 +1,117 @@
+{
+ "parent": "uP160",
+ "stream": 86100000,
+ "measure_out": "logs/dev/measure_tp_dev.jsonl",
+ "stop": 1211,
+ "arms": [
+  {
+   "name": "fullB",
+   "base": "B",
+   "groups": "none",
+   "opt": "follow"
+  },
+  {
+   "name": "fullI",
+   "base": "B",
+   "groups": "all",
+   "opt": "follow"
+  },
+  {
+   "name": "paramI_optB",
+   "base": "B",
+   "groups": "all",
+   "opt": "B"
+  },
+  {
+   "name": "paramB_optI",
+   "base": "B",
+   "groups": "none",
+   "opt": "I"
+  },
+  {
+   "name": "BfromI_emb",
+   "base": "B",
+   "groups": "emb",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_emb",
+   "base": "I",
+   "groups": "emb",
+   "opt": "follow"
+  },
+  {
+   "name": "BfromI_L0",
+   "base": "B",
+   "groups": "L0",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_L0",
+   "base": "I",
+   "groups": "L0",
+   "opt": "follow"
+  },
+  {
+   "name": "BfromI_L1",
+   "base": "B",
+   "groups": "L1",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_L1",
+   "base": "I",
+   "groups": "L1",
+   "opt": "follow"
+  },
+  {
+   "name": "BfromI_L2",
+   "base": "B",
+   "groups": "L2",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_L2",
+   "base": "I",
+   "groups": "L2",
+   "opt": "follow"
+  },
+  {
+   "name": "BfromI_WA+final_LN",
+   "base": "B",
+   "groups": "WA,final_LN",
+   "opt": "follow"
+  },
+  {
+   "name": "IfromB_WA+final_LN",
+   "base": "I",
+   "groups": "WA,final_LN",
+   "opt": "follow"
+  },
+  {
+   "name": "randnorm",
+   "base": "B",
+   "groups": "all",
+   "opt": "B",
+   "perturb": 1
+  }
+ ],
+ "pairs": [
+  {
+   "name": "E801",
+   "L": 21,
+   "W": 21,
+   "D": 801,
+   "B": "checkpoints/ft/uP160_fx_L21_W21_D801_stop100_s100dev",
+   "I": "checkpoints/ft/uP160_fx_L21_W21_D801_gofown0b1e9T100_stop100_s100dev"
+  },
+  {
+   "name": "M801",
+   "L": 23,
+   "W": 23,
+   "D": 801,
+   "B": "checkpoints/ft/uP160_fx_L23_W23_D801_stop100_s100dev",
+   "I": "checkpoints/ft/uP160_fx_L23_W23_D801_gofown2b1e9T100_stop100_s100dev"
+  }
+ ]
+}

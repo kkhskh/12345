@@ -1,0 +1,1299 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XIX
+
+## Causal Identification of Training-Induced Relational Strategy Selection
+
+### Parameter-State Transplantation, Forward–Backward Pathway Separation, and Independent Functional Validation
+
+**Full mathematical, mechanistic, and experimental research mandate**
+
+**Primary mission: Identify which learned changes during an early training intervention cause a neural network to develop a different relational computation, and distinguish causal parameter changes from forward information loss, gradient modification, attention competition, and general optimization disturbance.**
+
+This investigation is intended to resolve the causal-identification failures of Investigation XVIII.
+
+It must not become a repetition of the same masking experiment with additional seeds.
+
+It must not produce another large experimental archive whose primary scientific question remains unanswered because the interventions or scorers were non-identifying.
+
+**The principal deliverable is a causally defensible result, or a rigorous demonstration that the competing mechanisms cannot be distinguished with the available interventions.**
+
+---
+
+# 0. STARTING POINT AND RESEARCH STATUS
+
+Continue from Investigation XVIII.
+
+Starting branch:
+
+`cor-phase15-step1-pathway-selection-causal-identification`
+
+Reported HEAD:
+
+`7fb7dad`
+
+Investigation XVIII freeze:
+
+`1547ec9`
+
+Latest research synthesis:
+
+`XVIII_MAIN_RESEARCH_SYNTHESIS.md`
+
+Latest research archive:
+
+`cor_inv18_pathway_selection_causal_identification.zip`
+
+Verify the actual repository state and locate all dependencies.
+
+COR remains in:
+
+**Phase 1.5, Step 1 — Foundational Mathematical and Mechanistic Investigation.**
+
+The provisional exploration estimate remains approximately **25%**.
+
+No final thesis is selected.
+
+No phase is closed.
+
+The original obstruction/discrepancy framework is unvalidated.
+
+The separate proposed Bayesian-style repair of O/D is not evidence that the original framework has been validated. It must not be imported into this investigation as an established neural theory.
+
+## Required research history
+
+Study the primary code, experiments, reviewer reports, and corrected evidence from:
+
+- XIII-C: pathway competition and initial mechanistic claims.
+- XIII-D: causal algorithm-selection tests and corrections.
+- XIII-E: masking, persistence, and ideal-reference controls.
+- XIV: off-route sham, location-matched noise, and early-versus-late persistence.
+- XV: mathematically controlled learning-order investigations.
+- XVI: extended optimization and acquisition mechanisms.
+- XVII: failed discrimination between shared computation and position-dependent access.
+- XVIII: decomposition of pathway blocking into forward content, gradients, and attention share.
+
+Read the complete XVIII reports:
+
+- `MAIN_RESEARCH_SYNTHESIS.md`
+- `XIV_RESULT_RECONSTRUCTION.md`
+- `PRE_EXPERIMENT_IDENTIFIABILITY_REVIEW.md`
+- `PATHWAY_INFORMATION_VS_ATTENTION_COMPETITION.md`
+- `INDEPENDENT_PARENT_GENERALIZATION.md`
+- `ORGANIZATIONAL_MECHANISM_VALIDATION.md`
+- `ORIGINAL_COR_OD_RELEVANCE.md`
+- `PRIOR_WORK_AND_NOVELTY.md`
+- `FROZEN_PREDICTIONS_AND_RESULTS.md`
+- `REVIEWS_AND_ADJUDICATION.md`
+
+Inspect actual code and outputs for every intervention.
+
+Do not rely on conclusions copied from summary documents.
+
+---
+
+# 1. THE SCIENTIFIC PROBLEM LEFT BY XVIII
+
+Investigation XIV established that temporarily blocking a selected pathway during the first 100 training steps can change the eventual organization of a T4 Transformer.
+
+Investigation XVIII attempted to identify which component of that block caused the effect.
+
+It separated several intervention components:
+
+- Forward information carried through the targeted route.
+- Backward gradients associated with the targeted route.
+- Attention allocation to the route.
+- Learning of the underlying parameters.
+
+The results were informative but did **not** isolate a mechanism.
+
+## 1.1 What XVIII actually established
+
+The frozen primary experiment had only two evaluable baseline pairs.
+
+Six of eight frozen hypotheses were contradicted under its reported rule, while two remained inconclusive. Under a different reasonable reading of an ambiguous validity rule, fewer contradictions survive.
+
+The strongest positive findings came from the corrected sensitivity analysis, not the primary frozen verdict.
+
+In that sensitivity analysis:
+
+**Forward-content destruction**
+
+Destroying information transmitted through the targeted route while allowing attention allocation to remain active changed the learned organization in five of five evaluable pairs.
+
+But the intervention also stopped relevant value gradients.
+
+Therefore, forward-content destruction was not isolated from altered value learning.
+
+**All-gradient intervention**
+
+Removing the relevant backward learning contribution while leaving the forward pass intact changed the learned route organization on the mixture base, and changed route necessity without a corresponding mixture-like behavioral change on the early base.
+
+But gradient contributions through shared parameters and complementary routes remained possible.
+
+**Routing-gradient intervention**
+
+Removing the targeted routing-gradient contribution produced different effects in early and mixture organizations, including stable hybrids.
+
+This did not establish that routing gradients alone were responsible.
+
+**Attention-share clamp**
+
+Holding forward attention allocation near its initial level while allowing the route to continue learning did not produce the organizational switch.
+
+However, the underlying route remained trainable, and its latent strength could rebound after release.
+
+**Graded suppression**
+
+Strong partial suppression also changed the learned organization, demonstrating that a mathematically complete block is not always required.
+
+However, this simultaneously reduced forward contribution and associated gradients.
+
+## 1.2 What remains unidentified
+
+The results are compatible with several explanations:
+
+1. Information-dependent parameter learning.
+2. Competition between learned routes.
+3. Changes in value-processing parameters.
+4. Changes in attention-routing parameters.
+5. Downstream adaptation to altered evidence.
+6. Changes in optimizer state.
+7. Interactions among several learned parameter groups.
+8. General optimization effects.
+
+No single explanation has been causally established.
+
+The previously proposed statement that the route switches when it receives no useful learning signal was withdrawn after review.
+
+**Do not resurrect that explanation under different wording without a discriminating experiment.**
+
+---
+
+# 2. A FUNDAMENTAL CHANGE IN EXPERIMENTAL STRATEGY
+
+Previous investigations primarily manipulated attention or gradients during training and examined the resulting network.
+
+XIX must additionally investigate the **learned state produced by those interventions**.
+
+The main object is now:
+
+\[
+S_t = (\theta_t, m_t, v_t, \ldots)
+\]
+
+where:
+
+- \(\theta_t\) denotes model parameters at training step \(t\).
+- \(m_t, v_t\) denote relevant optimizer state, including Adam moments.
+- Additional state variables must be included if the training procedure actually uses them.
+
+Use the exact optimizer definition implemented in the repository.
+
+Let:
+
+- \(S_{100}^{B}\) denote the state after 100 steps of baseline training.
+- \(S_{100}^{I}\) denote the state after the same 100 steps with the targeted intervention.
+
+Both training trajectories must start from the same initialization and use matched data streams and randomness.
+
+The primary question becomes:
+
+**Which components of the difference between these states are necessary or sufficient to change the later learned organization?**
+
+The difference is a consequence of the entire training intervention.
+
+It must not automatically be interpreted as a uniquely identifiable local causal mechanism.
+
+Parameter changes are correlated, shared across functions, and can interact nonlinearly.
+
+The experimental design must address those facts directly.
+
+---
+
+# 3. NON-NEGOTIABLE PRE-EXPERIMENT IDENTIFIABILITY GATE
+
+**No new confirmation training until this stage is complete.**
+
+XVII showed that mathematically guaranteed tests can consume substantial computation without answering the scientific question.
+
+XVIII showed that pre-experiment reviewers can approve a design whose frozen measurement rule later fails.
+
+XIX must improve both safeguards.
+
+## 3.1 Exact computational-graph audit
+
+Reconstruct the affected forward and backward computational graph.
+
+Identify:
+
+- Which attention logits are changed.
+- Which attention rows and columns are affected.
+- Which value vectors contribute to the targeted route.
+- Which parameters receive gradients from those contributions.
+- Which parameters are shared with other routes.
+- Which residual pathways can bypass the targeted route.
+- Which optimizer states are modified.
+- Which operations remain active under each intervention.
+
+For each proposed intervention, produce a machine-readable table specifying:
+
+| Component | Forward signal changed? | Gradient changed? | Parameter update changed? | Optimizer state changed? |
+|---|---|---|---|---|
+| Targeted attention routing | Verify | Verify | Verify | Verify |
+| Targeted value contribution | Verify | Verify | Verify | Verify |
+| Complementary routes | Verify | Verify | Verify | Verify |
+| Downstream components | Verify | Verify | Verify | Verify |
+| Shared parameters | Verify | Verify | Verify | Verify |
+
+Fill this table using actual measured computational effects.
+
+Do not infer isolation merely from an intervention's name.
+
+## 3.2 Gradient-path completeness
+
+Investigations XIII–XVIII repeatedly exposed the danger of stopping only one apparent gradient path.
+
+For `gsg`, `gsv`, and any newly proposed interventions, determine which route-associated gradient contributions remain.
+
+Pay particular attention to:
+
+- Query/key parameters.
+- Value/output parameters.
+- Softmax competition across non-targeted edges.
+- Shared attention heads.
+- Layer normalization.
+- Residual connections.
+- MLP parameters.
+- Downstream error propagation.
+- Adam optimizer history.
+
+A targeted edge-logit gradient stop is not equivalent to freezing every parameter that can influence that route.
+
+Likewise, freezing a parameter group may affect multiple routes simultaneously.
+
+If clean isolation is impossible, state the exact limitation.
+
+## 3.3 Intervention equivalence and counterfactual predictions
+
+For each candidate experiment, write a prediction table covering the strongest competing explanations.
+
+The table must state which outcomes distinguish them.
+
+A test is unacceptable if all explanations predict the same outcome.
+
+A test is also unacceptable if its predicted result is guaranteed by the intervention's mathematical construction.
+
+## 3.4 Independent review before freezing
+
+Use at least three independent reviewing agents:
+
+**Reviewer A — Mathematics and identifiability**
+
+Determine whether the experiment can distinguish the intended causal explanations.
+
+**Reviewer B — Computational graph and optimization**
+
+Verify which forward, backward, parameter, and optimizer-state pathways actually change.
+
+**Reviewer C — Experimental measurement**
+
+Challenge the scoring system, competence criteria, model selection, and previous measurement failures.
+
+Each reviewer must explicitly classify the design as:
+
+- Approved.
+- Approved with mandatory corrections.
+- Rejected as non-identifying.
+
+A rejected design must be corrected and reviewed again.
+
+Do not proceed simply because reviewers have provided comments.
+
+If the necessary causal factors are fundamentally non-identifiable, demonstrate that mathematically before authorizing substantial training.
+
+---
+
+# 4. WORKSTREAM A — PARAMETER-STATE TRANSPLANTATION
+
+**Principal new experiment.**
+
+The central question is whether the difference between the baseline and intervened training states causes the eventual change in learned organization.
+
+## A1. Establish matched trajectories
+
+For each eligible baseline model, create two training trajectories:
+
+**B — Baseline**
+
+Train normally for the first 100 steps.
+
+**I — Intervention**
+
+Train from exactly the same initial state and on the same data stream while applying the validated pathway intervention for the first 100 steps.
+
+Verify that all randomness except the intended intervention is matched.
+
+At step 100, save:
+
+- Complete model parameters.
+- Complete optimizer state.
+- Learning-rate schedule state.
+- Relevant buffers.
+- Training loss.
+- Attention and causal-route diagnostics.
+- Parameter-group update norms.
+
+After step 100, remove the intervention from all continuation experiments.
+
+## A2. Full-state interchange
+
+Before dividing the parameters into groups, verify that full-state interchange behaves as expected.
+
+Compare:
+
+1. Baseline state continued normally.
+2. Intervention state continued normally.
+3. Baseline parameters with intervention optimizer state.
+4. Intervention parameters with baseline optimizer state.
+5. Full baseline state.
+6. Full intervention state.
+
+Some of these combinations may be off the natural training trajectory.
+
+Their interpretations must be limited accordingly.
+
+The full-state controls should show whether transplantation machinery is correctly implemented.
+
+A full state transplant is not itself evidence of a particular mechanism.
+
+## A3. Parameter-only and optimizer-only interventions
+
+Separate, as far as operationally possible:
+
+**Parameter effect**
+
+What happens when the network receives the intervention-induced parameter state but retains the corresponding baseline optimizer state?
+
+**Optimizer-history effect**
+
+What happens when the model parameters remain at baseline values but the optimizer state is replaced?
+
+**Joint effect**
+
+Does transferring parameters and optimizer state together produce a different result from either transfer alone?
+
+Include fresh optimizer-state and unmodified-state controls where scientifically appropriate.
+
+Do not assume that optimizer-state-only transfer is a valid natural mediation intervention.
+
+Treat unnatural parameter/optimizer combinations as synthetic causal tests and measure their instability.
+
+## A4. Parameter-group transplantation
+
+Investigate causal contributions from:
+
+- Query/key attention parameters.
+- Value/output attention parameters.
+- Relevant attention heads where individual head separation is valid.
+- Downstream MLP parameters.
+- Readout parameters.
+- Layer-normalization parameters where relevant.
+- Other groups identified by the actual gradient audit.
+
+Use the real model structure.
+
+Do not invent artificial independent modules that do not exist.
+
+For each component group \(G\), construct precisely defined interventions such as:
+
+\[
+\theta^{B \leftarrow I}_G
+\]
+
+meaning that the baseline state receives the corresponding parameter values from the intervened state, with other parameters retained from baseline.
+
+Also test the reverse direction.
+
+## A5. Test necessity and sufficiency
+
+A credible parameter-level causal claim requires more than one transplant direction.
+
+Evaluate:
+
+**Sufficiency**
+
+Does replacing the baseline component with its intervention-trained counterpart cause the later organization to change?
+
+**Necessity**
+
+Does restoring the baseline component in the intervention-trained model prevent the organization change?
+
+**Interaction**
+
+Are two or more parameter groups jointly required?
+
+**Robustness**
+
+Does the effect persist under reasonable controls for perturbation magnitude and continued optimization?
+
+A parameter group that is sufficient but not necessary may be one of several alternative causal routes.
+
+Do not force unique attribution.
+
+## A6. Include interactions
+
+If no single parameter group reproduces the effect, test carefully selected combinations.
+
+Examples include:
+
+- Query/key plus value/output.
+- Attention plus downstream MLP.
+- Attention plus readout.
+- Parameter transplant plus optimizer-state transplant.
+
+Choose combinations based on a mathematical causal model and development results.
+
+Do not conduct an uncontrolled combinatorial search and present the best combination as preregistered evidence.
+
+## A7. State interpolation and perturbation controls
+
+Simple parameter transplantation can create an unnatural combination of learned features.
+
+Investigate whether the effect depends on:
+
+- Large parameter jumps.
+- Increased training loss.
+- Incompatible residual representations.
+- Disrupted optimizer moments.
+- Destruction of task competence.
+
+Use matched-norm random perturbations, within-trajectory swaps, and appropriate interpolation diagnostics.
+
+Do not call a hybrid parameter state a naturally occurring neural mechanism merely because it produces the desired output.
+
+---
+
+# 5. WORKSTREAM B — SEPARATE FORWARD CONTENT FROM VALUE LEARNING
+
+**Mandatory missing causal control.**
+
+XVIII's `vrg` intervention simultaneously modified forward content and stopped associated value gradients.
+
+This was the most important unresolved confound in the content-destruction result.
+
+## B1. Implement the missing value-gradient arm
+
+Investigate the proposed `vsg` intervention or its mathematically appropriate equivalent.
+
+The objective is to alter the targeted value-learning contribution while preserving the intended forward computation and relevant routing-gradient contribution as closely as the computational graph allows.
+
+Do not assume the name `vsg` establishes its meaning.
+
+Verify it through gradient-path tests.
+
+## B2. Reciprocal comparison
+
+Construct a scientifically meaningful comparison between:
+
+- Forward-content disruption with its direct learning consequences.
+- Forward-content disruption with an explicitly controlled backward rule.
+- Value-gradient suppression while preserving the forward computation.
+- Routing-gradient suppression.
+- Combined relevant gradient suppression.
+- Untreated baseline.
+- Full route block.
+
+If certain combinations require synthetic gradients, describe them as such.
+
+Do not claim they reproduce ordinary gradient descent.
+
+## B3. Mathematical feasibility
+
+Some forward and backward effects are coupled by the chain rule.
+
+An intervention that holds the forward function fixed while independently changing part of the gradient is an intervention on the optimization algorithm.
+
+Its interpretation is different from removing information from a normal neural network.
+
+Explicitly separate:
+
+- Natural forward perturbations.
+- Natural-gradient consequences.
+- Synthetic gradient interventions.
+- Parameter freezes.
+- Optimizer-state manipulation.
+
+This distinction is mandatory.
+
+## B4. Measured outcomes
+
+Measure:
+
+- Actual forward content.
+- Attention share.
+- Parameter-specific gradients.
+- Parameter updates.
+- Optimizer-state changes.
+- Loss trajectory.
+- Final causal organization.
+- Final task competence.
+- Functional evidence-combination behavior.
+
+The experiment must distinguish whether the organizational effect follows changes in transmitted information, changes in learning updates, or their interaction.
+
+If those causes remain inseparable, state that explicitly.
+
+---
+
+# 6. WORKSTREAM C — DIRECTLY TEST ROUTING-GRADIENT LEARNING
+
+**Mandatory where the audited graph supports a meaningful separation.**
+
+XVIII's `gsg` results differed by organizational base and produced stable hybrids.
+
+But stopping gradients at selected attention logits did not necessarily remove every way the relevant routing parameters could learn.
+
+## C1. Define routing-gradient contribution
+
+Give an operational, testable definition of the learning contribution associated with the targeted route.
+
+Specify the relevant paths through the computational graph.
+
+Measure what fraction of the affected parameter updates is removed by each intervention.
+
+Do not describe a partial gradient stop as complete removal of route learning.
+
+## C2. Compare local and parameter-level intervention
+
+Where feasible, compare:
+
+- Edge-local backward suppression.
+- Suppression of the route-associated contribution to parameter gradients.
+- Relevant parameter-group freezing.
+- Parameter-state transplantation of the learned routing changes.
+
+These interventions have different side effects.
+
+That difference must be measured rather than hidden.
+
+## C3. Verify specificity
+
+Check whether each intervention also changes:
+
+- Complementary attention edges.
+- Source-irrelevant edges.
+- Other learned relational routes.
+- Shared head-level parameters.
+- Gradient flow into downstream blocks.
+
+A causally persuasive result would identify which changes are required for the later organizational switch.
+
+If freezing a shared parameter changes several routes, it cannot be presented as an isolated single-route intervention.
+
+---
+
+# 7. WORKSTREAM D — GENERAL TRAINING DISTURBANCE CONTROL
+
+**Mandatory. XVIII omitted this control.**
+
+A model may develop a different organization because the intervention disrupts optimization broadly.
+
+That alternative must be tested directly.
+
+## D1. Construct an independently motivated control
+
+Choose a non-targeted perturbation that creates a comparable training disturbance without intentionally removing the relevant relational computation.
+
+Possible matching quantities include:
+
+- Immediate training-loss increase.
+- Cumulative training-loss disturbance.
+- Gradient norm.
+- Parameter-update magnitude.
+- Optimizer-state displacement.
+- Activation perturbation.
+
+These quantities need not agree.
+
+Predeclare which matching measure is relevant to each causal explanation.
+
+## D2. Validate non-targeted status
+
+The control cannot be called non-targeted simply because its attention indices differ from the original mask.
+
+XVIII found that part of the earlier off-route sham overlapped with the targeted route.
+
+Verify:
+
+- Edge disjointness where intended.
+- Lack of dependence on the targeted relational variable.
+- Effects on the same parameter groups.
+- Effects on complementary routes.
+- Whether the control itself alters task-relevant information.
+
+## D3. Reject weak controls
+
+A control that produces negligible disruption cannot rule out a disturbance-based explanation for a strong intervention.
+
+Likewise, one that destroys overall task competence is not a meaningful control for selecting between competent strategies.
+
+If a properly matched control cannot be constructed, leave the general-disturbance explanation unresolved.
+
+Do not replace the missing control with a convenient but irrelevant perturbation.
+
+---
+
+# 8. WORKSTREAM E — INDEPENDENT FUNCTIONAL AND CAUSAL VALIDATION
+
+**Mandatory.**
+
+An extremely important ambiguity remains from XIII–XVIII.
+
+**Changing which pathway is necessary does not necessarily mean changing which mathematical computation the network performs.**
+
+XIX must distinguish the two.
+
+## E1. Separate three claims
+
+**Claim 1 — Route reorganization**
+
+The same or similar computation is carried through different neural components.
+
+**Claim 2 — Different functional computation**
+
+The model uses a different input-output rule or evidence-combination function.
+
+**Claim 3 — Different internal algorithm**
+
+The model implements a genuinely different computational procedure, beyond mere anatomical routing.
+
+These claims require progressively stronger evidence.
+
+Do not use them interchangeably.
+
+## E2. Independent behavioral tests
+
+Construct mathematically valid inputs and interventions that can distinguish the candidate functional computations.
+
+Use the exact T4 reference mathematics.
+
+Include:
+
+- Changes in source reliability.
+- Controlled source agreement and disagreement.
+- Relevant counterfactual evidence edits.
+- Cases where previously fitted organizational descriptions make different predictions.
+- Appropriate on-support and explicitly labeled off-support cases.
+
+A fitting parameter that is non-unique cannot establish a unique neural operator.
+
+## E3. Independent causal tests
+
+Use genuine test-time causal interventions to determine which components are necessary or sufficient.
+
+Avoid using only the same attention edges that were manipulated during training.
+
+Where those edges must be used, include independent functional evidence and acknowledge the potential measurement dependence.
+
+## E4. Competence and uncertainty
+
+Report:
+
+- Bayes-reference task performance.
+- Held-out accuracy and NLL.
+- Competence of every trained model.
+- Functional classification.
+- Causal-route classification.
+- Agreement or disagreement between classifications.
+
+A model can have a changed causal route without having changed its mathematical decision function.
+
+If that is what the evidence shows, report **causal implementation reorganization** rather than algorithm selection.
+
+Do not force hybrid models into early-versus-mixture binary classes.
+
+---
+
+# 9. REBUILD THE PRIMARY SCORER BEFORE CONFIRMATION
+
+**Absolute requirement.**
+
+The biggest procedural failure of XVIII was the non-transferable behavioral evaluability threshold.
+
+Four of six fresh baseline pairs became non-evaluable.
+
+The subsequent sensitivity analysis produced useful findings, but it did not rescue the failed primary confirmation.
+
+This cannot happen again.
+
+## F1. Primary outcome
+
+Use a continuously measured causal-necessity outcome as the principal organizational measurement, with competence requirements.
+
+Do not require a fragile fitted behavioral label to determine whether a competent baseline is scorable.
+
+Retain behavioral measurements separately as independent evidence.
+
+## F2. Independent measurement validation
+
+Before the confirmation freeze, test the scorer on:
+
+- Multiple independent data streams.
+- Known reference models.
+- Previously competent early organizations.
+- Previously competent mixture organizations.
+- Known hybrids.
+- Noncompetent models.
+- Synthetic outcomes with known expected verdicts.
+- Boundary and threshold cases.
+
+Verify that the scorer produces sensible results across streams not used to tune its thresholds.
+
+## F3. Explicit outcome categories
+
+The scorer must distinguish:
+
+- Functional change.
+- Causal-route change.
+- Both.
+- Neither.
+- Hybrid.
+- Noncompetent.
+- Inconclusive.
+
+Do not suppress ambiguous cases by silently excluding them.
+
+## F4. Fail-closed integrity
+
+The scorer must refuse to issue a frozen verdict when mandatory inputs are missing.
+
+It must also refuse mismatched:
+
+- Training configurations.
+- Intervention definitions.
+- Parameter-transplant provenance.
+- Optimizer states.
+- Seed assignments.
+- Checkpoints.
+- Mathematical reference versions.
+
+## F5. Sensitivity analysis
+
+Freeze sensitivity analyses before confirmation.
+
+Ensure the actual code implements the declared rule completely, including evaluability.
+
+Test the sensitivity scorers on planted cases.
+
+Do not repeat XVIII's mistake of modifying the score bands while forgetting the evaluability rule.
+
+---
+
+# 10. SCIENTIFIC IDENTIFICATION STANDARD
+
+XIX must explicitly answer what it would mean to isolate a mechanism.
+
+A single successful intervention is not enough.
+
+At minimum, a strong causal result should establish:
+
+1. A precisely defined intervention.
+2. Verified forward and backward effects.
+3. A measurable effect on later organization.
+4. Appropriate negative controls.
+5. A competing causal explanation that predicts something different.
+6. A reciprocal or complementary intervention where meaningful.
+7. An independent organizational diagnostic.
+8. Competent resulting models.
+9. Robustness across independent experimental units.
+10. A clear boundary on what is and is not identified.
+
+Where parameter interactions make a unique explanation impossible, document the interaction.
+
+An identified **combination** of necessary changes is scientifically acceptable.
+
+Do not invent a single dominant cause if several components jointly mediate the effect.
+
+---
+
+# 11. FROZEN PREDICTIONS
+
+**Freeze only genuinely discriminating predictions.**
+
+Suggested prediction families:
+
+### P1 — Parameter-state mediation
+
+A specified component of the intervention-trained state changes the later organization when transplanted into a baseline trajectory, beyond transplant controls.
+
+### P2 — Reciprocal necessity
+
+Restoring the corresponding baseline component in the intervened trajectory prevents or meaningfully reduces the organizational change.
+
+### P3 — Optimizer-history contribution
+
+Optimizer-state transplantation produces a quantitatively distinguishable result from parameter-only transplantation.
+
+### P4 — Forward versus value-learning contribution
+
+The newly isolated value-gradient comparison distinguishes at least two causal explanations of XVIII's content-destruction result.
+
+### P5 — Routing-gradient contribution
+
+A graph-verified routing-learning intervention has a distinct predicted effect from a merely local logit-gradient stop.
+
+### P6 — Non-targeted disturbance
+
+A genuinely comparable non-targeted intervention does or does not reproduce the organizational change under preregistered conditions.
+
+### P7 — Functional versus routing change
+
+A specific intervention changes causal pathway necessity without changing the tested functional decision computation, or changes both, according to a frozen prediction.
+
+These are candidate prediction families, not a quota.
+
+Reject any prediction whose expected outcome is mathematically guaranteed, already known from development, or incapable of distinguishing explanations.
+
+Do not report multiple rescored versions of the same causal observation as independent confirmations.
+
+---
+
+# 12. EXECUTION DESIGN AND COMPUTE BUDGET
+
+Use the current two-CPU environment.
+
+The previous study achieved approximately 11 minutes per 1,211-step model run, including measurement, but verify present throughput.
+
+## Priority order
+
+**Stage 1 — Mathematical and computational-graph audit**
+
+No new neural confirmation training.
+
+**Stage 2 — Scorer repair and preflight**
+
+Validate measurements and complete frozen controls.
+
+**Stage 3 — Existing-checkpoint development**
+
+Use XVIII's baseline and intervened runs, especially matched step-100 states, to develop and reject candidate transplants.
+
+**Stage 4 — Pre-experiment adversarial review**
+
+Reject non-identifying experiments.
+
+**Stage 5 — Fresh confirmation**
+
+Run only scientifically justified interventions with adequate independent replication.
+
+**Stage 6 — Independent functional validation**
+
+Determine what computation actually changed.
+
+**Stage 7 — Final adversarial review and reproduction**
+
+Check the complete scientific and computational record.
+
+## Replication
+
+Use multiple independent training/data-order seeds.
+
+Where possible, include both early and mixture bases.
+
+Report the actual independent pretrained-parent count separately.
+
+The prior investigations showed that only a minority of screened parents supported both competent organizations.
+
+Do not promise broad parent-level generalization from a single parent.
+
+Prioritize a decisive within-parent causal experiment with proper controls over a superficial many-parent screening exercise.
+
+If a second eligible parent is available, test transport of the main result without treating shared data-order seeds as independent parent replications.
+
+## Resource protection
+
+Do not let optional experiments consume the budget needed for:
+
+- Parameter-state transplantation.
+- Forward/value gradient separation.
+- Independent scoring validation.
+- Non-targeted disturbance controls.
+
+If the full design is too expensive, narrow it before freezing.
+
+Do not quietly drop an essential control after obtaining an attractive result.
+
+A reduced investigation must reduce its scientific claim accordingly.
+
+---
+
+# 13. INDEPENDENT ADVERSARIAL REVIEW
+
+Use a two-stage review structure.
+
+## BEFORE confirmation
+
+Three independent agents review:
+
+**Mathematical identifiability**
+
+Can the proposed interventions distinguish the causal explanations?
+
+**Computational graph and optimizer state**
+
+Are the claimed intervention separations technically real?
+
+**Scoring and experimental design**
+
+Are the controls, classifications, and independent units sufficient?
+
+Every major objection must be resolved before freezing.
+
+If a mandatory issue cannot be resolved, the affected experiment is not authorized.
+
+## AFTER confirmation
+
+Use independent reviewers to examine:
+
+- Actual intervention effects.
+- Parameter-transplant validity.
+- Optimizer-state compatibility.
+- Gradient-path verification.
+- Competence and functional diagnostics.
+- Statistical uncertainty.
+- Frozen prediction chronology.
+- Raw output completeness.
+- Deterministic reproduction.
+- Missing negative runs.
+- Scientific novelty.
+
+Reviewers must distinguish successful measurement from successful causal identification.
+
+They must be able to reject a mechanistic interpretation even when a frozen numerical verdict passes.
+
+Agent reviews are not human peer review.
+
+---
+
+# 14. CONNECTION TO COR'S ORIGINAL MATHEMATICS
+
+Keep the original O/D framework distinct from the neural causal investigation.
+
+XVII and XVIII established that the original source-level framework does not predict the neural reuse or pathway-selection mechanisms under investigation.
+
+Do not call the present work O/D validation without a new, valid mathematical derivation.
+
+The separately proposed higher-order factor-graph repair is an unvalidated extension with known Bayesian equivalents.
+
+It must not be treated as an established distinctive COR principle.
+
+A brief mathematical appendix may state whether XIX's identified causal state changes suggest a future dynamic obstruction or discrepancy hypothesis.
+
+But that suggestion must remain separate from the experimental result.
+
+**Do not spend XIX retrofitting the original mathematics to whichever neural outcome is obtained.**
+
+The empirical result must stand independently.
+
+---
+
+# 15. PRIOR WORK AND SCIENTIFIC NOVELTY
+
+The broad phenomena of training-path competition and training-time causal interventions are already represented in the scientific literature.
+
+Review the closest work identified during XVIII, including studies of:
+
+- Early gradient deficits and pathway races.
+- Training-time attention suppression.
+- Competing neural algorithms.
+- Critical periods and curriculum effects.
+- Model parameter transplantation.
+- Optimizer-state interventions.
+- Causal mediation of neural learning.
+- Mode connectivity and parameter interpolation.
+
+Do this before finalizing any novelty claim.
+
+A narrow contribution could be:
+
+**Identification of which early learned parameter changes mediate a durable switch between competent relational computations in a Transformer.**
+
+That claim requires actual causal identification.
+
+Do not call it novel merely because its task is T4.
+
+If a known framework already predicts the result, acknowledge it and state the incremental contribution.
+
+If no distinctive contribution survives, report that conclusion.
+
+---
+
+# 16. REQUIRED REPORTS AND ARTIFACTS
+
+Create branch:
+
+`cor-phase15-step1-training_state_causal_identification`
+
+Create directory:
+
+`docs/research_audits/cor_phase15/step1_training_state_causal_identification/`
+
+Required reports:
+
+### MAIN_RESEARCH_SYNTHESIS.md
+
+Main results, exact causal interpretation, limitations, falsifications, and significance.
+
+### XVIII_FAILURES_AND_UNRESOLVED_CAUSES.md
+
+A detailed audit of what XVIII established and what it did not, including the failed primary evaluator and post hoc sensitivity result.
+
+### COMPUTATIONAL_GRAPH_AND_GRADIENT_AUDIT.md
+
+Exact verified forward/backward intervention effects and optimizer-state implications.
+
+### PARAMETER_AND_OPTIMIZER_STATE_TRANSPLANTS.md
+
+All transplant designs, controls, reciprocal tests, state compatibility checks, and causal outcomes.
+
+### FORWARD_CONTENT_VS_VALUE_LEARNING.md
+
+The missing value-gradient comparisons and related intervention mathematics.
+
+### ROUTING_GRADIENT_CAUSAL_TESTS.md
+
+Graph-verified routing-gradient interventions and their effects.
+
+### NON_TARGETED_OPTIMIZATION_CONTROLS.md
+
+Matched disturbance experiments and remaining confounds.
+
+### FUNCTIONAL_VS_CAUSAL_ORGANIZATION.md
+
+Independent behavioral and causal evidence about whether computation or merely routing changed.
+
+### PRE_EXPERIMENT_IDENTIFIABILITY_REVIEWS.md
+
+All design objections, required corrections, and final authorization decisions.
+
+### FROZEN_CONFIRMATION_AND_STATISTICS.md
+
+Frozen predictions, actual independent units, effect sizes, uncertainty, positive and negative outcomes.
+
+### COR_FOUNDATIONAL_RESEARCH_MAP_XIX.md
+
+What XIX contributes to the broader scientific territory and which original questions remain open.
+
+Also include:
+
+- All relevant research code.
+- Mathematical verification scripts.
+- Intervention configurations.
+- Raw metrics.
+- Important checkpoints.
+- Parameter-difference inventories.
+- Optimizer-state hashes.
+- Matched-seed records.
+- Training and resource logs.
+- Reviewer findings.
+- Adjudication.
+- Negative and incomplete experiments.
+- Reproducibility scripts.
+- Dependency inventory.
+- SHA-256 manifest.
+
+No placeholder research reports.
+
+No omitted failed experiments.
+
+---
+
+# 17. COMPLETE VERIFIED ARCHIVE
+
+Produce:
+
+`cor_inv19_training_state_causal_identification.zip`
+
+Before delivery:
+
+1. Verify the actual starting repository state.
+2. Verify all code and freeze hashes.
+3. Verify the computational-graph intervention audit.
+4. Reproduce step-100 matched-state generation.
+5. Verify parameter-group and optimizer-state provenance.
+6. Reproduce full-state and partial-state transplant outcomes.
+7. Reproduce reciprocal transplant experiments.
+8. Recompute gradient-path diagnostics.
+9. Reproduce forward/value separation controls.
+10. Reproduce the non-targeted disturbance comparison.
+11. Recompute functional and causal organization scores.
+12. Verify frozen verdicts.
+13. Check independent seed counts.
+14. Verify scorer fail-closed behavior.
+15. Check that sensitivity and evaluability code match the frozen specification.
+16. Load all included important checkpoints.
+17. Reproduce representative training continuations.
+18. Verify dependency hashes.
+19. Verify the full archive manifest.
+20. Perform clean-extraction reproduction.
+21. Check every substantive reviewer correction against the final reports.
+
+If the full archive exceeds the upload limit, deliver a complete multipart archive and a smaller clearly labeled audit archive.
+
+Verify every part and the reconstructed whole.
+
+Do not repeat XVII and XVIII's incomplete multipart-delivery problems.
+
+---
+
+# 18. MANDATORY FINAL SCIENTIFIC ANSWERS
+
+Answer every question directly, with explicit evidence labels.
+
+## Causal identification
+
+1. What exact learned state difference exists between baseline and intervention training after the first 100 steps?
+
+2. Which parameter groups differ most, and are those differences causally relevant?
+
+3. Can transferring intervention-trained parameters change the eventual organization of a baseline model?
+
+4. Can restoring baseline parameters prevent the intervention-induced change?
+
+5. Does the effect depend on optimizer history?
+
+6. Are parameter changes sufficient individually, or only in combinations?
+
+7. Which results could arise from unnatural hybrid states rather than a naturally occurring mediator?
+
+8. Does the evidence identify a specific mechanism or a family of observationally equivalent mechanisms?
+
+## Forward and backward pathways
+
+9. Does changing forward content while controlling value learning produce the organizational effect?
+
+10. Does changing value-learning gradients without the corresponding forward change produce it?
+
+11. Which routing-gradient pathways remain active under each intervention?
+
+12. Does a graph-verified gradient intervention reproduce the expected effect?
+
+13. Do shared parameters prevent clean separation of the proposed causal contributions?
+
+14. Can general optimization disturbance explain the results?
+
+## Learned computation
+
+15. Did the model learn a different mathematical decision procedure, or did it reroute a similar procedure through different components?
+
+16. Do the different organizations make distinct functional predictions on valid relational inputs?
+
+17. Are those predictions supported by the trained models?
+
+18. Which neural routes are necessary and sufficient?
+
+19. Do the models remain competent?
+
+## Scientific integrity
+
+20. Did the measurement system pass independent-stream preflight testing?
+
+21. How many genuinely independent experimental units support each conclusion?
+
+22. Which frozen predictions succeeded?
+
+23. Which failed?
+
+24. Which remained inconclusive?
+
+25. Which proposed mechanisms were rejected by the pre-experiment reviewers?
+
+26. Which causal claims were weakened or withdrawn after the final reviews?
+
+## COR significance
+
+27. What new causal explanation did XIX establish that XVIII did not?
+
+28. Does the result provide a scientific contribution beyond known pathway-competition research?
+
+29. Does the result establish anything about the original O/D framework?
+
+30. What is the most important remaining causal uncertainty?
+
+31. What research direction should follow if the mechanism cannot be identified?
+
+Every answer must distinguish:
+
+- Mathematical proof.
+- Numerical verification.
+- Development evidence.
+- Frozen confirmation.
+- Exploratory evidence.
+- Falsification.
+- Interpretation.
+- Speculation.
+
+Do not present an interpretation as a discovered mechanism merely because it fits the observed data.
+
+---
+
+# 19. FINAL NON-NEGOTIABLE DIRECTIVE
+
+Investigation XVIII improved the empirical understanding of early pathway interventions.
+
+But it failed to isolate their causal mechanism.
+
+The main remaining problem is not a shortage of training runs.
+
+It is an identification problem.
+
+Forward content, attention routing, gradient propagation, shared parameter updates, and optimizer state can change together.
+
+Manipulating one visible quantity does not establish which learned changes caused the eventual organization.
+
+**XIX must directly investigate the learned training state.**
+
+Do not repeat the previous strategy of manipulating several pathways, observing different outcomes, and creating a unifying explanation afterward.
+
+Instead:
+
+- Define the competing explanations mathematically.
+- Audit the actual forward and backward graph.
+- Prove which effects an intervention can isolate.
+- Test parameter and optimizer-state mediation.
+- Use reciprocal transplants.
+- Complete the missing value-gradient intervention.
+- Verify complementary gradient paths.
+- Include a genuine non-targeted disturbance control.
+- Distinguish causal routing from functional algorithm change.
+- Validate the primary scorer before confirmation.
+- Require adversarial approval before expensive training.
+- Preserve negative results and non-identifiability.
+
+Do not declare victory merely because another intervention produces a switch.
+
+Do not count a numerical verdict as independent evidence when it is a remeasurement of the same causal quantity.
+
+Do not relabel an exploratory result as frozen confirmation.
+
+Do not infer uniqueness from parameter changes when several components can substitute for one another.
+
+Do not claim neural mechanisms that the original COR mathematics does not predict.
+
+**The central success condition is that XIX must eliminate at least one serious causal explanation left open by XVIII, using a test whose ability to distinguish the explanations was established before confirmation.**
+
+A stronger success would identify the learned parameter-state changes that are sufficient and necessary for durable relational pathway reorganization, with independent functional evidence of what actually changed.
+
+If the state-level mechanism cannot be isolated, demonstrate precisely why, and identify the smallest additional intervention that would make it identifiable.
+
+**No large confirmation queue may begin until the pre-experiment mathematical audit, computational-graph checks, scorer validation, and adversarial design review have passed.**
+
+Remain in COR Phase 1.5, Step 1, at approximately 25% provisional exploration.
+
+No phase closure.
+
+No thesis selection.
+
+No automatic validation of the original O/D framework.
+
+**Execute Investigation XIX and deliver the complete, independently reviewed, reproducible scientific evidence.**

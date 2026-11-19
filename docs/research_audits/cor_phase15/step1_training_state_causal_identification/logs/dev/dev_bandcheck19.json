@@ -1,0 +1,514 @@
+{
+ "note": "Development band check (pre-review A2): the D801 development checkpoints re-measured with measure19 (stream 86 200 000,\nlogs/dev/m19_dev2.jsonl) scored with the frozen hypothesis set of logs/conf_spec19.json (min_pairs 1, one pair per base).\nA missing development run is reported as MISSING (not as non-competent).  Development evidence only.  Writes logs/dev/dev_bandcheck19.json.",
+ "missing_dev_runs": [
+  [
+   "M",
+   "randnorm_L0L2"
+  ]
+ ],
+ "hypotheses": {
+  "E_P1_L0_sufficient": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.9612390118024663,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P2_L0_necessary": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.010184005561557873,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_A4_L0QK_restore_insufficient": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.973996873905999,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_A4_L0OV_restore_insufficient": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.9735305253387485,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P3_params_carry": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.9746984270091257,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P3_moments_alone_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": -6.940608814269447e-05,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_A7_normmatched_L0_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": -0.00925723099386638,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P6_pnz_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.0044891017118161665,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P6_lbl_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": -0.00034377258482125826,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P4_vsgo_switch": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.8254228862851978,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P4_vsgo_switch_sens070": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.8254228862851978,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P4_vsg_partial": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.34649991716134076,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P4_vsgo_exceeds_vsg": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.478922969123857,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P4_vrs_switch": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 1.0018483066133936,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P5_frz_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": -0.007842944775936962,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P5_frzp_partial": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "v": 0.5684843995717093,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "E_P7_L0_concordant": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "category": "BOTH"
+    }
+   },
+   "dropped": []
+  },
+  "E_P7_vrs_concordant": {
+   "band": "SUPPORTED",
+   "values": {
+    "E801": {
+     "category": "BOTH"
+    }
+   },
+   "dropped": []
+  },
+  "M_P1_L0_alone_insufficient": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.24540813446050175,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P2_L0_restore_reduces": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.3000435541860418,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P2_L0L2_restore_prevents": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.12903835563180394,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P1_L0L1_sufficient": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.9584475592375716,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P1_L0L2_sufficient": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.9833646676405696,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P3_params_carry": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 1.0181443541053903,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P3_moments_alone_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.08601379760587853,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_A7_normmatched_L0L2_nil": {
+   "band": "MISSING (no dev run)",
+   "values": {}
+  },
+  "M_P6_pnz_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": -0.011142417131624553,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P6_lbl_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.043484766885848854,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P4_vsgo_switch": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.9960370353968913,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P4_vsg_partial": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.4411361298715194,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P4_vsgo_exceeds_vsg": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.5549009055253719,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P4_vrs_switch": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 1.0038122364587376,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P5_frz_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": -0.03125987350342343,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P5_frzp_nil": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "v": 0.013543856053042723,
+     "class_ok": true
+    }
+   },
+   "dropped": []
+  },
+  "M_P7_vsgo_concordant": {
+   "band": "SUPPORTED",
+   "values": {
+    "M801": {
+     "category": "BOTH"
+    }
+   },
+   "dropped": []
+  }
+ },
+ "arms": {
+  "E801|BfromI_L0": {
+   "cat": "BOTH",
+   "phi": 0.9612390118024663,
+   "f": -0.09558872505755689
+  },
+  "E801|IfromB_L0": {
+   "cat": "NEITHER",
+   "phi": 0.010184005561557873,
+   "f": 0.27102241717340486
+  },
+  "E801|IfromB_L0_OV": {
+   "cat": "BOTH",
+   "phi": 0.9735305253387485,
+   "f": -0.1029464866833425
+  },
+  "E801|IfromB_L0_QK": {
+   "cat": "BOTH",
+   "phi": 0.973996873905999,
+   "f": -0.09422165471391536
+  },
+  "E801|frz": {
+   "cat": "NEITHER",
+   "phi": -0.007842944775936962,
+   "f": 0.20572040087320953
+  },
+  "E801|frzp": {
+   "cat": "HYBRID[EARLY]",
+   "phi": 0.5684843995717093,
+   "f": 0.060501427494205895
+  },
+  "E801|fullB": {
+   "cat": "NEITHER",
+   "phi": 0.0,
+   "f": 0.26321505028802766
+  },
+  "E801|fullI": {
+   "cat": "BOTH",
+   "phi": 1.0,
+   "f": -0.14555467288772467
+  },
+  "E801|lbl": {
+   "cat": "NEITHER",
+   "phi": -0.00034377258482125826,
+   "f": 0.2823969526376695
+  },
+  "E801|paramB_optI": {
+   "cat": "NEITHER",
+   "phi": -6.940608814269447e-05,
+   "f": 0.24625069883142153
+  },
+  "E801|paramI_optB": {
+   "cat": "BOTH",
+   "phi": 0.9746984270091257,
+   "f": -0.12734160002631212
+  },
+  "E801|pnz": {
+   "cat": "NEITHER",
+   "phi": 0.0044891017118161665,
+   "f": 0.24456124468391244
+  },
+  "E801|randnorm_L0": {
+   "cat": "NEITHER",
+   "phi": -0.00925723099386638,
+   "f": 0.27153917376476394
+  },
+  "E801|vrs": {
+   "cat": "BOTH",
+   "phi": 1.0018483066133936,
+   "f": -0.11981515585494801
+  },
+  "E801|vsg": {
+   "cat": "HYBRID[EARLY]",
+   "phi": 0.34649991716134076,
+   "f": 0.14091123849052012
+  },
+  "E801|vsgo": {
+   "cat": "INCONCLUSIVE(causal_SWITCH)",
+   "phi": 0.8254228862851978,
+   "f": -0.012780916658683805
+  },
+  "M801|BfromI_L0": {
+   "cat": "INCONCLUSIVE(causal_NONE)",
+   "phi": 0.24540813446050175,
+   "f": -0.019234451649853546
+  },
+  "M801|BfromI_L0L1": {
+   "cat": "BOTH",
+   "phi": 0.9584475592375716,
+   "f": 0.2355601047984493
+  },
+  "M801|BfromI_L0L2": {
+   "cat": "BOTH",
+   "phi": 0.9833646676405696,
+   "f": 0.22975737158533888
+  },
+  "M801|IfromB_L0": {
+   "cat": "HYBRID[AMBIGUOUS]",
+   "phi": 0.3000435541860418,
+   "f": 0.02550254002198621
+  },
+  "M801|IfromB_L0L2": {
+   "cat": "INCONCLUSIVE(causal_NONE)",
+   "phi": 0.12903835563180394,
+   "f": -0.0398143826194563
+  },
+  "M801|frz": {
+   "cat": "NEITHER",
+   "phi": -0.03125987350342343,
+   "f": -0.09744514760416917
+  },
+  "M801|frzp": {
+   "cat": "NEITHER",
+   "phi": 0.013543856053042723,
+   "f": -0.10307809724001327
+  },
+  "M801|fullB": {
+   "cat": "NEITHER",
+   "phi": 0.0,
+   "f": -0.09008192120145209
+  },
+  "M801|fullI": {
+   "cat": "BOTH",
+   "phi": 1.0,
+   "f": 0.25350889590816084
+  },
+  "M801|lbl": {
+   "cat": "NEITHER",
+   "phi": 0.043484766885848854,
+   "f": -0.11110472888688017
+  },
+  "M801|paramB_optI": {
+   "cat": "NEITHER",
+   "phi": 0.08601379760587853,
+   "f": -0.07343953036241813
+  },
+  "M801|paramI_optB": {
+   "cat": "BOTH",
+   "phi": 1.0181443541053903,
+   "f": 0.27349083573676575
+  },
+  "M801|pnz": {
+   "cat": "NEITHER",
+   "phi": -0.011142417131624553,
+   "f": -0.09209050641531186
+  },
+  "M801|vrs": {
+   "cat": "BOTH",
+   "phi": 1.0038122364587376,
+   "f": 0.26330596452766136
+  },
+  "M801|vsg": {
+   "cat": "HYBRID[AMBIGUOUS]",
+   "phi": 0.4411361298715194,
+   "f": 0.044430263650447166
+  },
+  "M801|vsgo": {
+   "cat": "BOTH",
+   "phi": 0.9960370353968913,
+   "f": 0.216174328254033
+  }
+ }
+}

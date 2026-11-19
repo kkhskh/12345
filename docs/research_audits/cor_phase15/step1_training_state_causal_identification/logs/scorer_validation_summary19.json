@@ -1,0 +1,20 @@
+{
+ "streams": [
+  "97960000",
+  "98960000",
+  "99960000"
+ ],
+ "n_models": 60,
+ "counts": {
+  "causal_stable": 59,
+  "competent_all_streams": 52,
+  "func_vs_causal_agree": 112,
+  "func_vs_causal_ambiguous": 17,
+  "causal_varies": 1,
+  "not_competent_some_stream": 8
+ },
+ "contradictions": [],
+ "min_margin_pure": 0.006202017096127305,
+ "n_pure_model_streams": 142,
+ "n_margin_below_0.05": 4
+}

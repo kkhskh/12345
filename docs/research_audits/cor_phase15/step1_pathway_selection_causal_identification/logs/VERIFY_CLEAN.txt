@@ -1,0 +1,69 @@
+== Investigation XVIII clean extraction check 2026-11-19T08:12:04Z
+1. sibling packages (not standalone) + extraction
+   extracted OK
+2. manifest
+   manifest OK (2687 files)
+3. frozen files unchanged since the freeze (logs/FREEZE_XVIII_HASHES.txt)
+scripts/h3_immediate18.py: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match
+   FREEZE HASH MISMATCH
+4. dependency hashes
+   identical: True
+5. exact intervention masks, tensor locations and mode semantics (unit checks re-run)
+   unit_modes identical: True
+   unit_modes2 identical: True
+   unit_modes3 identical: True
+   unit_sha_far identical: True
+   edges own0: layer 0, 36 edges, rows [36, 37, 38, 39, 40, 41], own-q only: True
+   edges own2: layer 2, 36 edges, rows [36, 37, 38, 39, 40, 41], own-q only: True
+   edges ro0: layer 0, 216 edges, rows [36, 37, 38, 39, 40, 41], own-q only: n/a
+6. baseline replication: bitwise replay of a confirmation baseline (E, D=811) to step 150
+   max |diff|: 0.0
+   and of an intervention run (vrg, M, D=812) to step 150
+   max |diff|: 0.0
+7. training schedule
+   lr at 0/50/100/200/1211/2546: [0.0, 0.00025, 0.0005, 0.001, 0.000835, 0.00032]
+8. model independence: parents, seeds and streams
+   distinct parent hashes: 6 of 6
+   streams: confirmation 95400000, screening 95500000, parents 95600000, development 86100000; orders: confirmation 811-813, screening 811, parents 812
+9. organisational classification and competence recomputed for two confirmation runs
+    uP160_fx_L21_W21_D811_stop1211_c18 max |diff| over numeric fields: 0.0 | classes equal: True
+    uP160_fx_L23_W23_D813_gsvown2T100_stop1211_c18 max |diff| over numeric fields: 0.0 | classes equal: True
+10. immediate H3 metric recomputed
+   identical: True
+11. statistics and verdicts recomputed by the fail-closed scorers
+   score_XVIII identical: True
+   score_cont18 identical: True
+   score_parents18 identical: True
+12. fail-closed: preflight, and refusal on the real data with one measurement removed
+   preflight all_pass: True
+   refused (rc=2)
+13. negative and incomplete runs: every designed run is measured
+   confirmation: 48 designed, 0 unmeasured []
+   parents: 12 designed, 0 unmeasured; {'uP162': False, 'uP163': True, 'uP164': False, 'uP165': False}
+14. reviews present and reports consistent with the scores
+   reviews/PRE_REVIEW_A_MATH_IDENTIFIABILITY.md
+   reviews/PRE_REVIEW_B_DESIGN_NOVELTY.md
+   reviews/REVIEW_C_MECHANISM.md
+   reviews/REVIEW_D_INTEGRITY.md
+PASS frozen: 6 CONTRADICTED, 2 INCONCLUSIVE (Hm_release, H1d_plus_H2g)
+PASS frozen: 2 evaluable pairs stated
+PASS frozen arm bands all INCONCLUSIVE
+PASS post-hoc: 5 evaluable pairs
+PASS post-hoc: vrg and sha_hi_rolled F in all 5 evaluable
+PASS post-hoc: sha_lo_real N in all 6
+PASS post-hoc: gsv F in all 5 evaluable
+PASS post-hoc: gsg E F,P,F and M P
+PASS H3 E frozen not excluded
+PASS post-hoc labelled in MAIN
+PASS withdrawn unifying description
+PASS C1 withdrawal present
+PASS parents: 1 of 5 bistable, MIXED vrg/gsv
+PASS not human peer review
+PASS not standalone
+PASS O/D not validated
+ALL_PASS True (16/16)
+== done
+NOTE (investigator): the step-3 mismatch is the disclosed post-freeze fix of scripts/h3_immediate18.py (output path only; logged in
+COMPUTE_LOG.txt at 2026-11-19T00:23Z with the post-fix hash e02c5843...; Reviewer D verified that the frozen and fixed scripts produce
+byte-identical outputs). All other 46 frozen files match their freeze hashes.

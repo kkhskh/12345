@@ -1,0 +1,27 @@
+{
+ "B": "uP160_fx_L21_W21_D821_stop100_s100c19",
+ "I": "uP160_fx_L21_W21_D821_gofown0b1e9T100_stop100_s100c19",
+ "params_from_I": [],
+ "perturbed_groups": [
+  "L0_LN",
+  "L0_MLP",
+  "L0_OV",
+  "L0_QK"
+ ],
+ "perturb_seed": 19821,
+ "alpha": null,
+ "foreign_donor": false,
+ "opt": "B",
+ "inputs": {
+  "B/step100.npz": "e638e6831a17c72f721bbd539797055190bb7371d8b9708249c40578adfb78f0",
+  "B/opt_step100.pkl": "e43b806112b977f13eadac1e3c27e656034846218ccbb32cf72b3c5dae9f9489",
+  "I/step100.npz": "4c69c33f9931ca607d68a8ab84d7d4197c3e6a02df6b8606ed6ebb1e7ece8996",
+  "I/opt_step100.pkl": "bbac19f583e66800bd666c6a88af6a1d9b032d0f0570de5dbf58500020b6dca8"
+ },
+ "outputs": {
+  "step100.npz": "9ae78e9aed307bb015465a755a481f0c28dfe734b8cfccc815467065f33b8323",
+  "opt_step100.pkl": "e43b806112b977f13eadac1e3c27e656034846218ccbb32cf72b3c5dae9f9489"
+ },
+ "param_dist_to_B": 0.8852587938308716,
+ "param_dist_to_I": 1.3910858631134033
+}

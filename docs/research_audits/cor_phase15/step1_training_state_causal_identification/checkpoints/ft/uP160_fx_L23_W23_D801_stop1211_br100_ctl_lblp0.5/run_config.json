@@ -1,0 +1,26 @@
+{
+ "argv": [
+  "scripts/xix_train.py",
+  "uP160",
+  "23",
+  "23",
+  "801"
+ ],
+ "env": {
+  "FX_TAGSUF": "_ctl_lblp0.5",
+  "FX_STOP": "1211",
+  "FX_BRANCH": "uP160_fx_L23_W23_D801_lblp0.5s1T100_stop100_s100dev:100"
+ },
+ "tag": "uP160_fx_L23_W23_D801_stop1211_br100_ctl_lblp0.5",
+ "start": 100,
+ "code": {
+  "xix_train.py": "67666a9b34eca02effd255ada193c75c1c967897e6f7a2108cbee41eed8c1fad",
+  "maskfwd.py": "26a1d1c6744e3e819313527b6500ca64b1c4615643efd259c3a411550008a8c1",
+  "native.py": "8e651489ce7fd0fa1ae34bd6b5c31bd59c004bfcb7b593d9738043e2b99f1e90"
+ },
+ "branch_dir": "/home/claude/12345/docs/research_audits/cor_phase15/step1_training_state_causal_identification/checkpoints/ft/uP160_fx_L23_W23_D801_lblp0.5s1T100_stop100_s100dev",
+ "branch_src": {
+  "step100.npz": "b56eae897205517a78aabd6779eab822229abc143b5bfad4ae1c455fc217de0d",
+  "opt_step100.pkl": "21de00fbc2f64abbd782569b5fda179419072f433d7fbe75316fd98e73e87370"
+ }
+}

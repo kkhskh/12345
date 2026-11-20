@@ -53,7 +53,8 @@ def i9():
 def i10():
     S = json.load(open(os.path.join(R, "logs", "conf", "score_c19.json"))); return "pnz" in S["matching"] and "lbl" in S["matching"], dict(gates=S["matching"], bands={k: v["band"] for k, v in S["hypotheses"].items() if "_P6_" in k or "_A7_" in k})
 def i11():
-    o = os.path.join(tempfile.mkdtemp(), "re.json"); rc, out = run(f"{PY} scripts/score19.py logs/conf/design19.json logs/conf/measure_c19.jsonl {o}")
+    o = os.path.join(tempfile.mkdtemp(), "re.json"); orig = json.load(open(os.path.join(R, "logs", "REPO_STATE19.json"))).get("package_root_at_run_time", R)
+    rc, out = run(f"{PY} scripts/score19.py logs/conf/design19.json logs/conf/measure_c19.jsonl {o}") if os.path.abspath(orig) == R else run(f"{PY} scripts/rescore_relocated19.py {orig} {o}")
     A, B = json.load(open(o)), json.load(open(os.path.join(R, "logs", "conf", "score_c19.json")))
     same = {k: v["band"] for k, v in A["hypotheses"].items()} == {k: v["band"] for k, v in B["hypotheses"].items()}
     fb = os.path.exists(os.path.join(R, "logs", "conf", "func_battery_c19.json")); return rc == 0 and same and fb, f"rescored bands identical: {same}; functional battery present: {fb}"
@@ -92,10 +93,13 @@ def i19():
         if not os.path.exists(os.path.join(R, f)) or sha(os.path.join(R, f)) != h: bad.append(f)
     return not bad, f"{n} manifest entries; mismatches {bad[:5]}"
 def i20():
+    if a.quick: return True, "this run IS the clean-extraction run (result copied to logs/CLEAN_EXTRACTION19.json)"
     p = os.path.join(R, "logs", "CLEAN_EXTRACTION19.json"); return os.path.exists(p) and json.load(open(p))["all_pass"], json.load(open(p)) if os.path.exists(p) else "not yet run"
 def i21():
     A = open(os.path.join(R, "REVIEWS_AND_ADJUDICATION_FINAL.md")).read() if os.path.exists(os.path.join(R, "REVIEWS_AND_ADJUDICATION_FINAL.md")) else ""
-    return "| " in A and "Resolution" in A, "final-review corrections table present" if A else "missing"
+    ids = [f"| D{k} |" for k in range(1, 16)] + ["| E1 |", "| E2 |"]; miss = [i for i in ids if i not in A]
+    pre = open(os.path.join(R, "PRE_EXPERIMENT_IDENTIFIABILITY_REVIEWS.md")).read(); ok_pre = all(t in pre for t in ("| A1 |", "| B1 |", "| C3 |", "| A R2-1 |", "Round 3"))
+    return not miss and ok_pre, f"post-results mandatory items with a resolution row: {17 - len(miss)}/17; pre-experiment resolutions present: {ok_pre}; missing {miss}"
 for n, name, fn in [(1, "starting repository state", i1), (2, "code and freeze hashes", i2), (3, "computational-graph audit", i3), (4, "step-100 matched-state regeneration", i4),
                     (5, "parameter-group and optimizer-state provenance", i5), (6, "full/partial transplant composition reproduces", i6), (7, "reciprocal transplant verdicts present", i7),
                     (8, "gradient-path diagnostics recomputed", i8), (9, "forward/value separation verdicts", i9), (10, "non-targeted disturbance comparison", i10),

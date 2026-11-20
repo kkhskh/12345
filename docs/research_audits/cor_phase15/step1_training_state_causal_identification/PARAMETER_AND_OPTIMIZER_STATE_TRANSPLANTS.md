@@ -50,7 +50,7 @@ Saved at step 100:
 **Reading [dev].**
 - At the full-state level the parameters carry the selection. The moments alone do nothing.
 - The moments are not inert, though. Inside a composite they shift φ by 0.17 (layer-0 moments, E).
-- The frz/frzp contrast shows a *natural-trajectory* moment effect on E. Both runs have exactly the same parameters at step 100. Only frz's held moments, combined with the shared bias-correction counter, produce oversized steps after release. Reviewer B measured 1.7–2.4× the baseline step length over steps 111–200. Those steps undo the partial switch that frzp keeps.
+- The frz/frzp contrast in these training-time freeze arms (not natural trajectories) shows a moment effect on E. Both runs have exactly the same parameters at step 100. Only frz's held moments, combined with the shared bias-correction counter, produce oversized steps after release. Reviewer B measured 1.7–2.4× the baseline step length over steps 111–200. Those steps undo the partial switch that frzp keeps.
 
 ## A4–A6. Parameter-group transplants: sufficiency, necessity, interaction [dev]
 
@@ -71,7 +71,10 @@ Saved at step 100:
 | L0_QK + MLP + LN | 0.46 | | |
 
 - On E, the layer-0 state is sufficient and necessary.
-- No layer-0 tensor class is sufficient or necessary alone. Every pair of classes is partial. The layer-0 tensor classes act jointly: an **identified combination**, not a single dominant parameter group.
+- No layer-0 tensor class is sufficient or necessary alone, and every pair of classes is partial.
+- [dev + frozen, post-review D5] Layer-0 tensor classes are jointly sufficient and individually redundant for necessity.
+- When layer 0 is incomplete, the non-L0 state of I interacts with it (X7): I←B L0_QK gives 0.96–0.98, against 0.35 for B←I L0_OV+MLP+LN with B's non-L0 layers.
+- This is **not** an identified combination of individually necessary changes.
 - The localisation to layer 0 is close to tautological, because the E route that is measured lives in layer 0 (pre-review A10). The informative part is the joint action of the sub-groups.
 
 **M801** (target layer = layer 2):
@@ -131,7 +134,9 @@ Saved at step 100:
   - early-route necessity 0.17–0.31;
   - mixture-route necessity ≈ 0.
 
-  **The M selection is therefore carried by a step-100 state difference that is not yet visible in the step-100 function.** It decides the later race.
+  The route's attention share already differs at step 100 (B 0.167–0.170, I 0.138–0.139).
+
+  **The M selection is therefore carried by a step-100 state difference that is barely visible in the step-100 function**: route necessity and KL are near-identical, though the attention share differs.
 
 **What is identified [frozen, state level].** The scope is one parent and 3 data orders per base.
 
@@ -139,11 +144,11 @@ Saved at step 100:
   - The layer-0 parameter state at step 100 is sufficient and necessary for the switch.
   - Neither its QK part nor its OV part is necessary alone. [dev] No single tensor class is sufficient alone: the layer-0 tensor classes jointly carry the selection.
 - **M.**
-  - Neither layer 0 nor the blocked layer 2 is sufficient alone.
-  - Layer 0 together with *either* layer 1 or layer 2 is sufficient.
-  - Restoring layer 0 and layer 2 to B prevents the switch.
-  - Restoring layer 0 alone reduces the switch on 2 of 3 pairs, but not on M823. [dev] Restoring layer 2 alone does nothing.
-  - So the M selection is a **combination** involving layer 0 and at least one downstream partner. The partners are substitutable for sufficiency.
+  - [frozen] L0+L1 and L0+L2 are each sufficient. L0 alone is not (0.26–0.38).
+  - [frozen] Restoring L0+L2 prevents the switch (0.06–0.13).
+  - [frozen] Restoring L0 alone is PARTIAL.
+  - [dev] The blocked layer 2 alone, and layer 1 alone, are insufficient. Restoring L2 alone or L1 alone does nothing.
+  - **Not established:** the necessity of L0 alone, the necessity of either partner, and whether L1+L2 without L0 suffices. This is a set of sufficient layer pairs, not an identified combination of necessary changes.
 - **Both bases.**
   - The parameters, not the Adam moments, carry the selection at the full-state level.
   - A random direction of the same per-group size does nothing.

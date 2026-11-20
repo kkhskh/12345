@@ -6,10 +6,12 @@
 
 | step | when / reference |
 |---|---|
-| Design frozen and pushed | commit `478a038`, `FREEZE_XIX.json`, 2026-11-19T17:20Z |
-| Stage-6 functional battery frozen and pushed | commit `8ca9db7` |
+| Design frozen | commit `478a038`, 2026-11-19T17:21:39Z |
+| Design freeze pushed | 17:21:47Z (verified by post-review E from the GitHub activity log) |
+| First confirmation job | 17:21:56Z |
+| Stage-6 functional battery frozen | commit `8ca9db7`, pushed 17:36:01Z: **14 minutes after confirmation started**. The battery code and its calibration on development and validation models were produced while the confirmation was running; 16 window states already existed. No confirmation output was read before scoring. That is self-attestation, consistent with file access times (post-review E). The battery is therefore labelled [frozen-addendum], not part of the reviewed freeze |
 | Confirmation runs | 2026-11-19T17:21Z to 2026-11-20T02:04Z: 54 step-100 states and 99 continuations; 0 failed jobs |
-| Container restart | ≈ 23:55Z. Two interrupted continuations resumed from their last snapshots; logged in COMPUTE_LOG and each run's resume_log.json |
+| Container restart | 23:50:27Z. Two continuations were interrupted: tp_M822_IfromB_L0 at step 165 and tp_M822_BfromI_L0L1 at step 111. Both resumed from their last snapshots. Post-review E replayed both uninterrupted from step 100 to 1211: bit-identical, with the final hashes equal to the measured ones. The first-attempt output logs of these two jobs were overwritten |
 | Monitoring before scoring | COMPUTE_LOG and file existence only |
 | Frozen-file check at scoring | every file listed in FREEZE_XIX.json unchanged, verified before the scorer ran |
 | First read of confirmation outputs | the frozen scorer (`logs/conf/score_c19.json`) |
@@ -74,13 +76,34 @@ The last column lists the sensitivity variants (12 frozen variants) whose band d
 
 **Totals.** 27 SUPPORTED, 5 PARTIAL, 3 CONTRADICTED, 0 INCONCLUSIVE.
 
+These 35 items are **not 35 independent confirmations**:
+- E_P4_vsgo_switch_sens070 duplicates E_P4_vsgo_switch;
+- the two M P4 contradictions are one observation;
+- E_P4_vsgo_exceeds_vsg passed only because vsg was nil, which is the opposite of the predicted mechanism.
+
+Family-level tally (post-review D8):
+
+| | E | M |
+|---|---|---|
+| SUPPORTED elimination families | P1, P2, A4-QK, A4-OV, P3, X8a, X8b, vrs: 8 | P1-L0-alone, P2-L0L2, partner sufficiency, P3, X8a, X8b, vrs, P5: 8 |
+| P4 joint reading | not established | failed |
+| P5 joint reading | not established (frz PARTIAL) | — |
+| PARTIAL | — | P2-L0-alone |
+| Concordance checks (eliminate nothing) | P7 ×2 | P7 |
+
+**P3.** This is band inclusion with margin 0.25, not a formal equivalence test. On M the descriptive t-interval for the moments-only arm reaches 0.31.
+
+**Initialisation seed.** Within a base the fresh-layer initialisation is fixed (L = W = 21 on E, 23 on M), and the units vary data order only. E-against-M differences are confounded with that seed and with the target layer.
+
+**Advisory (post-review E).** `score_c19.json`'s `duplicate_composed_states` list order depends on Python set order. No verdict or value depends on it.
+
 Descriptive per-base means and t-intervals, and per-pair E/M route components, are in `logs/conf/stats_c19.json`. With n = 3 the intervals are wide and descriptive only. No p-values are computed.
 
 **Measurement floor.** φ moves by at most 0.008 between measurement streams, and necessity below ≈ 0.02 nats counts as "route absent". Differences between arms smaller than ≈ 0.05 are not interpreted.
 
-## Stage-6 functional battery
+## Stage-6 functional battery [frozen-addendum]
 
-The rule was frozen in commit `8ca9db7`. The statistic is SR = KL on split-reliable-pair cases / KL on consensus cases, on stream 93 300 000.
+The rule was frozen in commit `8ca9db7`, after confirmation had started (see the chronology). `scripts/score_func19.py` was written after the frozen results had been read. It implements the frozen rule literally. M_F3 contains 16 models under that rule. Five INCONCLUSIVE(causal_NONE) M models fall outside the rule; they are reported separately as F3x and match too (post-review E2). The statistic is SR = KL on split-reliable-pair cases / KL on consensus cases, on stream 93 300 000.
 
 | verdict | band | matching | opposite | ambiguous |
 |---|---|---|---|---|
@@ -93,7 +116,10 @@ The rule was frozen in commit `8ca9db7`. The statistic is SR = KL on split-relia
 
 **Hybrids (F4, descriptive).** 12 of the 13 causally-hybrid models have a mixture-like error structure (SR 1.16–1.47). The exception is M823 I←B L0 (SR 2.40, causally closest to EARLY).
 
-**Interpretation boundary, fixed in advance.** SR separates the two organisations by *where their errors fall*. It is consistent with "EARLY = Bayes plus unstructured logit noise" (SR 2.9–3.2 for that degradation). So these results support Claim 2 only in the weak sense: a different input-dependent approximation to the same Bayes target. They do not support Claim 3.
+**Interpretation.**
+- SR correlates 0.97 with nec_E and 0.94 with KL [expl, post-review D6].
+- It is consistent with "EARLY = Bayes plus unstructured logit noise", which gives SR 2.9–3.2.
+- [interp] The result is **causal implementation reorganisation with a precision difference**. Claim 2 (a different rule) and Claim 3 (a different algorithm) are not established.
 
 ## Positive, negative and failed predictions
 

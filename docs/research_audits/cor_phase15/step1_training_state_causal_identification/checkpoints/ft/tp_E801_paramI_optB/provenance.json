@@ -1,0 +1,34 @@
+{
+ "B": "uP160_fx_L21_W21_D801_stop100_s100dev",
+ "I": "uP160_fx_L21_W21_D801_gofown0b1e9T100_stop100_s100dev",
+ "params_from_I": [
+  "L0_LN",
+  "L0_MLP",
+  "L0_OV",
+  "L0_QK",
+  "L1_LN",
+  "L1_MLP",
+  "L1_OV",
+  "L1_QK",
+  "L2_LN",
+  "L2_MLP",
+  "L2_OV",
+  "L2_QK",
+  "WA",
+  "emb",
+  "final_LN"
+ ],
+ "perturbed_groups": [],
+ "perturb_seed": null,
+ "opt": "B",
+ "inputs": {
+  "step100.npz": "3e73d5f251cf3b0cb3d6ad00ff7b2dd54406c5d9bc41dd02d83ae8183ef56aa6",
+  "opt_step100.pkl": "b990605092c56fb13fa32135997d5c1262aa33c51e2f9ce8ada37e243abacf97"
+ },
+ "outputs": {
+  "step100.npz": "3e73d5f251cf3b0cb3d6ad00ff7b2dd54406c5d9bc41dd02d83ae8183ef56aa6",
+  "opt_step100.pkl": "c10c5baf6ecf442b530cc9d8b169a2c8dec11154f295af97aa691a0db0dd8a0d"
+ },
+ "param_dist_to_B": 1.0900572538375854,
+ "param_dist_to_I": 0.0
+}

@@ -1,0 +1,499 @@
+{
+ "root": "/home/claude/12345/docs/research_audits/cor_phase15/step1_training_state_causal_identification",
+ "quick": false,
+ "items": [
+  {
+   "item": 1,
+   "name": "starting repository state",
+   "ok": true,
+   "info": {
+    "xviii_head": "7fb7dad",
+    "xviii_head_full": "7fb7dadf34168f3123de0bde525299d68bfef63c",
+    "xviii_freeze": "1547ec9",
+    "xviii_freeze_full": "1547ec9dbe6144a870ea9f6de3f269dae160a907",
+    "xix_branch": "cor-phase15-step1-training_state_causal_identification",
+    "xix_branch_point": "7fb7dadf34168f3123de0bde525299d68bfef63c",
+    "note": "XIX branch created from XVIII HEAD 7fb7dad; verified at XIX start",
+    "package_root_at_run_time": "/home/claude/12345/docs/research_audits/cor_phase15/step1_training_state_causal_identification"
+   }
+  },
+  {
+   "item": 2,
+   "name": "code and freeze hashes",
+   "ok": true,
+   "info": "39 frozen files + 7 dependencies; mismatches: []"
+  },
+  {
+   "item": 3,
+   "name": "computational-graph audit",
+   "ok": true,
+   "info": "modes ['block', 'ctl_same_row', 'frz', 'frzp', 'fst', 'gof2.3', 'gsg', 'gsv', 'lbl', 'pnz', 'vrg', 'vrs', 'vsg', 'vsgo']; vsgo forward unchanged and routing gradient = plain on all rows: True"
+  },
+  {
+   "item": 4,
+   "name": "step-100 matched-state regeneration",
+   "ok": true,
+   "info": "regenerated E821 B step-100 state bit-identical: True"
+  },
+  {
+   "item": 5,
+   "name": "parameter-group and optimizer-state provenance",
+   "ok": true,
+   "info": "57 composed confirmation states, hash mismatches []"
+  },
+  {
+   "item": 6,
+   "name": "full/partial transplant composition reproduces",
+   "ok": true,
+   "info": [
+    [
+     "fullI",
+     0,
+     "tp_E821_fullI already composed (identical)"
+    ],
+    [
+     "BfromI_L0",
+     0,
+     "tp_E821_BfromI_L0 already composed (identical)"
+    ],
+    [
+     "randnorm_L0",
+     0,
+     "tp_E821_randnorm_L0 already composed (identical)"
+    ]
+   ]
+  },
+  {
+   "item": 7,
+   "name": "reciprocal transplant verdicts present",
+   "ok": true,
+   "info": {
+    "E_P2_L0_necessary": "SUPPORTED",
+    "E_A4_L0QK_restore_insufficient": "SUPPORTED",
+    "E_A4_L0OV_restore_insufficient": "SUPPORTED",
+    "M_P2_L0_restore_reduces": "PARTIAL",
+    "M_P2_L0L2_restore_prevents": "SUPPORTED"
+   }
+  },
+  {
+   "item": 8,
+   "name": "gradient-path diagnostics recomputed",
+   "ok": true,
+   "info": "E block  fwd dT=+0.0000 dC=+0.0000 routing=2/2 value=1/1 target_other=9/9 upstream=0/0 shared=5/5 downstream=27/27"
+  },
+  {
+   "item": 9,
+   "name": "forward/value separation verdicts",
+   "ok": true,
+   "info": {
+    "E_P4_vsgo_switch": "PARTIAL",
+    "E_P4_vsgo_switch_sens070": "PARTIAL",
+    "E_P4_vsg_partial": "CONTRADICTED",
+    "E_P4_vsgo_exceeds_vsg": "SUPPORTED",
+    "E_P4_vrs_switch": "SUPPORTED",
+    "M_P4_vsgo_switch": "SUPPORTED",
+    "M_P4_vsg_partial": "CONTRADICTED",
+    "M_P4_vsgo_exceeds_vsg": "CONTRADICTED",
+    "M_P4_vrs_switch": "SUPPORTED"
+   }
+  },
+  {
+   "item": 10,
+   "name": "non-targeted disturbance comparison",
+   "ok": true,
+   "info": {
+    "gates": {
+     "pnz": {
+      "E821": {
+       "ratio": 1.0071927671361345,
+       "ok": true
+      },
+      "E822": {
+       "ratio": 1.003279638495307,
+       "ok": true
+      },
+      "E823": {
+       "ratio": 1.0051583757351177,
+       "ok": true
+      },
+      "M821": {
+       "ratio": 1.0045379291200118,
+       "ok": true
+      },
+      "M822": {
+       "ratio": 1.0036302710354659,
+       "ok": true
+      },
+      "M823": {
+       "ratio": 1.0042729926156992,
+       "ok": true
+      }
+     },
+     "lbl": {
+      "E821": {
+       "ratio": 0.9750386579343336,
+       "excess_block": 0.08107650151644974,
+       "excess_ctl": 0.07905272322861012,
+       "ok": true
+      },
+      "E822": {
+       "ratio": 1.0178286880791372,
+       "excess_block": 0.07158267638634352,
+       "excess_ctl": 0.07285890159550545,
+       "ok": true
+      },
+      "E823": {
+       "ratio": 0.9927931428817323,
+       "excess_block": 0.0771062446110024,
+       "excess_ctl": 0.0765505509231647,
+       "ok": true
+      },
+      "M821": {
+       "ratio": 12.377538243179492,
+       "excess_block": 0.007595050644231438,
+       "excess_ctl": 0.09400802980785966,
+       "ok": true
+      },
+      "M822": {
+       "ratio": 4.733701906799244,
+       "excess_block": 0.020080598795757576,
+       "excess_ctl": 0.09505556880914823,
+       "ok": true
+      },
+      "M823": {
+       "ratio": 8.607697160058617,
+       "excess_block": 0.009345455815835235,
+       "excess_ctl": 0.08044285348541824,
+       "ok": true
+      }
+     }
+    },
+    "bands": {
+     "E_A7_normmatched_L0_nil": "SUPPORTED",
+     "E_P6_pnz_nil": "SUPPORTED",
+     "E_P6_lbl_nil": "SUPPORTED",
+     "M_A7_normmatched_L0L2_nil": "SUPPORTED",
+     "M_P6_pnz_nil": "SUPPORTED",
+     "M_P6_lbl_nil": "SUPPORTED"
+    }
+   }
+  },
+  {
+   "item": 11,
+   "name": "functional and causal scores recomputed",
+   "ok": true,
+   "info": "rescored bands identical: True; functional battery present: True"
+  },
+  {
+   "item": 12,
+   "name": "frozen verdicts",
+   "ok": true,
+   "info": "35 frozen verdicts match the stored scorer output"
+  },
+  {
+   "item": 13,
+   "name": "independent seed counts",
+   "ok": true,
+   "info": "units [('E', 821), ('E', 822), ('E', 823), ('M', 821), ('M', 822), ('M', 823)]; independent parents: 1 (uP160)"
+  },
+  {
+   "item": 14,
+   "name": "scorer fail-closed behaviour",
+   "ok": true,
+   "info": "ALL PASS 77 checks"
+  },
+  {
+   "item": 15,
+   "name": "sensitivity and evaluability code match the specification",
+   "ok": true,
+   "info": "12 frozen sensitivity outputs; each recomputes evaluability (planted checks)"
+  },
+  {
+   "item": 16,
+   "name": "important checkpoints load",
+   "ok": true,
+   "info": "365 checkpoints load with 44 tensors"
+  },
+  {
+   "item": 17,
+   "name": "representative continuation reproduces",
+   "ok": true,
+   "info": "continuation 100 -> 150 of a confirmation transplant bit-identical: True"
+  },
+  {
+   "item": 18,
+   "name": "dependency hashes",
+   "ok": true,
+   "info": "71 dependency files; mismatches []"
+  },
+  {
+   "item": 19,
+   "name": "archive manifest",
+   "ok": true,
+   "info": "4000 manifest entries; mismatches []"
+  },
+  {
+   "item": 20,
+   "name": "clean-extraction reproduction",
+   "ok": true,
+   "info": {
+    "all_pass": true,
+    "extracted_from": "cor_inv19_training_state_causal_identification.zip",
+    "archive_sha256": "8a2f52926a0be09507d8ba1a12676f3c59ffbe54f130e0b52dfce3038021e3b6",
+    "extraction_root": "/tmp/clean19 (fresh directory)",
+    "mode": "verify19.py --quick (items 4 and 17 retrain and are run in the repository instead)",
+    "items": [
+     {
+      "item": 1,
+      "name": "starting repository state",
+      "ok": true,
+      "info": {
+       "xviii_head": "7fb7dad",
+       "xviii_head_full": "7fb7dadf34168f3123de0bde525299d68bfef63c",
+       "xviii_freeze": "1547ec9",
+       "xviii_freeze_full": "1547ec9dbe6144a870ea9f6de3f269dae160a907",
+       "xix_branch": "cor-phase15-step1-training_state_causal_identification",
+       "xix_branch_point": "7fb7dadf34168f3123de0bde525299d68bfef63c",
+       "note": "XIX branch created from XVIII HEAD 7fb7dad; verified at XIX start",
+       "package_root_at_run_time": "/home/claude/12345/docs/research_audits/cor_phase15/step1_training_state_causal_identification"
+      }
+     },
+     {
+      "item": 2,
+      "name": "code and freeze hashes",
+      "ok": true,
+      "info": "39 frozen files + 7 dependencies; mismatches: []"
+     },
+     {
+      "item": 3,
+      "name": "computational-graph audit",
+      "ok": true,
+      "info": "modes ['block', 'ctl_same_row', 'frz', 'frzp', 'fst', 'gof2.3', 'gsg', 'gsv', 'lbl', 'pnz', 'vrg', 'vrs', 'vsg', 'vsgo']; vsgo forward unchanged and routing gradient = plain on all rows: True"
+     },
+     {
+      "item": 4,
+      "name": "step-100 matched-state regeneration",
+      "ok": true,
+      "info": "skipped (--quick)"
+     },
+     {
+      "item": 5,
+      "name": "parameter-group and optimizer-state provenance",
+      "ok": true,
+      "info": "57 composed confirmation states, hash mismatches []"
+     },
+     {
+      "item": 6,
+      "name": "full/partial transplant composition reproduces",
+      "ok": true,
+      "info": [
+       [
+        "fullI",
+        0,
+        "tp_E821_fullI already composed (identical)"
+       ],
+       [
+        "BfromI_L0",
+        0,
+        "tp_E821_BfromI_L0 already composed (identical)"
+       ],
+       [
+        "randnorm_L0",
+        0,
+        "tp_E821_randnorm_L0 already composed (identical)"
+       ]
+      ]
+     },
+     {
+      "item": 7,
+      "name": "reciprocal transplant verdicts present",
+      "ok": true,
+      "info": {
+       "E_P2_L0_necessary": "SUPPORTED",
+       "E_A4_L0QK_restore_insufficient": "SUPPORTED",
+       "E_A4_L0OV_restore_insufficient": "SUPPORTED",
+       "M_P2_L0_restore_reduces": "PARTIAL",
+       "M_P2_L0L2_restore_prevents": "SUPPORTED"
+      }
+     },
+     {
+      "item": 8,
+      "name": "gradient-path diagnostics recomputed",
+      "ok": true,
+      "info": "E block  fwd dT=+0.0000 dC=+0.0000 routing=2/2 value=1/1 target_other=9/9 upstream=0/0 shared=5/5 downstream=27/27"
+     },
+     {
+      "item": 9,
+      "name": "forward/value separation verdicts",
+      "ok": true,
+      "info": {
+       "E_P4_vsgo_switch": "PARTIAL",
+       "E_P4_vsgo_switch_sens070": "PARTIAL",
+       "E_P4_vsg_partial": "CONTRADICTED",
+       "E_P4_vsgo_exceeds_vsg": "SUPPORTED",
+       "E_P4_vrs_switch": "SUPPORTED",
+       "M_P4_vsgo_switch": "SUPPORTED",
+       "M_P4_vsg_partial": "CONTRADICTED",
+       "M_P4_vsgo_exceeds_vsg": "CONTRADICTED",
+       "M_P4_vrs_switch": "SUPPORTED"
+      }
+     },
+     {
+      "item": 10,
+      "name": "non-targeted disturbance comparison",
+      "ok": true,
+      "info": {
+       "gates": {
+        "pnz": {
+         "E821": {
+          "ratio": 1.0071927671361345,
+          "ok": true
+         },
+         "E822": {
+          "ratio": 1.003279638495307,
+          "ok": true
+         },
+         "E823": {
+          "ratio": 1.0051583757351177,
+          "ok": true
+         },
+         "M821": {
+          "ratio": 1.0045379291200118,
+          "ok": true
+         },
+         "M822": {
+          "ratio": 1.0036302710354659,
+          "ok": true
+         },
+         "M823": {
+          "ratio": 1.0042729926156992,
+          "ok": true
+         }
+        },
+        "lbl": {
+         "E821": {
+          "ratio": 0.9750386579343336,
+          "excess_block": 0.08107650151644974,
+          "excess_ctl": 0.07905272322861012,
+          "ok": true
+         },
+         "E822": {
+          "ratio": 1.0178286880791372,
+          "excess_block": 0.07158267638634352,
+          "excess_ctl": 0.07285890159550545,
+          "ok": true
+         },
+         "E823": {
+          "ratio": 0.9927931428817323,
+          "excess_block": 0.0771062446110024,
+          "excess_ctl": 0.0765505509231647,
+          "ok": true
+         },
+         "M821": {
+          "ratio": 12.377538243179492,
+          "excess_block": 0.007595050644231438,
+          "excess_ctl": 0.09400802980785966,
+          "ok": true
+         },
+         "M822": {
+          "ratio": 4.733701906799244,
+          "excess_block": 0.020080598795757576,
+          "excess_ctl": 0.09505556880914823,
+          "ok": true
+         },
+         "M823": {
+          "ratio": 8.607697160058617,
+          "excess_block": 0.009345455815835235,
+          "excess_ctl": 0.08044285348541824,
+          "ok": true
+         }
+        }
+       },
+       "bands": {
+        "E_A7_normmatched_L0_nil": "SUPPORTED",
+        "E_P6_pnz_nil": "SUPPORTED",
+        "E_P6_lbl_nil": "SUPPORTED",
+        "M_A7_normmatched_L0L2_nil": "SUPPORTED",
+        "M_P6_pnz_nil": "SUPPORTED",
+        "M_P6_lbl_nil": "SUPPORTED"
+       }
+      }
+     },
+     {
+      "item": 11,
+      "name": "functional and causal scores recomputed",
+      "ok": true,
+      "info": "rescored bands identical: True; functional battery present: True"
+     },
+     {
+      "item": 12,
+      "name": "frozen verdicts",
+      "ok": true,
+      "info": "35 frozen verdicts match the stored scorer output"
+     },
+     {
+      "item": 13,
+      "name": "independent seed counts",
+      "ok": true,
+      "info": "units [('E', 821), ('E', 822), ('E', 823), ('M', 821), ('M', 822), ('M', 823)]; independent parents: 1 (uP160)"
+     },
+     {
+      "item": 14,
+      "name": "scorer fail-closed behaviour",
+      "ok": true,
+      "info": "ALL PASS 77 checks"
+     },
+     {
+      "item": 15,
+      "name": "sensitivity and evaluability code match the specification",
+      "ok": true,
+      "info": "12 frozen sensitivity outputs; each recomputes evaluability (planted checks)"
+     },
+     {
+      "item": 16,
+      "name": "important checkpoints load",
+      "ok": true,
+      "info": "365 checkpoints load with 44 tensors"
+     },
+     {
+      "item": 17,
+      "name": "representative continuation reproduces",
+      "ok": true,
+      "info": "skipped (--quick)"
+     },
+     {
+      "item": 18,
+      "name": "dependency hashes",
+      "ok": true,
+      "info": "71 dependency files; mismatches []"
+     },
+     {
+      "item": 19,
+      "name": "archive manifest",
+      "ok": true,
+      "info": "4000 manifest entries; mismatches []"
+     },
+     {
+      "item": 20,
+      "name": "clean-extraction reproduction",
+      "ok": true,
+      "info": "this run IS the clean-extraction run (result copied to logs/CLEAN_EXTRACTION19.json)"
+     },
+     {
+      "item": 21,
+      "name": "reviewer corrections reflected",
+      "ok": true,
+      "info": "post-results mandatory items with a resolution row: 17/17; pre-experiment resolutions present: True; missing []"
+     }
+    ]
+   }
+  },
+  {
+   "item": 21,
+   "name": "reviewer corrections reflected",
+   "ok": true,
+   "info": "post-results mandatory items with a resolution row: 17/17; pre-experiment resolutions present: True; missing []"
+  }
+ ],
+ "all_pass": true
+}

@@ -1,0 +1,28 @@
+{
+ "argv": [
+  "scripts/xix_train.py",
+  "uP160",
+  "21",
+  "21",
+  "801"
+ ],
+ "env": {
+  "FX_TAGSUF": "_s100dev",
+  "FX_SAVEOPT_AT": "100",
+  "FX_SAVEOPT": "1",
+  "FX_PNZ_REF": "checkpoints/ft/uP160_fx_L21_W21_D801_stop100_s100dev:checkpoints/ft/uP160_fx_L21_W21_D801_gofown0b1e9T100_stop100_s100dev",
+  "FX_PNZ_SCALE": "8",
+  "FX_STOP": "100",
+  "FX_PNZ_SEED": "1",
+  "FX_INTERV": "pnz:100"
+ },
+ "tag": "uP160_fx_L21_W21_D801_pnzs1x8T100_stop100_s100dev",
+ "start": 0,
+ "code": {
+  "xix_train.py": "a5ae8698b7fba0dac714cd2ce073ed99bf339a2dac9386d4b4ba8447fbd2580c",
+  "maskfwd.py": "26a1d1c6744e3e819313527b6500ca64b1c4615643efd259c3a411550008a8c1",
+  "native.py": "8e651489ce7fd0fa1ae34bd6b5c31bd59c004bfcb7b593d9738043e2b99f1e90"
+ },
+ "branch_dir": null,
+ "branch_src": null
+}

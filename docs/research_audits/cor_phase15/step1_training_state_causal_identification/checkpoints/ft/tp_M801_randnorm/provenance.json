@@ -1,0 +1,38 @@
+{
+ "B": "uP160_fx_L23_W23_D801_stop100_s100dev",
+ "I": "uP160_fx_L23_W23_D801_gofown2b1e9T100_stop100_s100dev",
+ "params_from_I": [],
+ "perturbed_groups": [
+  "L0_LN",
+  "L0_MLP",
+  "L0_OV",
+  "L0_QK",
+  "L1_LN",
+  "L1_MLP",
+  "L1_OV",
+  "L1_QK",
+  "L2_LN",
+  "L2_MLP",
+  "L2_OV",
+  "L2_QK",
+  "WA",
+  "emb",
+  "final_LN"
+ ],
+ "perturb_seed": 1,
+ "alpha": null,
+ "foreign_donor": false,
+ "opt": "B",
+ "inputs": {
+  "B/step100.npz": "600441b7ae1ff4be9d225746793887f97f5b04483edac4ec1e1e6445859ec4d7",
+  "B/opt_step100.pkl": "27cd1e7622fe1b723cbb867d1dc773ee6e2c3c631e9aeb6f9ebe154effb13c19",
+  "I/step100.npz": "eca0c805ba0e67f6bb9f8b9a836f91e13249e53400f81766dff54a21d1d9233e",
+  "I/opt_step100.pkl": "8b8c42b5bfd622f826b73841538bf81a93b53abb1815da69fe86e9783b778428"
+ },
+ "outputs": {
+  "step100.npz": "c0a5b52f8c2b567887395b901b995ac3091783a9de74d8722dc77abfa024136e",
+  "opt_step100.pkl": "27cd1e7622fe1b723cbb867d1dc773ee6e2c3c631e9aeb6f9ebe154effb13c19"
+ },
+ "param_dist_to_B": 0.7266993522644043,
+ "param_dist_to_I": 1.0279923677444458
+}

@@ -529,3 +529,4 @@
 2026-11-20T01:59:14Z lane C1 end [4baa01b97ccc] rc=0
 2026-11-20T02:03:45Z lane C2 end [a31e745954d8] rc=0
 2026-11-20T02:07:34Z confirmation queue complete; frozen scoring starts (first read of confirmation outputs)
+2026-11-20T03:06:09Z post-scoring session (recorded after the fact, per post-review E): primary score_c19.json 02:2x; 12 sensitivity variants; stats19; functional battery on 99 confirmation models (stream 93300000) and score_func19 (literal F3 rule applied after review E); s100diag/compat diagnostics (stream 94800000); post-results reviews D, E

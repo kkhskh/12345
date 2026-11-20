@@ -29,15 +29,16 @@ A partial gradient stop is not complete removal of route learning, and gsg in pa
 | I←B L0_QK (restore B's layer-0 QK state into I) | 0.98 / 0.96 / 0.96 [frozen, SUPPORTED: not necessary] | — |
 | gsg (XVIII c18, other seeds) | MIXTURE ×2, HYBRID ×1 | HYBRID ×3 |
 
-**[frozen] frz against frzp on E.**
-- The two arms have **identical step-100 parameters** and differ only in the Adam moments. Yet frz gives 0.01 / 0.01 / 0.50 and frzp gives 0.54–0.69.
-- So the frz nil is an optimizer-state artefact, as reviewer B predicted.
-- This is also a natural-trajectory demonstration that optimizer moments can change the outcome (see `PARAMETER_AND_OPTIMIZER_STATE_TRANSPLANTS.md` A3).
+**[frozen, PARTIAL] frz against frzp on E.**
+- On 2 of 3 E pairs, frz (nil) and frzp (partial) differ although their θ_100 are identical.
+- This is consistent with the moment-artefact explanation of pre-review B. It is not established at frozen level: on E823 both arms are partial (0.50, 0.69).
+- On M there is no contrast.
+- These are training-time freeze arms, not natural trajectories.
 
 ## C3. Reading
 
 **E.**
-- Freezing all routing-parameter learning of layer 0 in the window (frzp) produces a stable **partial** switch: a hybrid organisation, competent, with both routes partly necessary.
+- Freezing all routing-parameter learning of layer 0 in the window (frzp) produces a **partial** switch at step 1211: a competent hybrid with both routes partly necessary. Its stability beyond step 1211 was not tested.
 - Routing learning of the target layer therefore contributes on E (X4a is **not** eliminated on E).
 - It is not sufficient for a full switch.
 - The routing *state* alone is not necessary at step 100: restoring B's layer-0 QK into I leaves the switch intact (X4b in its necessity form is eliminated on E).

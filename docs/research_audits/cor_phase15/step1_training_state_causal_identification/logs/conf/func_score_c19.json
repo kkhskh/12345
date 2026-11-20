@@ -412,7 +412,7 @@
    "SR": 1.0905783838775012,
    "SR_class": "MIXTURE",
    "causal_category": "INCONCLUSIVE(causal_NONE)",
-   "group": "F3",
+   "group": "F3x",
    "expected": "MIXTURE",
    "match": true
   },
@@ -452,7 +452,7 @@
    "SR": 1.141092663917115,
    "SR_class": "MIXTURE",
    "causal_category": "INCONCLUSIVE(causal_NONE)",
-   "group": "F3",
+   "group": "F3x",
    "expected": "MIXTURE",
    "match": true
   },
@@ -548,7 +548,7 @@
    "SR": 1.1690361001131357,
    "SR_class": "MIXTURE",
    "causal_category": "INCONCLUSIVE(causal_NONE)",
-   "group": "F3",
+   "group": "F3x",
    "expected": "MIXTURE",
    "match": true
   },
@@ -588,7 +588,7 @@
    "SR": 1.2772865061348124,
    "SR_class": "MIXTURE",
    "causal_category": "INCONCLUSIVE(causal_NONE)",
-   "group": "F3",
+   "group": "F3x",
    "expected": "MIXTURE",
    "match": true
   },
@@ -636,7 +636,7 @@
    "SR": 1.269065944315621,
    "SR_class": "MIXTURE",
    "causal_category": "INCONCLUSIVE(causal_NONE)",
-   "group": "F3",
+   "group": "F3x",
    "expected": "MIXTURE",
    "match": true
   },
@@ -831,8 +831,15 @@
   },
   "M_F3": {
    "band": "SUPPORTED",
-   "n": 21,
-   "matching": 21,
+   "n": 16,
+   "matching": 16,
+   "opposite": 0,
+   "ambiguous": 0
+  },
+  "M_F3x": {
+   "band": "SUPPORTED",
+   "n": 5,
+   "matching": 5,
    "opposite": 0,
    "ambiguous": 0
   }

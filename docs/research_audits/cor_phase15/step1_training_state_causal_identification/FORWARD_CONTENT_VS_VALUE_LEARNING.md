@@ -40,25 +40,23 @@ The development pair had predicted hybrids for vsg on both bases (0.35 and 0.43)
 
 **Mixture base (M).**
 
-[frozen] Removing only the gradient into the value vectors read through T — with the forward pass and the routing gradient exactly as in plain training — produces the full switch on all three pairs.
+[frozen, M_P4_vsgo_switch SUPPORTED] Stopping the gradient into V and WO read through T during the window switches M fully on all three pairs (0.98–0.99). The forward pass and the per-step routing gradient are those of plain training, given the current parameters.
 
-This eliminates the following for M, as *necessary* causes:
-- forward-content loss;
-- routing-gradient removal;
-- attention-share reduction by forward masking (forward unchanged).
+Read that way, forward-content loss and per-step routing-gradient removal are **not necessary** for the M switch. This reading **departs from the predeclared joint P4 rule**, which failed on both bases.
 
-**XVIII confound 1 is therefore resolved on M:** value-vector learning through T, during the window, is sufficient.
+[frozen data; expl] Stopping only the value-vector gradient (vsg) also switches M fully (0.97–0.99). The frozen prediction for vsg was a partial switch, and it was **CONTRADICTED**. The sufficiency of vsg is a post-hoc reading.
 
-It does not show that the effect is *only* value learning: the block also changes the forward pass. Nor does it show that the routing state is uninvolved. vsg still changes T's learned attention share at step 100 (pre-review A R3), because routing then adapts to values that learn differently.
+**Not excluded.** By step 100 the learned T attention share falls by 63–72% of the block's fall under vsg/vsgo. So a routing-state change that *follows from* the altered value learning is a live mediator.
+
+These are statements about a modified learning rule (synthetic gradient), not about an ordinary network losing information.
 
 **Early base (E).**
-- [frozen] V-only removal does nothing on 2 of 3 pairs.
-- V+O removal gives a large but mostly incomplete switch (0.56–0.95).
-- Content loss gives a full switch.
+- [falsified] V-only removal is nil on 2 of 3 pairs (0.02, 0.02) and partial on E823 (0.68).
+- [frozen, PARTIAL = not established] Removing V+O learning through T gives large but incomplete switches on 2 of 3 pairs (0.56, 0.69) and a near-full switch on E823 (0.95).
+- **Whether V+O learning suffices on E is not established.**
+- Content loss (vrs) gives a full switch.
 
-On E, therefore, value-pathway learning through T accounts for most, but not all, of the effect. The remainder needs forward-content loss or learning outside V and O (downstream readers, or routing; see the frzp partial in `ROUTING_GRADIENT_CAUSAL_TESTS.md`).
-
-**The two bases differ.** On M, the block of the late route acts through value-vector learning alone. On E, the block of the early route needs more.
+**The two bases differ.** But each base has a single fresh-layer initialisation seed, and the target layer differs between them. So the E–M difference is confounded with the seed and with the layer (post-review D9).
 
 **Natural against synthetic.** vrs is the only natural intervention: the forward is perturbed and its gradients are ordinary. vsg and vsgo are interventions on the optimisation algorithm (mandate B3); their results do not describe an ordinary network losing information. The M result is a statement about the sufficiency of a modified learning rule.
 

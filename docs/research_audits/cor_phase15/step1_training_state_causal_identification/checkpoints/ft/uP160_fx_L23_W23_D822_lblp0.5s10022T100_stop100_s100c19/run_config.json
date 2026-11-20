@@ -1,0 +1,29 @@
+{
+ "argv": [
+  "scripts/xix_train.py",
+  "uP160",
+  "23",
+  "23",
+  "822"
+ ],
+ "env": {
+  "FX_WLOSS": "1",
+  "FX_SAVEOPT": "1",
+  "FX_NOFALLBACK": "1",
+  "FX_LBL_SEED": "10022",
+  "FX_LBL_P": "0.5",
+  "FX_TAGSUF": "_s100c19",
+  "FX_SAVEOPT_AT": "100",
+  "FX_INTERV": "lbl:100",
+  "FX_STOP": "100"
+ },
+ "tag": "uP160_fx_L23_W23_D822_lblp0.5s10022T100_stop100_s100c19",
+ "start": 0,
+ "code": {
+  "xix_train.py": "96f9fb9e5866f37d070583f902d37ccc82dc88928104b60f79ddc98bed33a3fa",
+  "maskfwd.py": "26a1d1c6744e3e819313527b6500ca64b1c4615643efd259c3a411550008a8c1",
+  "native.py": "8e651489ce7fd0fa1ae34bd6b5c31bd59c004bfcb7b593d9738043e2b99f1e90"
+ },
+ "branch_dir": null,
+ "branch_src": null
+}

@@ -5,5 +5,6 @@
  "xviii_freeze_full": "1547ec9dbe6144a870ea9f6de3f269dae160a907",
  "xix_branch": "cor-phase15-step1-training_state_causal_identification",
  "xix_branch_point": "7fb7dadf34168f3123de0bde525299d68bfef63c",
- "note": "XIX branch created from XVIII HEAD 7fb7dad; verified at XIX start"
+ "note": "XIX branch created from XVIII HEAD 7fb7dad; verified at XIX start",
+ "package_root_at_run_time": "/home/claude/12345/docs/research_audits/cor_phase15/step1_training_state_causal_identification"
 }

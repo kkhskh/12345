@@ -28,10 +28,11 @@ Which explanation each control addresses:
 - pnz removes none.
 - lbl corrupts the targets, not the inputs. Its step-100 route state partly resembles the block's. [dev E801] It leaves the early route non-functional at step 100 (nec_E 0.027 against B's 0.266), and its layer-0 displacement has cosine 0.76 with the block's.
 
-**Strength.** These are not weak controls.
-- pnz matches the block's displacement exactly.
-- lbl matches the block's loss disturbance on E and exceeds it 5–12× on M.
-- Isotropic noise alone cannot reproduce a loss disturbance. [dev] Even at 8× the matched scale, step-100 KL stays at B's level. This is why lbl was added.
+**Strength.**
+- randnorm and pnz match the block's *displacement* exactly, but they are functionally inert at step 100: step-100 KL and route necessity equal B's.
+- [dev] Isotropic noise cannot reproduce a loss disturbance even at 8× the matched scale.
+- Only **lbl** is a functional disturbance. Its loss disturbance matches the block's on E and is 4.7–12.4× larger on M.
+- **Disturbances that are functionally comparable but not aligned with I − B are tested only by lbl** (post-review D7).
 
 ## D3. Results [frozen]
 
@@ -47,6 +48,6 @@ All 18 control models are competent and keep the B organisation.
 
 **Eliminated, per base, within one parent and 3 data orders.**
 - **X8a:** a random parameter displacement as large as the block's, applied at step 100 or accumulated during the window, does not select the organisation.
-- **X8b:** a loss disturbance as large as the block's (E), or larger (M), during the window does not select it. That includes a disturbance that delays the early route's acquisition at step 100 (E).
+- **X8b:** a label-noise loss disturbance as large as the block's (E), or larger (M), during the window does not select it. That includes a disturbance that leaves the early route non-functional at step 100 (E: nec_E 0.026–0.029, against B's 0.23–0.30), while also slowing the learning of every other route.
 
 **Remaining.** The general-disturbance explanation can survive only in a form these controls do not span: a disturbance *structured along the I − B direction*. That is no longer "general". [dev E801] Interpolating half of the layer-0 I − B difference does nothing, while all of it switches. So the selection is a threshold-like property of the specific learned direction.

@@ -1,0 +1,59 @@
+{
+ "zip": "/home/claude/12345/docs/research_audits/cor_phase15/step1_three_track_colab_research/delivery/cor_inv20_colab_three_track_research.zip",
+ "started": "2026-11-20T07:34:22Z",
+ "steps": {
+  "package_manifest_checkpoints_deps_freeze": {
+   "rc": 0,
+   "seconds": 1.3,
+   "tail": "{\"01_code_version\": \"PASS\", \"02_dependencies\": \"PASS\", \"03_checkpoint_provenance\": \"PASS\", \"05_frozen_protocol_hashes\": \"PASS\"}\n"
+  },
+  "notebooks_validate_and_imports": {
+   "rc": 0,
+   "seconds": 0.2,
+   "tail": "[]\n"
+  },
+  "test_pretrain.py": {
+   "rc": 0,
+   "seconds": 45.0,
+   "tail": "{'max_abs_diff': 0.0, 'resumed_at': 20}\n"
+  },
+  "test_tags.py": {
+   "rc": 0,
+   "seconds": 57.3,
+   "tail": "ok\n"
+  },
+  "test_scorers_planted.py": {
+   "rc": 0,
+   "seconds": 46.6,
+   "tail": "d_via_loader  \nPASS  C_reference_classification  \nPASS  C_planted_distinctive_prediction_detected  \nPASS  C_planted_original_unresolved  \nPASS  eligibility_unchanged_when_inputs_absent  \nPASS  eligibility_change_raises  \nPASS  runner_failed_job_kept_not_replaced  \nPASS  runner_definition_change_refused  \nPASS  runner_unregistered_outputs_blocked  \nPASS  integrity_14_detects_corrupted_checkpoint  \n"
+  },
+  "test_verdict_oc.py": {
+   "rc": 0,
+   "seconds": 6.0,
+   "tail": "ONCLUSIVE': 0.0} eval80 GEN/FAIL 0.997 0.0 null GEN 0.0 weak GEN 0.0\n12p_4D true: {'GENERALIZES': 0.993, 'FAILS_TO_GENERALIZE': 0.0, 'NOT_ESTABLISHED': 0.007, 'INCONCLUSIVE': 0.0} eval80 GEN/FAIL 0.986 0.0 null GEN 0.0 weak GEN 0.0\n12p_6D true: {'GENERALIZES': 0.998, 'FAILS_TO_GENERALIZE': 0.0, 'NOT_ESTABLISHED': 0.003, 'INCONCLUSIVE': 0.0} eval80 GEN/FAIL 0.992 0.0 null GEN 0.0 weak GEN 0.0\nPASS\n"
+  },
+  "test_trackb_oc.py": {
+   "rc": 0,
+   "seconds": 30.0,
+   "tail": "4p_precision_only {'B3': 1.0}\n4p_directed_0.15 {'B1-FUNCTIONAL': 1.0}\n4p_history_only_0.05 {'B3': 1.0}\n6p_precision_only {'B3': 1.0}\n6p_directed_0.15 {'B1-FUNCTIONAL': 1.0}\n6p_history_only_0.05 {'B3': 1.0}\ndiscriminating_set {'n': 9353, 'frac_S_local': 0.27766492034641294}\nPASS results: /tmp/cleanxx/test_out/trackb_oc_results.json\n"
+  },
+  "test_track_c.py": {
+   "rc": 0,
+   "seconds": 14.0,
+   "tail": "decisions: calibration-level (generators/t4.equivalence_table)', 'T4 additive complex': 'not representable below order 18 at the log-odds level; the only non-trivial completion adds latent roles = standard factor-graph marginal inference'}, 'reasons': {'R1_exact': True, 'FD_equals_marginalised_joint_bayes': True, 'M1_gate_only': True, 'order1_certificate_exact': True, 't4_order_lower_bound': 18}}\n"
+  },
+  "notebook_03_executed_nbclient": {
+   "rc": 1,
+   "seconds": 0.5,
+   "tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.13/site-packages/nbformat/__init__.py\", line 169, in read\n    buf = fp.read()\n          ^^^^^^^\nAttributeError: 'str' object has no attribute 'read'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n    nb = nbformat.read('notebooks/03_TRACK_C_OD_MATHEMATICS.ipynb', as_version=4)\n  File \"/usr/local/lib/python3.13/site-packages/nbformat/__init__.py\", line 171, in read\n    with open(fp, encoding=\"utf8\") as f:  # noqa: PTH123\n         ~~~~^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'notebooks/03_TRACK_C_OD_MATHEMATICS.ipynb'\n"
+  },
+  "smoke_pipeline": {
+   "rc": 0,
+   "seconds": 1650.1,
+   "tail": "OG.md\",\n  \"FROZEN_PREDICTION_VERDICTS.md\",\n  \"INTEGRITY_CHECKS.json\",\n  \"MAIN_RESEARCH_SYNTHESIS.md\",\n  \"METHODS_AND_REPRODUCIBILITY.md\",\n  \"NEGATIVE_AND_INCONCLUSIVE_RESULTS.md\",\n  \"REVIEW_AND_ADJUDICATION.md\",\n  \"STATISTICAL_ANALYSIS.md\",\n  \"TRACK_A_CAUSAL_GENERALIZATION.md\",\n  \"TRACK_B_FUNCTIONAL_IDENTIFICATION.md\",\n  \"TRACK_C_OD_MATHEMATICAL_STATUS.md\"\n ],\n \"report_refuses_completion\": true\n}\n"
+  }
+ },
+ "zip_test": true,
+ "all_pass": false,
+ "finished": "2026-11-20T08:05:13Z"
+}

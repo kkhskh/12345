@@ -1,0 +1,85 @@
+{
+ "started": 1795160263.9213183,
+ "checks": {
+  "all_jobs_done": true,
+  "resume_exit_codes": [
+   3,
+   0
+  ],
+  "resume_log": [
+   {
+    "resumed_at": 150
+   }
+  ],
+  "resume_bitwise_identical": true,
+  "failed_job_recorded_not_replaced": true,
+  "track_a_scored_not_provenance_fail": true,
+  "track_a_technical_only": true,
+  "track_b_technical_only": true,
+  "report_generated": [
+   "COMPLETE_EVIDENCE_MANIFEST.json",
+   "COMPUTE_AND_EXECUTION_LOG.md",
+   "FROZEN_PREDICTION_VERDICTS.md",
+   "INTEGRITY_CHECKS.json",
+   "MAIN_RESEARCH_SYNTHESIS.md",
+   "METHODS_AND_REPRODUCIBILITY.md",
+   "NEGATIVE_AND_INCONCLUSIVE_RESULTS.md",
+   "REVIEW_AND_ADJUDICATION.md",
+   "STATISTICAL_ANALYSIS.md",
+   "TRACK_A_CAUSAL_GENERALIZATION.md",
+   "TRACK_B_FUNCTIONAL_IDENTIFICATION.md",
+   "TRACK_C_OD_MATHEMATICAL_STATUS.md"
+  ],
+  "report_refuses_completion": true
+ },
+ "summary": {
+  "by_phase": {
+   "A:continue": {
+    "done": 10
+   },
+   "B:functional": {
+    "done": 9
+   },
+   "A:measure": {
+    "done": 58
+   },
+   "A:stability": {
+    "done": 8
+   },
+   "A:compose": {
+    "done": 6
+   },
+   "A:window": {
+    "done": 8
+   }
+  },
+  "n": 99,
+  "failed": [],
+  "blocked": []
+ },
+ "track_a_problems": null,
+ "track_b_problems": null,
+ "integrity": {
+  "01_code_version": "PASS",
+  "02_dependencies": "PASS",
+  "03_checkpoint_provenance": "PASS",
+  "04_seed_independence": "PASS",
+  "05_frozen_protocol_hashes": "PASS",
+  "06_intervention_tensor_locations": "NOT_YET",
+  "07_forward_backward_pathway_effects": "NOT_YET",
+  "08_transplant_composition": "PASS",
+  "09_optimizer_state_preservation": "PASS",
+  "10_evidence_preserving_controls": "PASS",
+  "11_functional_decision_references": "NOT_YET",
+  "12_run_completion": "FAIL",
+  "13_competence_thresholds": "PASS",
+  "14_checkpoint_integrity": "PASS",
+  "15_resumed_training_consistency": "NOT_YET",
+  "16_frozen_score_reproduction": "PASS",
+  "17_statistical_unit_independence": "PASS",
+  "18_negative_and_censored_inclusion": "PASS",
+  "19_final_report_consistency": "PASS",
+  "20_archive_and_output_hashes": "PASS"
+ },
+ "seconds": 1649.8645420074463
+}

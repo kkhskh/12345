@@ -1,5 +1,5 @@
 {
- "frozen_at_utc": "2026-11-20T07:33:56Z",
+ "frozen_at_utc": "2026-11-20T08:06:39Z",
  "files": {
   "protocols/causal_design/track_a_design.json": "df11b49219137610a0412dc6c4635ab3ef04096453e086bb9c19193c95fc7f0f",
   "protocols/frozen_hypotheses/track_a_hypotheses.json": "e7c06907fa6ce50ef130a80f0afaef6fa8364edfe81ca8053c10e8069e092dc7",
@@ -76,7 +76,7 @@
   "cor_research/training/pretrain.py": "102249ce6b0c72b0b94baf8db008a86068cc5c18d70a126e5d0c614ac398042e",
   "cor_research/verification/integrity.py": "8f80a722f0a3900161ed9425a56e0e0cc82899693614920ec3a0f102f49f59eb",
   "scripts/build_package.py": "e4126d0db34a787e462fde69bc5e7d03035b374f217ea242c00bf984c9001206",
-  "scripts/clean_extraction_test.py": "77bcf96aae8347504bd6604100219e8385e3a167ba7efddf6f427004adb281a7",
+  "scripts/clean_extraction_test.py": "80c64c7bf1410bc0fd9d32a38e643fd3551a86c48d62d8bbf042401ae73af434",
   "scripts/make_delivery_docs.py": "f97ee6c3bf264f3275b8c00c87dab90957100717512e92afb1aa4084e739a3a6",
   "scripts/make_notebooks.py": "3ead6ac1efbb12001b0b2c42cec28f90639e3697f0b8c7eee6507bcd52378920",
   "scripts/make_protocols.py": "92d63da4a126a03dbe1cac5e559cdcbb42739fd70dc349a4158bef4718d46e4b",
@@ -178,5 +178,5 @@
   "t4.py": "bed6e49a38eccc6de615f870996a9600d8d827808bbe80102580d2dc81cdea65",
   "trackb_run.py": "30659a7031c3ea953b0b58bb83fdb00fcef8c5045671989d14ed84f58dcc54d2"
  },
- "freeze_sha256": "2ddff4112f47ea6a6ee071ad431afef7a9f8698bd64b23f1648106d1a5c00499"
+ "freeze_sha256": "f1b92d934921e55b09bfd693e436f81be0cdc53dea2a78bb382267cc0adb441d"
 }

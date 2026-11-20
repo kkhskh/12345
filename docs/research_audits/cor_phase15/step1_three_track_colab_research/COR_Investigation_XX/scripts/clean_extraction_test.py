@@ -34,7 +34,7 @@ step("notebooks_validate_and_imports", [sys.executable, "-c", nbcode])
 for t in ("test_pretrain.py", "test_tags.py", "test_scorers_planted.py", "test_verdict_oc.py", "test_trackb_oc.py", "test_track_c.py"): step(t, [sys.executable, os.path.join("tests", t)])
 exe = """
 import nbformat, os, sys; from nbclient import NotebookClient
-nb = nbformat.read('notebooks/03_TRACK_C_OD_MATHEMATICS.ipynb', as_version=4)
+nb = nbformat.read(os.path.join(os.getcwd(), '03_TRACK_C_OD_MATHEMATICS.ipynb'), as_version=4)   # cwd = notebooks/
 NotebookClient(nb, timeout=3600, kernel_name='python3', resources={'metadata': {'path': os.getcwd()}}).execute()
 nbformat.write(nb, os.path.join(os.environ['COR_TEST_OUT'], '03_executed.ipynb')); print('executed', len(nb.cells), 'cells')"""
 env.update(COR_NB_PRESET="standard", COR_NB_DRIVE="0", COR_NB_DEVICE="cpu", COR_NB_RUN_ROOT=os.path.join(out, "runs", "nb03"))

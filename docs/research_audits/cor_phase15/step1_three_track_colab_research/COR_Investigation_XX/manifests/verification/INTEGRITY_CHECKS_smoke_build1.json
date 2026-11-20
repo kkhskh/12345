@@ -1,0 +1,157 @@
+{
+ "preset": "smoke",
+ "checks": {
+  "01_code_version": {
+   "status": "PASS",
+   "source_commit": "d4e69a27a6580fc0435bc51607375ab6805fc942",
+   "changed_or_missing": [],
+   "notebooks_edited": []
+  },
+  "02_dependencies": {
+   "status": "PASS",
+   "pinned": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "optax": "0.2.8",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+   },
+   "installed": {
+    "jax": "0.12.0.1",
+    "jaxlib": "0.12.0.1",
+    "optax": "0.2.8",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+   },
+   "python": "3.13.18"
+  },
+  "03_checkpoint_provenance": {
+   "status": "PASS",
+   "vendored_bad": [],
+   "n_vendored": 25,
+   "fresh_parents": []
+  },
+  "04_seed_independence": {
+   "status": "PASS",
+   "confirmation_D": [
+    2001
+   ],
+   "overlap_with_dev_or_screen": [],
+   "pilot_material_in_run": false
+  },
+  "05_frozen_protocol_hashes": {
+   "status": "PASS",
+   "mismatched": []
+  },
+  "06_intervention_tensor_locations": {
+   "status": "NOT_YET",
+   "reason": "run the preflight graph audit (notebook 00, step 6)"
+  },
+  "07_forward_backward_pathway_effects": {
+   "status": "NOT_YET",
+   "reason": "run the preflight graph audit (notebook 00, step 6)"
+  },
+  "08_transplant_composition": {
+   "status": "PASS",
+   "n": 6,
+   "problems": []
+  },
+  "09_optimizer_state_preservation": {
+   "status": "PASS",
+   "n_fullB_checked": 2
+  },
+  "10_evidence_preserving_controls": {
+   "status": "PASS",
+   "n": 2
+  },
+  "11_functional_decision_references": {
+   "status": "NOT_YET"
+  },
+  "12_run_completion": {
+   "status": "FAIL",
+   "n_jobs": 100,
+   "not_done": [
+    "smoke:deliberate_failure"
+   ],
+   "n_not_done": 1,
+   "planned_but_unregistered": [
+    "math:trackC"
+   ]
+  },
+  "13_competence_thresholds": {
+   "status": "PASS",
+   "frozen_file": {
+    "competence": {
+     "KL": 0.06,
+     "acc": 0.8
+    },
+    "causal_class": {
+     "E_hi": 0.3,
+     "E_lo_M": 0.1,
+     "M_hi": 0.3,
+     "M_lo_E": 0.15
+    }
+   },
+   "in_use": {
+    "comp": {
+     "KL": 0.06,
+     "acc": 0.8
+    },
+    "cls": {
+     "E_hi": 0.3,
+     "E_lo_M": 0.1,
+     "M_hi": 0.3,
+     "M_lo_E": 0.15
+    }
+   }
+  },
+  "14_checkpoint_integrity": {
+   "status": "PASS",
+   "n_checked": 151,
+   "bad": []
+  },
+  "15_resumed_training_consistency": {
+   "status": "NOT_YET",
+   "reason": "runtime resume test not run (preflight)",
+   "resumed_runs": [
+    [
+     "uP160_fx_L21_W21_D2001_s200_br100_E2001_fullB_resumetest",
+     [
+      {
+       "resumed_at": 150
+      }
+     ]
+    ]
+   ]
+  },
+  "16_frozen_score_reproduction": {
+   "status": "PASS"
+  },
+  "17_statistical_unit_independence": {
+   "status": "PASS",
+   "parents": [
+    "uP160"
+   ]
+  },
+  "18_negative_and_censored_inclusion": {
+   "status": "PASS",
+   "expected_pairs_per_base": {
+    "E": 1,
+    "M": 1
+   },
+   "mismatches": {},
+   "registered_pairs_absent_from_scores": []
+  },
+  "19_final_report_consistency": {
+   "status": "PASS"
+  },
+  "20_archive_and_output_hashes": {
+   "status": "PASS",
+   "n": 168,
+   "bad": []
+  }
+ },
+ "n_pass": 15,
+ "n_fail": 1,
+ "n_not_yet": 4
+}

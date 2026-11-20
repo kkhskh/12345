@@ -1,0 +1,7 @@
+{
+ "classification": "cor_research.mathematics.run_track_c.classify (predeclared; C5 is reviewer-adjudicated with the candidate list)",
+ "code": "cor_research/mathematics (od_original, od_repaired, t4_order, run_track_c)",
+ "neural_test": null,
+ "rule": "no neural O/D experiment is run: every candidate neural prediction considered (factor-deletion destinations, O-tie sensitivity, soft-gate expected-energy pooling, T4 latent-role expected energy, T4 additive complex) coincides with exact Bayes on the declared model, is a standard mean-field/log-linear pooling distinction, needs an unstated bridge assumption, or is not representable (review B \u00a73.6, C-MAJ-3)",
+ "version": "XX-2"
+}

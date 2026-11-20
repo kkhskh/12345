@@ -1,0 +1,829 @@
+{
+ "preset": "smoke",
+ "step": 200,
+ "technical_only": true,
+ "units": [
+  {
+   "parent": "uP160",
+   "base": "E",
+   "seed": 21
+  },
+  {
+   "parent": "uP160",
+   "base": "M",
+   "seed": 23
+  }
+ ],
+ "eligibility": {
+  "uP160": {
+   "status": "SCREENED",
+   "screening": {
+    "21": {
+     "KL": 0.34418824967482414,
+     "acc": 0.6026666666666667,
+     "nec_E": 0.5477110002938641,
+     "nec_M": 0.010394310866967293,
+     "cls": "EARLY",
+     "competent": false
+    },
+    "23": {
+     "KL": 0.33935216293882053,
+     "acc": 0.618,
+     "nec_E": 0.5994243506061564,
+     "nec_M": 0.01920357555983987,
+     "cls": "EARLY",
+     "competent": false
+    }
+   },
+   "units": {
+    "E": {
+     "eligible": false,
+     "seed": null,
+     "qualifying_seeds": []
+    },
+    "M": {
+     "eligible": false,
+     "seed": null,
+     "qualifying_seeds": []
+    }
+   }
+  }
+ },
+ "pairs": {
+  "HA1:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "ANCHORS_NOT_EVALUABLE",
+    "value": null
+   }
+  ],
+  "HA1:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "ANCHORS_NOT_EVALUABLE",
+    "value": null
+   }
+  ],
+  "HA2:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "ANCHORS_NOT_EVALUABLE",
+    "value": null
+   }
+  ],
+  "HA2:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "ANCHORS_NOT_EVALUABLE",
+    "value": null
+   }
+  ],
+  "HA3:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA3:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA4a:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA4b:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA5a:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA5b:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA5c:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA5d:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA6a:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA6a:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA6b:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA6b:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA7:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "NOT_IN_PRESET",
+    "value": null
+   }
+  ],
+  "HA8M:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "ANCHORS_NOT_EVALUABLE",
+    "value": null
+   }
+  ],
+  "HA8E:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "ANCHORS_NOT_EVALUABLE",
+    "value": null
+   }
+  ],
+  "HA9:E": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "ANCHORS_NOT_EVALUABLE",
+    "value": null
+   }
+  ],
+  "HA9:M": [
+   {
+    "parent": "uP160",
+    "D": 2001,
+    "status": "ANCHORS_NOT_EVALUABLE",
+    "value": null
+   }
+  ]
+ },
+ "hypotheses": {
+  "HA1:E": {
+   "text": "Blocking the base's own route for the first 100 steps switches the organisation: the I anchor is competent and of the opposite causal class at 4000.",
+   "arm": "fullI",
+   "expect": "switch",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 1,
+    "NOT_IN_PRESET": 0,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA1:M": {
+   "text": "Blocking the base's own route for the first 100 steps switches the organisation: the I anchor is competent and of the opposite causal class at 4000.",
+   "arm": "fullI",
+   "expect": "switch",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 1,
+    "NOT_IN_PRESET": 0,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA2:E": {
+   "text": "The step-100 parameters carry the selection (I parameters with B moments -> I-like).",
+   "arm": "paramI_optB",
+   "expect": "I_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 1,
+    "NOT_IN_PRESET": 0,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA2:M": {
+   "text": "The step-100 parameters carry the selection (I parameters with B moments -> I-like).",
+   "arm": "paramI_optB",
+   "expect": "I_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 1,
+    "NOT_IN_PRESET": 0,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA3:E": {
+   "text": "Adam moments alone do not carry it (B parameters with I moments -> B-like).",
+   "arm": "paramB_optI",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA3:M": {
+   "text": "Adam moments alone do not carry it (B parameters with I moments -> B-like).",
+   "arm": "paramB_optI",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA4a:E": {
+   "text": "E: the I layer-0 state is sufficient.",
+   "arm": "BfromI_L0",
+   "expect": "I_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA4b:E": {
+   "text": "E: the I layer-0 state is necessary (restoring B's layer 0 prevents the switch).",
+   "arm": "IfromB_L0",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA5a:M": {
+   "text": "M: L0+L1 sufficient.",
+   "arm": "BfromI_L0L1",
+   "expect": "I_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA5b:M": {
+   "text": "M: L0+L2 sufficient.",
+   "arm": "BfromI_L0L2",
+   "expect": "I_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA5c:M": {
+   "text": "M: L0 alone is not sufficient (phi < 0.75 or class != I).",
+   "arm": "BfromI_L0",
+   "expect": "not_I_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA5d:M": {
+   "text": "M: restoring B's L0+L2 prevents the switch.",
+   "arm": "IfromB_L0L2",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA6a:E": {
+   "text": "A random parameter displacement of matched norm does not reproduce the effect.",
+   "arm": "randnorm_L0L2",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA6a:M": {
+   "text": "A random parameter displacement of matched norm does not reproduce the effect.",
+   "arm": "randnorm_L0L2",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA6b:E": {
+   "text": "Label-noise loss disturbance does not reproduce the effect.",
+   "arm": "lbl",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA6b:M": {
+   "text": "Label-noise loss disturbance does not reproduce the effect.",
+   "arm": "lbl",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA7:M": {
+   "text": "M: removing V+O learning through the blocked route (forward and routing gradient intact) suffices.",
+   "arm": "vsgo",
+   "expect": "I_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 0,
+    "NOT_IN_PRESET": 1,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA8M:M": {
+   "text": "M (new, discriminating): removing ALL routing gradient of the layer-2 readout rows (forward and value learning intact) does NOT reproduce the effect (value-learning account); a routing-gradient account predicts I-like.",
+   "arm": "rsg",
+   "expect": "B_like",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 1,
+    "NOT_IN_PRESET": 0,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA8E:E": {
+   "text": "E (new): removing the routing gradient of the layer-0 readout rows produces a PARTIAL effect (0.25 <= phi <= 0.75). Development basis: one uP160 run (D801, step 1211: nec_E 0.23, nec_M 0.39, phi ~ 0.58); low-confidence prediction, frozen before confirmation.",
+   "arm": "rsg",
+   "expect": "partial",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 1,
+    "NOT_IN_PRESET": 0,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA9:E": {
+   "text": "Persistence: each anchor's causal class at 1211 equals its class at 4000 (fraction of evaluable anchors >= 0.80 per parent).",
+   "arm": "fullB,fullI",
+   "expect": "persist",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 1,
+    "NOT_IN_PRESET": 0,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  },
+  "HA9:M": {
+   "text": "Persistence: each anchor's causal class at 1211 equals its class at 4000 (fraction of evaluable anchors >= 0.80 per parent).",
+   "arm": "fullB,fullI",
+   "expect": "persist",
+   "parent_verdicts": {
+    "uP160": "PARENT_INCONCLUSIVE"
+   },
+   "verdict": "TECHNICAL_ONLY",
+   "n_parents_evaluable": 0,
+   "pair_status_counts": {
+    "MISSING": 0,
+    "NONCOMPETENT": 0,
+    "ANCHORS_NOT_EVALUABLE": 1,
+    "NOT_IN_PRESET": 0,
+    "SUPPORTED_PAIR": 0,
+    "CONTRA_PAIR": 0,
+    "MIDDLE": 0
+   },
+   "phi": null,
+   "variance_components": null
+  }
+ },
+ "stats": {
+  "E": {
+   "switch_probability": null,
+   "competence_rate": {
+    "fullB": {
+     "n_parents": 1,
+     "n_pairs": 1,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "parent_means": {
+      "uP160": 0.0
+     },
+     "sd_between_parent_means": null,
+     "per_parent": {
+      "uP160": {
+       "k": 0,
+       "n": 1
+      }
+     }
+    },
+    "fullI": {
+     "n_parents": 1,
+     "n_pairs": 1,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "parent_means": {
+      "uP160": 0.0
+     },
+     "sd_between_parent_means": null,
+     "per_parent": {
+      "uP160": {
+       "k": 0,
+       "n": 1
+      }
+     }
+    },
+    "paramI_optB": {
+     "n_parents": 1,
+     "n_pairs": 1,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "parent_means": {
+      "uP160": 0.0
+     },
+     "sd_between_parent_means": null,
+     "per_parent": {
+      "uP160": {
+       "k": 0,
+       "n": 1
+      }
+     }
+    },
+    "rsg": {
+     "n_parents": 1,
+     "n_pairs": 1,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "parent_means": {
+      "uP160": 0.0
+     },
+     "sd_between_parent_means": null,
+     "per_parent": {
+      "uP160": {
+       "k": 0,
+       "n": 1
+      }
+     }
+    }
+   }
+  },
+  "M": {
+   "switch_probability": null,
+   "competence_rate": {
+    "fullB": {
+     "n_parents": 1,
+     "n_pairs": 1,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "parent_means": {
+      "uP160": 0.0
+     },
+     "sd_between_parent_means": null,
+     "per_parent": {
+      "uP160": {
+       "k": 0,
+       "n": 1
+      }
+     }
+    },
+    "fullI": {
+     "n_parents": 1,
+     "n_pairs": 1,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "parent_means": {
+      "uP160": 0.0
+     },
+     "sd_between_parent_means": null,
+     "per_parent": {
+      "uP160": {
+       "k": 0,
+       "n": 1
+      }
+     }
+    },
+    "paramI_optB": {
+     "n_parents": 1,
+     "n_pairs": 1,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "parent_means": {
+      "uP160": 0.0
+     },
+     "sd_between_parent_means": null,
+     "per_parent": {
+      "uP160": {
+       "k": 0,
+       "n": 1
+      }
+     }
+    },
+    "rsg": {
+     "n_parents": 1,
+     "n_pairs": 1,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "parent_means": {
+      "uP160": 0.0
+     },
+     "sd_between_parent_means": null,
+     "per_parent": {
+      "uP160": {
+       "k": 0,
+       "n": 1
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,5 @@
+COR_Investigation_XX/dev/runs/ft/
+COR_Investigation_XX/RUNS/
+__pycache__/
+*.pyc
+delivery/*.zip

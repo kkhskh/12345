@@ -1,0 +1,1164 @@
+# COR — PHASE 1.5, STEP 1
+# FOUNDATIONAL INVESTIGATION XX
+
+## Large-Scale Causal, Functional, and Mathematical Validation of Relational Computation
+
+### Complete Google Colab Research Package — Design, Implement, Verify, and Deliver
+
+**This mandate is different from previous COR investigations.**
+
+Your immediate task is to **build and deliver a complete, reproducible, GPU-ready research system**, packaged as a ZIP, which I will execute using Google Colab computing resources.
+
+Do not substitute short local demonstrations for the full experimental investigation.
+
+Do not claim that scientific predictions are confirmed before the actual Colab experiments finish.
+
+The package must contain real, executable experiments, all necessary source code and dependencies, frozen research protocols, analysis tools, checkpoint management, automated reviewers' checks, and report-generation tools.
+
+The actual confirmation experiments will run on Colab, not be simulated in your local environment.
+
+---
+
+# 0. RESEARCH CONTEXT
+
+Continue directly from Investigation XIX.
+
+Starting branch:
+
+`cor-phase15-step1-training_state_causal_identification`
+
+Reported HEAD:
+
+`e2b4c8d`
+
+Verify the actual branch and repository state.
+
+Read the complete scientific record from Investigations I–XIX, focusing on the primary code and corrected findings rather than narrative summaries alone.
+
+In particular, study:
+
+- The original COR obstruction/discrepancy definitions and their limitations.
+- T4's exact Bayesian decision structure.
+- The early-versus-mixture organization distinction.
+- XIII-C through XIII-E's mathematical and causal corrections.
+- XIV's temporary-pathway intervention results.
+- XV and XVI's learning-dynamics and optimization findings.
+- XVII's non-identifiability of shared computation versus position-conditioned implementation.
+- XVIII's forward-information, gradient, and attention decomposition.
+- XIX's parameter-state transplantation, gradient intervention, and functional tests.
+- All relevant mathematical, mechanism, and integrity reviews.
+
+Also locate the separately proposed O/D repair, if it is actually available in the project, including `od_repair_proposal.md` and `od_repair_check.py`.
+
+If these files cannot be located, document that and do not invent their contents.
+
+## Current scientific position
+
+Investigation XIX found that early intervention-induced parameter changes causally influence the later learned organization.
+
+On the early base, layer-0 parameter transplantation was sufficient and necessary under the tested interventions.
+
+On the mixture base, layer 0 alone was insufficient, while layer 0 combined with layer 1 or layer 2 could produce the switch.
+
+Optimizer-state-only transplantation did not reproduce the organizational change.
+
+Several matched general-disturbance controls also failed to reproduce it.
+
+However, the evidence remains limited.
+
+**XIX did not establish that the organizations implement different mathematical algorithms.**
+
+The functional differences may largely reflect differences in precision rather than qualitatively different decision rules.
+
+The research also remains centered on one pretrained parent.
+
+And none of these neural discoveries validates the original O/D theory.
+
+These are the three gaps Investigation XX must address.
+
+---
+
+# 1. THE THREE MAIN SCIENTIFIC QUESTIONS
+
+Investigation XX contains three substantial research tracks.
+
+## TRACK A — CAUSAL GENERALIZATION
+
+**Does the training-induced pathway-selection phenomenon hold across genuinely independent pretrained models, and which learned state changes mediate it?**
+
+This tests whether the causal result is a repeatable property of the studied neural learning process or a special feature of uP160.
+
+## TRACK B — FUNCTIONAL ALGORITHM IDENTIFICATION
+
+**Do the alternative trained organizations actually implement different mathematical decision procedures, or are they different neural implementations and precision levels of essentially the same procedure?**
+
+This is essential.
+
+A changed attention route is not necessarily a different algorithm.
+
+A changed error rate is not necessarily a different algorithm.
+
+This track must independently resolve what actually changed.
+
+## TRACK C — ORIGINAL COR O/D THEORY
+
+**Can COR's original or explicitly revised obstruction/discrepancy mathematics make a distinctive, falsifiable prediction about relational computation that is not merely an equivalent restatement of Bayesian inference?**
+
+This track is mathematically independent from Tracks A and B.
+
+It must be allowed to conclude that the original O/D theory is insufficient, silent, or observationally equivalent to existing methods.
+
+**No track is allowed to borrow evidence from another track to claim a conclusion it has not established.**
+
+---
+
+# 2. NON-NEGOTIABLE DESIGN GATE BEFORE COMPUTE
+
+The previous investigations repeatedly exposed a structural problem: an experiment could be computationally correct yet incapable of answering its central scientific question.
+
+Before producing the final execution package, perform a full pre-experiment review.
+
+For every planned test, answer:
+
+1. Is the result mathematically guaranteed by the architecture or intervention?
+2. Has the result already been established in the literature?
+3. Do the competing scientific explanations predict different outcomes?
+4. Is the proposed metric capable of distinguishing those outcomes?
+5. Are the necessary controls actually implemented?
+6. Will a positive result establish the claimed conclusion?
+7. Will a negative result meaningfully weaken a hypothesis?
+8. Can the experiment produce an inconclusive result without silently excluding most models?
+
+Reject redundant or non-identifying experiments.
+
+Do not run an experiment simply because it was requested.
+
+Three independent agent reviewers must examine the scientific design before confirmation protocols are frozen.
+
+At least one must specialize in causal identification, one in mathematics and functional equivalence, and one in reproducibility and experimental integrity.
+
+Their reviews must take place **before** the expensive Colab runs.
+
+They must have authority to reject non-discriminating tests.
+
+Any corrected design must be reviewed again.
+
+The final ZIP must include their written objections, corrections, and decisions.
+
+---
+
+# 3. TRACK A — LARGE-SCALE CAUSAL GENERALIZATION
+
+## A1. Independent pretrained parents
+
+XIX's main causal result was established within one pretrained parent.
+
+Investigation XX must attempt genuinely independent pretraining replication.
+
+Use a preregistered procedure for generating or selecting independent pretrained parents.
+
+Preserve:
+
+- Pretraining initialization.
+- Pretraining data stream.
+- Model architecture.
+- Pretraining configuration.
+- Final pretrained checkpoint.
+- Fine-tuning initialization.
+- Fine-tuning data order.
+- Complete model lineage.
+
+Aim for **at least four independent eligible pretrained parents**, with additional parents screened if needed to obtain a scientifically meaningful cohort.
+
+The actual denominator must be reported.
+
+Do not screen twenty parents, select four that support a desired conclusion, and report only four.
+
+Not every parent produces both competent organizations. This is a known issue.
+
+Establish the eligibility criteria before screening and distinguish parent eligibility from intervention outcome.
+
+If the required parent cohort cannot be obtained, report the limitation rather than manufacturing generalization.
+
+## A2. Adequate replication
+
+For each principal eligible parent and organizational base, target at least **4–6 genuinely independent fine-tuning seeds or data streams**.
+
+Use matched random streams across intervention arms where feasible.
+
+These paired streams help comparison but do not create new independent pretrained parents.
+
+The final analysis must distinguish parent-level and fine-tuning-level variation.
+
+Do not claim universal generalization from multiple fine-tunings of a single parent.
+
+## A3. Retain the strongest XIX interventions
+
+The confirmation design should include an economical, causally discriminating subset of:
+
+- Baseline training.
+- The original training-window pathway intervention.
+- Parameter-state transplants.
+- Reciprocal parameter restoration.
+- Relevant layer-0 and multi-layer combinations.
+- Optimizer-state-only controls.
+- The corrected value/output-gradient intervention.
+- A graph-verified routing-gradient intervention.
+- A matched non-targeted disturbance.
+- Carefully chosen interaction controls.
+
+Do not automatically run a complete factorial combination of every possible intervention.
+
+Select the interventions based on their ability to distinguish competing causal explanations.
+
+## A4. Identify actual learned-state mediation
+
+The primary outcome is not simply whether attention changes.
+
+Determine whether particular learned parameter changes are sufficient and necessary for the later causal-route organization.
+
+Include:
+
+- Forward transplantation.
+- Reverse transplantation.
+- Component-combination tests.
+- Parameter-norm controls.
+- State-compatibility checks.
+- Full-state references.
+- Optimizer-state controls.
+- Measurements after sustained subsequent training.
+
+Record whether a transplant:
+
+- Changes the immediate network.
+- Changes its later learned organization.
+- Changes final competence.
+- Changes the functional decision rule.
+- Produces only a temporary disruption.
+
+A parameter group that causes an effect in one synthetic hybrid state is not automatically a naturally identifiable mediator.
+
+## A5. Generalization predictions
+
+Freeze quantitative predictions about:
+
+- Which parameter groups are necessary or sufficient.
+- Whether the same causal organization can be selected in independent parents.
+- Whether the relevant intervention direction is consistent.
+- Whether parent-specific exceptions exist.
+- Which disturbances fail to reproduce the effect.
+- Whether the relevant mechanism differs between early and mixture bases.
+
+Include hierarchical statistical analysis with uncertainty across pretrained parents.
+
+**The central deliverable of Track A is a parent-level causal generalization result, not another seed-counting exercise.**
+
+---
+
+# 4. TRACK B — ARE THERE REALLY DIFFERENT ALGORITHMS?
+
+**This track is as important as Track A.**
+
+XIX found that the behavioral differences between organizations may primarily reflect different precision in approximating the same Bayesian decision.
+
+This must be confronted directly.
+
+Do not assume the early and mixture organizations implement different algorithms merely because previous COR investigations used those labels.
+
+## B1. Formalize the candidate decision procedures
+
+Reconstruct the exact T4 Bayesian rule.
+
+Reconstruct the behavioral models previously used to describe early and mixture organizations.
+
+Determine:
+
+- Which functions are mathematically equivalent.
+- Which are distinct only by calibration.
+- Which differ in posterior combination.
+- Which differ only on off-support inputs.
+- Which predict genuinely different decisions on valid inputs.
+- Which fitted parameters are non-identifiable.
+
+Earlier investigations showed that fitted power-mean operators are not unique neural descriptions.
+
+Do not use a good formula fit as proof of a neural operation.
+
+## B2. Derive discriminating test inputs
+
+Construct mathematically valid examples where the proposed alternative computations make different predictions.
+
+Prioritize input cases that preserve the generator's meaningful support.
+
+Use carefully defined changes in:
+
+- Source reliability.
+- Within-group agreement.
+- Cross-question relational evidence.
+- Source copying or dependence.
+- Evidence conflicts.
+- Candidate posterior margins.
+
+Do not introduce arbitrary off-support probes and claim they reveal the natural algorithm.
+
+If off-support testing is useful, label it explicitly and evaluate whether the result is identifiable from the training distribution.
+
+## B3. Distinguish functional differences from precision
+
+Measure:
+
+- Accuracy.
+- Negative log-likelihood.
+- Calibration.
+- Bayes regret.
+- Counterfactual decision changes.
+- Posterior ranking.
+- Candidate-specific response.
+- Differences after matched output calibration.
+- Residual differences after accounting for lapse and noise.
+
+A noisier approximation of the same rule must not be classified as a distinct algorithm.
+
+## B4. Test internal computations
+
+Use causal interventions to determine whether different neural routes implement:
+
+- The same sufficient relational statistic.
+- Different approximations of the same statistic.
+- Different evidence-combination functions.
+- Different conditional decision procedures.
+
+Where feasible, test whether an internal computational variable transfers between organizations.
+
+Require appropriate source-matched and ideal-reference controls.
+
+A successful activation interchange must not be mistaken for algorithm identity.
+
+Likewise, differences in attention-head necessity alone must not be mistaken for algorithm differences.
+
+## B5. Competing scientific claims
+
+Track B must distinguish three outcomes.
+
+**B1 — Different algorithms**
+
+The organizations implement distinguishable decision computations, supported by independent functional predictions and causal evidence.
+
+**B2 — Same algorithm, different implementations**
+
+The organizations approximate the same mathematical rule using different internal pathways.
+
+**B3 — Same rule, different precision**
+
+The observed differences primarily reflect approximation quality, calibration, or noise.
+
+A fourth outcome, non-identifiability, is acceptable.
+
+The confirmation experiments must be designed to distinguish these outcomes.
+
+**If no mathematically valid input can distinguish the candidate algorithms, establish that limitation before expensive training.**
+
+Do not spend GPU hours merely confirming that two models have different attention patterns.
+
+---
+
+# 5. TRACK C — COR O/D MATHEMATICAL VALIDATION
+
+**This track must remain scientifically independent.**
+
+The original O/D formulation has not yet produced a validated neural prediction.
+
+A separately proposed repair uses higher-order source groups and a consistency or gluing-gap quantity.
+
+That proposal reportedly reproduces the exact Bayesian decisions in GATE.
+
+However, an exact reformulation of Bayesian inference is not automatically a novel mathematical theory.
+
+## C1. Recover the actual definitions
+
+Inspect:
+
+- Original obstruction operator.
+- Original discrepancy operator.
+- Historical revisions.
+- Earlier counterexamples.
+- The proposed repaired operators, if available.
+- The precise source-group or factor-graph construction.
+- The claimed consistency interpretation.
+- Any proposed neural predictions.
+
+Do not reconstruct missing definitions from memory.
+
+Keep original O/D and revised O/D clearly distinct.
+
+## C2. Verify the mathematics independently
+
+For T4 and GATE, establish:
+
+- Exact decision references.
+- Conditions for candidate ranking.
+- Conditions for consistency or obstruction.
+- Source-dependence effects.
+- Copying effects.
+- Trust uncertainty.
+- Higher-order source interactions.
+- Relevant counterexamples.
+
+If the repaired operators are exactly equivalent to Bayesian factor-graph reasoning, prove the equivalence and state its scope.
+
+If they differ, derive an explicit counterexample demonstrating the difference.
+
+Do not imply novelty from different notation.
+
+## C3. Find a genuinely distinctive prediction
+
+Ask whether the COR formulation provides any additional:
+
+- Mathematical invariant.
+- Restricted computational hypothesis.
+- Causal intervention prediction.
+- Generalization prediction.
+- Identifiable internal variable.
+- Bound on representability or computation.
+
+The claim must not simply be that Bayes-optimal decisions can be rewritten using O/D symbols.
+
+A neural prediction must follow from explicitly stated assumptions connecting the mathematics to model computation.
+
+For example, a hypothesis about removing a neural gate-processing component must specify why the remaining network should implement a particular reference rule.
+
+Do not assume lesioning a component produces optimal inference over the remaining factors.
+
+## C4. Compare strong alternative theories
+
+Compare any distinctive claim against:
+
+- Exact Bayesian inference.
+- Factor-graph inference.
+- Source-dependence models.
+- Causal abstraction.
+- Standard neural circuit explanations.
+- Suitable statistical behavioral baselines.
+
+Use equal information access.
+
+Do not compare COR with a deliberately weakened baseline.
+
+## C5. Mandatory outcome categories
+
+**C1 — Distinctive prediction established and confirmed.**
+
+**C2 — Mathematically correct reformulation, without distinctive predictive content.**
+
+**C3 — Restricted result or theorem with explicit limitations.**
+
+**C4 — Original theory fails the proposed test.**
+
+**C5 — No valid neural prediction follows from the available mathematics.**
+
+All are legitimate outcomes.
+
+**If there is no discriminating O/D prediction, do not manufacture an O/D neural confirmation experiment.**
+
+The mathematical negative result must be preserved.
+
+---
+
+# 6. MAKE THE THREE TRACKS INFORM ONE ANOTHER WITHOUT CONFLATING THEM
+
+Tracks A, B and C should share validated generators, models, mathematical references, and execution infrastructure.
+
+But they must have separate scientific verdicts.
+
+A positive Track A result does not prove a distinct algorithm.
+
+A positive Track B result does not prove COR's original O/D theory.
+
+A successful Bayesian-equivalent O/D computation does not demonstrate that a neural network implements O/D rather than an equivalent computational description.
+
+The strongest possible outcome would be:
+
+1. A training-state intervention has a repeatable causal effect across independent models.
+2. The resulting models implement a distinguishable mathematical computation.
+3. An independently specified COR quantity predicts a previously unseen aspect of that computation better than, or in a way not already implied by, existing alternatives.
+
+Do not assume all three will occur.
+
+The final synthesis must distinguish them.
+
+---
+
+# 7. GOOGLE COLAB EXECUTION REQUIREMENTS
+
+**The entire package must run from a clean Google Colab environment.**
+
+This is a production research workflow, not a notebook demonstration.
+
+## 7.1 Deliver a complete research ZIP
+
+Create:
+
+`cor_inv20_colab_three_track_research.zip`
+
+The ZIP must contain everything needed to execute the investigation from a fresh environment, except resources that must explicitly be obtained from the user.
+
+Include:
+
+- Complete source code.
+- Exact task generators.
+- Model architecture definitions.
+- Training procedures.
+- Intervention implementations.
+- Relevant pretrained checkpoints.
+- Required historical reference checkpoints.
+- Mathematical verification code.
+- Frozen protocols.
+- Scorers.
+- Statistical analysis.
+- Research configuration files.
+- Dependency specifications.
+- Documentation.
+- Execution notebooks.
+- Output-verification tools.
+
+If pretrained checkpoints cannot fit in the primary ZIP, create separate hashed data packages and provide an automated, verified loading procedure.
+
+Never silently depend on files available only in Claude's working directory or an inaccessible repository path.
+
+## 7.2 Main Colab notebook
+
+Provide:
+
+`00_RUN_COMPLETE_INVESTIGATION_XX.ipynb`
+
+This should be the main user-facing notebook.
+
+It must:
+
+1. Check the available GPU and memory.
+2. Install exact dependencies.
+3. Load and verify the research package.
+4. Locate required checkpoints.
+5. Configure persistent storage.
+6. Run mathematical verification.
+7. Verify the frozen protocol.
+8. Run experimental preflight checks.
+9. Execute the confirmed experimental plan.
+10. Save intermediate training states.
+11. Resume interrupted jobs.
+12. Evaluate completed models.
+13. Run causal and functional tests.
+14. Generate statistical comparisons.
+15. Produce final reports.
+16. Export and verify results.
+
+The notebook must have a straightforward configuration section.
+
+The user should not have to rewrite paths, alter model internals, or manually coordinate dozens of runs.
+
+## 7.3 Separate research notebooks
+
+Also provide:
+
+- `01_TRACK_A_CAUSAL_GENERALIZATION.ipynb`
+- `02_TRACK_B_FUNCTIONAL_ALGORITHMS.ipynb`
+- `03_TRACK_C_OD_MATHEMATICS.ipynb`
+- `04_ANALYZE_AND_VERIFY_RESULTS.ipynb`
+
+These notebooks must call the same underlying research code as the master notebook.
+
+Do not duplicate divergent implementations.
+
+Track C's mathematical calculations should be executable independently of GPU training.
+
+## 7.4 Persistent storage and interruption recovery
+
+Google Colab runtimes can disconnect or terminate.
+
+Support:
+
+- Optional Google Drive mounting.
+- Local scratch storage.
+- Incremental checkpoint export.
+- Atomic checkpoint writes.
+- Automatic job-state recording.
+- Resume from exact saved state.
+- Optimizer-state restoration.
+- Random-number-generator-state restoration.
+- Dataset and data-stream position restoration.
+- Configuration and code hash verification.
+
+A restart must not silently create a new random training trajectory.
+
+When exact deterministic replay is impossible, document the limitation and provide a verified continuation procedure.
+
+## 7.5 Job management
+
+Use a machine-readable job registry.
+
+Every run must have:
+
+- Unique identifier.
+- Scientific track.
+- Parent identifier.
+- Training seed.
+- Dataset stream.
+- Intervention arm.
+- Start checkpoint.
+- Target training budget.
+- Actual completed steps.
+- Latest saved checkpoint.
+- Completion status.
+- Exit status.
+- Resource measurements.
+- Output hashes.
+
+No silent replacement of failed runs.
+
+No disappearance of negative results.
+
+Use measured GPU capacity to determine safe concurrency.
+
+---
+
+# 8. THIS MUST BE A SUBSTANTIAL EXPERIMENT, NOT A TOY DEMONSTRATION
+
+**Critical requirement.**
+
+The Colab package must be designed for sustained scientific experimentation.
+
+A 30-second, one-minute or two-minute training example is not an acceptable confirmation experiment.
+
+Short smoke tests are permitted only to verify that the code executes.
+
+## 8.1 Separate testing from scientific execution
+
+**Smoke tests**
+
+Small synthetic inputs and short training runs used to check code correctness.
+
+These are not scientific evidence.
+
+**Development experiments**
+
+Substantive runs used to calibrate interventions and test measurement validity.
+
+These are not independent confirmations.
+
+**Confirmation experiments**
+
+Fresh, fully trained or appropriately continued models evaluated under frozen predictions.
+
+These are the primary evidence.
+
+Every output must preserve that distinction.
+
+## 8.2 Training duration
+
+Use scientifically justified, full training schedules.
+
+For the historical T4 recipe, retain the actual intervention window and baseline training procedure needed for direct comparison.
+
+Then extend post-intervention training sufficiently to establish whether the resulting organization is stable.
+
+Include planned checkpoints at important stages such as:
+
+- Before intervention.
+- During the first 100 intervention steps.
+- Immediately after release.
+- During organizational formation.
+- At the original evaluation horizon.
+- After extended training.
+- At the final stable endpoint.
+
+For principal claims about persistence, plan extended training on the order of several thousand to tens of thousands of updates where justified by the actual convergence and stability measurements.
+
+Do not add arbitrary training steps merely to make runs longer.
+
+The requirement is **adequate optimization and stability evidence**, not an artificially large number of iterations.
+
+For new pretrained parents, use a complete and independently validated pretraining schedule rather than tiny random models that cannot learn the relevant relations.
+
+## 8.3 Replication standards
+
+Target:
+
+- At least four independent eligible pretrained parents for Track A.
+- At least four to six independent fine-tuning seeds per principal parent/base condition.
+- Substantive fresh confirmation cohorts for Track B.
+- Exact or independently checked mathematical references for Track C.
+
+These are target design requirements, not permission to invent results.
+
+If available compute cannot meet them, the package must report the resulting scientific limitation.
+
+## 8.4 Compute-budget presets
+
+Provide configurable presets such as:
+
+**Pilot**
+
+End-to-end technical validation and development. Not publishable confirmation.
+
+**Standard research**
+
+A meaningful replicated confirmation campaign using the available Colab GPU.
+
+**Extended research**
+
+A larger campaign with additional independent parents, seeds, full training schedules, and prolonged stability tests.
+
+**High-compute research**
+
+Broader model cohorts, deeper replication, and justified cross-architecture or cross-task tests.
+
+Each preset must have:
+
+- Exact experiment counts.
+- Estimated GPU-hours from measured throughput.
+- Expected checkpoint storage.
+- Memory requirements.
+- Expected model-training steps.
+- Scientific claims it can and cannot support.
+
+Do not equate Colab compute units directly with GPU-hours.
+
+The actual GPU type, utilization, and Colab allocation must determine the measured resource cost.
+
+Do not silently shorten scientific training when a compute budget is exhausted.
+
+Stop safely, preserve checkpoints, and report incomplete work.
+
+## 8.5 Research priority under limited compute
+
+If the runtime cannot complete all three tracks at the selected scale, preserve the following order:
+
+1. Mathematical and experimental validity.
+2. Track A's decisive parent-level causal comparison.
+3. Track B's functional discrimination.
+4. Track C's independently testable neural prediction, only if one exists.
+5. Additional replication and generalization.
+
+Track C's exact mathematics should still be performed, even if it produces no valid neural prediction.
+
+Do not consume all the GPU budget screening ineligible parents without reporting the denominator.
+
+---
+
+# 9. FROZEN PREDICTIONS AND INDEPENDENT CONFIRMATION
+
+Before the confirmation phase begins, freeze:
+
+- Exact hypotheses.
+- Competing explanations.
+- Experimental cohorts.
+- Parent-selection rules.
+- Training seeds.
+- Intervention definitions.
+- Functional test inputs.
+- O/D formulas.
+- Primary outcomes.
+- Minimum meaningful effects.
+- Statistical methods.
+- Censoring procedures.
+- Failure criteria.
+- Inconclusive criteria.
+
+Store frozen definitions in machine-readable files.
+
+Hash all relevant code and configurations.
+
+The Colab runner must verify the freeze before starting confirmation.
+
+Do not let development and confirmation data mix.
+
+Do not adjust thresholds after examining confirmation outcomes and then count the new thresholds as frozen.
+
+If a correction is unavoidable, preserve both versions and classify the revised analysis appropriately.
+
+A successful numerical result is not automatically a successful scientific hypothesis test.
+
+---
+
+# 10. STATISTICAL AND MECHANISTIC VALIDATION
+
+## Track A
+
+Use hierarchical statistics across independent pretrained parents and fine-tuning seeds.
+
+Estimate variation in:
+
+- Switching probability.
+- Effect magnitude.
+- Causal parameter mediation.
+- Intervention direction.
+- Task competence.
+- Stability.
+- Parent-specific exceptions.
+
+## Track B
+
+Measure whether the functional differences survive:
+
+- Calibration matching.
+- Noise adjustment.
+- Lapse-aware fitting.
+- Independent relational counterfactuals.
+- Exact Bayesian reference comparison.
+- Held-out distributions.
+
+Do not classify implementation differences as different algorithms without discriminating functional evidence.
+
+## Track C
+
+Report separately:
+
+- Mathematical validity.
+- Equivalence to Bayesian reasoning.
+- Genuine distinctiveness.
+- Neural prediction validity.
+- Confirmation or falsification.
+
+Never use the mathematical correctness of O/D to infer that a network implements the operator.
+
+## Causal interventions
+
+Require appropriate:
+
+- Off-target controls.
+- Norm-matched controls.
+- Evidence-preserving counterfactuals.
+- Reverse transplants.
+- Optimizer-state controls.
+- Training-competence checks.
+- Multiple independent examples.
+- Correct ideal-reference calculations.
+
+Do not substitute attention visualization for causal evidence.
+
+---
+
+# 11. AUTOMATED RESEARCH OUTPUTS
+
+The Colab system must produce structured outputs without requiring manual interpretation of hundreds of logs.
+
+Create:
+
+`RESULTS/`
+
+containing:
+
+- `MAIN_RESEARCH_SYNTHESIS.md`
+- `TRACK_A_CAUSAL_GENERALIZATION.md`
+- `TRACK_B_FUNCTIONAL_IDENTIFICATION.md`
+- `TRACK_C_OD_MATHEMATICAL_STATUS.md`
+- `FROZEN_PREDICTION_VERDICTS.md`
+- `STATISTICAL_ANALYSIS.md`
+- `NEGATIVE_AND_INCONCLUSIVE_RESULTS.md`
+- `METHODS_AND_REPRODUCIBILITY.md`
+- `COMPUTE_AND_EXECUTION_LOG.md`
+- `REVIEW_AND_ADJUDICATION.md`
+- `COMPLETE_EVIDENCE_MANIFEST.json`
+
+The final synthesis should be generated from the actual completed results.
+
+Do not prepopulate scientific conclusions.
+
+Use explicit labels for:
+
+- Proven mathematical results.
+- Verified numerical results.
+- Development observations.
+- Frozen confirmations.
+- Frozen falsifications.
+- Exploratory results.
+- Inconclusive outcomes.
+
+When jobs remain incomplete, the report must state that and refuse to claim full completion.
+
+Include machine-readable data sufficient to regenerate every table and chart.
+
+---
+
+# 12. AUTOMATED SCIENTIFIC INTEGRITY CHECKS
+
+Build a verification system that checks:
+
+1. The correct starting repository and code version.
+2. All required dependencies.
+3. Pretrained checkpoint provenance.
+4. Training seed independence.
+5. Frozen protocol hashes.
+6. Intervention tensor locations.
+7. Forward and backward pathway effects.
+8. Parameter-transplant composition.
+9. Optimizer-state preservation.
+10. Evidence-preserving controls.
+11. Functional decision references.
+12. Run completion.
+13. Competence thresholds.
+14. Checkpoint integrity.
+15. Resumed training consistency.
+16. Frozen-score reproduction.
+17. Statistical unit independence.
+18. Negative and censored result inclusion.
+19. Final-report consistency.
+20. Archive and output hashes.
+
+Add planted-result tests to the scorers.
+
+For each scorer, test outcomes that should produce:
+
+- Confirmation.
+- Falsification.
+- Inconclusive result.
+- Missing-input refusal.
+- Wrong-hash refusal.
+- Incompetent-model classification.
+
+Do not repeat XVIII's situation where changing scoring bands failed to update evaluability.
+
+---
+
+# 13. POST-RUN ADVERSARIAL REVIEW
+
+Once Colab confirmation is complete, the system must prepare a review package containing:
+
+- Frozen hypotheses.
+- Raw predictions.
+- Observed results.
+- Failed runs.
+- Controls.
+- Statistical analyses.
+- Causal intervention evidence.
+- Mathematical claims.
+- Reproducibility reports.
+
+Provide reviewer instructions and automated review checks.
+
+Where independent reviewing agents are available during the post-run research process, use them to challenge the conclusions.
+
+If autonomous independent-agent execution is not available inside Colab, the package must not falsely claim that it performed such reviews.
+
+Instead, generate the complete reviewer-ready evidence bundle for separate agent review.
+
+**The final scientific conclusion must remain provisional until the actual review has been performed.**
+
+---
+
+# 14. REQUIRED PACKAGE STRUCTURE
+
+Create a clear directory structure such as:
+
+```text
+COR_Investigation_XX/
+│
+├── README.md
+├── requirements.txt
+├── environment_lock.json
+├── COLAB_SETUP.md
+├── SCIENTIFIC_PROTOCOL.md
+├── COMPUTE_BUDGET.md
+│
+├── notebooks/
+│   ├── 00_RUN_COMPLETE_INVESTIGATION_XX.ipynb
+│   ├── 01_TRACK_A_CAUSAL_GENERALIZATION.ipynb
+│   ├── 02_TRACK_B_FUNCTIONAL_ALGORITHMS.ipynb
+│   ├── 03_TRACK_C_OD_MATHEMATICS.ipynb
+│   └── 04_ANALYZE_AND_VERIFY_RESULTS.ipynb
+│
+├── cor_research/
+│   ├── generators/
+│   ├── models/
+│   ├── training/
+│   ├── interventions/
+│   ├── mathematics/
+│   ├── scoring/
+│   ├── analysis/
+│   └── reporting/
+│
+├── protocols/
+│   ├── frozen_hypotheses/
+│   ├── causal_design/
+│   ├── functional_design/
+│   └── od_design/
+│
+├── tests/
+├── reference_checkpoints/
+├── configurations/
+├── reviews/
+├── manifests/
+├── results_templates/
+└── scripts/
+```
+
+Use this structure where appropriate, but preserve any existing COR modules required for exact scientific reproduction.
+
+Avoid duplicated notebook-only implementations.
+
+The notebooks must invoke tested Python modules.
+
+---
+
+# 15. PRE-DELIVERY VERIFICATION
+
+Before delivering the ZIP, perform a real clean-environment test.
+
+Verify that:
+
+- The ZIP extracts correctly.
+- Dependencies install.
+- The model architecture loads.
+- Reference checkpoints load.
+- T4 and GATE mathematics reproduce expected values.
+- The interventions execute correctly.
+- The GPU execution path works when a compatible GPU is available.
+- The CPU fallback is usable for development checks.
+- Checkpoint saving works.
+- Checkpoint resume works.
+- Scorers run correctly on planted data.
+- Failure cases are detected.
+- Report generation runs.
+- Export produces a verifiable results archive.
+
+Execute a complete small-scale technical pipeline.
+
+This is a software-validation test, not a scientific confirmation.
+
+Do not claim to have tested a Colab GPU if only CPU resources were available.
+
+Do not claim that the full experiment was completed merely because the notebook executes.
+
+Test notebook structure and import paths programmatically.
+
+If possible, test notebook execution with an appropriate notebook runner.
+
+Provide a detailed verification report.
+
+---
+
+# 16. DELIVERY REQUIREMENTS
+
+Produce:
+
+`cor_inv20_colab_three_track_research.zip`
+
+Also produce:
+
+- `INVESTIGATION_XX_EXECUTION_GUIDE.md`
+- `INVESTIGATION_XX_FROZEN_SCIENTIFIC_PROTOCOL.md`
+- `INVESTIGATION_XX_PRE_RUN_VERIFICATION.md`
+- `INVESTIGATION_XX_PACKAGE_SHA256.txt`
+
+If necessary, provide separate checkpoint or dependency packages with their own hashes.
+
+Do not deliver broken multipart archives.
+
+Do not require hidden local files.
+
+Do not include simulated confirmation results.
+
+The user must be able to:
+
+1. Download the ZIP.
+2. Upload it to Google Colab or Google Drive.
+3. Open the main notebook.
+4. Select a compute preset.
+5. Run the pipeline.
+6. Resume after interruptions.
+7. Obtain a verified results package.
+8. Return the results for independent scientific analysis.
+
+---
+
+# 17. THE QUESTIONS THE COMPLETED COLAB EXPERIMENT MUST ANSWER
+
+## Causal generalization
+
+1. Does the pathway-selection effect reproduce across independent pretrained parents?
+2. Are the same learned parameter groups causally responsible?
+3. Is the result sensitive to model initialization?
+4. Does optimizer history matter?
+5. Which competing disturbances fail to reproduce it?
+6. Which causal mechanisms remain unresolved?
+
+## Functional computation
+
+7. Do the early and mixture organizations implement different mathematical decision functions?
+8. Or do they implement the same function through different neural routes?
+9. How much of their difference is explained by precision, calibration, and noise?
+10. Can their functional differences be predicted before running the confirmation models?
+11. Which internal relational variables are necessary or sufficient?
+12. Which claimed algorithm differences fail independent testing?
+
+## O/D foundations
+
+13. Are the original O/D definitions mathematically adequate for the tested relational problems?
+14. Does the higher-order repair survive exact verification?
+15. Which parts are equivalent to known Bayesian inference?
+16. Does the framework yield any independently distinctive prediction?
+17. Does any model-level causal experiment actually test that prediction?
+18. What would falsify the revised formulation?
+19. Which original mathematical claims remain unsupported?
+
+## Scientific significance
+
+20. Which discoveries survive all three tracks?
+21. Which findings are already established in existing literature?
+22. Which results are genuinely new contributions?
+23. What is now causally identified?
+24. What remains observationally equivalent?
+25. Which experiments did not answer their intended questions?
+26. What is scientifically publishable, if anything?
+27. What remains missing from the original COR theory?
+28. What is the next decisive research question?
+
+Do not answer these questions in advance.
+
+The execution package must gather the evidence required to answer them honestly.
+
+---
+
+# 18. FINAL DIRECTIVE
+
+The previous COR investigations produced many valuable measurements, but repeatedly encountered three problems:
+
+1. Small and dependent experimental cohorts.
+2. Insufficient separation of causal and functional explanations.
+3. No validated mathematical connection between the original O/D framework and the neural phenomena being studied.
+
+Investigation XX is designed to address all three.
+
+**The purpose of using more Colab compute is not simply to run more models. It is to resolve scientific uncertainties that smaller investigations could not resolve.**
+
+Do not build a decorative Colab demonstration.
+
+Do not use one-minute training runs as evidence.
+
+Do not replace complete training with artificial toy examples.
+
+Do not reduce the historical model without establishing that it preserves the phenomenon under study.
+
+Do not silently reduce independent seeds or omit necessary controls.
+
+Do not claim an algorithmic difference from attention patterns alone.
+
+Do not claim mathematical novelty from a Bayesian reparameterization.
+
+Do not claim COR validation merely because a neural intervention produces a predicted effect under a generic causal model.
+
+Do not perform expensive experiments with non-discriminating predictions.
+
+Do not fabricate completed results, confirmation verdicts, reviewer findings, or Colab execution logs.
+
+**Build a serious, extensive, GPU-accelerated, reproducible research system whose full confirmation experiments can be executed on Google Colab and whose outputs allow an independent scientific assessment.**
+
+The complete execution must support sufficient training duration, independent replication, rigorous causal controls, mathematical verification, and honest negative results.
+
+Keep the scientific claims of Tracks A, B and C separate.
+
+Preserve the full COR research context.
+
+Remain in **Phase 1.5, Step 1**, with approximately **25% provisional foundational exploration** until the resulting evidence justifies reconsideration.
+
+**Deliver the verified, executable ZIP and the exact instructions needed to run the complete investigation in Google Colab.**

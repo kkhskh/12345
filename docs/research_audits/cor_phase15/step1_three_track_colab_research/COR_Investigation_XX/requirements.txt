@@ -1,0 +1,6 @@
+# Investigation XX pinned dependencies (CPU + common).  Python >= 3.12 (Colab default); several pins have no 3.11 wheels.
+jax==0.12.0.1
+jaxlib==0.12.0.1
+optax==0.2.8
+numpy==2.5.3
+scipy==1.18.1

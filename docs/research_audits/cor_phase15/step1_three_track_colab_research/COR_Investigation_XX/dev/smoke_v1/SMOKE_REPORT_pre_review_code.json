@@ -1,0 +1,65 @@
+{
+ "started": 1795154812.7211573,
+ "checks": {
+  "all_jobs_done": true,
+  "resume_exit_codes": [
+   3,
+   0
+  ],
+  "resume_log": [
+   {
+    "resumed_at": 150
+   }
+  ],
+  "resume_bitwise_identical": true,
+  "failed_job_recorded_not_replaced": true,
+  "track_a_technical_only": true,
+  "track_b_technical_only": true,
+  "report_generated": [
+   "COMPLETE_EVIDENCE_MANIFEST.json",
+   "COMPUTE_AND_EXECUTION_LOG.md",
+   "FROZEN_PREDICTION_VERDICTS.md",
+   "MAIN_RESEARCH_SYNTHESIS.md",
+   "METHODS_AND_REPRODUCIBILITY.md",
+   "NEGATIVE_AND_INCONCLUSIVE_RESULTS.md",
+   "REVIEW_AND_ADJUDICATION.md",
+   "STATISTICAL_ANALYSIS.md",
+   "TRACK_A_CAUSAL_GENERALIZATION.md",
+   "TRACK_B_FUNCTIONAL_IDENTIFICATION.md",
+   "TRACK_C_OD_MATHEMATICAL_STATUS.md"
+  ],
+  "report_refuses_completion": true
+ },
+ "summary": {
+  "by_phase": {
+   "A:continue": {
+    "done": 8
+   },
+   "B:functional": {
+    "done": 4
+   },
+   "A:measure": {
+    "done": 28
+   },
+   "A:screen_measure": {
+    "done": 2
+   },
+   "A:screen": {
+    "done": 2
+   },
+   "A:stability": {
+    "done": 4
+   },
+   "A:compose": {
+    "done": 6
+   },
+   "A:window": {
+    "done": 6
+   }
+  },
+  "n": 60,
+  "failed": [],
+  "blocked": []
+ },
+ "seconds": 1104.7541153430939
+}

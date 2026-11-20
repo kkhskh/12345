@@ -1,0 +1,49 @@
+{
+ "candidates": "bayes; local; noelig; nocount; maprole (full role MAP, tie-averaged); softrole (geometric pooling over roles: listed, calibration-only); historical nested power-mean with lapse (xviiim.rho_fit_lapse; descriptive); threshold-4 rule: NOT LOCATED in the vendored code, not reconstructed",
+ "classification": [
+  "INSUFFICIENT_UNITS if < 4 parents have >= 1 evaluable model of each class (labels 'indicative' below 6)",
+  "B1-FUNCTIONAL (different decision functions; internal causal mechanism NOT identified by this design): HB_c difference (lower 95% bound > delta_dis, sign-flip p reported) AND some rule-directed HB_c_dir difference (Holm) with the same sign in the native-vs-native and induced contrasts",
+  "FUNCTIONAL_DIFFERENCE_RULE_UNIDENTIFIED: HB_c difference without a rule-directed difference",
+  "B2-LOCUS (functionally equivalent; different location of unidentified content): equivalence AND |HB_d| > delta_oqi (sign-consistent)",
+  "B3 (same rule, different precision): equivalence AND not B2-LOCUS AND HB_e; '+B3' flag added to B2-LOCUS when HB_e",
+  "EQUIVALENT_NO_DIFFERENCE_DETECTED: equivalence and neither HB_d nor HB_e",
+  "NON_IDENTIFIABLE (underpowered): neither a functional difference nor equivalence"
+ ],
+ "frozen_prediction": "From development (uP160 XIX anchors, n = 2 + 2; development only): predicted B2-LOCUS (+B3 flag): no functional difference at matched precision, equivalence achieved if >= 6 parents; HB_d EARLY > MIXTURE at the layer-2 input; HB_e positive (expected, not a discovery).",
+ "headline_rule": "v2.1 (review A r2 N-B1): the FUNCTIONAL status (difference / equivalence / neither) must agree between the matched and the final levels (else NON_IDENTIFIABLE); the locus (HB_d) is read at the matched level and the precision flag (HB_e) at the final level (matching removes the precision difference by construction)",
+ "matching": {
+  "n": 3000,
+  "rule": "per parent, kappa_p = the largest KL at step 4000 among the parent's anchors that are competent and pure at 4000 (floored at 0.015); each anchor's matched snapshot is the EARLIEST snapshot whose selection-stream KL <= kappa_p (every such anchor reaches it by 4000: no class-dependent censoring by construction); matched step, LR and step difference are reported per class (review A M9)",
+  "selection_stream": 91430000,
+  "steps": "every saved snapshot in [150, 4000]"
+ },
+ "sets": {
+  "disc_stream": 91410000,
+  "n_disc_pool": 40000,
+  "n_nat": 12000,
+  "n_pairs": 3000,
+  "nat_stream": 91400000,
+  "pair_stream": 91420000
+ },
+ "tests": {
+  "HB_a": "DESCRIPTIVE ONLY: rule-mixture weights over the precision family F0' (tau, eps, alpha' free), KL-adjusted (within-class regression to kappa_p)",
+  "HB_b": "DESCRIPTIVE ONLY: deviation above the parametric-precision null Bayes(alpha') at the model's KL and above the iid logit-noise null",
+  "HB_c": "PRIMARY functional test (decision level, calibration-invariant, on-support tie-aware discriminating set). Per parent: the within-unit contrast (different data orders in both terms: between = fullB(D1) vs fullI(D2), within = same class, D1 != D2) measures class + intervention history; the same-D cross-unit contrast (parents with both bases; history-matched) measures class only; the parent statistic is their average when both exist (history cancels, review A r2 N-B2), else the within-unit contrast with the parent flagged history-confounded. If every parent is confounded, a difference is reported as FUNCTIONAL_DIFFERENCE (class and intervention history not separable), never as B1.",
+  "HB_c_dir": "rule-directed (v2.1, tie-aware): for k in {local, noelig} (nocount / maprole differences are exact ties), on the inputs where k's UNIQUE decision differs from Bayes's: per model d_k = P(decision = k's) - P(decision = the third option) (zero in expectation for precision-only errors); per parent mean_EARLY - mean_MIXTURE; Holm across the two rules on t-test p; B1 requires the native-vs-native and induced contrasts to have the SAME sign (missing -> not satisfied)",
+  "HB_d": "DESCRIPTIVE LOCUS profile: other-question interchange from the HYBRID run (source-matched; base-run null must reproduce the base), IIA normalised by the model's own following of Bayes(x_h); EARLY - MIXTURE at the layer-2 input. It shows where cross-question evidence is read, not what is computed.",
+  "HB_e": "precision: KL at 4000, mean_p(E - M); expected positive from development (dev dKL ~ 0.015 > delta_kl): a '+B3' flag is not a discovery",
+  "equivalence": "TOST at parent level: functional equivalence iff the upper 95% bound of HB_c < delta_dis AND for every rule the 90% CI of HB_c_dir lies within +-delta_dir (t-interval on parent means; exact sign-flip p reported)"
+ },
+ "thresholds": {
+  "alpha": 0.05,
+  "delta_dir": 0.03,
+  "delta_dis": 0.02,
+  "delta_kl": 0.005,
+  "delta_oqi": 0.1,
+  "delta_w": 0.03,
+  "indicative_below_parents": 6,
+  "min_parents_both": 4
+ },
+ "units": "confirmation anchors fullB and fullI; class = causal class at the analysed step (competent, pure)",
+ "version": "XX-2"
+}

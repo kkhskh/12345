@@ -1,0 +1,126 @@
+{
+ "A_confirm": {
+  "pass_": true,
+  "detail": "GENERALIZES"
+ },
+ "A_conditional_label_needs_HA1": {
+  "pass_": true,
+  "detail": ""
+ },
+ "A_falsify": {
+  "pass_": true,
+  "detail": "FAILS_TO_GENERALIZE"
+ },
+ "A_inconclusive_too_few_parents": {
+  "pass_": true,
+  "detail": "INCONCLUSIVE"
+ },
+ "A_missing_inputs_counted_not_dropped": {
+  "pass_": true,
+  "detail": "{'MISSING': 12, 'NONCOMPETENT': 0, 'ANCHORS_NOT_EVALUABLE': 0, 'CONTROL_INVALID': 0, 'INCOMPATIBLE': 0, 'CONDITION_NOT_MET': 0, 'NOT_IN_PRESET': 0, 'SUPPORTED_PAIR': 4, 'CONTRA_PAIR': 0, 'MIDDLE': 0}"
+ },
+ "A_incompetent_classified": {
+  "pass_": true,
+  "detail": "{'nP9000': 'PARENT_NONCOMPETENT', 'nP9001': 'PARENT_NONCOMPETENT', 'nP9002': 'PARENT_NONCOMPETENT', 'nP9003': 'PARENT_NONCOMPETENT'}"
+ },
+ "A_band_change_keeps_evaluability": {
+  "pass_": true,
+  "detail": "GENERALIZES -> NOT_ESTABLISHED"
+ },
+ "A_lbl_control_invalid": {
+  "pass_": true,
+  "detail": "{'MISSING': 0, 'NONCOMPETENT': 0, 'ANCHORS_NOT_EVALUABLE': 0, 'CONTROL_INVALID': 16, 'INCOMPATIBLE': 0, 'CONDITION_NOT_MET': 0, 'NOT_IN_PRESET': 0, 'SUPPORTED_PAIR': 0, 'CONTRA_PAIR': 0, 'MIDDLE': 0}"
+ },
+ "A_reverse_transplant_incompatible": {
+  "pass_": true,
+  "detail": "{'MISSING': 0, 'NONCOMPETENT': 0, 'ANCHORS_NOT_EVALUABLE': 0, 'CONTROL_INVALID': 0, 'INCOMPATIBLE': 16, 'CONDITION_NOT_MET': 0, 'NOT_IN_PRESET': 0, 'SUPPORTED_PAIR': 0, 'CONTRA_PAIR': 0, 'MIDDLE': 0}"
+ },
+ "A_wrong_checkpoint_hash_refused": {
+  "pass_": true,
+  "detail": "['measure/trackA/uP160_fx_L21_W21_D2001_s200_br100_E2001_fullB@200_91100000.json: checkpoint hash differs from the registry hash']"
+ },
+ "A_wrong_code_hash_refused": {
+  "pass_": true,
+  "detail": "['measure/trackA/uP160_fx_L21_W21_D2001_s200_br100_E2001_fullB@200_91100000.json: measurement code hash differs from the frozen hash']"
+ },
+ "A_consistent_inputs_accepted": {
+  "pass_": true,
+  "detail": "None"
+ },
+ "B_E_only_functional_difference_is_history_confounded": {
+  "pass_": true,
+  "detail": "FUNCTIONAL_DIFFERENCE (class and intervention history not separable)"
+ },
+ "B_functional_difference_flagged_E_only": {
+  "pass_": true,
+  "detail": "FUNCTIONAL_DIFFERENCE (class and intervention history not separable)"
+ },
+ "B_B2_locus": {
+  "pass_": true,
+  "detail": "B2-LOCUS"
+ },
+ "B_B3_precision": {
+  "pass_": true,
+  "detail": "B3"
+ },
+ "B_underpowered_is_NON_IDENTIFIABLE_not_B2": {
+  "pass_": true,
+  "detail": "NON_IDENTIFIABLE (underpowered) [indicative: < 6 parents]"
+ },
+ "B_shared_D_null_no_difference": {
+  "pass_": true,
+  "detail": "{'n': 6, 'mean': -0.00011111111111110118, 'ci': [-0.0001825161621010147, -3.970606012118764e-05], 't_p': 0.010323415480844249, 'sign_flip_p': np.float64(0.0625), 'parent_values': [-8.333333333332416e-05, -8.333333333332416e-05, -0.0001666666666666622, 4.163336342344337e-17, -0.00016666666666668994, "
+ },
+ "B_insufficient_units": {
+  "pass_": true,
+  "detail": "INSUFFICIENT_UNITS"
+ },
+ "B_incompetent_units_not_evaluable": {
+  "pass_": true,
+  "detail": "('INSUFFICIENT_UNITS', 24)"
+ },
+ "B_missing_input_listed": {
+  "pass_": true,
+  "detail": ""
+ },
+ "B_wrong_hash_refused_via_loader": {
+  "pass_": true,
+  "detail": "['trackB/uP160_fx_L21_W21_D2001_s200_br100_E2001_fullB.json: final checkpoint hash differs from the registry snapshot hash']"
+ },
+ "C_reference_classification": {
+  "pass_": true,
+  "detail": "{'original_OD': {'source_level_instantiation': 'C4', 'germ_level_definition': 'C5 / underdetermined (Phase-1 Attack F; metric arbitrariness)'}, 'repaired_OD_gate': 'C2', 'restricted_theorems': [\"C3: No additive complex over observed inputs with all hyperedges of order < 18 reproduces T4's exact Baye"
+ },
+ "C_planted_distinctive_prediction_detected": {
+  "pass_": true,
+  "detail": ""
+ },
+ "C_planted_original_unresolved": {
+  "pass_": true,
+  "detail": ""
+ },
+ "eligibility_unchanged_when_inputs_absent": {
+  "pass_": true,
+  "detail": ""
+ },
+ "eligibility_change_raises": {
+  "pass_": true,
+  "detail": ""
+ },
+ "runner_failed_job_kept_not_replaced": {
+  "pass_": true,
+  "detail": ""
+ },
+ "runner_definition_change_refused": {
+  "pass_": true,
+  "detail": ""
+ },
+ "runner_unregistered_outputs_blocked": {
+  "pass_": true,
+  "detail": ""
+ },
+ "integrity_14_detects_corrupted_checkpoint": {
+  "pass_": true,
+  "detail": ""
+ }
+}

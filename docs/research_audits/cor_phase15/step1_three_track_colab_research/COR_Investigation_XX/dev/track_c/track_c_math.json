@@ -1,0 +1,649 @@
+{
+ "t4_reference": {
+  "closed_vs_brute_max_abs": 2.1094237467877974e-15,
+  "bayes_accuracy": 0.7505
+ },
+ "original": {
+  "theorems": {
+   "T1": {
+    "max_abs_or_rel_error": 2.1687976201594545e-11,
+    "n": 50,
+    "holds": true
+   },
+   "T2": {
+    "max_abs_or_rel_error": 0.0,
+    "n": 50,
+    "holds": true
+   },
+   "T3": {
+    "max_abs_or_rel_error": 0.0,
+    "n": 50,
+    "holds": true
+   },
+   "T4": {
+    "max_abs_or_rel_error": 0.0,
+    "n": 50,
+    "holds": true
+   }
+  },
+  "gate_source_level": {
+   "n_decisive_gate_flips": 216,
+   "bayes_follow": 1.0,
+   "source_level_follow_max_over_weights": 0.0,
+   "holds": true
+  }
+ },
+ "repaired_gate": {
+  "2:0.9:0.9:0.3333": {
+   "R1_max_err_signed_identity": 8.881784197001252e-16,
+   "R2_hyperedge_orders": {
+    "h1": 3,
+    "h2": 3,
+    "h0": 3
+   },
+   "R2_order_le_a_best_fit_max_residual": 5.780743515792335,
+   "R2_order_le_a_gate_flip_following": 0.23148148148148148,
+   "R2_order_le_a_plus_1_max_residual": 3.4638958368304884e-14,
+   "R3_accuracy_bayes": 0.8999999999999999,
+   "R3_repaired_D_argmin_equals_bayes_argmax": true,
+   "R3_gate_flip_following_repaired": 1.0,
+   "R3_n_decisive_gate_flips": 216,
+   "R4_O_min": 0.0,
+   "R4_O0_deletion_invariance_violations": 0,
+   "R4_cases": 1863,
+   "R5_max_err_deletion_effect": 0.0,
+   "O_positive_mass": 0.09249999999999996,
+   "O_positive_iff_trusted_disagreement": true,
+   "mean_bayes_top2_gap_O_pos": 0.0,
+   "mean_bayes_top2_gap_O_zero": 0.913223140495868,
+   "M1_O_spread_within_equal_posterior_groups": 0.0,
+   "M1_n_posterior_groups": 3,
+   "M1_O_is_function_of_sorted_posterior": true,
+   "M1_O_pos_iff_bayes_top2_tie": true,
+   "M2_deleted_h_destination_equals_bayes_without_factor": {
+    "h1": 1.1102230246251565e-16,
+    "h2": 1.1102230246251565e-16,
+    "h0": 1.1102230246251565e-16
+   },
+   "latent_marginalisation_change_mass_raw_argmax": 0.17277777777777775,
+   "latent_marginalisation_change_mass_unique_both": 0.1111111111111111,
+   "n_decisive_gate_flips_note_value": 162,
+   "latent_change_mass_note_values": {
+    "nu=1/3": 0.111,
+    "nu=0.05": 0.017
+   },
+   "LP_max_margin_by_order": {
+    "1": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 57,
+     "representable": false
+    },
+    "2": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 462,
+     "representable": false
+    },
+    "3": {
+     "max_margin": 1.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 2082,
+     "representable": true
+    }
+   }
+  },
+  "3:0.9:0.9:0.3333": {
+   "R1_max_err_signed_identity": 8.881784197001252e-16,
+   "R2_hyperedge_orders": {
+    "h1": 4,
+    "h2": 4,
+    "h0": 4
+   },
+   "R2_order_le_a_best_fit_max_residual": 5.780743515792339,
+   "R2_order_le_a_gate_flip_following": 0.1574074074074074,
+   "R2_order_le_a_plus_1_max_residual": 5.5067062021407764e-14,
+   "R3_accuracy_bayes": 0.9,
+   "R3_repaired_D_argmin_equals_bayes_argmax": true,
+   "R3_gate_flip_following_repaired": 1.0,
+   "R3_n_decisive_gate_flips": 216,
+   "R4_O_min": 0.0,
+   "R4_O0_deletion_invariance_violations": 0,
+   "R4_cases": 1863,
+   "R5_max_err_deletion_effect": 0.0,
+   "O_positive_mass": 0.09249999999999996,
+   "O_positive_iff_trusted_disagreement": true,
+   "mean_bayes_top2_gap_O_pos": 0.0,
+   "mean_bayes_top2_gap_O_zero": 0.9132231404958676,
+   "M1_O_spread_within_equal_posterior_groups": 0.0,
+   "M1_n_posterior_groups": 3,
+   "M1_O_is_function_of_sorted_posterior": true,
+   "M1_O_pos_iff_bayes_top2_tie": true,
+   "M2_deleted_h_destination_equals_bayes_without_factor": {
+    "h1": 1.1102230246251565e-16,
+    "h2": 1.1102230246251565e-16,
+    "h0": 1.1102230246251565e-16
+   },
+   "latent_marginalisation_change_mass_raw_argmax": 0.17277777777777775,
+   "latent_marginalisation_change_mass_unique_both": 0.1111111111111111,
+   "n_decisive_gate_flips_note_value": 162,
+   "latent_change_mass_note_values": {
+    "nu=1/3": 0.111,
+    "nu=0.05": 0.017
+   },
+   "LP_max_margin_by_order": {
+    "1": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 57,
+     "representable": false
+    },
+    "3": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 2082,
+     "representable": false
+    },
+    "4": {
+     "max_margin": 1.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 5727,
+     "representable": true
+    }
+   }
+  },
+  "2:0.9:0.9:0.05": {
+   "R1_max_err_signed_identity": 8.881784197001252e-16,
+   "R2_hyperedge_orders": {
+    "h1": 3,
+    "h2": 3,
+    "h0": 3
+   },
+   "R2_order_le_a_best_fit_max_residual": 5.780743515792335,
+   "R2_order_le_a_gate_flip_following": 0.23148148148148148,
+   "R2_order_le_a_plus_1_max_residual": 3.4638958368304884e-14,
+   "R3_accuracy_bayes": 0.8999999999999999,
+   "R3_repaired_D_argmin_equals_bayes_argmax": true,
+   "R3_gate_flip_following_repaired": 1.0,
+   "R3_n_decisive_gate_flips": 216,
+   "R4_O_min": 0.0,
+   "R4_O0_deletion_invariance_violations": 0,
+   "R4_cases": 1863,
+   "R5_max_err_deletion_effect": 0.0,
+   "O_positive_mass": 0.09249999999999996,
+   "O_positive_iff_trusted_disagreement": true,
+   "mean_bayes_top2_gap_O_pos": 0.0,
+   "mean_bayes_top2_gap_O_zero": 0.913223140495868,
+   "M1_O_spread_within_equal_posterior_groups": 0.0,
+   "M1_n_posterior_groups": 3,
+   "M1_O_is_function_of_sorted_posterior": true,
+   "M1_O_pos_iff_bayes_top2_tie": true,
+   "M2_deleted_h_destination_equals_bayes_without_factor": {
+    "h1": 1.1102230246251565e-16,
+    "h2": 1.1102230246251565e-16,
+    "h0": 1.1102230246251565e-16
+   },
+   "latent_marginalisation_change_mass_raw_argmax": 0.0783333333333333,
+   "latent_marginalisation_change_mass_unique_both": 0.016666666666666673,
+   "n_decisive_gate_flips_note_value": 162,
+   "latent_change_mass_note_values": {
+    "nu=1/3": 0.111,
+    "nu=0.05": 0.017
+   },
+   "LP_max_margin_by_order": {
+    "1": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 57,
+     "representable": false
+    },
+    "2": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 462,
+     "representable": false
+    },
+    "3": {
+     "max_margin": 1.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 2082,
+     "representable": true
+    }
+   }
+  },
+  "3:0.9:0.9:0.05": {
+   "R1_max_err_signed_identity": 8.881784197001252e-16,
+   "R2_hyperedge_orders": {
+    "h1": 4,
+    "h2": 4,
+    "h0": 4
+   },
+   "R2_order_le_a_best_fit_max_residual": 5.780743515792339,
+   "R2_order_le_a_gate_flip_following": 0.1574074074074074,
+   "R2_order_le_a_plus_1_max_residual": 5.5067062021407764e-14,
+   "R3_accuracy_bayes": 0.8999999999999999,
+   "R3_repaired_D_argmin_equals_bayes_argmax": true,
+   "R3_gate_flip_following_repaired": 1.0,
+   "R3_n_decisive_gate_flips": 216,
+   "R4_O_min": 0.0,
+   "R4_O0_deletion_invariance_violations": 0,
+   "R4_cases": 1863,
+   "R5_max_err_deletion_effect": 0.0,
+   "O_positive_mass": 0.09249999999999996,
+   "O_positive_iff_trusted_disagreement": true,
+   "mean_bayes_top2_gap_O_pos": 0.0,
+   "mean_bayes_top2_gap_O_zero": 0.9132231404958682,
+   "M1_O_spread_within_equal_posterior_groups": 0.0,
+   "M1_n_posterior_groups": 3,
+   "M1_O_is_function_of_sorted_posterior": true,
+   "M1_O_pos_iff_bayes_top2_tie": true,
+   "M2_deleted_h_destination_equals_bayes_without_factor": {
+    "h1": 1.1102230246251565e-16,
+    "h2": 1.1102230246251565e-16,
+    "h0": 1.1102230246251565e-16
+   },
+   "latent_marginalisation_change_mass_raw_argmax": 0.07833333333333331,
+   "latent_marginalisation_change_mass_unique_both": 0.016666666666666673,
+   "n_decisive_gate_flips_note_value": 162,
+   "latent_change_mass_note_values": {
+    "nu=1/3": 0.111,
+    "nu=0.05": 0.017
+   },
+   "LP_max_margin_by_order": {
+    "1": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 57,
+     "representable": false
+    },
+    "3": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 2082,
+     "representable": false
+    },
+    "4": {
+     "max_margin": 1.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 5727,
+     "representable": true
+    }
+   }
+  },
+  "2:0.9:0.55:0.05": {
+   "R1_max_err_signed_identity": 8.881784197001252e-16,
+   "R2_hyperedge_orders": {
+    "h1": 3,
+    "h2": 3,
+    "h0": 3
+   },
+   "R2_order_le_a_best_fit_max_residual": 4.4497075945429545,
+   "R2_order_le_a_gate_flip_following": 0.0,
+   "R2_order_le_a_plus_1_max_residual": 4.263256414560601e-14,
+   "R3_accuracy_bayes": 0.725,
+   "R3_repaired_D_argmin_equals_bayes_argmax": true,
+   "R3_gate_flip_following_repaired": 1.0,
+   "R3_n_decisive_gate_flips": 216,
+   "R4_O_min": 0.0,
+   "R4_O0_deletion_invariance_violations": 0,
+   "R4_cases": 1863,
+   "R5_max_err_deletion_effect": 0.0,
+   "O_positive_mass": 0.09249999999999996,
+   "O_positive_iff_trusted_disagreement": true,
+   "mean_bayes_top2_gap_O_pos": 0.0,
+   "mean_bayes_top2_gap_O_zero": 0.6239669421487604,
+   "M1_O_spread_within_equal_posterior_groups": 0.0,
+   "M1_n_posterior_groups": 3,
+   "M1_O_is_function_of_sorted_posterior": true,
+   "M1_O_pos_iff_bayes_top2_tie": true,
+   "M2_deleted_h_destination_equals_bayes_without_factor": {
+    "h1": 1.1102230246251565e-16,
+    "h2": 1.1102230246251565e-16,
+    "h0": 1.1102230246251565e-16
+   },
+   "latent_marginalisation_change_mass_raw_argmax": 0.0783333333333333,
+   "latent_marginalisation_change_mass_unique_both": 0.016666666666666673,
+   "n_decisive_gate_flips_note_value": 162,
+   "latent_change_mass_note_values": {
+    "nu=1/3": 0.111,
+    "nu=0.05": 0.017
+   },
+   "LP_max_margin_by_order": {
+    "1": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 57,
+     "representable": false
+    },
+    "2": {
+     "max_margin": -0.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 462,
+     "representable": false
+    },
+    "3": {
+     "max_margin": 1.0,
+     "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+     "n_constraints": 1134,
+     "n_vars": 2082,
+     "representable": true
+    }
+   }
+  }
+ },
+ "t4_order": {
+  "results": [
+   {
+    "base": 0,
+    "size": 2,
+    "spans_questions": [
+     0,
+     1
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 1.377451583797142e-14,
+    "nonzero": false
+   },
+   {
+    "base": 0,
+    "size": 6,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 6.450534286778e-13,
+    "nonzero": false
+   },
+   {
+    "base": 0,
+    "size": 12,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 2.5887146876981495,
+    "rounding_bound": 6.76978565249934e-11,
+    "nonzero": true
+   },
+   {
+    "base": 0,
+    "size": 18,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": -20.855839452641312,
+    "rounding_bound": 5.373699975133109e-09,
+    "nonzero": true
+   },
+   {
+    "base": 1,
+    "size": 2,
+    "spans_questions": [
+     0,
+     1
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 1.0547540196925977e-14,
+    "nonzero": false
+   },
+   {
+    "base": 1,
+    "size": 6,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 5.943620004710622e-13,
+    "nonzero": false
+   },
+   {
+    "base": 1,
+    "size": 12,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 2.225796460930771,
+    "rounding_bound": 7.144443872708072e-11,
+    "nonzero": true
+   },
+   {
+    "base": 1,
+    "size": 18,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 138.63571266105146,
+    "rounding_bound": 7.586552768452708e-09,
+    "nonzero": true
+   },
+   {
+    "base": 2,
+    "size": 2,
+    "spans_questions": [
+     0,
+     1
+    ],
+    "interaction": 0.14151814718750155,
+    "rounding_bound": 1.726843259175125e-14,
+    "nonzero": true
+   },
+   {
+    "base": 2,
+    "size": 6,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 4.694610984813803e-13,
+    "nonzero": false
+   },
+   {
+    "base": 2,
+    "size": 12,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 4.556452256512899e-11,
+    "nonzero": false
+   },
+   {
+    "base": 2,
+    "size": 18,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 5.841110227573173e-09,
+    "nonzero": false
+   },
+   {
+    "base": 3,
+    "size": 2,
+    "spans_questions": [
+     0,
+     1
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 2.7817163525623166e-14,
+    "nonzero": false
+   },
+   {
+    "base": 3,
+    "size": 6,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 1.3135471374484536e-12,
+    "nonzero": false
+   },
+   {
+    "base": 3,
+    "size": 12,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 1.5683610810835241e-10,
+    "nonzero": false
+   },
+   {
+    "base": 3,
+    "size": 18,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 1.0941299836368982e-08,
+    "nonzero": false
+   },
+   {
+    "base": 4,
+    "size": 2,
+    "spans_questions": [
+     0,
+     1
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 3.950434853200207e-16,
+    "nonzero": false
+   },
+   {
+    "base": 4,
+    "size": 6,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.0,
+    "rounding_bound": 2.6182107652078616e-14,
+    "nonzero": false
+   },
+   {
+    "base": 4,
+    "size": 12,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": 0.540296202250913,
+    "rounding_bound": 7.627591114202388e-11,
+    "nonzero": true
+   },
+   {
+    "base": 4,
+    "size": 18,
+    "spans_questions": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "interaction": -18.50309667632748,
+    "rounding_bound": 2.722194691112599e-09,
+    "nonzero": true
+   }
+  ],
+  "certified_order_lower_bound": 18,
+  "statement": "No additive trust complex over observed inputs whose hyperedges all have order < 18 reproduces T4's exact Bayes log-odds (certified by nonzero interaction coefficients exceeding the float64 rounding bound)."
+ },
+ "classification": {
+  "original_OD": "C4",
+  "repaired_OD_gate": "C2",
+  "restricted_theorems": [
+   "C3: No additive trust complex over observed inputs whose hyperedges all have order < 18 reproduces T4's exact Bayes log-odds (certified by nonzero interaction coefficients exceeding the float64 rounding bound).",
+   "C3: on GATE the gluing gap O is a function of the Bayes posterior (O > 0 iff exact top-2 tie)"
+  ],
+  "neural_prediction": "C5",
+  "reasons": {
+   "R1_exact": true,
+   "O_measurable_wrt_posterior": true,
+   "FD_equals_bayes_without_factor": true,
+   "t4_order_lower_bound": 18
+  }
+ }
+}

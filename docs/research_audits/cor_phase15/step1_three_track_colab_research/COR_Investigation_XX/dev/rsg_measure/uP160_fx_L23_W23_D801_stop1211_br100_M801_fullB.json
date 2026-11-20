@@ -1,0 +1,24 @@
+{
+ "run": "uP160_fx_L23_W23_D801_stop1211_br100_M801_fullB",
+ "parent": "uP160",
+ "step": 1211,
+ "stream": 91900000,
+ "KL": 0.013133137546032585,
+ "acc": 0.8366666666666667,
+ "nec_E": 0.021245100922688782,
+ "nec_M": 0.6052048257722215,
+ "ckpt_sha256": "3b9fcce11c464bfd8ca4a0390d524f8c87be087dae5c3d85e93ac19f02aaf5b4",
+ "parent_sha256": "2f79a1b840145a75c04542aa5ae14f461e3882c1e1667b8063ef6b5129443483",
+ "code_sha256": {
+  "xix_score.py": "a8a8b7ec4bb94dfacc80694522d29ad8f0af81ced3c3e29a10467a31dbe663b1",
+  "xviiim.py": "66ea7f1bc5d962c6c42876ee978f5e97ad4af6a457a0bc21b7abc5bd623fec81",
+  "native.py": "8e651489ce7fd0fa1ae34bd6b5c31bd59c004bfcb7b593d9738043e2b99f1e90",
+  "ftlib.py": "44e6fdd780df688d724627309ce5e737e9e86af6ecace1123e7a396258c09f5d",
+  "metrics.py": "eb7feca2f83bb6bc7dcee2159ab7b42a3302f917740e8f801d1ccef076b1a5e7",
+  "maskfwd.py": "26a1d1c6744e3e819313527b6500ca64b1c4615643efd259c3a411550008a8c1",
+  "relpairs.py": "4a9ac197d6575cffbf2ce7e021fbf788678afea336733a9211caf5e479152b42",
+  "genlib.py": "5484ecbb0b21ac5cb38211c42522cd6bf40edf9fd12c049eba65a92015b8ca69",
+  "measure.py": "94e5f104d5be0075f098b8e56abacbaa9bec53dd9a47f8d5165f3897de0aceeb"
+ },
+ "seconds": 7.906413793563843
+}

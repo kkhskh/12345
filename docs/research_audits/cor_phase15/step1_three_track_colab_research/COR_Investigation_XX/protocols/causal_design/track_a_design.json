@@ -1,0 +1,353 @@
+{
+ "ALLG": [
+  "L0_LN",
+  "L0_MLP",
+  "L0_OV",
+  "L0_QK",
+  "L1_LN",
+  "L1_MLP",
+  "L1_OV",
+  "L1_QK",
+  "L2_LN",
+  "L2_MLP",
+  "L2_OV",
+  "L2_QK",
+  "WA",
+  "emb",
+  "final_LN"
+ ],
+ "ARMS": {
+  "BfromI_L0": {
+   "bases": "EM",
+   "groups": "L0",
+   "kind": "transplant",
+   "opt": "follow",
+   "role": "forward transplant, layer 0",
+   "src": [
+    "B",
+    "I"
+   ]
+  },
+  "BfromI_L0L1": {
+   "bases": "M",
+   "groups": "L0,L1",
+   "kind": "transplant",
+   "opt": "follow",
+   "role": "component combination",
+   "src": [
+    "B",
+    "I"
+   ]
+  },
+  "BfromI_L0L2": {
+   "bases": "M",
+   "groups": "L0,L2",
+   "kind": "transplant",
+   "opt": "follow",
+   "role": "component combination",
+   "src": [
+    "B",
+    "I"
+   ]
+  },
+  "BfromVSGO_L2QK": {
+   "bases": "M",
+   "groups": "L2_QK",
+   "kind": "transplant",
+   "opt": "follow",
+   "role": "layer-2 QK only from the vsgo window state (review A r2 N1)",
+   "src": [
+    "B",
+    "vsgo"
+   ]
+  },
+  "BfromVSGO_QK": {
+   "bases": "M",
+   "groups": "L0_QK,L1_QK,L2_QK",
+   "kind": "transplant",
+   "opt": "follow",
+   "role": "routing-state-only transplant: QK of every layer from the vsgo window state (review A B2 option b)",
+   "src": [
+    "B",
+    "vsgo"
+   ]
+  },
+  "BfromVSGO_nonQK": {
+   "bases": "M",
+   "groups": "L0_OV,L0_MLP,L0_LN,L1_OV,L1_MLP,L1_LN,L2_OV,L2_MLP,L2_LN,WA,emb,final_LN",
+   "kind": "transplant",
+   "opt": "follow",
+   "role": "complement: every non-QK group from the vsgo window state",
+   "src": [
+    "B",
+    "vsgo"
+   ]
+  },
+  "IfromB_L0": {
+   "bases": "E",
+   "groups": "L0",
+   "kind": "transplant",
+   "opt": "follow",
+   "reverse": true,
+   "role": "reverse transplant (restore B's layer 0 into I)",
+   "src": [
+    "I",
+    "B"
+   ]
+  },
+  "IfromB_L0L2": {
+   "bases": "M",
+   "groups": "L0,L2",
+   "kind": "transplant",
+   "opt": "follow",
+   "reverse": true,
+   "role": "reverse combination",
+   "src": [
+    "I",
+    "B"
+   ]
+  },
+  "fullB": {
+   "bases": "EM",
+   "groups": "none",
+   "kind": "transplant",
+   "opt": "follow",
+   "role": "anchor (B state re-entered through the composer; bitwise check)",
+   "src": [
+    "B",
+    "I"
+   ]
+  },
+  "fullI": {
+   "bases": "EM",
+   "groups": "all",
+   "kind": "transplant",
+   "opt": "follow",
+   "role": "anchor (I state)",
+   "src": [
+    "B",
+    "I"
+   ]
+  },
+  "lbl": {
+   "bases": "EM",
+   "kind": "window",
+   "role": "matched non-targeted disturbance (validity: step-100 KL excess >= 0.5 x the block's)",
+   "window": "lbl"
+  },
+  "paramB_optI": {
+   "bases": "EM",
+   "groups": "none",
+   "kind": "transplant",
+   "opt": "I",
+   "role": "moments without parameters (optimizer-state-only control)",
+   "src": [
+    "B",
+    "I"
+   ]
+  },
+  "paramI_optB": {
+   "bases": "EM",
+   "groups": "all",
+   "kind": "transplant",
+   "opt": "B",
+   "role": "parameters without moments",
+   "src": [
+    "B",
+    "I"
+   ]
+  },
+  "randnorm": {
+   "bases": "EM",
+   "groups_by_base": {
+    "E": "L0",
+    "M": "L0,L2"
+   },
+   "kind": "perturb",
+   "opt": "B",
+   "role": "parameter-norm control: B + random direction with ||I-B|| per group, groups = the base's sufficiency groups (review A M6)",
+   "src": [
+    "B",
+    "I"
+   ]
+  },
+  "rsg": {
+   "bases": "EM",
+   "kind": "window",
+   "role": "readout-row routing-gradient removal at the target layer (on M = layer-2 QK frozen + upstream gradient change: a replication, review A B2)",
+   "window": "rsg"
+  },
+  "vsgo": {
+   "bases": "EM",
+   "kind": "window",
+   "role": "value/output-gradient intervention through T (routing gradient intact)",
+   "window": "vsgo"
+  }
+ },
+ "ARMSET": [
+  "fullB",
+  "fullI",
+  "paramI_optB",
+  "paramB_optI",
+  "BfromI_L0",
+  "IfromB_L0",
+  "BfromI_L0L1",
+  "BfromI_L0L2",
+  "IfromB_L0L2",
+  "randnorm",
+  "BfromVSGO_QK",
+  "BfromVSGO_nonQK",
+  "BfromVSGO_L2QK",
+  "vsgo",
+  "rsg",
+  "lbl"
+ ],
+ "CONF_D": [
+  2001,
+  2002,
+  2003,
+  2004,
+  2005,
+  2006
+ ],
+ "DEV_PARENT": "uP160",
+ "FRESH_PARENTS": [
+  "nP3001",
+  "nP3002",
+  "nP3003",
+  "nP3004",
+  "nP3005",
+  "nP3006",
+  "nP3007",
+  "nP3008",
+  "nP3009",
+  "nP3010",
+  "nP3011",
+  "nP3012"
+ ],
+ "HIGH_EXTRA_ARMS": {
+  "IfromB_L0_OV": {
+   "bases": "E",
+   "groups": "L0_OV",
+   "kind": "transplant",
+   "opt": "follow",
+   "reverse": true,
+   "role": "EXPLORATORY: reverse transplant, layer-0 OV only",
+   "src": [
+    "I",
+    "B"
+   ]
+  },
+  "IfromB_L0_QK": {
+   "bases": "E",
+   "groups": "L0_QK",
+   "kind": "transplant",
+   "opt": "follow",
+   "reverse": true,
+   "role": "EXPLORATORY: reverse transplant, layer-0 QK only",
+   "src": [
+    "I",
+    "B"
+   ]
+  },
+  "half_L0L2": {
+   "alpha": 0.5,
+   "bases": "EM",
+   "groups": "L0,L2",
+   "kind": "transplant",
+   "opt": "B",
+   "role": "EXPLORATORY: interpolation 0.5 on L0+L2",
+   "src": [
+    "B",
+    "I"
+   ]
+  }
+ },
+ "HIST_PARENTS": [
+  "uP161",
+  "uP162",
+  "uP163",
+  "uP164",
+  "uP165"
+ ],
+ "PARENT_VALIDITY": {
+  "metric": "pretraining eval aux_acc (train_tasks.evaluate('pcount', seed=41_000_000))",
+  "min_aux_acc": 0.95,
+  "note": "below threshold -> INVALID_PRETRAINING (reported); a failed pretraining job -> FAILED_PRETRAINING (reported). Known: uP162 = 0.779 (threshold set knowing this; review A M3)."
+ },
+ "PILOT_D": [
+  2901
+ ],
+ "PILOT_PARENTS": [
+  "nP3901"
+ ],
+ "PRETRAIN": {
+  "recipe": "train_tasks.train (XIII cohort13_pretrain.py), resumable wrapper cor_research/training/pretrain.py",
+  "steps": 3000,
+  "task": "pcount"
+ },
+ "PREVIOUSLY_OBSERVED": [
+  "uP161",
+  "uP162",
+  "uP163",
+  "uP164",
+  "uP165"
+ ],
+ "SCREEN": {
+  "D": 901,
+  "D2": 902,
+  "all_seeds_always_run": true,
+  "seeds": [
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27
+  ],
+  "stop": 1211,
+  "stream": 91000000,
+  "unit_rule": "unit (parent, base) is ELIGIBLE iff some seed s (L = W = s) gives a competent, causally pure baseline of the base class at step 1211 on BOTH screening data orders 901 and 902 (base E: EARLY, base M: MIXTURE); the unit seed is the lowest such s. Only screening records whose measurement job is registered done with matching checkpoint/code hashes and the frozen stream are used. A screening run or measurement that fails 3 attempts makes THAT SEED non-qualifying (recorded as failed); the parent is still screened."
+ },
+ "STEPS": {
+  "early_checks": [
+   150,
+   300
+  ],
+  "horizon_hist": 1211,
+  "primary": 4000,
+  "stability_end": 12000,
+  "stability_lr": 0.0001,
+  "stability_lr_hi": 0.001,
+  "window": 100
+ },
+ "STREAMS": {
+  "measure_primary": 91100000,
+  "measure_secondary": 91200000,
+  "measure_window": 91150000
+ },
+ "WINDOW": {
+  "B": {},
+  "I": {
+   "FX_B": "1e9",
+   "FX_EDGES": "{T}",
+   "FX_INTERV": "gof:100"
+  },
+  "lbl": {
+   "FX_INTERV": "lbl:100",
+   "FX_LBL_P": "0.5",
+   "FX_LBL_SEED": "{lblseed}"
+  },
+  "rsg": {
+   "FX_EDGES": "{T}",
+   "FX_INTERV": "rsg:100"
+  },
+  "vsgo": {
+   "FX_EDGES": "{T}",
+   "FX_INTERV": "vsgo:100"
+  }
+ },
+ "version": "XX-2"
+}

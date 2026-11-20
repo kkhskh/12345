@@ -1,0 +1,253 @@
+{
+ "preset": "smoke",
+ "technical_only": true,
+ "units": {
+  "uP160:E2001:fullB": "PRESENT",
+  "uP160:E2001:fullI": "PRESENT",
+  "uP160:M2001:fullB": "PRESENT",
+  "uP160:M2001:fullI": "PRESENT"
+ },
+ "levels": {
+  "matched": {
+   "n_units": 4,
+   "n_evaluable": 0,
+   "censored": {
+    "uP160:E2001:fullB": "censored/missing",
+    "uP160:E2001:fullI": "censored/missing",
+    "uP160:M2001:fullB": "censored/missing",
+    "uP160:M2001:fullI": "censored/missing"
+   },
+   "parents_with_both_classes": [],
+   "tests": {
+    "HB_a": {
+     "per_rule": {
+      "local": {
+       "stat": {
+        "n_parents": 0,
+        "n_pairs": 0,
+        "mean": null,
+        "ci95": null
+       },
+       "sign": {
+        "consistent": false,
+        "n": 0
+       },
+       "positive": false
+      },
+      "noelig": {
+       "stat": {
+        "n_parents": 0,
+        "n_pairs": 0,
+        "mean": null,
+        "ci95": null
+       },
+       "sign": {
+        "consistent": false,
+        "n": 0
+       },
+       "positive": false
+      },
+      "nocount": {
+       "stat": {
+        "n_parents": 0,
+        "n_pairs": 0,
+        "mean": null,
+        "ci95": null
+       },
+       "sign": {
+        "consistent": false,
+        "n": 0
+       },
+       "positive": false
+      },
+      "maprole": {
+       "stat": {
+        "n_parents": 0,
+        "n_pairs": 0,
+        "mean": null,
+        "ci95": null
+       },
+       "sign": {
+        "consistent": false,
+        "n": 0
+       },
+       "positive": false
+      }
+     },
+     "FUNCTIONAL_DIFF": false
+    },
+    "HB_b": {
+     "fraction_models_above_null": null
+    },
+    "HB_c": {
+     "stat": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     },
+     "FUNCTIONAL_DIFF": false,
+     "between": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     },
+     "within": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     }
+    },
+    "HB_d": {
+     "stat": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     },
+     "sign": {
+      "consistent": false,
+      "n": 0
+     },
+     "IMPLEMENTATION_DIFF": false,
+     "profiles": {}
+    },
+    "HB_e": {
+     "stat": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     },
+     "PRECISION_DIFF": false
+    }
+   },
+   "classification": "TECHNICAL_ONLY",
+   "classification_if_not_pilot": "INSUFFICIENT_UNITS"
+  },
+  "final": {
+   "n_units": 4,
+   "n_evaluable": 0,
+   "censored": {
+    "uP160:E2001:fullB": "noncompetent",
+    "uP160:E2001:fullI": "noncompetent",
+    "uP160:M2001:fullB": "noncompetent",
+    "uP160:M2001:fullI": "noncompetent"
+   },
+   "parents_with_both_classes": [],
+   "tests": {
+    "HB_a": {
+     "per_rule": {
+      "local": {
+       "stat": {
+        "n_parents": 0,
+        "n_pairs": 0,
+        "mean": null,
+        "ci95": null
+       },
+       "sign": {
+        "consistent": false,
+        "n": 0
+       },
+       "positive": false
+      },
+      "noelig": {
+       "stat": {
+        "n_parents": 0,
+        "n_pairs": 0,
+        "mean": null,
+        "ci95": null
+       },
+       "sign": {
+        "consistent": false,
+        "n": 0
+       },
+       "positive": false
+      },
+      "nocount": {
+       "stat": {
+        "n_parents": 0,
+        "n_pairs": 0,
+        "mean": null,
+        "ci95": null
+       },
+       "sign": {
+        "consistent": false,
+        "n": 0
+       },
+       "positive": false
+      },
+      "maprole": {
+       "stat": {
+        "n_parents": 0,
+        "n_pairs": 0,
+        "mean": null,
+        "ci95": null
+       },
+       "sign": {
+        "consistent": false,
+        "n": 0
+       },
+       "positive": false
+      }
+     },
+     "FUNCTIONAL_DIFF": false
+    },
+    "HB_b": {
+     "fraction_models_above_null": null
+    },
+    "HB_c": {
+     "stat": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     },
+     "FUNCTIONAL_DIFF": false,
+     "between": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     },
+     "within": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     }
+    },
+    "HB_d": {
+     "stat": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     },
+     "sign": {
+      "consistent": false,
+      "n": 0
+     },
+     "IMPLEMENTATION_DIFF": false,
+     "profiles": {}
+    },
+    "HB_e": {
+     "stat": {
+      "n_parents": 0,
+      "n_pairs": 0,
+      "mean": null,
+      "ci95": null
+     },
+     "PRECISION_DIFF": false
+    }
+   },
+   "classification": "TECHNICAL_ONLY",
+   "classification_if_not_pilot": "INSUFFICIENT_UNITS"
+  }
+ },
+ "primary_level": "matched",
+ "verdict": "TECHNICAL_ONLY",
+ "frozen_prediction": "From development (uP160 XIX anchors; development only): matched-precision rule profiles are similar -> predicted NOT B1 (HB_a and HB_c null); HB_d predicted IMPLEMENTATION_DIFF (dev: OQI_2 EARLY 0.44-0.49 vs MIXTURE 0.20-0.24, n = 2 + 2)."
+}

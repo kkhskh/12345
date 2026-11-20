@@ -1,0 +1,245 @@
+{
+ "presets": {
+  "extended": {
+   "arms": [
+    "fullB",
+    "fullI",
+    "paramI_optB",
+    "paramB_optI",
+    "BfromI_L0",
+    "IfromB_L0",
+    "BfromI_L0L1",
+    "BfromI_L0L2",
+    "IfromB_L0L2",
+    "randnorm",
+    "BfromVSGO_QK",
+    "BfromVSGO_nonQK",
+    "BfromVSGO_L2QK",
+    "vsgo",
+    "rsg",
+    "lbl"
+   ],
+   "claims_can": "as standard, with 6 data orders per unit, fresh-only verdicts, and the stability continuations (low-LR + full-LR control) for anchors",
+   "claims_cannot": "other architectures/tasks",
+   "label": "Extended research",
+   "n_D": 6,
+   "parents": [
+    "nP3001",
+    "nP3002",
+    "nP3003",
+    "nP3004",
+    "nP3005",
+    "nP3006",
+    "nP3007",
+    "nP3008",
+    "uP161",
+    "uP162",
+    "uP163",
+    "uP164",
+    "uP165"
+   ],
+   "screen_seeds": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "stability": true,
+   "trackb": true
+  },
+  "high": {
+   "arms": [
+    "fullB",
+    "fullI",
+    "paramI_optB",
+    "paramB_optI",
+    "BfromI_L0",
+    "IfromB_L0",
+    "BfromI_L0L1",
+    "BfromI_L0L2",
+    "IfromB_L0L2",
+    "randnorm",
+    "BfromVSGO_QK",
+    "BfromVSGO_nonQK",
+    "BfromVSGO_L2QK",
+    "vsgo",
+    "rsg",
+    "lbl",
+    "IfromB_L0_QK",
+    "IfromB_L0_OV",
+    "half_L0L2"
+   ],
+   "claims_can": "as extended, plus exploratory QK/OV splits and interpolation, stability for every arm",
+   "claims_cannot": "other architectures/tasks (no validated alternative architecture exists in COR)",
+   "label": "High-compute research",
+   "n_D": 6,
+   "parents": [
+    "nP3001",
+    "nP3002",
+    "nP3003",
+    "nP3004",
+    "nP3005",
+    "nP3006",
+    "nP3007",
+    "nP3008",
+    "nP3009",
+    "nP3010",
+    "nP3011",
+    "nP3012",
+    "uP161",
+    "uP162",
+    "uP163",
+    "uP164",
+    "uP165"
+   ],
+   "screen_seeds": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "stability": "all_arms",
+   "trackb": true
+  },
+  "pilot": {
+   "D_list": [
+    2901
+   ],
+   "arms": [
+    "fullB",
+    "fullI",
+    "paramI_optB",
+    "rsg",
+    "lbl"
+   ],
+   "claims_can": "the pipeline runs end to end on this runtime; measured throughput; storage",
+   "claims_cannot": "any scientific claim (verdicts forced to TECHNICAL_ONLY)",
+   "label": "Pilot: end-to-end technical validation on separate material (parent nP3901, data order 2901). NOT confirmation evidence.",
+   "max_units": 2,
+   "n_D": 1,
+   "parents": [
+    "nP3901"
+   ],
+   "screen_seeds": [
+    20,
+    21,
+    22,
+    23
+   ],
+   "stability": false,
+   "trackb": true
+  },
+  "smoke": {
+   "D_list": [
+    2001
+   ],
+   "arms": [
+    "fullB",
+    "fullI",
+    "paramI_optB",
+    "rsg",
+    "lbl"
+   ],
+   "claims_can": "code paths execute",
+   "claims_cannot": "anything scientific",
+   "forced_units": [
+    [
+     "uP160",
+     "E",
+     21
+    ],
+    [
+     "uP160",
+     "M",
+     23
+    ]
+   ],
+   "label": "SMOKE: software test only (CPU-feasible, shortened schedules). NEVER evidence; every verdict is forced to TECHNICAL_ONLY.",
+   "max_units": 2,
+   "n_D": 1,
+   "overrides": {
+    "SCREEN_stop": 150,
+    "STEPS": {
+     "early_checks": [
+      150
+     ],
+     "horizon_hist": 150,
+     "primary": 200,
+     "stability_end": 260,
+     "stability_lr": 0.0001,
+     "stability_lr_hi": 0.001,
+     "window": 100
+    },
+    "stability_snaps": [
+     220,
+     240
+    ]
+   },
+   "parents": [
+    "uP160"
+   ],
+   "screen_seeds": [
+    21,
+    23
+   ],
+   "stability": true,
+   "trackb": true
+  },
+  "standard": {
+   "arms": [
+    "fullB",
+    "fullI",
+    "paramI_optB",
+    "paramB_optI",
+    "BfromI_L0",
+    "IfromB_L0",
+    "BfromI_L0L1",
+    "BfromI_L0L2",
+    "IfromB_L0L2",
+    "randnorm",
+    "BfromVSGO_QK",
+    "BfromVSGO_nonQK",
+    "BfromVSGO_L2QK",
+    "vsgo",
+    "rsg",
+    "lbl"
+   ],
+   "claims_can": "parent-level Track A verdicts if >= 4 parents are evaluable per base (fresh-only verdicts need >= 4 fresh parents); Track B indicative (< 6 parents)",
+   "claims_cannot": "persistence beyond 4000 steps; generalisation to other architectures/tasks",
+   "label": "Standard research",
+   "n_D": 4,
+   "parents": [
+    "nP3001",
+    "nP3002",
+    "nP3003",
+    "nP3004",
+    "uP161",
+    "uP162",
+    "uP163",
+    "uP164",
+    "uP165"
+   ],
+   "screen_seeds": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "stability": false,
+   "trackb": true
+  }
+ },
+ "version": "XX-2"
+}

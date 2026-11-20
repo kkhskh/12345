@@ -1,0 +1,251 @@
+{
+ "band": {
+  "B_like": [
+   -9.99,
+   0.25
+  ],
+  "I_like": [
+   0.75,
+   9.99
+  ],
+  "partial": [
+   0.25,
+   0.75
+  ]
+ },
+ "causal_class": {
+  "E_hi": 0.3,
+  "E_lo_M": 0.1,
+  "M_hi": 0.3,
+  "M_lo_E": 0.15
+ },
+ "competence": {
+  "KL": 0.06,
+  "acc": 0.8
+ },
+ "cross_rule": {
+  "fail_frac": 0.3333333333333333,
+  "fail_min": 2,
+  "gen_exceptions": 1,
+  "gen_frac": 0.8
+ },
+ "delta": 0.1,
+ "eps": 0.01,
+ "eps_sensitivity": [
+  0.003,
+  0.03
+ ],
+ "exploratory": [
+  {
+   "arm": "vsgo",
+   "bases": "E",
+   "id": "XA1",
+   "text": "E: vsgo effect (no directional prediction in XIX; distribution reported)."
+  },
+  {
+   "arm": "rsg",
+   "bases": "M",
+   "id": "XA2",
+   "text": "M: rsg = replication of XIX M_P5_frzp_nil plus an upstream-gradient change (review A B2: not discriminating)."
+  },
+  {
+   "arm": "*",
+   "bases": "EM",
+   "id": "XA3",
+   "step": 1211,
+   "text": "Every hypothesis re-evaluated at the historical horizon 1211 (secondary)."
+  },
+  {
+   "arm": "fullB,fullI",
+   "bases": "EM",
+   "id": "XA4",
+   "text": "Stability 4000 -> 12000: low-LR (peak 1e-4) and full-LR positive control (peak 1e-3); wording limited to 'class unchanged under this continuation' unless the full-LR control moves some organisation."
+  },
+  {
+   "arm": "*",
+   "bases": "EM",
+   "id": "XA5",
+   "text": "Unconditional sensitivity: over every pair with a native B anchor, the arm's class and its concordance with the same pair's fullI class."
+  },
+  {
+   "arm": "IfromB_L0_QK,IfromB_L0_OV,half_L0L2",
+   "bases": "E",
+   "id": "XA6",
+   "text": "High-preset extra arms: exploratory, no frozen prediction."
+  },
+  {
+   "arm": "BfromVSGO_L2QK",
+   "bases": "M",
+   "id": "XA7",
+   "text": "M: layer-2-QK-only transplant from the vsgo window (localises HA10a; exploratory)."
+  }
+ ],
+ "hypotheses": [
+  {
+   "arm": "fullI",
+   "bases": "EM",
+   "expect": "switch",
+   "id": "HA1",
+   "role": "primary",
+   "step": 4000,
+   "text": "Blocking the base's own route for the first 100 steps switches the organisation: the I anchor is competent and of the opposite causal class at 4000."
+  },
+  {
+   "arm": "paramI_optB",
+   "bases": "EM",
+   "expect": "I_like",
+   "id": "HA2",
+   "role": "mediation",
+   "step": 4000,
+   "text": "The step-100 parameters carry the selection (I parameters with B moments -> I-like)."
+  },
+  {
+   "arm": "paramB_optI",
+   "bases": "EM",
+   "expect": "B_like",
+   "id": "HA3",
+   "role": "mediation",
+   "step": 4000,
+   "text": "Adam moments alone do not carry it (B parameters with I moments -> B-like)."
+  },
+  {
+   "arm": "BfromI_L0",
+   "bases": "E",
+   "expect": "I_like",
+   "id": "HA4a",
+   "role": "replication_anchor",
+   "step": 4000,
+   "text": "E: the I layer-0 state is sufficient (near-tautological; replication anchor, not a finding)."
+  },
+  {
+   "arm": "IfromB_L0",
+   "bases": "E",
+   "expect": "B_like",
+   "id": "HA4b",
+   "role": "mediation",
+   "step": 4000,
+   "text": "E: the I layer-0 state is necessary (restoring B's layer 0 prevents the switch); INCOMPATIBLE pairs are not evidence."
+  },
+  {
+   "arm": "BfromI_L0L1",
+   "bases": "M",
+   "expect": "I_like",
+   "id": "HA5a",
+   "role": "mediation",
+   "step": 4000,
+   "text": "M: L0+L1 sufficient."
+  },
+  {
+   "arm": "BfromI_L0L2",
+   "bases": "M",
+   "expect": "I_like",
+   "id": "HA5b",
+   "role": "mediation",
+   "step": 4000,
+   "text": "M: L0+L2 sufficient."
+  },
+  {
+   "arm": "BfromI_L0",
+   "bases": "M",
+   "expect": "not_I_like",
+   "id": "HA5c",
+   "role": "weak_negative",
+   "step": 4000,
+   "text": "M: L0 alone is not sufficient (weak negative claim; not headlined)."
+  },
+  {
+   "arm": "IfromB_L0L2",
+   "bases": "M",
+   "expect": "B_like",
+   "id": "HA5d",
+   "role": "mediation",
+   "step": 4000,
+   "text": "M: restoring B's L0+L2 prevents the switch; INCOMPATIBLE pairs are not evidence."
+  },
+  {
+   "arm": "randnorm",
+   "bases": "EM",
+   "expect": "B_like",
+   "id": "HA6a",
+   "role": "control",
+   "step": 4000,
+   "text": "A random displacement of the sufficiency groups with matched per-group norm does not reproduce the effect."
+  },
+  {
+   "arm": "lbl",
+   "bases": "EM",
+   "expect": "B_like",
+   "id": "HA6b",
+   "role": "control",
+   "step": 4000,
+   "text": "Label-noise loss disturbance (valid strength only) does not reproduce the effect."
+  },
+  {
+   "arm": "vsgo",
+   "bases": "M",
+   "expect": "I_like",
+   "id": "HA7",
+   "role": "replication",
+   "step": 4000,
+   "text": "M: removing V+O learning through the blocked route suffices (XIX replication)."
+  },
+  {
+   "arm": "BfromVSGO_QK",
+   "bases": "M",
+   "condition": "vsgo_I_like",
+   "expect": "I_like",
+   "id": "HA10a",
+   "role": "discriminating",
+   "step": 4000,
+   "text": "M (new): the QK WEIGHTS (all layers) learned under vsgo suffice. This is a QK-weights vs non-QK-weights test, not a pure routing-vs-value test (vsgo changes the layer-0/1 QK gradients on M; review A r2 N1). Evaluated only in pairs whose vsgo arm is I-like. Interpretation table: DESIGN \u00a71."
+  },
+  {
+   "arm": "BfromVSGO_nonQK",
+   "bases": "M",
+   "condition": "vsgo_I_like",
+   "expect": "B_like",
+   "id": "HA10b",
+   "role": "discriminating",
+   "step": 4000,
+   "text": "M (new): the non-QK weights learned under vsgo do not suffice (complement of HA10a; only in pairs whose vsgo arm is I-like)."
+  },
+  {
+   "arm": "rsg",
+   "bases": "E",
+   "co_primary_step": 1211,
+   "expect": "partial",
+   "id": "HA8E",
+   "role": "low_confidence",
+   "step": 4000,
+   "text": "E: removing the routing gradient of the layer-0 readout rows (all edges) gives a PARTIAL, HYBRID-class outcome. Basis: one dev run (uP160, D801, step 1211). Overlaps XIX E_P5_frzp_partial; SUPPORTED distinguishes little, a CONTRA outcome is the informative one."
+  },
+  {
+   "arm": "fullB,fullI",
+   "bases": "EM",
+   "expect": "persist",
+   "id": "HA9",
+   "role": "primary",
+   "step": 4000,
+   "text": "Persistence: each anchor's causal class at 1211 equals its class at 4000 and it is competent at 4000 (>= 80% of evaluable pairs per parent)."
+  }
+ ],
+ "min_pairs_per_parent": 3,
+ "min_parents": 4,
+ "parent_rule": {
+  "contra_frac": 0.5,
+  "contra_rule": "C >= ceil(n/2) and C > S (review A r2 N4)",
+  "max_contra": 1,
+  "max_contra_frac": 0.25,
+  "support_frac": 0.5
+ },
+ "validity": {
+  "incompatible_kl_excess": 0.1,
+  "incompatible_rule": "a composed state is INCOMPATIBLE if its KL at step 100 (composed state) exceeds both window states' KL, or at step 150 / 300 exceeds both anchors' KL, by more than 0.10 (uncalibrated; flag rates and 0.05 / 0.20 sensitivity reported). A supporting outcome of a flagged transplant (any transplant arm) is relabelled INCOMPATIBLE (not evidence)",
+  "incompatible_sensitivity": [
+   0.05,
+   0.2
+  ],
+  "lbl_excess_ratio_min": 0.5
+ },
+ "version": "XX-2"
+}

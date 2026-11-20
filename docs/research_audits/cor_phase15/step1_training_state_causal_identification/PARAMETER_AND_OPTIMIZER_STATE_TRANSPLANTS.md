@@ -106,3 +106,49 @@ Saved at step 100:
 - A mismatched but natural layer-0 state does not switch E, and the reciprocal I←B arms restore the B outcome. Symmetric "mismatch" therefore does not explain the E result.
 
 **State compatibility** (`logs/dev/compat_dev.json`). Composites can be worse than both sources at step 100: B←I L0 on E has KL 0.540 and accuracy 0.418, against B 0.459/0.560 and I 0.536/0.443. All continue to competent models (KL ≤ 0.042).
+
+## Frozen confirmation (D = 821–823; 3 pairs per base; 1 parent)
+
+**Scoring.** Frozen scorer `logs/conf/score_c19.json`. All 6 pairs were evaluable and all models competent. Values are φ (pair 1 / 2 / 3); the band is the frozen verdict.
+
+| arm | E | band | M | band |
+|---|---|---|---|---|
+| paramI_optB | 0.98 / 0.98 / 0.98 | SUPPORTED | 1.00 / 0.98 / 0.98 | SUPPORTED |
+| paramB_optI | 0.01 / 0.01 / −0.00 | SUPPORTED (nil) | 0.04 / 0.19 / 0.02 | SUPPORTED (nil, margin 0.25) |
+| B←I L0 | 0.98 / 0.97 / 0.99 | SUPPORTED (sufficient) | 0.26 / 0.33 / 0.38 | SUPPORTED (alone insufficient) |
+| I←B L0 | 0.00 / 0.02 / 0.00 | SUPPORTED (necessary) | 0.32 / 0.43 / 0.75 | PARTIAL ("restoration reduces" holds on 2 of 3) |
+| I←B L0_QK | 0.98 / 0.96 / 0.96 | SUPPORTED (not necessary alone) | — | |
+| I←B L0_OV | 0.97 / 0.97 / 0.96 | SUPPORTED (not necessary alone) | — | |
+| B←I L0+L1 | — | | 0.99 / 0.99 / 0.97 | SUPPORTED (sufficient) |
+| B←I L0+L2 | — | | 0.99 / 0.98 / 0.97 | SUPPORTED (sufficient) |
+| I←B L0+L2 | — | | 0.06 / 0.13 / 0.06 | SUPPORTED (restoration prevents) |
+| randnorm (E: L0; M: L0+L2), norm-matched only | 0.00 / 0.01 / −0.00 | SUPPORTED (nil) | −0.08 / 0.00 / −0.00 | SUPPORTED (nil) |
+
+**State compatibility of the composites at step 100** (`logs/conf/compat_c19.json`, stream 94 800 000).
+- **E.** B←I L0 composites are worse than both sources (KL 0.528–0.536 and accuracy 0.39–0.41, against B 0.451–0.456 / 0.53–0.55 and I 0.526–0.529 / 0.43–0.44). They still continue to competent switched models.
+- **M.** Every composite, and both sources, is functionally almost indistinguishable at step 100:
+  - KL 0.425–0.445;
+  - early-route necessity 0.17–0.31;
+  - mixture-route necessity ≈ 0.
+
+  **The M selection is therefore carried by a step-100 state difference that is not yet visible in the step-100 function.** It decides the later race.
+
+**What is identified [frozen, state level].** The scope is one parent and 3 data orders per base.
+
+- **E.**
+  - The layer-0 parameter state at step 100 is sufficient and necessary for the switch.
+  - Neither its QK part nor its OV part is necessary alone. [dev] No single tensor class is sufficient alone: the layer-0 tensor classes jointly carry the selection.
+- **M.**
+  - Neither layer 0 nor the blocked layer 2 is sufficient alone.
+  - Layer 0 together with *either* layer 1 or layer 2 is sufficient.
+  - Restoring layer 0 and layer 2 to B prevents the switch.
+  - Restoring layer 0 alone reduces the switch on 2 of 3 pairs, but not on M823. [dev] Restoring layer 2 alone does nothing.
+  - So the M selection is a **combination** involving layer 0 and at least one downstream partner. The partners are substitutable for sufficiency.
+- **Both bases.**
+  - The parameters, not the Adam moments, carry the selection at the full-state level.
+  - A random direction of the same per-group size does nothing.
+
+**What is not identified.**
+- How the intervention produces these states: see the training-arm reports.
+- Whether the composites' trajectories resemble natural ones: they are synthetic states (L3).
+- Anything beyond uP160.

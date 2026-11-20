@@ -1,0 +1,894 @@
+{
+ "models": {
+  "E821|fullB": {
+   "SR": 2.7217054423906646,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F1",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E821|fullI": {
+   "SR": 1.198272596220223,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F1",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E821|paramI_optB": {
+   "SR": 1.2776676755638123,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_SWITCH)",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E821|paramB_optI": {
+   "SR": 2.792666479837102,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E821|BfromI_L0": {
+   "SR": 1.30331310456978,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_SWITCH)",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E821|IfromB_L0": {
+   "SR": 2.6825105863136156,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E821|IfromB_L0_QK": {
+   "SR": 1.204592077107674,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_SWITCH)",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E821|IfromB_L0_OV": {
+   "SR": 1.2414567785786539,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_SWITCH)",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E821|randnorm_L0": {
+   "SR": 2.923778168990489,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E821|vsg": {
+   "SR": 2.5655665557231426,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E821|vsgo": {
+   "SR": 1.3639984229152826,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[AMBIGUOUS]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "E821|vrs": {
+   "SR": 1.2542799384595558,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E821|frz": {
+   "SR": 2.550411356235712,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E821|frzp": {
+   "SR": 1.4683353625787265,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[EARLY]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "E821|pnz": {
+   "SR": 2.8449252833699,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E821|lbl": {
+   "SR": 2.551579410934789,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E822|fullB": {
+   "SR": 2.9068946692658213,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F1",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E822|fullI": {
+   "SR": 1.2938759730808553,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F1",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E822|paramI_optB": {
+   "SR": 1.256023004961829,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E822|paramB_optI": {
+   "SR": 2.8335185488799195,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E822|BfromI_L0": {
+   "SR": 1.2372795747190188,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E822|IfromB_L0": {
+   "SR": 2.819891644029688,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E822|IfromB_L0_QK": {
+   "SR": 1.3059183966869503,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E822|IfromB_L0_OV": {
+   "SR": 1.1775645735719928,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E822|randnorm_L0": {
+   "SR": 3.1879053524084706,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E822|vsg": {
+   "SR": 3.302521456088137,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E822|vsgo": {
+   "SR": 1.1980138231466384,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[EARLY]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "E822|vrs": {
+   "SR": 1.2135851001004903,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E822|frz": {
+   "SR": 2.8801277347266665,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E822|frzp": {
+   "SR": 1.3222772873443118,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[EARLY]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "E822|pnz": {
+   "SR": 2.6369829389494157,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E822|lbl": {
+   "SR": 2.6576468138343525,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E823|fullB": {
+   "SR": 3.0091704791532217,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F1",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E823|fullI": {
+   "SR": 1.2285643499696486,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F1",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E823|paramI_optB": {
+   "SR": 1.2714015079943612,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E823|paramB_optI": {
+   "SR": 3.499729264427046,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E823|BfromI_L0": {
+   "SR": 1.2881486887132851,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E823|IfromB_L0": {
+   "SR": 3.2538673111416823,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E823|IfromB_L0_QK": {
+   "SR": 1.2216994557373908,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E823|IfromB_L0_OV": {
+   "SR": 1.325067176833961,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E823|randnorm_L0": {
+   "SR": 3.4874619218026637,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E823|vsg": {
+   "SR": 1.2091722346378224,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[AMBIGUOUS]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "E823|vsgo": {
+   "SR": 1.3860912046242704,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E823|vrs": {
+   "SR": 1.2691073009685294,
+   "SR_class": "MIXTURE",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "E823|frz": {
+   "SR": 1.474014483157672,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[AMBIGUOUS]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "E823|frzp": {
+   "SR": 1.1852971165501929,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[AMBIGUOUS]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "E823|pnz": {
+   "SR": 2.9915211183786563,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "E823|lbl": {
+   "SR": 3.266178454734766,
+   "SR_class": "EARLY",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M821|fullB": {
+   "SR": 1.0345525464208583,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F1",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M821|fullI": {
+   "SR": 2.723962789776075,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F1",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M821|paramI_optB": {
+   "SR": 2.7928030259640932,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M821|paramB_optI": {
+   "SR": 1.0905783838775012,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_NONE)",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M821|BfromI_L0": {
+   "SR": 1.158824138128574,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[EARLY]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "M821|IfromB_L0": {
+   "SR": 1.366047604610365,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[EARLY]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "M821|BfromI_L0L1": {
+   "SR": 2.831676295841612,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M821|BfromI_L0L2": {
+   "SR": 2.7907941144715833,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M821|IfromB_L0L2": {
+   "SR": 1.141092663917115,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_NONE)",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M821|randnorm_L0L2": {
+   "SR": 1.1598340932547422,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M821|vsg": {
+   "SR": 2.7558331350873058,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M821|vsgo": {
+   "SR": 2.6881266660292638,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M821|vrs": {
+   "SR": 2.777662107871961,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M821|frz": {
+   "SR": 1.3991524729828766,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M821|frzp": {
+   "SR": 1.2453407813333834,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M821|pnz": {
+   "SR": 1.1635660142920885,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M821|lbl": {
+   "SR": 1.1829878024166751,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M822|fullB": {
+   "SR": 1.3257812213016844,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F1",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M822|fullI": {
+   "SR": 2.581403586075227,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F1",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M822|paramI_optB": {
+   "SR": 2.686189993068177,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M822|paramB_optI": {
+   "SR": 1.1690361001131357,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_NONE)",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M822|BfromI_L0": {
+   "SR": 1.1939705740128426,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[EARLY]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "M822|IfromB_L0": {
+   "SR": 1.2388575889957516,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[EARLY]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "M822|BfromI_L0L1": {
+   "SR": 2.334420841334665,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M822|BfromI_L0L2": {
+   "SR": 2.5145654450704176,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M822|IfromB_L0L2": {
+   "SR": 1.2772865061348124,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_NONE)",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M822|randnorm_L0L2": {
+   "SR": 1.328647356314094,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M822|vsg": {
+   "SR": 2.599964833696364,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M822|vsgo": {
+   "SR": 2.6611045414482914,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M822|vrs": {
+   "SR": 2.454427063236542,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M822|frz": {
+   "SR": 1.5222345102213537,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M822|frzp": {
+   "SR": 1.269065944315621,
+   "SR_class": "MIXTURE",
+   "causal_category": "INCONCLUSIVE(causal_NONE)",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M822|pnz": {
+   "SR": 1.3239747572013043,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M822|lbl": {
+   "SR": 1.4874522593960242,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M823|fullB": {
+   "SR": 1.248793215912583,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F1",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M823|fullI": {
+   "SR": 2.8152072685600986,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F1",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M823|paramI_optB": {
+   "SR": 2.7750783974011477,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M823|paramB_optI": {
+   "SR": 1.281847535057608,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M823|BfromI_L0": {
+   "SR": 1.369036069481641,
+   "SR_class": "MIXTURE",
+   "causal_category": "HYBRID[AMBIGUOUS]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "M823|IfromB_L0": {
+   "SR": 2.399805132715675,
+   "SR_class": "EARLY",
+   "causal_category": "HYBRID[EARLY]",
+   "group": "F4",
+   "expected": null,
+   "match": null
+  },
+  "M823|BfromI_L0L1": {
+   "SR": 2.7907442448757704,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M823|BfromI_L0L2": {
+   "SR": 2.631994882229922,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M823|IfromB_L0L2": {
+   "SR": 1.2965612370393809,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M823|randnorm_L0L2": {
+   "SR": 1.2155477803238006,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M823|vsg": {
+   "SR": 2.8379609248912745,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M823|vsgo": {
+   "SR": 2.8285053532129907,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M823|vrs": {
+   "SR": 2.821364451203878,
+   "SR_class": "EARLY",
+   "causal_category": "BOTH",
+   "group": "F2",
+   "expected": "EARLY",
+   "match": true
+  },
+  "M823|frz": {
+   "SR": 1.1641599781281482,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M823|frzp": {
+   "SR": 1.213522170822438,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M823|pnz": {
+   "SR": 1.2492053342957958,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  },
+  "M823|lbl": {
+   "SR": 1.2748237848611568,
+   "SR_class": "MIXTURE",
+   "causal_category": "NEITHER",
+   "group": "F3",
+   "expected": "MIXTURE",
+   "match": true
+  }
+ },
+ "verdicts": {
+  "E_F1": {
+   "band": "SUPPORTED",
+   "n": 6,
+   "matching": 6,
+   "opposite": 0,
+   "ambiguous": 0
+  },
+  "M_F1": {
+   "band": "SUPPORTED",
+   "n": 6,
+   "matching": 6,
+   "opposite": 0,
+   "ambiguous": 0
+  },
+  "E_F2": {
+   "band": "SUPPORTED",
+   "n": 16,
+   "matching": 16,
+   "opposite": 0,
+   "ambiguous": 0
+  },
+  "M_F2": {
+   "band": "SUPPORTED",
+   "n": 18,
+   "matching": 18,
+   "opposite": 0,
+   "ambiguous": 0
+  },
+  "E_F3": {
+   "band": "SUPPORTED",
+   "n": 19,
+   "matching": 19,
+   "opposite": 0,
+   "ambiguous": 0
+  },
+  "M_F3": {
+   "band": "SUPPORTED",
+   "n": 21,
+   "matching": 21,
+   "opposite": 0,
+   "ambiguous": 0
+  }
+ },
+ "F4_hybrids": {
+  "E821|vsgo": [
+   1.36,
+   "MIXTURE"
+  ],
+  "E821|frzp": [
+   1.47,
+   "MIXTURE"
+  ],
+  "E822|vsgo": [
+   1.2,
+   "MIXTURE"
+  ],
+  "E822|frzp": [
+   1.32,
+   "MIXTURE"
+  ],
+  "E823|vsg": [
+   1.21,
+   "MIXTURE"
+  ],
+  "E823|frz": [
+   1.47,
+   "MIXTURE"
+  ],
+  "E823|frzp": [
+   1.19,
+   "MIXTURE"
+  ],
+  "M821|BfromI_L0": [
+   1.16,
+   "MIXTURE"
+  ],
+  "M821|IfromB_L0": [
+   1.37,
+   "MIXTURE"
+  ],
+  "M822|BfromI_L0": [
+   1.19,
+   "MIXTURE"
+  ],
+  "M822|IfromB_L0": [
+   1.24,
+   "MIXTURE"
+  ],
+  "M823|BfromI_L0": [
+   1.37,
+   "MIXTURE"
+  ],
+  "M823|IfromB_L0": [
+   2.4,
+   "EARLY"
+  ]
+ }
+}
